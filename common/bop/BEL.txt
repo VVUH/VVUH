@@ -1,0 +1,132 @@
+BEL_king_power_bop = {
+	initial_value = -0.3
+	left_side = BEL_king_dominates
+	right_side = BEL_parliament_dominates
+	decision_category = BEL_king_bop_categorie
+
+	range = { #Balanced Range  king and parliament are balanced
+		id = BEL_balanced_power
+		min = -0.1
+		max = 0.1
+		modifier = {
+			stability_factor = 0.05
+			political_advisor_cost_factor = -0.05
+			democratic_drift = 0.01
+		}
+	}
+
+	side = {
+		id = BEL_parliament_dominates
+		icon = GFX_bop_SWI_centralization_canton_side
+		range = {
+			id = BEL_full_parliament_control
+			min = 0.75
+			max = 1
+			modifier = {
+				consumer_goods_factor = -0.25
+				war_support_factor = 0.15
+				surrender_limit = 0.25
+				political_power_factor = -0.25
+				political_advisor_cost_factor = 0.25
+			}
+			on_activate = {
+			}
+		}
+		
+		range = {
+			id = BEL_strong_parliament_control
+			min = 0.45
+			max = 0.75
+			modifier = {
+				consumer_goods_factor = -0.15
+				war_support_factor = 0.05
+				surrender_limit	= 0.15
+				political_power_factor = -0.15
+				political_advisor_cost_factor = 0.15
+			}
+			on_activate = {
+				clr_country_flag = BEL_leopold_flag
+				IF = {
+					limit = {
+						has_country_flag = BEL_leopold_flag
+					}	
+					custom_effect_tooltip = generic_skip_one_line_tt
+					custom_effect_tooltip = BEL_legacy_of_the_soldier_king_tt
+				}
+			}
+		}
+		range = {
+			id = BEL_weak_parliament_control
+			min = 0.1
+			max = 0.45
+			modifier = {
+				consumer_goods_factor = -0.05
+				war_support_factor = 0.025
+				surrender_limit	= 0.05
+				political_power_factor = -0.05
+				political_advisor_cost_factor = 0.05
+			}
+			on_activate = {
+				IF = {
+					limit = {
+						NOT = {
+							has_country_flag = BEL_leopold_flag
+							has_completed_focus = BEL_the_king_surrenders
+							has_completed_focus = BEL_royal_commander_in_chief
+						}
+					}	
+					custom_effect_tooltip = generic_skip_one_line_tt
+					custom_effect_tooltip = BEL_legacy_of_the_soldier_king_tt
+				}
+				set_country_flag = my_flag
+			}
+		}
+	}
+
+	side = {
+		id = BEL_king_dominates
+		icon = GFX_bop_ITA_king_umberto_improved_side
+		range = {
+			id = BEL_full_king_control
+			min = -1
+			max = -0.75
+			modifier = {
+				consumer_goods_expected_value = 0.1
+				surrender_limit = -0.2
+				political_advisor_cost_factor = -0.75
+				political_power_factor = 0.75
+			}
+			on_activate = {
+			}
+		}
+
+		range = {
+			id = BEL_strong_king_control
+			min = -0.75
+			max = -0.45
+			modifier = {
+				consumer_goods_expected_value = 0.075
+				surrender_limit	= -0.1
+				political_advisor_cost_factor = -0.5
+				political_power_factor = 0.5
+
+			}
+			on_activate = {
+			}
+		}
+		range = {
+			id = BEL_weak_king_control
+			min = -0.45
+			max = -0.1
+			modifier = {
+				stability_factor = 0.025
+				consumer_goods_expected_value = 0.025
+				surrender_limit	= -0.05
+				political_advisor_cost_factor = -0.15
+				political_power_factor = 0.15
+			}
+			on_activate = {
+			}
+		}
+	}
+} 

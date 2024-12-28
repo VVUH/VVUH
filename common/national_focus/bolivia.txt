@@ -1,0 +1,602 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = bolivia_tree
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			original_tag = BOO
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 20 y = 1000 }  
+	
+	
+	initial_show_position = {
+		x = 20
+		y = 0
+	}
+
+	##Toro##
+
+
+	focus = {
+		id = BOL_Toro_at_the_healm
+		icon = GFX_focus_generic_industry_1
+		x = 16
+		y = 0
+		#relative_position_id =
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_bolivian_ministry_of_labour
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BOL_Toro_at_the_healm}
+		x = -2
+		y = 1
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_labour_code
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BOL_bolivian_ministry_of_labour}
+		x = -1
+		y = 2
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_promote_a_true_bolivian_family
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BOL_bolivian_ministry_of_labour}
+		mutually_exclusive = {focus = BOL_the_general_labour_act}
+		x = -5
+		y = 2
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_the_general_labour_act
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BOL_bolivian_ministry_of_labour}
+		mutually_exclusive = {focus = BOL_promote_a_true_bolivian_family}
+		x = -3
+		y = 2
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_fund_urban_schooling
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BOL_the_general_labour_act focus = BOL_promote_a_true_bolivian_family}
+		prerequisite = {focus = BOL_labour_code}
+		x = -3
+		y = 3
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_cooperate_with_private_monopolies
+		icon = GFX_focus_DEN_no_regulations
+		prerequisite = { focus = BOL_Toro_at_the_healm}
+		mutually_exclusive = { focus = BOL_strike_the_big_business}
+		x = 1
+		y = 1
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_invite_foreign_investors
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = BOL_cooperate_with_private_monopolies}
+		x = 1
+		y = 2
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_western_economic_model
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BOL_invite_foreign_investors}
+		x = 1
+		y = 3
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_strike_the_big_business
+		icon = GFX_focus_DEN_heavy_regulations
+		prerequisite = { focus = BOL_Toro_at_the_healm focus = BOL_the_general_takes_the_reigns}
+		mutually_exclusive = { focus = BOL_cooperate_with_private_monopolies}
+		x = 3
+		y = 1
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_the_ybfb
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BOL_strike_the_big_business}
+		x = 3
+		y = 2
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_nationalize_standard_oil
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BOL_the_ybfb}
+		x = 3
+		y = 3
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_steady_the_ship
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BOL_fund_urban_schooling}
+		prerequisite = { focus = BOL_western_economic_model focus = BOL_nationalize_standard_oil}
+		x = 0
+		y = 4
+		relative_position_id = BOL_Toro_at_the_healm
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	##The General##
+
+	focus = {
+		id = BOL_the_general_takes_the_reigns
+		icon = GFX_focus_generic_industry_1
+		x = 22
+		y = 0
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_stick_true_to_the_national_convention
+		icon = GFX_focus_generic_industry_1
+		x = -1
+		y = 1
+		prerequisite = { focus = BOL_the_general_takes_the_reigns}
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_tape_together_the_left_wing_parties
+		icon = GFX_focus_generic_industry_1
+		x = -1
+		y = 3
+		prerequisite = { focus = BOL_the_general_takes_the_reigns}
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_the_cabinet_lives
+		icon = GFX_focus_SWE_institute_of_technology
+		x = 0
+		y = 4
+		prerequisite = { focus = BOL_immigration_policy}
+		prerequisite = { focus = BOL_tape_together_the_left_wing_parties}
+		mutually_exclusive = {focus = BOL_a_failed_attempt_of_reform}
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+
+	focus = {
+		id = BOL_a_failed_attempt_of_reform
+		icon = GFX_focus_SWE_organize_a_putsch
+		x = 3
+		y = 4
+		prerequisite = { focus = BOL_immigration_policy focus = BOL_not_one_step_back}
+		mutually_exclusive = {focus = BOL_the_cabinet_lives}
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_a_bullet_straight_to_the_skull
+		icon = GFX_focus_SWE_neither_death_nor_dishonor
+		x = 3
+		y = 5
+		prerequisite = { focus = BOL_a_failed_attempt_of_reform}
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+
+	focus = {
+		id = BOL_the_cabinet_of_bolivia
+		icon = GFX_focus_generic_industry_1
+		x = 1
+		y = 1
+		prerequisite = { focus = BOL_the_general_takes_the_reigns}
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_peace_with_paraguay
+		icon = GFX_focus_generic_treaty
+		x = 2
+		y = 2
+		prerequisite = { focus = BOL_the_cabinet_of_bolivia}
+		mutually_exclusive = { focus = BOL_not_one_step_back }
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_pando_department
+		icon = GFX_focus_generic_self_management
+		x = 0
+		y = 2
+		prerequisite = { focus = BOL_the_cabinet_of_bolivia}
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_immigration_policy
+		icon = GFX_focus_generic_industry_1
+		x = 1
+		y = 3
+		prerequisite = { focus = BOL_the_cabinet_of_bolivia}
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_protect_what_we_have
+		icon = GFX_goal_generic_defence
+		x = 3
+		y = 1
+		prerequisite = { focus = BOL_the_general_takes_the_reigns}
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_not_one_step_back
+		icon = GFX_focus_ARG_paraguayan_ultimatum
+		x = 4
+		y = 2
+		prerequisite = { focus = BOL_protect_what_we_have}
+		mutually_exclusive = { focus = BOL_peace_with_paraguay }
+		relative_position_id = BOL_the_general_takes_the_reigns
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+
+	##Cabinet##
+
+	focus = {
+		id = BOL_bolivia_and_the_future
+		icon = GFX_focus_generic_industry_1
+		x = 19
+		y = 6
+		prerequisite = { focus = BOL_the_cabinet_lives focus = BOL_steady_the_ship}
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_quintanillas_coup
+		icon = GFX_focus_generic_industry_1
+		x = 2
+		y = 0
+		prerequisite = { focus = BOL_a_bullet_straight_to_the_skull}
+		relative_position_id = BOL_bolivia_and_the_future
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_towards_a_better_republic
+		icon = GFX_focus_generic_industry_1
+		x = 1
+		y = 1
+		prerequisite = { focus = BOL_bolivia_and_the_future focus = BOL_quintanillas_coup}
+		relative_position_id = BOL_bolivia_and_the_future
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_bolivian_elections
+		icon = GFX_focus_generic_industry_1
+		x = 3
+		y = 2
+		prerequisite = { focus = BOL_quintanillas_coup}
+		prerequisite = { focus = BOL_towards_a_better_republic}
+		relative_position_id = BOL_bolivia_and_the_future
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BOL_empowering_the_presidency
+		icon = GFX_focus_generic_industry_1
+		x = -1
+		y = 2
+		prerequisite = {focus = BOL_towards_a_better_republic}
+		prerequisite = { focus = BOL_bolivia_and_the_future}
+		relative_position_id = BOL_bolivia_and_the_future
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+
+
+
+	
+
+
+
+
+	
+}
+
+
+
+	

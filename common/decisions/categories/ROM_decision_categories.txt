@@ -1,0 +1,59 @@
+####################
+##### Romania ######
+####################
+
+ROM_change_sides = {
+	
+	icon = GFX_decision_category_generic_political_actions
+
+	allowed = {
+		original_tag = ROM
+	}
+
+	visible = {
+		original_tag = ROM
+	}
+}
+
+ROM_puppet_master_bulgaria_category = {
+	
+	icon = GFX_decision_category_generic_political_actions
+	picture = GFX_decision_cat_picture_develop_norway
+
+	allowed = {
+		original_tag = ROM
+	}
+
+	visible = {
+		original_tag = ROM
+	}
+}
+
+ROM_puppet_master_hungary_category = {
+	
+	icon = GFX_decision_category_generic_political_actions
+	picture = GFX_decision_cat_picture_develop_norway
+
+	allowed = {
+		original_tag = ROM
+	}
+
+	visible = {
+		original_tag = ROM
+	}
+}
+
+ROM_dividing_yugo = {
+	
+	icon = GFX_decision_category_generic_fascism
+
+	allowed = {
+	}
+
+	visible = {
+		has_country_flag = invited_to_split_yugo
+		YUG = { has_war = no }
+		YUG = { is_subject = no }
+		YUG = { exists = yes }
+	}
+}

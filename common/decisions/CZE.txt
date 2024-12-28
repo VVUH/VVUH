@@ -1,0 +1,245 @@
+CZE_uniting_the_communist_world = {
+
+	CZE_stabilise_the_union  = {
+
+		priority = 50
+
+		icon = GFX_decision_hol_radio_oranje
+		ai_will_do = {
+			base = 300
+		}
+
+		available = {
+			has_stability < 0.3
+		}
+	
+		cost = 100
+	
+		days_remove = 60 
+
+		fire_only_once = yes 
+
+		modifier = {
+			political_power_gain = -0.2
+		}
+
+
+		complete_effect = { 
+			add_stability = 0.10
+		}
+
+
+	}
+
+	CZE_austria_core  = {
+
+		priority = 50
+
+		icon = GFX_decision_BOL_reintegrate_litoral_department
+
+		ai_will_do = {
+			base = 300
+		}
+
+		available = {
+			controls_state = 4
+			controls_state = 152
+			controls_state = 976
+			controls_state = 975
+			controls_state = 153
+			controls_state = 848
+		}
+
+		fire_only_once = yes
+
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	state = 4
+				#state = 152
+				#state = 976
+				#state = 975
+				#state = 153
+				#state = 848
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+
+		
+		cost = 120
+	
+		days_remove = 90  
+
+		modifier = {
+			stability_factor = -0.05
+			political_power_gain = -0.3
+		}
+
+		complete_effect = { 
+			add_stability = -0.05
+		}
+
+		remove_effect = {
+			add_state_core = 4
+			add_state_core = 152
+			add_state_core = 976
+			add_state_core = 975
+			add_state_core = 153
+			add_state_core = 848
+		}
+
+	}
+
+	CZE_reintegrate_silesia  = {
+
+		priority = 50
+
+		icon = GFX_decision_BOL_establish_arica_department
+
+		ai_will_do = {
+			base = 300
+		}
+
+		available = {
+			controls_state = 66
+			controls_state = 67
+		}
+
+		fire_only_once = yes
+
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	state = 66
+				#state = 67
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+
+		
+
+		cost = 90
+	
+		days_remove = 60
+
+		modifier = {
+			stability_factor = -0.03
+			political_power_gain = -0.2
+		}
+
+		complete_effect = { 
+			add_stability = -0.03
+		}
+
+		remove_effect = {
+			add_state_core = 66
+			add_state_core = 67
+		}
+
+	}
+
+	CZE_rekindle_the_bavarain_soviet_republic  = {
+
+		priority = 50
+
+		icon = GFX_decision_BOL_reintegrate_acre_state
+
+		ai_will_do = {
+			base = 300
+		}
+
+		available = {
+			controls_state = 52
+			controls_state = 53
+			controls_state = 54
+		}
+
+		fire_only_once = yes
+
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	state = 52
+				#state = 53
+				#state = 54
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+
+	
+		cost = 90
+	
+		days_remove = 60
+
+		modifier = {
+			stability_factor = -0.03
+			political_power_gain = -0.2
+		}
+
+		complete_effect = { 
+			add_stability = -0.03
+		}
+
+		remove_effect = {
+			add_state_core = 52
+			add_state_core = 53
+			add_state_core = 54
+		}
+
+	}
+
+	CZE_memories_of_the_hungarian_revolution  = {
+
+		priority = 50
+
+		icon = GFX_decision_BOL_establish_arica_department
+		ai_will_do = {
+			base = 300
+		}
+
+		available = {
+			controls_state = 43
+			controls_state = 155
+			controls_state = 974
+			controls_state = 973
+			controls_state = 154
+		}
+
+		fire_only_once = yes
+
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	state = 43
+				#state = 155
+				#state = 974
+				#state = 973
+				#state = 154
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+
+
+		cost = 120
+	
+		days_remove = 90
+
+		modifier = {
+			stability_factor = -0.05
+			political_power_gain = -0.3
+		}
+
+		complete_effect = { 
+			add_stability = -0.05
+		}
+
+		remove_effect = {
+			add_state_core = 43
+			add_state_core = 155
+			add_state_core = 974
+			add_state_core = 973
+			add_state_core = 154
+		}
+
+	}
+}

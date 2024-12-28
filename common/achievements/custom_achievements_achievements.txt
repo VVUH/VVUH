@@ -1,0 +1,102 @@
+unique_id = very_very_unhistorical
+
+bigger_better_stronger = {
+    possible = {
+        # classic triggers used in all vanilla achievements
+        difficulty > 1
+        has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+    }
+ 
+    happened = {
+        ROM = {
+			has_completed_focus = ROM_greater_romania
+		}
+    } 
+}
+
+i_literally_warned_you = {
+    possible = {
+        # classic triggers used in all vanilla achievements
+        difficulty > 1
+        has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+    }
+ 
+    happened = {
+        AST = {
+			has_idea = AST_monopolies_collapse
+		}
+    } 
+}
+
+party_like_its_1812 = {
+    possible = {
+        # classic triggers used in all vanilla achievements
+        difficulty > 1
+        has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+    }
+ 
+    happened = {
+        CAN = {
+			controls_state = 361
+		}
+    } 
+}
+
+you_owe_me_one_lego_man = {
+    possible = {
+        # classic triggers used in all vanilla achievements
+        difficulty > 1
+        has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+    }
+ 
+    happened = {
+        NOR = {
+			has_completed_focus = NOR_liberation
+			has_war = no
+		}
+    } 
+}
+
+south_african_north_africa = {
+    possible = {
+        # classic triggers used in all vanilla achievements
+        difficulty > 1
+        has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+    }
+ 
+    happened = {
+        SAF = {
+			LBA = {
+                is_subject_of = SAF
+            }
+		}
+    } 
+}
+
+greater_greater_yugoslavia = {
+    possible = {
+        # classic triggers used in all vanilla achievements
+        difficulty > 1
+        has_start_date < 1936.01.02
+        has_any_custom_difficulty_setting = no
+        game_rules_allow_achievements = yes
+    }
+ 
+    happened = {
+        HUN = {
+			has_completed_focus = HUN_the_balkans_united
+            controls_state = 46
+            controls_state = 48
+		}
+    } 
+}

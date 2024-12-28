@@ -1,0 +1,9 @@
+CZE_uniting_the_communist_world = {
+	
+	icon = GFX_decision_category_SOV_permanent_revolution
+
+	visible = {
+		original_tag = CZE
+		Has_completed_focus = CZE_unite_the_communist_world
+	}
+}

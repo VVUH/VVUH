@@ -1,0 +1,310 @@
+#Add to scripted triggers if more levels of hyper inflation is added
+BEL_times_gold_reserves_were_spent = {
+	if = {
+		limit = {
+			check_variable = { BEL_gold_reserves_spending < 1 }
+		}
+		custom_effect_tooltip = BEL_repeatable_four_times_tt
+		hidden_effect = {
+			set_variable = { BEL_gold_reserves_spending = 1 }
+		}
+	}
+	else = {
+		add_to_variable = { BEL_gold_reserves_spending = 1 }
+		custom_effect_tooltip = BEL_times_gold_reserves_were_spent_tt
+	}
+	if = { #remove the modifier if Consumer Goods hit 0
+		limit = {
+			check_variable = { BEL_gold_reserves_consumer_goods_factor = 0 }
+		}
+		remove_dynamic_modifier = {
+			modifier = BEL_gold_reserves_dynamic_modifier
+		}
+	}
+}
+
+BEL_create_jozef_raskin_operative = {
+	create_operative_leader = {
+		name = BEL_jozef_raskin
+		GFX = GFX_portrait_BEL_jozef_raskin
+		gender = male
+		traits = { operative_well_groomed operative_commando }
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		nationalities = { BEL MEN }
+	}
+}
+#Important to put HIGHEST first
+BEL_flemish_tension_up = {
+	# level 5 not relevant. Cannot go above.
+	if = {
+				limit = {
+					has_idea = BEL_flemish_very_high_tensions
+				}
+				if = {
+					limit = {
+						has_completed_focus = BEL_prepare_national_uprising
+						has_completed_focus = BEL_flemish_nationalism
+					}
+					set_politics = {
+   						ruling_party = fascism
+    					elections_allowed = no
+						name = vlaamsch_nationaal_verbond
+						long_name = vlaamsch_nationaal_verbond_long
+					}
+					FRA = {
+						diplomatic_relation = {
+						country = BEL
+						relation = military_access
+						active = no
+						}
+					}
+					promote_character = {
+						character = BEL_staf_de_clercq
+					}
+					start_civil_war = {
+   						ruling_party = fascism
+    					ideology = democratic
+    					size = 0.3
+    					capital = 34
+   						states = {
+        					34
+    					}
+						keep_all_characters = yes
+					}
+				}
+				else = { 
+					start_civil_war = {
+   						ruling_party = ROOT
+    					ideology = fascism
+    					size = 0.5
+    					capital = 6
+   						states = {
+        					6
+    					}
+						keep_all_characters = yes
+					}
+				}
+				swap_ideas = {
+					remove_idea = BEL_flemish_very_high_tensions
+					add_idea = BEL_flemish_neutral
+				}
+			}
+			if = {
+				limit = {
+					has_idea = BEL_flemish_high_tensions
+				}
+				swap_ideas = {
+					remove_idea = BEL_flemish_high_tensions
+					add_idea = BEL_flemish_very_high_tensions
+				}
+			}
+			if = {
+				limit = {
+					has_idea = BEL_flemish_unrest
+				}
+				swap_ideas = {
+					remove_idea = BEL_flemish_unrest
+					add_idea = BEL_flemish_high_tensions
+				} 
+			}
+			if = {
+				limit = {
+					has_idea = BEL_flemish_neutral
+				}
+				swap_ideas = {
+					remove_idea = BEL_flemish_neutral
+					add_idea = BEL_flemish_unrest
+				}
+			}
+        	if = {
+				limit = {
+					has_idea = BEL_flemish_support
+				}
+				swap_ideas = {
+					remove_idea = BEL_flemish_support
+					add_idea = BEL_flemish_neutral
+				}
+			}
+			custom_effect_tooltip = custom_anger_flemish_tt
+}
+BEL_flemish_tension_down = {
+	# level 5 not relevant. Cannot go above.
+	if = {
+				limit = {
+					has_idea = BEL_flemish_support
+				}
+				add_stability = 0.02
+				add_war_support = 0.02
+				add_political_power = 100
+			}
+			if = {
+				limit = {
+					has_idea = BEL_flemish_neutral
+				}
+				swap_ideas = {
+					remove_idea = BEL_flemish_neutral
+					add_idea = BEL_flemish_support
+				}
+			}
+			if = {
+				limit = {
+					has_idea = BEL_flemish_unrest
+				}
+				swap_ideas = {
+					remove_idea = BEL_flemish_unrest
+					add_idea = BEL_flemish_neutral
+				} 
+			}
+			if = {
+				limit = {
+					has_idea = BEL_flemish_high_tensions
+				}
+				swap_ideas = {
+					remove_idea = BEL_flemish_high_tensions
+					add_idea = BEL_flemish_unrest
+				}
+			}
+        	if = {
+				limit = {
+					has_idea = BEL_flemish_very_high_tensions
+				}
+				swap_ideas = {
+					remove_idea = BEL_flemish_very_high_tensions
+					add_idea = BEL_flemish_high_tensions
+				}
+			}
+			custom_effect_tooltip = custom_calm_flemish_tt
+}
+BEL_walloon_tension_up = {
+	if = {
+				limit = {
+					has_idea = BEL_walloon_very_high_tensions
+				}
+				if = {
+					limit = {
+						has_completed_focus = BEL_prepare_national_uprising
+						has_completed_focus = BEL_french_nationalism
+					}
+					FRA = {
+						diplomatic_relation = {
+						country = BEL
+						relation = military_access
+						active = no
+						}
+					}
+					start_civil_war = {
+   						ruling_party = fascism
+    					ideology = democratic
+    					size = 0.3
+    					capital = 6
+   						states = {
+        					6
+    					}
+						keep_all_characters = yes
+					}
+				}
+				else = {
+					start_civil_war = {
+   						ruling_party = ROOT
+    					ideology = fascism
+    					size = 0.5
+    					capital = 34
+   						states = {
+        					34
+    					}
+						keep_all_characters = yes
+					}
+				}
+				swap_ideas = {
+					remove_idea = BEL_walloon_very_high_tensions
+					add_idea = BEL_walloon_neutral
+				}
+			}
+			if = {
+				limit = {
+					has_idea = BEL_walloon_high_tensions
+				}
+				swap_ideas = {
+					remove_idea = BEL_walloon_high_tensions
+					add_idea = BEL_walloon_very_high_tensions
+				}
+			}
+			if = {
+				limit = {
+					has_idea = BEL_walloon_unrest
+				}
+				swap_ideas = {
+					remove_idea = BEL_walloon_unrest
+					add_idea = BEL_walloon_high_tensions
+				} 
+			}
+			if = {
+				limit = {
+					has_idea = BEL_walloon_neutral
+				}
+				swap_ideas = {
+					remove_idea = BEL_walloon_neutral
+					add_idea = BEL_walloon_unrest
+				}
+			}
+        	if = {
+				limit = {
+					has_idea = BEL_walloon_support
+				}
+				swap_ideas = {
+					remove_idea = BEL_walloon_support
+					add_idea = BEL_walloon_neutral
+				}
+			}
+			custom_effect_tooltip = custom_anger_walloon_tt
+}
+BEL_walloon_tension_down = {
+	# level 5 not relevant. Cannot go above.
+	if = {
+				limit = {
+					has_idea = BEL_walloon_support
+				}
+				add_stability = 0.02
+				add_war_support = 0.02
+				add_political_power = 100
+			}
+			if = {
+				limit = {
+					has_idea = BEL_walloon_neutral
+				}
+				swap_ideas = {
+					remove_idea = BEL_walloon_neutral
+					add_idea = BEL_walloon_support
+				}
+			}
+			if = {
+				limit = {
+					has_idea = BEL_walloon_unrest
+				}
+				swap_ideas = {
+					remove_idea = BEL_walloon_unrest
+					add_idea = BEL_walloon_neutral
+				} 
+			}
+			if = {
+				limit = {
+					has_idea = BEL_walloon_high_tensions
+				}
+				swap_ideas = {
+					remove_idea = BEL_walloon_high_tensions
+					add_idea = BEL_walloon_unrest
+				}
+			}
+        	if = {
+				limit = {
+					has_idea = BEL_walloon_very_high_tensions
+				}
+				swap_ideas = {
+					remove_idea = BEL_walloon_very_high_tensions
+					add_idea = BEL_walloon_high_tensions
+				}
+			}
+			custom_effect_tooltip = custom_calm_walloon_tt
+}
+

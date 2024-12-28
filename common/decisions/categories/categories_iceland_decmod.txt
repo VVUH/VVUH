@@ -1,0 +1,20 @@
+ICE_varangian_adventures = {
+
+	icon = GFX_decision_cat_varangian_adventures_icon
+	
+	priority = 103
+}
+
+ICE_renewed_raids = {
+
+	icon = GFX_decision_cat_renewed_viking_raids_icon
+	
+	priority = 102
+}
+
+ICE_Unite_The_British_isles = {
+	
+	icon = generic_prepare_civil_war
+	
+	priority = 104	
+}

@@ -1,0 +1,138 @@
+shared_focus = {
+	id = CMW_shared
+	
+	dynamic = yes 
+	
+	icon =  GFX_goal_generic_army_doctrines
+		
+	
+	
+	x = 0
+	y = 0
+
+	#Canada
+	offset = {
+		x = 52
+		y = 0
+		trigger = {
+			has_focus_tree = canadian_focus
+		}
+	}
+
+	#Saf
+	offset = {
+		x = 38
+		y = 0
+		trigger = {
+			has_focus_tree = south_african_focus
+		}
+	}
+
+	#Raj
+	offset = {
+		x = 47
+		y = 0
+		trigger = {
+			has_focus_tree = indian_focus
+		}
+	}
+
+	#Aussies
+	offset = {
+		x = 56
+		y = 0
+		trigger = {
+			has_focus_tree = australian_focus
+		}
+	}
+
+	#NZ
+	offset = {
+		x = 60
+		y = 0
+		trigger = {
+			has_focus_tree = new_zealander_focus
+		}
+	}
+
+	#Malaysia
+	offset = {
+		x = 32
+		y = 0
+		trigger = {
+			has_focus_tree = generic_focus
+			AND = {
+				original_tag = MAL
+			}
+		}
+	}
+
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_faction_leader = yes 
+		is_subject = no 
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			factor = 0
+			is_historical_focus_on = yes 
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+			limit = {	
+				NORDIC_alliance_created_already = no
+			}
+			hidden_effect = {
+				every_other_country = {
+					limit = {
+						is_in_faction_with = ROOT
+						NORDIC_is_nordic = yes
+					}
+					set_country_flag = NORDIC_already_member_flag
+				}
+			}
+			NORDIC_create_nordic_alliance = yes 
+		}
+	}
+}
+
+joint_focus = {
+	id = CMW_TEST
+	
+	icon = GFX_goal_generic_army_doctrines
+	
+	prerequisite = { focus = CMW_shared }
+	
+	x = 1
+	y = 1
+	relative_position_id = CMW_shared
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		
+	}
+
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+
+	joint_trigger = {
+  		NORDIC_basic_joint_trigger = yes 
+	}
+
+
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+	}
+}

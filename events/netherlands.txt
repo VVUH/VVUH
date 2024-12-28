@@ -1,0 +1,429 @@
+add_namespace = VVUHol
+add_namespace = VVUHolKingTour
+add_namespace = mtg_netherlands
+
+# Imperial GER suggesting they become allies when the war has ended and HOL is no longer in a faction
+country_event = {
+	id = VVUHol.40
+	title = VVUHol.40.t
+	desc = VVUHol.40.d
+	picture = GFX_report_event_generic_sign_treaty3
+
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = HOL
+		has_government = neutrality
+		has_completed_focus = HOL_wilhelminism
+		NOT = { has_war_with = GER }
+		is_in_faction = no
+		any_country = {
+			original_tag = GER
+			has_government = neutrality
+			is_subject_of = HOL
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# OK
+	option = {
+		name = VVUHol.40.a
+				ai_chance = {
+					base = 90
+				}
+		random_country = {
+			limit = {
+				original_tag = GER
+				has_government = neutrality
+			}
+			ROOT = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			create_faction = GER_central_powers_faction
+			add_to_faction = HOL
+		}
+	}
+		# No.
+		option = {
+			limit ={
+				is_ai = no
+			}
+		name = VVUHol.40.b
+		random_country = {
+			limit = {
+				original_tag = GER
+				has_government = neutrality
+			}
+			ROOT = { annex_country = { target = PREV} transfer_troops = yes}
+		}
+	}
+}
+
+country_event = {
+	id = mtg_netherlands.74
+	title = VVUHol.40.t
+	desc = VVUHol.40.d
+	picture = GFX_report_event_generic_sign_treaty3
+
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = HOL
+		has_government = neutrality
+		has_completed_focus = HOL_wilhelminism
+		has_war_with = GER
+		GER = {surrender_progress > 0.85}
+		any_country = {
+			original_tag = GER
+			has_government = neutrality
+			is_subject_of = HOL
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# OK
+	option = {
+		name = VVUHol.40.a
+				ai_chance = {
+					base = 90
+				}
+		random_country = {
+			limit = {
+				original_tag = GER
+				has_government = neutrality
+			}
+			ROOT = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			create_faction = GER_central_powers_faction
+			add_to_faction = HOL
+		}
+	}
+		# No.
+		option = {
+			trigger ={
+				is_ai = no
+			}
+		name = VVUHol.40.b
+		random_country = {
+			limit = {
+				original_tag = GER
+				has_government = neutrality
+			}
+			ROOT = { annex_country = { target = PREV} transfer_troops = yes}
+		}
+	}
+}
+
+
+#unite the crowns with belgium
+country_event = {
+	id = VVUHol.41
+	title = VVUHol.41.t
+	desc = VVUHol.41.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+
+	option = { #Agree to join the kingdom
+		name = VVUHol.41.a
+		ai_chance = {
+			factor = 70
+		}
+		custom_effect_tooltip =  GAME_OVER_TT
+		HOL = { country_event = { id = VVUHol.42 hours = 6 } }
+		
+	}
+	option = { #A close association status
+		name = VVUHol.41.b
+		limit ={
+			NOT= {is_subject}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				HOL = {
+					is_ai = yes
+				}
+				factor = 0
+			}
+		}
+		HOL = { country_event = { id = VVUHol.43 hours = 6 } }
+	}
+		option = { #flee, will need to be reworked if Belgian kongo comes out.
+		name = VVUHol.41.c
+		limit ={
+			NOT = {BEL = {has_government = communism}}
+			NOT ={is_subject}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_in_faction = yes
+				factor = 20
+			}
+			modifier = {
+				HOL = {
+					is_ai = yes
+				}
+				factor = 0
+			}
+		}
+		HOL = { country_event = { id = VVUHol.44 hours = 6 } }
+	}
+	option = { #Refuse
+		name = VVUHol.41.d
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_in_faction = yes
+				factor = 1 #we're good thanks
+			}
+			modifier = {
+				HOL = {
+					is_ai = yes
+				}
+				factor = 0
+			}
+		}
+		HOL = { country_event = { id = VVUHol.45 hours = 6 } }
+	}
+
+}
+
+#Annex BEL
+country_event = {
+	id = VVUHol.42
+	title = VVUHol.42.t
+	desc = VVUHol.42.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	option = {
+		name = VVUHol.42.a
+		BEL = {
+			every_unit_leader = {
+				set_nationality = HOL
+			}
+		}
+		annex_country = { target = BEL transfer_troops = yes }
+		6 = { add_core_of = HOL }
+		34 = { add_core_of = HOL }
+
+	}
+}
+
+#Puppet BEL
+country_event = {
+	id = VVUHol.43
+	title = VVUHol.43.t
+	desc = VVUHol.43.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+
+	option = {
+		name = VVUHol.43.a
+		hidden_effect = { puppet = BEL }
+		set_autonomy = { target = BEL autonomy_state = autonomy_dominion }
+		if = {
+			limit = {
+				is_in_faction = yes
+			}
+			random_country = {
+				limit = { 
+					is_in_faction_with = HOL 
+					is_faction_leader = yes
+				}
+				add_to_faction = BEL
+			}
+		}
+	}
+	option = { #say no
+		name = VVUHol.43.b
+			add_state_claim = 34
+			add_state_claim = 6
+			# add congo states
+			create_wargoal = { type = annex_everything target = BEL }
+		
+	}
+}
+
+#Republican BEL flees to Kongo
+country_event = {
+	id = VVUHol.44
+	title = VVUHol.44.t
+	desc = VVUHol.44.desc
+	picture = GFX_report_event_polish_army
+	
+	is_triggered_only = yes
+
+	option = {
+		name = VVUHol.44.a
+		295 = {add_core_of = BEL}
+	  	transfer_state = 34
+	  	34 = { add_core_of = HOL }
+		transfer_state = 6
+	  	6 = { add_core_of = HOL }
+		
+	}
+}
+
+
+#BEL refuses
+country_event = {
+	id = VVUHol.45
+	title = VVUHol.45.t
+	desc = VVUHol.45.desc
+	picture = GFX_report_event_czech_soldiers_02
+	
+	is_triggered_only = yes
+
+	option = { #say no
+		name = VVUHol.45.a
+			add_state_claim = 34
+			add_state_claim = 6
+			# add congo states
+			create_wargoal = { type = annex_everything target = BEL }
+		
+	}
+
+}
+
+country_event = {
+	id = VVUHolKingTour.1
+	title = VVUHolKingTour.1.t
+	desc = {
+		text = VVUHolKingTour.1.desc_success
+		trigger = {
+			NOT = { has_country_flag = HOL_a_royal_visit_extra_success_flag }
+			NOT = { has_country_flag = HOL_a_royal_visit_failure_flag }
+		}
+	}
+	desc = {
+		text = VVUHolKingTour.1.desc_extra_success
+		trigger = {
+			has_country_flag = HOL_a_royal_visit_extra_success_flag
+		}
+	}
+	desc = {
+		text = VVUHolKingTour.1.desc_failure
+		trigger = {
+			has_country_flag = HOL_a_royal_visit_failure_flag
+		}
+	}
+
+	picture = GFX_report_event_por_return_of_the_monarchy
+
+	is_triggered_only = yes
+
+	option = {
+		if = {
+			limit = {
+				has_country_leader = {
+					name = "Izaak Reijnders"
+					ruling_only = yes
+				}			
+			}   
+			name = VVUHolKingTour.2.a
+			}
+		else_if = {
+			limit = {
+				has_completed_focus = HOL_dream_of_the_empire
+			}
+			name = VVUHolKingTour.3.a
+		}
+		else = {
+			name = VVUHolKingTour.1.a
+		}
+		trigger = { 
+			NOT = { has_country_flag = HOL_a_royal_visit_extra_success_flag }
+			NOT = { has_country_flag = HOL_a_royal_visit_failure_flag }
+		}
+
+		add_stability = 0.05
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		hidden_effect = { #Randomize next location
+			HOL_get_random_dutch_destination_royal_visit = yes
+		}
+	}
+
+	option = { #Extra success
+		if = {
+			limit = {
+				has_country_leader = {
+					name = "Izaak Reijnders"
+					ruling_only = yes
+				}			
+			}   
+			name = VVUHolKingTour.2.b
+			}
+		else_if = {
+			limit = {
+				has_completed_focus = HOL_dream_of_the_empire
+			}
+			name = VVUHolKingTour.3.b
+		}
+		else = {
+			name = VVUHolKingTour.1.b
+		}
+
+		trigger = {
+			has_country_flag = HOL_a_royal_visit_extra_success_flag
+		}
+
+		add_stability = 0.1
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+		}
+		clr_country_flag = HOL_a_royal_visit_extra_success_flag
+		hidden_effect = { #Randomize next location
+			HOL_get_random_dutch_destination_royal_visit = yes
+		}
+	}
+	option = { #Failure
+		if = {
+			limit = {
+				has_country_leader = {
+					name = "Izaak Reijnders"
+					ruling_only = yes
+				}			
+			}    
+			name = VVUHolKingTour.2.c
+			}
+		else_if = {
+			limit = {
+				has_completed_focus = HOL_dream_of_the_empire
+			}
+			name = VVUHolKingTour.3.c
+		}
+		else = {
+			name = VVUHolKingTour.1.c
+		}
+
+		trigger = {
+			has_country_flag = HOL_a_royal_visit_failure_flag
+		}
+
+		add_stability = -0.05
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.05
+		}
+		clr_country_flag = HOL_a_royal_visit_failure_flag
+		hidden_effect = { #Randomize next location
+			HOL_get_random_dutch_destination_royal_visit = yes
+		}
+	}
+}

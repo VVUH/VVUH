@@ -1,0 +1,112 @@
+add_namespace = MOD_SIK
+
+country_event = {
+	id = MOD_SIK.1
+	title =  MOD_SIK.t	
+	desc =  MOD_SIK.d	
+	picture = GFX_report_event_bulgarian_soldiers
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  MOD_SIK.a 
+		
+		ai_chance = {
+			base = 100
+		}
+		
+		SIK = {
+			complete_national_focus = CHI_islamic_rebelion
+		}
+	}
+
+}
+
+country_event = {
+	id = MOD_SIK.2 #Hungary Old Cake Event
+	title =  MOD_SIK.2.t	
+	desc =  MOD_SIK.2.d	
+	picture = GFX_report_event_german_reichstag_gathering
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  MOD_SIK.2.a 
+		
+		ai_chance = {
+			base = 100
+		}	
+		add_stability = 0.05
+	}
+
+}
+
+country_event = {
+	id = MOD_SIK.3 #Czech Demand
+	title =  MOD_SIK.3.t	
+	desc =  MOD_SIK.3.d	
+	picture = GFX_report_event_german_reichstag_gathering
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  MOD_SIK.3.a 
+		
+		ai_chance = {
+			base = 100
+		}	
+		CZE = { country_event = MOD_SIK.4 }
+	}
+
+	option = {
+		name =  MOD_SIK.3.b
+		
+		ai_chance = {
+			base = 0
+		}	
+		CZE = { country_event = MOD_SIK.5 }
+	}
+
+}
+
+country_event = {
+	id = MOD_SIK.4
+	title =  MOD_SIK.4.t	
+	desc =  MOD_SIK.4.d	
+	picture = GFX_report_event_german_reichstag_gathering
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  MOD_SIK.4.a 
+		
+		ai_chance = {
+			base = 100
+		}	
+		CZE = { puppet = AUS }
+		GER = { create_wargoal = { type = annex_everything target = AUS} }
+		ROM = { diplomatic_relation = { country = CZE relation = guarantee active = no }}
+		FRA = { diplomatic_relation = { country = CZE relation = guarantee active = no }}	
+
+	}
+
+}
+
+country_event = {
+	id = MOD_SIK.5
+	title =  MOD_SIK.5.t	
+	desc =  MOD_SIK.5.d	
+	picture = GFX_report_event_german_reichstag_gathering
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  MOD_SIK.5.a 
+		
+		ai_chance = {
+			base = 100
+		}	
+		
+	}
+
+}

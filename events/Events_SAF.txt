@@ -1,0 +1,81 @@
+#event to pick true south africa flag and change SAF 
+add_namespace = events_SAF
+
+country_event = {
+    id = events_SAF.1
+    title = events_SAF.1.t
+    desc = events_SAF.1.desc
+    picture = GFX_report_event_saf_coup
+
+    is_triggered_only = yes
+    
+    trigger = {
+        has_completed_focus = SAF_true_south_africa
+    }
+
+    option = {
+        name = events_SAF.1.a
+        
+        add_popularity = {
+					ideology = democratic
+					popularity = 0.25
+				}
+        
+        conscription_factor=5
+
+        set_capital = {
+            state = 542
+        }
+    }
+
+    option = {
+        name = events_SAF.1.b
+        
+        add_popularity = {
+					ideology = fascism
+					popularity = 0.15
+				}
+        
+    }
+
+    option = {
+        name = events_SAF.1.c
+        
+        add_popularity = {
+					ideology = neutrality
+					popularity = 0.15
+				}
+        set_capital = {
+            state = 545
+        }
+    }
+}
+
+country_event = {
+    id = events_SAF.2
+    title = events_SAF.2.t
+    desc = events_SAF.2.desc
+    picture = GFX_report_event_saf_coup
+
+    is_triggered_only = yes
+    
+    trigger = {
+        has_completed_focus = SAF_develop_the_south_west
+    }
+
+    mean_time_to_happen = {
+		days = 15
+	}
+
+    option = {
+        name = events_SAF.2.a
+        add_ideas = SAF_diamonds
+    }
+
+     option = {
+        name = events_SAF.2.b
+        add_stability = 0.1
+       
+    }
+}
+

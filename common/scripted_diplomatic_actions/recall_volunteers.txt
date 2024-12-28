@@ -1,0 +1,36 @@
+scripted_diplomatic_actions = {
+	recall_volunteers = {
+		allowed = {
+			always = yes
+		}
+	
+		# Button will be visible if they have volunteers
+		visible = {
+			has_volunteers_amount_from = {
+				tag = ROOT
+				count > 0
+			}
+		}
+	
+		selectable = {
+			has_volunteers_amount_from = {
+				tag = ROOT
+				count > 0
+			}
+		}
+	
+		requires_acceptance = no
+		cost = 0
+		command_power = 0
+	
+		complete_effect = {
+			ROOT = {
+				recall_volunteers_from = PREV
+			}
+		}
+
+		ai_desire = {
+			base = -1
+		}
+	}
+}

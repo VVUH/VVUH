@@ -1,0 +1,439 @@
+focus_tree = {
+	id = arabic_tree
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			original_tag = AAA
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 20 y = 1000 }  
+	
+	
+	initial_show_position = {
+		x = 20
+		y = 0
+	}
+
+	##Toro##
+
+
+	focus = {
+		id = SAU_arabia_and_the_future
+		icon = GFX_focus_generic_home_defense
+		x = 16
+		y = 0
+		#relative_position_id =
+		cost = 5
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	##Nation Building##
+
+	focus = {
+		id = SAU_nation_building
+		icon = GFX_focus_generic_industry_1
+		x = -4
+		y = 1
+		cost = 5
+		prerequisite = {focus = SAU_arabia_and_the_future}
+		relative_position_id = SAU_arabia_and_the_future
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAU_black_gold
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = -2
+		y = 1
+		cost = 5
+		prerequisite = {focus = SAU_nation_building}
+		relative_position_id = SAU_nation_building
+		available = {
+			859 = {
+				
+			}
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			859 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+				
+			}
+		}
+	}
+
+	focus = {
+		id = SAU_al_hasa_oil_fields
+		icon = GFX_goal_generic_oil_refinery
+		x = -1
+		y = 2
+		cost = 5
+		prerequisite = {focus = SAU_black_gold}
+		relative_position_id = SAU_black_gold
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_the_creation_of_aramco
+		icon = GFX_focus_generic_industry_1
+		x = -1
+		y = 3
+		cost = 5
+		prerequisite = {focus = SAU_al_hasa_oil_fields}
+		relative_position_id = SAU_black_gold
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_economic_benefits_of_the_pilgrimage
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		x = 1
+		y = 2
+		cost = 5
+		prerequisite = {focus = SAU_black_gold}
+		relative_position_id = SAU_black_gold
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_jewel_of_the_gulf
+		icon = GFX_focus_generic_industry_1
+		x = 0
+		y = 4
+		cost = 5
+		prerequisite = {focus = SAU_economic_benefits_of_the_pilgrimage}
+		prerequisite = {focus = SAU_develop_the_civilian_industry}
+		prerequisite = {focus = SAU_the_creation_of_aramco}
+		relative_position_id = SAU_black_gold
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_develop_the_civilian_industry
+		icon = GFX_focus_DEN_civilian_preparations
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = {focus = SAU_black_gold}
+		relative_position_id = SAU_black_gold
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 1
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+
+	focus = {
+		id = SAU_prepare_for_whats_to_come
+		icon = GFX_focus_ETH_an_arabic_base
+		x = 2
+		y = 1
+		cost = 5
+		prerequisite = {focus = SAU_nation_building}
+		relative_position_id = SAU_nation_building
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_defensive_priority
+		icon = GFX_focus_generic_industry_1
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = SAU_prepare_for_whats_to_come}
+		mutually_exclusive = { focus = SAU_increase_our_offensive_ability}
+		relative_position_id = SAU_prepare_for_whats_to_come
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_increase_our_offensive_ability
+		icon = GFX_focus_generic_industry_1
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = SAU_prepare_for_whats_to_come}
+		mutually_exclusive = { focus = SAU_defensive_priority}
+		relative_position_id = SAU_prepare_for_whats_to_come
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_leading_war_development
+		icon = GFX_focus_CHL_strengthen_the_carabinieros
+		x = 0
+		y = 2
+		cost = 5
+		prerequisite = {focus = SAU_defensive_priority focus = SAU_increase_our_offensive_ability}
+		relative_position_id = SAU_prepare_for_whats_to_come
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+
+
+	##Political Path##
+
+	focus = {
+		id = SAU_the_king_and_statesman
+		icon = GFX_focus_generic_monarchy_1
+		x = 3
+		y = 1
+		cost = 5
+		prerequisite = {focus = SAU_arabia_and_the_future}
+		relative_position_id = SAU_arabia_and_the_future
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_middle_eastern_foreign_policy
+		icon = GFX_focus_TUR_treaty_of_saadabad
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = SAU_the_king_and_statesman}
+		relative_position_id = SAU_the_king_and_statesman
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_reach_out_to_america
+		icon = GFX_focus_generic_befriend_usa
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = SAU_the_king_and_statesman}
+		relative_position_id = SAU_the_king_and_statesman
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_a_sudden_amount_of_importance
+		icon = GFX_focus_generic_industry_1
+		x = 0
+		y = 2
+		cost = 5
+		prerequisite = {focus = SAU_the_king_and_statesman}
+		relative_position_id = SAU_the_king_and_statesman
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_internal_development
+		icon = GFX_focus_generic_industry_1
+		x = 1
+		y = 3
+		cost = 5
+		prerequisite = {focus = SAU_a_sudden_amount_of_importance}
+		relative_position_id = SAU_the_king_and_statesman
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_foreign_affairs
+		icon = GFX_focus_generic_industry_1
+		x = -1
+		y = 3
+		cost = 5
+		prerequisite = {focus = SAU_a_sudden_amount_of_importance}
+		relative_position_id = SAU_the_king_and_statesman
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_anti_imperial_foreign_policy
+		icon = GFX_focus_generic_industry_1
+		x = -4
+		y = 4
+		cost = 5
+		prerequisite = {focus = SAU_foreign_affairs}
+		prerequisite = {focus = SAU_leading_war_development}
+		relative_position_id = SAU_the_king_and_statesman
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = SAU_continue_american_diplomacy
+		icon = GFX_focus_generic_industry_1
+		x = -2
+		y = 4
+		cost = 5
+		prerequisite = {focus = SAU_foreign_affairs}
+		prerequisite = {focus = SAU_leading_war_development}
+		relative_position_id = SAU_the_king_and_statesman
+		available = {
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			
+		}
+	}
+
+	
+
+
+
+	
+}
