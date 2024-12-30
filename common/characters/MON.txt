@@ -20,7 +20,6 @@ characters={
 			}
 		}
 		country_leader={
-			available = MON_unite_the_anti_communists
 			ideology = oligarchism
 			traits={ revolutionary_council anti_communist}
 		}
@@ -34,14 +33,7 @@ characters={
 			}
 		}
 		country_leader={
-			available = {
-				has_completed_focus = MON_fate_of_the_chairman_of_the_council_of_ministers
-				NOT = {
-					has_global_flag = MON_purge_leadership_choibalsan_supreme
-					has_global_flag = MON_amar_alive
-				}
-			}
-			ideology = marxism
+			ideology = stalinism
 			traits={internal_rivalry}
 		}
 	}
@@ -53,9 +45,6 @@ characters={
 			}
 		}
 		country_leader={
-			available = {
-				has_completed_focus = MON_fair_representation
-			}
 			ideology = leninism
 			traits={strong_party_discipline communist_council_trait}
 		}
@@ -71,7 +60,6 @@ characters={
 		country_leader={
 			ideology=liberalism
 			traits={ SWI_democratic_capitalist }
-			id=-1
 		}
 	}
 	MON_fu_shangzhi={
@@ -84,7 +72,6 @@ characters={
 		country_leader={
 			traits={DEN_fascist_militarist}
 			ideology=fascism_ideology
-			id=-1
 		}
 	}
 	MON_songgotu_kangan={
@@ -97,7 +84,6 @@ characters={
 		country_leader={
 			ideology=oligarchism
 			traits={ revolutionary_general }
-			id=-1
 		}
 	}
 	MON_khorloogiin_choibalsan={
@@ -108,15 +94,8 @@ characters={
 			}
 		}
 		country_leader={
-			available = {
-				AND = {
-					has_completed_focus = MON_stability_through_blame
-					has_global_flag = MON_purge_leadership_choibalsan_supreme
-				}
-			}
 			traits={ JUNO_aligned_with_stalin }
 			ideology=stalinism
-			id=-1
 		}
 	}
 	MON_haidav={

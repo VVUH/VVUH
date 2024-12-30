@@ -1207,6 +1207,10 @@ MON_mongolianDecisions = {
 		
 		visible = {
 			NOT = { has_global_flag = MON_form_mongol_empire }
+			OR = {
+				has_completed_focus = MON_taizu_empire
+				has_completed_focus = MON_ambitions_achieved
+			}
 		}
 
 		highlight_states = {

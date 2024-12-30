@@ -228,6 +228,7 @@ bookmarks = {
 		}		
 		"SIK"={
 			history = "WARLORDS_GATHERING_STORM_DESC"
+			minor = yes
 			ideology = fascism
 			ideas = {
 				PRC_government_corruption
@@ -595,6 +596,25 @@ bookmarks = {
 				our_place
 				kick_out_the_british
 				they_will_call_us_iran
+			}
+		}
+		effect = {
+			randomize_weather = 22345 # <- Obligatory in every bookmark !
+			#123 = { rain_light = yes }
+		}
+		MON={
+			ideology = communism
+			#minor = yes
+			history = MON_GATHERING_STORM_DESC
+			ideas = {
+				MON_soviet_ties
+				MON_underequipped_army
+				MON_weakened_togrog
+			}
+			focuses = {
+				MON_intervene_in_the_region
+				MON_strike_north
+				MON_crown_prince_de
 			}
 		}
 		effect = {

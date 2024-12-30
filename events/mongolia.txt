@@ -127,7 +127,7 @@ country_event = {
 	option = {
 		name = MON.2.b
 		retire_character = MON_advisor_demid
-		show_ideas_tooltip = JAP_isoroku_yamamoto
+		show_ideas_tooltip = MON_advisor_demid
 	}
 
 }

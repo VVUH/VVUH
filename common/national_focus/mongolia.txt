@@ -373,12 +373,14 @@ focus_tree = {
 					has_global_flag = MON_purge_leadership_choibalsan_supreme
 				}
 					retire_ideology_leader = communism
-					promote_character = MON_khorloogiin_choibalsan
+					promote_character = {
+						character = MON_khorloogiin_choibalsan
+						ideology = stalinism
+					}
 					show_ideas_tooltip = MON_khorloogiin_choibalsan
 
 					add_country_leader_trait = JUNO_aligned_with_stalin
 					add_country_leader_trait = prime_minister_husnu
-					#doesnt work? als the other way i did it doesnt work
 					SOV = {
 						add_opinion_modifier = {
 							target = MON
@@ -387,16 +389,18 @@ focus_tree = {
 					}
 			}ELSE_IF = {
 				LIMIT = {
-					OR = {
 					has_global_flag = MON_amar_alive
-					}
 				}
 					add_country_leader_trait = prime_minister_inonu
 					add_country_leader_trait = leftist_independent
 
 			}ELSE = {
 				retire_ideology_leader = communism
-				promote_character = MON_communist_great_khural_weak
+				promote_character = {
+					character = MON_communist_great_khural_weak
+					ideology = stalinism
+				}
+				show_ideas_tooltip = MON_communist_great_khural_weak
 				
 			}	
 			add_stability = 0.15
@@ -2612,8 +2616,10 @@ focus_tree = {
 				retire_character = MON_revolutionary_council
 			}
 			# ruler dont work to do
-
-			promote_character = MEN_prince_demchugdongrub
+			promote_character = {
+					character = MEN_prince_demchugdongrub
+					ideology = oligarchism
+				}
 			add_country_leader_trait = the_sacred_king	
 			annex_country = {
 				target = MEN
@@ -3845,7 +3851,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {GFX_focus_AUS_lawmaking_leniency
+	focus = {
 		id = MON_mongolian_law
 		relative_position_id = MON_the_parliament
 		prerequisite = { focus = MON_the_parliament }
@@ -4299,11 +4305,11 @@ focus_tree = {
 		available = {
 
 		}		
-		
 
 		completion_reward = {
 			custom_effect_tooltip = MON_recruit_advisor_tt
 			show_ideas_tooltip = MON_advisor_national_council_corporations
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = MON_corporatism
 		}
 	}
@@ -4336,15 +4342,16 @@ focus_tree = {
 		completion_reward = {
 			IF = {
 				LIMIT = {
-					has_completed_focus = MON_work_for_militias
+					has_idea = MON_mongol_militias_1
 				}
 				swap_ideas = {
 					remove_idea = MON_mongol_militias_1
-					add_ideas = MON_mongol_militias_2
+					add_idea = MON_mongol_militias_2
 				}
 			}ELSE = {
 				add_ideas = MON_mongol_militias_1
 			}
+
 			IF = {
 				LIMIT = {
 					has_army_size = {
