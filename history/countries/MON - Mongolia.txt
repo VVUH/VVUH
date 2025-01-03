@@ -119,9 +119,6 @@ recruit_character = MON_konstantin_nechayev
 recruit_character = MON_aleksandr_rodzyanko  
 recruit_character = MON_andrey_shkuro  
 
-recruit_character = MON_trade_industry_bank  
-
-
 
 
 1939.1.1 = {

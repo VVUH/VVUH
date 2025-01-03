@@ -272,7 +272,10 @@ focus_tree = {
 		available = {
 			any_country_with_original_tag = {
 				original_tag_to_check = SPR
-				has_government = communism
+				NOT = {
+					has_government = fascism
+					has_government = neutrality
+				}
 				has_civil_war = no
 				has_opinion = {
 					target = MON

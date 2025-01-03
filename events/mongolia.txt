@@ -260,7 +260,7 @@ country_event = {
 	# save them, sov debuff ties + relation dip
 	option = {
 		name = MON.4.c
-		tooltip = MON_savethem_tt
+		custom_effect_tooltip = MON_savethem_tt
 		SOV = {
 			add_opinion_modifier = {
 				target = MON
@@ -330,7 +330,7 @@ country_event = {
 	# save them all, sov debuff ties + relation dip
 	option = {
 		name = MON.5.c
-		tooltip = MON_savethem_tt
+		custom_effect_tooltip = MON_savethem_tt
 		SOV = {
 			add_opinion_modifier = {
 				target = MON
@@ -410,7 +410,7 @@ country_event = {
 	# save them all, sov debuff ties + relation dip, tooltip for unlock integrate buryat lands
 	option = {
 		name = MON.6.c
-			tooltip = MON_savethem_tt
+		custom_effect_tooltip = MON_savethem_tt
 		SOV = {
 			add_opinion_modifier = {
 				target = MON
@@ -495,7 +495,7 @@ country_event = {
 	option = {
 		name = MON.7.c
 		SOV = {
-			tooltip = MON_savethem_tt
+			custom_effect_tooltip = MON_savethem_tt
 			add_opinion_modifier = {
 				target = MON
 				modifier = CAN_stalin_and_friends_hate_us_now
@@ -563,7 +563,7 @@ country_event = {
 		hidden_effect = {
 			set_global_flag = MON_frinovsky_lives
 		}
-		tooltip = MON_savethem_tt
+		custom_effect_tooltip = MON_savethem_tt
 		add_stability = -0.15
 		SOV = {
 			add_opinion_modifier = {
