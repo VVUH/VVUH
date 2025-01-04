@@ -2283,7 +2283,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SAF_expand_the_civ_industry
 
-		cost = 6
+		cost = 5
 
 		ai_will_do = {
 			factor = 20
@@ -2552,9 +2552,36 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			random_state = {
+				limit = {
+					has_state_flag = SAF_armament_effort_AF
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 
 		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SAF_armament_effort_AF
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -2582,7 +2609,7 @@ focus_tree = {
 		y = 3
 		relative_position_id = SAF_south_african_railways
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 15
@@ -2605,7 +2632,7 @@ focus_tree = {
 			275 = {
 				add_resource = {
 					type = steel
-					amount = 24
+					amount = 32
 				}
 			}
 		}
@@ -2941,6 +2968,40 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SAF_volunteer_corps
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = SAF_improve_the_three_oh_three }
+		x = -2
+		y = 2
+		relative_position_id = SAF_special_service_battalion
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			army_experience = 30		
+			add_ideas = volunteer_corps_focus
+		}
+	}
+
 
 	focus = {
 		id = SAF_q_services_corps
