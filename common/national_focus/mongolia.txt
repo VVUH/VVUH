@@ -375,13 +375,14 @@ focus_tree = {
 				LIMIT = {
 					has_global_flag = MON_purge_leadership_choibalsan_supreme
 				}
-					retire_ideology_leader = communism
+				IF = {
+					LIMIT = { NOT = {has_country_leader=MON_khorloogiin_choibalsan}}
 					promote_character = {
 						character = MON_khorloogiin_choibalsan
 						ideology = stalinism
 					}
+				}
 					show_ideas_tooltip = MON_khorloogiin_choibalsan
-
 					add_country_leader_trait = JUNO_aligned_with_stalin
 					add_country_leader_trait = prime_minister_husnu
 					SOV = {
