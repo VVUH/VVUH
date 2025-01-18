@@ -110,3 +110,56 @@ country_event = {
 	}
 
 }
+
+country_event = {
+	id = MOD_SIK.6
+	title =  MOD_SIK.6.t	
+	desc =  MOD_SIK.6.d	
+	picture = GFX_report_event_german_reichstag_gathering
+	
+	is_triggered_only = yes
+	
+	option = {
+		name =  MOD_SIK.6.a 
+		
+		ai_chance = {
+			base = 100
+		}	
+		CAN = {
+			transfer_state = 331
+			transfer_state = 332
+		}
+		SAF = {
+			transfer_state = 542
+			transfer_state = 545
+			add_state_core = 542
+			add_state_core = 545
+		}
+		RAJ = {
+			transfer_state = 659
+			transfer_state = 733
+			add_state_core = 659
+			add_state_core = 733
+		}
+		AST = {
+			transfer_state = 711
+			transfer_state = 712
+			transfer_state = 710
+			add_state_core = 711
+			add_state_core = 712
+			add_state_core = 710
+		}
+		NZL = {
+			transfer_state = 725
+			transfer_state = 639
+			transfer_state = 643
+			transfer_state = 636
+			add_state_core = 725
+			add_state_core = 639
+			add_state_core = 643
+			add_state_core = 636
+		}
+		
+	}
+
+}
