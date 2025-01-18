@@ -646,12 +646,7 @@ BEL_general_strike_categorie = {
 					create_unit = {
 						division = " name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 0.5"
 						owner = BEL
-						prioritize_location = 9536 
-					}
-					create_unit = {
-						division = " name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 0.5"
-						owner = BEL
-						prioritize_location = 3516
+						prioritize_location = 3516 
 					}
 					create_unit = {
 						division = " name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 0.5"
@@ -663,12 +658,19 @@ BEL_general_strike_categorie = {
 					create_unit = {
 						division = " name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 0.5"
 						owner = BEL
-						prioritize_location = 3576
+						prioritize_location = 6560
 					}
 					create_unit = {
 						division = " name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 0.5"
 						owner = BEL
 						prioritize_location = 516
+					}
+				}
+				977 = {
+					create_unit = {
+						division = " name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 0.5"
+						owner = BEL
+						prioritize_location = 6598
 					}
 					create_unit = {
 						division = " name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 0.5"
@@ -688,19 +690,6 @@ BEL_general_strike_categorie = {
 					active = no
 					}
 				}
-				start_civil_war = {
-   					ruling_party = communism
-    				ideology = ROOT
-    				size = var:BEL_cw_support
-					army_ratio = var:BEL_cw_army_support
-					air_ratio = 0.1
-    				capital = 282
-					keep_all_characters = yes
-				}
-				remove_ideas = BEL_looming_general_strike
-				remove_power_balance = {
-    				id = BEL_king_power_bop
-				}
 				clr_country_flag = BEL_leopold_flag
 				IF = {
 					limit = {
@@ -708,6 +697,22 @@ BEL_general_strike_categorie = {
 					}	
 					custom_effect_tooltip = generic_skip_one_line_tt
 					custom_effect_tooltip = BEL_legacy_of_the_soldier_king_tt
+				}
+				start_civil_war = {
+   					ruling_party = communism
+    				ideology = ROOT
+    				size = var:BEL_cw_support
+					army_ratio = var:BEL_cw_army_support
+					air_ratio = 0.1
+					states = { 6 34 980 }
+    				capital = 6
+					keep_all_characters = yes
+				}
+				set_capital = { state = 977 }
+				remove_ideas = BEL_corruption_idea
+				remove_ideas = BEL_looming_general_strike
+				remove_power_balance = {
+    				id = BEL_king_power_bop
 				}
 				add_ideas = BEL_rebelling_king
 				custom_effect_tooltip = BEL_cw_support_current_tt
@@ -795,21 +800,22 @@ BEL_general_strike_categorie = {
 		ai_will_do = {
 			factor = 200
 		}
-		days_remove = 10
+		days_remove = -1
 		available = {
-			OR = {
-				has_idea = BEL_general_strike
-				has_idea = BEL_looming_general_strike
-			}
 			has_completed_focus = BEL_national_labour_conference
 		}
 		modifier = {
 			industrial_capacity_factory = 0.02
 		}
 		complete_effect = {
-			add_days_mission_timeout = {
-				mission = BEL_general_strike
-				days = 30
+			if = {
+				limit = {
+					has_idea = BEL_looming_general_strike
+				}
+				add_days_mission_timeout = {
+					mission = BEL_general_strike
+					days = 30
+				}
 			}
 			add_timed_idea = {
 				idea = BEL_implementing_changes
@@ -825,12 +831,8 @@ BEL_general_strike_categorie = {
 		ai_will_do = {
 			factor = 200
 		}
-		days_remove = 10
+		days_remove = -1
 		available = {
-			OR = {
-				has_idea = BEL_general_strike
-				has_idea = BEL_looming_general_strike
-			}
 			NOT = {
 				has_idea = BEL_implementing_changes
 			}
@@ -841,9 +843,14 @@ BEL_general_strike_categorie = {
 			political_power_factor = 0.05
 		}
 		complete_effect = {
-			add_days_mission_timeout = {
-				mission = BEL_general_strike
-				days = 30
+			if = {
+				limit = {
+					has_idea = BEL_looming_general_strike
+				}
+				add_days_mission_timeout = {
+					mission = BEL_general_strike
+					days = 30
+				}
 			}
 			add_timed_idea = {
 				idea = BEL_implementing_changes
@@ -859,12 +866,8 @@ BEL_general_strike_categorie = {
 		ai_will_do = {
 			factor = 200
 		}
-		days_remove = 10
+		days_remove = -1
 		available = {
-			OR = {
-				has_idea = BEL_general_strike
-				has_idea = BEL_looming_general_strike
-			}
 			NOT = {
 				has_idea = BEL_implementing_changes
 			}
@@ -875,9 +878,14 @@ BEL_general_strike_categorie = {
 			stability_factor = 0.02
 		}
 		complete_effect = {
-			add_days_mission_timeout = {
-				mission = BEL_general_strike
-				days = 30
+			if = {
+				limit = {
+					has_idea = BEL_looming_general_strike
+				}
+				add_days_mission_timeout = {
+					mission = BEL_general_strike
+					days = 30
+				}
 			}
 			add_timed_idea = {
 				idea = BEL_implementing_changes
@@ -980,7 +988,9 @@ BEL_form_burgundy_categorie = {
 				34 = { add_core_of = ROOT }
 			}
 			hidden_effect = {
-				news_event = { id = bel.mod.30 hours = 6 }
+				every_country = {
+					news_event = { id = bel.mod.30 hours = 6 }
+				}
 				set_global_flag = HOL_benelux_formed
 			}
 		}
