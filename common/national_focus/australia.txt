@@ -21,6 +21,9 @@
 	
 	continuous_focus_position = { x = 50 y = 1000 }
 
+	shared_focus = CMW_shared
+
+
 #	focus = {
 #		id = AST_
 #		icon = GFX_goal_generic_construction
@@ -144,7 +147,7 @@
 
 	focus = {
 		id = AST_promote_reservists
-		icon = GFX_goal_generic_army_doctrines
+		icon = GFX_focus_chi_army_reform
 		prerequisite = { focus = AST_additional_militia_training }
 		x = 1
 		y = 1
@@ -194,7 +197,7 @@
 
 	focus = {
 		id = AST_daimler_dingo
-		icon = GFX_goal_generic_army_motorized
+		icon = GFX_focus_SWE_lynx_armored_car
 		prerequisite = { focus = AST_royal_australian_artillery }
 		x = -2
 		y = 2
@@ -224,6 +227,38 @@
 				name = motorized_bonus
 				bonus = 1.00
 				category = motorized_equipment
+			}
+			army_experience = 50
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+
+				set_technology = {
+					daimler_armored_car = 1
+					popup = yes
+				}
+				custom_effect_tooltip = daimler_car_tt
+				add_tech_bonus = {
+					bonus = 1
+					ahead_reduction = 1
+					uses = 1
+					category = cat_armored_cars # optional 
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					bonus = 0.6
+					uses = 2
+					category = support_tech
+
+				}
+
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 1
+					category = land_doctrine
+				}
 			}
 		}
 	}
@@ -387,7 +422,7 @@
 
 	focus = {
 		id = AST_fund_owen_gun_research
-		icon = GFX_goal_generic_small_arms
+		icon = GFX_focus_ETH_freedom_at_gunpoint
 		prerequisite = { focus = AST_hmas_assault }
 		x = 1
 		y = 3
@@ -465,7 +500,7 @@
 
 	focus = {
 		id = AST_airborne_defence
-		icon = GFX_goal_generic_special_forces
+		icon = GFX_focus_generic_paratrooper
 		prerequisite = { focus = AST_specialize_equipment }
 		prerequisite = { focus = AST_volunteer_air_observers_corps }
 		x = 2
@@ -494,7 +529,7 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_airborne_defence
-				bonus = 1.0
+				bonus = 3.0
 				uses = 1
 				category = para_tech
 			}
@@ -552,11 +587,11 @@
 				}
 			}
 			else = {
-				add_doctrine_cost_reduction = {
-					name = AST_introduce_unconventional_warfare
-					cost_reduction = 0.5
-					uses = 1
-					category = land_doctrine
+			add_doctrine_cost_reduction = {
+				name = AST_introduce_unconventional_warfare
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
 				}
 				add_doctrine_cost_reduction = {
 					name = AST_introduce_unconventional_warfare
@@ -598,7 +633,7 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_z_special_unit
-				bonus = 1.0
+				bonus = 3.0
 				uses = 1
 				category = marine_tech
 				category = para_tech
@@ -834,7 +869,8 @@
 			else = {
 				add_tech_bonus = {
 					name = AST_cac_boomerang
-					bonus = 1.0
+					bonus = 1
+					ahead_reduction = 2
 					uses = 1
 					category = light_fighter
 				}
@@ -880,7 +916,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH  }
 
 		complete_tooltip = {
-			air_experience = 25
+			air_experience = 50
 			random_state = {				
 				limit = {
 					has_state_flag = AST_expand_northern_presence_AB
@@ -894,13 +930,13 @@
 			add_doctrine_cost_reduction = {
 				name = AST_expand_northern_presence
 				cost_reduction = 0.5
-				uses = 1
+				uses = 2
 				category = air_doctrine
 			}
 		}
 
 		completion_reward = {
-			air_experience = 25
+			air_experience = 50
 			random_owned_controlled_state = {
 				prioritize = { 521 520 872}
 				limit = {
@@ -920,7 +956,7 @@
 			add_doctrine_cost_reduction = {
 				name = AST_expand_northern_presence
 				cost_reduction = 0.5
-				uses = 1
+				uses = 2
 				category = air_doctrine
 			}
 		}
@@ -962,8 +998,8 @@
 				}
 				add_tech_bonus = {
 					name = AST_cac_woomera
-					bonus = 1.0
-					uses = 3
+					bonus = 3.0
+					uses = 1
 					category = cat_strategic_bomber
 					category = tactical_bomber
 					category = naval_air
@@ -978,8 +1014,8 @@
 			else = {
 				add_tech_bonus = {
 					name = AST_cac_woomera
-					bonus = 1
-					uses = 3
+					bonus = 2
+					uses = 2
 					category = tactical_bomber
 					category = naval_air
 				}
@@ -1283,7 +1319,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH  }
 
 		complete_tooltip = {
-			air_experience = 25
+			air_experience = 50
 			random_state = {				
 				limit = {
 					has_state_flag = AST_death_from_down_under_AB
@@ -1333,7 +1369,7 @@
 		}
 
 		completion_reward = {
-			air_experience = 25
+			air_experience = 50
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1410,7 +1446,7 @@
 	focus = {
 		id = AST_womens_auxilliary_australian_air_force
 		icon = GFX_goal_generic_build_airforce
-		prerequisite = { focus = AST_volunteer_air_observers_corps focus = AST_naval_bombers }
+		prerequisite = { focus = AST_volunteer_air_observers_corps focus = AST_naval_bombers focus = AST_expand_northern_presence }
 		x = 0
 		y = 4
 		relative_position_id = AST_expand_the_raaf
@@ -1435,7 +1471,8 @@
 		search_filters = {  }
 
 		completion_reward = {
-			air_experience = 50
+			add_war_support = 0.1
+			air_experience = 100
 			set_rule = {
 				can_generate_female_aces = yes
 			}
@@ -1444,7 +1481,7 @@
 
 	focus = {
 		id = AST_dominate_the_skies
-		icon = GFX_goal_generic_air_doctrine
+		icon = GFX_focus_FIN_expand_air_force_academy
 		prerequisite = { focus = AST_womens_auxilliary_australian_air_force }
 		x = 1
 		y = 5
@@ -1470,7 +1507,8 @@
 		search_filters = { FOCUS_FILTER_RESEARCH  }
 
 		complete_tooltip = {
-			air_experience = 25
+			add_ideas = HUN_indigenous_designs
+			air_experience = 50
 			random_state = {				
 				limit = {
 					has_state_flag = AST_dominate_the_skies_AB
@@ -1490,7 +1528,8 @@
 		}
 
 		completion_reward = {
-			air_experience = 25
+			add_ideas = HUN_indigenous_designs
+			air_experience = 50
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1501,7 +1540,7 @@
 				}
 				add_building_construction = {
 					type = air_base
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 				set_state_flag = AST_dominate_the_skies_AB
@@ -1509,7 +1548,7 @@
 			add_doctrine_cost_reduction = {
 				name = AST_expand_the_raaf
 				cost_reduction = 0.5
-				uses = 1
+				uses = 2
 				category = air_doctrine
 			}
 		}
@@ -1519,12 +1558,46 @@
 	###### NAVY SECTION ########
 	############################
 
+	focus = {
+		id = AST_modernize_the_ran
+		icon = GFX_focus_generic_navy_battleship2
+		x = 12
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = {  FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = AST_modernization_of_the_ran
+			
+		}
+	}
 
 	focus = {
 		id = AST_cockatoo_island_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = AST_modernize_the_ran}
 		x = 11
-		y = 0
+		y = 1
 
 		cost = 5
 
@@ -1554,10 +1627,10 @@
 				limit = {
 					has_state_flag = AST_cockatoo_island_shipyards_DY
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -1579,10 +1652,10 @@
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = AST_cockatoo_island_shipyards_DY
@@ -1595,6 +1668,7 @@
 	focus = {
 		id = AST_kangaroo_point_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = AST_modernize_the_ran}
 		x = 2
 		y = 0
 		relative_position_id = AST_cockatoo_island_shipyards
@@ -1626,10 +1700,10 @@
 				limit = {
 					has_state_flag = AST_kangaroo_point_shipyards_DY
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -1650,10 +1724,10 @@
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = AST_kangaroo_point_shipyards_DY
@@ -1694,7 +1768,7 @@
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				name = AST_protect_overseas_commerce
-				cost_reduction = 0.25
+				cost_reduction = 0.50
 				uses = 2
 				category = fleet_in_being_tree
 				category = convoy_defense_tree
@@ -1733,7 +1807,7 @@
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				name = AST_fly_the_jolly_roger
-				cost_reduction = 0.25
+				cost_reduction = 0.50
 				uses = 2
 				category = submarine_doctrine
 			}
@@ -1744,7 +1818,7 @@
 		id = AST_scrap_iron_flotilla
 		icon = GFX_goal_generic_navy_cruiser
 		prerequisite = { focus = AST_protect_overseas_commerce focus = AST_fly_the_jolly_roger }
-		x = 0
+		x = -1
 		y = 2
 		relative_position_id = AST_cockatoo_island_shipyards
 
@@ -1782,7 +1856,7 @@
 		id = AST_royal_australian_submarine_service
 		icon = GFX_goal_generic_wolf_pack
 		prerequisite = { focus = AST_protect_overseas_commerce focus = AST_fly_the_jolly_roger }
-		x = 2
+		x = 3
 		y = 2
 		relative_position_id = AST_cockatoo_island_shipyards
 
@@ -1819,7 +1893,7 @@
 	focus = {
 		id = AST_naval_auxiliary_patrol
 		icon = GFX_goal_generic_fortify_city
-		prerequisite = { focus = AST_royal_australian_submarine_service focus = AST_scrap_iron_flotilla }
+		prerequisite = { focus = AST_royal_australian_submarine_service focus = AST_scrap_iron_flotilla focus = AST_go_big }
 		x = 1
 		y = 3
 		relative_position_id = AST_cockatoo_island_shipyards
@@ -1845,6 +1919,44 @@
 
 		completion_reward = {
 			add_ideas = AST_naval_auxiliary_patrol
+		}
+	}
+
+	focus = {
+		id = AST_go_big
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = AST_protect_overseas_commerce focus = AST_fly_the_jolly_roger }
+		x = 1
+		y = 2
+		relative_position_id = AST_cockatoo_island_shipyards
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH  }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = bb_tech
+				category = cv_tech
+			}
 		}
 	}
 
@@ -1889,7 +2001,7 @@
 
 	focus = {
 		id = AST_pacific_area_navy
-		icon = GFX_goal_generic_navy_doctrines_tactics
+		icon = GFX_focus_SWE_coastal_support
 		prerequisite = { focus = AST_naval_auxiliary_patrol }
 		x = 2
 		y = 4
@@ -1917,9 +2029,44 @@
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				name = AST_pacific_area_navy
-				cost_reduction = 0.5
-				uses = 1
+				cost_reduction = 1
+				uses = 2
 				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = AST_rule_the_seas
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = AST_pacific_area_navy }
+		x = 2
+		y = 5
+		relative_position_id = AST_cockatoo_island_shipyards
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH  }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = AST_modernization_of_the_ran
+				add_idea = AST_modernization_of_the_ran_2
 			}
 		}
 	}
@@ -1936,7 +2083,7 @@
 		x = 16
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1956,6 +2103,7 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
+			add_stability = 0.05
 			add_ideas = AST_standard_gauge_railway
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_industrial_concern
@@ -1965,12 +2113,12 @@
 
 	focus = {
 		id = AST_industries_assistance_corporation
-		icon = GFX_goal_generic_production
+		icon = GFX_focus_generic_modernize_industry
 		x = 2
 		y = 0
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -2001,14 +2149,13 @@
 
 	focus = {
 		id = AST_western_australian_government_railways
-		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = AST_standard_gauge_railway }
-		prerequisite = { focus = AST_industries_assistance_corporation }
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = AST_standard_gauge_railway focus = AST_industries_assistance_corporation  }
 		x = 1
 		y = 1
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -2072,13 +2219,13 @@
 
 	focus = {
 		id = AST_south_australian_housing_trust
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_focus_generic_low_cost_housing
 		prerequisite = { focus = AST_western_australian_government_railways }
 		x = 0
 		y = 2
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 5
@@ -2102,7 +2249,7 @@
 				limit = {
 					has_state_flag = AST_south_australian_housing_trust_IC
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -2122,7 +2269,7 @@
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -2135,13 +2282,13 @@
 
 	focus = {
 		id = AST_department_of_supply_and_development
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_focus_DEN_no_regulations
 		prerequisite = { focus = AST_western_australian_government_railways }
 		x = 2
 		y = 2
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -2165,10 +2312,10 @@
 				limit = {
 					has_state_flag = AST_department_of_supply_and_development_AF
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -2185,10 +2332,10 @@
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = AST_department_of_supply_and_development_AF
@@ -2223,20 +2370,6 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = AST_expand_lithgow_small_arms_factory_AF
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				prioritize = { 285 }
@@ -2248,10 +2381,10 @@
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = AST_expand_lithgow_small_arms_factory_AF
@@ -2287,31 +2420,6 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = AST_allied_works_council_IC1
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = AST_allied_works_council_IC2
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {					
@@ -2323,7 +2431,7 @@
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -2341,7 +2449,7 @@
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -2360,7 +2468,7 @@
 		y = 4
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2380,6 +2488,7 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
+			add_stability = 0.05
 			build_railway = {
 				level = 2
 				path = { 7669 1431 12104 1454 }
@@ -2391,13 +2500,13 @@
 
 	focus = {
 		id = AST_australian_arms_production
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_focus_SWE_let_fly_all_guns
 		prerequisite = { focus = AST_allied_works_council }
 		x = 2
 		y = 4
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2501,7 +2610,7 @@
 
 		available = {
 			OR = {
-				threat > 0.20
+				threat > 0.15
 				has_war = yes
 			}
 		}
@@ -2563,7 +2672,7 @@
 		y = 1
 		relative_position_id = AST_establish_advisory_war_council
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2693,7 +2802,7 @@
 		y = 2
 		relative_position_id = AST_establish_advisory_war_council
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3644,7 +3753,7 @@
 		search_filters = {  FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			IF = {
+IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
@@ -3655,7 +3764,7 @@
 				}
 			}
 			ELSE = {
-				add_ideas = AST_commonwealth_aircraft_corporation 
+				add_ideas = AST_commonwealth_aircraft_corporation
 			}
 		}
 	}
@@ -3668,7 +3777,7 @@
 		id = AST_never_another_gallipoli
 		icon = GFX_focus_AST_never_gallipoli
 		mutually_exclusive = { focus = AST_support_the_policy_of_appeasement }
-		x = 37
+		x = 40
 		y = 0
 
 		cost = 10
@@ -3711,7 +3820,7 @@
 		completion_reward = {
 			set_rule = { can_decline_call_to_war = yes }
 			add_autonomy_ratio = {
-				value = 0.2
+				value = 0.4
 				localization = AST_never_another_gallipoli
 			}
 			hidden_effect = {
@@ -3722,12 +3831,13 @@
 
 
 	############################
-	#### GO WITH US SECTION ####
+	#### GO WITH POGGERS SECTION ####
 	############################
 
+	
 	focus = {
-		id = AST_protect_the_homeland
-		icon = GFX_goal_generic_fortify_city
+		id = AST_the_opposition
+		icon = GFX_goal_generic_major_alliance
 		prerequisite = { focus = AST_never_another_gallipoli }
 		mutually_exclusive = { focus = AST_abandon_the_westminster_system }
 		x = -3
@@ -3753,6 +3863,452 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_ideas = AST_the_country_party
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+			}
+			
+		}
+	}
+
+	
+	focus = {
+		id = AST_woo_usa
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = AST_the_opposition }
+		x = 3
+		y = 1
+		relative_position_id = AST_the_opposition
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_in_faction = no
+				factor = 10 #we're all alone here!
+			}
+		}
+
+		available = {
+			NOT = {
+				has_war_with = USA
+			}
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+			OR = {
+				USA = { exists = no }
+				USA = {
+					AND = {
+						is_in_faction = yes
+						NOT = {
+							is_in_faction_with = AST
+						}
+					}
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			USA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = AST_woo_usa
+				}
+			}
+			add_opinion_modifier = {
+				target = USA
+				modifier = AST_woo_usa
+			}
+		}
+	}
+
+	focus = {
+		id = AST_invite_american_monopolies
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = AST_woo_usa }
+		x = 0
+		y = 1
+		relative_position_id = AST_woo_usa
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = AST_english_monopolies
+				}
+				swap_ideas = {
+					remove_idea = AST_english_monopolies
+					add_idea = AST_american_monopolies
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = AST_monopolies_collapse
+				}
+				swap_ideas = {
+					remove_idea = AST_monopolies_collapse
+					add_idea = AST_american_monopolies
+				}
+			}
+			else = {
+				add_ideas = AST_american_monopolies
+			}
+		}
+	}
+
+	focus = {
+		id = AST_the_economy_collapses
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = AST_the_opposition }
+		x = -3
+		y = 1
+		relative_position_id = AST_the_opposition
+
+		cost = 5
+
+		allow_branch = {
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AST_tax_foreign_businesses
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = AST_the_economy_collapses }
+		x = -4
+		y = 2
+		relative_position_id = AST_the_opposition
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AST_
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = AST_the_economy_collapses }
+		x = -2
+		y = 2
+		relative_position_id = AST_the_opposition
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+		}
+	}
+
+
+	focus = {
+		id = AST_the_swpa_single_market
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = AST_the_economy_collapses }
+		x = 0
+		y = 2
+		relative_position_id = AST_the_economy_collapses
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AST_econonomic_promises
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = AST_the_opposition }
+		x = -4
+		y = 2
+		relative_position_id = AST_never_another_gallipoli
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			complete_national_focus = AST_establish_advisory_war_council
+			add_timed_idea = { idea = AST_angry_monopolies  days = 180 }
+		}
+	}
+
+	focus = {
+		id = AST_anti_british_sentiment
+		icon = GFX_focus_eng_decolonization
+		prerequisite = { focus = AST_the_opposition }
+		x = -2
+		y = 2
+		relative_position_id = AST_never_another_gallipoli
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			swap_ideas = {
+					remove_idea = AST_the_country_party
+					add_idea = AST_the_country_party_2
+				}
+			add_opinion_modifier = { target = ENG modifier = medium_decrease }
+		}
+	}
+
+	focus = {
+		id = AST_demand_realection
+		icon = GFX_focus_hol_united_netherlands
+		prerequisite = { focus = AST_anti_british_sentiment focus = AST_econonomic_promises}
+		x = -3
+		y = 3
+		relative_position_id = AST_never_another_gallipoli
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			neutrality > 0.50
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = yes
+			}
+
+			swap_ideas = {
+				remove_idea = AST_the_country_party_2
+				add_idea = AST_the_country_party_3
+			}
+		}
+	}
+
+	focus = {
+		id = AST_sever_ties_with_uk
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		prerequisite = { focus = AST_demand_realection }
+		x = 0
+		y = 1
+		relative_position_id = AST_demand_realection
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			if = {
+				limit = { NOT = { has_government = fascism } }
+				has_autonomy_state = autonomy_dominion
+			}
+			if = {
+				limit = { has_government = fascism }
+				has_autonomy_state = autonomy_satellite
+			}
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+			has_war_with = ENG
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_TFV_AUTONOMY }
+
+		completion_reward = {
+			OVERLORD = {
+				set_autonomy = {
+					target = AST
+					autonomy_state = autonomy_free
+				}
+			}
+			ENG = { remove_from_faction = ROOT }
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = AST_arthur_calwell
+			hidden_effect = {
+				news_event = { id = news.286 hours = 6}
+				if = {
+					limit = { has_idea = AST_english_monopolies }
+					country_event = { id = tfv_australia.103 hours = 120}
+				}
+				
+
+			}
+			custom_effect_tooltip = AST_no_no_explodio_TT
+		}
+	}
+
+
+
+	focus = {
+		id = AST_protect_the_homeland
+		icon = GFX_goal_generic_fortify_city	
+		x = 2
+		y = 2
+		relative_position_id = AST_never_another_gallipoli
+		prerequisite = { focus = AST_the_opposition focus = AST_abandon_the_westminster_system}
+
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
 			custom_effect_tooltip = AST_homeland_defense_tt
 			hidden_effect = {
 				every_owned_state =	{
@@ -3804,16 +4360,17 @@
 			}
 		}
 	}
+	
 
 	focus = {
 		id = AST_the_swpa_menace
 		icon = GFX_goal_generic_trade
-		prerequisite = { focus = AST_protect_the_homeland }
-		x = -1
+		prerequisite = { focus = AST_sever_ties_with_uk}
+		x = -2
 		y = 1
-		relative_position_id = AST_protect_the_homeland
+		relative_position_id = AST_sever_ties_with_uk
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3860,125 +4417,84 @@
 	}
 
 	focus = {
-		id = AST_sever_ties_with_uk
-		icon = GFX_goal_tfv_sever_ties_with_uk
-		prerequisite = { focus = AST_protect_the_homeland }
-		x = 1
-		y = 1
-		relative_position_id = AST_protect_the_homeland
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			if = {
-				limit = { NOT = { has_government = fascism } }
-				has_autonomy_state = autonomy_dominion
-			}
-			if = {
-				limit = { has_government = fascism }
-				has_autonomy_state = autonomy_satellite
-			}
-			NOT = { has_country_flag = britain_enforced_our_loyalty }
-		}
-		
-		bypass = {
-			has_war_with = ENG
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_TFV_AUTONOMY }
-
-		completion_reward = {
-			OVERLORD = {
-				set_autonomy = {
-					target = AST
-					autonomy_state = autonomy_free
-				}
-			}
-			ENG = { remove_from_faction = ROOT }
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = AST_arthur_calwell
-			hidden_effect = {
-				news_event = { id = news.286 hours = 6}
-			}
-		}
-	}
-
-	focus = {
-		id = AST_woo_usa
-		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = AST_the_swpa_menace }
-		prerequisite = { focus = AST_sever_ties_with_uk }
+		id = AST_demand_east_timor
+		icon = GFX_focus_generic_attack_portugal
+		prerequisite = { focus = AST_the_swpa_menace}
 		x = -1
 		y = 2
-		relative_position_id = AST_protect_the_homeland
+		relative_position_id = AST_sever_ties_with_uk
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
-			modifier = {
-				is_in_faction = no
-				factor = 10 #we're all alone here!
-			}
 		}
 
 		available = {
-			NOT = {
-				has_war_with = USA
-			}
-			USA = { 
-				has_government = ROOT
-				is_puppet = no
-			}
+			NOT = { has_war_with = POR }
 			NOT = { has_country_flag = britain_enforced_our_loyalty }
 		}
 		
 		bypass = {
-			OR = {
-				USA = { exists = no }
-				USA = {
-					AND = {
-						is_in_faction = yes
-						NOT = {
-							is_in_faction_with = AST
-						}
-					}
-				}
-			}
+			
 		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
-		available_if_capitulated = yes
+		available_if_capitulated = no
 
 		completion_reward = {
-			USA = {
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = AST_woo_usa
-				}
+			POR = {
+				country_event = { id = tfv_australia.100 }
 			}
-			add_opinion_modifier = {
-				target = USA
-				modifier = AST_woo_usa
-			}
+			
 		}
 	}
+
+	
+	focus = {
+		id = AST_press_new_caledonia
+		icon = GFX_focus_attack_france
+		prerequisite = { focus = AST_demand_east_timor focus = AST_protect_the_dutch_colonies}
+		x = -2
+		y = 3
+		relative_position_id = AST_sever_ties_with_uk
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			FRA = {
+				has_capitulated = yes
+			}
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			transfer_state = 635
+			transfer_state = 734
+		}
+	}
+	
+	
 
 	focus = {
 		id = AST_protect_the_dutch_colonies
 		icon = GFX_goal_generic_defence
-		prerequisite = { focus = AST_sever_ties_with_uk }
-		x = 1
+		prerequisite = { focus = AST_the_swpa_menace}
+		x = -3
 		y = 2
-		relative_position_id = AST_protect_the_homeland
+		relative_position_id = AST_sever_ties_with_uk
 
 		cost = 10
 
@@ -3988,7 +4504,6 @@
 
 		available = {
 			NOT = { has_war_with = HOL }
-			HOL = { has_capitulated = yes }
 			NOT = { has_country_flag = britain_enforced_our_loyalty }
 		}
 		
@@ -3997,7 +4512,6 @@
 				OR = {
 					NOT = { is_puppet_of = HOL }
 					exists = no
-					has_capitulated = yes
 				}
 			}
 		}
@@ -4016,10 +4530,10 @@
 	focus = {
 		id = AST_the_south_west_pacific_initiative
 		icon = GFX_goal_anschluss
-		prerequisite = { focus = AST_woo_usa focus = AST_protect_the_dutch_colonies }
-		x = 0
-		y = 3
-		relative_position_id = AST_protect_the_homeland
+		prerequisite = { focus = AST_sever_ties_with_uk}
+		x = 2
+		y = 1
+		relative_position_id = AST_sever_ties_with_uk
 
 		cost = 10
 
@@ -4043,44 +4557,97 @@
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
 			create_faction = south_west_pacific_initiative
-			if = {
-				limit = {
-					has_completed_focus = AST_protect_the_dutch_colonies
-					INS = { is_puppet_of = AST }
-				}
-				set_country_flag = INS_is_a_puppet
-			}
-			if = {
-				limit = {
-					has_completed_focus = AST_woo_usa
-					USA = {
-						exists = yes
-						has_capitulated = no
-						is_puppet = no
-						has_government = ROOT
-						OR = {
-							is_in_faction = no
-							has_war = no
-						}
-					}
-				}
-				USA = {
-					country_event = { id = tfv_australia.32 } #Ask USA to join faction
-				}
-				else = {
-					country_event = { id = tfv_australia.31 } #Start faction without asking USA
-				}
+
+			country_event = { id = tfv_australia.31 } #Start faction without asking USA
+			
+		}
+	}
+
+	focus = {
+		id = AST_influence_new_zealand
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = AST_the_south_west_pacific_initiative}
+		x = 1
+		y = 1
+		relative_position_id = AST_the_south_west_pacific_initiative
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			is_subject = no
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+			NZL = {
+				is_ai = yes
+			}	
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			NZL = {
+				country_event = generic.1
+				add_ideas = AST_influence
 			}
 		}
 	}
 
 	focus = {
+		id = AST_Australasia_reborn
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = AST_the_south_west_pacific_initiative}
+		x = 1
+		y = 2
+		relative_position_id = AST_the_south_west_pacific_initiative
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			is_subject = no
+			NZL = {
+				neutrality > 0.50
+			}
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+    			limit = { is_core_of = NZL }
+    			add_core_of = AST
+			}
+			annex_country = { target = NZL transfer_troops = yes }
+		}
+	}
+
+
+	focus = {
 		id = AST_research_cooperation
 		icon = GFX_goal_generic_scientific_exchange
 		prerequisite = { focus = AST_the_south_west_pacific_initiative }
-		x = 0
-		y = 4
-		relative_position_id = AST_protect_the_homeland
+		x = -1
+		y = 1
+		relative_position_id = AST_the_south_west_pacific_initiative
 
 		cost = 10
 
@@ -4102,7 +4669,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-		custom_effect_tooltip = AST_swpi_research_tt
+			add_research_slot = 1
 			if = {
 				limit = { AST = { is_in_faction_with = USA } }
 				add_to_tech_sharing_group = us_research
@@ -4122,9 +4689,9 @@
 		id = AST_preemptive_intervention
 		icon = GFX_focus_AST_war_japan
 		prerequisite = { focus = AST_research_cooperation }
-		x = 0
-		y = 5
-		relative_position_id = AST_protect_the_homeland
+		x = -1
+		y = 2
+		relative_position_id = AST_the_south_west_pacific_initiative
 
 		cost = 10
 
@@ -4164,8 +4731,8 @@
 		id = AST_abandon_the_westminster_system
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = AST_never_another_gallipoli }
-		mutually_exclusive = { focus = AST_protect_the_homeland }
-		x = 3
+		mutually_exclusive = { focus = AST_the_opposition }
+		x = 6
 		y = 1
 		relative_position_id = AST_never_another_gallipoli
 
@@ -4205,13 +4772,15 @@
 		completion_reward = {
 			add_popularity = {
 				ideology = fascism
-				popularity = 0.05
+				popularity = 0.1
 			}
 			add_popularity = {
 				ideology = communism 
-				popularity = 0.05
+				popularity = 0.1
 			}
 			add_timed_idea = { days = 1095 idea = AST_abandon_the_westminster_system } 
+			
+			remove_ideas = AST_english_monopolies
 		}
 	}
 
@@ -4243,7 +4812,7 @@
 		}
 
 		available = {
-			compare_autonomy_progress_ratio > 0.55
+			compare_autonomy_progress_ratio > 0.40
 			if = {
 				limit = { not = { has_government = fascism } }
 				compare_autonomy_state > autonomy_colony
@@ -4265,6 +4834,7 @@
 		search_filters = { FOCUS_FILTER_TFV_AUTONOMY }
 
 		completion_reward = {
+			add_ideas = military_youth_focus
 			swap_ideas = {
 				remove_idea = AST_abandon_the_westminster_system
 				add_idea = AST_abandon_the_westminster_system_fascism
@@ -4358,7 +4928,7 @@
 				is_subject = no
 				AND = {
 					compare_autonomy_progress_ratio > 0.75
-					has_autonomy_state = autonomy_dominion
+						has_autonomy_state = autonomy_dominion
 				}
 			}
 			fascism > 0.3
@@ -4457,7 +5027,7 @@
 		}
 
 		available = {
-			has_autonomy_state = autonomy_dominion
+				has_autonomy_state = autonomy_dominion
 			MAL = {
 				is_puppet_of = ENG
 			}
@@ -4498,14 +5068,14 @@
 			modifier = {
 				JAP = { has_capitulated = yes }
 				factor = 0
-			}
+				}
 		}
 
 		available = {
 			OR = {
 				is_subject = no
 				AND = {
-					has_autonomy_state = autonomy_dominion
+						has_autonomy_state = autonomy_dominion
 					compare_autonomy_progress_ratio > 0.8
 				}
 			}
@@ -4576,7 +5146,7 @@
 			OR = {
 				is_subject = no
 				AND = {
-					has_autonomy_state = autonomy_dominion
+						has_autonomy_state = autonomy_dominion
 					compare_autonomy_progress_ratio > 0.8
 				}
 			}
@@ -4608,7 +5178,7 @@
 	focus = {
 		id = AST_japan_tech_sharing
 		icon = GFX_goal_tfv_generic_tech_sharing
-		prerequisite = { focus = AST_a_deal_with_japan }
+		prerequisite = { focus = AST_a_deal_with_japan focus = AST_our_own_empire}
 		x = -1
 		y = 5
 		relative_position_id = AST_support_the_centre_party
@@ -4620,8 +5190,7 @@
 		}
 
 		available = {
-			is_in_faction_with = JAP
-			NOT = { has_country_flag = britain_enforced_our_loyalty }
+			
 		}
 		
 		bypass = {
@@ -4634,8 +5203,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_to_tech_sharing_group = japanese_research
-			JAP = { add_to_tech_sharing_group = japanese_research }
+			add_research_slot = 1
 		}
 	}
 
@@ -4683,7 +5251,7 @@
 
 	focus = {
 		id = AST_empower_the_workers
-		icon = GFX_goal_support_communism
+		icon = GFX_focus_generic_join_comintern
 		prerequisite = { focus = AST_abandon_the_westminster_system }
 		mutually_exclusive = { focus = AST_support_the_centre_party }
 		x = 2
@@ -4701,7 +5269,7 @@
 		}
 
 		available = {			
-			compare_autonomy_progress_ratio > 0.55
+			compare_autonomy_progress_ratio > 0.40
 			if = {
 				limit = { not = { has_government = fascism } }
 				compare_autonomy_state > autonomy_colony
@@ -4722,6 +5290,8 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
+			add_ideas = NZL_the_workers_party_2
+
 			swap_ideas = {
 				remove_idea = AST_abandon_the_westminster_system
 				add_idea = AST_abandon_the_westminster_system_communism			
@@ -4733,7 +5303,7 @@
 
 	focus = {
 		id = AST_delegation_to_china
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_focus_generic_china1
 		prerequisite = { focus = AST_empower_the_workers }
 		x = 0
 		y = 1
@@ -4791,7 +5361,7 @@
 
 	focus = {
 		id = AST_commitment_to_the_cause
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_focus_FIN_socialist_welfare
 		prerequisite = { focus = AST_delegation_to_china }
 		x = 0
 		y = 2
@@ -5045,8 +5615,8 @@
 
 	focus = {
 		id = AST_research_city_excursions
-		icon = GFX_goal_tfv_generic_tech_sharing
-		prerequisite = { focus = AST_join_comintern }
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { focus = AST_join_comintern focus = AST_workers_paradise }
 		x = -1
 		y = 5
 		relative_position_id = AST_empower_the_workers
@@ -5058,8 +5628,7 @@
 		}
 
 		available = {
-			is_in_faction_with = SOV
-			NOT = { has_country_flag = britain_enforced_our_loyalty }
+			
 		}
 		
 		bypass = {
@@ -5072,8 +5641,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			SOV = { add_to_tech_sharing_group = comintern_research }
-			add_to_tech_sharing_group = comintern_research
+			add_research_slot = 1
 		}
 	}
 
