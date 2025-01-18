@@ -1,0 +1,121 @@
+BEL_historical_plan = {
+	name = "Belgium Historical Plan"
+	desc = "Historical behavior for Belgium"
+
+	allowed = {
+		original_tag = BEL
+		has_dlc = "Gotterdammerung"
+	}
+
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes 
+				has_game_rule = {
+					rule = BEL_AI_BEHAVIOR
+					option = DEFAULT
+				}
+			}
+			has_country_flag = BEL_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = BEL_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+
+	abort = {
+	}
+
+	ai_national_focuses = {
+		#1936
+		BEL_government_resigns_2
+		BEL_political_cooperation
+		BEL_national_labour_conference
+		BEL_suppress_the_rexist
+		BEL_plan_de_man_2
+		BEL_perpetual_neutrality
+		BEL_independent_neutral_and_loyal_2
+
+		#1937
+		BEL_devalue_the_bfr
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+		BEL_address_ethnic_tensions
+		BEL_ease_the_tensions
+		BEL_abandon_the_locarno_treaty
+		BEL_defense_bill
+		BEL_gold_reserves
+		BEL_return_to_neutrality
+		BEL_politique_d_independence
+		BEL_demand_western_guarantees
+		
+		#1938
+		BEL_dutch_at_the_universities
+		BEL_revive_coal_mining
+		BEL_expand_the_civilian_industry
+		BEL_invest_in_the_north
+		BEL_invest_in_the_south
+		BEL_cockerill
+		BEL_increased_length_of_service
+		BEL_fn_herstal
+		
+		#1939
+		BEL_dyle_plan_2
+		BEL_end_the_crisis
+		BEL_defensive_neutrality
+		BEL_belgian_gates
+		BEL_flemish_autonomy
+		BEL_strengthen_belgian_unity
+		BEL_ban_the_fascist_parties
+		BEL_distrust_the_king
+		BEL_flee_to_london
+		BEL_traitor_king
+		BEL_army_reforms
+		BEL_army_of_the_congo
+		BEL_keep_up_the_hope
+		BEL_increase_conscription_in_congo
+
+		#1940
+		BEL_iron_wall
+		BEL_koningshooikt_wavre_line
+		CONGO_force_publique
+		BEL_minerva_imperia
+
+		#If Capitulated
+		BEL_unfit_to_reign
+		BEL_secretaries_general
+		BEL_government_in_exile
+		CONGO_antwerp_diamond_district
+		CONGO_cheap_labor
+		CONGO_requisition_funds
+		CONGO_gold_and_diamonds
+
+		#Also Important
+		BEL_legacy_of_the_great_war
+
+	}
+
+	#Focuses never to take
+	focus_factors = {
+
+	}			
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
