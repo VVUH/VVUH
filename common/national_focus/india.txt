@@ -23,6 +23,9 @@ focus_tree = {
 
 	continuous_focus_position = { x = 50 y = 1300 }
 
+	shared_focus = CMW_shared
+
+
 
 
 #	focus = {

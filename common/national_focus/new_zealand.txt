@@ -20,6 +20,9 @@
 	default = no
 	continuous_focus_position = { x = 0 y = 1500 }
 
+	shared_focus = CMW_shared
+
+
 #	focus = {
 #		id = NZL_
 #		icon = GFX_
@@ -4815,7 +4818,6 @@
 		}
 
 		available = {
-			is_subject = yes
 		}
 
 		bypass = {

@@ -1,9 +1,9 @@
-shared_focus = {
+joint_focus = {
 	id = CMW_shared
 	
 	dynamic = yes 
 	
-	icon =  GFX_goal_generic_army_doctrines
+	icon =  GFX_focus_eng_the_sun_never_sets
 		
 	
 	
@@ -21,7 +21,7 @@ shared_focus = {
 
 	#Saf
 	offset = {
-		x = 38
+		x = 37
 		y = 0
 		trigger = {
 			has_focus_tree = south_african_focus
@@ -30,7 +30,7 @@ shared_focus = {
 
 	#Raj
 	offset = {
-		x = 47
+		x = 45
 		y = 0
 		trigger = {
 			has_focus_tree = indian_focus
@@ -39,7 +39,7 @@ shared_focus = {
 
 	#Aussies
 	offset = {
-		x = 56
+		x = 52
 		y = 0
 		trigger = {
 			has_focus_tree = australian_focus
@@ -67,13 +67,12 @@ shared_focus = {
 		}
 	}
 
-	cost = 10
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		is_faction_leader = yes 
-		is_subject = no 
+		is_in_faction_with = ENG
 	}
 	ai_will_do = {
 		base = 1
@@ -85,29 +84,126 @@ shared_focus = {
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward = {
-		if = {
-			limit = {	
-				NORDIC_alliance_created_already = no
-			}
-			hidden_effect = {
-				every_other_country = {
-					limit = {
-						is_in_faction_with = ROOT
-						NORDIC_is_nordic = yes
-					}
-					set_country_flag = NORDIC_already_member_flag
-				}
-			}
-			NORDIC_create_nordic_alliance = yes 
+	joint_trigger = {
+		OR = {
+			tag = CAN
+			tag = AST
+			tag = RAJ
+			tag = SAF
+			tag = NZL
 		}
+	}
+
+	completion_reward_joint_originator = {
+		add_stability = 0.1
+	}
+
+	completion_reward_joint_member = {
+		add_stability = 0.05
 	}
 }
 
 joint_focus = {
-	id = CMW_TEST
+	id = CMW_anti_british_unions
 	
-	icon = GFX_goal_generic_army_doctrines
+	icon = GFX_focus_eng_decolonization
+	
+	prerequisite = { focus = CMW_shared }
+	
+	x = -1
+	y = 1
+	relative_position_id = CMW_shared
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		
+	}
+	
+	joint_trigger = {
+		OR = {
+			tag = CAN
+			tag = AST
+			tag = RAJ
+			tag = SAF
+			tag = NZL
+		}
+	}
+
+	completion_reward_joint_originator = {
+		add_political_power = 100
+		add_autonomy_ratio = {
+				value = 0.3
+		}
+	}
+	
+
+	completion_reward_joint_member = {
+		add_political_power = 50
+		add_autonomy_ratio = {
+				value = 0.1
+		}
+	}
+
+}
+
+joint_focus = {
+	id = CMW_industrial_advancements
+	
+	icon = GFX_focus_CHL_enlarge_the_textile_industries
+	
+	prerequisite = { focus = CMW_shared }
+	
+	x = 5
+	y = 1
+	relative_position_id = CMW_shared
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		
+	}
+	
+	joint_trigger = {
+		OR = {
+			tag = CAN
+			tag = AST
+			tag = RAJ
+			tag = SAF
+			tag = NZL
+		}
+	}
+
+	completion_reward_joint_originator = {
+		add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = industry
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	
+
+	completion_reward_joint_member = {
+		add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = industry
+		}
+	}
+
+}
+joint_focus = {
+	id = CMW_global_connections
+	
+	icon = GFX_focus_eng_global_defense
 	
 	prerequisite = { focus = CMW_shared }
 	
@@ -121,18 +217,281 @@ joint_focus = {
 	available = {
 		
 	}
-
-	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
-
+	
 	joint_trigger = {
-  		NORDIC_basic_joint_trigger = yes 
+		OR = {
+			tag = CAN
+			tag = AST
+			tag = RAJ
+			tag = SAF
+			tag = NZL
+		}
 	}
 
+	completion_reward_joint_originator = {
+		navy_experience = 50
+		add_equipment_to_stockpile = { 
+				type = convoy 
+				amount = 100
+				producer = ENG
+		}
+	}
+	
 
-	completion_reward = {
-		air_experience = 25
-		navy_experience = 25
-		army_experience = 25
-		add_command_power = 25		
+	completion_reward_joint_member = {
+		navy_experience = 30
+		add_equipment_to_stockpile = { 
+				type = convoy 
+				amount = 50 
+				producer = ENG
+		}
+	}
+
+}
+
+joint_focus = {
+	id = CMW_trade_profiteering
+	
+	icon = GFX_focus_mex_privatisation
+	
+	prerequisite = { focus = CMW_global_connections }
+	prerequisite = { focus = CMW_industrial_advancements }
+	
+	x = 3
+	y = 2
+	relative_position_id = CMW_shared
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		
+	}
+	
+	joint_trigger = {
+		OR = {
+			tag = CAN
+			tag = AST
+			tag = RAJ
+			tag = SAF
+			tag = NZL
+		}
+	}
+
+	completion_reward_joint_originator = {
+		add_political_power = 50
+		add_ideas = global_trade
+	}
+	
+
+	completion_reward_joint_member = {
+		add_ideas = global_trade
+	}
+
+}
+
+joint_focus = {
+	id = CMW_commonwealth_deterance
+	
+	icon = GFX_focus_generic_home_defense
+	
+	prerequisite = { focus = CMW_industrial_advancements }
+	
+	x = 5
+	y = 2
+	relative_position_id = CMW_shared
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		
+	}
+	
+	joint_trigger = {
+		OR = {
+			tag = CAN
+			tag = AST
+			tag = RAJ
+			tag = SAF
+			tag = NZL
+		}
+	}
+
+	completion_reward_joint_originator = {
+		add_war_support = 0.1
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+		}
+	}
+	
+
+	completion_reward_joint_member = {
+		add_war_support = 0.05
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+		}
 	}
 }
+
+joint_focus = {
+	id = CMW_flying_clubs
+	
+	icon = GFX_focus_SOV_flying_clubs
+	
+	prerequisite = { focus = CMW_commonwealth_deterance }
+	
+	x = 6
+	y = 3
+	relative_position_id = CMW_shared
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+	}
+	
+	joint_trigger = {
+		OR = {
+			tag = CAN
+			tag = AST
+			tag = RAJ
+			tag = SAF
+			tag = NZL
+		}
+	}
+
+	completion_reward_joint_originator = {
+		air_experience = 80
+		add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 3
+				category = air_doctrine
+			}
+	}
+
+	completion_reward_joint_member = {
+		air_experience = 30
+		add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+	}
+	
+
+}
+
+joint_focus = {
+	id = CMW_fortress_warriors
+	
+	icon = GFX_focus_generic_tank_assembly
+	
+	prerequisite = { focus = CMW_commonwealth_deterance }
+	
+	x = 4
+	y = 3
+	relative_position_id = CMW_shared
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+	}
+	
+	joint_trigger = {
+		OR = {
+			tag = CAN
+			tag = AST
+			tag = RAJ
+			tag = SAF
+			tag = NZL
+		}
+	}
+
+	completion_reward_joint_originator = {
+		army_experience = 80
+		add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 3
+				category = land_doctrine
+			}
+	}
+
+	completion_reward_joint_member = {
+		army_experience = 30
+		add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+	}
+	
+
+}
+
+joint_focus = {
+	id = CMW_demand_territorial_reajustments
+	
+	icon = GFX_goal_generic_demand_territory
+	
+	prerequisite = { focus = CMW_anti_british_unions focus = CMW_global_connections }
+	
+	x = 0
+	y = 3
+	relative_position_id = CMW_shared
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+	}
+	
+	joint_trigger = {
+		OR = {
+			tag = CAN
+			tag = AST
+			tag = RAJ
+			tag = SAF
+			tag = NZL
+		}
+	}
+
+	completion_reward_joint_originator = {
+		ENG = {
+			country_event = {
+				id = MOD_SIK.6
+				days = 2
+				random_days = 3 
+			}
+		}
+	}
+
+	
+
+}
+
