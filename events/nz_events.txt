@@ -2268,7 +2268,7 @@ country_event = {
 			factor = 100
 		}
 		add_stability = 0.01
-		promote_character = BEL_paul-henri_spaak
+		promote_character = BEL_paul_henri_spaak
 		set_party_name = {
 			ideology = democratic
 			name = "Labour"
@@ -2282,6 +2282,7 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
+		promote_character = BEL_hubert_pierlot
 		add_political_power = 80
 		set_party_name = {
 			ideology = democratic

@@ -16,8 +16,12 @@
 		#	has_dlc = "Together for Victory"
 		#}
 	}
+
+
 	
 	default = no
+
+	shared_focus = CMW_shared
 
 
 

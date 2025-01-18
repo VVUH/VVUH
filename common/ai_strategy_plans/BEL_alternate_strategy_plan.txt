@@ -1,0 +1,285 @@
+BEL_nationalist_fascist_plan = {
+	name = "Belgian Nationalist Fascism Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BEL
+	}
+	enable = { 
+		OR = {
+			has_country_flag = BEL_AI_RANDOM_NATIONALIST_FASCIST
+			has_game_rule = {
+				rule = BEL_AI_BEHAVIOR
+				option = NATIONALIST_FASCIST
+			}	
+		}
+
+		has_dlc = "Gotterdammerung"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		
+		#1936
+		BEL_government_resigns_2
+		BEL_partnership_with_ger
+		BEL_devlag
+		BEL_german_guarantee
+		BEL_cooperate_with_the_nationalists
+		BEL_abandon_the_locarno_treaty
+
+		#1937
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+		BEL_crackdown_on_strikes
+		BEL_investigate_corruption
+		BEL_promote_nationalism
+		BEL_le_pays_reel
+		BEL_french_nationalism
+		BEL_prepare_national_uprising
+		BEL_french_domination
+
+		#1941
+		
+		#1942
+		
+		#1943
+		
+		#1944
+		
+		
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BEL_expansionist_fascist_plan = {
+	name = "Expansionist Fascist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BEL
+	}
+	enable = {
+		OR = {
+			has_country_flag = BEL_AI_RANDOM_EXPANSIONIST_FASCIST
+			has_game_rule = {
+				rule = BEL_AI_BEHAVIOR
+				option = EXPANSIONIST_FASCIST
+			}	
+		}
+
+		has_dlc = "Gotterdammerung"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		
+		#1936
+		BEL_government_resigns_2
+		BEL_partnership_with_ger
+		BEL_devlag
+		BEL_german_guarantee
+		BEL_cooperate_with_the_nationalists
+		BEL_abandon_the_locarno_treaty
+
+		#1937
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+		BEL_crackdown_on_strikes
+		BEL_investigate_corruption
+		BEL_promote_nationalism
+		BEL_volk_en_staat
+		BEL_flemish_nationalism
+		
+		#1938
+		BEL_prepare_national_uprising
+		BEL_flemish_domination
+
+
+		#1940
+
+		#1941
+		
+		#1942
+		
+		#1943
+		
+		#1944
+		
+		
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BEL_defensive_democrat_plan = {
+	name = "Defensive Democrat Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BEL
+	}
+	enable = {
+		OR = {
+			has_country_flag = BEL_AI_RANDOM_DEFENSIVE_DEMOCRAT
+			has_game_rule = {
+				rule = BEL_AI_BEHAVIOR
+				option = DEFENSIVE_DEMOCRAT
+			}	
+		}
+
+		has_dlc = "Gotterdammerung"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		#1936
+		BEL_government_resigns_2
+		BEL_perpetual_neutrality
+		BEL_independent_neutral_and_loyal
+
+		#1937
+		BEL_political_cooperation
+		BEL_suppress_the_rexist
+		BEL_plan_de_man_2
+		BEL_national_labour_conference
+		BEL_the_greater_threat
+		BEL_political_balance
+		BEL_continue_the_alliance_with_france
+		BEL_defend_our_democracy
+		CONGO_congo_investments
+		CONGO_societe_generale_de_belgique
+		BEL_defense_bill
+
+		#1938
+
+
+		#1941
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+BEL_communist_plan = {
+	name = "Belgian Communist Plan"
+	desc = ""
+
+	allowed = {
+		original_tag = BEL
+	}
+	enable = {
+		OR = {
+			has_country_flag = BEL_AI_RANDOM_COMMUNIST
+			has_game_rule = {
+				rule = BEL_AI_BEHAVIOR
+				option = COMMUNIST
+			}	
+		}
+
+		has_dlc = "Gotterdammerung"
+
+	}
+	abort = {
+		is_subject = yes 
+	}
+
+	ai_national_focuses = {
+		#1936
+
+		#1941
+
+		
+	}
+
+	focus_factors = {
+		
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

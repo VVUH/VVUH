@@ -10,6 +10,7 @@
  MOD_SIK.5.t:0 "Austria Ignores Us"
  MOD_SIK.5.d:0 "After multiple attempts to talk to Austrian delegates, they've completely ignored our request, clearly they don't care about their independance."
  MOD_SIK.5.a:0 "Idiots"
+ MOD_SIK.6.t:0 "The Commonwealth demand territorial changes!"
  VVUHol.40.t:0 "Liberty or death"
  VVUHol.40:0 "With the end of the war in sight, [HOL_kaiserreich_germany.GetLeader] has found it appropriate to try and remind us of our bargain, and proposes an alliance on equal terms between our two nations. Eventual communist or western opposition be damned, [HOL.GetNameDef] thinks that [HOL.GetNameDef] has bled enough, it is time to set our aims higher."
   VVUHol.40.a:0 "We will fulfill our obligations."
