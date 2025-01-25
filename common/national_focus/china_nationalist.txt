@@ -13,7 +13,7 @@ focus_tree = {
 
 	default = no
 
-	continuous_focus_position = { x = 20 y = 1000 }
+	continuous_focus_position = { x = 20 y = 1600 }
 
 #	focus = {
 #		id = CHI_
@@ -76,9 +76,6 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
@@ -94,7 +91,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_three_principles_of_the_people
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -114,13 +111,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
-			add_war_support = 0.1
+			add_stability = 0.1
 			CHI_hyper_inflation_level_up = yes
 		}
 	}
@@ -153,14 +148,49 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
 			add_war_support = 0.1
 			CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	focus = {
+		id = CHI_support_the_farmers
+		icon = GFX_focus_generic_farmland
+		prerequisite = { focus = CHI_refugee_relief_agency }
+		x = 0
+		y = 2
+		relative_position_id = CHI_welfare
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = {
+				has_idea = CHI_hyper_inflation_5
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes 
+			add_political_power = -50
 		}
 	}
 
@@ -190,9 +220,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_CHI_INFLATION }
 		completion_reward = {
@@ -208,14 +236,14 @@ focus_tree = {
 		y = 3
 		relative_position_id = CHI_welfare
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
 		}
 
 		available = {
-
+			has_government = fascism
 		}
 
 		bypass = {
@@ -226,13 +254,16 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			add_stability = 0.1
+			add_political_power = 50
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			add_stability = -0.05
 		}
 	}
 
@@ -240,6 +271,7 @@ focus_tree = {
 		id = CHI_unemployment_assistance
 		icon = GFX_goal_generic_production
 		prerequisite = { focus = CHI_land_tax_reform }
+		prerequisite = { focus = CHI_support_the_farmers }
 		x = 1
 		y = 3
 		relative_position_id = CHI_welfare
@@ -264,9 +296,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {			
@@ -278,8 +308,7 @@ focus_tree = {
 	focus = {
 		id = CHI_free_hospitals
 		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = CHI_new_life_movement }
-		prerequisite = { focus = CHI_unemployment_assistance }
+		prerequisite = { focus = CHI_new_life_movement focus = CHI_unemployment_assistance }
 		x = 0
 		y = 4
 		relative_position_id = CHI_welfare
@@ -304,9 +333,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -323,14 +350,13 @@ focus_tree = {
 		y = 5
 		relative_position_id = CHI_welfare
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
 		}
 
 		available = {
-			amount_research_slots < 5
 			NOT = {
 				has_idea = CHI_hyper_inflation_5
 			}
@@ -344,9 +370,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
@@ -381,12 +405,19 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = CHI_the_kuomintang
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.05
+				}
+			}
 			add_political_power = 120
 		}
 	}
@@ -399,7 +430,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_democracy
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -419,7 +450,8 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
-			add_war_support = 0.1
+			add_political_power = 80
+			add_war_support = 0.05
 		}
 	}
 
@@ -473,7 +505,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_constitutional_reform
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -505,7 +537,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_republicanism
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -525,7 +557,8 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			add_stability = 0.1
+			add_political_power = 80
+			add_stability = 0.05
 		}
 	}
 
@@ -561,7 +594,42 @@ focus_tree = {
 			add_stability = 0.1
 		}
 	}
+	focus = {
+		id = CHI_allow_opposition_parties
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = CHI_judicial_yuan }
+		prerequisite = { focus = CHI_legislative_yuan }
+		x = -1
+		y = 2
+		relative_position_id = CHI_judicial_yuan
 
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+		}
+	}
 	focus = {
 		id = CHI_examination_yuan
 		icon = GFX_focus_chi_examination_yuan
@@ -605,6 +673,153 @@ focus_tree = {
 			
 		}
 	}
+	focus = {
+		id = CHI_a_modern_china
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = CHI_examination_yuan }
+		prerequisite = { focus = CHI_rural_schooling }
+		prerequisite = { focus = CHI_allow_opposition_parties }
+		x = -2
+		y = 1
+		relative_position_id = CHI_examination_yuan
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = CHI_the_great_leap_forward
+			}
+			democratic > 0.5
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_leader = {
+						character = MAN_aisin_gioro_puyi
+						ruling_only = yes
+					}
+				}
+				add_country_leader_role = {
+					character = MAN_aisin_gioro_puyi
+					promote_leader = yes
+					country_leader = {
+						ideology = conservatism
+						expire = "1965.1.1.1"
+						traits = { nationalist_symbol constitutional_monarch blessed_monarch_trait }
+					}
+				}
+			}
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+				last_election = "1936.1.13"
+				election_frequency = 48
+				long_name = "Koumintang/Democratic Progressive Party"
+				name = "Kuomintang/DDP"
+			}
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = CHI_a_new_chinese_unity
+		icon = GFX_focus_generic_democratic_europe
+		prerequisite = { focus = CHI_a_modern_china }
+		mutually_exclusive = { focus = CHI_china_united focus = CHI_restore_the_qing }
+		x = 0
+		y = 3
+		relative_position_id = CHI_a_modern_china
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			has_government = democratic
+			OR = {
+				has_completed_focus = CHI_centralize_the_army
+				has_completed_focus = CHI_concessions_to_the_warlords
+				NOT = {
+					tag = CHI
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+			add_war_support = 0.1
+			add_political_power = 200
+			remove_ideas = CHI_divided_nation_3
+		}
+	}
+	focus = {
+		id = CHI_democracy_and_equality
+		icon = GFX_focus_generic_women_in_military
+		x = 0
+		y = 1
+		relative_position_id = CHI_a_new_chinese_unity
+		prerequisite = { focus = CHI_a_new_chinese_unity }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			set_rule = {
+				can_generate_female_aces = yes
+			}
+			
+			set_rule = {
+				can_generate_female_country_leaders = yes
+			}
+			set_rule = {
+				can_generate_female_unit_leaders = yes
+			}
+			add_country_leader_trait = champion_of_equality
+		}
+	}
 
 	focus = {
 		id = CHI_executive_yuan
@@ -614,7 +829,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_democracy
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -647,7 +862,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = CHI_executive_yuan
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -704,7 +919,13 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			add_stability = 0.1
+			if = {
+				limit = {
+					tag = CHI
+				}
+				custom_effect_tooltip = "Under our Thumb won't reduce stability"
+			}
+			add_war_support = 0.1
 		}
 	}
 
@@ -713,7 +934,7 @@ focus_tree = {
 		icon = GFX_goal_generic_territory_or_war
 		prerequisite = { focus = CHI_nationalism }
 		mutually_exclusive = { focus = CHI_prioritize_the_interior focus = CHI_under_our_thumb }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = CHI_nationalism
 
@@ -740,15 +961,189 @@ focus_tree = {
 			add_war_support = 0.1
 		}
 	}
+	focus = {
+		id = CHI_the_kuomintang
+		icon = GFX_focus_generic_china1
+		x = 17
+		y = 0
+		allow_branch = {
+			tag = CHI
+		}
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			tag = CHI		
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 50
+			set_party_name = {
+				ideology = fascism
+				long_name = "Kuomintang Right"
+				name = "Koumintang Right"
+			}
+			set_party_name = {
+				ideology = neutrality
+				long_name = "Kuomintang Center"
+				name = "Koumintang Center"
+			}
+			set_party_name = {
+				ideology = democratic
+				long_name = "Kuomintang Left"
+				name = "Koumintang Left"
+			}
+			set_popularities = {
+				democratic = 5
+				neutrality = 75
+				fascism = 15
+				communism = 5
+			}
+			CHI = { add_opinion_modifier = { target = GXC modifier = medium_increase} }
+			CHI = { add_opinion_modifier = { target = XSM modifier = medium_increase} }
+			CHI = { add_opinion_modifier = { target = SHX modifier = medium_increase} }
+			GXC = { add_opinion_modifier = { target = CHI modifier = medium_increase} }
+			XSM = { add_opinion_modifier = { target = CHI modifier = medium_increase} }
+			SHX = { add_opinion_modifier = { target = CHI modifier = medium_increase} }
+		}
+	}
+	focus = {
+		id = CHI_a_new_leader_for_china
+		icon = GFX_focus_generic_china1
+		x = 17
+		y = 0
+		allow_branch = {
+			NOT = {
+				tag = CHI
+			}
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = {
+				tag = CHI
+			}	
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_war_support = 0.1
+			add_political_power = 50
+
+			ROOT = { add_opinion_modifier = { target = GXC modifier = medium_increase} }
+			ROOT = { add_opinion_modifier = { target = XSM modifier = medium_increase} }
+			ROOT = { add_opinion_modifier = { target = SHX modifier = medium_increase} }
+			GXC = { add_opinion_modifier = { target = ROOT modifier = medium_increase} }
+			XSM = { add_opinion_modifier = { target = ROOT modifier = medium_increase} }
+			SHX = { add_opinion_modifier = { target = ROOT modifier = medium_increase} }
+		}
+	}
+	focus = {
+		id = CHI_secure_the_new_state
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CHI_a_new_leader_for_china }
+		relative_position_id = CHI_a_new_leader_for_china
+		x = 0
+		y = 1
+		allow_branch = {
+		}
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = CHI_strengthen_the_center
+		icon = GFX_focus_GER_ally_chiang_kai_shek
+		x = -4
+		y = 1
+		relative_position_id = CHI_the_kuomintang
+		prerequisite = { focus = CHI_the_kuomintang }
+		mutually_exclusive = { focus = CHI_oppose_chiang_kai_shek }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			} 
+			add_country_leader_trait = conservative_nationalist
+			add_political_power = 50
+		}
+	}
 
 	focus = {
 		id = CHI_prioritize_the_interior
 		icon = GFX_goal_generic_position_armies
-		prerequisite = { focus = CHI_nationalism }
+		prerequisite = { focus = CHI_strengthen_the_center }
 		mutually_exclusive = { focus = CHI_foreign_threats focus = CHI_under_our_thumb }
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = CHI_nationalism
+		relative_position_id = CHI_strengthen_the_center
 
 		cost = 10
 
@@ -764,7 +1159,8 @@ focus_tree = {
 		}
 
 		available = {
-
+			has_stability > 0.4
+			has_completed_focus = CHI_nationalism
 		}
 
 		bypass = {
@@ -809,21 +1205,17 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			add_stability = 0.05
+			add_stability = 0.01
 			every_other_country = {
 				limit = {
 					OR = {
 						tag = GXC
-						tag = YUN
 						tag = SHX
 						tag = XSM
-						tag = SIK
 					}
 				}
 				country_event = { id = wtt_china.1 }
@@ -831,16 +1223,236 @@ focus_tree = {
 			unlock_decision_category_tooltip = CHI_integrate_the_warlords
 		}
 	}
+	focus = {
+		id = CHI_realism
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = CHI_strengthen_the_center }
+		x = 2
+		y = 0
+
+		relative_position_id = CHI_prioritize_the_interior
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+			every_country = {
+				limit = {
+					OR = {
+						tag = SHX
+						tag = XSM
+						tag = YUN
+						tag = SIK
+						tag = GXC
+						tag = SOV
+					}
+				}
+				add_opinion_modifier = { target = CHI modifier = medium_increase}
+				diplomatic_relation = {
+					country = CHI
+					relation = non_aggression_pact
+					active = yes
+				}
+				CHI = {
+					add_opinion_modifier = { target = PREV modifier = medium_increase}
+				}	
+			}
+		}
+	}
+	focus = {
+		id = CHI_internal_pacification
+		icon = GFX_focus_generic_subjugation
+		prerequisite = { focus = CHI_prioritize_the_interior }
+		x = 1
+		y = 3
+		relative_position_id = CHI_strengthen_the_center
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				AND = {
+					MAN = {	exists = no }
+					PRC = { exists = no }
+				}
+				factor = 0
+			}
+		}
+
+		available = {
+			has_stability > 0.5
+			has_completed_focus = CHI_nationalism
+		}
+
+		bypass = {
+			GXC = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					has_war_with = ROOT
+				}
+			}
+			YUN = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					has_war_with = ROOT
+				}
+			}
+			SHX = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					has_war_with = ROOT
+				}
+			}
+			XSM = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					has_war_with = ROOT
+				}
+			}
+			SIK = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					has_war_with = ROOT
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_stability = 0.01
+			every_other_country = {
+				limit = {
+					OR = {
+						tag = YUN
+						tag = SIK
+					}
+				}
+				country_event = { id = wtt_china.1 }
+			}
+		}
+	}
+	focus = {
+		id = CHI_china_united
+		icon = GFX_focus_chi_one_china_policy
+		prerequisite = { focus = CHI_internal_pacification focus = CHI_one_china_policy focus = CHI_the_dragon_roars_once_more }
+		mutually_exclusive = { focus = CHI_a_new_chinese_unity focus = CHI_restore_the_qing }
+		allow_branch = {
+			tag = CHI
+		}
+		x = -1
+		y = 6
+		relative_position_id = CHI_internal_pacification
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			all_core_state = {
+				CHI = {
+					controls_state = PREV
+				}
+			}
+			OR = {
+				has_completed_focus = CHI_centralize_the_army
+				has_completed_focus = CHI_concessions_to_the_warlords
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+			add_stability = 0.1
+			remove_ideas = CHI_divided_nation_3
+		}
+	}
+	focus = {
+		id = CHI_our_great_commander
+		icon = GFX_focus_GER_a_strong_successor
+		x = 0
+		y = 1
+		relative_position_id = CHI_china_united
+		prerequisite = { focus = CHI_china_united }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_country_leader_trait = stalin_great_commander
+		}
+	}
 
 	focus = {
 		id = CHI_united_front
 		icon = GFX_focus_chi_united_front
 		prerequisite = { focus = CHI_foreign_threats }
-		x = 0
-		y = 1
+		x = 1
+		y = 2
 		relative_position_id = CHI_foreign_threats
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -852,16 +1464,17 @@ focus_tree = {
 		}
 
 		bypass = {
-			is_in_faction_with = PRC
+			OR = {
+				is_in_faction_with = PRC
+				has_completed_focus = CHI_under_maos_leadership
+			}
 		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		completion_reward = {
 			CHI = {
@@ -873,16 +1486,85 @@ focus_tree = {
 			}
 		}
 	}
+	focus = {
+		id = CHI_unify_the_parties
+		icon = GFX_focus_prc_social_democracy
+		prerequisite = { focus = CHI_united_front }
+		x = 0
+		y = 2
+		relative_position_id = CHI_united_front
 
+		cost = 10
 
+		ai_will_do = {
+			factor = 1
+		}
 
+		will_lead_to_war_with = PRC
+
+		available = {
+			is_subject = no
+			is_in_faction_with = PRC
+			OR = {
+				has_government = democratic
+				has_government = communism
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		completion_reward = {
+			add_stability = -0.05
+			PRC = {
+				country_event = { id = wtt_china.1 days = 2}
+			}
+		}
+	}
+
+	focus = {
+		id = CHI_a_common_enemy
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = CHI_united_front }
+		x = -1
+		y = 1
+		relative_position_id = CHI_united_front
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+			has_defensive_war = yes
+			OR = {		
+				is_in_faction_with = PRC
+				has_completed_focus = CHI_under_maos_leadership
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		completion_reward = {
+			add_ideas = CHI_truce_with_communists_idea
+		}
+	}
 
 	focus = {
 		id = CHI_pick_a_fight_with_japan
 		icon = GFX_focus_AST_war_japan
-		prerequisite = { focus = CHI_united_front focus = CHI_anti_communism focus = CHI_united_but_seperate }
+		prerequisite = { focus = CHI_united_front focus = CHI_united_but_seperate focus = CHI_anti_communism }
 		x = 4
-		y = 2
+		y = 1
 		relative_position_id = CHI_united_front
 
 		cost = 10
@@ -912,9 +1594,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		completion_reward = {
 			if = {
@@ -949,8 +1629,8 @@ focus_tree = {
 		id = CHI_anti_communism
 		icon = GFX_goal_generic_war_with_comintern
 		prerequisite = { focus = CHI_prioritize_the_interior focus = CHI_under_our_thumb}
-		x = 1
-		y = 1
+		x = -1
+		y = 2
 		relative_position_id = CHI_prioritize_the_interior
 
 		cost = 10
@@ -960,6 +1640,7 @@ focus_tree = {
 		}
 
 		available = {
+			has_war_support > 0.6
 			is_subject = no
 			NOT = { has_government = communism }
 			any_country = {
@@ -1000,9 +1681,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		completion_reward = {
 			if = {		
@@ -1496,7 +2175,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = CHI_scorched_earth_tactics
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1519,11 +2198,107 @@ focus_tree = {
 		}
 	}
 
+	
 	focus = {
-		id = CHI_the_kuomintang
+		id = CHI_push_for_centralization
 		icon = GFX_goal_generic_political_pressure
-		x = 8
-		y = 0
+		x = 4
+		y = 2
+		relative_position_id = CHI_strengthen_the_center
+		prerequisite = { focus = CHI_strengthen_the_center focus = CHI_strengthen_the_left focus = CHI_strengthen_the_right }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = CHI_divided_nation
+				add_idea = CHI_divided_nation_2
+			}
+			add_timed_idea = {
+				idea = CHI_centralization_efforts
+				days = 175
+			}
+		}
+	}
+	focus = {
+		id = CHI_centralize_the_army
+		icon = GFX_focus_chi_whampoa_military_academy
+		x = -1
+		y = 1
+		relative_position_id = CHI_push_for_centralization
+		prerequisite = { focus = CHI_push_for_centralization }
+		mutually_exclusive = { focus = CHI_concessions_to_the_warlords}
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_completed_focus = CHI_army_reform
+			NOT = {
+				has_idea = CHI_centralization_efforts
+			}		
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = CHI_divided_nation_2
+				add_idea = CHI_divided_nation_3
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = SHX
+						tag = XSM
+						tag = YUN
+						tag = SIK
+						tag = GXC
+					}
+				}
+				add_opinion_modifier = { target = CHI modifier = medium_decrease}
+				CHI = { add_opinion_modifier = { target = PREV modifier = medium_decrease} }
+			}
+		}
+	}
+	focus = {
+		id = CHI_oppose_chiang_kai_shek
+		icon = GFX_focus_prc_remove_chiang_kai_shek
+		x = 4
+		y = 1
+		relative_position_id = CHI_the_kuomintang
+		prerequisite = { focus = CHI_the_kuomintang }
+		mutually_exclusive = { focus = CHI_strengthen_the_center }
 
 		cost = 5
 
@@ -1543,26 +2318,1537 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			CHI = { add_opinion_modifier = { target = YUN modifier = medium_increase} }
-			CHI = { add_opinion_modifier = { target = GXC modifier = medium_increase} }
-			CHI = { add_opinion_modifier = { target = XSM modifier = medium_increase} }
-			CHI = { add_opinion_modifier = { target = SHX modifier = medium_increase} }
+			add_stability = -0.05
+
+		}
+	}
+	focus = {
+		id = CHI_strengthen_the_left
+		icon = GFX_SOV_left_opposition_coup_ccp_2d_sov_compatibility
+		x = -2
+		y = 1
+		relative_position_id = CHI_oppose_chiang_kai_shek
+		prerequisite = { focus = CHI_oppose_chiang_kai_shek }
+		mutually_exclusive = { focus = CHI_strengthen_the_right }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			add_timed_idea = {
+				idea = CHI_strengthen_the_left_idea
+				days = 1095
+			}
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = CHI_assasinate_chiang_kai_shek
+		icon = GFX_goal_generic_secret_weapon
+		x = 0
+		y = 2
+		relative_position_id = CHI_oppose_chiang_kai_shek
+		prerequisite = { focus = CHI_strengthen_the_left focus = CHI_strengthen_the_right }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			neutrality < 0.35
+			has_stability < 0.25
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+			add_stability = -0.1
+			kill_ideology_leader = neutrality
+			add_country_leader_role = {
+				character = CHI_soong_mei_ling
+				promote_leader = yes
+				country_leader = {
+					ideology = despotism
+					expire = "1965.1.1.1"
+					traits = { first_lady }
+				}
+			}
+		}
+	}
+	focus = {
+		id = CHI_take_power
+		icon = GFX_goal_generic_demand_territory
+		x = 0
+		y = 3
+		relative_position_id = CHI_oppose_chiang_kai_shek
+		prerequisite = { focus = CHI_assasinate_chiang_kai_shek }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			neutrality < 0.25
+			has_stability < 0.25
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_stability = 0.05
+			if = {
+				limit = {
+					has_completed_focus = CHI_strengthen_the_right
+				}
+				set_politics = {
+					ruling_party = fascism
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+					last_election = "1936.1.1"
+					election_frequency = 48
+				}
+			}
+		}
+	}
+	focus = {
+		id = CHI_stand_our_ground
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 0
+		y = 1
+		relative_position_id = CHI_take_power
+		prerequisite = { focus = CHI_take_power }
+		mutually_exclusive = { focus = CHI_appeasement focus = CHI_shift_to_ccp_ideas }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = CHI_three_principles_of_the_people
+			}
+		}
+
+		bypass = {
+			has_completed_focus = CHI_three_principles_of_the_people
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_war_support = 0.05
+			complete_national_focus = CHI_three_principles_of_the_people
+		}
+	}
+	focus = {
+		id = CHI_appeasement
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		x = 5
+		y = 1
+		relative_position_id = CHI_take_power
+		prerequisite = { focus = CHI_take_power }
+		mutually_exclusive = { focus = CHI_stand_our_ground focus = CHI_shift_to_ccp_ideas }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT ={
+				has_completed_focus = CHI_mission_to_the_us
+			}
+		}
+
+		bypass = {
+			has_war_with = JAP
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_political_power = 120
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			complete_national_focus = CHI_collaboration_with_the_japanese
+		}
+	}
+	focus = {
+		id = CHI_shift_to_ccp_ideas
+		icon = GFX_focus_NOR_moscows_education_centers
+		x = -5
+		y = 1
+		relative_position_id = CHI_take_power
+		prerequisite = { focus = CHI_take_power }
+		mutually_exclusive = { focus = CHI_stand_our_ground focus = CHI_appeasement }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			communism > 0.2
+			PRC = {
+				OR = {
+					is_ai = yes
+					exists = no
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = CHI_invade_manchuria
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = -1
+		y = 1
+		relative_position_id = CHI_stand_our_ground
+		prerequisite = { focus = CHI_shift_to_ccp_ideas focus = CHI_stand_our_ground }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+		will_lead_to_war_with = MAN
+
+		available = {
+			is_subject = no
+			has_war_support > 0.7
+			has_stability > 0.5
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = MAN
+				expire = 0
+			}
+		}
+	}
+	focus = {
+		id = CHI_take_down_the_japanese_threat
+		icon = GFX_focus_AST_war_japan
+		x = 0
+		y = 1
+		relative_position_id = CHI_invade_manchuria
+		prerequisite = { focus = CHI_invade_manchuria }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			complete_national_focus = CHI_pick_a_fight_with_japan
+		}
+	}
+	focus = {
+		id = CHI_under_maos_leadership
+		icon = GFX_focus_prc_maoism
+		x = 0
+		y = 1
+		relative_position_id = CHI_shift_to_ccp_ideas
+		prerequisite = { focus = CHI_shift_to_ccp_ideas }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = no
+			communism > 0.3
+			PRC = {
+				OR = {
+					is_ai = yes
+					exists = no
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			set_politics = {
+				ruling_party = communism
+			}
+			PRC = {
+				every_character = {
+					limit = {
+						NOT = {
+							is_operative = yes
+						}
+					}
+					set_nationality = CHI
+				}
+			}
+			promote_character = {
+				character = PRC_mao_zedong
+				ideology = marxism
+			}
+			annex_country = {
+				target = PRC
+				transfer_troops = yes
+			}
+			start_civil_war = {
+				ideology = fascism
+				size = 0.2
+				capital = 613
+				states = {
+					613 598 597 743 614
+				}
+			}
+		}
+	}
+	focus = {
+		id = CHI_the_great_leap_forward
+		icon = GFX_focus_ITA_peasants_rise
+		x = 0
+		y = 1
+		relative_position_id = CHI_under_maos_leadership
+		prerequisite = { focus = CHI_under_maos_leadership }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war = no
+			NOT = {
+				has_completed_focus = CHI_a_modern_china
+			}
+			has_government = communism
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_timed_idea = {
+				idea = CHI_the_great_leap_forward_idea
+				days = 1095
+			}
+			add_manpower = -100000
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = CHI_spirit_of_liberation
+		icon = GFX_focus_GER_liberate_exploited_colonial_workers
+		x = 2
+		y = 2
+		relative_position_id = CHI_under_maos_leadership
+		prerequisite = { focus = CHI_under_maos_leadership }
+		mutually_exclusive = { focus = CHI_spirit_of_nationalism }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = CHI_the_great_leap_forward
+					}
+				}
+				custom_effect_tooltip = "The Great Leap forward has not been completed, meaning our industry is reliant on Russian aid. Our industry isn't ready for a sole liberation war"
+				add_timed_idea = {
+					idea = CHI_unprepeared_economy_idea
+					days = 365
+				}
+			}
+			add_timed_idea = {
+				idea = CHI_spirit_of_liberation_idea
+				days = 1460
+			}
+		}
+	}
+	focus = {
+		id = CHI_spirit_of_nationalism
+		icon = GFX_focus_prc_proclaim_the_peoples_republic
+		x = 0
+		y = 2
+		relative_position_id = CHI_under_maos_leadership
+		prerequisite = { focus = CHI_the_great_leap_forward }
+		mutually_exclusive = { focus = CHI_spirit_of_liberation }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_timed_idea = {
+				idea = CHI_spirit_of_nationalism_idea
+				days = 1460
+			}
+		}
+	}
+	focus = {
+		id = CHI_strike_the_west
+		icon = GFX_focus_GER_wage_war_on_capitalism
+		x = 1
+		y = 1
+		relative_position_id = CHI_spirit_of_nationalism
+		prerequisite = { focus = CHI_spirit_of_nationalism focus = CHI_spirit_of_liberation }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_government = communism
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_government = democratic
+					OR = {
+						is_major = yes
+						is_in_faction = yes
+					}
+				}
+				ROOT = {
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = PREV
+						expire = 0
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = CHI_dishonor_before_death
+		icon = GFX_focus_CZE_german_puppet
+		x = 0
+		y = 1
+		relative_position_id = CHI_appeasement
+		prerequisite = { focus = CHI_appeasement focus = CHI_stand_our_ground }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war_with = JAP
+			has_government = fascism
+			surrender_progress > 0.2
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			JAP = {
+				puppet = {
+					target = CHI
+					end_wars = yes
+				}
+				set_autonomy = {
+					target = CHI
+					autonomous_state = autonomy_wtt_imperial_subject
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						owns_state = 608
+					}
+					NOT = {
+						JAP = {
+							owns_state = 608
+						}
+					}
+				}
+				JAP = {
+					transfer_state = 608
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						owns_state = 614
+					}
+					NOT = {
+						JAP = {
+							owns_state = 614
+						}
+					}
+				}
+				JAP = {
+					transfer_state = 614
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						owns_state = 597
+					}
+					NOT = {
+						JAP = {
+							owns_state = 597
+						}
+					}
+				}
+				JAP = {
+					transfer_state = 597
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						owns_state = 743
+					}
+					NOT = {
+						JAP = {
+							owns_state = 743
+						}
+					}
+				}
+				JAP = {
+					transfer_state = 743
+				}
+			}
+		}
+	}
+	focus = {
+		id = CHI_embrace_pan_asianism
+		icon = GFX_focus_GER_create_asian_reichskommissariat
+		x = -2
+		y = 1
+		relative_position_id = CHI_dishonor_before_death
+		prerequisite = { focus = CHI_dishonor_before_death }
+		mutually_exclusive = { focus = CHI_china_first }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_government = fascism
+			is_subject_of = JAP
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.1
+			JAP = {
+				set_autonomy = {
+					target = CHI
+					autonomous_state = autonomy_wtt_imperial_associate
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			set_rule = {
+				can_not_declare_war = no
+			}
+			set_rule = {
+				can_decline_call_to_war = yes
+			}
+			add_ideas = CHI_pan_asianism_idea
+		}
+	}
+	focus = {
+		id = CHI_invade_siam
+		icon = GFX_focus_usa_focus_on_asia
+		x = 1
+		y = 1
+		relative_position_id = CHI_embrace_pan_asianism
+		prerequisite = { focus = CHI_embrace_pan_asianism }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SIA
+				expire = 0
+			}
+			unlock_decision_tooltip = CHI_core_siam
+		}
+	}
+	focus = {
+		id = CHI_invade_indochina
+		icon = GFX_goal_generic_more_territorial_claims
+		x = -1
+		y = 1
+		relative_position_id = CHI_embrace_pan_asianism
+		prerequisite = { focus = CHI_embrace_pan_asianism }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					OR = {
+						owns_state = 671
+						owns_state = 670
+						owns_state = 286
+						owns_state = 741
+						controls_state = 671
+						controls_state = 670
+						controls_state = 286
+						controls_state = 741
+					}
+				}
+				custom_effect_tooltip = CHI_overlordship_over_indochina_tt
+				hidden_effect = {
+					ROOT = {
+						create_wargoal = {
+							type = take_state_focus
+							target = PREV
+							expire = 0
+							generator = { 671 670 286 741 } #TODO_WTT_CODE - ignore states that are not owned or controlled by country
+						}
+					}
+				}
+			}
+			unlock_decision_tooltip = CHI_core_indochina
+		}
+	}
+	focus = {
+		id = CHI_invade_malaya
+		icon = GFX_focus_jap_strike_south
+		x = 0
+		y = 2
+		relative_position_id = CHI_embrace_pan_asianism
+		prerequisite = { focus = CHI_embrace_pan_asianism }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = MAL
+				expire = 0
+			}
+			unlock_decision_tooltip = CHI_core_mal
+		}
+	}
+	focus = {
+		id = CHI_china_first
+		icon = GFX_goal_demand_sudetenland
+		x = 2
+		y = 1
+		relative_position_id = CHI_dishonor_before_death
+		prerequisite = { focus = CHI_dishonor_before_death }
+		mutually_exclusive = { focus = CHI_embrace_pan_asianism }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_government = fascism
+			is_subject_of = JAP
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_political_power = 50
+			set_rule = {
+				can_not_declare_war = no
+			}
+			set_rule = {
+				can_decline_call_to_war = yes
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = SHX
+						tag = XSM
+						tag = YUN
+						tag = SIK
+						tag = GXC
+					}
+				}
+				CHI = {
+					create_wargoal = {
+						type = annex_everything
+						target = PREV
+					}
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = CHI_plot_against_japan
+		icon = GFX_focus_ETH_the_lion_and_the_sun
+		x = -1
+		y = 1
+		relative_position_id = CHI_china_first
+		prerequisite = { focus = CHI_china_first }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = yes
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_timed_idea = {
+				idea = CHI_plot_against_japan_idea
+				days = 720
+			}
+		}
+	}
+	focus = {
+		id = CHI_the_dragon_roars_once_more
+		icon = GFX_focus_GER_the_proud_eagle_and_the_rising_dragon
+		x = 0
+		y = 1
+		relative_position_id = CHI_plot_against_japan
+		prerequisite = { focus = CHI_plot_against_japan }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = yes
+		}
+
+		bypass = {
+
+		}
+		will_lead_to_war_with = JAP
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			unlock_national_focus = CHI_pick_a_fight_with_japan
+			hidden_effect = { set_variable = { MAN_independence_target = OVERLORD } } #We're using a variable here because the saved event target becomes invalidated deep in ScopedEventTarget
+			OVERLORD = { set_autonomy = { target = ROOT autonomy_state = autonomy_free } }
+			effect_tooltip = {		
+				if = {
+					limit = {
+						is_in_faction_with = OVERLORD
+					}
+					leave_faction = yes
+				}
+				declare_war_on = {
+					target = OVERLORD
+					type = puppet_wargoal_focus
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						is_in_faction_with = var:MAN_independence_target
+					}
+					leave_faction = yes
+				}
+				declare_war_on = {
+					target = var:MAN_independence_target 
+					type = puppet_wargoal_focus
+				}
+
+			}
+			hidden_effect = {
+				news_event = { id = wtt_news.48 days = 2 }
+			}
+			if = {
+				limit = {
+					has_completed_focus = CHI_ally_puji
+				}
+				MAN = {
+					every_character = {
+						limit = {
+							NOT = {
+								is_operative = yes
+							}
+						}
+						set_nationality = CHI
+					}
+				}
+				promote_character = {
+					character = MAN_aisin_gioro_puyi
+					ideology = rexism
+				}
+				promote_character = {
+					character = MAN_aisin_gioro_puyi
+					ideology = despotism
+				}
+				annex_country = {
+					target = MAN
+					transfer_troops = yes
+				}
+			}
+			add_country_leader_trait = nationalist_symbol
+		}
+	}
+	focus = {
+		id = CHI_ally_puji
+		icon = GFX_focus_jap_manchurian_project
+		x = 1
+		y = 1
+		relative_position_id = CHI_china_first
+		prerequisite = { focus = CHI_china_first }
+		mutually_exclusive = { focus = CHI_get_rid_of_puyi }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			MAN = {
+				is_ai = yes
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.05
+			if = {
+				limit = {
+					OR = {
+						is_subject = yes
+						NOT = {
+							has_completed_focus = CHI_dishonor_before_death
+						}
+					}
+				}
+				custom_effect_tooltip = CHI_custom_tt_ally_puyi
+			}
+			else = {
+				MAN = {
+					every_character = {
+						limit = {
+							NOT = {
+								is_operative = yes
+							}
+						}
+						set_nationality = CHI
+					}
+				}
+				promote_character = {
+					character = MAN_aisin_gioro_puyi
+					ideology = rexism
+				}
+				promote_character = {
+					character = MAN_aisin_gioro_puyi
+					ideology = despotism
+				}
+				annex_country = {
+					target = MAN
+					transfer_troops = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = CHI_get_rid_of_puyi
+		icon = GFX_focus_jap_cast_the_die
+		x = 3
+		y = 1
+		relative_position_id = CHI_china_first
+		prerequisite = { focus = CHI_china_first }
+		mutually_exclusive = { focus = CHI_ally_puji }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				NOT = {
+					MAN = {
+						is_subject_of = JAP
+						is_in_faction_with = JAP
+					}
+				}
+				AND = {
+					is_subject = no
+					NOT = { is_in_faction_with = MAN }
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		will_lead_to_war_with = MAN
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_political_power = 25
+			create_wargoal = {
+				type = annex_everything
+				target = MAN
+				expire = 0
+			}
+		}
+	}
+	focus = {
+		id = CHI_restore_the_qing
+		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		x = 0
+		y = 2
+		relative_position_id = CHI_ally_puji
+		prerequisite = { focus = CHI_ally_puji }
+		prerequisite = { focus = CHI_the_dragon_roars_once_more }
+		mutually_exclusive = { focus = CHI_china_united focus = CHI_a_new_chinese_unity }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_stability > 0.85
+			OR = {
+				has_completed_focus = CHI_centralize_the_army
+				has_completed_focus = CHI_concessions_to_the_warlords
+			}
+			is_subject = no
+			all_state = { 
+				OR = {
+					NOT = { is_core_of = ROOT }
+					state = 729
+					state = 326
+					state = 728
+					state = 524
+					is_controlled_by = ROOT
+				}
+				
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+			remove_ideas = CHI_divided_nation_3
+			add_political_power = 150
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.25
+			}
+			set_cosmetic_tag = MAN_restored
+			hidden_effect = {
+				news_event = { id = wtt_news.44 days = 2 }
+				if = {
+					limit = {
+						has_completed_focus = CHI_ally_puji
+						has_completed_focus = CHI_the_dragon_roars_once_more
+					}
+				
+					MAN_aisin_gioro_puyi = {
+						set_portraits = {
+							civilian = {
+								large = "GFX_portrait_man_henry_pu_yi_emperor" 
+							}
+						}
+						set_character_name = {
+							name = MAN_aisin_gioro_puyi_xuantong_name
+						}
+					}
+				}
+
+			}
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+				long_name = "Qing Dynasty"
+				name = "Qing Dynasty"
+			}
+		}
+	}
+	focus = {
+		id = CHI_reclaim_mongolia
+		icon = GFX_focus_generic_attack_mongolia
+		x = 0
+		y = 1
+		relative_position_id = CHI_restore_the_qing
+		prerequisite = { focus = CHI_restore_the_qing }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = MON
+				}
+				add_core_of = ROOT
+			}
+		}
+	}
+	focus = {
+		id = CHI_never_surrender
+		icon = GFX_focus_SWI_helvetic_junta
+		x = 1
+		y = 1
+		relative_position_id = CHI_stand_our_ground
+		prerequisite = { focus = CHI_appeasement focus = CHI_stand_our_ground }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = no
+			has_war = yes
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_timed_idea = {
+				idea = CHI_never_surrender_idea
+				days = 720
+			}
+		}
+	}
+	focus = {
+		id = CHI_bolster_autonomy
+		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
+		x = 0
+		y = 1
+		relative_position_id = CHI_never_surrender
+		prerequisite = { focus = CHI_never_surrender }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = yes
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_timed_idea = {
+				idea = CHI_bolster_autonomy_idea
+				days = 720
+			}
+		}
+	}
+	focus = {
+		id = CHI_concessions_to_the_warlords
+		icon = GFX_focus_generic_concessions
+		x = -3
+		y = 1
+		relative_position_id = CHI_assasinate_chiang_kai_shek
+		prerequisite = { focus = CHI_push_for_centralization }
+		mutually_exclusive = { focus = CHI_centralize_the_army }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = {
+				has_idea = CHI_centralization_efforts
+			}		
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.1
+			}
+			if = {
+				limit = {
+					has_completed_focus = CHI_strengthen_the_left
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.1
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}
+			}
+			else = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.1
+				}
+			}
+			swap_ideas = {
+				remove_idea = CHI_divided_nation_2
+				add_idea = CHI_divided_nation_3
+			}
+			add_timed_idea = {
+				idea = CHI_concessions_to_the_warlords_idea
+				days = 365
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = SHX
+						tag = XSM
+						tag = YUN
+						tag = SIK
+						tag = GXC
+					}
+				}
+				set_truce = {
+					target = CHI
+					days = 365
+				}	
+			}
+		}
+	}
+	focus = {
+		id = CHI_strengthen_the_right
+		icon = GFX_focus_generic_support_the_left_right
+		x = 2
+		y = 1
+		relative_position_id = CHI_oppose_chiang_kai_shek
+		prerequisite = { focus = CHI_oppose_chiang_kai_shek }
+		mutually_exclusive = { focus = CHI_strengthen_the_left }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.15
+			}
+			add_timed_idea = {
+				idea = CHI_strengthen_the_right_idea
+				days = 1095
+			}
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = CHI_undermine_the_army
+		icon = GFX_focus_generic_infiltration
+		x = 4
+		y = 1
+		relative_position_id = CHI_oppose_chiang_kai_shek
+		prerequisite = { focus = CHI_oppose_chiang_kai_shek }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+			add_timed_idea = {
+				idea = CHI_disloyalty_in_the_army_idea
+				days = 140
+			}
 		}
 	}
 	focus = {
 		id = CHI_push_for_tibet
 		icon = GFX_focus_generic_total_war
-		prerequisite = { focus = CHI_anti_communism focus = CHI_united_front}
-		x = -4
-		y = 4
+		prerequisite = { focus = CHI_anti_communism focus = CHI_united_front focus = CHI_united_but_seperate }
+		x = 6
+		y = 1
 
-		relative_position_id = CHI_the_kuomintang
+		relative_position_id = CHI_united_front
 
 		cost = 10
 
@@ -1587,17 +3873,12 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
-
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			create_wargoal = {
-					type = annex_everything
-					target = TIB
-					expire = 0
-				}
+				type = annex_everything
+				target = TIB
+			}
 		}
 	}
 
@@ -1605,32 +3886,32 @@ focus_tree = {
 		id = CHI_yunnan_transportation_enterprise
 		icon = GFX_focus_generic_road_investment
 		prerequisite = { focus = CHI_the_kuomintang}
-		x = -2
+		x = 6
 		y = 1
 
 		cost = 5
 
-		relative_position_id = CHI_the_kuomintang
 
 		ai_will_do = {
 			factor = 4
 		}
 
 		available = {
+			YUN = {
+				exists = yes
+			}
 			has_political_power > 50
 		}
 
 		bypass = {
-
+			YUN = {
+				exists = no
+			}
 		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
-		complete_tooltip = {
-
-		}
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
@@ -1714,10 +3995,9 @@ focus_tree = {
 		id = CHI_anti_communist_investment
 		icon = GFX_focus_BRA_ban_communist_party
 		prerequisite = { focus = CHI_the_kuomintang}
-		x = 0
+		x = 8
 		y = 1
 
-		relative_position_id = CHI_the_kuomintang
 
 		cost = 5
 
@@ -1726,11 +4006,23 @@ focus_tree = {
 		}
 
 		available = {
+			SHX = {
+				exists = yes
+			}
+			XSM = {
+				exists = yes
+			}
 			has_political_power > 50
 		}
 
 
 		bypass = {
+			SHX = {
+				exists = no
+			}
+			XSM = {
+				exists = no
+			}
 
 		}
 
@@ -1738,9 +4030,6 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
@@ -1905,32 +4194,35 @@ focus_tree = {
 		icon = GFX_focus_generic_resource_extraction
 		prerequisite = { focus = CHI_the_kuomintang}
 		x = 2
-		y = 1
+		y = 0
 
-		relative_position_id = CHI_the_kuomintang
+		relative_position_id = CHI_anti_communist_investment
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
 		}
 
 		available = {
+			GXC = {
+				exists = yes
+			}
 			has_political_power > 50
 		}
 
 
 		bypass = {
-
+			GXC = {
+				exists = no
+			}
 		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
@@ -2018,22 +4310,22 @@ focus_tree = {
 		id = CHI_under_our_thumb
 		icon = GFX_focus_generic_full_social_mobilization
 		mutually_exclusive = { focus = CHI_prioritize_the_interior focus = CHI_foreign_threats}
-		prerequisite = { focus = CHI_yunnan_transportation_enterprise}
 		prerequisite = { focus = CHI_anti_communist_investment}
 		prerequisite = { focus = CHI_the_rich_south_focus}
+		prerequisite = { focus = CHI_strengthen_the_center}
+		prerequisite = { focus = CHI_yunnan_transportation_enterprise }
 		x = 0
-		y = 2
+		y = 1
 
-		relative_position_id = CHI_the_kuomintang
+		relative_position_id = CHI_anti_communist_investment
 
-		cost = 8
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
 		}
 
 		available = {
-			YUN = { is_ai = yes }
 			SHX = { is_ai = yes }
 			XSM = { is_ai = yes }
 			GXC = { is_ai = yes }
@@ -2047,18 +4339,29 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			add_stability = -0.15
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = CHI_nationalism
+					}
+				}
+				add_stability = -0.1
+				add_war_support = -0.1
+			}
+			else = {
+				add_war_support = -0.1
+			}
 			set_rule = { can_create_factions = yes }
-			puppet = YUN
 			puppet = SHX
 			puppet = XSM
 			puppet = GXC
+			YUN = {
+				country_event = { id = wtt_china.1 hours = 6 }
+			}
 		}
 	}
 
@@ -2067,11 +4370,11 @@ focus_tree = {
 		icon = GFX_focus_generic_the_giant_wakes
 		prerequisite = { focus = CHI_under_our_thumb}
 		x = -1
-		y = 3
+		y = 1
 
-		relative_position_id = CHI_the_kuomintang
+		relative_position_id = CHI_under_our_thumb
 
-		cost = 8
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -2089,9 +4392,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
@@ -2113,11 +4414,11 @@ focus_tree = {
 		icon = GFX_focus_SWE_let_fly_all_guns
 		prerequisite = { focus = CHI_under_our_thumb}
 		x = 1
-		y = 3
+		y = 1
 
-		relative_position_id = CHI_the_kuomintang
+		relative_position_id = CHI_under_our_thumb
 
-		cost = 8
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -2135,9 +4436,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
@@ -2159,9 +4458,9 @@ focus_tree = {
 		icon = GFX_focus_generic_industrialists
 		prerequisite = { focus = CHI_centralized_economy focus = CHI_centralized_war_production}
 		x = 0
-		y = 4
+		y = 2
 
-		relative_position_id = CHI_the_kuomintang
+		relative_position_id = CHI_under_our_thumb
 
 		cost = 10
 
@@ -2170,24 +4469,33 @@ focus_tree = {
 		}
 
 		available = {
-		
+			OR = {
+				has_completed_focus = CHI_centralize_the_army
+				has_completed_focus = CHI_concessions_to_the_warlords
+			}	
+			NOT = {
+				has_idea = CHI_concessions_to_the_warlords_idea
+			}
 		}
 
 		bypass = {
-
+			NOT = {
+				has_idea = CHI_divided_nation_3
+				has_idea = CHI_divided_nation_2
+				has_idea = CHI_divided_nation
+			}
 		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			add_stability = 0.15
+			add_stability = 0.05
+			remove_ideas = CHI_divided_nation_3
 		}
 	}
 
@@ -2196,8 +4504,8 @@ focus_tree = {
 	focus = {
 		id = CHI_military_affairs_commission
 		icon = GFX_focus_secret_rearmament
-		x = 16
-		y = 0
+		x = 24
+		y = 12
 		relative_position_id = CHI_three_principles_of_the_people
 
 		cost = 10
@@ -2251,9 +4559,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		completion_reward = {
 			if = {
@@ -2368,9 +4674,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
+		
 
 		completion_reward = {
 			if = {
@@ -2638,11 +4942,11 @@ focus_tree = {
 	focus = {
 		id = CHI_unified_industrial_planning
 		icon = GFX_goal_generic_construction
-		x = 7
+		x = -6
 		y = 0
 		relative_position_id =  CHI_military_affairs_commission
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 4
@@ -2708,7 +5012,7 @@ focus_tree = {
 
 	focus = {
 		id = CHI_chemical_research_institute
-		icon = GFX_focus_research
+		icon = GFX_focus_generic_university_3
 		prerequisite = { focus = CHI_expand_the_academica_sinica }
 		x = 0
 		y = 1
@@ -2741,7 +5045,7 @@ focus_tree = {
 
 	focus = {
 		id = CHI_rural_reconstruction_movement
-		icon = GFX_goal_generic_construct_infrastructure
+		icon = GFX_focus_generic_farmland
 		prerequisite = { focus = CHI_unified_industrial_planning }
 		x = 0
 		y = 1
@@ -2796,13 +5100,13 @@ focus_tree = {
 
 	focus = {
 		id = CHI_mining_commission
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_generic_mining_industry
 		prerequisite = { focus = CHI_rural_reconstruction_movement }
 		x = 0
 		y = 1
 		relative_position_id = CHI_rural_reconstruction_movement
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -2824,7 +5128,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			CHI_hyper_inflation_level_up = yes
 			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = CHI_mining_commission			
 		}
@@ -2947,7 +5250,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_unified_industrial_planning
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -2975,7 +5278,7 @@ focus_tree = {
 
 	focus = {
 		id = CHI_price_controls
-		icon = GFX_goal_generic_neutrality_focus
+		icon = GFX_focus_generic_price_controls
 		prerequisite = { focus = CHI_financial_policy }
 		x = 0
 		y = 1
@@ -3007,7 +5310,7 @@ focus_tree = {
 
 	focus = {
 		id = CHI_grain_tax
-		icon = GFX_goal_generic_trade
+		icon = GFX_focus_generic_agricultural_subsidies
 		prerequisite = { focus = CHI_price_controls }
 		x = 2
 		y = 1
@@ -3039,7 +5342,7 @@ focus_tree = {
 
 	focus = {
 		id = CHI_reform_the_national_bank
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_focus_generic_improve_the_administration
 		prerequisite = { focus = CHI_price_controls }
 		x = 0
 		y = 1
@@ -3071,7 +5374,7 @@ focus_tree = {
 
 	focus = {
 		id = CHI_forced_loans
-		icon = GFX_goal_generic_forceful_treaty
+		icon = GFX_focus_mex_privatisation
 		prerequisite = { focus = CHI_reform_the_national_bank }
 		x = 0
 		y = 1

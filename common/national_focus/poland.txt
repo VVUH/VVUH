@@ -2048,6 +2048,7 @@ focus_tree = {
 			}
 			POL_april_constitution_up = yes
 			add_political_power = 100
+			add_stability = 0.1
 			swap_ideas = {
 				add_idea = POL_sanation_right_opposition_2
 				remove_idea = POL_sanation_right_opposition_1
@@ -4984,16 +4985,6 @@ focus_tree = {
 				exists = yes
 				has_capitulated = no
 				NOT = { has_war_with = ROOT }
-			}
-			784 = {
-				owns_or_subject_of = yes
-			}
-			GER = {
-				OR = {
-					has_completed_focus = GER_anschluss
-					has_completed_focus = GER_oppose_hitler
-					exists = no
-				}
 			}
 			has_army_manpower = { size > 399999 }
 		}
@@ -11582,13 +11573,14 @@ focus_tree = {
 		prerequisite = { focus = POL_riot_of_37 focus = POL_reopen_national_elections }
 		relative_position_id = POL_riot_of_37
 
-		mutually_exclusive = { focus = POL_reassert_silesian_claims }
-
 		x = -2
 		y = 1
 		cost = 10
 		
 		available = {
+			NOT = {
+				has_completed_focus = POL_support_global_falangism
+			}
 			is_subject = no
 			has_government = fascism
 			GER = {
@@ -12063,8 +12055,6 @@ focus_tree = {
 		prerequisite = { focus = POL_riot_of_37 focus = POL_reopen_national_elections }
 		relative_position_id = POL_riot_of_37
 
-		mutually_exclusive = { focus = POL_beck_ribbentrop }
-
 		x = 0
 		y = 1
 		cost = 10
@@ -12162,7 +12152,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 2.5
 		}
-		available = { has_country_leader_ideology = falangism }
+		available = { 
+			NOT = {
+				has_completed_focus = POL_beck_ribbentrop
+			}
+			has_country_leader_ideology = falangism 
+		}
 
 		available_if_capitulated = yes
 

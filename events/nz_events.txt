@@ -1303,7 +1303,7 @@ country_event = {
 	option = {
 		trigger = {
 		}
-		name = "We will deal with that later"
+		name = "We must do something against that"
 		ai_chance = {
 			factor = 80
 		}
@@ -1311,20 +1311,8 @@ country_event = {
 			ideology = fascism
 			popularity = 0.1
 		}
-	}
-	option = {
-		trigger = {
-		}
-		name = "The Fascist pose a too great threat we need to address that now!"
-		ai_chance = {
-			factor = 20
-		}
-		add_political_power = 100
-		add_stability = -0.05
-		add_popularity = {
-			ideology = fascism
-			popularity = 0.1
-		}
+		custom_effect_tooltip = "Tension between the Walloon and Flemish will continue to rise until fascism falls under 5%. We can also use decisions and focuses to calm the tensions"
+		custom_effect_tooltip = BEL_tension_tt
 	}
 }
 country_event = {
@@ -1367,9 +1355,7 @@ country_event = {
 		tag = BEL
 		date > 1937.04.01
 		date < 1937.05.10
-		has_country_leader = {
-			character = BEL_paul_van_zeeland
-		}
+		has_government = democratic
 	}
 	option = {
 		trigger = {
@@ -2594,5 +2580,55 @@ country_event = {
 			ideology = fascism
 			popularity = 0.08
 		}
+	}
+}
+country_event = {
+	id = bel.mod.32
+	title = "Organizing the worker's strike"
+	desc = "The Workers are the core part of our industry, yet they still suffer under a corrupt and powerhungry government controlled by the Bourgeoisie. We will set an end to this with a swift uprising!"
+	picture = GFX_report_event_german_politician_speech
+	is_triggered_only = yes
+	fire_only_once = no
+	trigger = { 
+	}
+	option = {
+		trigger = {
+		}
+		name = "Gathering as many workers for the uprising will be the way to victory"
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 15
+		add_popularity = {
+			ideology = communism
+			popularity = 0.075
+		}
+		add_to_variable = {
+    		var = BEL_cw_support
+    		value = 0.15
+    		tooltip = bel_cw_support_add_15_to_var_tt
+		}
+		unlock_decision_tooltip = BEL_bribe_the_army
+		unlock_decision_tooltip = BEL_aquire_funds
+		unlock_decision_tooltip = BEL_convert_army_troops
+		custom_effect_tooltip = BEL_cw_warning_tt
+	}
+	option = {
+		trigger = {
+		}
+		name = "Securing the army's loyalty is most important"
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 25
+		add_to_variable = {
+    		var = BEL_cw_army_support
+    		value = 0.15
+    		tooltip = bel_cw_army_support_add_15_to_var_tt
+		}
+		unlock_decision_tooltip = BEL_bribe_the_army
+		unlock_decision_tooltip = BEL_aquire_funds
+		unlock_decision_tooltip = BEL_convert_army_troops
+		custom_effect_tooltip = BEL_cw_warning_tt
 	}
 }

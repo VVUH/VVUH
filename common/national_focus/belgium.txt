@@ -73,23 +73,36 @@ focus_tree = {
 		}
 		cost = 10
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
 
 		available = {
-			has_government = democratic
+		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = BEL_organize_the_strikes
+				}
+			}
 		}
 
 		available_if_capitulated = yes
 	
 		completion_reward = {
 			country_event = { id = ww_BEL_event_political.1 }
+			mark_focus_tree_layout_dirty = yes
 		}
 
 	}
 	focus = {
 		id = BEL_goverment_of_national_unity
 		icon = GFX_goal_generic_national_unity
-		x = -5
+		x = -2
 		y = 1
 		relative_position_id = BEL_government_resigns_2
 		prerequisite = { focus = BEL_government_resigns_2 }
@@ -108,6 +121,20 @@ focus_tree = {
 				always = no
 			}
 		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = BEL_vandervelde_minority
+					has_completed_focus = BEL_organize_the_strikes
+				}
+			}
+		}
 		
 		bypass = {
 
@@ -117,7 +144,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			unlock_decision_tooltip = BEL_bring_the_army
 			unlock_decision_tooltip = BEL_make_concessions
@@ -126,6 +153,7 @@ focus_tree = {
     			long_name = "Goverment of National Unity (Catholic-Lab-Lib)"
     			name = "National Unity"
 			}
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	focus = {
@@ -133,6 +161,17 @@ focus_tree = {
 		icon = GFX_focus_BEL_independent_neutral_and_loyal
 		x = 5
 		y = 1
+		offset = {
+			x = -11
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 		relative_position_id = BEL_goverment_of_national_unity
 		prerequisite = { focus = BEL_goverment_of_national_unity focus = BEL_vandervelde_minority }
 
@@ -184,7 +223,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = BEL_economic_crisis
@@ -199,7 +238,6 @@ focus_tree = {
 		y = 1
 		relative_position_id = BEL_political_cooperation
 		prerequisite = { focus = BEL_political_cooperation }
-		text_icon = CONGO_BEL_focus_style
 
 		cost = 5
 
@@ -208,28 +246,14 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = {
-				has_completed_focus = BEL_organize_the_strikes
-			}
-			OR = {
-				has_idea = BEL_general_strike
-				has_idea = BEL_looming_general_strike
-			}
 		}
 		
-		bypass = {
-			NOT = {
-				has_idea = BEL_general_strike
-				has_idea = BEL_looming_general_strike
-				has_completed_focus = BEL_organize_the_strikes
-			}
-		}
 
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			add_political_power = 50
 			unlock_decision_tooltip = BEL_introduce_a_minimum_wage
@@ -266,7 +290,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = BEL_workers_rights
 			if = {
@@ -283,10 +307,9 @@ focus_tree = {
 		id = BEL_suppress_the_rexist
 		icon = GFX_focus_POL_ban_nazi_party
 		x = -1
-		y = 3
-		relative_position_id = BEL_government_resigns_2
+		y = 1
+		relative_position_id = BEL_political_cooperation
 		prerequisite = { focus = BEL_political_cooperation }
-		text_icon = CONGO_BEL_focus_style
 
 		cost = 5
 
@@ -308,7 +331,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			add_popularity = {
 				ideology = fascism
@@ -343,7 +366,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER }
 		completion_reward = {
 			add_political_power = 10
 			add_power_balance_value = {
@@ -384,11 +407,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
 			add_war_support = 0.02
 
-			34 = {
+			980 = {
 				add_building_construction = {
     				type = bunker
     				level = 5
@@ -429,7 +452,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { }
 		completion_reward = {
 			add_timed_idea = {
 				idea = BEL_captured_invasion_plans_idea
@@ -457,6 +480,9 @@ focus_tree = {
 		available = {
 			FRA = {
 				exists = yes
+			}
+			NOT = {
+				has_war_with = FRA
 			}
 			power_balance_value = {
    				id = BEL_king_power_bop
@@ -489,14 +515,18 @@ focus_tree = {
    				modifier = medium_decrease
 				}
 			}
+			swap_ideas = {
+				remove_idea = BEL_recovery_from_the_great_war
+				add_idea = BEL_recovery_from_the_great_war_with_fra
+			}
 		}
 	}
 	focus = {
 		id = BEL_reduce_corruption
 		icon = GFX_focus_generic_court
-		x = -1
-		y = 3
-		relative_position_id = BEL_the_greater_threat
+		x = 1
+		y = 1
+		relative_position_id = BEL_the_mechelen_incident
 		prerequisite = { focus = BEL_anti_fascist_propaganda }
 
 		cost = 8
@@ -523,7 +553,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			remove_ideas = {
 				BEL_corruption_idea
@@ -533,8 +563,8 @@ focus_tree = {
 	focus = {
 		id = BEL_anti_fascist_propaganda
 		icon = GFX_goal_support_democracy
-		x = -1
-		y = 2
+		x = 2
+		y = 1
 		relative_position_id = BEL_the_greater_threat
 		prerequisite = { focus = BEL_the_greater_threat }
 
@@ -555,7 +585,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			add_stability = 0.01
 			add_popularity = {
@@ -567,10 +597,10 @@ focus_tree = {
 	focus = {
 		id = BEL_a_new_coalition
 		icon = GFX_focus_ARG_alvears_democracy
-		x = 0
-		y = 4
-		relative_position_id = BEL_the_greater_threat
-		prerequisite = { focus = BEL_reduce_corruption }
+		x = 1
+		y = 1
+		relative_position_id = BEL_anti_fascist_propaganda
+		prerequisite = { focus = BEL_anti_fascist_propaganda }
 
 		cost = 5
 
@@ -606,45 +636,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = BEL_defend_our_democracy
-		icon = GFX_focus_ARG_defense_and_democracy
+		id = BEL_politique_deterrence
+		icon = GFX_focus_generic_air_defense
 		prerequisite = { focus = BEL_continue_the_alliance_with_france }
 		x = 0
 		y = 1
 		relative_position_id = BEL_continue_the_alliance_with_france
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 5
-		}
-
-		available = {
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-	
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = BEL_recovery_from_the_great_war
-				add_idea = BEL_recovery_from_the_great_war_with_fra
-			}
-		}
-	}
-	focus = {
-		id = BEL_politique_deterrence
-		icon = GFX_focus_generic_air_defense
-		prerequisite = { focus = BEL_defend_our_democracy }
-		x = 0
-		y = 1
-		relative_position_id = BEL_defend_our_democracy
 
 		cost = 5
 
@@ -673,7 +670,7 @@ focus_tree = {
 		id = BEL_strengthen_european_unity
 		icon = GFX_focus_usa_focus_on_europe
 		prerequisite = { focus = BEL_politique_deterrence }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = BEL_politique_deterrence
 
@@ -1144,7 +1141,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			add_stability = 0.05
 			FRA = {
@@ -1166,44 +1163,6 @@ focus_tree = {
     			active = no
 				}
 			}
-		}
-	}
-	focus = {
-		id = BEL_return_to_neutrality
-		icon = GFX_goal_generic_neutrality_focus
-		prerequisite = { focus = BEL_abandon_the_locarno_treaty }
-		x = 0
-		y = 1
-		relative_position_id = BEL_abandon_the_locarno_treaty
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			has_idea = BEL_recovery_from_the_great_war
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-	
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			add_popularity = {
-				ideology = fascism
-				popularity = -0.02
-			}
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.02
-			}
 			swap_ideas = {
 				remove_idea = BEL_recovery_from_the_great_war
 				add_idea = BEL_recovery_from_the_great_war_neutral
@@ -1217,13 +1176,12 @@ focus_tree = {
 	focus = {
 		id = BEL_politique_d_independence
 		icon = GFX_focus_spr_masters_of_our_own_fate
-		prerequisite = { focus = BEL_return_to_neutrality }
+		prerequisite = { focus = BEL_abandon_the_locarno_treaty }
 		prerequisite = { focus = BEL_ease_the_tensions }
 		mutually_exclusive = { focus = BEL_emergency_powers_to_the_king }
 		x = 0
 		y = 1
-		relative_position_id = BEL_return_to_neutrality
-		text_icon = CONGO_BEL_focus_style
+		relative_position_id = BEL_abandon_the_locarno_treaty
 
 		cost = 5
 
@@ -1250,17 +1208,19 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			add_political_power = 150
 			complete_national_focus = BEL_increased_length_of_service
+			complete_national_focus = BEL_perpetual_neutrality
+			complete_national_focus = BEL_independent_neutral_and_loyal_2
 		}
 	}
 	focus = {
 		id = BEL_demand_western_guarantees
 		icon = GFX_focus_ARG_join_the_allies
 		prerequisite = { focus = BEL_politique_deterrence focus = BEL_politique_d_independence }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = BEL_politique_deterrence
 
@@ -1398,7 +1358,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER }
 		completion_reward = {
 			add_political_power = 100
 			add_popularity = {
@@ -1453,46 +1413,34 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = BEL_traitor_king
-		icon = GFX_focus_NOR_send_the_king_back_to_denmark
-		prerequisite = { focus = BEL_flee_to_london}
-		relative_position_id = BEL_flee_to_london
-		x = 0
-		y = 1
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available = {
-			has_government = democratic
-			has_capitulated = yes
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-	
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			add_political_power = 150
-			add_war_support = 0.15
-			remove_power_balance = {
-    				id = BEL_king_power_bop
-				}
-		}
-	}
-	focus = {
 		id = BEL_partnership_with_ger
 		icon = GFX_focus_chi_mission_to_germany
 		x = -6
-		y = 0
+		y = -1
+		offset = {
+			x = -2
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = BEL_organize_the_strikes
+				}
+			}
+		}
 		relative_position_id = BEL_goverment_of_national_unity
 
 		cost = 3.6
@@ -1534,10 +1482,20 @@ focus_tree = {
 		id = BEL_devlag
 		icon = GFX_focus_ARG_fascist_researchers
 		x = -6
-		y = 1
+		y = 0
+		offset = {
+			x = -2
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 		relative_position_id = BEL_goverment_of_national_unity
 		prerequisite = { focus = BEL_partnership_with_ger }
-		prerequisite = { focus = BEL_goverment_of_national_unity }
 
 		cost = 5
 
@@ -1565,7 +1523,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_ideas = {
 				BEL_devlag_idea
@@ -1603,7 +1561,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			GER = {
 				country_event = {
@@ -1620,6 +1578,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BEL_devlag
 		prerequisite = { focus = BEL_devlag }
+		prerequisite = { focus = BEL_goverment_of_national_unity }
 
 		cost = 5
 
@@ -1641,11 +1600,13 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
 			add_political_power = 100
 			add_war_support = 0.05
 			add_stability = -0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = BEL_august_borms
 		}
 	}
 	focus = {
@@ -1825,7 +1786,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { }
 		completion_reward = {
 			remove_ideas = {
 				BEL_looming_general_strike
@@ -1863,7 +1824,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			remove_ideas = {
 				BEL_corruption_idea
@@ -1952,7 +1913,6 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = BEL_flemish_nationalism
-		mutually_exclusive = { focus = BEL_a_silent_coup }
 		prerequisite = { focus = BEL_flemish_nationalism focus = BEL_french_nationalism }
 
 		cost = 5
@@ -1962,10 +1922,13 @@ focus_tree = {
 		}
 
 		available = {
+			NOT = {
+				has_government = fascism
+			}
 		}
 		
 		bypass = {
-
+			has_government = fascism
 		}
 
 		cancel_if_invalid = yes
@@ -2016,11 +1979,10 @@ focus_tree = {
 	focus = {
 		id = BEL_a_silent_coup
 		icon = GFX_focus_NOR_lurk_in_the_shadows
-		x = -2
-		y = 1
-		relative_position_id = BEL_flemish_nationalism
-		mutually_exclusive = { focus = BEL_prepare_national_uprising }
-		prerequisite = { focus = BEL_flemish_nationalism focus = BEL_french_nationalism }
+		x = 0
+		y = 2
+		relative_position_id = BEL_prepare_national_uprising
+		prerequisite = { focus = BEL_prepare_national_uprising }
 
 		cost = 10
 
@@ -2029,16 +1991,15 @@ focus_tree = {
 		}
 
 		available = {
-			has_idea = BEL_general_strike
-			fascism > 0.5
+			fascism > 0.45
 		}
 		
 		bypass = {
-
+			has_government = fascism
 		}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
 		available_if_capitulated = yes
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -2077,10 +2038,10 @@ focus_tree = {
 	focus = {
 		id = BEL_close_the_parliament
 		icon = GFX_focus_LAT_suspend_constitution_of_latvia
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = BEL_a_silent_coup
-		prerequisite = { focus = BEL_a_silent_coup focus = BEL_prepare_national_uprising }
+		prerequisite = { focus = BEL_a_silent_coup }
 
 		cost = 10
 
@@ -2118,7 +2079,7 @@ focus_tree = {
 		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
 		prerequisite = { focus = BEL_close_the_parliament }
 		relative_position_id = BEL_close_the_parliament
-		x = 0
+		x = 2
 		y = 1
 
 		cost = 8
@@ -2172,8 +2133,8 @@ focus_tree = {
 		prerequisite = { focus = BEL_close_the_parliament }
 		relative_position_id = BEL_close_the_parliament
 		mutually_exclusive = { focus = BEL_no_compromise_with_the_weak }
-		x = -3
-		y = 2
+		x = -2
+		y = 1
 
 		cost = 10
 
@@ -2307,11 +2268,10 @@ focus_tree = {
 		id = BEL_no_compromise_with_the_weak
 		icon = GFX_focus_spa_eliminate_the_carlists
 		prerequisite = { focus = BEL_close_the_parliament }
-		prerequisite = { focus = BEL_flemish_domination focus = BEL_french_domination }
 		relative_position_id = BEL_close_the_parliament
 		mutually_exclusive = { focus = BEL_national_unity }
-		x = -1
-		y = 2
+		x = 0
+		y = 1
 
 		cost = 5
 
@@ -2331,7 +2291,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER }
 		completion_reward = {
 			add_political_power = 150
 			add_war_support = 0.1
@@ -2343,6 +2303,11 @@ focus_tree = {
 			}
 			else = {
 				BEL_flemish_tension_up = yes
+			}
+			add_power_balance_value = {
+   				id = BEL_king_power_bop
+   	 			value = 0.2
+    			tooltip_side = BEL_parliament_dominates
 			}
 		}
 	}
@@ -2434,7 +2399,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
 
 		x = 0
-		y = 2
+		y = 1
 	
 		cost = 5
 
@@ -2537,11 +2502,9 @@ focus_tree = {
 	focus = {
 		id = BEL_flemish_autonomy
 		icon = GFX_focus_generic_concessions
-		x = 2
-		y = 3
-		relative_position_id = BEL_flemish_nationalism
+		x = -10
+		y = 0
 		mutually_exclusive = { focus = BEL_flemish_domination focus = BEL_french_domination }
-		prerequisite = { focus = BEL_a_silent_coup focus = BEL_prepare_national_uprising focus = BEL_emergency_powers_to_the_king focus = BEL_politique_d_independence focus = BEL_politique_deterrence }
 
 		cost = 10
 
@@ -2557,15 +2520,9 @@ focus_tree = {
 			has_civil_war = no
 			OR = {
 				NOT = {
-					has_completed_focus = BEL_prepare_national_uprising
-				}
-				has_government = fascism
-			}
-			OR = {
-				NOT = {
 					has_government = democratic
 				}
-				date > 1938.07.01
+				date > 1938.01.01
 			}
 		}
 		
@@ -2577,7 +2534,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
 		completion_reward = {
 			BEL_flemish_tension_down = yes
 			BEL_walloon_tension_down = yes
@@ -2609,25 +2566,23 @@ focus_tree = {
 			LUX = {
 				exists = yes
 			}
-			NOT = {
-				has_completed_focus = BEL_continue_the_alliance_with_france
-			}
+			has_completed_focus = BEL_goverment_of_national_unity
+			has_completed_focus = BEL_abandon_the_locarno_treaty
 		}
 		
 		bypass = {
 			LUX = {
 				exists = no
 			}
-			NOT = {
-				has_completed_focus = BEL_continue_the_alliance_with_france
-			}
+			has_completed_focus = BEL_goverment_of_national_unity
+			has_completed_focus = BEL_abandon_the_locarno_treaty
 		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			add_state_claim = 8
 			create_wargoal = {
@@ -2652,7 +2607,7 @@ focus_tree = {
 		}
 
 		available = {
-			6 = {
+			977 = {
 				is_owned_and_controlled_by = BEL
 			}
 			is_subject = no
@@ -2664,7 +2619,7 @@ focus_tree = {
 		bypass = {
 			OR = {
 				NOT = {
-					6 = {
+					977 = {
 						is_owned_and_controlled_by = BEL
 					}
 				}
@@ -2679,14 +2634,14 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			add_state_core = 35
 			start_border_war = {
 				change_state_after_war = no
     			attacker = {
-					state = 6
-					num_provinces = 7
+					state = 977
+					num_provinces = 3
 					on_win = bel.mod.23
 					on_cancel = bel.mod.24
 					on_lose = bel.mod.25
@@ -2696,7 +2651,7 @@ focus_tree = {
 				}	
 				defender = {
 					state = 35
-					num_provinces = 6
+					num_provinces = 3
 					modifier = -0.1
 					terrain_factor = 0
 					dig_in_factor = 0.5
@@ -2742,23 +2697,17 @@ focus_tree = {
     			type = annex_everything
    				target = HOL
 			}
-			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	focus = {
 		id = BEL_reclaim_old_dutch_colonies
 		icon = GFX_focus_generic_annex_country_2
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = BEL_greater_netherlands
 		prerequisite = { focus = BEL_greater_netherlands }
-		prerequisite = { focus = BEL_demand_further_gallic_concessions focus = BEL_colonise_the_colonisers }
 
 		cost = 10
-		allow_branch = {
-				has_completed_focus = BEL_greater_netherlands
-				has_government = fascism
-			}
 		ai_will_do = {
 			factor = 1
 		}
@@ -2839,7 +2788,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			add_state_claim = 29
 			start_border_war = {
@@ -2894,7 +2843,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			add_state_core = 29
 			add_state_core = 785
@@ -2905,23 +2854,15 @@ focus_tree = {
     			type = annex_everything
    				target = FRA
 			}
-			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	focus = {
 		id = BEL_our_destiny
 		icon = GFX_focus_BEL_burgundy_rising
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = BEL_integrate_northern_france
 		prerequisite = { focus = BEL_integrate_northern_france }
-		allow_branch = {
-			has_completed_focus = BEL_integrate_northern_france
-			OR = {
-				has_government = neutrality
-				has_government = fascism
-			}
-		}
 		cost = 10
 
 		ai_will_do = {
@@ -2995,7 +2936,7 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			add_stability = -0.05
+			add_stability = -0.2
 			every_state = {
 				limit = {
 					is_core_of = FRA
@@ -3032,58 +2973,19 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
 			add_ideas = BEL_together_for_victory_idea
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	focus = {
-		id = BEL_for_freedom_and_democracy
-		icon = GFX_focus_NOR_broken_gun_policies
-		x = 0
-		y = 4
-		relative_position_id = BEL_reclaim_luxembourg
-		prerequisite = { focus = BEL_together_for_victory }
-		allow_branch = {
-			has_completed_focus = BEL_together_for_victory
-			has_government = democratic
-		}
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			has_completed_focus = BEL_flemish_autonomy
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-	
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = BEL_together_for_victory_idea
-				add_idea = BEL_together_for_victory_2_idea
-			}
+			add_war_support = 0.1
 		}
 	}
 	focus = {
 		id = BEL_french_domination
 		icon = GFX_focus_BEL_the_flemish_question
-		x = 1
-		y = 3
-		relative_position_id = BEL_french_nationalism
+		x = 3
+		y = 0
+		relative_position_id = BEL_flemish_autonomy
 		mutually_exclusive = { focus = BEL_flemish_autonomy focus = BEL_flemish_domination }
-		prerequisite = { focus = BEL_a_silent_coup focus = BEL_prepare_national_uprising focus = BEL_emergency_powers_to_the_king }
-		prerequisite = { focus = BEL_french_nationalism focus = BEL_strengthen_monarchist_sentiments }
 
 		cost = 10
 
@@ -3097,6 +2999,10 @@ focus_tree = {
 				has_government = fascism
 				has_government = neutrality
 			}
+			OR = {
+				has_completed_focus = BEL_french_domination
+				has_completed_focus = BEL_strengthen_monarchist_sentiments
+			}
 		}
 		
 		bypass = {
@@ -3107,7 +3013,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
 		completion_reward = {
 			BEL_walloon_tension_down = yes
 			add_days_mission_timeout = {
@@ -3120,11 +3026,10 @@ focus_tree = {
 	focus = {
 		id = BEL_flemish_domination
 		icon = GFX_focus_hol_united_netherlands
-		x = 1
-		y = 2
-		relative_position_id = BEL_a_silent_coup
+		x = -3
+		y = 0
+		relative_position_id = BEL_flemish_autonomy
 		mutually_exclusive = { focus = BEL_flemish_autonomy focus = BEL_french_domination }
-		prerequisite = { focus = BEL_a_silent_coup focus = BEL_prepare_national_uprising }
 
 		cost = 10
 
@@ -3133,9 +3038,7 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = { 
-				has_completed_focus = BEL_french_nationalism
-			}
+			has_completed_focus = BEL_flemish_nationalism
 			has_civil_war = no
 			has_government = fascism
 		}
@@ -3148,7 +3051,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
 		completion_reward = {
 			BEL_flemish_tension_down = yes
 			add_days_mission_timeout = {
@@ -3183,7 +3086,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
 		}
@@ -3191,10 +3094,10 @@ focus_tree = {
 	focus = {
 		id = BEL_crush_the_weak
 		icon = GFX_focus_generic_strike_at_democracy2
-		x = -1
+		x = 2
 		y = 1
-		relative_position_id = BEL_prepare_national_uprising
-		prerequisite = { focus = BEL_prepare_national_uprising focus = BEL_a_silent_coup focus = BEL_politique_d_independence focus = BEL_emergency_powers_to_the_king }
+		relative_position_id = BEL_flemish_autonomy
+		prerequisite = { focus = BEL_flemish_autonomy focus = BEL_flemish_domination focus = BEL_french_domination }
 
 		cost = 5
 
@@ -3218,7 +3121,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
 			add_ideas = BEL_crush_the_weak_idea
 		}
@@ -3247,7 +3150,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER }
 		completion_reward = {
 			add_popularity = {
 				ideology = neutrality
@@ -3323,7 +3226,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_BALANCE_OF_POWER }
 		completion_reward = {
 			add_stability = 0.05
 			add_popularity = {
@@ -3340,7 +3243,7 @@ focus_tree = {
 	focus = {
 		id = BEL_strengthen_monarchist_sentiments
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = BEL_emergency_powers_to_the_king
 		prerequisite = { focus = BEL_emergency_powers_to_the_king }
@@ -3386,7 +3289,7 @@ focus_tree = {
 		id = BEL_strengthen_belgian_unity
 		icon = GFX_focus_BEL_expression_of_belgian_unity
 		prerequisite = { focus = BEL_emergency_powers_to_the_king focus = BEL_politique_d_independence }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = BEL_emergency_powers_to_the_king
 
@@ -3453,8 +3356,8 @@ focus_tree = {
 	focus = {
 		id = BEL_look_to_the_east
 		icon = GFX_goal_demand_sudetenland
-		prerequisite = { focus = BEL_french_domination focus = BEL_the_rightful_ruler_of_luxembourg focus = BEL_flemish_autonomy focus = BEL_flemish_domination }
-		x = -1
+		prerequisite = { focus = BEL_the_rightful_ruler_of_luxembourg focus = BEL_a_silent_coup focus = BEL_distrust_the_king }
+		x = 0
 		y = 1
 		relative_position_id = BEL_the_rightful_ruler_of_luxembourg
 
@@ -3488,7 +3391,7 @@ focus_tree = {
 		icon = GFX_focus_SWE_undermine_fascism
 		prerequisite = { focus = BEL_look_to_the_east }
 		mutually_exclusive = { focus = BEL_compensate_the_germans focus = BEL_strict_neutrality }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = BEL_look_to_the_east
 		will_lead_to_war_with = GER
@@ -3500,6 +3403,9 @@ focus_tree = {
 		}
 
 		available = {
+			GER = {
+				exists = yes
+			}
 			is_subject = no
 			NOT = {
 				is_in_faction_with = GER
@@ -3507,7 +3413,12 @@ focus_tree = {
 		}
 		
 		bypass = {
-			has_war_with = GER
+			OR = {
+				has_war_with = GER
+				GER = {
+					exists = no
+				}
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -3525,9 +3436,9 @@ focus_tree = {
 	focus = {
 		id = BEL_compensate_the_germans
 		icon = GFX_focus_CZE_german_puppet
-		prerequisite = { focus = BEL_ban_the_fascist_parties focus = BEL_look_to_the_east }
+		prerequisite = { focus = BEL_look_to_the_east }
 		mutually_exclusive = { focus = BEL_strike_the_eagle focus = BEL_strict_neutrality }
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = BEL_look_to_the_east
 
@@ -3623,7 +3534,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_organize_wreckers
 		prerequisite = { focus = BEL_compensate_the_germans focus = BEL_strict_neutrality focus = BEL_strike_the_eagle }
 		relative_position_id = BEL_flee_to_london
-		x = -3
+		x = -4
 		y = 2
 
 		cost = 10
@@ -3759,9 +3670,9 @@ focus_tree = {
 	focus = {
 		id = BEL_ban_the_fascist_parties
 		icon = GFX_focus_focus_fra_fascist_threat
-		prerequisite = { focus = BEL_strengthen_belgian_unity focus = BEL_propose_benelux_alliance focus = BEL_let_the_west_in }
+		prerequisite = { focus = BEL_politique_d_independence focus = BEL_politique_deterrence focus = BEL_emergency_powers_to_the_king }
 		x = 0
-		y = 3
+		y = 1
 		relative_position_id = BEL_politique_d_independence
 
 		cost = 5
@@ -3790,9 +3701,9 @@ focus_tree = {
 	focus = {
 		id = BEL_strict_neutrality
 		icon = GFX_goal_generic_defence
-		prerequisite = { focus = BEL_ban_the_fascist_parties focus = BEL_the_rightful_ruler_of_luxembourg focus = BEL_look_to_the_east }
+		prerequisite = { focus = BEL_look_to_the_east }
 		mutually_exclusive = { focus = BEL_strike_the_eagle focus = BEL_compensate_the_germans }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = BEL_look_to_the_east
 
@@ -3946,30 +3857,46 @@ focus_tree = {
 			}
 		}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
 		available_if_capitulated = yes
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			remove_dynamic_modifier = {	modifier = BEL_neutrality_dynamic_modifier }
 			remove_ideas = BEL_recovery_from_the_great_war_neutral
-			if = {
-				limit = {
-					has_idea = neutrality_idea
-				}
-				remove_ideas = neutrality_idea
-			}
 		}
 	}
 	focus = {
 		id = BEL_we_are_belgium
 		icon = GFX_focus_FIN_suomen_maavoimat
-		prerequisite = { focus = BEL_the_council_of_europe focus = BEL_the_brussels_uprising focus = BEL_no_more_neutrality focus = BEL_greater_netherlands focus = BEL_together_for_victory focus =  BEL_integrate_northern_france focus = BEL_deport_germans focus = BEL_strike_britain focus = BEL_strike_germany focus = BEL_raise_the_red_flag focus = BEL_european_community }
+		prerequisite = { focus = BEL_the_council_of_europe focus = BEL_the_brussels_uprising focus = BEL_no_more_neutrality focus = BEL_deport_germans focus = BEL_strike_britain focus = BEL_strike_germany focus = BEL_raise_the_red_flag focus = BEL_european_community }
 		relative_position_id = BEL_no_more_neutrality
 		text_icon = CONGO_BEL_focus_style
 		x = 5
 		y = 2
+		offset = {
+			x = -3
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		offset = {
+			x = -10
+			y = -1
+			trigger = {
+				has_completed_focus = BEL_organize_the_strikes
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 
 		cost = 8
 
@@ -3988,7 +3915,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
 		completion_reward = {
 			unlock_decision_tooltip = BEL_promote_belgian_unity
 		}
@@ -4045,6 +3972,39 @@ focus_tree = {
 	
 		x = 67
 		y = 0
+		offset = {
+			x = -11
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_government_resigns_2
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		offset = {
+			x = -10
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_organize_the_strikes
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 
 		cost = 5
 
@@ -4486,7 +4446,6 @@ focus_tree = {
 	
 		x = 6
 		y = 0
-	
 		cost = 5
 
 		available = {
@@ -4914,6 +4873,18 @@ focus_tree = {
 
 		x = 11
 		y = 1
+
+		offset = {
+			x = -11
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 	
 		cost = 0
 
@@ -4924,11 +4895,26 @@ focus_tree = {
 				always = no
 			}
 		}
+
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = BEL_goverment_of_national_unity
+					has_completed_focus = BEL_organize_the_strikes
+				}
+			}
+		}
 	
 		completion_reward = {
 			add_stability = -0.1
 			custom_effect_tooltip = BEL_government_resigns_complete_vandervelde_tt
-
+			mark_focus_tree_layout_dirty = yes
 		}
 
 	}
@@ -5131,10 +5117,22 @@ focus_tree = {
 
 		x = 3
 		y = 1
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_organize_the_strikes
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 	
 		cost = 5
 
 		available = {
+			has_civil_war = no
 			SPR_scw_in_progress = yes
 			any_country = {
 				original_tag = SPR
@@ -5232,7 +5230,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
 
-		x = -3
+		x = -4
 		y = 1
 	
 		cost = 10
@@ -5512,6 +5510,17 @@ focus_tree = {
 
 		x = -2
 		y = 1
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_organize_the_strikes
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 	
 		cost = 10
 
@@ -5566,6 +5575,17 @@ focus_tree = {
 		icon = GFX_focus_chi_mission_to_the_soviet_union
 		x = 1
 		y = 1
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_organize_the_strikes
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 		relative_position_id = BEL_international_socialist_bureau_2
 		prerequisite = { focus = BEL_soviet_military_theorists focus = BEL_international_socialist_bureau_2 }
 		mutually_exclusive = { focus = BEL_support_the_european_project }
@@ -5879,6 +5899,17 @@ focus_tree = {
 		relative_position_id = BEL_support_the_european_project
 		x = 1
 		y = 1
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_organize_the_strikes
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 
 		cost = 8
 
@@ -5890,6 +5921,7 @@ focus_tree = {
 			has_war = yes
 			OR = {
 				has_idea = BEL_recovery_from_the_great_war_neutral
+				has_idea = BEL_recovery_from_the_great_war
 				has_dynamic_modifier = { modifier = BEL_neutrality_dynamic_modifier }
 			}
 		}
@@ -5910,12 +5942,23 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			remove_dynamic_modifier = {	modifier = BEL_neutrality_dynamic_modifier }
-			remove_ideas = BEL_recovery_from_the_great_war_neutral
 			if = {
 				limit = {
 					has_idea = neutrality_idea
 				}
 				remove_ideas = neutrality_idea
+			}
+			if = {
+				limit = {
+					has_idea = BEL_recovery_from_the_great_war_neutral
+				}
+				remove_ideas = BEL_recovery_from_the_great_war_neutral
+			}
+			if = {
+				limit = {
+					has_idea = BEL_recovery_from_the_great_war
+				}
+				remove_ideas = BEL_recovery_from_the_great_war
 			}
 		}
 	}
@@ -5930,7 +5973,7 @@ focus_tree = {
 		relative_position_id = BEL_support_the_european_project
 
 		x = 0
-		y = 4
+		y = 3
 	
 		cost = 10
 
@@ -5953,6 +5996,17 @@ focus_tree = {
 		icon = GFX_focus_SOV_organize_wreckers
 		x = 29
 		y = 0
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_organize_the_strikes
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 		mutually_exclusive = {
 			focus = BEL_government_resigns_2
 		}
@@ -5964,10 +6018,20 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = {
-				has_completed_focus = BEL_national_labour_conference
-			}
 			has_active_mission = BEL_general_strike
+		}
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = BEL_government_resigns_2
+				}
+			}
 		}
 		
 		bypass = {
@@ -5984,6 +6048,7 @@ focus_tree = {
 			promote_character = {
 				character = BEL_joseph_jacquemotte
 			}
+			country_event = bel.mod.32
 			set_variable = {
    			 	var = BEL_cw_support
     			value = 0.1
@@ -6005,6 +6070,7 @@ focus_tree = {
 					value = 200
 				}
 			}
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	focus = {
@@ -6452,6 +6518,17 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		x = -4
 		y = 1
+		offset = {
+			x = -11
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 		relative_position_id = BEL_anti_fascist_unity
 		prerequisite = { focus = BEL_anti_fascist_unity focus = BEL_cooperative_cooperation }
 
@@ -6462,7 +6539,11 @@ focus_tree = {
 		}
 
 		available = {
-			has_government = communism
+			has_civil_war = no
+			OR = {
+				has_government = communism
+				has_government = democratic
+			}
 		}
 		
 		bypass = {
@@ -6473,7 +6554,7 @@ focus_tree = {
 		continue_if_invalid = yes
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
 		completion_reward = {
 			add_political_power = 25
 			unlock_decision_tooltip = BEL_suppress_the_flemish
@@ -6495,6 +6576,7 @@ focus_tree = {
 		}
 
 		available = {
+			has_civil_war = no
 			has_government = communism
 		}
 		
@@ -6533,6 +6615,7 @@ focus_tree = {
 		}
 
 		available = {
+			has_civil_war = no
 			has_country_leader = {
 				character = BEL_joseph_jacquemotte
 			}
@@ -6576,6 +6659,7 @@ focus_tree = {
 		}
 
 		available = {
+			has_civil_war = no
 			NOT = {
 				has_country_leader = {
 					character = BEL_joseph_jacquemotte
@@ -7105,6 +7189,28 @@ focus_tree = {
 		icon = GFX_focus_CZE_military_aeronautical_institute
 		x = 5
 		y = -2
+		offset = {
+			x = -10
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_government_resigns_2
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		offset = {
+			x = -10
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 		relative_position_id = BEL_support_german_communists
 		cost = 5
 
@@ -7579,6 +7685,17 @@ focus_tree = {
 		icon = GFX_goal_molotov_ribbentrop_pact
 		x = 0
 		y = 2
+		offset = {
+			x = -11
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 		relative_position_id = BEL_soviet_military_theorists
 		prerequisite = { focus = BEL_soviet_guarantee_2 }
 		cost = 5
@@ -7969,7 +8086,29 @@ focus_tree = {
 		id = BEL_raise_the_red_flag
 		icon = GFX_focus_focus_fra_revolution_utmost
 		x = 0
-		y = 2
+		y = 1
+		offset = {
+			x = -4
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_government_resigns_2
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		offset = {
+			x = -11
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 		relative_position_id = BEL_no_boundries
 		prerequisite = { focus = BEL_move_to_communism focus = BEL_no_boundries focus = BEL_under_our_influence focus = BEL_our_german_identity }
 
@@ -8016,10 +8155,8 @@ focus_tree = {
 	focus = {
 		id = BEL_devalue_the_bfr
 		icon = GFX_focus_fra_devalue_the_franc
-		prerequisite = { focus = BEL_plan_de_man_2 }
-		relative_position_id = BEL_plan_de_man_2
-		x = 3
-		y = 1
+		x = -10
+		y = 6
 
 		cost = 5
 
@@ -8038,8 +8175,12 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.01
+			}
 			add_timed_idea = {
 				idea = BEL_devalue_the_bfr_idea
 				days = 365
@@ -8050,14 +8191,14 @@ focus_tree = {
 		id = BEL_gold_reserves
 		icon = GFX_focus_usa_reestablish_the_gold_standard
 	
-		prerequisite = { focus = BEL_devalue_the_bfr focus = BEL_the_grand_place_2 focus = BEL_the_unstable_alliance focus = BEL_unite_the_left }
+		prerequisite = { focus = BEL_devalue_the_bfr }
 
 		relative_position_id = BEL_devalue_the_bfr
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
 		x = 3
-		y = 2
+		y = 1
 	
 		cost = 5
 
@@ -8120,10 +8261,10 @@ focus_tree = {
 	focus = {
 		id = BEL_dutch_at_the_universities
 		icon = GFX_focus_generic_university_2
-		prerequisite = { focus = BEL_devalue_the_bfr focus = BEL_the_grand_place_2 focus = BEL_unite_the_left focus = BEL_the_unstable_alliance focus = BEL_expand_workers_rights }
+		prerequisite = { focus = BEL_devalue_the_bfr }
 		relative_position_id = BEL_devalue_the_bfr
 		x = -3
-		y = 2
+		y = 1
 
 		cost = 5
 
@@ -8142,7 +8283,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
 		}
@@ -8150,10 +8291,10 @@ focus_tree = {
 	focus = {
 		id = BEL_expand_the_civilian_industry
 		icon = GFX_focus_BEL_the_new_ruhr
-		prerequisite = { focus = BEL_the_grand_place_2 focus = BEL_expand_workers_rights focus = BEL_devalue_the_bfr focus = BEL_unite_the_left focus = BEL_the_unstable_alliance }
+		prerequisite = { focus = BEL_devalue_the_bfr }
 		relative_position_id = BEL_devalue_the_bfr
 		x = -1
-		y = 2
+		y = 1
 
 		cost = 5
 
@@ -8172,7 +8313,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			random_owned_controlled_state = {
 				prioritize = { 6 34 }
@@ -8217,7 +8358,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			34 = {
 				add_extra_state_shared_building_slots = 5
@@ -8268,7 +8409,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			6 = {
 				add_extra_state_shared_building_slots = 5
@@ -8312,7 +8453,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			if = {
 				limit = {
@@ -8349,7 +8490,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			BEL_flemish_tension_down = yes
 			BEL_walloon_tension_down = yes
@@ -8360,10 +8501,10 @@ focus_tree = {
 	focus = {
 		id = BEL_expand_the_arms_industry
 		icon = GFX_focus_BEL_engine_of_the_economy
-		prerequisite = { focus = BEL_devalue_the_bfr focus = BEL_unite_the_left focus = BEL_the_unstable_alliance focus = BEL_the_grand_place_2 }
+		prerequisite = { focus = BEL_devalue_the_bfr }
 		relative_position_id = BEL_devalue_the_bfr
 		x = 1
-		y = 2
+		y = 1
 
 		cost = 5
 
@@ -8382,7 +8523,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			random_owned_controlled_state = {
 				prioritize = { 6 34 }
@@ -8420,7 +8561,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 2
@@ -8461,7 +8602,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 2
@@ -8483,6 +8624,39 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		
 		available_if_capitulated = yes
+		offset = {
+			x = -11
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_government_resigns_2
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		offset = {
+			x = -10
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_organize_the_strikes
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 
 		completion_reward = {
 			army_experience = 50
@@ -8527,8 +8701,12 @@ focus_tree = {
 		relative_position_id = BEL_equipment_efforts
 		mutually_exclusive = { focus = BEL_reduce_the_kings_powers }
 		cost = 5
-
-		search_filters = {  FOCUS_FILTER_RESEARCH }
+		available = {
+			has_power_balance = {
+				id = BEL_king_power_bop
+			}
+		}
+		search_filters = {  FOCUS_FILTER_BALANCE_OF_POWER }
 		
 		available_if_capitulated = yes
 
@@ -8551,8 +8729,12 @@ focus_tree = {
 		relative_position_id = BEL_equipment_efforts
 		mutually_exclusive = { focus = BEL_promote_the_king }
 		cost = 5
-
-		search_filters = {  FOCUS_FILTER_RESEARCH }
+		available = {
+			has_power_balance = {
+				id = BEL_king_power_bop
+			}
+		}
+		search_filters = {  FOCUS_FILTER_BALANCE_OF_POWER }
 		
 		available_if_capitulated = yes
 
@@ -8756,6 +8938,39 @@ focus_tree = {
 		y = 0
 		cost = 5
 		search_filters = { FOCUS_FILTER_RESEARCH }
+		offset = {
+			x = -11
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_government_resigns_2
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		offset = {
+			x = -10
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		offset = {
+			x = -25
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_organize_the_strikes
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
 		
 		available_if_capitulated = yes
 
@@ -8873,13 +9088,13 @@ focus_tree = {
 		prerequisite = { focus = BEL_excavation_advancements focus = BEL_adopt_american_atomic_technology }
 		x = -1
 		y = 2
-		cost = 10
+		cost = 5
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_research_slot = 1
+			add_ideas = BEL_brussels_university_idea
 		}
 	}
 	
@@ -10783,13 +10998,16 @@ focus_tree = {
 		id = BEL_the_king_surrenders
 		icon = GFX_focus_generic_surrender
 	
-		x = 5
-		y = 14
+		x = 4
+		y = 15
 	
 		cost = 0
 
 		available = {
-			always = no
+			has_capitulated = yes
+			has_power_balance = {
+				id = BEL_king_power_bop
+			}
 		}
 
 		available_if_capitulated = yes
@@ -10863,6 +11081,41 @@ focus_tree = {
        		clr_country_flag = BEL_leopold_flag
 		}
 
+	}
+	focus = {
+		id = BEL_traitor_king
+		icon = GFX_focus_NOR_send_the_king_back_to_denmark
+		prerequisite = { focus = BEL_unfit_to_reign}
+		relative_position_id = BEL_unfit_to_reign
+		x = -3
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			has_capitulated = yes
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+	
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_political_power = 150
+			add_war_support = 0.15
+			remove_power_balance = {
+    				id = BEL_king_power_bop
+				}
+		}
 	}
 
 	focus = {

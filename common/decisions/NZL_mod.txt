@@ -698,15 +698,40 @@ BEL_general_strike_categorie = {
 					custom_effect_tooltip = generic_skip_one_line_tt
 					custom_effect_tooltip = BEL_legacy_of_the_soldier_king_tt
 				}
+				hidden_effect = {
+					set_variable = {
+						var = BEL_cw_army_support_final
+						value = 1
+					}
+					set_variable = {
+						var = BEL_cw_support_final
+						value = 1
+					}
+					subtract_from_variable = {
+						var = BEL_cw_army_support_final
+						value = var:BEL_cw_army_support
+					}
+					subtract_from_variable = {
+						var = BEL_cw_support_final
+						value = var:BEL_cw_support
+					}
+				}
 				start_civil_war = {
    					ruling_party = communism
     				ideology = ROOT
-    				size = var:BEL_cw_support
-					army_ratio = var:BEL_cw_army_support
+    				size = var:BEL_cw_support_final
+					army_ratio = var:BEL_cw_army_support_final
 					air_ratio = 0.1
 					states = { 6 34 980 }
     				capital = 6
-					keep_all_characters = yes
+					keep_political_leader = no
+					keep_political_party_members = yes
+				}
+				every_country = {
+					limit = {
+						original_tag = BEL
+					}
+					add_ideas = BEL_civil_war_idea
 				}
 				set_capital = { state = 977 }
 				remove_ideas = BEL_corruption_idea
@@ -727,6 +752,98 @@ BEL_general_strike_categorie = {
 			}
     	}
 	}
+	BEL_aquire_funds = {
+		icon = GFX_decision_generic_prepare_civil_war
+		priority = 9
+		days_remove = 10
+		cost = 5
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		visible = {
+			has_completed_focus = BEL_organize_the_strikes
+		}
+		available = {
+			NOT = {
+				has_idea = BEL_civil_war_preparations_idea
+			}
+			has_idea = BEL_looming_general_strike
+    	}
+		complete_effect = {
+			add_ideas = BEL_civil_war_preparations_idea
+		}
+		remove_effect = {
+			add_political_power = 75
+			remove_ideas = BEL_civil_war_preparations_idea
+		}
+	}
+	BEL_bribe_the_army = {
+		icon = GFX_decision_generic_prepare_civil_war
+		priority = 9
+		days_remove = 10
+		cost = 25
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		visible = {
+			has_completed_focus = BEL_organize_the_strikes
+		}
+		available = {
+			NOT = {
+				has_idea = BEL_civil_war_preparations_idea
+			}
+			has_idea = BEL_looming_general_strike
+    	}
+		complete_effect = {
+			add_ideas = BEL_civil_war_preparations_idea
+		}
+		remove_effect = {
+			add_to_variable = {
+    			var = BEL_cw_army_support
+    			value = 0.15
+    			tooltip = bel_cw_army_support_add_15_to_var_tt
+			}
+			remove_ideas = BEL_civil_war_preparations_idea
+		}
+	}
+	BEL_convert_army_troops = {
+		icon = GFX_decision_generic_prepare_civil_war
+		priority = 9
+		days_remove = 10
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		visible = {
+			has_completed_focus = BEL_organize_the_strikes
+		}
+		available = {
+			NOT = {
+				has_idea = BEL_civil_war_preparations_idea
+			}
+			has_idea = BEL_looming_general_strike
+			divisions_in_state = {
+				state = 977
+				size > 0
+			}
+    	}
+		complete_effect = {
+			add_ideas = BEL_civil_war_preparations_idea
+		}
+		remove_effect = {
+			army_experience = 5
+			add_to_variable = {
+    			var = BEL_cw_army_support
+    			value = 0.15
+    			tooltip = bel_cw_army_support_add_15_to_var_tt
+			}
+			remove_ideas = BEL_civil_war_preparations_idea
+		}
+	}
+
 	BEL_bring_the_army = {
 		icon = GFX_decision_generic_prepare_civil_war
 		priority = 9
@@ -736,6 +853,11 @@ BEL_general_strike_categorie = {
 		ai_will_do = {
 			factor = 100
 		}
+		visible = {
+			NOT = {
+				has_completed_focus = BEL_organize_the_strikes
+			}
+		}
 		available = {
 			OR = { 
 				has_completed_focus = BEL_goverment_of_national_unity
@@ -743,7 +865,7 @@ BEL_general_strike_categorie = {
 			}
 			has_idea = BEL_looming_general_strike
 			divisions_in_state = {
-				state = 6
+				state = 977
 				size > 5
 			}
     	}
@@ -773,6 +895,11 @@ BEL_general_strike_categorie = {
 		days_re_enable = 130
 		ai_will_do = {
 			factor = 100
+		}
+		visible = {
+			NOT = {
+				has_completed_focus = BEL_organize_the_strikes
+			}
 		}
 		available = {
 			OR = { 
@@ -807,6 +934,11 @@ BEL_general_strike_categorie = {
 		modifier = {
 			industrial_capacity_factory = 0.02
 		}
+		visible = {
+			NOT = {
+				has_completed_focus = BEL_organize_the_strikes
+			}
+		}
 		complete_effect = {
 			if = {
 				limit = {
@@ -830,6 +962,11 @@ BEL_general_strike_categorie = {
 		cost = 35
 		ai_will_do = {
 			factor = 200
+		}
+		visible = {
+			NOT = {
+				has_completed_focus = BEL_organize_the_strikes
+			}
 		}
 		days_remove = -1
 		available = {
@@ -867,6 +1004,11 @@ BEL_general_strike_categorie = {
 			factor = 200
 		}
 		days_remove = -1
+		visible = {
+			NOT = {
+				has_completed_focus = BEL_organize_the_strikes
+			}
+		}
 		available = {
 			NOT = {
 				has_idea = BEL_implementing_changes
@@ -902,6 +1044,11 @@ BEL_general_strike_categorie = {
 			factor = 200
 		}
 		days_remove = 5
+		visible = {
+			NOT = {
+				has_completed_focus = BEL_organize_the_strikes
+			}
+		}
 		available = {
 			OR = {
 				has_idea = BEL_general_strike
@@ -1122,8 +1269,8 @@ BEL_king_bop_categorie = {
 	BEL_pass_a_restricting_law = {
 		icon = GFX_decision_eng_trade_unions_support
 		priority = 50
-		cost = 25
-		days_remove = 200
+		cost = 50
+		days_remove = 180
 		available = {
 			power_balance_value = {
     			id = BEL_king_power_bop
@@ -1133,7 +1280,7 @@ BEL_king_bop_categorie = {
 		complete_effect = {
 			add_power_balance_value = {
     			id = BEL_king_power_bop
-    			value = 0.05
+    			value = 0.1
     			tooltip_side = BEL_parliament_dominates
 			}		
 		}
@@ -1153,7 +1300,7 @@ BEL_king_bop_categorie = {
 			add_stability = -0.01	
 			add_power_balance_value = {
     			id = BEL_king_power_bop
-    			value = 0.025
+    			value = 0.05
     			tooltip_side = BEL_parliament_dominates
 			}
 		}

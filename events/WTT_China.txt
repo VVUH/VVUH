@@ -17,8 +17,27 @@ country_event = {
 		ai_chance = { 
 			base = 10 
 			modifier = {
+				has_government = FROM
+				add = 10
+			}
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 50
+				}
+				add = 5
+			}
+			modifier = {
+				strength_ratio = {
+					tag = FROM
+					ratio > 1
+				}
+				add = 5
+			}
+
+			modifier = {
 				has_global_flag = CHI_xian_refused
-				factor = 0
+				add = -15
 			}
 			modifier = {
 				factor = 0
@@ -34,7 +53,7 @@ country_event = {
 		}
 		FROM = {
 			puppet = ROOT
-			country_event = { id = wtt_china.2 }
+			country_event = { id = wtt_china.2 random_hours = 12 }
 		}
 	}
 
@@ -43,9 +62,45 @@ country_event = {
 		name = wtt_china.1.b
 		ai_chance = { 
 			base = 10 
+			modifier = {
+			strength_ratio = {
+				tag = FROM
+				ratio < 1
+			}
+			add = 10
+			}
+			modifier = {
+				NOT = {
+					has_government = FROM
+				}
+				add = 5
+			}
+			modifier = {
+				any_enemy_country = { 
+					AND = {
+						is_major = yes 
+						NOT = { tag = CHI }
+					}
+				}
+				add = -5
+			}
+			modifier = {
+				strength_ratio = {
+					tag = FROM
+					ratio > 3
+				}
+				add = -1
+			}
+			modifier = {
+				strength_ratio = {
+					tag = FROM
+					ratio > 10
+				}
+				factor = 0.8
+			}
 		}
 		FROM = {
-			country_event = { id = wtt_china.3 }
+			country_event = { id = wtt_china.3 random_hours = 12 }
 		}
 	}
 }
@@ -61,6 +116,19 @@ country_event = {
 	
 	option = {
 		name = wtt_china.2.a
+		if = {
+			limit = {
+				FROM = {
+					tag = PRC
+				}
+				tag = CHI
+				has_completed_focus = CHI_unify_the_parties
+			}
+			annex_country = {
+				target = PRC
+				transfer_troops = yes
+			}			
+		}
 	}
 }
 
@@ -1984,4 +2052,375 @@ country_event = {
 			base = 0			
 		}
 	}
+}
+country_event = {
+	id = wtt_china.205
+	title = "How to deal with [?mod_chi_legation_city_target.GetName]"
+	desc = "Now that our preparations are complete we need a plan on how to aquire [?mod_chi_legation_city_target.GetName]. Which plan will we choose?"
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+
+	#All out war
+	option = {
+		name = "We will declare war!"
+		ai_chance = {
+			base = 0
+		}
+		add_political_power = -50
+		add_war_support = 0.05
+		var:mod_chi_legation_city_target = {
+			owner = {
+				ROOT = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+		clear_variable = mod_chi_legation_city_target
+	}
+
+	#Seize the territory, hope they dont care
+	option = {
+		name = "A quick takeover of the city will hopefully avoid a grand conflict (They have 35 days to declare war)"
+		ai_chance = {
+			base = 0
+		}
+		add_political_power = -25
+		add_manpower = -1000
+		var:mod_chi_legation_city_target = {
+			owner = {
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = PREV.PREV
+					expire = 35
+				}
+			}
+		}
+		transfer_state = var:mod_chi_legation_city_target
+		clear_variable = mod_chi_legation_city_target
+	}
+
+	#Purchase the territory
+	option = {
+		name = "Let's propose them a deal"
+		ai_chance = {
+			base = 0			
+		}
+		custom_effect_tooltip = CHI_custom_tt_deal_with_legation_city_purchase
+		hidden_effect = {
+			var:mod_chi_legation_city_target = {
+				owner = {
+					country_event = {
+						id = wtt_china.206
+						hours = 6
+					}
+				}
+			}
+		}
+	}
+	#Demand the territory
+	option = {
+		name = "Send them an Ultimatum. [?mod_chi_legation_city_target.GetName] or War!"
+		ai_chance = {
+			base = 0			
+		}
+		custom_effect_tooltip = CHI_custom_tt_deal_with_legation_city_demand
+		hidden_effect = {
+			var:mod_chi_legation_city_target = {
+				owner = {
+					country_event = {
+						id = wtt_china.210
+						hours = 6
+					}
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = wtt_china.206
+	title = "[From.GetName] wants to purchase [?mod_chi_legation_city_target.GetName]"
+	desc = "[From.GetName] has reached out to us showing their desire to purchase [?mod_chi_legation_city_target.GetName]. How should we respond?"
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+	#NO
+	option = {
+		name = "Outrageous we will not sell [?mod_chi_legation_city_target.GetName] to [FROM.GetName]"
+		ai_chance = {
+			base = 5
+			modifier = {
+				has_war = no
+				add = 5
+			}
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value < 0
+				}
+				add = 5
+			}
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 0
+				}
+				add = -5
+			}
+		}
+		FROM = {
+			country_event = {
+				id = wtt_china.207
+				hours = 6
+			}
+		}
+	}
+
+	#Alright
+	option = {
+		name = "Alright we will sell it"
+		ai_chance = {
+			base = 15
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 25
+				}
+				add = 5
+			}
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 50
+				}
+				add = 5
+			}
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 75
+				}
+				add = 5
+			}
+		}
+		FROM = {
+			country_event = {
+				id = wtt_china.208
+				hours = 6
+			}
+		}
+	}
+}
+country_event = {
+	id = wtt_china.207
+	title = "[From.GetName] has denied our request to purchase [?mod_chi_legation_city_target.GetName]"
+	desc = "Even though we wanted a peaceful solution that benefits both sides, [From.GetName] has denied us [?mod_chi_legation_city_target.GetName]. How should we proceed?"
+	picture = GFX_report_event_china_ledo_road
+
+	is_triggered_only = yes
+
+	#NO
+	option = {
+		name = "Then we shall take it by force"
+		ai_chance = {
+			base = 0
+		}
+		add_political_power = -25
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+		clear_variable = mod_chi_legation_city_target
+	}
+
+	#Alright
+	option = {
+		name = "We have no choice but to back down"
+		ai_chance = {
+			base = 0
+		}
+		add_political_power = 25
+		FROM = {
+			country_event = {
+				id = wtt_china.209
+				hours = 6
+			}
+		}
+	}
+}
+country_event = {
+	id = wtt_china.208
+	title = "[From.GetName] has accepted our request to purchase [?mod_chi_legation_city_target.GetName]"
+	desc = "Surprisingly, [From.GetName] has accepted our request to purchase [?mod_chi_legation_city_target.GetName]."
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+
+	#Cool
+	option = {
+		name = "Great"
+		ai_chance = {
+			base = 0
+		}
+		add_timed_idea = {
+			idea = CHI_purchased_city_idea
+			days = 180
+		}
+		FROM = {
+			add_timed_idea = {
+				idea = CHI_sold_city_idea
+				days = 180
+			}
+		}
+		add_war_support = 0.02
+		add_political_power = 75
+		transfer_state = var:mod_chi_legation_city_target
+		clear_variable = mod_chi_legation_city_target
+	}
+
+}
+country_event = {
+	id = wtt_china.209
+	title = "[From.GetName] has backed down"
+	desc = "[From.GetName] has backed down from their claim on [?mod_chi_legation_city_target.GetName]. But we should beware that they might come back in the futur"
+	picture = GFX_report_event_czech_soldiers_01
+
+	is_triggered_only = yes
+
+	#Cool
+	option = {
+		name = "We will be ready when they try again"
+		ai_chance = {
+			base = 0
+		}
+		clear_variable = mod_chi_legation_city_target
+	}
+
+}
+country_event = {
+	id = wtt_china.210
+	title = "[From.GetName] demands [?mod_chi_legation_city_target.GetName]"
+	desc = "[From.GetName] sent us an ultimatum: if we don't cede [?mod_chi_legation_city_target.GetName] to them they might declare war on us. How should we respond?"
+	picture = GFX_report_event_china_infiltration
+
+	is_triggered_only = yes
+
+	#NO
+	option = {
+		name = "Outrageous we will not cede [?mod_chi_legation_city_target.GetName] to [FROM.GetName]"
+		ai_chance = {
+			base = 10
+			modifier = {
+				has_war = yes
+				add = -5
+			}
+			modifier = {
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.5
+				}
+				add = -5
+			}
+		}
+		FROM = {
+			country_event = {
+				id = wtt_china.211
+				hours = 6
+			}
+		}
+	}
+
+	#Alright
+	option = {
+		name = "Alright we will cede it"
+		ai_chance = {
+			base = 10
+			modifier = {
+				has_war = yes
+				add = 5
+			}
+			modifier = {
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.25
+				}
+				add = 5
+			}
+			modifier = {
+				FROM = {
+					is_major = yes
+				}
+				add = 5
+			}
+		}
+		FROM = {
+			country_event = {
+				id = wtt_china.212
+				hours = 6
+			}
+		}
+	}
+}
+country_event = {
+	id = wtt_china.211
+	title = "[From.GetName] has rejected our ultimatum"
+	desc = "Even though we wanted a peaceful solution that benefits both sides, [From.GetName] has denied us [?mod_chi_legation_city_target.GetName]. How should we proceed?"
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+
+	#NO
+	option = {
+		name = "Then we shall take it by force"
+		ai_chance = {
+			base = 0
+		}
+		add_war_support = 0.02
+		add_political_power = 15
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+		clear_variable = mod_chi_legation_city_target
+	}
+
+	#Alright
+	option = {
+		name = "We have no choice but to back down"
+		ai_chance = {
+			base = 0
+		}
+		add_political_power = 25
+		FROM = {
+			country_event = {
+				id = wtt_china.209
+				hours = 6
+			}
+		}
+	}
+}
+country_event = {
+	id = wtt_china.212
+	title = "[From.GetName] cedes [?mod_chi_legation_city_target.GetName]"
+	desc = "Surprisingly, [From.GetName] has accepted our ultimatum. [?mod_chi_legation_city_target.GetName] is ours now."
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	is_triggered_only = yes
+
+	#Cool
+	option = {
+		name = "Great"
+		ai_chance = {
+			base = 0
+		}
+		add_war_support = 0.02
+		add_political_power = 75
+		transfer_state = var:mod_chi_legation_city_target
+		clear_variable = mod_chi_legation_city_target
+	}
+
 }

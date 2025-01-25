@@ -1,6 +1,371 @@
 
 
 #Category only allowed for CHI
+CHI_deal_with_the_legation_cities_cat = {
+	CHI_prepare_for_hong_kong = {
+		icon = generic_prepare_civil_war
+		available = {
+			NOT = {
+				has_idea = CHI_recently_demanded_city_idea
+			}
+			326 = {
+				owner = {
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
+				NOT = {
+					is_owned_and_controlled_by = SHX
+					is_owned_and_controlled_by = XSM
+					is_owned_and_controlled_by = YUN
+					is_owned_and_controlled_by = SIK
+					is_owned_and_controlled_by = GXC
+					is_owned_and_controlled_by = CHI
+					is_owned_and_controlled_by = PRC
+				}
+			}
+			any_controlled_state = {
+				any_neighbor_state = {
+					state = 326
+				}
+			}
+			has_completed_focus = CHI_deal_with_the_legation_cities
+		}
+
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 35
+		modifier = {
+			political_power_factor = -0.05
+		}
+
+		visible = {
+		}
+		complete_effect = {
+			add_timed_idea = {
+				idea = CHI_recently_demanded_city_idea
+				days = 90
+			}
+			set_variable = {
+				var = mod_chi_legation_city_target
+				value = 326
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = CHI_custom_tt_deal_with_legation_city
+			hidden_effect = {
+				country_event = {
+					id = wtt_china.205
+					hours = 6
+				}
+			}
+		}
+	}
+	CHI_prepare_for_macau = {
+		icon = generic_prepare_civil_war
+		available = {
+			NOT = {
+				has_idea = CHI_recently_demanded_city_idea
+			}
+			729 = {
+				owner = {
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
+				NOT = {
+					is_owned_and_controlled_by = SHX
+					is_owned_and_controlled_by = XSM
+					is_owned_and_controlled_by = YUN
+					is_owned_and_controlled_by = SIK
+					is_owned_and_controlled_by = GXC
+					is_owned_and_controlled_by = CHI
+					is_owned_and_controlled_by = PRC
+				}
+			}
+			any_controlled_state = {
+				any_neighbor_state = {
+					state = 729
+				}
+			}
+			has_completed_focus = CHI_deal_with_the_legation_cities
+		}
+
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 35
+		modifier = {
+			political_power_factor = -0.05
+		}
+
+		visible = {
+		}
+		complete_effect = {
+			add_timed_idea = {
+				idea = CHI_recently_demanded_city_idea
+				days = 90
+			}
+			set_variable = {
+				var = mod_chi_legation_city_target
+				value = 729
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = CHI_custom_tt_deal_with_legation_city
+			hidden_effect = {
+				country_event = {
+					id = wtt_china.205
+					hours = 6
+				}
+			}
+		}
+	}
+	CHI_prepare_for_guang = {
+		icon = generic_prepare_civil_war
+		available = {
+			NOT = {
+				has_idea = CHI_recently_demanded_city_idea
+			}
+			728 = {
+				owner = {
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
+				NOT = {
+					
+					is_owned_and_controlled_by = SHX
+					is_owned_and_controlled_by = XSM
+					is_owned_and_controlled_by = YUN
+					is_owned_and_controlled_by = SIK
+					is_owned_and_controlled_by = GXC
+					is_owned_and_controlled_by = CHI
+					is_owned_and_controlled_by = PRC
+				}
+			}
+			any_controlled_state = {
+				any_neighbor_state = {
+					state = 728
+				}
+			}
+			has_completed_focus = CHI_deal_with_the_legation_cities
+		}
+
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 35
+		modifier = {
+			political_power_factor = -0.05
+		}
+
+		visible = {
+		}
+		complete_effect = {
+			add_timed_idea = {
+				idea = CHI_recently_demanded_city_idea
+				days = 90
+			}
+			set_variable = {
+				var = mod_chi_legation_city_target
+				value = 728
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = CHI_custom_tt_deal_with_legation_city
+			hidden_effect = {
+				country_event = {
+					id = wtt_china.205
+					hours = 6
+				}
+			}
+		}
+	}
+	CHI_prepare_for_qingdao = {
+		icon = generic_prepare_civil_war
+		available = {
+			NOT = {
+				has_idea = CHI_recently_demanded_city_idea
+			}
+			743 = {
+				owner = {
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
+				NOT = {
+					is_owned_and_controlled_by = SHX
+					is_owned_and_controlled_by = XSM
+					is_owned_and_controlled_by = YUN
+					is_owned_and_controlled_by = SIK
+					is_owned_and_controlled_by = GXC
+					is_owned_and_controlled_by = CHI
+					is_owned_and_controlled_by = PRC
+				}
+			}
+			any_controlled_state = {
+				any_neighbor_state = {
+					state = 743
+				}
+			}
+			has_completed_focus = CHI_deal_with_the_legation_cities
+		}
+
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 35
+		modifier = {
+			political_power_factor = -0.05
+		}
+
+		visible = {
+		}
+		complete_effect = {
+			add_timed_idea = {
+				idea = CHI_recently_demanded_city_idea
+				days = 90
+			}
+			set_variable = {
+				var = mod_chi_legation_city_target
+				value = 743
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = CHI_custom_tt_deal_with_legation_city
+			hidden_effect = {
+				country_event = {
+					id = wtt_china.205
+					hours = 6
+				}
+			}
+		}
+	}
+	
+}
+CHI_core_east_asia = {
+	CHI_core_siam = {
+		icon = GFX_decision_generic_form_nation
+		available = {
+			ROOT = {
+				controls_state = 868
+				controls_state = 869
+				controls_state = 289
+				controls_state = 724
+			}
+			has_completed_focus = CHI_invade_siam
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 289
+				state = 868
+				state = 869
+				state = 724
+			}
+		}
+		fire_only_once = yes
+
+		cost = 75
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 70
+		modifier = {
+			political_power_factor = -0.25
+		}
+
+		visible = {
+		}
+		remove_effect = {
+			add_state_core = 289
+			add_state_core = 868
+			add_state_core = 869
+			add_state_core = 724
+		}
+	}
+	CHI_core_mal = {
+		icon = GFX_decision_generic_form_nation
+		available = {
+			ROOT = {
+				controls_state = 336
+				controls_state = 333
+			}
+			has_completed_focus = CHI_invade_malaya
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 333
+				state = 336
+			}
+		}
+		fire_only_once = yes
+
+		cost = 75
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 70
+		modifier = {
+			political_power_factor = -0.25
+		}
+
+		visible = {
+		}
+		remove_effect = {
+			every_state = {
+				limit = {
+					is_core_of = MAL
+				}
+				add_core_of = ROOT
+			}
+		}
+	}
+	CHI_core_indochina = {
+		icon = GFX_decision_generic_form_nation
+		available = {
+			controls_state = 671
+			controls_state = 670
+			controls_state = 286
+			controls_state = 741
+			has_completed_focus = CHI_invade_indochina
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 671
+				state = 670
+				state = 286
+				state = 741
+			}
+		}
+		fire_only_once = yes
+
+		cost = 75
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 70
+		modifier = {
+			political_power_factor = -0.25
+		}
+
+		visible = {
+		}
+		remove_effect = {
+			add_state_core = 671
+			add_state_core = 670
+			add_state_core = 286
+			add_state_core = 741
+		}
+	}
+
+	
+}
 CHI_anti_imperialism = {
 	
 	CHI_release_korea = {

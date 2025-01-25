@@ -961,6 +961,64 @@ ideas = {
 				fascism_drift = 0.01
 			}
 		}
+		BEL_brussels_university_idea = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_research_bonus
+
+			modifier = {
+				research_speed_factor = 0.12
+			}
+		}
+		BEL_civil_war_preparations_idea = { 
+			name = "Civil War Preparations"
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = SPR_crush_the_revolution
+
+			modifier = {
+				political_power_factor = -0.1
+				stability_weekly = -0.01
+			}
+		}
+		BEL_civil_war_idea = { 
+			name = "Belgian Civil War"
+			allowed = {
+				always = no
+			}
+			cancel = {
+				has_civil_war = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = BEL_chasseurs_ardennais
+
+			modifier = {
+				surrender_limit = 0.3
+				stability_weekly = -0.005
+			}
+		}
 		BEL_suppress_rexist_idea = { 
 			allowed = {
 				always = no
