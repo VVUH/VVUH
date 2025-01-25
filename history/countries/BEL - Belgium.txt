@@ -116,7 +116,6 @@ set_technology = {
 	BEL_chasseurs_ardennais = 1 
 	tech_mountaineers = 1
 }
-set_country_flag = BEL_leopold_flag
 recruit_character = BEL_paul_van_zeeland
 recruit_character = BEL_paul_emile_janson
 recruit_character = BEL_hubert_pierlot
