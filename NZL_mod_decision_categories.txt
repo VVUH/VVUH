@@ -1,0 +1,87 @@
+
+NZL_demand_liberation_of_oceania_categorie = {
+	allowed = {
+		original_tag = NZL
+	}
+
+	icon = GFX_decision_category_SWI_imperial_council
+	priority = 100
+	picture = GFX_decision_cat_picture_generic_polynesia
+
+	visible_when_empty = no
+
+	visible = {
+		has_completed_focus = NZL_demand_liberation_of_east_asia	
+	}
+}
+BEL_ethnic_tension_categorie = {
+	allowed = {
+		original_tag = BEL
+	}
+
+	icon = GFX_decision_category_power_struggle
+	priority = 100
+
+	visible_when_empty = yes
+
+	visible = {
+		always = yes
+	}
+}
+BEL_general_strike_categorie = {
+	allowed = {
+		original_tag = BEL
+	}
+
+	icon = GFX_decision_category_NOR_fascist_deploy_prep
+	priority = 110
+
+	visible_when_empty = yes
+
+	visible = {
+		always = yes
+	}
+}
+BEL_investments_categorie = {
+	allowed = {
+		original_tag = BEL
+	}
+
+	icon = GFX_decision_category_gre_investment_decisions
+	priority = 110
+
+	visible_when_empty = yes
+
+	visible = {
+		always = yes
+	}
+}
+BEL_king_bop_categorie = {
+	allowed = {
+		original_tag = BEL
+	}
+
+	icon = GFX_decision_category_NOR_monarchist_prep
+	priority = 110
+
+	visible_when_empty = no
+
+	visible = {
+		always = yes
+	}
+}
+BEL_form_burgundy_categorie = {
+	allowed = {
+		original_tag = BEL
+	}
+
+	icon = GFX_decision_category_ger_reichskommissariats
+	priority = 110
+	picture = GFX_cat_generic_burgundy
+	visible_when_empty = no
+
+	visible = {
+		has_completed_focus = BEL_our_destiny
+	}
+}
+

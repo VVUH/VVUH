@@ -1,0 +1,1651 @@
+ideas = {
+
+	country = {
+		NZL_neutrality_idea = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = hol_aloof_neutrality
+
+			modifier = {
+				conscription = 0.03
+				army_core_defence_factor = 0.1
+				enemy_justify_war_goal_time = 0.2
+				weekly_manpower = 200
+				justify_war_goal_time = 0.2
+				autonomy_gain = 0.5
+			}
+		}
+		NZL_our_own_path_idea = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = hol_aloof_neutrality
+
+			modifier = {
+				war_support_factor = 0.05
+				conscription = 0.03
+				weekly_manpower = 200
+				justify_war_goal_time = -0.3
+				autonomy_gain = 1.5
+			}
+		}
+		NZL_opposed_mobilization = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = FRA_national_mobilization_focus
+
+			modifier = {
+				stability_factor = 0.05
+				conscription_factor = -0.2
+				political_power_factor = 0.25
+				war_support_factor = -0.05
+				production_speed_arms_factory_factor = -0.2
+
+			}
+		}
+		NZL_first_labor_government_2_idea = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = FRA_national_mobilization_focus
+
+			modifier = {
+				stability_factor = 0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				political_power_factor = 0.1
+				war_support_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+				production_speed_industrial_complex_factor = 0.05
+				consumer_goods_factor = -0.05
+				production_factory_efficiency_gain_factor = 0.05
+				production_factory_max_efficiency_factor = 0.02
+			}
+		}
+		NZL_opposed_mobilization_2 = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = air_support_focus
+
+			modifier = {
+				stability_factor = 0.05
+				conscription_factor = -0.2
+				political_power_factor = 0.25
+				war_support_factor = -0.05
+				production_speed_industrial_complex_factor = 0.15
+				stability_weekly = 0.001
+				production_speed_arms_factory_factor = -0.2
+
+			}
+		}
+		NZL_monarchist_influence = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = stiff_upper_lip
+
+			modifier = {
+				neutrality_drift = 0.1
+			}
+		}
+		NZL_conservatism_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = CHL_conservative_party_in_power
+
+			modifier = {
+				neutrality_drift = 0.01
+				political_power_factor = 0.05
+				stability_weekly = 0.001
+			}
+		}
+		NZL_anti_imperialist_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = ARG_anti_american_propaganda
+
+			modifier = {
+				war_support_weekly = 0.001
+				generate_wargoal_tension = -0.75
+				justify_war_goal_time = -0.5
+				guarantee_tension = -0.75
+				join_faction_tension = -0.75
+				puppet_cost_factor = -0.25
+				resistance_target_on_our_occupied_states = 0.1
+				resistance_target = 0.1
+			}
+		}
+		NZL_anti_imperialist_idea_2 = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = ARG_anti_american_propaganda
+
+			modifier = {
+				war_support_weekly = 0.001
+				generate_wargoal_tension = -0.75
+				justify_war_goal_time = -0.5
+				guarantee_tension = -0.75
+				join_faction_tension = -0.75
+				puppet_cost_factor = -0.25
+				resistance_target_on_our_occupied_states = 0.25
+				political_power_factor = 0.1
+				compliance_gain = 0.02
+			}
+		}
+		NZL_resistance_agents_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = chi_war_of_resistance
+
+			modifier = {
+				operative_slot = 2
+				own_operative_capture_chance_factor = 0.1
+				operation_risk = 0.1
+			}
+		}
+		NZL_resistance_agents_idea_2 = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = chi_war_of_resistance2
+
+			modifier = {
+				operative_slot = 2
+				own_operative_capture_chance_factor = -0.1
+				operation_risk = -0.1
+				operation_boost_resistance_cost = -0.5
+			}
+		}
+		NZL_imperialism_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = eng_imperial_conscription
+
+			modifier = {
+				conscription = 0.02
+				subjects_autonomy_gain = -0.2
+				army_attack_factor = 0.05
+				naval_invasion_penalty = -0.3
+				invasion_preparation = -0.5
+				resistance_target = 0.02
+				compliance_growth = -0.05
+			}
+		}
+		NZL_revenge_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = ARG_anti_british_sentiment
+
+			modifier = {
+				surrender_limit = 0.1
+				offensive_war_stability_factor = 0.15
+				political_power_gain = 0.1
+				war_support_factor = 0.05
+				conscription = 0.02
+			}
+		}
+		NZL_liberalism_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = CHL_liberal_party_in_power
+
+			modifier = {
+				political_power_factor = 0.05
+				consumer_goods_factor = -0.2
+			}
+		}
+		NZL_unexpected_national_victory123 = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = stiff_upper_lip
+
+			modifier = {
+				stability_weekly = -0.005
+				fascism_drift = 0.05
+				democratic_drift = -0.05
+			}
+		}
+		NZL_slow_mob = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_intel_bonus
+
+			modifier = {
+				conscription_factor = 0.1
+				political_power_factor = 0.1
+				production_speed_industrial_complex_factor = 0.15
+				production_speed_arms_factory_factor = 0.1
+			}
+		}
+		NZL_true_mob = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_victors_of_ww1
+
+			modifier = {
+				conscription_factor = 0.25
+				political_power_factor = 0.1
+				war_support_factor = 0.05
+				production_speed_industrial_complex_factor = 0.15
+				production_speed_arms_factory_factor = 0.2
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				
+			}
+		}
+		NZL_sending_supplies_to_britain = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			cancel = {
+				OR = {
+					ENG = {
+						has_war = no
+					}
+					NOT = {
+						is_in_faction_with = ENG
+					}
+				}
+			}
+
+			picture = ARG_british_influences
+
+			modifier = {
+				consumer_goods_factor = 0.1
+			}
+		}
+		NZL_maori_forced_conscription_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_victors_of_ww1
+
+			modifier = {
+				conscription = 0.05
+				stability_factor = -0.1				
+			}
+		}
+		NZL_internal_issues = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+
+			modifier = {
+				political_power_factor = -0.05
+				stability_factor = -0.05
+				war_support_factor = -0.05
+			}
+		}
+		NZL_internal_issues_2 = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_democratic_drift_bonus
+
+			modifier = {
+				political_power_factor = -0.05
+				stability_factor = -0.03
+			}
+		}
+		NZL_nationals_agenda_idea = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_democratic_drift_bonus
+
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = -0.05
+				production_speed_arms_factory_factor = 0.1
+				army_core_defence_factor = 0.1
+				
+			}
+		}
+		NZL_nationals_agenda_idea_2 = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = YUG_federal_defense_council
+
+			modifier = {
+				stability_factor = 0.1
+				consumer_goods_factor = -0.05
+				production_speed_arms_factory_factor = 0.1
+				army_core_defence_factor = 0.2
+				army_morale_factor = 0.1
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1			
+			}
+		}
+		NZL_distrust_uk = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					is_in_faction_with = ENG
+				}
+			}
+			removal_cost = -1
+
+			picture = can_patriation
+
+			modifier = {
+				political_power_factor = 0.05
+				autonomy_gain = 0.5
+				drift_defence_factor = -0.50
+			}
+		}
+		NZL_shared_techno = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = SOV_scientist_defect
+
+			modifier = {
+				research_speed_factor = 0.05
+			}
+		}
+		NZL_welfare_state = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_neutrality_drift_bonus
+
+			modifier = {
+				consumer_goods_expected_value = 0.09
+				political_power_gain = 0.1
+				stability_factor = 0.1
+				production_speed_industrial_complex_factor = 0.25
+				global_building_slots = 2
+				industrial_capacity_factory = 0.2
+				industrial_capacity_dockyard = 0.2
+			}
+		}
+		NZL_ger_trade = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				has_war_with = GER
+			}
+
+			removal_cost = -1
+
+			picture = generic_foreign_capital
+
+			modifier = {
+				trade_opinion_factor = 0.2
+				consumer_goods_factor = -0.1
+				stability_factor = 0.01
+			}
+		}
+		NZL_eng_trade = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+				has_war_with = ENG
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = can_wartime_prices_and_trade_board
+
+			modifier = {
+				war_support_factor = -0.02
+				consumer_goods_factor = -0.1
+				production_lack_of_resource_penalty_factor = -0.1
+			}
+		}
+		NZL_deal_payment = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+				has_war_with = ENG
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ger_mefo_bills_payment
+
+			modifier = {
+				consumer_goods_factor = 0.4
+				civilian_factory_use = 3
+			}
+		}
+		NZL_deal_payment_2 = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+				has_war_with = ENG
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ger_mefo_bills_payment
+
+			modifier = {
+				consumer_goods_factor = 0.5
+				civilian_factory_use = 3
+				required_garrison_factor = 0.1
+				compliance_gain = 0.01
+			}
+		}
+############################################################################
+### BELGIUM IDEAS
+#############################################################################
+		BEL_walloon_support = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_deal_with_the_devil2
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.1
+				consumer_goods_factor = -0.1
+			}
+		}
+		BEL_walloon_neutral = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_neutrality_drift_bonus
+
+			modifier = {
+				political_power_factor = 0.02
+			}
+		}
+		BEL_walloon_unrest = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_war_of_resistance
+
+			modifier = {
+				stability_factor = -0.025
+				political_power_factor = -0.05
+				consumer_goods_factor = 0.05
+			}
+		}
+		BEL_walloon_high_tensions = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_war_of_resistance2
+
+			modifier = {
+				stability_factor = -0.05
+				political_power_factor = -0.1
+				consumer_goods_factor = 0.1
+			}
+		}
+		BEL_walloon_very_high_tensions = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_war_of_resistance3
+
+			modifier = {
+				stability_factor = -0.15
+				political_power_factor = -0.2
+				consumer_goods_factor = 0.2
+			}
+		}
+		BEL_flemish_support = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_deal_with_the_devil
+
+			modifier = {
+				stability_factor = 0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+		BEL_flemish_neutral = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_neutrality_drift_bonus
+
+			modifier = {
+				consumer_goods_factor = -0.02
+			}
+		}
+		BEL_flemish_unrest = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_war_of_resistance
+
+			modifier = {
+				stability_factor = -0.025
+				industrial_capacity_factory = -0.025
+				industrial_capacity_dockyard = -0.025
+			}
+		}
+		BEL_flemish_high_tensions = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_war_of_resistance2
+
+			modifier = {
+				stability_factor = -0.05
+				industrial_capacity_factory = -0.1
+				industrial_capacity_dockyard = -0.1
+			}
+		}
+		BEL_flemish_very_high_tensions = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = chi_war_of_resistance3
+
+			modifier = {
+				stability_factor = -0.15
+				industrial_capacity_factory = -0.2
+				industrial_capacity_dockyard = -0.2
+			}
+		}
+		BEL_recovery_from_the_great_war = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ENG_the_war_to_end_all_wars
+
+			modifier = {
+				war_support_factor = -0.2
+				experience_gain_army_factor = -0.25
+				land_doctrine_cost_factor = 0.5
+				consumer_goods_factor = 0.05
+				conscription_factor = -0.1
+			}
+		}
+		BEL_recovery_from_the_great_war_neutral = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ENG_the_war_to_end_all_wars
+
+			modifier = {
+				war_support_factor = -0.15
+				experience_gain_army_factor = -0.05
+				land_doctrine_cost_factor = 0.15
+				conscription_factor = -0.2
+			}
+		}
+		BEL_economic_crisis = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = usa_great_depression_3
+
+			modifier = {
+				stability_factor = -0.05
+				industrial_capacity_factory = -0.1
+				industrial_capacity_dockyard = -0.1
+				consumer_goods_factor = 0.2
+				fascism_drift = 0.06
+			}
+		}
+		BEL_looming_general_strike = { 
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = POL_looming_peasants_strike
+
+			modifier = {
+				stability_factor = -0.02
+			}
+		}
+		BEL_general_strike = { 
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = POL_the_peasants_strike
+
+			modifier = {
+				stability_factor = -0.2
+				political_power_factor = -0.2
+				consumer_goods_expected_value = 0.2
+				industrial_capacity_factory = -0.2
+				industrial_capacity_dockyard = -0.2
+				democratic_drift = -0.02
+			}
+		}
+		BEL_concessions = { 
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+
+			modifier = {
+				political_power_factor = -0.05
+				consumer_goods_expected_value = 0.02
+				industrial_capacity_factory = -0.03
+				industrial_capacity_dockyard = -0.03
+			}
+		}
+		BEL_implementing_changes = { 
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_constitutional_guarantees
+
+			modifier = {
+				political_power_factor = -0.1
+			}
+		}
+		BEL_devlag_idea = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+				has_war_with = GER
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_research_bonus
+
+			modifier = {
+				research_speed_factor = 0.05
+				fascism_drift = 0.01
+			}
+		}
+		BEL_brussels_university_idea = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_research_bonus
+
+			modifier = {
+				research_speed_factor = 0.12
+			}
+		}
+		BEL_civil_war_preparations_idea = { 
+			name = "Civil War Preparations"
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = SPR_crush_the_revolution
+
+			modifier = {
+				political_power_factor = -0.1
+				stability_weekly = -0.01
+			}
+		}
+		BEL_civil_war_idea = { 
+			name = "Belgian Civil War"
+			allowed = {
+				always = no
+			}
+			cancel = {
+				has_civil_war = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = BEL_chasseurs_ardennais
+
+			modifier = {
+				surrender_limit = 0.3
+				stability_weekly = -0.005
+			}
+		}
+		BEL_suppress_rexist_idea = { 
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_fascism_banned
+
+			modifier = {
+				fascism_drift = -0.03
+			}
+		}
+		BEL_french_nationalism_idea = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_fascist_workers
+
+			modifier = {
+				fascism_drift = 0.03
+				stability_factor = 0.05
+				fascism_acceptance = 20
+			}
+			targeted_modifier = {
+					tag = FRA
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+		}
+		BEL_dutch_fascism_idea = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_fascist_workers
+
+			modifier = {
+				fascism_drift = 0.03
+				war_support_factor = 0.05
+				fascism_acceptance = 20
+			}
+			targeted_modifier = {
+					tag = HOL
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+		}
+		BEL_economic_crisis_2 = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = usa_great_depression_2
+
+			modifier = {
+				industrial_capacity_factory = -0.025
+				industrial_capacity_dockyard = -0.025
+				consumer_goods_factor = 0.1
+				fascism_drift = 0.04
+			}
+		}
+		BEL_recovery_from_the_great_war_with_fra = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ENG_the_war_to_end_all_wars
+
+			modifier = {
+				war_support_factor = -0.05
+				experience_gain_army_factor = -0.15
+				land_doctrine_cost_factor = 0.1
+				consumer_goods_factor = 0.1
+			}
+		}
+		BEL_recovery_from_the_great_war_with_fra_2 = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ENG_the_war_to_end_all_wars
+
+			modifier = {
+				conscription = 0.03
+				war_support_factor = 0.05
+				experience_gain_army_factor = 0.15
+				land_doctrine_cost_factor = -0.1
+				army_core_defence_factor = 0.05
+			}
+		}
+		BEL_captured_invasion_plans_idea = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = gre_schachtplan
+
+			modifier = {
+				max_dig_in_factor = 0.2
+				dig_in_speed_factor = 0.2
+				planning_speed = 0.2
+				max_planning_factor = 0.2
+			}
+			targeted_modifier = {
+					tag = GER
+					attack_bonus_against = 0.05
+					defense_bonus_against = 0.05
+				}
+		}
+		BEL_devalue_the_bfr_idea = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ITA_devaluated_lira
+
+			modifier = {
+				consumer_goods_factor = -0.1
+				stability_factor = 0.05
+				democratic_drift = 0.03
+			}
+		}
+		BEL_rapid_rearmament_idea = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = HUN_secret_rearmament
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.15
+				economy_cost_factor = -0.33
+				mobilization_laws_cost_factor = -0.33
+			}
+		}
+		BEL_crush_the_weak_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = SPR_crush_the_revolution
+
+			modifier = {
+				subjects_autonomy_gain = -0.1
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				resistance_target = -0.02
+				war_support_factor = 0.1
+				stability_factor = -0.05
+			}
+		}
+		BEL_together_for_victory_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				offence = 0.1
+				compliance_gain = 0.05
+			}
+		}
+		BEL_together_for_victory_2_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = CHL_liberal_party_in_power
+
+			modifier = {
+				offence = 0.2
+				defence = 0.2
+				compliance_gain = 0.1
+				democratic_drift = 0.05
+			}
+		}
+		BEL_conscripting_in_the_congo = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = eng_imperial_conscription
+
+			modifier = {
+				conscription = 0.02
+				local_non_core_manpower = 0.25
+				mobilization_laws_cost_factor = -0.25
+				resistance_target = -0.05
+			}
+		}
+		BEL_united_defense_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				has_war = no
+			}
+			removal_cost = -1
+
+			picture = eng_imperial_conscription
+
+			modifier = {
+				conscription = 0.02
+				army_core_defence_factor = 0.1
+				resistance_target_on_our_occupied_states = 0.15
+			}
+		}
+		BEL_communist_militias_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_communist_army
+
+			modifier = {
+				conscription = 0.02
+				communism_drift = 0.03
+				army_core_defence_factor = 0.1
+				army_core_attack_factor = 0.1
+			}
+		}
+		BEL_tank_factories_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = man_five_year_plan_tank
+
+			modifier = {
+				army_armor_attack_factor = 0.15
+				army_armor_defence_factor = 0.15
+				breakthrough_factor = 0.05
+			}
+		}
+		BEL_army_prepeared_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+
+			modifier = {
+				army_org = 5
+				army_org_factor = 0.1
+				army_defence_factor = 0.05
+			}
+		}
+		BEL_corruption_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = ARG_political_corruption_modifier
+
+			modifier = {
+				consumer_goods_factor = 0.1
+				production_speed_buildings_factor = -0.1
+			}
+		}
+		BEL_red_workers = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+				NOT = {
+					tag = BEL
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = por_iberian_workers_united
+
+			modifier = {
+				industrial_capacity_factory = 0.05
+				consumer_goods_factor = -0.15
+				communism_drift = 0.03
+			}
+		}
+		BEL_infiltrated_government = { 
+			allowed = {
+				always = no
+			}
+			cancel = {
+				NOT = {
+					tag = BEL
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = por_iberian_workers_united
+
+			modifier = {
+				political_power_gain = 0.1
+				research_speed_factor = 0.1
+				production_speed_buildings_factor = 0.1
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15
+			}
+		}
+		BEL_workers_rights = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = EST_democratic_opposition
+
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_dockyard = 0.05
+				industrial_capacity_factory = 0.05
+				consumer_goods_factor = -0.05
+				democratic_drift = 0.01
+			}
+		}
+		BEL_the_central_committee = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_central_management
+
+			modifier = {
+				political_power_gain = 0.15
+				party_popularity_stability_factor = 0.05
+				political_advisor_cost_factor = -0.25
+				consumer_goods_factor = -0.05
+				communism_drift = 0.01
+			}
+		}
+		BEL_rebelling_king = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = tfv_can_conscription_crisis
+
+			modifier = {
+				political_power_factor = -0.25
+				stability_weekly = -0.002
+				war_support_weekly = -0.002
+				consumer_goods_factor = 0.15
+			}
+		}
+		BEL_figurehead_king = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_monarchist_uprising
+
+			modifier = {
+				political_power_factor = 0.05
+				war_support_factor = 0.025
+				consumer_goods_factor = 0.1
+			}
+		}
+		BEL_communist_agents_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_spy_coup
+
+			modifier = {
+				operative_slot = 2
+				civilian_intel_to_others = -10
+				boost_ideology_mission_factor = 0.25
+			}
+		}
+		BEL_defense_agents_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_spy_intel
+
+			modifier = {
+				operative_slot = 1
+				civilian_intel_to_others = -10
+				intelligence_agency_defense = 1
+				enemy_operative_capture_chance_factor = 0.15
+				enemy_operative_detection_chance_factor = 0.15
+			}
+		}
+		BEL_strenghend_anarchists_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = SPR_anarchist_society
+
+			modifier = {
+				stability_weekly = -0.01
+				stability_factor = -0.1
+				political_power_factor = 0.05
+				consumer_goods_factor = -0.5
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.1
+			}
+		}
+		BEL_coalition_with_democrats_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = generic_flexible_foreign_policy2
+
+			modifier = {
+				war_support_factor = -0.05
+				political_power_factor = -0.1
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.05
+				democratic_drift = 0.05
+			}
+		}
+		BEL_no_boundries_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			picture = ger_the_great_red_menace
+
+			modifier = {
+				war_support_weekly = 0.001
+				generate_wargoal_tension = -0.75
+				justify_war_goal_time = -0.9
+				guarantee_tension = -0.75
+				join_faction_tension = -0.75
+				puppet_cost_factor = -0.25
+				resistance_target_on_our_occupied_states = 0.25
+				political_power_factor = 0.1
+				compliance_gain = 0.03
+			}
+		}	
+	}
+	industrial_concern = {
+		BEL_national_railway_company_of_belgium = {
+
+			picture = generic_railroads
+			
+			allowed = {
+				original_tag = BEL
+			}
+
+			available = {
+			}
+			
+			cost = 75
+
+			research_bonus = {
+				train_tech = 0.15
+			}
+			
+			traits = { railway_company }
+		}
+		BEL_ackermans_&_van_haaren = { #NORTH
+
+			picture = electric_boat_company
+			
+			allowed = {
+				original_tag = BEL
+			}
+
+			visible = {
+			}
+
+			available = {
+			}
+			cost = 200
+			research_bonus = {
+				industry = 0.2
+			}
+
+			traits = { construction_company }
+		}
+	}
+
+		
+
+
+		
+	}
