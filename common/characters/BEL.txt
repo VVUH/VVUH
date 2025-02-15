@@ -130,12 +130,12 @@ characters={
 					small = GFX_portrait_BEL_paul_henri_spaak_small 
 				}
 			}
-#			country_leader = {
-#				ideology = socialism
-#				expire = 1965.1.1.1
-#				id = -1
-#				traits={ BEL_diplomatic_titan }
-#			}
+			country_leader = {
+				ideology = socialism
+				expire = 1965.1.1.1
+				id = -1
+				traits={ BEL_canny_diplomat }
+			}
 			advisor={
 				slot = political_advisor
 				idea_token = BEL_paul_henri_spaak
@@ -1729,6 +1729,9 @@ characters={
 				idea_token = BEL_august_borms
 				allowed  = {
 					original_tag  = BEL
+				}
+				available = {
+					has_completed_focus = BEL_cooperate_with_the_nationalists
 				}
 				traits  = {
 					fascist_demagogue 
