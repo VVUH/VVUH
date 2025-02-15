@@ -1,5 +1,6 @@
 add_namespace = nzl.mod
 add_namespace = bel.mod
+add_namespace = mal.mod
 country_event = {
 	id = nzl.mod.1
 	title = "Election of 1938"
@@ -1573,8 +1574,8 @@ country_event = {
 country_event = {
 	id = bel.mod.7
 	title = "Paul-Émile Janson's governing coalition falls apart"
-	desc = ""
-	picture = GFX_report_event_SWE_summer_government
+	desc = ww_BEL_event_political.4.desc 
+	picture = GFX_report_event_worker_protests
 	is_triggered_only = no
 	fire_only_once = yes
 	trigger = { 
@@ -1588,17 +1589,17 @@ country_event = {
 	option = {
 		trigger = {
 		}
-		name = "Paul-Henri Spaak will form a government of national unity"
+		name = "Paul-Henri Spaak will form a Government of National Unity"
 		ai_chance = {
 			factor = 100
 		}
-		promote_character = BEL_paul-henri_spaak
+		promote_character = BEL_paul_henri_spaak
 	}
 }
 country_event = {
 	id = bel.mod.8
 	title = " Paul-Henri Spaak's coalition government falls apart"
-	desc = ""
+	desc = ww_BEL_event_political.5.desc 
 	picture = GFX_report_event_SWE_summer_government
 	is_triggered_only = no
 	fire_only_once = yes
@@ -1607,7 +1608,7 @@ country_event = {
 		date > 1939.02.01
 		date < 1939.02.30
 		has_country_leader = {
-			character = BEL_paul-henri_spaak
+			character = BEL_paul_henri_spaak
 		}
 	}
 	option = {
@@ -1617,6 +1618,8 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
+		add_stability = -0.05
+		add_war_support = 0.05
 		promote_character = BEL_hubert_pierlot
 	}
 }
@@ -2067,7 +2070,7 @@ country_event = {
 		if = {
 			limit = {
 				has_country_leader = {
-					character = BEL_paul-henri_spaak
+					character = BEL_paul_henri_spaak
 				}
 			}
 			promote_character = BEL_hubert_pierlot
@@ -2078,7 +2081,7 @@ country_event = {
 					character = BEL_paul_emile_janson
 				}
 			}
-			promote_character = BEL_paul-henri_spaak
+			promote_character = BEL_paul_henri_spaak
 		}
 		if = {
 			limit = {
@@ -2242,7 +2245,7 @@ country_event = {
 country_event = {
 	id = bel.mod.22
 	title = "A new government"
-	desc = ""
+	desc = "With the long awaited peace finally achieved and the fascists destroyed we can focus on forming a new and more effective government"
 	picture = GFX_report_event_SWE_summer_government
 	is_triggered_only = yes
 	trigger = {
@@ -2254,7 +2257,8 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		add_stability = 0.01
+		add_war_support = 0.025
+		add_stability = 0.025
 		promote_character = BEL_paul_henri_spaak
 		set_party_name = {
 			ideology = democratic
@@ -2631,5 +2635,80 @@ country_event = {
 		unlock_decision_tooltip = BEL_aquire_funds
 		unlock_decision_tooltip = BEL_convert_army_troops
 		custom_effect_tooltip = BEL_cw_warning_tt
+	}
+}
+
+###################################################################################
+
+country_event = {
+	id = mal.mod.1
+	title = "The setting Sun"
+	desc = "Malaysia has been under control of Britain for more than a century now, but the empire is slowly reaching it's peak and soon it'll be time to abandon our Overlords, just how will we achieve that?"
+	picture = GFX_report_event_german_politician_speech
+	is_triggered_only = yes
+	fire_only_once = no
+	trigger = { 
+	}
+	option = {
+		trigger = {
+		}
+		name = "We must balance the powers of Colonialists and the local Rulers"
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 15
+		add_stability = 0.05
+		complete_national_focus = MAL_con
+	}
+	option = {
+		trigger = {
+		}
+		name = "We will stay loyal to Britain and prove we are equals"
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 25
+		complete_national_focus = MAL_strengthen_ties_with_britain
+	}
+	option = {
+		trigger = {
+		}
+		name = "Down with Britain and the Monarchy! For the Revolution"
+		ai_chance = {
+			factor = 100
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		add_stability = -0.01
+		complete_national_focus = MAL_build_up_the_communists
+	}
+	option = {
+		trigger = {
+		}
+		name = "We must rid ourselves of Colonialists and strengthen our Monarchy"
+		ai_chance = {
+			factor = 100
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_war_support = 0.01
+		complete_national_focus = MAL_strengthen_the_local_rulers
+	}
+	option = {
+		trigger = {
+		}
+		name = "Follow Japan! The Asian Race must unite!                        e"
+		ai_chance = {
+			factor = 100
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		complete_national_focus = MAL_reach_out_to_japan
 	}
 }
