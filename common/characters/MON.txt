@@ -1,0 +1,1305 @@
+characters={
+	MON_anandyn_amar={
+		name="Anandyn Amar"
+		portraits={
+			civilian={
+				large="GFX_portrait_mon_anandyn_amar"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			id=-1
+			traits = {prime_minister_husnu}
+		}
+	}
+	MON_revolutionary_council={
+		name="Anti-Communist Assembly"
+		portraits={
+			civilian={
+				large="GFX_portrait_SWI_federal_council"
+			}
+		}
+		country_leader={
+			ideology = oligarchism
+			traits={ revolutionary_council anti_communist}
+		}
+	}
+	MON_communist_great_khural_weak ={
+		name="People's Great Khural"
+		portraits={
+			civilian={
+				small = "GFX_portrait_SWE_fallen_riksdag_small"
+				large = "GFX_portrait_SWE_fallen_riksdag"
+			}
+		}
+		country_leader={
+			ideology = stalinism
+			traits={internal_rivalry}
+		}
+	}
+	MON_communist_great_khural={
+		name="People's Great Khural"
+		portraits={
+			civilian={
+				large="GFX_portrait_SOV_supreme_soviet"
+			}
+		}
+		country_leader={
+			ideology = leninism
+			traits={strong_party_discipline communist_council_trait}
+		}
+	}	
+
+	MON_mingzhu_zhanshan={
+		name="Mingzhu Zhanshan"
+		portraits={
+			civilian={
+				large=GFX_portrait_Mingzhu_Zhanshan
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			traits={ SWI_democratic_capitalist }
+		}
+	}
+	MON_fu_shangzhi={
+		name="Fu Shangzhi"
+		portraits={
+			civilian={
+				large=GFX_portrait_chi_zhang_xueliang
+			}
+		}
+		country_leader={
+			traits={DEN_fascist_militarist}
+			ideology=fascism_ideology
+		}
+	}
+	MON_songgotu_kangan={
+		name="Songgotu Kang'an"
+		portraits={
+			civilian={
+				large=GFX_portait_chi_gu_zhutong
+			}
+		}
+		country_leader={
+			ideology=oligarchism
+			traits={ revolutionary_general }
+		}
+	}
+	MON_khorloogiin_choibalsan={
+		name="Khorloogiin Choibalsan"
+		portraits={
+			civilian={
+				large=GFX_portrait_asia_generic_navy_3
+			}
+		}
+		country_leader={
+			traits={ JUNO_aligned_with_stalin }
+			ideology=stalinism
+		}
+	}
+	MON_haidav={
+		advisor={
+			slot = high_command
+			idea_token = MON_haidav
+			ledger = navy
+				traits = {
+					navy_naval_air_defense_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		navy_leader = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 1
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Haidav"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_2"
+			}
+		}
+	}
+	MON_dagva={
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = MON_dagva
+			ledger = army
+				traits = {
+					military_theorist
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Dagva"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_5"
+			}
+		}
+	corps_commander = {
+			traits = { cavalry_officer cavalry_leader }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 3
+			legacy_id = 0
+
+		}
+	}
+
+	MON_chimid={
+		advisor={
+			slot = high_command
+			idea_token = MON_chimid
+			ledger = army
+				traits = {
+					army_concealment_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Chimid"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_1"
+			}
+		}
+		field_marshal = {
+			traits = { winter_specialist media_personality }
+			skill = 4
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
+
+	MON_ganbaatar={
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = MON_ganbaatar
+			ledger = navy
+
+				traits = {
+					naval_theorist
+				}
+		}
+		navy_leader = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ganbaatar"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_3"
+			}
+		}
+	}
+
+	MON_vg_pyrselov={
+		advisor={		
+			slot = navy_chief
+			idea_token = MON_vg_pyrselov
+				traits = {
+					navy_chief_maneuver_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="V.G. Pyrselov"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_1"
+			}
+		}
+		navy_leader = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 5
+			coordination_skill = 4
+		}
+	}
+	MON_lee_shou_hsin={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = MON_lee_shou_hsin
+			ledger = army
+				traits = {
+					army_regrouping_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Lee Shou-hsin"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_3"
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_officer cavalry_leader }
+			skill = 3
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = 0
+
+		}
+	}
+	MON_buyannmeh={
+		advisor={
+			slot = high_command
+			idea_token = MON_buyannmeh
+			ledger = air
+				traits = {
+					air_strategic_bombing_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Buyannmeh"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_3"
+			}
+		}
+	}
+	MON_horloogiyn_choybalsan={
+		advisor={		
+			slot = army_chief
+			idea_token = MON_horloogiyn_choybalsan
+				traits = {
+					army_chief_morale_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Horloogiyn Choybalsan"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_2"
+			}
+		}
+		corps_commander = {
+			traits = { politically_connected}
+			skill = 3
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = 0
+
+		}
+	}
+	MON_olziytrygyn_badrak={
+		advisor={
+			slot = army_chief
+			idea_token = MON_olziytrygyn_badrak
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ölziytrygyn Badrak"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_4"
+			}
+		}
+		corps_commander = {
+			traits = { inflexible_strategist}
+			skill = 3
+			attack_skill = 1
+			defense_skill = 4
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = 0
+
+		}
+	}
+	MON_dashdorj={
+		advisor={
+			slot = navy_chief
+			idea_token = MON_dashdorj
+				traits = {
+					navy_chief_commerce_raiding_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Dashdorj"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_3"
+			}
+		navy_leader = {
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+		}
+	}
+	MON_gomgchigryn_bumtsend={
+		advisor={
+			slot = air_chief
+			idea_token = MON_gomgchigryn_bumtsend
+				traits = {
+					air_chief_reform_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Gomgchigryn Bumtsend"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_2"
+			}
+		}
+	}
+	
+	MON_dansrabilegyin_dogsam={
+		advisor={
+			slot = political_advisor
+			idea_token = MON_dansrabilegyin_dogsam
+				traits  = {
+					prime_minister_inonu 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Dansrabilegyin Dogsam"
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_asia_2"
+			}
+		}
+	}
+
+	MON_yundunwangcug={
+		advisor={
+			slot = political_advisor
+			idea_token = MON_yundunwangcug
+				traits  = {
+					quartermaster_general 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Yundunwangcug"
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_asia_3"
+			}
+		}
+	}
+	MON_pai_yun_ti={
+		advisor={
+			slot = political_advisor
+			idea_token = MON_pai_yun_ti
+				traits  = {
+					war_industrialist 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Serengdongrub"
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_asia_1"
+			}
+		}
+	}
+
+	###   ##  #   ### ### ###  ##   ##  #        ##  ###  #   # ###  ##  ##  ###   ## 
+	#  # #  # #    #   #   #  #  # #  # #       #  # #  # #   #  #  #   #  # #  # #   
+	###  #  # #    #   #   #  #    #### #       #### #  #  # #   #   #  #  # ###   #  
+	#    #  # #    #   #   #  #  # #  # #       #  # #  #  # #   #    # #  # #  #   # 
+	#     ##  ### ###  #  ###  ##  #  # ###     #  # ###    #   ### ##   ##  #  # ##  
+	
+#### leadership struggle
+
+MON_advisor_genden = {
+	portraits = {
+		civilian = {
+				small=GFX_portrait_PRC_peng_dehuai_small
+		}
+	}
+   name = "Peljidiin Genden"
+   advisor = {
+    	slot = political_advisor
+		idea_token = MON_advisor_genden
+		traits = {
+        	Anti_Stalinist_Propagandist
+      	}
+   }
+}
+
+##### recruitable by fascists
+
+#WIP
+
+##### scapegoats
+MON_advisor_luvsansharav = {
+   name = "Dorjjavyn Luvsansharav"
+   	portraits={
+			civilian={
+				small=GFX_portrait_JAP_hiroaki_abe_small
+			}
+	}
+    advisor = {
+    	slot = political_advisor
+		idea_token = MON_advisor_luvsansharav
+    	traits = {
+        	Political_commissar
+      	}
+   }
+}
+
+MON_advisor_frinovsky = {
+    name = "Mikhail Frinovsky"
+   	portraits={
+			civilian={
+				small = GFX_idea_mikhail_frinovsky
+			}
+	}
+    advisor = {
+    	slot = political_advisor
+	  	idea_token = MON_advisor_frinovsky
+    	traits = {
+        	BRA_soviet_spy
+      	}
+		available = {
+			NOT = {
+				has_completed_focus = MON_break_with_stalin
+			}
+        }
+   }
+}
+
+
+#### end scapegoats
+
+## leadership struggle, optional remove
+MON_advisor_losol = {
+	portraits={
+		civilian={
+			small = GFX_idea_CHI_du_yuming
+		}
+	}
+    name = "Darizavyn Losol"
+    advisor = {
+    	slot = political_advisor
+		idea_token = MON_advisor_losol
+    	traits = {
+          Armaments_Organizer
+      	}
+   }
+}
+
+##### retire 1940
+MON_advisor_baasanjav = {
+	portraits={
+		civilian={
+			small="GFX_idea_PRC_wang_ming"
+		}
+	}
+    name = "Banzarjavyn Baasanjav"
+    advisor = {
+    	slot = political_advisor
+		idea_token = MON_advisor_baasanjav
+    	traits = {
+          devoted_communist
+      }
+   }
+}
+
+### keep
+MON_advisor_damba = {
+	portraits={
+		civilian={
+			small="GFX_idea_generic_army_asia_4"
+		}
+	}
+    name = "Dashiin Damba"
+    advisor = {
+    	slot = political_advisor
+		idea_token = MON_advisor_damba
+    	traits = {
+           Communist_theorist
+      	}
+   }
+}
+
+#### leftist deviation
+MON_advisor_badrakh = {
+   	portraits={
+			civilian={
+				small= GFX_idea_CHI_wang_jingwei
+			}
+	}
+    name = "Ölziitiin Badrakh"
+    advisor = {
+    	slot = political_advisor
+		idea_token = MON_advisor_badrakh
+    	traits = {
+          Collectivization_Specialist
+      	}
+   }
+}
+
+MON_advisor_shijee = {
+   	portraits={
+			civilian={
+				small=GFX_idea_asia_generic_land_12
+			}
+	}
+    name = "Zolbingiin Shijee"
+    advisor = {
+		idea_token = MON_advisor_shijee
+     	slot = political_advisor
+      	traits = {
+        	Soviet_Economist
+      	}
+   }
+}
+
+MON_advisor_laagan = {
+	portraits={
+		civilian={
+			small= GFX_idea_CHI_xue_yue
+		}
+	}
+    name = "Losolyn Laagan"
+    advisor = {
+    	 slot = political_advisor
+	  	idea_token = MON_advisor_laagan
+    	traits = {
+        	Marxist_Fundamentalist
+      	}
+   }
+}
+
+#### end leftist deviation 
+
+##### future leader
+MON_advisor_tsedenbal = {
+    name = "Yumjaagiin Tsedenbal"
+   	portraits={
+		civilian={
+			small = GFX_idea_CHI_he_yingqin
+		}
+	}
+    advisor = {
+		idea_token = MON_advisor_tsedenbal
+      	slot = political_advisor
+      	traits = {
+        	Economic_Reformer
+      	}
+   }
+}
+
+#### scapegoat 
+MON_advisor_luvsandorj = {
+	portraits={
+		civilian={
+			small= GFX_idea_CHI_wei_lihuang
+		}
+	}
+    name = "Khas Ochiryn Luvsandorj"
+    advisor = {
+      	slot = political_advisor
+	  	idea_token = MON_advisor_luvsandorj
+      	traits = {
+        	Editor
+      	}
+   }
+}
+
+###### start buryats
+MON_advisor_batkhaan = {
+	portraits= {
+		civilian={
+			small = GFX_idea_asia_generic_land_8
+		}
+	}
+    name = "Erdene Batkhaan"
+    advisor = {
+		idea_token = MON_advisor_batkhaan
+      	slot = political_advisor
+      	traits = {
+        	education_reformer 
+      	}
+   }
+}
+
+MON_advisor_zhamtsarano= {
+	portraits= {
+		civilian={
+			small = GFX_idea_asia_generic_land_9
+		}
+	}
+    name = "Tsyben Zhamtsarano"
+    advisor = {
+      	slot = political_advisor
+	  	idea_token = MON_advisor_zhamtsarano
+      	traits = {
+			traditionalist_theorist
+      }
+   }
+}
+
+MON_advisor_elbegdorj = {
+	portraits={
+		civilian={
+			small="GFX_idea_mitsuo_fuchida"
+		}
+	}
+    name = "Rinchingiin Elbegdorj"
+    advisor = {
+    	slot = political_advisor
+		idea_token = MON_advisor_elbegdorj
+    	traits = {
+        	International_Revolutionary
+      }
+   }
+}
+#### end buryats
+
+#### unaligned advisor, wife and Queen of last ruler
+MON_advisor_genepil = {
+	name = "Genepil"
+	portraits = {
+		civilian = {
+			small="GFX_idea_CHI_soong_mei_ling"
+		}
+	}
+	gender = female
+	advisor = {
+		idea_token = MON_advisor_genepil
+     	slot = political_advisor
+      	traits = {
+        	disgraced_monarch 
+      	}
+   }
+}
+
+### first event, poisoned
+MON_advisor_demid = {
+	portraits={
+		civilian={
+			small="GFX_idea_JAP_isoroku_yamamoto"
+		}
+	}
+	name = "Gelegdorjiin Demid"
+    advisor = {
+		idea_token = MON_advisor_demid
+      	slot = political_advisor
+      	traits = {
+        	veteran_minister
+      	}
+   }
+}
+
+#### Death of the lamas, this is a former khan
+MON_advisor_navaanneren = {
+   name = "Tserendondovyn Navaanneren"
+   	portraits={
+		civilian={
+			small="GFX_idea_CHI_chen_guofu"
+		}
+	}
+    advisor = {
+		idea_token = MON_advisor_navaanneren
+      	slot = political_advisor
+      	traits = {
+        	social_revolutionary 
+      	}
+   }
+}
+
+MON_advisor_ayuush = {
+   	portraits={
+		civilian={
+			small = GFX_idea_JAP_takeo_yoshikawa
+		}
+	}
+    name = "Shirnengiin Ayuush"
+    advisor = {
+		idea_token = MON_advisor_ayuush
+    	slot = political_advisor
+    	traits = {
+        	socialist_novelist
+      }
+   }
+}
+
+MON_advisor_tserendorj = {
+	portraits={
+		civilian={
+			small="GFX_idea_CHI_chen_yi"
+		}
+	}
+    name = "Sambadondogiin Tserendorj"
+    advisor = {
+       	slot = political_advisor
+	   	idea_token = MON_advisor_tserendorj
+       	traits = {
+			driver_of_the_faithful
+       }
+    }
+ }
+
+
+#unlockable non-commies
+MON_advisor_noble_council = {
+	portraits={
+			civilian={
+				small="GFX_idea_pol_the_sejm"
+			}
+		}
+    name = "Council of Nobles"
+    advisor = {
+		idea_token = MON_advisor_noble_council
+		visible = {
+			has_completed_focus = MON_let_the_people_be_heard
+		}
+		available = {
+			has_completed_focus = MON_reenshrine_the_noble_class
+		}
+       	slot = political_advisor
+       	traits = {
+           elected_regency_council
+       }
+    }
+ }
+
+MON_advisor_parliament = {
+	portraits={
+			civilian={
+				small="GFX_idea_pol_the_sejm"
+			}
+		}
+    name = "State Great Khural"
+    advisor = {
+		visible = {
+			has_completed_focus = MON_the_parliament
+		}
+		available = {
+			has_completed_focus = MON_the_parliament
+		}
+		idea_token = MON_advisor_parliament
+    	slot = political_advisor
+    	traits = {
+           democratic_council_trait
+       }
+    }
+ }
+ 
+MON_roy_chapman_andrews = {
+	portraits={
+			civilian={
+				small="GFX_portrait_GER_georghans_reinhardt_small"
+			}
+		}
+    name = "Roy Chapman Andrews"
+    advisor = {
+		visible = {
+			has_completed_focus = MON_the_parliament
+		}
+		available = {
+			has_completed_focus = MON_american_mongolian_agreements
+		}
+		idea_token = MON_roy_chapman_andrews
+    	slot = political_advisor
+    	traits = {
+           adventurous_daredevil
+       }
+    }
+ }
+ MON_samuel_sokobin = {
+	portraits={
+			civilian={
+				small="GFX_idea_USA_generic_land_5"
+			}
+		}
+    name = "Samuel Sokobin"
+    advisor = {
+		visible = {
+			has_completed_focus = MON_the_parliament
+		}
+		available = {
+			has_completed_focus = MON_american_mongolian_agreements
+		}
+		idea_token = MON_samuel_sokobin
+    	slot = political_advisor
+    	traits = {
+           ambitious_diplomat
+       }
+    }
+ }
+
+MON_advisor_foreign_military_advisors = {
+    name = "Foreign Advisors"
+	portraits={
+		civilian={
+			small="GFX_idea_SPR_anarchist_council"
+		}
+	}
+
+    advisor = {
+		idea_token = MON_advisor_foreign_military_advisors
+		available = {
+			has_completed_focus = MON_invite_foreign_advisors
+		}
+		slot = theorist
+    	traits = {
+           council_of_theorists
+       }
+    }
+}
+
+MON_advisor_national_council_corporations = {
+	portraits={
+		civilian={
+			small="GFX_idea_pol_the_sejm"
+		}
+	}
+    name = "National Council of Corporations"
+    advisor = {
+		visible = {
+			has_completed_focus = MON_stomp_down_on_western_ideas
+		}
+		available = {
+			has_completed_focus = MON_corporatist_guidance
+		}
+		idea_token = MON_advisor_national_council_corporations
+       	slot = political_advisor
+       	traits = {
+           fascist_council_trait
+       }
+    }
+ }
+
+MON_ernst_ramm = {
+	portraits={
+		civilian={
+			small="GFX_portrait_GER_nikolaus_von_falkenhorst_small"
+		}
+	}
+    name = "Ernst Ramm"
+    advisor = {
+		visible = {
+			has_completed_focus = MON_radicalize_the_military
+		}
+		available = {
+			has_completed_focus = MON_reorder_the_state
+		}
+		idea_token = MON_ernst_ramm
+       	slot = political_advisor
+       	traits = {
+           the_foreign_connection
+       }
+    }
+ }
+# sik characters
+MON_advisor_bashir = {
+	portraits={
+			civilian={
+				small="GFX_idea_SOV_lev_dovator"
+			} 
+		}
+    name = "Bashir Khan"
+    advisor = {
+		idea_token = MON_advisor_bashir
+      	slot = political_advisor
+       	traits = {
+            regional_traditionalist_leader
+       }
+    }
+ }
+
+MON_advisor_yulbars = {
+	portraits={
+			civilian={
+				small="GFX_portrait_Finland_Generic_land_1_small"
+			}
+		}
+    name = "Yulbars Khan"
+    advisor = {
+       	slot = political_advisor
+	   	idea_token = MON_advisor_yulbars
+       	traits = {
+           ARG_conservative_traditionalist
+       }
+    }
+ }
+# End monarchist SIK's
+#tanna tuva
+MON_advisor_toka = {
+    name = "Salchak Toka"
+	portraits={
+		civilian={
+			small = "GFX_idea_TAN_salchak_toka"
+		}
+	}
+    advisor = {
+		visible = {
+			has_completed_focus = MON_fate_of_the_chairman_of_the_council_of_ministers
+		}
+		available = {
+			AND = {
+				has_completed_focus = MON_invite_tanna_tuva
+				TAN = {
+					exists = no
+				}
+				NOT = {
+					has_completed_focus = MON_break_with_stalin
+				}
+			}
+		}
+		idea_token = MON_advisor_toka
+       	slot = political_advisor
+       	traits = {
+           staunch_stalinist
+       }
+    }
+ }
+ #SIK
+MON_advisor_shicai = {
+    name = "Sheng Shicai"
+	portraits={
+			civilian={
+				small = "GFX_idea_SIK_sheng_shicai"
+			}
+		}
+    advisor = {
+		visible = {
+			has_completed_focus = MON_closer_turkic_ties
+		}
+		available = {
+			AND = {
+				has_completed_focus = MON_closer_turkic_ties
+				SIK = {
+					exists = no
+				}
+			}
+		}
+      	slot = political_advisor
+	   	idea_token = MON_advisor_shicai
+       	traits = {
+           NOR_minister_of_agriculture
+       }
+    }
+ }
+
+ #work with PRC
+ MON_advisor_ulanhu = {
+    name = "Ulanhu"
+	portraits={
+			civilian={
+				small = "GFX_idea_JAP_masaharu_homma"
+			}
+		}
+    advisor = {
+		available = {
+			has_completed_focus = MON_divide_spheres
+		}
+		idea_token = MON_advisor_ulanhu
+        slot = political_advisor
+        traits = {
+           revolutionary_general
+       }
+    }
+ }
+ #Fix sloppy pdx work
+	MON_sukhbaataryn_yanjmaa={
+		advisor={
+			slot = political_advisor
+			idea_token = MON_sukhbaataryn_yanjmaa
+				traits = {
+					ARG_feminist_revolutionary
+				}
+				cost = 150
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Sükhbaataryn Yanjmaa"
+		portraits={
+			civilian={
+				small="GFX_idea_generic_political_advisor_female_asia"
+			}
+		}
+	}
+
+# white russians; test if it works
+
+	MON_anton_denikin = {
+		name = "Anton Ivanovich Denikin"
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_anton_denikin"
+				small = "GFX_idea_SOV_anton_denikin"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = MON_anton_denikin		
+			available = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			visible = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			traits = {
+				army_chief_drill_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		field_marshal = {
+			available = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			visible = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			traits = { old_guard inflexible_strategist BALTIC_ex_russian}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+
+	MON_pyotr_krasnov = {
+		name = "Pyotr Nikolayevich Krasnov"
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_pyotr_krasnov"
+				small = "GFX_idea_SOV_pyotr_krasnov"
+			}
+		}
+		field_marshal = {
+			available = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			visible = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			traits = { cavalry_leader BALTIC_ex_russian}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+
+	MON_konstantin_nechayev = {
+		name = "Konstantin Petrovich Nechaev"
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_konstantin_nechayev"
+				small = "GFX_idea_SOV_konstantin_nechayev"
+			}
+		}
+		field_marshal = {
+			available = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			visible = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			traits = { infantry_officer war_hero BALTIC_ex_russian}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+
+	MON_aleksandr_rodzyanko = {
+		name = "Alexander Pavlovich Rodzyanko"
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_aleksandr_rodzyanko"
+				small = "GFX_idea_SOV_aleksandr_rodzyanko"
+			}
+		}
+		field_marshal = {
+			available = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			visible = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			traits = { cavalry_officer BALTIC_ex_russian}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+
+	MON_andrey_shkuro = {
+		name = "Andrei Grigoriyevich Shkuro"
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_andrey_shkuro"
+				small = "GFX_idea_SOV_andrey_shkuro"
+			}
+		}
+		field_marshal = {
+			available = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			visible = {
+				has_completed_focus = MON_white_russian_supporters
+			}
+			traits = { trait_reckless cavalry_officer BALTIC_ex_russian}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 1
+		}
+	}
+	MON_advisor_fujin = {
+		name = "Fújìn"
+		portraits = {
+			civilian = {
+				small="GFX_idea_asia_generic_female_1"
+			}
+		}
+		gender = female
+		advisor = {
+			slot = political_advisor
+			available = {
+				has_completed_focus = MON_crown_prince_de
+			}
+			visible = {
+				has_completed_focus = MON_crown_prince_de
+			}
+			idea_token = MON_advisor_fujin
+			traits = {
+				AUS_resourceful_princess
+			}
+		}
+	}
+	MON_advisor_dukelarson = {
+		name = "Duke Frans August Larson"
+		portraits = {
+			civilian = {
+				small="GFX_portrait_FIN_taavetti_laatikainen_small"
+			}
+		}
+		advisor = {
+			visible = {
+				has_completed_focus = MON_crown_prince_de
+			}
+			available = {
+				has_completed_focus = MON_crown_prince_de
+			}
+			slot = political_advisor
+			idea_token = MON_advisor_dukelarson
+			traits = {
+				adventurous_daredevil
+				SWI_diplomat
+			}
+		}
+	}
+	MON_advisor_sangrubnorbu = {
+		name = "Sangrubnorbu"
+		portraits = {
+			civilian = {
+				small="GFX_portrait_JAP_harukichi_hyakutake_small"
+			}
+		}
+		advisor = {
+			visible = {
+				has_completed_focus = MON_crown_prince_de
+			}
+			available = {
+				has_completed_focus = MON_crown_prince_de
+			}
+			slot = political_advisor
+			idea_token = MON_advisor_sangrubnorbu
+			traits = {
+				AUS_treasurer_of_the_monarchy
+			}
+		}
+	}
+
+	MON_wang_ying={
+		name= "Wang Ying"
+		portraits={
+			army={
+				small="GFX_idea_tateo_kato"
+			}
+		}
+		advisor = {
+			visible = {
+				has_completed_focus = MON_radicalize_the_military
+			}
+			available = {
+				has_completed_focus = MON_discuss_spheres_of_influence
+			}
+			slot = political_advisor
+			idea_token = MON_wang_ying
+			traits = {
+				BRA_bandit_revolutionary
+			}
+		}
+	}
+
+
+}

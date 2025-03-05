@@ -1,0 +1,1413 @@
+add_namespace = MON
+add_namespace = MON_trade_deal
+add_namespace = MON_demo_invite
+add_namespace = MON_border_conflict
+add_namespace = MON_industry
+
+#Sik reward
+country_event = {
+	id = MON.1
+	title = MON.1.t
+	desc = MON.1.desc
+	picture = GFX_report_event_generic_read_write
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+
+	# event pop up; annex and get cores, tax, faction, nothing
+	
+	# union
+	option = {
+		name = MON.1.a
+			SIK = {
+				country_event = MON.9
+			}
+			#send event to sik
+		
+	}
+		# tax.
+	option = {
+			limit ={
+				is_ai = no
+			}
+		name = MON.1.b
+			SIK = {
+				country_event = MON.10
+			}	}
+
+		#faction
+	option = {
+			limit ={
+				is_ai = no
+			}
+		name = MON.1.c
+			#send event to SIK
+			SIK = {
+				country_event = MON.11
+			}
+		STIK = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = AST_commitment_to_the_cause
+			}
+		}
+	}
+
+		#nothing
+	option = {
+		name = MON.1.d
+		ai_chance = {
+			base = 90
+		}
+		SIK = {
+			country_event = MON.12
+		}
+		SIK = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = took_stand_for_us
+			}
+		}
+		SIK = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = backed_our_cause
+			}
+		}
+	}
+
+}
+
+# initial purge, demid (food?) poison
+country_event = {
+	id = MON.2
+	title = MON.2.t
+	desc = MON.2.d
+	picture = GFX_report_event_generic_train
+
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = MON
+		focus_progress = {
+			focus = MON_the_start_of_the_great_repression
+			progress > 0.1
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# We poisoned demid, tell the ussr
+	option = {
+		name = MON.2.a
+		ai_chance = {
+			base = 90
+		}
+		retire_character = MON_advisor_demid
+		show_ideas_tooltip = MON_advisor_demid
+		
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = USA_special_relationship
+			}
+		}
+	}
+
+	# He suffered food poisoning 
+	option = {
+		name = MON.2.b
+		retire_character = MON_advisor_demid
+		show_ideas_tooltip = MON_advisor_demid
+	}
+
+}
+
+#news and anti-stalinism
+country_event = {
+	id = MON.3
+	title = MON.3.t
+	desc = MON.3.d
+	picture = GFX_report_event_china_politicians_captured
+
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = MON
+		focus_progress = {
+			focus = MON_the_start_of_the_great_repression
+			progress > 0.3
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# purge all
+	option = {
+		ai_chance = {
+			base = 90
+		}
+		name = MON.3.a
+		retire_character = MON_advisor_genden
+		show_ideas_tooltip = MON_advisor_genden
+		custom_effect_tooltip = generic_skip_one_line_tt
+		retire_character = MON_advisor_luvsandorj
+		show_ideas_tooltip = MON_advisor_luvsandorj
+		custom_effect_tooltip = generic_skip_one_line_tt
+		retire_character = MON_advisor_ayuush
+		show_ideas_tooltip = MON_advisor_ayuush
+		
+	}
+
+	# purge counterevolutionary news
+	option = {
+		name = MON.3.b
+		retire_character = MON_advisor_luvsandorj
+		show_ideas_tooltip = MON_advisor_luvsandorj
+		custom_effect_tooltip = generic_skip_one_line_tt
+		retire_character = MON_advisor_ayuush
+		show_ideas_tooltip = MON_advisor_ayuush
+		custom_effect_tooltip = generic_skip_one_line_tt
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = USA_monroe_abandoned_us
+			}
+		}
+	}
+
+	#purge anti-stalinist
+	option = {
+		name = MON.3.c
+		retire_character = MON_advisor_genden
+		show_ideas_tooltip = MON_advisor_genden
+		custom_effect_tooltip = generic_skip_one_line_tt
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = HUN_stubborn_fools
+			}
+		}
+	}
+
+}
+
+# leftist deviation
+country_event = {
+	id = MON.4
+	title = MON.4.t
+	desc = MON.4.d
+	picture = GFX_report_event_gre_trial
+
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = MON
+		focus_progress = {
+			focus = MON_the_start_of_the_great_repression
+			progress > 0.5
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# Purge all 3
+	option = {
+		name = MON.4.a
+		ai_chance = {
+			base = 90
+		}
+		retire_character = MON_advisor_laagan	
+		show_ideas_tooltip = MON_advisor_laagan
+		custom_effect_tooltip = generic_skip_one_line_tt
+		retire_character = MON_advisor_badrakh
+		show_ideas_tooltip = MON_advisor_badrakh		
+		custom_effect_tooltip = generic_skip_one_line_tt
+		retire_character = MON_advisor_shijee		
+		show_ideas_tooltip = MON_advisor_shijee	
+	}
+
+	# purge only badrakh and shijee for heading Badrakh Group <- seperatist region
+	option = {
+		name = MON.4.b
+		retire_character = MON_advisor_badrakh
+		show_ideas_tooltip = MON_advisor_badrakh
+		custom_effect_tooltip = generic_skip_one_line_tt		
+		retire_character = MON_advisor_shijee		
+		show_ideas_tooltip = MON_advisor_shijee		
+		custom_effect_tooltip = generic_skip_one_line_tt
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = FRA_leftist_rhetoric_fascism
+			}
+		}
+	}
+
+	# save them, sov debuff ties + relation dip
+	option = {
+		name = MON.4.c
+		custom_effect_tooltip = MON_savethem_tt
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = FRA_leftist_rhetoric_fascism
+			}
+		}
+		
+	}
+
+}
+
+#lamas and monarchists
+country_event = {
+	id = MON.5
+	title = MON.5.t
+	desc = MON.5.d
+	picture = GFX_report_event_dead_soldiers
+
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = MON
+		focus_progress = {
+			focus = MON_the_start_of_the_great_repression
+			progress > 0.7
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# Purge all 3
+	option = {
+		name = MON.5.a
+		ai_chance = {
+			base = 90
+		}
+		retire_character = MON_advisor_navaanneren
+		show_ideas_tooltip = MON_advisor_navaanneren
+		custom_effect_tooltip = generic_skip_one_line_tt
+		retire_character = MON_advisor_tserendorj
+		show_ideas_tooltip = MON_advisor_tserendorj
+		custom_effect_tooltip = generic_skip_one_line_tt
+		retire_character = MON_advisor_genepil
+		show_ideas_tooltip = MON_advisor_genepil
+
+	}
+
+	#purge the lamas, puppet genepil
+	option = {
+		name = MON.5.b
+		retire_character = MON_advisor_navaanneren
+		show_ideas_tooltip = MON_advisor_navaanneren
+		custom_effect_tooltip = generic_skip_one_line_tt
+		retire_character = MON_advisor_tserendorj
+		show_ideas_tooltip = MON_advisor_tserendorj
+		custom_effect_tooltip = generic_skip_one_line_tt
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = betrayed_our_cause
+			}
+		}
+	}
+
+	# save them all, sov debuff ties + relation dip
+	option = {
+		name = MON.5.c
+		custom_effect_tooltip = MON_savethem_tt
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = SPR_subvert_soviet_control
+			}
+		}
+		
+	}
+
+}
+
+#buryats
+country_event = {
+	id = MON.6
+	title = MON.6.t
+	desc = MON.6.d
+	picture = GFX_report_event_SOV_purge_third_moscow_trial
+
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = MON
+		focus_progress = {
+			focus = MON_the_start_of_the_great_repression
+			progress > 0.9
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# Purge all 3
+	option = {
+		name = MON.6.a
+		ai_chance = {
+			base = 90
+		}
+		retire_character = MON_advisor_batkhaan
+		show_ideas_tooltip = MON_advisor_batkhaan
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		retire_character = MON_advisor_zhamtsarano
+		show_ideas_tooltip = MON_advisor_zhamtsarano
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		retire_character = MON_advisor_elbegdorj
+		show_ideas_tooltip = MON_advisor_elbegdorj
+		custom_effect_tooltip = generic_skip_one_line_tt
+	
+		hidden_effect = {
+			set_global_flag = MON_purged_buryats
+		}
+	}
+
+	#Save batkhaan
+	option = {
+		name = MON.6.b
+		retire_character = MON_advisor_zhamtsarano
+		show_ideas_tooltip = MON_advisor_zhamtsarano
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		retire_character = MON_advisor_elbegdorj
+		show_ideas_tooltip = MON_advisor_elbegdorj
+		hidden_effect = {
+			set_global_flag = MON_purged_buryats
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt		
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = minor_sanctions_relations
+			}
+		}
+	}
+
+	# save them all, sov debuff ties + relation dip, tooltip for unlock integrate buryat lands
+	option = {
+		name = MON.6.c
+		custom_effect_tooltip = MON_savethem_tt
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = CHI_refused_support
+			}
+		}
+
+
+	}
+
+}
+
+
+#------ stab through blame ------
+
+#leadership trouble
+country_event = {
+	id = MON.7
+	title = MON.7.t
+	desc = MON.7.d
+	picture = GFX_report_event_SOV_purge_young_officers
+
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = MON
+		focus_progress = {
+			focus = MON_stability_through_blame
+			progress > 0.2
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# the Seven 
+	# Purge all 3 maybe make choisabal not able to attack soviets for turkic people?
+	option = {
+		name = MON.7.a
+		ai_chance = {
+			base = 90
+		}
+		retire_character = MON_anandyn_amar
+		show_ideas_tooltip = MON_anandyn_amar		
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		retire_character = MON_advisor_losol
+		show_ideas_tooltip = MON_advisor_losol		
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		retire_character = MON_dansrabilegyin_dogsam
+		show_ideas_tooltip = MON_dansrabilegyin_dogsam	#works
+		hidden_effect = {
+			set_global_flag = MON_purge_leadership_choibalsan_supreme
+		}
+	}
+
+	#Save amar
+	option = {
+		name = MON.7.b
+		retire_character = MON_advisor_losol
+		show_ideas_tooltip = MON_advisor_losol		
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		retire_character = MON_dansrabilegyin_dogsam
+		show_ideas_tooltip = MON_dansrabilegyin_dogsam		
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = HUN_stubborn_fools
+			}
+		}
+		hidden_effect = {
+			set_global_flag = MON_amar_alive
+		}
+	}
+
+	# save them all, sov debuff ties + relation dip,
+	option = {
+		name = MON.7.c
+		SOV = {
+			custom_effect_tooltip = MON_savethem_tt
+			add_opinion_modifier = {
+				target = MON
+				modifier = CAN_stalin_and_friends_hate_us_now
+			}
+		}
+		hidden_effect = {
+			set_global_flag = MON_delicate_power_balance
+		}
+		
+	}
+
+}
+
+#blame
+country_event = {
+	id = MON.8
+	title = MON.8.t
+	desc = MON.8.d
+	picture = GFX_report_event_SOV_purge_administration
+
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = MON
+		focus_progress = {
+			focus = MON_stability_through_blame
+			progress > 0.6
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# Purge both
+	option = {
+		name = MON.8.a
+		ai_chance = {
+			base = 90
+		}
+		retire_character = MON_advisor_frinovsky
+		show_ideas_tooltip = MON_advisor_frinovsky		
+		custom_effect_tooltip = generic_skip_one_line_tt		
+		retire_character = MON_advisor_luvsansharav
+		show_ideas_tooltip = MON_advisor_luvsansharav		
+	}
+
+	#Blame russian - soviet debuff
+	option = {
+		name = MON.8.b
+		retire_character = MON_advisor_frinovsky
+		show_ideas_tooltip = MON_advisor_frinovsky
+		custom_effect_tooltip = generic_skip_one_line_tt		
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = HUN_renegade
+			}
+		}
+	}
+
+	# save them all, sov buff ties + relation bonus, debuff stab
+	option = {
+		name = MON.8.c
+		hidden_effect = {
+			set_global_flag = MON_frinovsky_lives
+		}
+		custom_effect_tooltip = MON_savethem_tt
+		add_stability = -0.15
+		SOV = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = SPR_the_stalinist_doctrine
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = MON.9
+	title = MON.9.t
+	desc = MON.9.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# event pop up; annex and get cores, tax, faction, nothing
+	
+	# union
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = MON.9.a
+		MON = {	
+			country_event = MON.14
+		}
+	}
+	#no
+	option = {
+		ai_chance = {
+			base = 1
+		}
+		name = MON.9.b
+		MON = {	
+			country_event = MON.13
+		}	
+	}
+}
+
+country_event = {
+	id = MON.10
+	title = MON.10.t
+	desc = MON.10.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# tax
+	option = {
+		ai_chance = {
+			base = 90
+		}
+		name = MON.10.a
+		SIK = {
+			add_ideas = MON_turkic_tax_sender
+
+		}
+		MON = {
+			add_ideas = MON_turkic_tax_reciever
+			country_event = MON.15
+		}
+	}
+	#resource rights - 619
+	option = {
+		name = MON.10.b
+		give_resource_rights = { receiver = MON state = 619 }
+		MON = {
+			country_event = MON.15
+		}
+	}
+	#no
+	option = {
+		name = MON.10.c
+		MON = {
+			country_event = MON.13
+		}
+	}
+}
+
+country_event = {
+	id = MON.11
+	title = MON.11.t
+	desc = MON.11.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	fire_only_once = yes
+	
+	trigger = {
+	}
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# faction
+	option = {
+		ai_chance = {
+			base = 90
+		}
+		name = MON.11.a
+		MON = {
+			set_rule = {
+					can_create_factions = yes
+				}
+			create_faction = "Mongolian Sphere"
+			add_to_faction = SIK
+			country_event = MON.15
+		}
+	}
+	#no
+	option = {
+		name = MON.11.b
+		MON = {
+			country_event = MON.13
+		}
+	}
+}
+
+country_event = { #thanks for that, event
+	id = MON.12
+	title = MON.12.t
+	desc = MON.12.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# nothing
+	option = {
+		name = MON.12.a
+	}
+}
+
+country_event = {
+	#REFUSAL EVENT SIK
+	id = MON.13
+	title = MON.13.t
+	desc = MON.13.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# TOO BAD
+	option = {
+		name = MON.13.a
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = SIK
+		}
+	}
+}
+
+country_event = {
+	#union accept EVENT SIK
+	id = MON.14
+	title = MON.14.t
+	desc = MON.14.d
+	picture = GFX_report_event_generic_handshake
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# yipee
+	option = {
+		name = MON.14.a
+		add_stability = 0.1
+		annex_country = {
+			target = SIK
+			transfer_troops = yes
+		}
+		MON = {
+			add_state_core = 619
+			add_state_core = 287
+			add_state_core = 759
+			add_state_core = 617
+			add_state_core = 760
+			add_state_core = 618
+		}
+		IF = {
+			LIMIT = {
+				MON = {
+					has_government = communism
+				}
+			}
+			custom_effect_tooltip = MON_recruit_advisor_tt
+			show_ideas_tooltip = MON_advisor_shicai
+		}
+		
+		hidden_effect = {
+			set_global_flag = MON_turkic_union
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+}
+
+country_event = {
+	#generic accept
+	id = MON.15
+	title = MON.15.t
+	desc = MON.15.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# yipee
+	option = {
+		name = MON.15.a
+		add_stability = 0.1
+	}
+}
+
+#country gets an offer from MON for a produce trade deal
+	country_event = { 
+		id = MON_trade_deal.1
+		title = MON_trade_deal.1.t
+		desc = MON_trade_deal.1.desc
+		picture = GFX_report_event_generic_stock_traders
+
+		is_triggered_only = yes
+
+		option = { #Accept
+			name = MON_trade_deal.1.a
+			ai_chance = {
+				base = 5
+				modifier = {
+					factor = 5
+					has_government = FROM
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 0
+					}
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 24
+					} 
+				}
+			}	
+			effect_tooltip = {
+				ROOT = {
+					add_ideas = MON_produce_export
+				}
+				FROM = {
+					add_offsite_building = { type = industrial_complex level = 1 }
+				}
+			}
+
+			FROM = { country_event = { id = MON_trade_deal.2 days = 1 } }
+		}
+
+		option = { #Decline
+			name = MON_trade_deal.1.b
+			ai_chance = {
+				base = 1
+			}
+			FROM = { country_event = { id = MON_trade_deal.3 days = 1 } }
+		}
+	}
+
+#country has accepted our trade proposal!
+	country_event = { 
+		id = MON_trade_deal.2
+		title = MON_trade_deal.2.t
+		desc = MON_trade_deal.2.desc
+		picture = GFX_report_event_generic_stock_traders
+
+		is_triggered_only = yes
+
+		option = { #Yipee
+			name = MON_trade_deal.2.a
+			ROOT = {
+				add_offsite_building = { type = industrial_complex level = 1 }
+			}
+			FROM = {
+				add_ideas = MON_produce_export
+				set_country_flag = has_mon_produce_flag
+			}
+			custom_effect_tooltip = war_will_cancel_deal_tt
+			hidden_effect = {
+				FROM = {
+					set_country_flag = has_mon_produce_flag
+				}
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						MON = {
+							has_idea = MON_produce_export
+						}
+					}
+				}
+				MON = {
+					add_ideas = MON_produce_export
+				}
+			}
+		}
+	}
+
+#targetCountry declined our trade proposal
+	country_event = { 
+		id = MON_trade_deal.3
+		title = MON_trade_deal.3.t
+		desc = MON_trade_deal.3.desc
+		picture = GFX_report_event_journalists_speech
+
+		is_triggered_only = yes
+
+		option = { #Damnit!
+			name = MON_trade_deal.3.a
+		}
+	}
+
+#country gets an offer from MON for a meat trade deal
+	country_event = { 
+		id = MON_trade_deal.4
+		title = MON_trade_deal.4.t
+		desc = MON_trade_deal.4.desc
+		picture = GFX_report_event_generic_stock_traders
+
+		is_triggered_only = yes
+
+		option = { #Accept
+			name = MON_trade_deal.4.a
+			ai_chance = {
+				base = 5
+				modifier = {
+					factor = 5
+					has_government = FROM
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 0
+					}
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 24
+					} 
+				}
+			}	
+			effect_tooltip = {
+				ROOT = {
+					add_ideas = MON_meat_export
+				}
+				FROM = {
+					add_offsite_building = { type = industrial_complex level = 1 }
+				}
+			}
+			FROM = { country_event = { id = MON_trade_deal.5 days = 1 } }
+		}
+
+		option = { #Decline
+			name = MON_trade_deal.4.b
+			ai_chance = {
+				base = 1
+			}
+			FROM = { country_event = { id = MON_trade_deal.6 days = 1 } }
+		}
+	}
+
+#country has accepted our trade proposal!
+	country_event = { 
+		id = MON_trade_deal.5
+		title = MON_trade_deal.5.t
+		desc = MON_trade_deal.5.desc
+		picture = GFX_report_event_generic_stock_traders
+
+		is_triggered_only = yes
+
+		option = { #Yipee
+			name = MON_trade_deal.5.a
+			ROOT = {
+				add_offsite_building = { type = arms_factory level = 1 }
+			}
+			FROM = {
+				add_ideas = MON_meat_export
+				set_country_flag = has_mon_meat_flag
+			}
+			custom_effect_tooltip = war_will_cancel_deal_tt
+			hidden_effect = {
+				FROM = {
+					set_country_flag = has_mon_meat_flag
+				}
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						MON = {
+							has_idea = MON_meat_export
+						}
+					}
+				}
+				MON = {
+					add_ideas = MON_meat_export
+				}
+			}
+		}
+	}
+
+# targetCountry declined our trade proposal
+	country_event = {
+		id = MON_trade_deal.6
+		title = MON_trade_deal.6.t
+		desc = MON_trade_deal.6.desc
+		picture = GFX_report_event_journalists_speech
+
+		is_triggered_only = yes
+
+		option = { #Damnit!
+			name = MON_trade_deal.6.a
+		}
+	}
+
+	country_event = {
+		id = MON_demo_invite.1
+		title =  MON_demo_invite.1.t
+		desc =  MON_demo_invite.1.desc
+		picture = GFX_report_event_generic_sign_treaty2
+
+		is_triggered_only = yes
+
+		option = { #yes!
+			name =  MON_demo_invite.1.a
+			ai_chance = {
+				base = 5
+				modifier = {
+					factor = 50
+					has_government = FROM
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 0
+					}
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 24
+					} 
+				}
+			}
+			FROM = { country_event = MON_demo_invite.2  }
+		}
+
+		option = { #no!
+			name =  MON_demo_invite.1.b
+			FROM = { country_event = MON_demo_invite.3  }
+		}
+	}
+
+	country_event = {
+		id = MON_demo_invite.2
+		title =  MON_demo_invite.2.t
+		desc =  MON_demo_invite.2.desc
+		picture = GFX_report_event_generic_read_write
+
+		is_triggered_only = yes
+
+		option = { #Yey!
+			name =  MON_demo_invite.2.a
+			MON = {add_to_faction = FROM}
+			FROM = {
+				IF = {
+					LIMIT = {
+						MON = {
+							has_elections = yes
+						}
+					}
+					add_ideas = MON_dem_guide
+				}
+			}
+		}
+	}
+
+	country_event = {
+		id = MON_demo_invite.3
+		title =  MON_demo_invite.3.t
+		desc =  MON_demo_invite.3.desc
+		picture = GFX_report_event_generic_sign_treaty2
+
+		is_triggered_only = yes
+
+		option = { #Damnit!
+			name =  MON_demo_invite.3.a
+		}
+	}
+	country_event = { #MON wants us to join Federation
+		id = MON_demo_invite.4
+		title = MON_demo_invite.4.t
+		desc = MON_demo_invite.4.desc
+		picture = GFX_report_event_generic_sign_treaty3
+		is_triggered_only = yes
+
+		option = {
+			name = MON_demo_invite.4.a
+			ai_chance = {
+				base = 10
+				modifier = {
+					factor = 0
+					OR = {
+						has_war_with = FROM
+						capital_scope = {
+							NOT = {
+								is_on_continent = asia
+							}
+						}
+						NOT = {
+							is_in_faction_with = FROM
+						}
+					}
+				}
+				modifier = {
+					factor = 10
+					has_opinion = {
+						target = FROM
+						value > 80
+					}
+				}
+			}
+			effect_tooltip = {
+				FROM = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = yes
+					}
+				}
+			}
+			FROM = {
+				country_event = {
+					id = MON_demo_invite.5
+					hours = 1
+				}
+			}
+		}
+		option = {
+			name = MON_demo_invite.4.b
+			ai_chance = {
+				base = 1
+			}
+			FROM = {
+				country_event = {
+					id = MON_demo_invite.6
+					hours = 1
+				}
+			}
+		}
+	}
+
+	country_event = {
+		id = MON_demo_invite.5
+		title = MON_demo_invite.5.t
+		desc = MON_demo_invite.5.desc
+		picture = GFX_report_event_generic_sign_treaty3
+		is_triggered_only = yes
+
+		# annex them
+		option = {
+			name = MON_demo_invite.5.a
+			ai_chance = {
+				base = 1
+			}
+			FROM = {
+				every_owned_state = {
+					limit = {
+						is_core_of = PREV
+					}
+					add_core_of = ROOT
+				}
+				clr_country_flag =  MON_target_which_is_currently_being_integrated
+			}
+			annex_country = {
+				target = FROM
+				transfer_troops = yes
+			}
+			clr_country_flag =  MON_invite_country_in_progress
+		}
+	}
+
+	country_event = {
+		id = MON_demo_invite.6
+		title = MON_demo_invite.6.t
+		desc = MON_demo_invite.6.desc
+		picture = GFX_report_event_generic_sign_treaty3
+		is_triggered_only = yes
+
+		# oh no
+		option = {
+			name = MON_demo_invite.6.a
+			ai_chance = {
+				base = 1
+			}
+			FROM = {
+				clr_country_flag =  MON_target_which_is_currently_being_integrated
+			}
+			clr_country_flag =  MON_invite_country_in_progress
+		}
+	}
+	
+	country_event = {
+		id = MON_industry.1
+		title =  MON_industry.1.t
+		desc =  MON_industry.1.desc
+		picture = GFX_report_event_airplane_factory
+
+		is_triggered_only = yes
+
+		option = { #armor
+			name =  MON_industry.1.a
+			hidden_effect = {add_ideas = MON_byproducts_1}
+			show_ideas_tooltip = MON_byproducts_1
+		}
+		option = { #arty
+			name =  MON_industry.1.b
+			hidden_effect = {add_ideas = MON_byproducts_2}
+			show_ideas_tooltip = MON_byproducts_2
+		}
+		option = { #motorized and mechanised
+			name =  MON_industry.1.c
+			hidden_effect = {add_ideas = MON_byproducts_3}
+			show_ideas_tooltip = MON_byproducts_3
+		}
+	}
+
+	country_event = {
+		id = MON_border_conflict.1
+		title = MON_border_conflict.1.t
+		desc = MON_border_conflict.1.desc
+		picture = GFX_report_event_chinese_soldiers
+
+		is_triggered_only = yes
+
+		immediate = {
+			save_event_target_as = our_country
+			FROM = { save_event_target_as = our_state }
+			FROM.FROM = { save_event_target_as = their_country }
+			FROM.FROM.FROM = { save_event_target_as = their_state }
+			remove_targeted_decision = { target = event_target:their_country decision = WTT_border_conflict_time_until_cancelled }
+		}
+		
+		option = {
+			name = MON_border_conflict.1.a
+			add_political_power = 50
+			if = {
+				limit = {
+					check_variable = {
+						FROM.FROM.num_owned_states > 1
+					}
+				}
+				transfer_state = FROM.FROM.FROM
+			}
+			else = {
+				FROM.FROM = { ROOT = { annex_country = { target = PREV } } }
+			}
+		}
+	}
+
+	country_event = {
+		id = MON_border_conflict.3
+		title = MON_border_conflict.3.t
+		desc = MON_border_conflict.3.desc
+		picture = GFX_report_event_dead_soldiers
+
+		is_triggered_only = yes
+
+		immediate = {
+			hidden_effect = {
+				save_event_target_as = our_country
+				FROM = {
+					save_event_target_as = our_state
+					clr_state_flag = border_incident_active
+				}
+				FROM.FROM = { save_event_target_as = their_country }
+				FROM.FROM.FROM = {
+					save_event_target_as = their_state
+					clr_state_flag = border_incident_active
+				}
+				set_country_flag = show_effect_tooltips
+				clear_variable = attacker_state_vs_@FROM.FROM
+				clear_variable = defender_state_vs_@FROM.FROM
+				remove_targeted_decision = { target = event_target:their_country decision = WTT_border_conflict_time_until_cancelled }
+			}
+		}
+		
+		#Same effect as attacker. Tooltip for their effects
+		option = {
+			name = MON_border_conflict.3.a
+		}
+	}
+
+	country_event = {
+		id = MON_border_conflict.5
+		title = MON_border_conflict.5.t
+		desc = MON_border_conflict.5.desc
+		picture = GFX_report_event_generic_read_write
+
+		is_triggered_only = yes
+
+		immediate = {
+			save_event_target_as = our_country
+			FROM = { save_event_target_as = our_state }
+			FROM.FROM = { save_event_target_as = their_country }
+			FROM.FROM.FROM = { save_event_target_as = their_state }
+			set_country_flag = show_effect_tooltips
+			remove_targeted_decision = { target = event_target:their_country decision = WTT_border_conflict_time_until_cancelled }
+		}
+		
+		#Same effect as defender. Tooltip for their effects	
+		option = {
+			name = MON_border_conflict.5.a
+		}
+	}
+	
+	country_event = {
+		id = MON_border_conflict.2
+		title =  MON_border_conflict.2.t
+		desc = MON_border_conflict.2.desc
+		picture = GFX_report_event_chinese_soldiers
+
+		is_triggered_only = yes
+
+		immediate = {
+			hidden_effect = {
+				save_event_target_as = our_country
+				FROM = {
+					save_event_target_as = our_state
+					clr_state_flag = border_incident_active
+				}
+				FROM.FROM = { save_event_target_as = their_country }
+				FROM.FROM.FROM = {
+					save_event_target_as = their_state
+					clr_state_flag = border_incident_active
+				}
+				set_country_flag = show_effect_tooltips
+				clear_variable = attacker_state_vs_@FROM.FROM
+				clear_variable = defender_state_vs_@FROM.FROM
+				remove_targeted_decision = { target = event_target:their_country decision = WTT_border_conflict_time_until_cancelled }
+			}
+		}
+		option = {
+			name = MON_border_conflict.2.a
+	}
+
+	country_event = {
+		id = MON_border_conflict.4
+		title = MON_border_conflict.4.t
+		desc = MON_border_conflict.4.desc
+		picture = GFX_report_event_dead_soldiers
+
+		is_triggered_only = yes
+
+		immediate = {
+			save_event_target_as = our_country
+			FROM = { save_event_target_as = our_state }
+			FROM.FROM = { save_event_target_as = their_country }
+			FROM.FROM.FROM = { save_event_target_as = their_state }
+			set_country_flag = show_effect_tooltips
+		}
+		
+		option = {
+			name = MON_border_conflict.4.a
+		}
+	}
+
+	country_event = {
+		id = MON_border_conflict.6
+		title = MON_border_conflict.6.t
+		desc = MON_border_conflict.6.desc
+		picture = GFX_report_event_generic_read_write
+
+		is_triggered_only = yes
+
+		immediate = {
+			hidden_effect = {
+				save_event_target_as = our_country
+				FROM = {
+					save_event_target_as = our_state
+					clr_state_flag = border_incident_active
+				}
+				FROM.FROM = { save_event_target_as = their_country }
+				FROM.FROM.FROM = {
+					save_event_target_as = their_state
+					clr_state_flag = border_incident_active
+				}
+				set_country_flag = show_effect_tooltips
+				clear_variable = attacker_state_vs_@FROM.FROM
+				clear_variable = defender_state_vs_@FROM.FROM
+			}
+		}
+		
+		option = {
+			name = MON_border_conflict.6.a
+		}
+	}
