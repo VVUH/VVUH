@@ -1301,5 +1301,16 @@ MON_advisor_shicai = {
 		}
 	}
 
-
+	MON_prince_demchugdongrub={
+		name="Khan Demchugdongrub"
+		portraits={
+			civilian={
+				large="GFX_portrait_men_demchugdongrub"
+			}
+		}
+		country_leader={
+			ideology=oligarchism
+			traits={ spirit_of_genghis }
+		}
+	}
 }

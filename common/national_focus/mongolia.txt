@@ -2613,7 +2613,7 @@ focus_tree = {
 			}
 			# ruler dont work to do
 			promote_character = {
-					character = MEN_prince_demchugdongrub
+					character = MON_prince_demchugdongrub
 					ideology = oligarchism
 				}
 			add_country_leader_trait = the_sacred_king	
@@ -2764,7 +2764,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_war_support = 0.05
-			custom_effect_tooltip = MON_unlock_border_raids_tt
+			custom_effect_tooltip = MON_unlock_border_raids_princeD_tt
 		}
 	}
 
@@ -2824,6 +2824,16 @@ focus_tree = {
 			add_ideas = MON_heirs_of_the_huns_idea
 			hidden_effect = {
 				#don't look at me....
+				1001 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1002 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1003 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1004 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1005 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1006 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1007 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1008 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1009 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				988	= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}				
 				330 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
 				817 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
 				818 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
@@ -3276,7 +3286,7 @@ focus_tree = {
 		icon = GFX_focus_ETH_expand_the_kebur_zabagna
 		x = 0
 		y = 1
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -3365,7 +3375,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = 0.05
-			set_cosmetic_tag = MON_yuan
+			set_cosmetic_tag = MON_mong_chin
 
 		}
 	}
@@ -4873,6 +4883,16 @@ focus_tree = {
 			custom_effect_tooltip = MON_mongol_empire_tt
 			hidden_effect = {
 				#don't look at me....
+				1001 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1002 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1003 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1004 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1005 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1006 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1007 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1008 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1009 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				988	= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
 				330 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
 				817 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
 				818 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
@@ -5482,7 +5502,7 @@ focus_tree = {
 		icon = GFX_focus_generic_farmland
 		x = 30
 		y = 0
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -5550,7 +5570,7 @@ focus_tree = {
 		icon = GFX_focus_BRA_ethical_internationalism
 		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
@@ -6055,7 +6075,7 @@ focus_tree = {
 		icon = GFX_focus_ARG_capitalize_the_beef_industry
 		x = 0
 		y = 1
-		cost = 5
+		cost = 10
 		prerequisite = { focus = MON_nomadic_herding }
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -6103,7 +6123,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_south_manchuria_railway
 		x = -10
 		y = 1
-		cost = 5
+		cost = 7
 		prerequisite = { focus = MON_stick_to_our_strengths focus = MON_modernize_industry}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -6842,7 +6862,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_merge_plants
 		x = -1
 		y = 1
-		cost = 10
+		cost = 5
 		prerequisite = { focus = MON_modernize_industry}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
@@ -6875,7 +6895,7 @@ focus_tree = {
 		icon = GFX_focus_generic_energy
 		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 		prerequisite = { focus = MON_dam_the_rivers}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {

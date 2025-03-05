@@ -925,7 +925,6 @@ ideas = {
 				neutrality_drift = 0.1
 			}
 		}
-
 		MON_full_infiltration = {
 			allowed = {
 				always = no
@@ -1473,7 +1472,7 @@ ideas = {
 
 			modifier = {
 				# attack bonuses against china and japan?
-				army_morale_factor = 0.3
+				army_morale_factor = 0.05
 				army_org_factor = 0.05
 				army_core_defence_factor = 0.05
 				army_core_attack_factor = 0.1
@@ -1505,7 +1504,7 @@ ideas = {
 
 			modifier = {
 				# attack bonuses against china and japan?
-				army_morale_factor = 0.5
+				army_morale_factor = 0.1
 				army_org_factor = 0.1
 				army_core_defence_factor = 0.1
 				army_core_attack_factor = 0.15

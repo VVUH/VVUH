@@ -148,6 +148,7 @@ MON_mongolianDecisions = {
                 has_global_flag = MON_purged_buryats
             }
             controls_state = 564
+			controls_state = 566
 			controls_state = 563
 		}
 
@@ -1225,6 +1226,16 @@ MON_mongolianDecisions = {
 
 		highlight_states = {
 			highlight_state_targets = {
+				state = 1001
+				state = 1002
+				state = 1003
+				state = 1004
+				state = 1005
+				state = 1006
+				state = 1007
+				state = 1008
+				state = 1009
+				state = 988							
 				state = 330
 				state = 817
 				state = 818
@@ -1887,6 +1898,16 @@ MON_mongolianDecisions = {
 				826 = { add_core_of = ROOT }
 				231 = { add_core_of = ROOT }
 				229 = { add_core_of = ROOT }
+				1001 = { add_core_of = ROOT }
+				1002 = { add_core_of = ROOT }
+				1003 = { add_core_of = ROOT }
+				1004 = { add_core_of = ROOT }
+				1005 = { add_core_of = ROOT }
+				1006 = { add_core_of = ROOT }
+				1007 = { add_core_of = ROOT }
+				1008 = { add_core_of = ROOT }
+				1009 = { add_core_of = ROOT }
+				988	= { add_core_of = ROOT }
 				230 = { add_core_of = ROOT }
 				291 = { add_core_of = ROOT }
 				676 = { add_core_of = ROOT }
@@ -3270,30 +3291,20 @@ MON_manchuria_cat = {
 						has_idea = MON_partial_infiltration
 					}
 				}
-				IF = {
-					LIMIT = {
-						every_state = {
-							LIMIT = {
-								is_core_of = MAN
-							}
-							is_core_of = MON
-						}
-					}
 					MAN = {
-						swap_ideas = {
 							remove_idea = MON_partial_infiltration
 							add_idea = MON_full_infiltration
-						}
 					}	
 				}
-			}ELSE = {
+			}ELSE{
 				MAN = { 
-					add_ideas = MON_partial_infiltration
+					add_ideas = MON_partial_infiltration1
 				}
 			}
 
 		}
-	}	
+	
+	
 	
 	MON_commence_uprising = {
 		icon = GFX_decision_eng_support_imperialist_coup
@@ -3312,7 +3323,9 @@ MON_manchuria_cat = {
 			country_exists = MAN
 			MAN = {
 				has_idea = MON_partial_infiltration
+				neutrality > 0.25
 			}
+
 		}
 		
 		visible = {
@@ -3323,7 +3336,7 @@ MON_manchuria_cat = {
 			}
 			NOT = {
 				MAN = {
-					has_idea = MON_full_infiltration
+					neutrality > 0.4
 				}
 			}
 		}
@@ -3358,6 +3371,7 @@ MON_manchuria_cat = {
 			country_exists = MAN
 			MAN = {
 				has_idea = MON_full_infiltration
+				neutrality > 0.3
 			}
 		}
 		
@@ -3366,6 +3380,7 @@ MON_manchuria_cat = {
 			country_exists = MAN
 			MAN = {
 				has_idea = MON_full_infiltration
+				neutrality > 0.25
 			}
 		}
 
@@ -3396,8 +3411,8 @@ MON_manchuria_cat = {
 				original_tag = MAN
 				is_subject = no
 				has_civil_war = no
+				has_government = ROOT
 			}
-			has_government = ROOT
 
 		}
 		
@@ -3405,7 +3420,6 @@ MON_manchuria_cat = {
 			any_country = {
 				original_tag = MAN
 				is_subject = no
-				has_civil_war = no
 			}
 			NOT = {
 				has_global_flag = MON_manchu_puppet
