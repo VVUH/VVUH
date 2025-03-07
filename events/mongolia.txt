@@ -864,9 +864,11 @@ country_event = {
 		option = { #Decline
 			name = MON_trade_deal.1.b
 			ai_chance = {
-				base = 1
+				base = 5
 			}
 			FROM = { country_event = { id = MON_trade_deal.3 days = 1 } }
+			custom_effect_tooltip = MON_not_ask_again_tt
+			set_country_flag = MON_declined_trade_1
 		}
 	}
 
@@ -969,9 +971,11 @@ country_event = {
 		option = { #Decline
 			name = MON_trade_deal.4.b
 			ai_chance = {
-				base = 1
+				base = 5
 			}
 			FROM = { country_event = { id = MON_trade_deal.6 days = 1 } }
+			custom_effect_tooltip = MON_not_ask_again_tt
+			set_country_flag = MON_declined_trade_2
 		}
 	}
 
@@ -1063,6 +1067,9 @@ country_event = {
 		}
 
 		option = { #no!
+		ai_chance = {
+				base = 5
+		}
 			name =  MON_demo_invite.1.b
 			FROM = { country_event = MON_demo_invite.3  }
 		}

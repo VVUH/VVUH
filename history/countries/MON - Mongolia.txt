@@ -10,11 +10,8 @@ set_popularities = {
 }
 
 # Starting tech
-set_technology = {
-	infantry_weapons = 1
-}
+inherit_technology = TUR
 
-inherit_technology = SOV
 
 add_ideas = {
 	limited_conscription

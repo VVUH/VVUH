@@ -3528,3 +3528,4 @@
  MON_demo_invite.2.t:0 "[FROM.GetLeader] accepts!"
  MON_demo_invite.2.desc:0 "The leader of [From.GetNameDef] has accepted our offer, they need the protection or influence of [MON.GetNameDef]. [MON.GetLeader] is delighted with the outcome. Two hands clasped together in cooperation will life one another up as we rise to secure the region."
  MON_demo_invite.2.a:0 "We are stronger together"
+ MON_not_ask_again_tt:0 "They will not be able to offer you this kind of export again"

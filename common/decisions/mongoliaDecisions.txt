@@ -3125,6 +3125,7 @@ MON_export_cat = {
 					is_ai = no
 				}
 				NOT = { has_country_flag = has_mon_meat_flag }
+				NOT = {has_country_flag = MON_declined_trade_1}
 			}
 		}
 
@@ -3200,12 +3201,13 @@ MON_export_cat = {
 		}
 
 		visible = {
-			has_completed_focus = MON_export_animal_products	
+			has_completed_focus = MON_export_crops	
 			NOT = {
 				has_country_flag = MON_investment_pursued
 			}
 			FROM = {
 				NOT = { has_country_flag = has_mon_produce_flag }
+				NOT = {has_country_flag = MON_declined_trade_1}
 			}
 		}
 

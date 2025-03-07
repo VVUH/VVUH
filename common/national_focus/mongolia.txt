@@ -852,7 +852,7 @@ focus_tree = {
 				has_government = communism
 					has_opinion = {
 					target = MON
-					value > 49
+					value > 39
 				}
 			
 			}
@@ -8672,11 +8672,6 @@ focus_tree = {
 		prerequisite = { focus = MON_research_modern_navies }
 		relative_position_id = MON_research_modern_navies
 
-		available = {
-			any_controlled_state ={
-				is_coastal = yes
-			}
-		}
 		icon = GFX_focus_generic_merchant_fleet
 		x = -2
 		y = 1
