@@ -17,7 +17,16 @@ MON_purgeTimer = {
 		days_mission_timeout = 365
 		#days_remove = 1
 		activation = {
-			has_idea = MON_soviet_supervision
+			AND = {
+				has_idea = MON_soviet_supervision
+				MON = {
+					is_ai = no
+				}
+				SOV = {
+					is_ai = yes
+				}
+			}
+
 		}
 		fixed_random_seed = no
 

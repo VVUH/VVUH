@@ -234,7 +234,6 @@ ideas = {
 				org_loss_when_moving = -0.05
 			}
 		}
-		#not yet integrated to do
 		MON_cav_3 = {
 			allowed = {
 				always = no
@@ -246,13 +245,334 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = ETH_the_heroes_of_adwa_upgraded
+			picture = HABSBURG_cavalry
 			
 			modifier = {
 				cavalry_attack_factor = 0.15
 				cavalry_defence_factor = 0.1
 				org_loss_when_moving = -0.1
 			}
+		}
+		#army tree mess
+		MON_forts = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_wall_line
+			
+			modifier = {
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+			}	
+		}
+
+		MON_enshrining_process = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_secret_police
+			
+			modifier = {
+				add_stability = -0.1
+				add_war_support = 0.15
+				custom_modifier_tooltip = MON_timed_gone_good_stay_tt
+			}
+			on_remove = {
+				add_war_support = 0.15
+			}	
+		}
+
+		MON_great_war_inf = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = SPA_la_division_azul
+			
+			modifier = {
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				army_infantry_attack_factor = 0.05
+				army_infantry_defence_factor = 0.1	
+			}
+		}
+
+		MON_arty = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = societe_africain_de_explosifes
+			
+			modifier = {
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				army_infantry_attack_factor = 0.05
+				army_infantry_defence_factor = 0.1	
+				army_artillery_attack_factor = 0.1
+				army_artillery_defence_factor = 0.05	
+			}
+		}
+
+		MON_big_arty = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = SWE_let_fly_all_guns
+			
+			modifier = {
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				army_infantry_attack_factor = 0.05
+				army_infantry_defence_factor = 0.1	
+				army_artillery_attack_factor = 0.12
+				army_artillery_defence_factor = 0.07	
+				railway_gun_bombardment_factor = 0.10
+			}
+		}
+
+		MON_increased_conscription_spirit = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = eng_imperial_conscription
+			
+			modifier = {
+
+				# PLUS WHAT EVER ENSHRINE HAS
+				non_core_manpower = 0.05
+				conscription = 0.02
+			}	
+		}
+
+		
+
+		#event gained: [increased conscription: Place of our new training facilitiy] vs [modern infantry: specialised combat terrain]
+		MON_gobi_training = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = tur_tuz_golu_training_facility
+			
+			modifier = {
+				acclimatization_hot_climate_gain_factor = 0.15
+				training_time_factor = -0.1
+			}	
+		}
+		MON_siberian_training = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = tur_sub_zero_survival_training
+			
+			modifier = {
+				acclimatization_cold_climate_gain_factor = 0.15
+				training_time_factor = -0.1
+			}	
+		}		
+		
+		MON_great_mon_army2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_reserve_divisions
+			#cold
+			modifier = {
+				army_infantry_attack_factor = 0.08
+				army_infantry_defence_factor = 0.12
+				army_artillery_attack_factor = 0.13
+				army_artillery_defence_factor = 0.08	
+				railway_gun_bombardment_factor = 0.15
+				non_core_manpower = 0.05
+				conscription = 0.03
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				acclimatization_cold_climate_gain_factor = 0.15
+				training_time_factor = -0.1
+			}	
+		}
+		MON_great_mon_army1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_reserve_divisions
+			#hot
+			modifier = {
+				army_infantry_attack_factor = 0.08
+				army_infantry_defence_factor = 0.12
+				army_artillery_attack_factor = 0.13
+				army_artillery_defence_factor = 0.08	
+				railway_gun_bombardment_factor = 0.15
+				non_core_manpower = 0.05
+				conscription = 0.03
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				acclimatization_hot_climate_gain_factor = 0.15
+				training_time_factor = -0.1
+			}	
+		}
+
+
+
+		#final focuses other tree
+		MON_mon_modern_army1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = ETH_conservative_high_command
+			#this first - cold
+			modifier = {
+
+
+
+
+				acclimatization_cold_climate_gain_factor = 0.15
+				training_time_factor = -0.1
+			}	
+		}
+
+		MON_mon_modern_army2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = ETH_conservative_high_command
+			#higher standards first	- cold
+			modifier = {
+
+
+
+
+				acclimatization_cold_climate_gain_factor = 0.15
+				training_time_factor = -0.1
+			}	
+		}
+		MON_mon_modern_army3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = ETH_conservative_high_command
+			#this first - hot
+			modifier = {
+
+
+
+
+				acclimatization_hot_climate_gain_factor = 0.15
+				training_time_factor = -0.1
+			}	
+		}
+
+		MON_mon_modern_army4 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = ETH_conservative_high_command
+			#higher standards first	- hot
+			modifier = {
+
+
+
+
+
+				acclimatization_hot_climate_gain_factor = 0.15
+				training_time_factor = -0.1
+			}	
 		}
 # communist ideas
 		MON_soviet_supervision = {
@@ -578,6 +898,7 @@ ideas = {
 			modifier = {
 				supply_consumption_factor = -0.1
 				no_supply_grace = 48
+				supply_node_range = 0.1
 			}
 		}
 
@@ -701,7 +1022,7 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = air_war_plans_division_focus
+			picture = KAT_katangese_airforce
 
 			modifier = {
 				experience_gain_air = 0.1
@@ -721,13 +1042,14 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = air_war_plans_division_focus
+			picture = SWE_formation_flying
 
 			modifier = {
 				experience_gain_air = 0.1
 				air_advisor_cost_factor = -0.35
 				air_training_xp_gain_factor = 0.15
 				air_doctrine_cost_factor = -0.05
+				air_range_factor = 0.04
 			}
 			
 		}
@@ -750,6 +1072,7 @@ ideas = {
 				air_training_xp_gain_factor = 0.25
 				air_doctrine_cost_factor = -0.10
 				air_fuel_consumption_factor = -0.15
+				air_range_factor = 0.08
 			}
 			
 		}
@@ -764,14 +1087,15 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = air_war_plans_division_focus
+			picture = NOR_thunes_mekaniske_vaerksted
 
 			modifier = {
 				experience_gain_air = 0.1
 				air_advisor_cost_factor = -0.75
 				air_training_xp_gain_factor = 0.25
 				air_doctrine_cost_factor = -0.10
-				air_fuel_consumption_factor = -0.15
+				air_fuel_consumption_factor = -0.05
+				air_range_factor = 0.15
 				air_equipment_upgrade_xp_cost = -0.5
 				resistance_damage_to_garrison = 0.1
 				resistance_decay = 0.25					
@@ -1021,7 +1345,36 @@ ideas = {
 				}
 			}
 		}
-		
+		MON_modernize_arms = {
+
+			picture = ARG_rapid_militarization
+
+			allowed = { original_tag = MON }
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.15
+					instant = yes
+				}
+				artillery = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+				cat_anti_tank = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+				cat_anti_air = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+
+
+		}	
+
 		MON_popular_resistance = {
 			allowed = {
 				always = no
