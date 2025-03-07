@@ -2035,6 +2035,7 @@ MON_mongolianDecisions = {
 
 MON_border_raids = {
 		MON_take_dabancheng = {
+			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
 			highlight_states = {
 				highlight_state_targets = { 			
@@ -2096,6 +2097,7 @@ MON_border_raids = {
 		}
 	
 		MON_take_tuva = {
+			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
 			highlight_states = {
 				highlight_state_targets = { 			
@@ -2157,6 +2159,7 @@ MON_border_raids = {
 		}
 		
 		MON_take_ulunbuir = {
+			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
 			highlight_states = {
 				highlight_state_targets = { 			
@@ -2213,6 +2216,7 @@ MON_border_raids = {
 		}
 		
 		MON_take_chahar = {
+			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
 			highlight_states = {
 				highlight_state_targets = { 			
@@ -2270,6 +2274,7 @@ MON_border_raids = {
 		}
 		
 		MON_take_south_chahar = {
+			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
 			highlight_states = {
 				highlight_state_targets = { 			
@@ -2357,6 +2362,7 @@ MON_border_raids = {
 		}
 		
 		MON_take_suiyuan = {
+			war_with_target_on_complete = yes
 			highlight_states = {
 				highlight_state_targets = { 			
 				state = 621 }
@@ -2422,6 +2428,7 @@ MON_border_raids = {
 		}
 
 		MON_take_ordos = {
+			war_with_target_on_complete = yes
 			highlight_states = {
 				highlight_state_targets = { 			
 				state = 746 }
@@ -2478,6 +2485,7 @@ MON_border_raids = {
 		}
 		
 		MON_take_jiuquan = {
+			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
 			highlight_states = {
 				highlight_state_targets = { 			
@@ -3045,7 +3053,10 @@ MON_foreign_legion_cat = {
 		}
 
 		visible = {
-			has_completed_focus = MON_communist_volunteers
+			OR = {
+				has_completed_focus = MON_communist_volunteers
+				has_completed_focus = MON_the_anti_communists_movement
+			}
 		}
 
 		available = {
@@ -3073,13 +3084,26 @@ MON_foreign_legion_cat = {
 		}
 
 		remove_effect = {
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Foreign Volunteers\" division_template = \"Communist Volunteer Group\" start_experience_factor = 0.5 start_equipment_factor	= 1.0"
-					owner = MON 
-					count = 1
+			IF = {LIMIT = {has_completed_focus = MON_communist_volunteers}
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Foreign Volunteers\" division_template = \"Communist Volunteer Group\" start_experience_factor = 0.5 start_equipment_factor	= 1.0"
+						owner = MON 
+						count = 1
+					}
+				}
+			
+			}ELSE = {
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Traditionalist division\" division_template = \"Traditionalist Volunteers\" start_experience_factor = 0.5 start_equipment_factor	= 1.0"
+						owner = MON 
+						count = 1
+					}
 				}
 			}
+
+
 			hidden_effect = {
 				clr_country_flag = MON_foreign_legion_recruitment_in_progress
 			}

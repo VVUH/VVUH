@@ -284,7 +284,7 @@ focus_tree = {
 					tag = MON
 					count > 3
 				}
-				surrender_progress < 0.1
+				surrender_progress < 0.2
 				controls_province = 3938
 			}
 		}
@@ -296,7 +296,7 @@ focus_tree = {
 		completion_reward = { #just add idea to do
 			add_timed_idea = {
 				idea = MON_spa_silver
-				days = 365
+				days = 225
 			}
 		}
 	}
@@ -1146,6 +1146,18 @@ focus_tree = {
 				remove_idea = MON_mongolian_communism2
 				add_idea = MON_mongolian_communism3
 			}
+				IF = {
+					LIMIT = {
+						overlord = SOV
+					}
+					set_autonomy = {
+						target = MON
+						autonomous_state = autonomy_free
+						end_wars = no
+						end_civil_wars = no
+					}
+				}
+				
 			hidden_effect = {
 				IF = {
 					LIMIT = {
@@ -4509,6 +4521,20 @@ focus_tree = {
 			custom_effect_tooltip = MON_claim_siberia_tt
 			show_mio_tooltip = MON_mon_japanese_technical_mission_organization
 			show_mio_tooltip = MON_nissan_organization
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			IF = {
+					LIMIT = {
+						overlord = JAP
+					}
+					set_autonomy = {
+						target = MON
+						autonomous_state = autonomy_free
+						end_wars = no
+						end_civil_wars = no
+					}
+				}			
+
 			hidden_effect = {
 				add_state_claim = 564
 				add_state_claim = 563
@@ -4564,7 +4590,7 @@ focus_tree = {
 		icon = GFX_focus_GER_all_for_the_front
 		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -4618,7 +4644,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = MON_radicalize_nomads
+		id = MON_the_anti_communists_movement
 		relative_position_id = MON_reorder_the_state
 		prerequisite = { focus = MON_reorder_the_state }
 		icon = GFX_goal_tfv_saf_support_ossebrandwag
@@ -4637,16 +4663,36 @@ focus_tree = {
 		
 
 		completion_reward = {
-			IF= {
-				LIMIT = {
-					has_completed_focus = MON_militarize_nomads
+		add_manpower = 25000
+			add_war_support = 0.1
+			custom_effect_tooltip = MON_stranger_legion_tt
+			division_template = {
+				name = "Traditionalist Volunteers"		
+				is_locked = yes
+				force_allow_recruiting = yes
+				priority = 0
+				template_counter = 14
+				regiments = {
+					infantry  = { x = 0 y = 0 }
+					infantry  = { x = 0 y = 1 }
+					infantry  = { x = 0 y = 2 }
+
+					infantry  = { x = 1 y = 0 }
+					infantry  = { x = 1 y = 1 }
+					infantry  = { x = 1 y = 2 }
+
+					infantry  = { x = 2 y = 0 }
+					infantry  = { x = 2 y = 1 }
+					infantry  = { x = 2 y = 2 }
+
 				}
-					swap_ideas = {
-						remove_idea = MON_cav_1
-						add_idea = MON_cav_2
-					}
-			}ELSE = {
-				add_ideas = MON_cav_1
+			}
+			capital_scope = {
+				create_unit = {
+					division = "division_template =\"Traditionalist Volunteers\" start_experience_factor = 0.2 start_equipment_factor	= 1.0"
+					owner = MON
+					count = 2
+				} 
 			}
 		}
 	}
@@ -4703,14 +4749,10 @@ focus_tree = {
 		icon = GFX_focus_attack_soviet
 		x = 1
 		y = 1
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
-		}
-
-		available = {
-
 		}
 
 		
@@ -4735,7 +4777,7 @@ focus_tree = {
 		icon = GFX_focus_POL_cossack_king
 		x = 0
 		y = 2
-		cost = 5
+		cost = 12
 
 		ai_will_do = {
 			factor = 1
@@ -4755,6 +4797,21 @@ focus_tree = {
 				remove_idea = MON_white_russian_supporters
 				add_idea = MON_cossack_assistance
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF= {
+				LIMIT = {
+					has_completed_focus = MON_militarize_nomads
+				}
+					swap_ideas = {
+						remove_idea = MON_cav_1
+						add_idea = MON_cav_2
+					}
+			}ELSE = {
+				add_ideas = MON_cav_1
+			}
+		
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			division_template = {
 				name = "Cossack Host"
 				priority = 1
@@ -6969,7 +7026,7 @@ focus_tree = {
 				}
 			}
 			every_core_state = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 			}
 		}
 	}
@@ -7540,17 +7597,13 @@ focus_tree = {
 				limit = {
 					has_dlc = "Gotterdammerung"
 				}
-				if = {
-					limit = {
-						NOT = { has_tech = sp_armored_motorized_military_police_tech }
-					}
 					add_tech_bonus = {
 						name = "All terrain motorcycles"
 						uses = 1
 						bonus = 1
 						technology = sp_armored_motorized_military_police_tech
 					}
-				}
+				
 				add_equipment_bonus = {
 					name = "All terrain motorcycles"
 					bonus = {
@@ -8030,12 +8083,7 @@ focus_tree = {
 		completion_reward = {
 			set_technology = { photo_reconnaisance = 1 popup = no}
 			set_technology = { scout_plane1 = 1 popup = no}
-			IF = {
-				LIMIT = {
-					NOT = {has_tech = support_equipment_1}
-				}
-				set_technology = { support_equipment_1 = 1 }
-			}
+			set_technology = { support_equipment_1 = 1 popup = no}
 			add_tech_bonus = {
 				name = radar_tech_bonus
 				bonus = 0.85
