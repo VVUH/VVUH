@@ -287,8 +287,8 @@ ideas = {
 			picture = generic_secret_police
 			
 			modifier = {
-				add_stability = -0.1
-				add_war_support = 0.15
+				stability_factor = -0.1
+				war_support_factor = 0.15
 				custom_modifier_tooltip = MON_timed_gone_good_stay_tt
 			}
 			on_remove = {
@@ -384,11 +384,8 @@ ideas = {
 				conscription = 0.02
 			}	
 		}
-
 		
-
-		#event gained: [increased conscription: Place of our new training facilitiy] vs [modern infantry: specialised combat terrain]
-		MON_gobi_training = {
+		MON_great_mon_army = {
 			allowed = {
 				always = no
 			}
@@ -399,14 +396,22 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = tur_tuz_golu_training_facility
-			
+			picture = generic_reserve_divisions
 			modifier = {
-				acclimatization_hot_climate_gain_factor = 0.15
+				army_infantry_attack_factor = 0.08
+				army_infantry_defence_factor = 0.12
+				army_artillery_attack_factor = 0.13
+				army_artillery_defence_factor = 0.08	
+				railway_gun_bombardment_factor = 0.15
+				non_core_manpower = 0.05
+				conscription = 0.03
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
 				training_time_factor = -0.1
 			}	
 		}
-		MON_siberian_training = {
+		#modern ideas -------------------------
+		MON_mongolian_tanks1 = {
 			allowed = {
 				always = no
 			}
@@ -417,70 +422,90 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = tur_sub_zero_survival_training
-			
+			picture = man_five_year_plan_tank
 			modifier = {
-				acclimatization_cold_climate_gain_factor = 0.15
-				training_time_factor = -0.1
+				army_armor_speed_factor = 0.05
+				army_armor_attack_factor = 0.07
+				army_armor_defence_factor = 0.05
+			}	
+		}	
+		MON_mongolian_tanks2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_acquire_tanks
+			modifier = {
+				army_armor_speed_factor = 0.07
+				army_armor_attack_factor = 0.1
+				army_armor_defence_factor = 0.07				
+
+			}	
+		}	
+		MON_mongolian_modern_inf = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+			modifier = {
+				army_infantry_attack_factor = 0.05
+				army_infantry_defence_factor = 0.03
+			}	
+		}
+		MON_mongolian_modern_inf2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+			modifier = {
+				army_infantry_attack_factor = 0.07
+				army_infantry_defence_factor = 0.05		
+			}	
+		}
+				
+		MON_officer_purge = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_purge
+			#timed idea
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = -0.1
+				field_officer_promotion_penalty = -0.2
+				military_leader_cost_factor = -0.5 
+				army_leader_start_planning_level = 1 
+				army_leader_start_level = 2
+
 			}	
 		}		
-		
-		MON_great_mon_army2 = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes			
-			}
-
-			removal_cost = -1
-
-			picture = generic_reserve_divisions
-			#cold
-			modifier = {
-				army_infantry_attack_factor = 0.08
-				army_infantry_defence_factor = 0.12
-				army_artillery_attack_factor = 0.13
-				army_artillery_defence_factor = 0.08	
-				railway_gun_bombardment_factor = 0.15
-				non_core_manpower = 0.05
-				conscription = 0.03
-				land_bunker_effectiveness_factor = 0.1
-				coastal_bunker_effectiveness_factor = 0.1
-				acclimatization_cold_climate_gain_factor = 0.15
-				training_time_factor = -0.1
-			}	
-		}
-		MON_great_mon_army1 = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes			
-			}
-
-			removal_cost = -1
-
-			picture = generic_reserve_divisions
-			#hot
-			modifier = {
-				army_infantry_attack_factor = 0.08
-				army_infantry_defence_factor = 0.12
-				army_artillery_attack_factor = 0.13
-				army_artillery_defence_factor = 0.08	
-				railway_gun_bombardment_factor = 0.15
-				non_core_manpower = 0.05
-				conscription = 0.03
-				land_bunker_effectiveness_factor = 0.1
-				coastal_bunker_effectiveness_factor = 0.1
-				acclimatization_hot_climate_gain_factor = 0.15
-				training_time_factor = -0.1
-			}	
-		}
-
-
 
 		#final focuses other tree
 		MON_mon_modern_army1 = {
@@ -495,14 +520,13 @@ ideas = {
 			removal_cost = -1
 
 			picture = ETH_conservative_high_command
-			#this first - cold
 			modifier = {
-
-
-
-
-				acclimatization_cold_climate_gain_factor = 0.15
-				training_time_factor = -0.1
+				army_infantry_attack_factor = 0.07
+				army_infantry_defence_factor = 0.05	
+				army_armor_speed_factor = 0.1
+				army_armor_attack_factor = 0.12
+				army_armor_defence_factor = 0.08
+				training_time_factor = -0.15
 			}	
 		}
 
@@ -518,62 +542,16 @@ ideas = {
 			removal_cost = -1
 
 			picture = ETH_conservative_high_command
-			#higher standards first	- cold
 			modifier = {
-
-
-
-
-				acclimatization_cold_climate_gain_factor = 0.15
-				training_time_factor = -0.1
+				army_infantry_attack_factor = 0.1
+				army_infantry_defence_factor = 0.07	
+				army_armor_speed_factor = 0.1
+				army_armor_attack_factor = 0.12
+				army_armor_defence_factor = 0.08
+				training_time_factor = -0.2
 			}	
 		}
-		MON_mon_modern_army3 = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes			
-			}
-
-			removal_cost = -1
-
-			picture = ETH_conservative_high_command
-			#this first - hot
-			modifier = {
-
-
-
-
-				acclimatization_hot_climate_gain_factor = 0.15
-				training_time_factor = -0.1
-			}	
-		}
-
-		MON_mon_modern_army4 = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes			
-			}
-
-			removal_cost = -1
-
-			picture = ETH_conservative_high_command
-			#higher standards first	- hot
-			modifier = {
-
-
-
-
-
-				acclimatization_hot_climate_gain_factor = 0.15
-				training_time_factor = -0.1
-			}	
-		}
+	
 # communist ideas
 		MON_soviet_supervision = {
 			allowed = {

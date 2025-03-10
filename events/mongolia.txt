@@ -3,6 +3,7 @@ add_namespace = MON_trade_deal
 add_namespace = MON_demo_invite
 add_namespace = MON_border_conflict
 add_namespace = MON_industry
+add_namespace = MON_army
 
 #Sik reward
 country_event = {
@@ -786,6 +787,16 @@ country_event = {
 			}
 			custom_effect_tooltip = MON_recruit_advisor_tt
 			show_ideas_tooltip = MON_advisor_shicai
+		}
+
+		IF = {
+			LIMIT = {
+				NOT = {
+					has_completed_focus = MON_turkic_ties
+				}
+			}
+			set_cosmetic_tag = MON_moghulistan
+			set_country_flag = MON_moghulistan_moment
 		}
 		
 		hidden_effect = {

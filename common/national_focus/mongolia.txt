@@ -1630,7 +1630,15 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = 0.05
-			set_cosmetic_tag = MON_moghulistan
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_country_flag = MON_moghulistan_moment
+					}
+				}
+				set_cosmetic_tag = MON_moghulistan
+			}
+			
 			SIK = {
 				add_opinion_modifier = {
 					target = MON
@@ -7417,13 +7425,25 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY_XP}
 
 		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+			}
 			add_equipment_to_stockpile = {
 				type = anti_air_equipment_1
 				amount = 80
 				producer = SOV
 			}
-					add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 100 producer = SOV variant_name = "T-26TU mod. 1933" }
-
+			add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 100 producer = SOV variant_name = "T-26TU mod. 1933" }
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
+			}
 		}
 	}
 
@@ -7433,7 +7453,7 @@ focus_tree = {
 		icon = GFX_focus_AUS_frontmiliz_focus
 		x = -1
 		y = 1
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 2
@@ -7448,7 +7468,8 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY_XP}
 
 		completion_reward = {
-			#idea upgrade
+			add_ideas = {MON_mongolian_modern_inf}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = HUN_light_infantry_divisions_doctrine_tech_tt
 			hidden_effect = {
 				set_technology = {
@@ -7503,7 +7524,7 @@ focus_tree = {
 		icon = GFX_focus_GER_demonstration_of_military_achievements
 		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 2
@@ -7517,8 +7538,26 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			#final idea upgrade - merge Mongolian infantry & Mongolian Armor
-
+			IF = {
+				LIMIT = {
+					has_idea = MON_mongolian_modern_inf2
+				}
+				swap_ideas = {
+					remove_idea = MON_mongolian_modern_inf2
+					add_idea = MON_mon_modern_army2
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = MON_mon_modern_army1
+				}
+				swap_ideas = {
+					remove_idea = MON_mon_modern_army1
+					add_idea = MON_mongolian_modern_inf1
+				}		
+			}ELSE = {
+				custom_effect_tooltip = MON_merge_tt
+				show_ideas_tooltip = MON_mon_modern_army2
+			}
 			custom_effect_tooltip = SOV_the_glory_of_the_red_army_masterful_blitz_tactic_tt
 			330 = {
 				construct_building_in_random_province = {
@@ -7549,10 +7588,37 @@ focus_tree = {
 
 		}
 		
-
 		completion_reward = {
-			#idea upgrade
+			IF = {
+				LIMIT = {
+					has_idea = MON_mongolian_modern_inf
+				}
+				swap_ideas = {
+					remove_idea = MON_mongolian_modern_inf
+					add_idea = MON_mongolian_modern_inf2
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = MON_mon_modern_army1
+				}
+				swap_ideas = {
+					remove_idea = MON_mon_modern_army1
+					add_idea = MON_mon_modern_army2
+				}		
+			}ELSE = {
+				show_ideas_tooltip = MON_mongolian_modern_inf2
+			}		
+	
+			random_unit_leader	= {
+				LIMIT = {skill < 4}
+					retire = yes
+			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_timed_idea = {
+				idea = MON_officer_purge
+				days = 182
+			}
 		}
 	}
 	focus = {
@@ -7605,7 +7671,16 @@ focus_tree = {
 		}
 	
 		completion_reward = {
-			#timed idea giving you less production cost on rifles, motorized, trains, tanks, AA, arty, anti-tank
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}	
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			add_tech_bonus = {
 				name = "Modernise guns"
 				uses = 2
@@ -7640,6 +7715,11 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = {
 				MON_horses_for_war
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.75
+				uses = 2
+				category = cat_mobile_warfare
 			}
 			add_tech_bonus = {
 				name = "All terrain mechanisation"
@@ -7698,6 +7778,8 @@ focus_tree = {
 		}
 		
 		completion_reward = {
+			add_ideas = MON_mongolian_tanks1
+			custom_effect_tooltip = generic_skip_one_line_tt
 			division_template = {
 					name = "Experimental Mechanised Division"
 					division_names_group = CHI_MEC_01
@@ -7721,6 +7803,8 @@ focus_tree = {
 					owner = ROOT
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			set_technology = {GER_heavy_armored_car = 1 popup = 0}
 			add_tech_bonus = {
 					bonus = 0.55
@@ -7755,8 +7839,11 @@ focus_tree = {
 		}
 		
 		completion_reward = {
+			swap_ideas = {
+				remove_idea = MON_mongolian_tanks1
+				add_idea = MON_mongolian_tanks2
+			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 					bonus = 0.65
 					uses = 3
@@ -7908,6 +7995,14 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY_XP}
 
 		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+			}
 			army_experience = 35
 			add_equipment_subsidy = {
 				cic = 2000
@@ -7962,6 +8057,11 @@ focus_tree = {
 					equipment_type = infantry_equipment
 					seller_trigger  = {is_allied_seller_trigger}
 				}
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = cat_grand_battle_plan
 			}
 		}
 	}
@@ -8097,6 +8197,14 @@ focus_tree = {
 		}
 	
 		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+			}
 			swap_ideas = {
 				remove_idea = MON_great_war_inf
 				add_idea = MON_arty
@@ -8127,6 +8235,14 @@ focus_tree = {
 		}
 		
 		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+			}
 			swap_ideas = {
 				remove_idea = MON_arty
 				add_idea = MON_big_arty
@@ -8180,7 +8296,7 @@ focus_tree = {
 		icon = GFX_focus_NOR_frontkjempere		
 		x = -1
 		y = 1
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -8194,19 +8310,9 @@ focus_tree = {
 		dynamic = yes 
 
 		completion_reward = {
-			IF = {
-				LIMIT = {has_idea = MON_gobi_training}
-				remove_idea = MON_increased_conscription_spirit
-				swap_ideas = {
-					remove_idea = MON_big_arty
-					add_idea = MON_great_mon_army1
-				}
-			}ELSE = {
-				remove_idea = MON_increased_conscription_spirit
-				swap_ideas = {
-					remove_idea = MON_big_arty
-					add_idea = MON_great_mon_army2
-				}
+			swap_ideas = {
+				remove_idea = MON_big_arty
+				add_idea = MON_great_mon_army
 			}
 
 			330 = {
@@ -8767,6 +8873,13 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_AIR_XP}
 
 		completion_reward = {
+			add_ace = {
+				name = "Jamba"
+				surname = "Demberel"
+				callsign = "Khan"
+				type = fighter_genius
+				is_female = no
+			}
 			swap_ideas = {
 				remove_idea = MON_the_mongolian_airforce_2
 				add_idea = MON_the_mongolian_airforce_3
@@ -9346,6 +9459,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_NAVY_XP}
 		completion_reward = {
+			add_mines = { region = 77 amount = 100 }
+			add_mines = { region = 79 amount = 100 }
+
 			navy_experience = 25
 			add_tech_bonus = {
 				name = MON_undersea_combat
