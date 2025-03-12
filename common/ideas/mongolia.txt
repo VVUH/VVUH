@@ -1626,7 +1626,7 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = SOV_romanov_tsars
+			picture = AFG_from_the_ashes
 
 			modifier = {
 				fascism_drift = 0.1
@@ -1783,7 +1783,7 @@ ideas = {
 			}
 
 			modifier = {
-				army_morale_factor = 0.15
+				army_morale_factor = 0.03
 				army_org_factor = 0.03
 				army_core_defence_factor = 0.02
 				army_core_attack_factor = 0.06
@@ -2181,9 +2181,6 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-
-				cic_construction_boost_factor = 0.1
-				industry_air_damage_factor = -0.15
 			modifier = {
 				consumer_goods_factor = -0.13
 				production_speed_buildings_factor = 0.08
@@ -2521,138 +2518,4 @@ ideas = {
 			}
 		}
 
-
-	industrial_concern = {
-
-		MON_trade_industry_bank = { 
-			name = "Trade and Industry Bank of Mongolia"
-			picture = CHL_bcc
-			allowed = {
-				original_tag = MON
-			}
-			available = {
-				has_completed_focus = MON_basing_mongolian_currency
-			}
-			
-			visible = {
-				
-			}
-
-			cost = 75
-			removal_cost = 0
-			research_bonus = {
-			}
-			traits = { central_bank } 
-			modifier = {
-				consumer_goods_factor = -0.10
-				production_factory_start_efficiency_factor = 0.05
-			}
-		}
-
-
-		MON_industry_concern = {
-
-			allowed = {
-				original_tag = MON
-			}
-
-			research_bonus = {
-				industry = 0.1
-			}
-
-			traits = { industrial_concern }
-
-			modifier = {
-				custom_modifier_tooltip = MON_industrial_concern_upgrade_tt
-			}
-		}
-
-
-		MON_electrical_research_institutes = {
-
-			allowed = {
-				original_tag = MON
-			}
-
-			research_bonus = {
-				electronics = 0.1
-			}
-
-			traits = { electronics_concern }
-
-			modifier = {
-				custom_modifier_tooltip = MON_industrial_concern_upgrade_tt
-			}
-		}
-
-
-		MON_siberian_railways = { #NSB
-
-			picture = MON_MONiet_railways
-
-			allowed = {
-				original_TAG = MON
-
-			}
-
-			cost = 75
-
-			research_bonus = {
-				train_tech = 0.1
-			}
-
-			traits = { railway_company }
-
-			modifier = {
-				custom_modifier_tooltip = MON_industrial_concern_upgrade_tt
-			}
-		}
-
-		sino_soviet_resource_surveyors = {
-		
-			picture = stalingrad_tractor_factory
-
-			available = {
-				NOT = {
-					has_war_with = SOV
-				}
-			}
-
-			allowed = {
-				original_tag = MON
-			}
-			
-			research_bonus = {
-				industry = 0.1
-				synth_resources = 0.15
-			}
-			
-			traits = { refinery_concern }
-
-		}
-
-		MON_modern_mon_construction = {
-
-			picture = generic_industrial_concern_2
-
-			allowed = {
-				original_tag = MON
-			}
-
-			cost = 100
-
-			traits = { construction_company }
-
-			modifier = {
-				custom_modifier_tooltip = MON_gosproyektstroy_1_tt
-				production_speed_industrial_complex_factor = 0.05
-				production_speed_arms_factory_factor = 0.05
-				production_speed_dockyard_factor = 0.05
-			}
-		}
-
-	}
-	
-
-	}
 }

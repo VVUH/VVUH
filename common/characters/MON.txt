@@ -1309,7 +1309,7 @@ MON_advisor_shicai = {
 			}
 		}
 		country_leader={
-			ideology=oligarchism
+			ideology=despotism
 			traits={ spirit_of_genghis }
 		}
 	}

@@ -26,8 +26,6 @@ leave_faction = yes
 SOV = {give_guarantee = MON}
 MON = {give_guarantee = SOV}
 MON = {give_military_access = SOV}
-MON = {give_market_access  = SOV}
-SOV = {give_market_access  = MON}
 
 add_manpower = 55000
 store_core_states_on_game_start = yes
@@ -51,6 +49,7 @@ recruit_character = MON_advisor_foreign_military_advisors
 recruit_character = MON_anandyn_amar
 recruit_character = MON_mingzhu_zhanshan
 recruit_character = MON_fu_shangzhi
+recruit_character = MON_revolutionary_council  
 recruit_character = MON_songgotu_kangan
 recruit_character = MON_haidav
 recruit_character = MON_dagva
@@ -93,9 +92,7 @@ recruit_character = MON_advisor_toka
 recruit_character = MON_advisor_ulanhu  
 recruit_character = MON_communist_great_khural  
 
-#unlockables else
-recruit_character = MON_revolutionary_council  
-#monarchy
+##monarchy
 recruit_character = MON_advisor_noble_council  
 recruit_character = MON_advisor_fujin  
 recruit_character = MON_advisor_dukelarson  

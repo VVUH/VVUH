@@ -34,8 +34,8 @@ country_event = {
 		
 	}
 		# tax.
-	option = {
-			limit ={
+		option = {
+			trigger ={
 				is_ai = no
 			}
 		name = MON.1.b
@@ -44,8 +44,8 @@ country_event = {
 			}	}
 
 		#faction
-	option = {
-			limit ={
+		option = {
+			trigger  ={
 				is_ai = no
 			}
 		name = MON.1.c
@@ -53,7 +53,7 @@ country_event = {
 			SIK = {
 				country_event = MON.11
 			}
-		STIK = {
+		SIK = {
 			add_opinion_modifier = {
 				target = MON
 				modifier = AST_commitment_to_the_cause
@@ -771,6 +771,7 @@ country_event = {
 			target = SIK
 			transfer_troops = yes
 		}
+		FROM = { every_unit_leader = { set_nationality = ROOT } }
 		MON = {
 			add_state_core = 619
 			add_state_core = 287
@@ -780,7 +781,7 @@ country_event = {
 			add_state_core = 618
 		}
 		IF = {
-			LIMIT = {
+			LIMIT  = {
 				MON = {
 					has_government = communism
 				}
@@ -790,7 +791,7 @@ country_event = {
 		}
 
 		IF = {
-			LIMIT = {
+			LIMIT  = {
 				NOT = {
 					has_completed_focus = MON_turkic_ties
 				}
@@ -908,7 +909,7 @@ country_event = {
 				}
 			}
 			IF = {
-				LIMIT = {
+				LIMIT  = {
 					NOT = {
 						MON = {
 							has_idea = MON_produce_export
@@ -1154,6 +1155,10 @@ country_event = {
 						value > 80
 					}
 				}
+				modifier = {
+					factor = 1000
+					is_puppet_of = MON
+				}
 			}
 			effect_tooltip = {
 				FROM = {
@@ -1161,6 +1166,7 @@ country_event = {
 						target = ROOT
 						transfer_troops = yes
 					}
+					FROM = { every_unit_leader = { set_nationality = ROOT } }
 				}
 			}
 			FROM = {
@@ -1199,7 +1205,7 @@ country_event = {
 			}
 			FROM = {
 				every_owned_state = {
-					limit = {
+					LIMIT = {
 						is_core_of = PREV
 					}
 					add_core_of = ROOT
@@ -1210,6 +1216,7 @@ country_event = {
 				target = FROM
 				transfer_troops = yes
 			}
+			FROM = { every_unit_leader = { set_nationality = ROOT } }
 			clr_country_flag =  MON_invite_country_in_progress
 		}
 	}
@@ -1278,15 +1285,15 @@ country_event = {
 		option = {
 			name = MON_border_conflict.1.a
 			add_political_power = 50
-			if = {
-				limit = {
+			IF = {
+				LIMIT = {
 					check_variable = {
 						FROM.FROM.num_owned_states > 1
 					}
 				}
 				transfer_state = FROM.FROM.FROM
 			}
-			else = {
+			ELSE = {
 				FROM.FROM = { ROOT = { annex_country = { target = PREV } } }
 			}
 		}

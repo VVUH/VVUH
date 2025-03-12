@@ -116,9 +116,9 @@ focus_tree = {
 		}
 		available = {
 			amount_taken_ideas = {
-				amount = 1
+				amount > 0
 				slots = {
-					army_chief
+					chief_of_army
 				}
 			}
 		}
@@ -374,21 +374,24 @@ focus_tree = {
 
 		search_filters = {FOCUS_FILTER_STABILITY}
 
-		completion_reward = { # to do
+		completion_reward = { 
 			add_political_power = 100
 			IF = {
 				LIMIT = {
 					has_global_flag = MON_purge_leadership_choibalsan_supreme
 				}
 				IF = {
-					LIMIT = { NOT = {has_country_leader=MON_khorloogiin_choibalsan}}
+					LIMIT = { 
+						NOT = {
+							has_country_leader_with_trait = JUNO_aligned_with_stalin
+						}
+					}
 					promote_character = {
 						character = MON_khorloogiin_choibalsan
 						ideology = stalinism
 					}
 				}
 					show_ideas_tooltip = MON_khorloogiin_choibalsan
-					add_country_leader_trait = JUNO_aligned_with_stalin
 					add_country_leader_trait = prime_minister_husnu
 					SOV = {
 						add_opinion_modifier = {
@@ -1145,22 +1148,25 @@ focus_tree = {
 				remove_idea = MON_mongolian_communism2
 				add_idea = MON_mongolian_communism3
 			}
-				IF = {
-					LIMIT = {
-						overlord = SOV
-					}
-					set_autonomy = {
-						target = MON
-						autonomous_state = autonomy_free
-						end_wars = no
-						end_civil_wars = no
-					}
+			IF = {
+				LIMIT = {
+					is_puppet_of = SOV
 				}
-				
+				set_autonomy = {
+					target = MON
+					autonomous_state = autonomy_free
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			SOV = {
+				send_embargo = MON
+			}
+			
 			hidden_effect = {
 				IF = {
 					LIMIT = {
-						party_leader = {
+						country_leader = {
 							limit = {
 								has_ideology = stalinism
 							}
@@ -1217,12 +1223,6 @@ focus_tree = {
 						relation = guarantee
 						active = no
 					}
-					diplomatic_relation = {
-						country = MON
-						relation = give_market_access
-						active = no
-					}
-
 				}
 				
 			}
@@ -1796,12 +1796,6 @@ focus_tree = {
 				ideology = communism
 				popularity = -0.15
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			MON_revolutionary_council = {
-				promote_character = yes
-			}
-			show_ideas_tooltip = MON_revolutionary_council
-
 		}
 	}
 	
@@ -1930,15 +1924,11 @@ focus_tree = {
 			}
 
 			hidden_effect = {
-				promote_character = MON_revolutionary_council
 				retire_character = MON_advisor_genden
 				retire_character = MON_advisor_ulanhu
 				retire_character = MON_sukhbaataryn_yanjmaa
 				retire_character = MON_advisor_demid
-				retire_character = MON_advisor_dogsom
 				retire_character = MON_advisor_losol
-				retire_character = MON_advisor_choibalsan
-				retire_character = MON_advisor_bumtsend
 				retire_character = MON_advisor_tserendorj
 				retire_character = MON_advisor_ayuush
 				retire_character = MON_advisor_tsedenbal
@@ -1962,11 +1952,6 @@ focus_tree = {
 					relation = military_access
 					active = no
 				}
-				diplomatic_relation = {
-					country = SOV
-					relation = give_market_access
-					active = no
-				}
 
 				diplomatic_relation = {
 					country = SOV
@@ -1981,11 +1966,6 @@ focus_tree = {
 						active = no
 					}
 
-					diplomatic_relation = {
-						country = MON
-						relation = give_market_access
-						active = no
-					}
 					diplomatic_relation = {
 						country = MON
 						relation = military_access
@@ -2031,14 +2011,14 @@ focus_tree = {
 			custom_effect_tooltip = HOL_militia_tt2
 			custom_effect_tooltip = generic_skip_one_line_tt
 			}
-			if = {
-				limit = {
+			IF = {
+				LIMIT = {
 					has_completed_focus = MON_foreign_support
 				}
-				if = {
-					limit = {
-						NOT = {JAP = has_war}
-						NOT = {JAP = has_capitulated}
+				IF = {
+					LIMIT = {
+						NOT = {JAP = { has_war = yes }}
+						NOT = {JAP = {has_capitulated = yes}}
 					}
 					add_equipment_to_stockpile ={
 						    type = infantry_equipment
@@ -2046,10 +2026,10 @@ focus_tree = {
 							producer = JAP
 					}
 				}
-				if = {
-					limit = {
-						NOT = {JAP = has_war}
-						NOT = {JAP = has_capitulated}
+				IF = {
+					LIMIT = {
+						NOT = {JAP = { has_war = yes }}
+						NOT = {JAP = {has_capitulated = yes}}
 					}
 					add_equipment_to_stockpile ={
 						    type = infantry_equipment
@@ -2057,10 +2037,10 @@ focus_tree = {
 							producer = TIB
 					}
 				}
-								if = {
-					limit = {
-						NOT = {JAP = has_war}
-						NOT = {JAP = has_capitulated}
+				IF = {
+					LIMIT = {
+						NOT = {JAP = { has_war = yes }}
+						NOT = {JAP = {has_capitulated = yes}}
 					}
 					add_equipment_to_stockpile ={
 						    type = infantry_equipment
@@ -2068,10 +2048,10 @@ focus_tree = {
 							producer = MAN
 					}
 				}
-								if = {
-					limit = {
-						NOT = {JAP = has_war}
-						NOT = {JAP = has_capitulated}
+				IF = {
+					LIMIT = {
+						NOT = {JAP = { has_war = yes }}
+						NOT = {JAP = {has_capitulated = yes}}
 					}
 					add_equipment_to_stockpile ={
 						    type = infantry_equipment
@@ -2152,7 +2132,7 @@ focus_tree = {
 
 		available = {
 			amount_taken_ideas = {
-				amount = 1
+				amount > 0
 				slots = {
 					chief_of_army
 				}
@@ -2208,25 +2188,6 @@ focus_tree = {
 					type = support_equipment
 					amount = 20
 					producer = SOV
-				}
-			}
-			hidden_effect = {
-				IF = {
-					LIMIT = {
-						329 = {
-							is_controlled_by = MON
-						}
-					}
-					add_equipment_to_stockpile = {
-						type = infantry_equipment
-						amount = 200
-						producer = SOV
-					}
-					add_equipment_to_stockpile = {
-						type = support_equipment
-						amount = 20
-						producer = SOV
-					}				
 				}
 			}
 			every_owned_state = {
@@ -2363,7 +2324,7 @@ focus_tree = {
 
 		completion_reward = {
 			remove_trait = {
-				ideology = oligarchism
+				character = MON_revolutionary_council
 				trait =  revolutionary_council
 			}
 
@@ -2413,14 +2374,6 @@ focus_tree = {
 				character = MON_revolutionary_council
 				ideology = oligarchism
 				trait =  revolutionary_council
-			}
-			add_country_leader_role = {
-				character =  MON_revolutionary_council
-				promote_leader = yes
-				country_leader = {
-					ideology = oligarchism
-					traits={ non_aligned_council_trait}
-				}				
 			}
 		
 			hidden_effect = {remove_ideas = MON_rousing_popular_support}
@@ -2576,7 +2529,7 @@ focus_tree = {
 
 		available = {
     		country_exists = MEN
-			ruling_party = neutrality
+			has_government = neutrality
 			MEN = {
 				has_opinion = {
 					target = MON
@@ -2589,52 +2542,8 @@ focus_tree = {
 
 		completion_reward = {
 			set_cosmetic_tag = MON_khanate
-			hidden_effect = {
-				#political
-				set_nationality = {
-					target_country = MON
-					character = MEN_prince_demchugdongrub
-				}
-				set_nationality = {
-					target_country = MON
-					character = MEN_megata_toshiro
-				}
-				set_nationality = {
-					target_country = MON
-					character = MEN_songgotu_zhanshan
-				}
-				set_nationality = {
-					target_country = MON
-					character = MEN_nalan_kang_an
-				}
-				#military advisors
-				set_nationality = {
-					target_country = MON
-					character = MEN_hesehn_tiemei
-				}
-				set_nationality = {
-					target_country = MON
-					character = MEN_guan_xingde
-				}
-				set_nationality = {
-					target_country = MON
-					character = MEN_kyoiji_tomonaga
-				}
-				set_nationality = {
-					target_country = MON
-					character = MEN_yonimitsu_kasahara
-				}
-				set_nationality = {
-					target_country = MON
-					character = MEN_nakajima_kesago
-				}
-				retire_character = MON_revolutionary_council
-			}
-			# ruler dont work to do
-			promote_character = {
-					character = MON_prince_demchugdongrub
-					ideology = oligarchism
-				}
+			retire_ideology_leader = neutrality
+	
 			add_country_leader_trait = the_sacred_king	
 			annex_country = {
 				target = MEN
@@ -2652,6 +2561,7 @@ focus_tree = {
 
 		}
 	}
+
 	focus = {
 		id = MON_noble_investments
 		relative_position_id = MON_reenshrine_the_noble_class
@@ -2718,6 +2628,7 @@ focus_tree = {
 
 		}
 	}
+
 	focus = {
 		id = MON_remind_manchurians
 		relative_position_id = MON_infiltrate_manchuria
@@ -2736,11 +2647,10 @@ focus_tree = {
 			NOT = {
 				country_exists = MAN
 			}
-			bypass = {
-				MAN = {
-					is_ai = no
-				}
+			MAN = {
+				is_ai = no
 			}
+			
 		}
 
 		available = {
@@ -2757,6 +2667,7 @@ focus_tree = {
 				target = MAN
 				transfer_troops = yes
 			}
+			MAN = { every_unit_leader = { set_nationality = ROOT } }
 
 		}
 	}
@@ -3421,7 +3332,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_war_support = 0.05
-			custom_effect_tooltip = MON_unlock_border_raids_tt
+			custom_effect_tooltip = MON_unlock_border_raids_princeD_tt
 
 		}
 	}
@@ -3555,6 +3466,7 @@ focus_tree = {
 		
 
 		completion_reward = {
+			retire_ideology_leader = neutrality
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.15
@@ -3733,6 +3645,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			add_political_power = 100
 			set_rule = {
     			can_create_factions = yes
 			}
@@ -3756,41 +3669,16 @@ focus_tree = {
 				}
 				add_timed_idea = { idea = democratic_influence days = 730 }
 			}
-			#unlocks decisions tooltip
 
 		}
 	}
 
-	focus = {
-		id = MON_lobby_imperialists
-		relative_position_id = MON_democratic_meddling
-		prerequisite = { focus = MON_democratic_meddling }
-		prerequisite = {focus = MON_reach_out_to_democracy}
-		icon = GFX_focus_eng_decolonization
-	
-
-		x = 0
-		y = 1
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		completion_reward = {
-				#unlocks decisions tooltip
-			custom_effect_tooltip = MON_lobby_imperialists_effect_tt
-		}
-	}
 
 	focus = {
 		id = MON_asian_federation
-		relative_position_id = MON_lobby_imperialists
-		prerequisite = { focus = MON_lobby_imperialists }
+		relative_position_id = MON_democratic_meddling
+		prerequisite = { focus = MON_democratic_meddling }
+		prerequisite = { focus = MON_reach_out_to_democracy }
 		icon = GFX_goal_support_democracy
 		x = 0
 		y = 1
@@ -3805,9 +3693,13 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			set_cosmetic_tag = MON_UAR
+			set_cosmetic_tag = MON_asianFed
+			add_political_power = 200
 			add_stability = 0.1
-			#unlocks decisions tooltip
+			custom_effect_tooltip = MON_asian_fed
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_core_asia_tt
+
 		}
 	}
 
@@ -3825,12 +3717,13 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
 		available = {
 
 		}
 
 		completion_reward = {
+			add_war_support = 0.1
 			every_army_leader = {
 				limit = {
 					NOT = { has_trait = trait_SOV_determined }
@@ -3867,6 +3760,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			set_rule = {
+				can_only_justify_war_on_threat_country = no
+				can_join_opposite_factions = yes
+
+			}
 			IF = {
 				LIMIT = {
 					has_idea = MON_anti_communist_volunteering
@@ -3945,18 +3843,76 @@ focus_tree = {
 		icon = GFX_focus_POL_complete_april_constitution
 		x = 5
 		y = 2
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
 		}
-
+		search_filters = FOCUS_FILTER_ANNEXATION
 		available = {
 			has_government = democratic
+			XSM = {
+				is_ai = yes
+				has_opinion = {
+					target = MON
+					value > 49
+				}
+			}
+			SHX = {
+				has_opinion = {
+					target = MON
+					value > 49
+				}
+				is_ai = yes
+			}
+			TAN = {
+				has_opinion = {
+					target = MON
+					value > 49
+				}
+				is_ai = yes			
+			}
+		}
+		bypass = {
+			OR = {
+				AND = {
+					NOT = {
+						country_exists = XSM
+					}
+					NOT = {
+						country_exists = SHX
+					}
+					NOT = {
+						country_exists = TAN
+					}
+				}
+				OR = {
+				XSM = {
+					is_ai = no
+				}
+				SHX = {
+					is_ai = no
+				}
+				TAN = {
+					is_ai = no
+				}
+				}
+			}
 		}
 
 		completion_reward = {
-
+			IF = {
+				LIMIT = {is_free_or_subject_of_root = yes}
+				puppet = XSM
+			}
+			IF = {
+				LIMIT = {is_free_or_subject_of_root = yes}
+				puppet = SHX
+			}
+			IF = {
+				LIMIT = {is_free_or_subject_of_root = yes}
+				puppet = TAN
+			}			
 		}
 	}
 	focus = {
@@ -4032,6 +3988,7 @@ focus_tree = {
 			ENG = {
 				give_guarantee = MON
 			}
+			add_cic = 5000
 
 		}
 	}
@@ -4380,14 +4337,6 @@ focus_tree = {
 			}ELSE = {
 				add_ideas = MON_mongol_militias_1
 			}
-
-			IF = {
-				LIMIT = {
-					has_army_size = {
-						size < 8
-						type = militia
-					}
-				}
 				capital_scope = {
 					create_unit = {
 						division = "division_template =\"Nationalist Militia\" start_experience_factor = 0.2 start_equipment_factor	= 1.0"
@@ -4395,7 +4344,7 @@ focus_tree = {
 						count = 5
 					}
 				}
-			}
+			
 		}
 	}
 
@@ -4532,7 +4481,7 @@ focus_tree = {
 
 			IF = {
 					LIMIT = {
-						overlord = JAP
+						is_puppet_of = JAP
 					}
 					set_autonomy = {
 						target = MON
@@ -4728,7 +4677,7 @@ focus_tree = {
 			create_faction = "Greater Pan-Asian Movement"
 		
 			every_other_country	= {
-				limit = {
+				LIMIT = {
 					is_free_or_subject_of_root = yes
 					capital_scope = {
 						is_on_continent = asia
@@ -4756,7 +4705,7 @@ focus_tree = {
 		icon = GFX_focus_attack_soviet
 		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -4767,6 +4716,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_war_support = 0.1
+			add_ideas = GER_white_russian_advisors
 			add_collaboration = {
 				target = SOV
 				value = 0.3
@@ -5238,7 +5188,7 @@ focus_tree = {
 		
 		completion_reward = {
 			set_cosmetic_tag = MON_mongolian_junta
-			retire_character = MON_revolutionary_council
+			retire_ideology_leader = neutrality
 			set_politics = {
 				ruling_party = neutrality
 				elections_allowed = no
@@ -6636,8 +6586,8 @@ focus_tree = {
 			
 			IF = {
 				LIMIT = {
-					759 = {
-						owner = MON
+					MON = {
+						controls_state = 759
 					}
 					NOT = {
 						country_exists = SIK
@@ -6830,8 +6780,8 @@ focus_tree = {
 			
 			IF = {
 				LIMIT = {
-					619 = {
-						owner = MON
+					MON = {
+						controls_state = 619
 					}
 					NOT = {
 						country_exists = SIK
@@ -6983,7 +6933,7 @@ focus_tree = {
 		completion_reward = {
 			every_core_state = {
 				LIMIT = {
-					controller = MON
+					is_owned_and_controlled_by = MON
 				}
 				add_dynamic_modifier = { 
 					modifier = MON_electrified
@@ -7552,14 +7502,14 @@ focus_tree = {
 				}
 				swap_ideas = {
 					remove_idea = MON_mon_modern_army1
-					add_idea = MON_mongolian_modern_inf1
+					add_idea = MON_mongolian_modern_inf
 				}		
 			}ELSE = {
 				custom_effect_tooltip = MON_merge_tt
 				show_ideas_tooltip = MON_mon_modern_army2
 			}
 			custom_effect_tooltip = SOV_the_glory_of_the_red_army_masterful_blitz_tactic_tt
-			330 = {
+			random_core_state = {
 				construct_building_in_random_province = {
 					land_facility = 1
 				}
@@ -7871,8 +7821,7 @@ focus_tree = {
 			factor = 2
 		}
 		relative_position_id = MON_traditional_warfare
-		prerequisite = { focus = MON_continue_modernisation}
-		prerequisite = { focus = MON_traditional_warfare}
+		prerequisite = { focus = MON_continue_modernisation focus = MON_traditional_warfare}
 
 
 		available = {
@@ -8048,16 +7997,7 @@ focus_tree = {
 					seller_tags = {usa}
 				}
 			}
-			IF = {
-				LIMIT = {
-					is_in_faction = yes
-				}
-				add_equipment_subsidy = {
-					cic = 4000
-					equipment_type = infantry_equipment
-					seller_trigger  = {is_allied_seller_trigger}
-				}
-			}
+
 			add_doctrine_cost_reduction = {
 				cost_reduction = 1
 				uses = 1
@@ -8247,6 +8187,8 @@ focus_tree = {
 				remove_idea = MON_arty
 				add_idea = MON_big_arty
 			}
+			set_technology = { railway_gun = 1 popup = no}
+			custom_effect_tooltip = MON_train_needs_rails_tt
 			create_railway_gun = {
 				equipment = railway_gun_equipment_1
 				name = "Obukhovskii 12/52 Pattern 1907 gun"
@@ -8310,12 +8252,13 @@ focus_tree = {
 		dynamic = yes 
 
 		completion_reward = {
+			remove_ideas = MON_increased_conscription_spirit
 			swap_ideas = {
 				remove_idea = MON_big_arty
 				add_idea = MON_great_mon_army
 			}
 
-			330 = {
+			random_core_state = {
 				construct_building_in_random_province = {
 					land_facility = 1
 				}
@@ -8360,7 +8303,7 @@ focus_tree = {
 					instant_build = yes
 					province = {
 						all_provinces = yes
-						limit_to_victory_point > 0 = yes
+						limit_to_victory_point > 0
 						level < 2
 					}
 				}
@@ -8646,7 +8589,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = MON_fund_flying_schools
-		cost = 5
+		cost = 10
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		available = {
@@ -8656,6 +8599,12 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
+			random_core_state = {
+				construct_building_in_random_province = {
+					air_facility = 1
+				}
+			}
+
 			every_core_state = {
 				add_building_construction = {
 					type = anti_air_building
@@ -8772,16 +8721,6 @@ focus_tree = {
 					cic = 2000
 					equipment_type = small_plane_airframe
 					seller_tags = {ger}
-				}
-			}
-			IF = {
-				LIMIT = {
-					is_in_faction = yes
-				}
-				add_equipment_subsidy = {
-					cic = 4000
-					equipment_type = small_plane_airframe
-					seller_trigger  = {is_allied_seller_trigger}
 				}
 			}
 		}

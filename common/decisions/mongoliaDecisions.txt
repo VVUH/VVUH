@@ -131,14 +131,6 @@ MON_mongolianDecisions = {
 			}
         }
 
-
-		ai_will_do = {
-			factor = 200
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
 	}
 
 
@@ -150,7 +142,7 @@ MON_mongolianDecisions = {
 			original_tag = MON
 		}
 		highlight_states = {
-    		highlight_state_targets = { state = 564 state = 563 }
+    		highlight_state_targets = { state = 564 state = 563 state = 566}
 		}
 		available = {
             NOT = {
@@ -184,14 +176,6 @@ MON_mongolianDecisions = {
 			}
         }
 
-
-		ai_will_do = {
-			factor = 200
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
 	}
 
 	MON_greater_turkic_union = {
@@ -199,7 +183,6 @@ MON_mongolianDecisions = {
 
 		allowed = {
 			original_tag = MON
-			has_completed_focus = MON_liberate_turkic_peoples
 		}
 
 		visible = {
@@ -305,7 +288,7 @@ MON_mongolianDecisions = {
 			}
 			IF = {
 				LIMIT = {
-					NOT  = has_idea = soldiers_of_the_steppe
+					NOT  ={ has_idea = soldiers_of_the_steppe}
 				}
 				add_ideas = soldiers_of_the_steppe
 			}
@@ -457,13 +440,6 @@ MON_mongolianDecisions = {
 				}
 			}
 
-			ai_will_do = {
-				factor = 200
-				modifier = {
-					factor = 0
-					is_historical_focus_on = yes
-				}
-			}
 		}
 		
 		MON_conquer_the_fareast = { 
@@ -561,13 +537,6 @@ MON_mongolianDecisions = {
 				}
 			}
 
-			ai_will_do = {
-				factor = 200
-				modifier = {
-					factor = 0
-					is_historical_focus_on = yes
-				}
-			}
 		}
 		
 		MON_push_to_the_urals = { 
@@ -637,13 +606,6 @@ MON_mongolianDecisions = {
 				}
 			}
 
-			ai_will_do = {
-				factor = 200
-				modifier = {
-					factor = 0
-					is_historical_focus_on = yes
-				}
-			}
 		}
 		
 		MON_liberate_the_ainu = { 
@@ -698,13 +660,6 @@ MON_mongolianDecisions = {
 				}
 			}
 
-			ai_will_do = {
-				factor = 200
-				modifier = {
-					factor = 0
-					is_historical_focus_on = yes
-				}
-			}
 		}
 
 	# Yuan
@@ -820,13 +775,7 @@ MON_mongolianDecisions = {
 				
 			}
 
-			ai_will_do = {
-				factor = 200
-				modifier = {
-					factor = 0
-					is_historical_focus_on = yes
-				}
-			}
+
 		}
 		
 		integrate_south_yuan = { 
@@ -887,13 +836,6 @@ MON_mongolianDecisions = {
 				}
 			}
 
-			ai_will_do = {
-				factor = 200
-				modifier = {
-					factor = 0
-					is_historical_focus_on = yes
-				}
-			}
 		}
 		
 		integrate_tibet = { 
@@ -948,13 +890,6 @@ MON_mongolianDecisions = {
 				}
 			}
 
-			ai_will_do = {
-				factor = 200
-				modifier = {
-					factor = 0
-					is_historical_focus_on = yes
-				}
-			}
 		}
 	
 		integrate_japanese_asia = { 
@@ -962,7 +897,7 @@ MON_mongolianDecisions = {
 			icon = generic_form_nation
 			highlight_states = {
 				highlight_state_targets = { 			
-			`		state = 609
+					state = 609
 					state = 745
 				}
 			}
@@ -999,13 +934,6 @@ MON_mongolianDecisions = {
 				}
 			}
 
-			ai_will_do = {
-				factor = 200
-				modifier = {
-					factor = 0
-					is_historical_focus_on = yes
-				}
-			}
 		}
 
 	 liberate_china = { 
@@ -1111,14 +1039,6 @@ MON_mongolianDecisions = {
 				748 = { add_core_of = ROOT }	
 				set_global_flag = MON_liberated_china
 				
-			}
-		}
-
-		ai_will_do = {
-			factor = 200
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
 			}
 		}
 	}
@@ -2559,126 +2479,87 @@ MON_bastion_of_democracy = {
 		}
 		
 		available = {
-			MON = {
-				is_faction_leader = yes
-				has_capitulated = no
-				is_puppet = no
-			}
-
-			FROM = {	
+			has_capitulated = no
+			is_puppet = no
+			FROM = {
+				capital_scope = {
+					is_on_continent = asia
+				}
+				is_free_or_subject_of_root = yes
 				NOT = {
-					has_war_with = ROOT
-					is_puppet = yes
+					has_country_flag = MON_has_been_invited_to_faction
+					is_puppet_of = MON
 				}
 			}
 		}
 
 		visible = {
-			FROM = {	
+			has_completed_focus = MON_asian_federation
+			FROM = {
+				is_major = no
 				NOT = {
-					has_war_with = ROOT
-					is_puppet = yes
+					is_in_faction_with = MON
+				}
+				AND = {
+					is_free_or_subject_of_root = yes
+					capital_scope = {
+						is_on_continent = asia
+					}
+					has_capitulated = no
+					NOT = { 
+						has_war_with = FROM
+						is_enemy_ideology = yes
+					}
+					OR = {
+						has_government = democratic
+						has_government = neutrality
+					}
+					NOT = {
+						has_country_flag = MON_has_been_invited_to_faction
+						is_puppet_of = ROOT
+					}
+
+				}	
+			}
+		}
+		
+		target_trigger = {
+			AND = {
+				is_free_or_subject_of_root = yes
+				capital_scope = {
+					is_on_continent = asia
+				}
+				has_capitulated = no
+				NOT = { 
+					has_war_with = FROM
+					is_enemy_ideology = yes
+				}
+				NOT = {
+					is_puppet_of = ROOT
 				}
 			}
 		}
-		target_trigger = {
-			is_free_or_subject_of_root = yes
-			capital_scope = {
-				is_on_continent = asia
-			}
-			has_capitulated = no
-			NOT = { 
-				has_country_flag = MON_has_been_invited_to_faction
-				has_war_with = FROM
-				is_major = yes
-				is_enemy_ideology = yes
-			}
-		}
-		days_remove = 20
-		cost = 10
+		days_remove = 35
+		cost = 70
 
 		fire_only_once = no
 
 		ai_will_do = {
 			factor = 5
 		}
-		complete_effect = {
+		remove_effect = {
+			custom_effect_tooltip = MON_invite_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			FROM = {
-				set_country_flag = MON_has_been_invited_to_faction
 				country_event = {
 					id = MON_demo_invite.1
 					hours = 1
 				}
+				set_country_flag = MON_has_been_invited_to_faction
 			}
 		}
 	}
 	
-	MON_free_country = {
-		icon = MON_democratic_meddling
-		allowed = { 
-			original_tag = MON
-		}
-		
-		available = {
-			MON = {
-				is_faction_leader = yes
-			}
-			has_capitulated = no
-			is_puppet = no
-			FROM = {
-				overlord = {
-					has_government = democratic
-				}	
-				NOT = {
-					has_war_with = ROOT
-					is_puppet = yes
-				}
-			}
-		}
-
-		visible = {
-			has_completed_focus = MON_lobby_imperialists
-			FROM = {	
-				NOT = {
-					has_war_with = ROOT
-					is_puppet = yes
-				}
-			}
-		}
-		target_trigger = {
-			is_free_or_subject_of_root = no
-			capital_scope = {
-				is_on_continent = asia
-			}
-			overlord = {
-				OR = {
-					has_government = democratic
-					has_government = neutrality
-				}
-			}
-			has_capitulated = no
-			NOT = { 
-				has_country_flag = MON_supporting_independence
-				has_war_with = FROM
-				is_major = yes
-				is_enemy_ideology = yes
-			}
-		}
-		days_remove = 20
-		cost = 10
-
-		fire_only_once = no
-
-		ai_will_do = {
-			factor = 5
-		}
-		complete_effect = {
-			FROM = {
-				set_country_flag = MON_supporting_independence
-				add_ideas = MON_mongolian_support_lobby
-			}
-		}
-	}
 
 	MON_integration_invite = {
 		icon = MON_democratic_meddling
@@ -2687,55 +2568,76 @@ MON_bastion_of_democracy = {
 		}
 		
 		available = {
-			MON = {
-				is_faction_leader = yes
-			}
 			has_capitulated = no
 			is_puppet = no
-			FROM = {	
+			FROM = {
+				capital_scope = {
+					is_on_continent = asia
+				}
+				OR = {
+					AND = {
+					is_in_faction_with = MON
+					is_puppet = no
+					}
+				is_puppet_of = MON
+				}
 				NOT = {
-					has_war_with = ROOT
-					is_puppet = yes
+					has_country_flag = MON_asked_integration_already
 				}
 			}
 		}
 
 		visible = {
 			has_completed_focus = MON_asian_federation
-			FROM = {	
+			FROM = {
+				is_major = no
+				is_in_faction_with = MON
+				AND = {
+					is_free_or_subject_of_root = yes
+					capital_scope = {
+						is_on_continent = asia
+					}
+					has_capitulated = no
+					NOT = { 
+						has_war_with = FROM
+						is_enemy_ideology = yes
+					}
+				}
 				NOT = {
-					has_war_with = ROOT
-					is_puppet = yes
+					has_country_flag = MON_asked_integration_already
+				}	
+			}
+		}
+		
+		target_trigger = {
+			AND = {
+				is_free_or_subject_of_root = yes
+				capital_scope = {
+					is_on_continent = asia
+				}
+				has_capitulated = no
+				NOT = { 
+					has_war_with = FROM
+					is_enemy_ideology = yes
 				}
 			}
 		}
-		target_trigger = {
-			is_free_or_subject_of_root = yes
-			capital_scope = {
-				is_on_continent = asia
-			}
-			has_capitulated = no
-			NOT = { 
-				has_country_flag = MON_has_been_invited_to_faction
-				has_war_with = FROM
-				is_major = yes
-				is_enemy_ideology = yes
-			}
-		}
-		days_remove = 20
-		cost = 10
+		days_remove = 50
+		cost = 100
 
 		fire_only_once = no
 
 		ai_will_do = {
 			factor = 5
 		}
-		complete_effect = {
+		remove_effect = {
+			custom_effect_tooltip = MON_asian_fed_tt
 			FROM = {
 				country_event = {
 					id = MON_demo_invite.4
 					hours = 1
 				}
+				set_country_flag = MON_asked_integration_already
 			}
 		}
 	}
@@ -3007,7 +2909,10 @@ MON_union_asian_republics = {
 			original_tag =  MON
 		}
 		available = {
-			has_completed_focus = MON_regional_ambitions
+			OR = {
+				has_completed_focus = MON_regional_ambitions
+				has_completed_focus = MON_asian_federation
+			}
 		}
 		
 		visible = {
@@ -3316,8 +3221,16 @@ MON_manchuria_cat = {
 		}
 		remove_effect = {
 			clr_country_flag = MON_infiltrate_decision_active
+			
 			FROM = {
 				add_core_of = MON
+			}
+
+			MAN = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.02
+				}
 			}
 			
 			IF = {
@@ -3327,18 +3240,18 @@ MON_manchuria_cat = {
 					}
 				}
 					MAN = {
-							remove_idea = MON_partial_infiltration
-							add_idea = MON_full_infiltration
+							remove_ideas = MON_partial_infiltration
+							add_ideas = MON_full_infiltration
 					}	
-				}
+				
 			}ELSE{
 				MAN = { 
-					add_ideas = MON_partial_infiltration1
+					add_ideas = MON_partial_infiltration
 				}
 			}
 
 		}
-	
+	}
 	
 	
 	MON_commence_uprising = {
@@ -3350,31 +3263,25 @@ MON_manchuria_cat = {
 			NOT = {
 				has_global_flag = MON_attempted_uprising_man
 				has_country_flag = MON_infiltrate_decision_active
-				MAN = {
-					has_idea = MON_full_infiltration
-				}
 			}
 			has_completed_focus = MON_infiltrate_manchuria
 			country_exists = MAN
 			MAN = {
-				has_idea = MON_partial_infiltration
 				neutrality > 0.25
 			}
-
+		
 		}
 		
 		visible = {
 			has_completed_focus = MON_infiltrate_manchuria
 			country_exists = MAN
-			MAN = {
-				has_idea = MON_partial_infiltration
-			}
 			NOT = {
 				MAN = {
 					neutrality > 0.4
 				}
 			}
 		}
+	    cost = 100
 
 		complete_effect = {
 			MAN = {
@@ -3397,6 +3304,7 @@ MON_manchuria_cat = {
 		allowed = {
 			original_tag =  MON
 		}
+		cost = 50
 		available = {
 			NOT = {
 				has_global_flag = MON_attempted_uprising_man
@@ -3405,7 +3313,6 @@ MON_manchuria_cat = {
 			has_completed_focus = MON_infiltrate_manchuria
 			country_exists = MAN
 			MAN = {
-				has_idea = MON_full_infiltration
 				neutrality > 0.3
 			}
 		}
@@ -3414,7 +3321,6 @@ MON_manchuria_cat = {
 			has_completed_focus = MON_infiltrate_manchuria
 			country_exists = MAN
 			MAN = {
-				has_idea = MON_full_infiltration
 				neutrality > 0.25
 			}
 		}
@@ -3455,6 +3361,7 @@ MON_manchuria_cat = {
 			any_country = {
 				original_tag = MAN
 				is_subject = no
+				has_government = ROOT
 			}
 			NOT = {
 				has_global_flag = MON_manchu_puppet

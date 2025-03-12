@@ -110,7 +110,7 @@ MON_sub_school = {
 
 }
 
-CHI_jiangnan_shipyard_group_organization = {
+MON_jiangnan_shipyard_group_organization = {
 	include = generic_task_force_ship_organization
 	icon = GFX_idea_generic_naval_manufacturer_3
 	allowed = {	
@@ -121,7 +121,7 @@ CHI_jiangnan_shipyard_group_organization = {
 	}
 }
 
-CHI_dagu_shipyard_organization = {
+MON_dagu_shipyard_organization = {
 	include = generic_raider_ship_organization
 	icon = GFX_idea_generic_naval_manufacturer_3
 	allowed = {	

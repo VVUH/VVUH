@@ -1514,7 +1514,7 @@ MON_UAR = {
 	color = rgb { 128 0 0 }
     color_ui = rgb { 128 0 0}
 }
-MON_UAR_democratic = {
-	color = rgb { 50 146 189}
-    color_ui = rgb { 50 146 189}
+MON_asianFed_democratic = {
+	color = rgb { 37 150 190}
+    color_ui = rgb { 37 150 190}
 }
