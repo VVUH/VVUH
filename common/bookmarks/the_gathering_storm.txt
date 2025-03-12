@@ -228,8 +228,8 @@ bookmarks = {
 		}		
 		"SIK"={
 			history = "WARLORDS_GATHERING_STORM_DESC"
-			minor = yes
 			ideology = fascism
+			minor = yes
 			ideas = {
 				PRC_government_corruption
 				CHI_ineffective_bureaucracy_warlord
@@ -622,4 +622,5 @@ bookmarks = {
 			#123 = { rain_light = yes }
 		}
 	}
+
 }
