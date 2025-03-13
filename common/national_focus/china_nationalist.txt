@@ -2636,6 +2636,7 @@ focus_tree = {
 		}
 
 		available = {
+			NOT = { has_idea = CHI_nine_power_treaty }
 			is_subject = no
 			has_government = democratic
 		}
@@ -2680,6 +2681,7 @@ focus_tree = {
 		}
 
 		available = {
+			NOT = { has_idea = CHI_nine_power_treaty }
 			is_subject = no
 			has_government = democratic
 		}
@@ -2815,6 +2817,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			remove_ideas = CHI_nine_power_treaty
 			add_popularity = {
 				ideology = communism
 				popularity = 0.1
@@ -3090,6 +3093,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
+			remove_ideas = CHI_nine_power_treaty
 			JAP = {
 				puppet = {
 					target = CHI
