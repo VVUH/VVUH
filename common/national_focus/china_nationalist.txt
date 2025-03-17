@@ -899,7 +899,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_three_principles_of_the_people
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1563,7 +1563,7 @@ focus_tree = {
 		id = CHI_pick_a_fight_with_japan
 		icon = GFX_focus_AST_war_japan
 		prerequisite = { focus = CHI_united_front focus = CHI_united_but_seperate focus = CHI_anti_communism }
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = CHI_united_front
 
@@ -1785,8 +1785,7 @@ focus_tree = {
 	focus = {
 		id = CHI_war_of_resistance
 		icon = GFX_goal_generic_military_sphere
-		prerequisite = { focus = CHI_pick_a_fight_with_japan }
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = CHI_pick_a_fight_with_japan
 
@@ -1797,13 +1796,10 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = {
-				has_idea = CHI_army_corruption_1
-			}		
+			has_defensive_war = yes
 		}
 
 		bypass = {
-			has_offensive_war_with = JAP
 		}
 
 		cancel_if_invalid = yes
@@ -2035,9 +2031,6 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = {
-				has_idea = CHI_army_corruption_2
-			}
 			has_defensive_war = yes
 		}
 
@@ -2321,8 +2314,11 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
 			add_stability = -0.05
-
 		}
 	}
 	focus = {
@@ -2389,7 +2385,7 @@ focus_tree = {
 		}
 
 		available = {
-			neutrality < 0.35
+			neutrality < 0.4
 			has_stability < 0.25
 		}
 
@@ -2436,7 +2432,7 @@ focus_tree = {
 		}
 
 		available = {
-			neutrality < 0.25
+			neutrality < 0.3
 			has_stability < 0.25
 		}
 
@@ -2451,7 +2447,8 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			add_stability = 0.05
+			add_stability = 0.1
+			custom_effect_tooltip = "You will turn either democratic or fascist, depending on if you chose to strengthen the left or the right"
 			if = {
 				limit = {
 					has_completed_focus = CHI_strengthen_the_right
@@ -2524,11 +2521,11 @@ focus_tree = {
 		available = {
 			NOT ={
 				has_completed_focus = CHI_mission_to_the_us
+				has_completed_focus = CHI_strengthen_the_left
 			}
 		}
 
 		bypass = {
-			has_war_with = JAP
 		}
 
 		cancel_if_invalid = yes
@@ -2562,6 +2559,7 @@ focus_tree = {
 		}
 
 		available = {
+			has_completed_focus = CHI_strengthen_the_left
 			communism > 0.2
 			PRC = {
 				OR = {
@@ -2588,6 +2586,132 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = CHI_a_new_republic
+		icon = GFX_focus_generic_democratic_europe
+		x = 0
+		y = 3
+		relative_position_id = CHI_stand_our_ground
+		prerequisite = { focus = CHI_stand_our_ground }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_subject = no
+			has_government = democratic
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			add_political_power = 100
+			add_stability = 0.2
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = CHI_anti_fascist_war
+		icon = GFX_focus_SWE_undermine_fascism
+		x = -1
+		y = 4
+		relative_position_id = CHI_stand_our_ground
+		prerequisite = { focus = CHI_a_new_republic }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = { has_idea = CHI_nine_power_treaty }
+			is_subject = no
+			has_government = democratic
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_government = fascism
+				}
+				ROOT = {
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = PREV
+						expire = 0
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = CHI_anti_communist_war
+		icon = GFX_goal_generic_war_with_comintern
+		x = 1
+		y = 4
+		relative_position_id = CHI_stand_our_ground
+		prerequisite = { focus = CHI_a_new_republic }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = { has_idea = CHI_nine_power_treaty }
+			is_subject = no
+			has_government = democratic
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_government = communism
+				}
+				ROOT = {
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = PREV
+						expire = 0
+					}
+				}
+			}
+		}
+	}
+	focus = {
 		id = CHI_invade_manchuria
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		x = -1
@@ -2604,8 +2728,8 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			has_war_support > 0.7
-			has_stability > 0.5
+			has_war_support > 0.5
+			has_stability > 0.3
 		}
 
 		bypass = {
@@ -2693,6 +2817,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			remove_ideas = CHI_nine_power_treaty
 			add_popularity = {
 				ideology = communism
 				popularity = 0.1
@@ -2731,7 +2856,7 @@ focus_tree = {
 	focus = {
 		id = CHI_the_great_leap_forward
 		icon = GFX_focus_ITA_peasants_rise
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = CHI_under_maos_leadership
 		prerequisite = { focus = CHI_under_maos_leadership }
@@ -2769,9 +2894,53 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = CHI_ties_with_the_soviets
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = 2
+		y = 1
+		relative_position_id = CHI_under_maos_leadership
+		prerequisite = { focus = CHI_under_maos_leadership }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			SOV = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medium_increase
+				}
+			}
+			add_stability = 0.05
+			add_political_power = 100
+			army_experience = 50
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			add_offsite_building = { type = arms_factory level = 4 }
+		}
+	}
+	focus = {
 		id = CHI_spirit_of_liberation
 		icon = GFX_focus_GER_liberate_exploited_colonial_workers
-		x = 2
+		x = 1
 		y = 2
 		relative_position_id = CHI_under_maos_leadership
 		prerequisite = { focus = CHI_under_maos_leadership }
@@ -2818,7 +2987,7 @@ focus_tree = {
 	focus = {
 		id = CHI_spirit_of_nationalism
 		icon = GFX_focus_prc_proclaim_the_peoples_republic
-		x = 0
+		x = -1
 		y = 2
 		relative_position_id = CHI_under_maos_leadership
 		prerequisite = { focus = CHI_the_great_leap_forward }
@@ -2882,10 +3051,7 @@ focus_tree = {
 			every_country = {
 				limit = {
 					has_government = democratic
-					OR = {
-						is_major = yes
-						is_in_faction = yes
-					}
+					is_major = yes
 				}
 				ROOT = {
 					create_wargoal = {
@@ -2913,7 +3079,6 @@ focus_tree = {
 
 		available = {
 			has_war_with = JAP
-			has_government = fascism
 			surrender_progress > 0.2
 		}
 
@@ -2928,6 +3093,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
+			remove_ideas = CHI_nine_power_treaty
 			JAP = {
 				puppet = {
 					target = CHI
@@ -3598,6 +3764,11 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = MON
+				expire = 0
+			}
 			every_state = {
 				limit = {
 					is_core_of = MON
@@ -3626,7 +3797,7 @@ focus_tree = {
 		}
 
 		bypass = {
-
+			is_subject = yes
 		}
 
 		cancel_if_invalid = yes
@@ -4319,7 +4490,7 @@ focus_tree = {
 
 		relative_position_id = CHI_anti_communist_investment
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4343,6 +4514,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
+			add_political_power = 150
 			if = {
 				limit = {
 					NOT = {
