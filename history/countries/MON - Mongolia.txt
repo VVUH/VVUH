@@ -1,0 +1,182 @@
+﻿capital = 330
+
+oob = "MON_1936"
+
+set_popularities = {
+	democratic = 1
+	neutrality = 2
+	fascism = 2
+	communism = 95
+}
+
+# Starting tech
+inherit_technology = TUR
+
+
+add_ideas = {
+	limited_conscription
+	MON_soviet_supervision
+	MON_soviet_ties
+	MON_underequipped_army
+	MON_state_of_the_armed_forces_1
+	MON_weakened_togrog
+}
+
+leave_faction = yes
+SOV = {give_guarantee = MON}
+MON = {give_guarantee = SOV}
+MON = {give_military_access = SOV}
+
+add_manpower = 55000
+store_core_states_on_game_start = yes
+
+diplomatic_relation = {
+    country = SOV
+    relation = non_aggression_pact
+    active = yes
+}
+
+set_nationality = {
+    target_country = MON
+    character = mikhail_frinovsky
+}
+
+### Anti civil war cheesing rules
+set_rule = { can_not_declare_war = yes }
+country_lock_all_division_template = yes
+
+recruit_character = MON_advisor_foreign_military_advisors
+recruit_character = MON_anandyn_amar
+recruit_character = MON_mingzhu_zhanshan
+recruit_character = MON_fu_shangzhi
+recruit_character = MON_revolutionary_council  
+recruit_character = MON_songgotu_kangan
+recruit_character = MON_haidav
+recruit_character = MON_dagva
+recruit_character = MON_chimid
+recruit_character = MON_sukhbaataryn_yanjmaa
+recruit_character = MON_ganbaatar
+recruit_character = MON_vg_pyrselov
+recruit_character = MON_lee_shou_hsin
+recruit_character = MON_buyannmeh
+recruit_character = MON_horloogiyn_choybalsan
+recruit_character = MON_olziytrygyn_badrak
+recruit_character = MON_dashdorj
+recruit_character = MON_gomgchigryn_bumtsend
+recruit_character = MON_dansrabilegyin_dogsam
+recruit_character = MON_yundunwangcug
+recruit_character = MON_pai_yun_ti
+recruit_character = MON_advisor_genden
+recruit_character = MON_advisor_luvsansharav
+recruit_character = MON_advisor_losol
+recruit_character = MON_advisor_baasanjav
+recruit_character = MON_advisor_damba
+recruit_character = MON_advisor_badrakh
+recruit_character = MON_advisor_shijee
+recruit_character = MON_advisor_laagan
+recruit_character = MON_advisor_tsedenbal
+recruit_character = MON_advisor_luvsandorj
+recruit_character = MON_advisor_batkhaan
+recruit_character = MON_advisor_zhamtsarano
+recruit_character = MON_advisor_elbegdorj
+recruit_character = MON_advisor_genepil
+recruit_character = MON_advisor_demid
+recruit_character = MON_advisor_navaanneren
+recruit_character = MON_advisor_ayuush
+recruit_character = MON_advisor_tserendorj
+recruit_character = MON_advisor_frinovsky
+
+#unlockables commies
+recruit_character = MON_khorloogiin_choibalsan  
+recruit_character = MON_advisor_toka  
+recruit_character = MON_advisor_ulanhu  
+recruit_character = MON_communist_great_khural  
+
+##monarchy
+recruit_character = MON_advisor_noble_council  
+recruit_character = MON_advisor_fujin  
+recruit_character = MON_advisor_dukelarson  
+recruit_character = MON_advisor_sangrubnorbu  
+recruit_character = MON_prince_demchugdongrub  
+
+#demo
+recruit_character = MON_advisor_parliament  
+recruit_character = MON_roy_chapman_andrews
+recruit_character = MON_samuel_sokobin
+#fascist
+recruit_character = MON_advisor_national_council_corporations  
+recruit_character = MON_ernst_ramm
+recruit_character = MON_wang_ying
+
+#white russians
+recruit_character = MON_anton_denikin  
+recruit_character = MON_pyotr_krasnov  
+recruit_character = MON_konstantin_nechayev  
+recruit_character = MON_aleksandr_rodzyanko  
+recruit_character = MON_andrey_shkuro  
+
+
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	add_command_power = 100
+	
+	#generic focuses
+	complete_national_focus = army_effort
+	complete_national_focus = equipment_effort
+	complete_national_focus = motorization_effort
+	complete_national_focus = aviation_effort
+	complete_national_focus = construction_effort_2
+	complete_national_focus = production_effort_2
+	complete_national_focus = infrastructure_effort
+	complete_national_focus = industrial_effort
+	complete_national_focus = construction_effort
+	complete_national_focus = production_effort
+	
+	oob = "MON_1939"
+	set_technology = {
+		support_weapons = 1
+		gw_artillery = 1
+		
+		#doctrines
+		air_superiority = 1
+		
+		mass_assault = 1
+		pocket_defence = 1
+		defence_in_depth = 1
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		radio_detection = 1
+		mechanical_computing = 1
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		construction1 = 1
+		construction2 = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+	}
+}
+
+set_politics = {
+	ruling_party = communism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+
+1939.1.1 = {
+	add_ideas = {
+		limited_conscription
+	}
+
+	recruit_character = MON_khorloogiin_choibalsan
+	promote_character = MON_khorloogiin_choibalsan
+	retire_character = MON_anandyn_amar
+}

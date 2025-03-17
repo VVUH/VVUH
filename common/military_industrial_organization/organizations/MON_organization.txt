@@ -1,0 +1,190 @@
+#####################
+
+###  ##  #  # # #  ## 
+ #  #  # ## # # # #   
+ #  #### # ## ##   #  
+ #  #  # #  # # #   # 
+ #  #  # #  # # # ## 
+
+ #################### 
+
+
+MON_machine_building_plant_organization = {
+	include = generic_tank_refurbishment_plant_organization
+	icon = GFX_idea_SOV_mytishchy_machine_building_plant
+	allowed = { 
+		tag = MON
+	}
+	available = {
+		OR = {
+			SOV = {
+				has_opinion = {
+					target = MON
+					value > 49
+				}
+			}
+			MON = {has_completed_focus = MON_a_mongol_tank}
+		}
+	}
+}
+
+MON_mon_japanese_technical_mission_organization = {
+	include = generic_mobile_tank_organization
+	icon = GFX_idea_osaka_army_arsenal
+	allowed = {	
+			tag = MON
+		}
+	available = {
+		MON = {has_completed_focus = MON_discuss_spheres_of_influence}
+		owner = {
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+	}
+}
+
+MON_nissan_organization = {
+	include = generic_motorized_mechanized_organization 
+	icon = GFX_idea_nissan
+	allowed = {	
+			tag = MON
+		}
+	available = {
+		MON = {has_completed_focus = MON_discuss_spheres_of_influence}
+		owner = {
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+	}
+}
+
+#####################
+
+ ## #  # ### ###   ## 
+#   #  #  #  #  # #   
+ #  ####  #  ###   #  
+  # #  #  #  #      # 
+##  #  # ### #    ##  
+ 
+#####################
+
+MON_mongolian_marine_plant_organization = {
+	name = "Mongolian Marine Plant"
+	include = generic_refurbishment_repair_organization
+	icon = GFX_idea_SOV_sevastopol_marine_plant
+	allowed = { 
+		tag = MON
+	}
+	available = {
+		any_state = {
+			is_controlled_by = MON
+			is_coastal = yes
+		}
+		SOV = {
+			has_opinion = {
+				target = MON
+				value > 24
+			}
+			MON = {has_completed_focus = MON_invest_in_dockyards}
+		}
+	}
+}
+MON_sub_school = {
+	name = "Mongolian Submarine Manufacturing"
+	include = generic_submarine_organization
+	icon = GFX_idea_AUS_elin
+	allowed = {	
+			tag = MON
+	}
+
+	available = {
+		IF = {
+			limit = {
+				FROM = { original_tag = MON } 
+			}
+			MON = { has_completed_focus = MON_the_new_way }
+		}
+	}
+
+}
+
+MON_jiangnan_shipyard_group_organization = {
+	include = generic_task_force_ship_organization
+	icon = GFX_idea_generic_naval_manufacturer_3
+	allowed = {	
+		tag = MON
+	}
+	available = {
+		MON = { controls_state = 613 }
+	}
+}
+
+MON_dagu_shipyard_organization = {
+	include = generic_raider_ship_organization
+	icon = GFX_idea_generic_naval_manufacturer_3
+	allowed = {	
+		tag = MON
+	}
+	available = {
+		MON = { controls_state = 608 }
+	}
+}
+
+
+###########################
+
+###  #    ##  #  # ###  ## 
+#  # #   #  # ## # #   #   
+###  #   #### # ## ##   #  
+#    #   #  # #  # #     # 
+#    ### #  # #  # ### ##  
+
+###########################
+
+
+MON_tupolev_design_bureau_organization = {
+	include = generic_heavy_aircraft_organization
+	icon = GFX_idea_tupolev_design_bureau
+	allowed = { 
+		tag = MON
+	}
+	available = {
+		SOV = {
+			has_opinion = {
+				target = MON
+				value > 24
+			}
+		}
+	}
+}
+
+################################### 
+
+#   #  ##  ### ### ###  ### ### #   
+## ## #  #  #  #   #  #  #  #   #   
+# # # ####  #  ##  ###   #  ##  #   
+#   # #  #  #  #   #  #  #  #   #   
+#   # #  #  #  ### #  # ### ### ### 
+
+
+###################################
+
+MON_mechanisation_organization = {
+	include = generic_armored_car_organization
+	icon = GFX_idea_FRA_panhard
+	allowed = { 
+		tag = MON
+	}
+	available = {
+		SOV = {
+			has_opinion = {
+				target = MON
+				value > 24
+			}
+		}
+		MON = {has_completed_focus = MON_continue_modernisation}
+	}
+}
+

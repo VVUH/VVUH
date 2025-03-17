@@ -2087,3 +2087,15 @@ generic_mio_trait_mass_production_certification: "Mass Production Certification"
  DEBUG_generic_support_equipment_organization: "$generic_support_equipment_organization$"
  DEBUG_generic_motorized_mechanized_organization: "$generic_motorized_mechanized_organization$"
  DEBUG_generic_armored_car_organization: "$generic_armored_car_organization$"
+
+########### VVUH MON #############
+# Mongolia
+MON_machine_building_plant_organization:0 "Mongolian Machine Plant"
+MON_mon_japanese_technical_mission_organization:0 "Mongol-Japanese Technical Mission"
+MON_nissan_organization:0 "Nissan"
+MON_mongolian_marine_plant_organization:0 "Mongolian Marine Plant"
+MON_sub_school:0 "Mongolian Submarine School"
+MON_tupolev_design_bureau_organization:0 "$tupolev_design_bureau$"
+MON_mechanisation_organization:0 "Mechanisation Organisation"
+MON_dagu_shipyard_organization:0 "Dagu Shipyard Organisation"
+MON_jiangnan_shipyard_group_organization:0 "Jiangnan Shipyard Group"

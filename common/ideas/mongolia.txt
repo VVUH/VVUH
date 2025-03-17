@@ -1,0 +1,2522 @@
+ideas = {
+
+	country = {
+
+		MON_turkic_tax_reciever = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = tur_varlik_vergisi
+
+			modifier = {
+				consumer_goods_factor = -0.2
+			}
+		}
+		
+		MON_turkic_tax_sender = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = SPR_relocate_the_gold_reserves
+
+			modifier = {
+				consumer_goods_factor = 0.2
+			}
+		}
+# military
+
+		MON_mongolian_insight_into_soviet_organisation = {
+			picture = chi_war_of_resistance3
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				supply_consumption_factor = 0.1
+			}
+			targeted_modifier = {
+				tag = MON 
+				defense_bonus_against = -0.1
+				attack_bonus_against = -0.1
+			}
+		}
+
+		MON_crafty_gatherers = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ETH_scavenging_tactics
+
+			modifier = {
+				equipment_capture_factor = 0.35
+			}
+		}
+		
+		MON_state_of_the_armed_forces_0 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}			
+			
+			removal_cost = -1
+
+			picture = tur_kemalist_army_officers_minimal_power_disloyal
+
+			modifier = {
+				local_org_regain = -0.3
+				local_manpower = -0.10
+				org_loss_when_moving = 0.1
+				army_org_factor = -0.3
+				local_supplies = -0.1
+				local_non_core_supply_impact_factor = 0.5
+			}
+		}
+
+		MON_state_of_the_armed_forces_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = tur_kemalist_officers_disloyalty_effect
+
+			modifier = {
+				local_org_regain = -0.15
+				local_manpower = -0.05
+				org_loss_when_moving = 0.05
+				army_org_factor = -0.15
+				local_supplies = -0.05
+				local_non_core_supply_impact_factor = 0.3
+			}
+		}
+
+		MON_state_of_the_armed_forces_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			
+			}
+
+			removal_cost = -1
+
+			picture = tur_kemalist_officers
+
+			modifier = {
+				local_org_regain = 0.10
+				local_manpower = 0.05
+				org_loss_when_moving = -0.05
+				army_org_factor = 0.10
+				local_supplies = 0.05
+				local_non_core_supply_impact_factor = -0.05
+			}
+		}
+
+		MON_state_of_the_armed_forces_1_turkic_volunteers = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			
+			}
+
+			removal_cost = -1
+
+			picture = tur_kemalist_army_officers_limited_power_disloyal
+
+			modifier = {
+				local_org_regain = -0.15
+				local_manpower = -0.05
+				org_loss_when_moving = -0.05
+				army_org_factor = -0.15
+				local_supplies = -0.05
+				local_non_core_supply_impact_factor = -0.1
+				weekly_manpower = 50
+			}
+		}
+
+		MON_state_of_the_armed_forces_2_turkic_volunteers = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = tur_kemalist_army_officers_powerful_neutral
+			
+			modifier = {
+				local_org_regain = 0.10
+				local_manpower = 0.05
+				org_loss_when_moving = -0.05
+				army_org_factor = 0.10
+				local_supplies = 0.15
+				local_non_core_supply_impact_factor = -0.15
+				weekly_manpower = 100
+			}
+		}
+
+		MON_cav_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = ETH_the_heroes_of_adwa
+			
+			modifier = {
+				cavalry_attack_factor = 0.06
+				cavalry_defence_factor = 0.05
+				org_loss_when_moving = -0.03
+			}
+		}
+
+		MON_cav_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = ETH_the_heroes_of_adwa_upgraded
+			
+			modifier = {
+				cavalry_attack_factor = 0.11
+				cavalry_defence_factor = 0.07
+				org_loss_when_moving = -0.05
+			}
+		}
+		MON_cav_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = HABSBURG_cavalry
+			
+			modifier = {
+				cavalry_attack_factor = 0.15
+				cavalry_defence_factor = 0.1
+				org_loss_when_moving = -0.1
+			}
+		}
+		#army tree mess
+		MON_forts = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_wall_line
+			
+			modifier = {
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+			}	
+		}
+
+		MON_enshrining_process = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_secret_police
+			
+			modifier = {
+				stability_factor = -0.1
+				war_support_factor = 0.15
+				custom_modifier_tooltip = MON_timed_gone_good_stay_tt
+			}
+			on_remove = {
+				add_war_support = 0.15
+			}	
+		}
+
+		MON_great_war_inf = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = SPA_la_division_azul
+			
+			modifier = {
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				army_infantry_attack_factor = 0.05
+				army_infantry_defence_factor = 0.1	
+			}
+		}
+
+		MON_arty = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = societe_africain_de_explosifes
+			
+			modifier = {
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				army_infantry_attack_factor = 0.05
+				army_infantry_defence_factor = 0.1	
+				army_artillery_attack_factor = 0.1
+				army_artillery_defence_factor = 0.05	
+			}
+		}
+
+		MON_big_arty = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = SWE_let_fly_all_guns
+			
+			modifier = {
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				army_infantry_attack_factor = 0.05
+				army_infantry_defence_factor = 0.1	
+				army_artillery_attack_factor = 0.12
+				army_artillery_defence_factor = 0.07	
+				railway_gun_bombardment_factor = 0.10
+			}
+		}
+
+		MON_increased_conscription_spirit = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = eng_imperial_conscription
+			
+			modifier = {
+
+				# PLUS WHAT EVER ENSHRINE HAS
+				non_core_manpower = 0.05
+				conscription = 0.02
+			}	
+		}
+		
+		MON_great_mon_army = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_reserve_divisions
+			modifier = {
+				army_infantry_attack_factor = 0.08
+				army_infantry_defence_factor = 0.12
+				army_artillery_attack_factor = 0.13
+				army_artillery_defence_factor = 0.08	
+				railway_gun_bombardment_factor = 0.15
+				non_core_manpower = 0.05
+				conscription = 0.03
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				training_time_factor = -0.1
+			}	
+		}
+		#modern ideas -------------------------
+		MON_mongolian_tanks1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = man_five_year_plan_tank
+			modifier = {
+				army_armor_speed_factor = 0.05
+				army_armor_attack_factor = 0.07
+				army_armor_defence_factor = 0.05
+			}	
+		}	
+		MON_mongolian_tanks2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_acquire_tanks
+			modifier = {
+				army_armor_speed_factor = 0.07
+				army_armor_attack_factor = 0.1
+				army_armor_defence_factor = 0.07				
+
+			}	
+		}	
+		MON_mongolian_modern_inf = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption2
+			modifier = {
+				army_infantry_attack_factor = 0.05
+				army_infantry_defence_factor = 0.03
+			}	
+		}
+		MON_mongolian_modern_inf2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = chi_army_corruption3
+			modifier = {
+				army_infantry_attack_factor = 0.07
+				army_infantry_defence_factor = 0.05		
+			}	
+		}
+				
+		MON_officer_purge = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = generic_purge
+			#timed idea
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = -0.1
+				field_officer_promotion_penalty = -0.2
+				military_leader_cost_factor = -0.5 
+				army_leader_start_planning_level = 1 
+				army_leader_start_level = 2
+
+			}	
+		}		
+
+		#final focuses other tree
+		MON_mon_modern_army1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = ETH_conservative_high_command
+			modifier = {
+				army_infantry_attack_factor = 0.07
+				army_infantry_defence_factor = 0.05	
+				army_armor_speed_factor = 0.1
+				army_armor_attack_factor = 0.12
+				army_armor_defence_factor = 0.08
+				training_time_factor = -0.15
+			}	
+		}
+
+		MON_mon_modern_army2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+
+			picture = ETH_conservative_high_command
+			modifier = {
+				army_infantry_attack_factor = 0.1
+				army_infantry_defence_factor = 0.07	
+				army_armor_speed_factor = 0.1
+				army_armor_attack_factor = 0.12
+				army_armor_defence_factor = 0.08
+				training_time_factor = -0.2
+			}	
+		}
+	
+# communist ideas
+		MON_soviet_supervision = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = nkvd
+
+			modifier = {
+				#doesn't do anything, just means you can't edit your army and stuff
+			}
+		}
+
+		MON_soviet_ties = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			cancel = {
+				SOV = {
+					has_opinion = {
+						target = MON
+						value < 70
+					}
+				}
+				has_completed_focus = MON_the_second_Khuvsgul_Uprising
+			}
+			on_remove = {
+				IF = {
+					LIMIT = {
+						has_government = communism
+						SOV = {
+							AND = {
+								exists = yes
+								has_government = communism
+							}
+						}
+					}
+
+					add_ideas = MON_worse_soviet_ties
+				}
+			}
+			removal_cost = -1
+
+			picture = hol_haven_of_tolerance
+
+			modifier = {
+				political_power_gain = 0.55
+				monthly_population = 0.25
+				stability_weekly = 0.002
+				local_resources_factor = 0.3
+				min_export = 0.15
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		MON_worse_soviet_ties = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			cancel = {
+				SOV = {
+					has_opinion = {
+						target = MON
+						value < 20
+					}
+						
+				}
+				has_completed_focus = MON_the_second_Khuvsgul_Uprising
+			}
+			on_remove = {
+				IF = {
+					LIMIT = {
+						has_government = communism
+					SOV = {
+						AND = {
+							exists = yes
+							has_government = communism
+						}
+					}						
+					}
+					add_ideas = MON_worse_soviet_ties
+				}
+			}
+			removal_cost = -1
+
+			picture = hol_haven_of_tolerance
+
+			modifier = {
+				political_power_gain = 0.25
+				monthly_population = 0.15
+				stability_weekly = 0.001
+				local_resources_factor = 0.15
+				min_export = 0.1
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		MON_worst_soviet_ties = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			cancel = {
+				SOV = {
+					has_opinion = {
+						target = MON
+						value < -80
+					}				
+				}
+				has_completed_focus = MON_the_second_Khuvsgul_Uprising
+			}
+			removal_cost = -1
+
+			picture = hol_haven_of_tolerance
+
+			modifier = {
+				political_power_gain = -0.15
+				monthly_population = 0.05
+				local_resources_factor = 0.05
+				min_export = 0.05
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = 0.02
+			}
+		}
+		MON_mongolian_communism1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = officers_purged
+
+			modifier = {
+				stability_factor  = -0.05
+				research_speed_factor = 0.05
+				drift_defence_factor = 0.3
+				party_popularity_stability_factor = -0.01
+
+			}
+		}
+		MON_mongolian_communism2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = officers_purged
+
+			modifier = {
+				stability_factor  = -0.05
+				research_speed_factor = 0.05
+				recruitable_population_factor = 0.1
+				drift_defence_factor = 0.3
+				offensive_war_stability_factor = 0.15
+				party_popularity_stability_factor = 0.2
+
+			}
+		}
+		MON_mongolian_communism3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = officers_purged
+
+			modifier = {
+				research_speed_factor = 0.05
+				drift_defence_factor = 0.3
+				recruitable_population_factor = 0.15
+				army_attack_against_major_factor = 0.13
+				army_breakthrough_against_major_factor = 0.08
+				army_defence_against_major_factor = 0.1
+				offensive_war_stability_factor = 0.15
+				party_popularity_stability_factor = 0.2
+			}
+		}
+		MON_recover_from_purge = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = officers_purged
+
+			modifier = {
+				weekly_manpower = -50	
+				army_core_defence_factor = -0.1
+				army_core_attack_factor = -0.1
+
+			}
+		}
+
+		
+		MON_communist_volunteering_1 = {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = citizen_militia_1
+
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteer_size = 4
+				send_volunteers_tension = -1
+				air_volunteer_cap = 1
+			}
+		}
+
+		MON_communist_volunteering_2 = {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = citizen_militia_1
+
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteer_size = 6
+				send_volunteers_tension = -1
+				air_volunteer_cap = 2
+			}
+		}
+		MON_spa_silver = {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = CHL_comptroller_general_of_chile
+
+			modifier = {
+				consumer_goods_factor = -0.15
+			}
+		}
+		MON_negdels_and_nokhorlols = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = new_economic_policy	
+
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+				consumer_goods_factor = -0.05
+				industry_free_repair_factor = 0.15
+				refit_ic_cost = -0.20
+				production_lack_of_resource_penalty_factor = -0.1
+				line_change_production_efficiency_factor = 0.15 
+				license_production_speed = 0.1 
+			}
+		}
+
+		MON_horses_for_war = {
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_mountain_warfare
+			modifier = {
+				supply_consumption_factor = -0.1
+				no_supply_grace = 48
+				supply_node_range = 0.1
+			}
+		}
+
+		MON_commie_state_farms = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = gre_agricultural_communes
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				min_export = -0.1
+				surrender_limit = 0.1
+				monthly_population = 0.15
+				weekly_manpower = 100
+			}
+		}
+
+		MON_soviet_army_lessons = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = generic_communist_army
+
+			modifier = {
+				recruitable_population_factor = 0.03
+				army_org_factor = 0.1
+				experience_loss_factor = -0.3
+				army_org_regain = 0.1
+			}
+		}
+
+
+# navy
+
+		MON_the_young_school = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = the_long_lance
+
+			modifier = {
+				industrial_capacity_dockyard = 0.05 
+			}
+		}
+		MON_old_school = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = the_long_lance
+
+			modifier = {
+				shore_bombardment_bonus = 0.1
+			}
+		}
+		MON_coastal_defense_ships = {
+
+			picture = generic_coastal_defense_ships
+
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			equipment_bonus = { #If you change this - Change the custom tooltip too: ROM_coastal_defense_ships_tech_tt
+				ship_hull_cruiser = {
+					armor_value = 0.2
+					hg_attack = 0.1
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			
+				ship_hull_light = {
+					torpedo_attack = 0.2
+					instant = yes
+				}
+			}
+		}
+
+		MON_the_mongolian_airforce_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = KAT_katangese_airforce
+
+			modifier = {
+				experience_gain_air = 0.1
+
+			}
+			
+		}
+
+		MON_the_mongolian_airforce_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = SWE_formation_flying
+
+			modifier = {
+				experience_gain_air = 0.1
+				air_advisor_cost_factor = -0.35
+				air_training_xp_gain_factor = 0.15
+				air_doctrine_cost_factor = -0.05
+				air_range_factor = 0.04
+			}
+			
+		}
+		MON_the_mongolian_airforce_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = air_war_plans_division_focus
+
+			modifier = {
+				experience_gain_air = 0.1
+				air_advisor_cost_factor = -0.75
+				air_training_xp_gain_factor = 0.25
+				air_doctrine_cost_factor = -0.10
+				air_fuel_consumption_factor = -0.15
+				air_range_factor = 0.08
+			}
+			
+		}
+		MON_the_mongolian_airforce_4 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = NOR_thunes_mekaniske_vaerksted
+
+			modifier = {
+				experience_gain_air = 0.1
+				air_advisor_cost_factor = -0.75
+				air_training_xp_gain_factor = 0.25
+				air_doctrine_cost_factor = -0.10
+				air_fuel_consumption_factor = -0.05
+				air_range_factor = 0.15
+				air_equipment_upgrade_xp_cost = -0.5
+				resistance_damage_to_garrison = 0.1
+				resistance_decay = 0.25					
+			}
+			
+		}
+		MON_the_mongolian_airlines = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_air_payment
+
+			modifier = {
+				paratrooper_weight_factor = -0.15
+			}
+		}
+		MON_mon_special_forces_p = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = ARG_war_division
+
+			modifier = {
+				special_forces_cap = 0.025
+				special_forces_out_of_supply_factor = -0.11
+				paratroopers_special_forces_contribution_factor = -0.15
+				extra_paratrooper_supply_grace = 50
+				paratrooper_aa_defense = 0.4
+			}
+		}
+
+		MON_mon_special_forces_m = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = ARG_war_division
+
+			modifier = {
+				special_forces_cap = 0.025
+				special_forces_out_of_supply_factor = -0.11
+				marines_special_forces_contribution_factor = -0.15
+				naval_invasion_prep_speed = 0.1
+				naval_invasion_penalty = -0.1
+			}
+		}
+
+		MON_the_mongolian_merchant_navy = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = liberty_ships_focus
+
+			modifier = {
+				transport_capacity = -0.15
+				
+			}
+		}
+		MON_license_foreign_designs = {
+			picture = generic_army_war_college
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				license_purchase_cost = -0.30
+				license_production_speed = 0.1
+			}
+		}
+## non - commie political parties
+		MON_rousing_popular_support = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = SPR_subvert_soviet_control
+
+			modifier = {
+				communism_drift = -0.1
+			}
+		}
+		MON_heirs_of_the_huns_idea = {
+			allowed = {
+				original_tag = MON
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = HUN_heirs_of_the_huns
+
+			modifier = {
+				army_speed_factor = 0.05
+				cavalry_attack_factor = 0.05
+				supply_consumption_factor = -0.05
+			}
+		}
+
+		MON_partial_infiltration = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = MEX_politicised_army
+
+			modifier = {
+				fascism_drift = -0.05
+				neutrality_drift = 0.1
+			}
+		}
+		MON_full_infiltration = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = MEX_politicised_army_2
+
+			modifier = {
+				fascism_drift = -0.1
+				neutrality_drift = 0.15
+			}
+		}
+		
+		MON_anti_communist_volunteering = {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+
+			picture = ARG_anti_soviet
+
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteer_size = 4
+				send_volunteers_tension = -1
+				air_volunteer_cap = 1
+			}
+		}
+
+		MON_military_rule = {
+			picture = ARG_military_government
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			modifier = {
+				war_support_weekly = 0.01
+				party_popularity_stability_factor = 0.3
+				conscription = 0.03
+				communism_drift = -0.03
+				democratic_drift = -0.03
+				political_advisor_cost_factor = 0.2
+				high_command_cost_factor = -0.2
+
+
+			}
+		}
+
+		MON_mongolian_revanchism = {
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = { original_tag = MON }
+
+			removal_cost = -1
+
+				modifier = {
+					enemy_justify_war_goal_time = -0.1
+					justify_war_goal_time = -0.3
+
+				}
+		}
+
+		MON_purposeful_arms = {
+
+			picture = generic_infantry_equipment_manufacturer_2
+
+			allowed = { original_tag = MON }
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+		MON_modernize_arms = {
+
+			picture = ARG_rapid_militarization
+
+			allowed = { original_tag = MON }
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.15
+					instant = yes
+				}
+				artillery = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+				cat_anti_tank = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+				cat_anti_air = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+
+
+		}	
+
+		MON_popular_resistance = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_democratic_opposition
+
+			modifier = {
+				democratic_drift = 0.05
+				training_time_army_factor = 1.2
+				max_command_power_mult = -0.3 
+				grant_medal_cost_factor = 2
+				
+			}
+		}
+
+		MON_unstable_political_landscape = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+
+			modifier = {
+				political_power_gain = -0.5
+				drift_defence_factor = -0.3
+				surrender_limit = -0.2
+			}
+		}
+
+		MON_underequipped_army= {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_army_problems
+
+			modifier = {
+				army_attack_factor = -0.2
+				army_attack_speed_factor = -0.2
+				army_speed_factor = -0.2
+				army_defence_factor	= -0.2
+			}
+		}
+		MON_foreign_entanglements_l = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_deal_with_the_devil2
+
+			modifier = {
+				send_volunteer_size = 4
+				justify_war_goal_time = -0.15
+				join_faction_tension = -0.1
+				send_volunteers_tension = -1
+				air_volunteer_cap = 1
+				guarantee_cost = -0.4
+				send_volunteer_divisions_required = -0.75
+			}
+		}
+		MON_foreign_entanglements = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_deal_with_the_devil2
+
+			modifier = {
+				send_volunteer_size = 8	
+				justify_war_goal_time = -0.3
+				join_faction_tension = -0.2
+				send_volunteers_tension = -2
+				air_volunteer_cap = 1
+				guarantee_cost = -0.5
+				send_volunteer_divisions_required = -0.75
+			}
+		}
+
+		MON_mercenary_pay = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = NOR_printing_money
+
+			modifier = {
+				consumer_goods_factor = -0.2
+				army_fuel_consumption_factor = -0.1
+				out_of_supply_factor = -0.1
+				global_building_slots = 1
+			}
+		}
+
+		MON_popular_rule = {
+			picture = CHL_liberal_party_in_power
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			modifier = {
+				stability_weekly = 0.01
+				defensive_war_stability_factor = 0.25
+				political_power_gain = 0.3
+				communism_drift = -0.03
+				fascism_drift = -0.03
+				political_advisor_cost_factor = -0.1
+				high_command_cost_factor = 0.1
+			}
+		}
+		MON_popular_rule_d = {
+			picture = CHL_liberal_party_in_power
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			modifier = {
+				stability_weekly = 0.01
+				defensive_war_stability_factor = 0.6
+				political_power_gain = 0.3
+				communism_drift = -0.03
+				fascism_drift = -0.03
+				democratic_drift = 0.03
+				political_advisor_cost_factor = -0.2
+				high_command_cost_factor = 0.2
+			}
+		}
+		
+		MON_dem_guide = {
+			picture = CHL_liberal_party_in_power
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			modifier = {
+				neutrality_drift = -0.01
+				communism_drift = -0.01
+				fascism_drift = -0.01
+				democratic_drift = 0.03
+			}
+		}
+
+		MON_popular_rule_y = {
+			picture = CHL_liberal_party_in_power
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			modifier = {
+				stability_weekly = 0.01
+				defensive_war_stability_factor = 0.5
+				political_power_gain = 0.3
+				communism_drift = -0.03
+				fascism_drift = -0.03
+				neutrality_drift = 0.03
+				political_advisor_cost_factor = -0.2
+				high_command_cost_factor = 0.2
+			}
+		}
+
+		MON_popular_rule_y2 = {
+			picture = bra_monarchist_uprising
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			modifier = {
+				stability_weekly = 0.01
+				defensive_war_stability_factor = 0.5
+				political_power_gain = 0.5
+				communism_drift = -0.03
+				fascism_drift = -0.03
+				neutrality_drift = 0.1
+				political_advisor_cost_factor = -0.25
+				high_command_cost_factor = 0.3
+			}
+		}
+
+		MON_white_russian_supporters= {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+
+			picture = tur_coordinated_balkan_armed_forces
+
+			modifier = {
+				fascism_drift = 0.1
+				weekly_manpower = 300
+				offensive_war_stability_factor = 0.3
+				justify_war_goal_when_in_major_war_time = -0.5
+			}
+		}
+
+		MON_cossack_assistance= {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+
+			picture = AFG_from_the_ashes
+
+			modifier = {
+				fascism_drift = 0.1
+				weekly_manpower = 400
+				offensive_war_stability_factor = 0.3
+				justify_war_goal_when_in_major_war_time = -0.5
+				army_speed_factor = 0.03
+				army_morale_factor = 0.04
+			}
+		}
+		MON_modern_siberian_warfare = {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+
+			picture = leningrad_polytechnical_institute
+
+			modifier = {
+				fascism_drift = 0.1
+				weekly_manpower = 500
+				offensive_war_stability_factor = 0.3
+				justify_war_goal_when_in_major_war_time = -0.5
+				army_speed_factor = 0.05
+				army_morale_factor = 0.08
+				offence = 0.05
+				defence = 0.03
+			}
+		}
+
+		MON_corporatism = {
+			picture = tur_etatism_bonus
+
+			allowed = { original_tag = MON }
+
+			removal_cost = -1
+			allowed_civil_war = {
+				has_government = fascism
+			}
+				modifier = {
+					consumer_goods_factor = -0.15
+					production_speed_industrial_complex_factor = 0.1 
+					min_export = -0.15
+					economy_cost_factor = -0.5
+					conversion_cost_civ_to_mil_factor = -0.35
+				}
+		}
+		
+		MON_ruthless_occupation = {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				has_government = fascism
+			}
+
+			removal_cost = -1
+
+			picture = gre_political_instability_metaxism
+
+			modifier = {
+				resistance_activity	= 0.1
+				intel_from_combat_factor = 0.1
+				annex_cost_factor = -0.05
+				drift_defence_factor = 0.3
+			}
+		}
+		MON_spiritualism = {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+
+			picture = ARG_social_welfare_fund_ns
+
+			modifier = {
+				neutrality_drift = 0.1
+				resistance_decay = 0.1
+				recruitable_population = 0.02
+
+			}
+		}
+		MON_spiritual_nation = {
+			allowed = {
+				always = no
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+
+			picture = ARG_social_welfare_fund_ns
+
+			modifier = {
+				neutrality_drift = 0.15
+				resistance_decay = 0.1
+				recruitable_population = 0.05
+				forced_surrender_limit = 0.1
+			}
+		}
+		MON_mongolian_support_lobby = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+			cancel = {
+				is_subject = no 
+			}
+			picture = FRA_scw_intervention_republicans_focus
+
+			modifier = {
+				autonomy_gain = 0.75
+			}
+		}
+		MON_royal_g = {
+			picture = ROM_iron_guard
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				army_morale_factor = 0.03
+				army_org_factor = 0.03
+				army_core_defence_factor = 0.02
+				army_core_attack_factor = 0.06
+			}
+		}
+		
+		MON_reclaiming_yuan = {
+			picture = jap_intervene_in_china
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				# attack bonuses against china and japan?
+				army_morale_factor = 0.05
+				army_org_factor = 0.05
+				army_core_defence_factor = 0.05
+				army_core_attack_factor = 0.1
+			}
+			targeted_modifier = {
+				tag = CHI    
+				attack_bonus_against = 0.08
+				defense_bonus_against = 0.08
+				breakthrough_bonus_against = 0.03
+			}
+			targeted_modifier = {
+				tag = JAP    
+				attack_bonus_against = 0.08
+				defense_bonus_against = 0.08
+				breakthrough_bonus_against = 0.03
+			}
+		}
+
+		MON_reclaiming_yuan2 = {
+			picture = jap_ichi_go
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				# attack bonuses against china and japan?
+				army_morale_factor = 0.1
+				army_org_factor = 0.1
+				army_core_defence_factor = 0.1
+				army_core_attack_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = CHI    
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+				breakthrough_bonus_against = 0.05
+			}
+			targeted_modifier = {
+				tag = jap    
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+				breakthrough_bonus_against = 0.05
+			}
+		}
+
+		MON_spirited_workers = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = SOV_fourth_five_year_plan
+
+			modifier = {
+				industrial_capacity_factory = 0.05
+				industry_repair_factor = 0.05
+			}
+		}
+		MON_loyal_workers = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = ETH_dire_dawa_industries
+
+			modifier = {
+				communism_drift = 0.05
+				industrial_capacity_factory = 0.1
+				industry_repair_factor = 0.1
+			}
+		}
+		MON_mongol_militias_1 = {
+			picture = MEX_politicised_army
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				weekly_manpower = 100
+				modifier_army_sub_unit_militia_attack_factor = 0.07
+				modifier_army_sub_unit_militia_defence_factor = 0.05
+				modifier_army_sub_unit_militia_speed_factor = 0.05
+				modifier_army_sub_unit_militia_max_org_factor = 0.05
+			}
+		}
+		MON_mongol_militias_mp = {
+			picture = ETH_peacekeeping_forces
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				weekly_manpower = 150
+				modifier_army_sub_unit_militia_attack_factor = 0.07
+				modifier_army_sub_unit_militia_defence_factor = 0.1
+				modifier_army_sub_unit_militia_speed_factor = 0.07
+				modifier_army_sub_unit_militia_max_org_factor = 0.07
+				resistance_activity = -0.1
+			}
+		}
+		MON_mongol_militias_2 = {
+			picture = MEX_politicised_army_2
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				weekly_manpower = 200
+				modifier_army_sub_unit_militia_attack_factor = 0.1
+				modifier_army_sub_unit_militia_defence_factor = 0.07
+				modifier_army_sub_unit_militia_speed_factor = 0.1
+				modifier_army_sub_unit_militia_max_org_factor = 0.1
+			}
+		}
+
+		MON_militant_resistance = {
+			picture = MEX_politicised_army_2
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				army_core_defence_factor = -0.15
+				training_time_army_factor = 0.3
+				command_power_gain_mult	= -0.2
+				fascism_drift = 0.05
+			}
+		}
+# industry
+
+
+	MON_increasing_population = {
+		picture = ITA_battaglie_per_la_nascite
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+		monthly_population = 0.3
+		political_power_gain = 0.3
+		}
+	}
+
+	MON_invest_in_rail = {
+		picture = ARG_invest_in_railways
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			production_speed_rail_way_factor = 0.1
+			production_speed_supply_node_factor = 0.1
+		}
+	}
+
+	MON_byproducts_1 = {
+		picture = man_five_year_plan_tank
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			#armor buff
+			army_armor_attack_factor = 0.07
+			army_armor_defence_factor = 0.05
+			army_armor_speed_factor = 0.03
+		}
+	}
+	MON_byproducts_2 = {
+		picture = generic_artillery_regiments
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			#arty buff
+			army_artillery_attack_factor = 0.07
+			army_artillery_defence_factor = 0.05
+		}
+	}
+	MON_byproducts_3 = {
+		picture = FRA_motorized_focus
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			#mech and motor buff
+			motorized_attack_factor = 0.07
+			motorized_defence_factor = 0.05
+			mechanized_attack_factor = 0.07
+			mechanized_defence_factor = 0.05
+		}
+	}
+
+	
+
+#trad
+
+	MON_produce_export = {
+		picture = bul_tobacco_exports
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+				supply_factor = 0.05
+				supply_combat_penalties_on_core_factor = -0.05
+				out_of_supply_factor = -0.1
+				attrition = -0.02
+				naval_attrition = -0.02
+				supply_consumption_factor = -0.03
+				cavalry_attack_factor = 0.05
+		}
+		cancel = {
+			ROOT = {
+				has_war_with = MON
+			}			
+		}
+	}
+
+	MON_meat_export = {
+		picture = ARG_argentine_beef_trade
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+				supply_factor = 0.05
+				supply_combat_penalties_on_core_factor = -0.05
+				out_of_supply_factor = -0.1
+				attrition = -0.03
+				naval_attrition = -0.03
+				supply_consumption_factor = -0.02
+				army_infantry_attack_factor = 0.05	
+		}
+		cancel = {
+			FROM = {
+				has_war_with = MON
+			}
+		}
+	}
+	MON_connecting_the_country ={
+		picture = generic_train_tracks
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			production_speed_infrastructure_factor = 0.1
+			repair_speed_infrastructure_factor = 0.1
+			production_speed_rail_way_factor = 0.1
+			production_speed_supply_node_factor = 0.1
+			truck_attrition_factor = -0.1
+		}
+	}
+
+				MON_traditional_industry_1 = {
+			picture = SOV_third_five_year_plan
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.05
+	
+
+			}
+		}
+		MON_traditional_industry_2 = {
+			picture = SOV_third_five_year_plan_civilian
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.05
+				local_resources_factor = 0.1
+			}
+		}
+		MON_traditional_industry_3 = {
+			picture = SOV_third_five_year_plan_military
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.13
+				production_speed_buildings_factor = 0.08
+				local_resources_factor = 0.13
+				cic_construction_boost_factor = 0.1
+				industry_air_damage_factor = -0.15
+				conversion_cost_civ_to_mil_factor = -0.1
+
+			}
+		}
+		
+		MON_agricultural_culture = {
+			picture = POL_looming_peasants_strike
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.1
+				local_resources_factor = 0.18
+				cic_construction_boost_factor = 0.15
+				industry_air_damage_factor = -0.2
+				conversion_cost_civ_to_mil_factor = -0.15
+				global_building_slots = 1
+			}
+		}
+	MON_fed_troops = {
+		picture = generic_supply_line
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			unit_upkeep_attrition_factor = -0.25
+			attrition = -0.15
+			out_of_supply_factor = -0.05
+			special_forces_out_of_supply_factor = -0.1
+			local_supply_impact_factor = -0.15
+			local_non_core_supply_impact_factor = -0.1
+
+		}
+	}
+
+		MON_disease_education = {
+				picture = generic_research_bonus
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				sickness_chance = -0.45
+				research_speed_factor = 0.05
+				unit_upkeep_attrition_factor = -0.05
+				heat_attrition_factor = -0.20
+				winter_attrition_factor = -0.20
+				weekly_manpower = 50
+				local_non_core_manpower = 0.015
+			}	
+		}
+
+#modern
+	MON_modern_infrastructure ={
+		picture = ARG_invest_in_roads
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			production_speed_infrastructure_factor = 0.1
+			production_speed_rail_way_factor = 0.1
+			production_speed_supply_node_factor = 0.1
+			supply_node_range = 0.1
+			railway_gun_bombardment_factor = 0.15
+
+		}
+	}
+
+	MON_state_hospitals = {
+		picture = generic_research_bonus
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			sickness_chance = -0.5
+			unit_upkeep_attrition_factor = -0.15
+			heat_attrition_factor = -0.15
+			winter_attrition_factor = -0.15
+			weekly_manpower = 100
+			
+		}
+	}
+		MON_university = {
+			picture = jap_supremacy_of_will
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				research_speed_factor = 0.05
+			}
+		}
+	MON_modern_industry_1 = {
+			picture = SOV_third_five_year_plan
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		MON_modern_industry_2 = {
+			picture = SOV_third_five_year_plan_civilian
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.05
+				local_resources_factor = 0.05
+				
+
+
+			}
+		}
+		MON_modern_industry_3 = {
+			picture = SOV_third_five_year_plan_military
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.1
+				local_resources_factor = 0.1
+				cic_construction_boost_factor = 0.1
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+	
+
+			}
+		}
+
+		MON_centralized_industry1 = {
+		picture = man_five_year_plan_industry
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			consumer_goods_factor = -0.15
+			production_speed_buildings_factor = 0.12
+			local_resources_factor = 0.11
+			cic_construction_boost_factor = 0.11
+			industrial_capacity_factory = 0.08
+			industrial_capacity_dockyard = 0.07
+			conversion_cost_civ_to_mil_factor = -0.2
+			army_armor_attack_factor = 0.08
+			army_armor_defence_factor = 0.06
+			army_armor_speed_factor = 0.04
+		}
+	}
+	MON_centralized_industry2 = {
+		picture = man_five_year_plan_industry
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			consumer_goods_factor = -0.15
+			production_speed_buildings_factor = 0.12
+			local_resources_factor = 0.11
+			cic_construction_boost_factor = 0.11
+			industrial_capacity_factory = 0.08
+			industrial_capacity_dockyard = 0.07
+			conversion_cost_civ_to_mil_factor = -0.2
+			army_artillery_attack_factor = 0.08
+			army_artillery_defence_factor = 0.06
+		}
+	}
+	MON_centralized_industry3 = {
+		picture = man_five_year_plan_industry
+
+		allowed = {
+			original_tag = MON
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			consumer_goods_factor = -0.15
+			production_speed_buildings_factor = 0.12
+			local_resources_factor = 0.11
+			cic_construction_boost_factor = 0.11
+			industrial_capacity_factory = 0.08
+			industrial_capacity_dockyard = 0.07
+			conversion_cost_civ_to_mil_factor = -0.2
+			motorized_attack_factor = 0.08
+			motorized_defence_factor = 0.06
+			mechanized_attack_factor = 0.08
+			mechanized_defence_factor = 0.06
+		}
+	}	
+
+		MON_weakened_togrog = {
+			picture = ROM_king_carol_emptied_accounts
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = 0.1
+				conversion_cost_civ_to_mil_factor = 0.3
+				conversion_cost_mil_to_civ_factor = 0.3
+				industry_repair_factor = -0.1
+			}
+		}
+
+
+		MON_powerful_togrog = {
+			picture = tur_balkan_central_bank_wealthy_greece
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.15
+				industry_repair_factor = 0.1
+
+			}
+		}
+
+		MON_turkic_liberation = {
+			picture = SPR_international_brigades
+
+			allowed = {
+				original_tag = MON
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			targeted_modifier = {
+				tag = SOV    
+				attack_bonus_against = 0.08
+				defense_bonus_against = 0.08
+				breakthrough_bonus_against = 0.03
+			}
+			
+		}
+		
+		MON_invest_in_hunting = {
+
+			picture = generic_infantry_equipment_manufacturer_3
+
+			allowed = { original_tag = MON }
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+
+	}
+}
