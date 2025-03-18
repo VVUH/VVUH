@@ -4718,7 +4718,7 @@ focus = {
 		completion_reward = {
 			add_ideas = HOL_soviet_technical_teams
 
-			custom_effect_tooltip = HOL_unlocks_MIO_tt
+			
 		}
 	}
 
@@ -4778,7 +4778,7 @@ focus = {
 			}
 			add_ideas = HOL_french_military_mission
 
-			custom_effect_tooltip = HOL_unlocks_MIO_tt
+			
 
 		}
 	}
@@ -5195,7 +5195,7 @@ focus = {
 				name = FRA_orleanist_party
 			}
 
-			custom_effect_tooltip = HOL_unlocks_MIO_tt
+			
 
 		}
 	}
@@ -5220,7 +5220,7 @@ focus = {
 		completion_reward = {
 			add_ideas = HOL_a_belgium_monarch
 			
-			custom_effect_tooltip = HOL_unlocks_MIO_tt
+			
 		}
 	}
 
@@ -5260,7 +5260,7 @@ focus = {
 					}
 				}
 
-			custom_effect_tooltip = HOL_unlocks_MIO_tt
+			
 			}
 	}
 
