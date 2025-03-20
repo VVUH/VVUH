@@ -4,6 +4,96 @@
 
 add_namespace = news
 
+#Australia Demands Timor
+news_event = {
+	id = news.998
+	title = news.998.t
+	desc = news.998.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.998.a
+		trigger = {
+			NOT = {
+				TAG = POR
+				TAG = AST
+			}
+		}
+	}
+	option = {
+		name = news.998.b
+		trigger = { TAG = POR }
+	}
+	option = {
+		name = news.998.c
+		trigger = { TAG = AST }
+	}
+}
+
+#Australia takes new caladonia
+news_event = {
+	id = news.997
+	title = news.997.t
+	desc = news.997.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.997.a
+		trigger = {
+			NOT = {
+				TAG = FRA
+				TAG = AST
+			}
+		}
+	}
+	option = {
+		name = news.997.b
+		trigger = { TAG = FRA }
+	}
+	option = {
+		name = news.997.c
+		trigger = { TAG = AST }
+	}
+}
+
+#Sri Lanka Crisis
+news_event = {
+	id = news.999
+	title = news.999.t
+	desc = news.999.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.999.a
+		trigger = {
+			NOT = {
+				TAG = ENG
+				TAG = RAJ
+			}
+		}
+	}
+	option = {
+		name = news.999.b
+		trigger = { TAG = BRI }
+	}
+	option = {
+		name = news.999.c
+		trigger = { TAG = RAJ }
+	}
+}
+
 # Marco Polo Bridge I
 news_event = {
 	id = news.1
