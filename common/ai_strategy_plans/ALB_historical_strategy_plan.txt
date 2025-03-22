@@ -1,0 +1,41 @@
+ALB_historical = {
+	name = "Albanian historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ALB
+	}
+	enable = {
+	is_historical_focus_on = yes
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		ALB_albania_questions
+		ALB_For_Zog
+	}
+
+	research = {
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+

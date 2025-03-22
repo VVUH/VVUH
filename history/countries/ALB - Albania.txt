@@ -1,0 +1,114 @@
+﻿capital = 44
+
+OOB = "ALB_1936"
+
+set_technology = {
+	infantry_weapons = 1
+	tech_trucks = 1
+	tech_support = 1
+	tech_recon = 1
+}
+
+recruit_character = ALB_king_zog
+recruit_character = ALB_enver_hoxha
+recruit_character = ALB_xhemal_aranitasi
+recruit_character = ALB_tefik_mborja
+recruit_character = ALB_halil_nergutti
+recruit_character = ALB_ismael_ghaxa
+recruit_character = ALB_hajre_fetahu
+recruit_character = ALB_xhelal_mitrovica
+recruit_character = ALB_selim_moishiou
+recruit_character = ALB_kol_bibe_mirakaj
+recruit_character = ALB_qemal_komani
+recruit_character = ALB_prenk_pervizi
+recruit_character = ALB_alexander_mori
+recruit_character = ALB_aziz_sulejmani
+recruit_character = ALB_kristo_cajupi
+recruit_character = ALB_eqrem_libohova
+recruit_character = ALB_zuhdi_shabani
+recruit_character = ALB_rexhep
+recruit_character = ALB_hasan_begolli
+recruit_character = ALB_fiqri_dine
+recruit_character = ALB_midhat_frasheri
+recruit_character = ALB_jocelyn_percy
+recruit_character = ALB_Riza_Cerova
+recruit_character = ALB_Fan_Noli
+recruit_character = ALB_Mostafa_el_Nahas_Pasha
+recruit_character = ALB_Celadet_Ali_Bedirxan
+recruit_character = ALB_Said_Nursi
+recruit_character = ALB_Makram_Ebeid
+recruit_character = ALB_Ahmed_Hussein
+recruit_character = ALB_Rashid_Ali_al_Gaylani 
+recruit_character = ALB_Mohamed_Naguib
+recruit_character = ALB_Ihsan_Nuri 
+recruit_character = ALB_Ekrem_Cemilpasa
+recruit_character = ALB_Vahan_Papazian 
+recruit_character = ALB_Francesco_Jacomoni 
+recruit_character = ALB_wilhelm_of_wied
+recruit_character = ALB_Omer_Nishani
+recruit_character = ALB_Haxhi_Lleshi
+recruit_character = ALB_Mehmet_Shehu
+recruit_character = ALB_Nako_Spiru
+recruit_character = ALB_abaz_kupi
+recruit_character = ALB_muharrem_bajraktari
+recruit_character = ALB_mustafa_gjinishi
+recruit_character = ALB_ymer_dishnica
+recruit_character = ALB_liri_gega
+recruit_character = ALB_myslym_peza
+recruit_character = ALB_Gani_bey_Kryeziu
+recruit_character = ALB_baba_faja_mart
+recruit_character = ALB_ali_kelcyra
+recruit_character = ALB_safet_butka
+recruit_character = ALB_xhafer_deva
+recruit_character = ALB_xhem_hasa
+recruit_character = ALB_abas_ermenji
+recruit_character = ALB_spiro_moisiu
+recruit_character = ALB_thoma_orologa
+recruit_character = ALB_ollga_plumbi
+recruit_character = ALB_sejfulla_maleshova
+recruit_character = ALB_kostandin_boshnjaku
+recruit_character = ALB_mirash_ivanaj
+recruit_character = ALB_aziz_cami
+recruit_character = ALB_ndok_gjeloshi
+recruit_character = ALB_tuk_akova
+recruit_character = ALB_Mustafa_Merlika_Kruji
+recruit_character = ALB_riza_dani
+recruit_character = ALB_qazim_koculi
+recruit_character = ALB_haki_stermilli
+recruit_character = ALB_llazar_fundo
+recruit_character = ALB_arnaldo_azzi
+recruit_character = ALB_david_smiley
+recruit_character = ALB_billy_mcclean
+recruit_character = ALB_julian_amery
+recruit_character = ALB_qazim_mulleti
+recruit_character = ALB_sadik_rama
+recruit_character = ALB_ismet_kryeziu
+recruit_character = ALB_eshref_frasheri
+recruit_character = ALB_bedri_pejani
+recruit_character = ALB_fadil_hoxa
+
+
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	add_ideas = ALB_italian_officers
+	add_ideas = ALB_mandatory_service
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 2
+	fascism = 2
+	communism = 1
+	neutrality = 95
+}
+
+set_convoys = 5
+
