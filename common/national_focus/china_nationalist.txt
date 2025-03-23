@@ -1789,7 +1789,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_pick_a_fight_with_japan
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -2200,7 +2200,7 @@ focus_tree = {
 		relative_position_id = CHI_strengthen_the_center
 		prerequisite = { focus = CHI_strengthen_the_center focus = CHI_strengthen_the_left focus = CHI_strengthen_the_right }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
