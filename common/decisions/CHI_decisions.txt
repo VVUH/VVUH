@@ -1,6 +1,89 @@
 
 
 #Category only allowed for CHI
+CHI_war_of_resistance_cat = {
+	CHI_bolster_spirits = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.15
+		}
+
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 5
+		modifier = {
+			political_power_factor = -0.05
+		}
+
+		visible = {
+		}
+		complete_effect = {
+			add_war_support = 0.05
+		}
+		remove_effect = {
+			add_ideas = chinese_resistance
+		}
+	}
+	CHI_call_for_more_resistance = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.3
+		}
+
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 5
+		modifier = {
+			political_power_factor = -0.05
+		}
+
+		visible = {
+		}
+		complete_effect = {
+			add_war_support = 0.05
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = chinese_resistance
+				add_idea = chinese_resistance_2
+			}
+		}
+	}
+	CHI_every_man_will_fight = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.6
+		}
+
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		days_remove = 5
+		modifier = {
+			political_power_factor = -0.05
+		}
+
+		visible = {
+		}
+		complete_effect = {
+			add_war_support = 0.05
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = chinese_resistance_2
+				add_idea = chinese_resistance_3
+			}
+		}
+	}
+}
 CHI_deal_with_the_legation_cities_cat = {
 	CHI_prepare_for_hong_kong = {
 		icon = generic_prepare_civil_war
