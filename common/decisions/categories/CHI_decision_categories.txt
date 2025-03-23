@@ -1,3 +1,14 @@
+CHI_war_of_resistance_cat = {
+	icon = generic_independence
+	priority = 102
+	allowed = {
+		is_literally_china = yes
+	}
+	visible = {
+		always = yes
+	}
+}
+
 CHI_anti_imperialism = {
 	icon = generic_independence
 	allowed = {
