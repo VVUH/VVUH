@@ -1,0 +1,149 @@
+TIB_formables_cat = {
+    TIB_greater_tibet = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+			state = 757
+			state = 758
+			state = 322
+			state = 604
+            state = 755
+            state = 601 
+            state = 287 
+            state = 759
+            }
+		}
+		available = {
+			controls_state = 757
+			controls_state = 758
+			controls_state = 322
+			controls_state = 604
+            controls_state = 755
+            controls_state = 601 
+            controls_state = 287 
+            controls_state = 759
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = GTIB_unified
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			set_cosmetic_tag = GTIB_unified_tag
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = GTIB_unified
+                757 = { add_core_of = ROOT }
+                758 = { add_core_of = ROOT } 
+                322 = { add_core_of = ROOT }
+                287 = { add_core_of = ROOT }
+                759 = { add_core_of = ROOT }
+                604 = { add_core_of = ROOT }
+                755 = { add_core_of = ROOT }
+                601 = { add_core_of = ROOT }
+			}
+
+        }
+
+	}
+    
+}
+
+TIB_himfed_cat = {
+    TIB_himalayan_formable = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+			state = 324
+			state = 323
+            }
+		}
+		available = {
+            OR = {
+                ROOT = {
+			        controls_state = 324
+                }
+                324 = {OWNER = {is_puppet_of = ROOT}}
+            }
+            OR = {
+                ROOT = {
+			        controls_state = 323
+                }
+                323 = {OWNER = {is_puppet_of = ROOT}}
+            }
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = TIB_hima_form
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.1
+            add_war_support = 0.05
+			set_cosmetic_tag = TIB_hima
+            if = {
+				limit = {
+					NEP = {
+						is_subject_of = ROOT
+					}
+				}
+				
+				NEP = {
+					every_unit_leader = {
+						set_nationality = ROOT
+					}
+				}				
+				
+				annex_country = {
+					target = NEP
+					transfer_troops = yes
+				}
+			}
+            323 = { add_core_of = ROOT }
+
+            if = {
+				limit = {
+					BHU = {
+						is_subject_of = ROOT
+					}
+				}
+				
+				BHU = {
+					every_unit_leader = {
+						set_nationality = ROOT
+					}
+				}				
+				
+				annex_country = {
+					target = BHU
+					transfer_troops = yes
+				}
+			}
+            324 = { add_core_of = ROOT } 
+
+		    hidden_effect ={
+                set_global_flag = TIB_hima_form
+			}
+
+        }
+
+	}
+}

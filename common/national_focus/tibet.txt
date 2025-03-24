@@ -1,0 +1,369 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+focus_tree = {
+    id = Tibet_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			original_tag = TIB
+		}
+	}
+	
+	default = no
+
+	continuous_focus_position = { x = 50 y = 1500 }
+
+#historical 
+	focus = {
+		id = TIB_the_ratification_of_the_thirteenth
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		x = 2
+		y = 0
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+		mutually_exclusive = { focus = TIB_outside_influences}
+		available = {
+
+		}
+		
+
+		completion_reward = {
+            add_political_power = 150 
+            swap_ideas = {
+                remove_idea = TIB_young_dalai_lama
+                add_idea = TIB_young_dalai_lama_n
+            } 
+		}
+	}
+
+
+#ahistorical split
+	focus = {
+		id = TIB_outside_influences
+		icon = GFX_focus_GER_support_the_proletarian_uprising
+		x = 14
+		y = 0
+		cost = 5
+        relative_position_id = TIB_the_ratification_of_the_thirteenth
+		ai_will_do = {
+			factor = 1
+		}
+		mutually_exclusive = {focus = TIB_the_ratification_of_the_thirteenth}
+		available = {
+
+		}
+		
+
+		completion_reward = {
+            add_political_power = 150 
+            swap_ideas = {
+                remove_idea = TIB_tibet_class_system
+                add_idea = TIB_tibet_class_system2
+            } 
+		}
+	}
+#fascist
+	focus = {
+		id = TIB_young_leader_tutor
+		icon = GFX_focus_BRA_rio_protocol
+		x = -7
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_outside_influences}
+        relative_position_id = TIB_outside_influences
+		mutually_exclusive = { focus = TIB_whispers_among_the_downtrodden focus = TIB_legalize_the_tra}
+		available = {
+            fascism > 0.05
+		}
+		
+
+		completion_reward = {
+            add_political_power = 150 
+            swap_ideas = {
+                remove_idea = TIB_young_dalai_lama
+                add_idea = TIB_young_dalai_lama_f
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisors_tt
+            show_ideas_tooltip = TIB_heinrich_harrer
+            show_ideas_tooltip = TIB_peter_aufschnaiter
+            show_ideas_tooltip = TIB_ernst_krause
+		}
+	}
+
+#communist
+	focus = {
+		id = TIB_whispers_among_the_downtrodden
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		x = 7
+		y = 1
+		cost = 5
+        relative_position_id = TIB_outside_influences
+        prerequisite ={ focus = TIB_outside_influences }
+
+		ai_will_do = {
+			factor = 1
+		}
+		mutually_exclusive = { focus = TIB_young_leader_tutor focus = TIB_legalize_the_tra}
+		available = {
+            communism > 0.1
+		}
+
+		completion_reward = {
+            add_political_power = 150 
+            swap_ideas = {
+                remove_idea = TIB_tibet_class_system2
+                add_idea = TIB_tibet_class_system_c
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisor_tt
+            show_ideas_tooltip = TIB_phuntsok_angyal 
+		}
+	}
+
+	focus = {
+		id = TIB_arm_chinese_communists
+		icon = GFX_focus_GER_the_peoples_victory
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_whispers_among_the_downtrodden
+        mutually_exclusive = { focus = TIB_religious_equality}
+
+        prerequisite ={ focus = TIB_whispers_among_the_downtrodden }
+        prerequisite = {focus = TIB_welcome_refugee_flow}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		
+
+		completion_reward = {
+            add_popularity = {
+                ideology = communism
+                popularity = 0.1
+            } 
+            PRC = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = NZL_strengthen_ties
+				}
+			}
+            IF = {
+                LIMIT = {
+                    has_government = communism
+                }
+                #idk add manpower?
+            }ELSE = {
+                custom_effect_tooltip = TIB_armed_chinese_commies_tt
+            }
+		}
+	}
+#democratic
+    # The Chinese name (Chinese: 西藏革命黨; pinyin: Xīzàng Gémìngdǎng) means "Tibet Revolutionary Party".[2] In English, it is known as the Tibet Improvement Party or alternatively the Tibetan Progressive Party.[3][4] The Tibetan name (Tibetan: ནུབ་བོད་ལེགས་བཅོས་སྐྱིད་སྡུག, Wylie: nub-bod-legs-bcos-skyid-sdug) translates as "West Tibet Reform Association".  
+	focus = {
+		id = TIB_legalize_the_tra
+		icon = GFX_focus_chi_legislative_yuan
+		x = 0
+		y = 1
+		cost = 10
+        relative_position_id = TIB_outside_influences
+        prerequisite ={ focus = TIB_outside_influences}
+
+		ai_will_do = {
+			factor = 1
+		}
+		mutually_exclusive = { focus = TIB_whispers_among_the_downtrodden focus = TIB_young_leader_tutor}
+		available = {
+            democratic > 0.1
+		}
+		
+
+		completion_reward = {
+            add_political_power = 150 
+            swap_ideas = {
+                remove_idea = TIB_tibet_class_system
+                add_idea = TIB_tibet_class_system_d
+            } 
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisors_tt
+            show_ideas_tooltip = TIB_gendun_chopel
+            show_ideas_tooltip = TIB_canlocen
+            show_ideas_tooltip = TIB_thubten_kunphela
+
+		}
+	}
+
+	focus = {
+		id = TIB_stem_refugee_flow
+		icon = GFX_goal_fortify_the_westwall
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_internal_matters}
+        relative_position_id = TIB_internal_matters
+        mutually_exclusive = {focus = TIB_welcome_refugee_flow}
+
+		ai_will_do = {
+			factor = 9
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+            add_stability = 0.15
+            every_core_state = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+						level < 3
+					}
+				}
+            }
+		}
+	}
+    
+    focus = {
+		id = TIB_internal_matters
+		icon = GFX_SOV_annex_tannu_tuva_ccp_2d_sov_compatibility
+		x = 3
+		y = -1
+		cost = 5
+        relative_position_id = TIB_whispers_among_the_downtrodden
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            has_stability > 0.5
+		}
+		completion_reward = {
+            
+            swap_ideas = {
+                remove_idea = TIB_bureauccy
+                add_idea = TIB_bureaucracy1
+            }
+
+		}
+	}
+
+	focus = {
+		id = TIB_welcome_refugee_flow
+		icon = GFX_focus_generic_workers
+		x = -1
+		y = 1
+		cost = 5
+        mutually_exclusive = {focus = TIB_stem_refugee_flow}
+        relative_position_id = TIB_internal_matters
+        prerequisite = {focus = TIB_internal_matters}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			TIB = {has_war = no}
+			any_country = {
+				has_war = yes
+				capital_scope = {is_on_continent = asia}
+			}
+		}
+		completion_reward = {
+            add_stability = -0.15
+			custom_effect_tooltip = MON_war_refuge_tt
+			every_country = {
+				LIMIT = {
+					capital_scope = {   
+						is_on_continent = asia
+					}
+					has_war = yes
+				}
+				PREV = {
+					add_opinion_modifier = {
+						target = MON
+						modifier = JUNO_promoted_immigration
+					}
+				}
+				MON = {
+					add_manpower = 25000
+					random_core_state = {
+						add_manpower = 100000
+					}
+				}
+			}
+
+		}
+	}
+
+	focus = {
+		id = TIB_religious_equality
+		icon = GFX_goal_generic_national_unity
+		x = 2
+		y = 0
+		cost = 5
+        mutually_exclusive = {focus = TIB_bhuddist_supremacy focus = TIB_arm_chinese_communists}
+        relative_position_id = TIB_arm_chinese_communists
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite = {focus = TIB_welcome_refugee_flow focus = TIB_stem_refugee_flow }
+
+		available = {
+
+		}
+
+		completion_reward = {
+            add_stability = 0.1
+            remove_ideas = TIB_religious_minorities
+            remove_ideas = TIB_spiritual_society
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_ideas = TIB_equal_beliefs
+            custom_effect_tooltip = TIB_communist_danger_tt
+		}
+	}
+
+	focus = {
+		id = TIB_bhuddist_supremacy
+		icon = GFX_focus_ITA_guardia_nazionale_repubblicana
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_stem_refugee_flow}
+        mutually_exclusive = {focus = TIB_religious_equality}
+        relative_position_id = TIB_stem_refugee_flow
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+            add_stability = 0.05
+            remove_ideas = TIB_religious_minorities
+		}
+	}
+}

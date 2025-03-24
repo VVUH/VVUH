@@ -1,0 +1,16 @@
+TIB_formables_cat ={
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_generic
+
+}
+TIB_himfed_cat ={
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_SWI_imperial_council
+
+}

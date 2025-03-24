@@ -1,0 +1,484 @@
+ideas = {
+# initials;
+
+	country = {
+		TIB_young_dalai_lama = {
+
+			picture = YUG_peter_ii_young
+			
+			allowed = {
+				always = no
+			}
+
+			on_remove = {
+				add_stability = -0.1    
+			}
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			modifier = {
+				neutrality_drift = 0.05
+				trade_laws_cost_factor = 0.25
+				mobilization_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+			}
+		}
+		TIB_young_dalai_lama_n = {
+
+			picture = YUG_peter_ii_young
+			
+			allowed = {
+				always = no
+			}
+
+			on_remove = {
+				add_stability = -0.1    
+			}
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			modifier = {
+				neutrality_drift = 0.1
+				stability_factor = 0.1
+				trade_laws_cost_factor = 0.25
+				mobilization_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+			}
+		}
+		TIB_young_dalai_lama_f = {
+
+			picture = YUG_peter_ii_young
+			
+			allowed = {
+				always = no
+			}
+
+			on_remove = {
+				add_stability = -0.1    
+			}
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			modifier = {
+				neutrality_drift = 0.03
+				fascism_drift = 0.1
+				trade_laws_cost_factor = 0.25
+				mobilization_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+			}
+		}
+
+		TIB_spiritual_society = {
+
+			picture = ARG_social_welfare_fund_ns
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				neutrality_drift = 0.1
+				resistance_decay = 0.1
+				conscription = 0.02
+			}
+		}
+
+		TIB_religious_minorities = {
+
+			picture = raj_marginalized_muslim_community
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				war_support_factor = -0.1
+				conscription = -0.02
+			}
+		}
+
+		TIB_equal_beliefs = {
+			
+			picture = raj_marginalized_muslim_community
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.25
+				war_support_factor = 0.1
+				resistance_decay = 0.1
+				conscription = 0.03
+			}
+		}
+		TIB_bureaucracy = {
+
+			picture = tur_tdpa
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				mobilization_laws_cost_factor = 0.25
+				mobilization_speed = -0.5
+				consumer_goods_factor = 0.1
+			}
+		}
+
+		TIB_bureaucracy1 = {
+
+			picture = tur_tdpa
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				mobilization_laws_cost_factor = 0.2
+				mobilization_speed = -0.4
+				consumer_goods_factor = 0.08
+			}
+		}
+		TIB_tibet_class_system = {
+
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				stability_factor = -0.1
+				drift_defence_factor = -0.15
+				industrial_capacity_factory = -0.2
+			}
+		}
+
+		TIB_tibet_class_system2 = {
+
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				neutrality_drift = -0.1
+				stability_factor = -0.1
+				drift_defence_factor = -0.3
+				industrial_capacity_factory = -0.2
+			}
+		}
+
+		TIB_tibet_class_system_c = {
+
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.15
+				neutrality_drift = -0.15
+				stability_factor = -0.1
+				drift_defence_factor = -0.3
+				communism_drift = 0.1
+				industrial_capacity_factory = -0.2
+			}
+		}
+
+		TIB_tibet_class_system_d = {
+
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.15
+				neutrality_drift = -0.15
+				stability_factor = -0.1
+				drift_defence_factor = -0.3
+				democratic_drift = 0.1
+				industrial_capacity_factory = -0.2
+			}
+		}
+		TIB_tibetan_army1 = {
+
+			picture = chi_army_corruption
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				war_support_factor = -0.1
+				conscription = -0.02
+				industrial_capacity_factory = -0.2
+			}
+		}
+
+		TIB_tibetan_army2 = {
+
+			picture = chi_army_corruption2
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.15
+				war_support_factor = 0.05
+				conscription = 0.01
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		TIB_tibetan_army3 = {
+
+			picture = chi_army_corruption3
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.15
+				war_support_factor = 0.15
+				conscription = 0.03
+				industrial_capacity_factory = 0.1
+			}
+		}
+
+		TIB_village_militias = {
+			picture = citizen_militia_1
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				#todo
+			}	
+		}
+
+		TIB_state_militias = {
+			picture = citizen_militia_2
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				#todo - upgrade of above
+			}	
+		}
+
+	}
+	#por_hydroelectric_power <- (hydro)electric power? vs AFG_electrification reg
+
+	#prc_low_popular_support - prc_low_popular_support2 - prc_low_popular_support3
+
+	#raj_all_india_forward_bloc_communism free india as commie tibet 
+	#raj_all_india_forward_bloc_fascism conquer raj as fascist tibet
+
+	# hol_haven_of_tolerance <- work WITH CCP spirit 
+
+	#tur_kemalist_officers_disloyalty_effect <- officers disloyal tur_kemalist_officers_loyalty_effect <- officers fiercely loyal
+
+	#ARG_no_gods_no_masters anarchism 
+
+	#ARG_growing_nationalism_modifier nationalism or maybe greater tibet spirit 
+
+	#ARG_civilian_economy_boost civ economy boost 
+
+	# anti china tur_sectarian_troubles_fundamentalism - tur_sectarian_troubles_kurdistan anti raj - weaker anti both tur_sectarian_woes
+	
+		industrial_concern = {
+
+			TIB_state_infrastructure = {
+					
+				picture = FIN_outokumpu
+			
+				allowed = {
+					original_tag = TIB
+				}
+				available = { 
+					has_completed_focus = TIB_state_railways
+				}	
+
+				cost = 75			
+				
+				research_bonus = {
+					industry = 0.15
+				}
+				
+				traits = { linchpin_of_infrastructure }
+			}
+
+			TIB_petrol = {
+				
+				picture = CHL_ejercito_de_chile
+			
+				allowed = {
+					original_tag = TIB
+				}
+
+				available = { 
+				}
+
+				visible = {
+					#has_completed_focus = TIB_oil_achieved
+				}			
+
+				cost = 75
+				
+				research_bonus = {
+					synth_resources = 0.1
+					industry = 0.05
+				}
+				
+				traits = { refinery_concern }
+				
+				modifier = {
+					production_speed_synthetic_refinery_factor = 0.05
+				}
+			}
+
+			TIB_rigzin_dorje_ringang= {
+				
+				picture = JAP_mineichi_koga
+
+				
+				allowed = {
+					original_tag = TIB
+				}
+
+			
+				research_bonus = {
+					electronics = 0.1
+				}
+
+				cost = 100
+				
+				traits = { NOR_hydroelectric_company_trait }
+			}
+
+			TIB_khyenrab_kunzang_mondo= {
+				
+				picture = tur_kamil_tolon
+
+				
+				allowed = {
+					original_tag = TIB
+				}
+
+			
+				research_bonus = {
+					industry = 0.1
+				}
+
+				cost = 100
+				
+				traits = { mining_company }
+			}
+		}
+	
+}
