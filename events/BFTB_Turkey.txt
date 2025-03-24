@@ -2071,7 +2071,7 @@ country_event = {
 			modifier = {
 				has_opinion = {
 					target = FROM
-					value > 75
+					value > 25
 				}
 				factor = 2
 			}
@@ -2084,18 +2084,10 @@ country_event = {
 			}
 		}
 		effect_tooltip = {
-			IF = {
-				limit = { 455 = { is_owned_by = ROOT } }
 				TUR = { transfer_state = 455 }
-			}
-			IF = {
-				limit = { 454 = { is_owned_by = ROOT } }
 				TUR = { transfer_state = 454 }
-			}
-			IF = {
-				limit = { 453 = { is_owned_by = ROOT } }
 				TUR = { transfer_state = 453 }
-			}
+			
 		}
 		hidden_effect = {
 			TUR = {
@@ -2133,22 +2125,47 @@ country_event = {
 	option = {
 		name = bftb_turkey.45.a #we will not let them down
 		IF = {
-			limit = {
-				455 = { is_owned_by = FROM }
+			LIMIT = {
+				455 = { 
+					is_owned_by = FROM 				
+				}
 			}
 			transfer_state = 455
+		}ELSE = {
+			ROOT = {
+				annex_country = {
+					target = PAL
+					transfer_troops = yes
+				}
+			}
 		}
 		IF = {
-			limit = {
-				454 = { is_owned_by = FROM }
+			LIMIT = {
+				454 = { 
+					is_owned_by = FROM 				
+				}
 			}
 			transfer_state = 454
+		}ELSE = {
+			ROOT = {
+				annex_country = {
+					target = JOR
+					transfer_troops = yes
+				}
+			}
+		}
+			
 		}
 		IF = {
-			limit = {
-				453 = { is_owned_by = FROM }
+			LIMIT = {
+				453 = { 
+					is_owned_by = ENG 
+				}
 			}
-			transfer_state = 453
+			453 = {
+				transfer_state_to = TUR
+
+			}
 		}
 		custom_effect_tooltip = TUR_unlock_camelry_effect_tt
 		hidden_effect = { set_technology = { camelry = 1 } } 
@@ -2187,6 +2204,9 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
+		ai_chance = {
+			base = 10
+		}
 		name = bftb_turkey.47.a #we need the help!
 		effect_tooltip = {
 			TUR = {
@@ -2204,6 +2224,9 @@ country_event = {
 	}
 
 	option = {
+		ai_chance = {
+			base = 1
+		}
 		name = bftb_turkey.47.b #the Ottoman Empire collapsed for a reason
 		TUR = {
 			country_event = { id = bftb_turkey.49 hours = 8 }
@@ -2226,13 +2249,7 @@ country_event = {
 		transfer_state = 658
 		transfer_state = 765
 		transfer_state = 659
-		if = {
-			limit = {
-				NOT = { has_tech = camelry }
-			}
-			custom_effect_tooltip = TUR_unlock_camelry_effect_tt
-			hidden_effect = { set_technology = { camelry = 1 } } 
-		}
+
 	}
 }
 
@@ -4144,6 +4161,13 @@ country_event = {
 			}
 			TUR = { transfer_state = 799 }
 		}
+			TUR = {
+				annex_country = {
+					target = LEB
+					transfer_troops = yes
+				}
+			}
+		}
 	}
 	option = {
 		name = bftb_turkey.102.b #it is time to dismantle the Ottomans permanently this time...
@@ -5888,6 +5912,78 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = bftb_turkey.190
+	title = bftb_turkey.190.t
+	desc = bftb_turkey.190.desc
+	picture = GFX_report_event_generic_handshake
+
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 10
+				has_opinion = {
+					target = FROM
+					value > 49
+				}
+			}
+			modifier = {
+				factor = 1000
+				is_in_faction_with = TUR
+			}
+		}
+		name = bftb_turkey.190.a #so be it
+		TUR = {country_event = bftb_turkey.191}
+	}
+
+	option = {
+		ai_chance = {
+				base = 1
+			}
+		name = bftb_turkey.190.b #no
+		TUR = {country_event = bftb_turkey.192}
+	}
+}
+
+country_event = {
+	id = bftb_turkey.191
+	title = bftb_turkey.191.t
+	desc = bftb_turkey.191.desc
+	picture = GFX_report_event_tur_upheaval_celebration
+
+	is_triggered_only = yes
+	
+	option = {
+		name = bftb_turkey.191.a #so be it
+		TUR = {
+			puppet = FROM
+		}
+	}
+
+}
+country_event = {
+	id = bftb_turkey.192
+	title = bftb_turkey.192.t
+	desc = bftb_turkey.192.desc
+	picture = GFX_report_event_tur_military_affair
+
+	is_triggered_only = yes
+	
+	option = {
+		name = bftb_turkey.192.a #fuck that
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = FROM
+		}
+	}
+
+	option = {
+		name = bftb_turkey.192.b #fine
+	}
+}
 #Partner Bulgaria Hidden Event
 country_event = {
 	id = bftb_turkey.143
