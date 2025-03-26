@@ -34,7 +34,9 @@ focus_tree = {
 		}
 		mutually_exclusive = { focus = TIB_outside_influences}
 		available = {
-
+			CHI = {
+				has_opinion = { target = TIB value > 50 }
+			}
 		}
 		
 
@@ -66,7 +68,9 @@ focus_tree = {
 		
 
 		completion_reward = {
-            add_political_power = 150 
+			add_political_power = 150 
+			swap_ruler_traits = { remove = ICE_the_strict_regent add = HUN_the_regent_undermined }
+			custom_effect_tooltip = generic_skip_one_line_tt
             swap_ideas = {
                 remove_idea = TIB_tibet_class_system
                 add_idea = TIB_tibet_class_system2
@@ -93,6 +97,11 @@ focus_tree = {
 		
 
 		completion_reward = {
+			set_party_name = {
+				ideology = fascism
+				long_name = "National Tibet Movement"
+				name = "NTM"
+			}
             add_political_power = 150 
             swap_ideas = {
                 remove_idea = TIB_young_dalai_lama
@@ -110,7 +119,7 @@ focus_tree = {
 	focus = {
 		id = TIB_whispers_among_the_downtrodden
 		icon = GFX_focus_generic_workers_and_farmers_rise
-		x = 7
+		x = 8
 		y = 1
 		cost = 5
         relative_position_id = TIB_outside_influences
@@ -125,6 +134,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			set_party_name = {
+				ideology = communism
+				long_name = "Tibetan Communist Party"
+				name = "TCP"
+			}
             add_political_power = 150 
             swap_ideas = {
                 remove_idea = TIB_tibet_class_system2
@@ -132,13 +146,128 @@ focus_tree = {
             }
             custom_effect_tooltip = generic_skip_one_line_tt
             custom_effect_tooltip = MON_recruit_advisor_tt
-            show_ideas_tooltip = TIB_phuntsok_angyal 
+            show_ideas_tooltip = TIB_phuntsok_wangyal 
+			show_ideas_tooltip = TIB_ngawang_kesang
+		}
+	}
+	focus = {
+		id = TIB_secure_border
+		icon = GFX_SOV_the_means_to_wage_war_ccp_2d_sov_compatibility
+		prerequisite = { focus = TIB_whispers_among_the_downtrodden }
+		x = -3
+		y = 1
+		relative_position_id = TIB_whispers_among_the_downtrodden
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			SIK = {
+				has_civil_war = yes
+			}
+		}
+
+		completion_reward = {
+			every_other_country = {
+					limit = {
+						has_war_with = SIK
+					}
+					TIB = {
+						add_to_war = {
+							targeted_alliance = SIK
+							enemy = PREV
+							hostility_reason = asked_to_join
+						}
+					}
+			}
+		}
+	}
+	focus = {
+		id = TIB_request_support
+		icon = GFX_focus_AFG_defender_of_central_asia
+		prerequisite = { focus = TIB_whispers_among_the_downtrodden }
+		x = -1
+		y = 1
+		relative_position_id = TIB_whispers_among_the_downtrodden
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+		bypass = {
+			has_government = communism
+		}
+		available = {
+			NOT = {
+				has_government = communism
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+                ideology = communism
+                popularity = 0.05
+            } 
+			custom_effect_tooltip = TIB_support_of_local_commies_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_starting_commes_tt
+			hidden_effect = {
+				if = { 
+					limit = { 
+						country_exists = SOV
+						SOV = {
+							has_government = communism
+						}
+						SOV = { has_opinion = { target = MON value > 49 } } 
+					}
+					TIB = {
+						set_country_flag = TIB_communist_support_SOV
+					}
+				}
+				if = { 
+					limit = { 
+						country_exists = MON
+						MON = {
+							has_government = communism
+						}
+						MON = { has_opinion = { target = MON value > 49 } } 
+					}
+					TIB = {
+						set_country_flag = TIB_communist_support_MON
+					}
+				}
+				if = { 
+					limit = { 
+						country_exists = TAN
+						TAN = {
+							has_government = communism
+						}
+						TAN = { has_opinion = { target = MON value > 49 } } 
+					}
+					TIB = {
+						set_country_flag = TIB_communist_support_TAN
+					}
+				}
+				if = { 
+					limit = { 
+						country_exists = PRC
+						PRC = {
+							has_government = communism
+						}
+						PRC = { has_opinion = { target = MON value > 49 } } 
+					}
+					TIB = {
+						set_country_flag = TIB_communist_support_PRC
+					}
+				}	
+			}
 		}
 	}
 
 	focus = {
 		id = TIB_arm_chinese_communists
-		icon = GFX_focus_GER_the_peoples_victory
+		icon = GFX_focus_AFG_against_kabul
 		x = 1
 		y = 1
 		cost = 5
@@ -155,7 +284,6 @@ focus_tree = {
 
 		}
 		
-
 		completion_reward = {
             add_popularity = {
                 ideology = communism
@@ -177,6 +305,438 @@ focus_tree = {
             }
 		}
 	}
+
+	focus = {
+		id = TIB_spring_the_revolt
+		icon = GFX_focus_GER_the_peoples_victory
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_request_support
+
+        prerequisite ={ focus = TIB_request_support focus = TIB_arm_chinese_communists}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            communism > 0.2
+		}
+		
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = -0.1
+
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hidden_effect = {
+				retire_character = TIB_tsepon_shakabpa1
+				retire_character = TIB_trimon_shap
+				#retire non-commies
+
+
+			}
+			kill_ideology_leader = neutrality
+			start_civil_war = {
+				ruling_party = communism
+
+				ideology = neutrality
+
+				size = 0.45
+				capital = 758
+				states = {
+					758
+					322
+				}
+				keep_political_leader = yes
+				keep_political_party_members = yes
+			}
+
+
+
+			if = {
+				limit = {
+					has_completed_focus = TIB_request_support
+				}
+				division_template = {
+					name = "Communist Volunteers"		
+					priority = 0
+					template_counter = 14
+					regiments = {
+						infantry  = { x = 0 y = 0 }
+						infantry  = { x = 0 y = 1 }
+						infantry  = { x = 1 y = 0 }
+						infantry  = { x = 1 y = 1 }
+						infantry  = { x = 0 y = 2 }
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				hidden_effect = {
+					IF = {
+						LIMIT = {
+							TIB = {
+								has_country_flag = TIB_communist_support_SOV
+							}
+						}
+					
+						capital_scope = {
+							create_unit = {
+								division = "division_template =\"Communist Volunteers\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+								owner = TIB
+								count = 2
+							}
+						}
+					}
+					IF = {
+						LIMIT = {
+							TIB = {
+								has_country_flag = TIB_communist_support_MON
+							}
+						}
+					
+						capital_scope = {
+							create_unit = {
+								division = "division_template =\"Communist Volunteers\" start_experience_factor = 0.6 start_equipment_factor = 1.0"
+								owner = TIB
+								count = 2
+							}
+						}
+					}
+					IF = {
+						LIMIT = {
+							TIB = {
+								has_country_flag = TIB_communist_support_TAN
+							}
+						}
+					
+						capital_scope = {
+							create_unit = {
+								division = "division_template =\"Communist Volunteers\" start_experience_factor = 0.6 start_equipment_factor = 1.0"
+								owner = TIB
+								count = 2
+							}
+						}
+					}
+					IF = {
+						LIMIT = {
+							TIB = {
+								has_country_flag = TIB_communist_support_PRC
+							}
+						}
+					
+						capital_scope = {
+							create_unit = {
+								division = "division_template =\"Communist Volunteers\" start_experience_factor = 0.6 start_equipment_factor = 1.0"
+								owner = TIB
+								count = 2
+							}
+						}
+					}
+				}
+				custom_effect_tooltip = TIB_two_div_per_flag
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
+
+			IF = {
+				LIMIT = {
+					has_completed_focus = TIB_request_support
+				}
+				IF = {
+					LIMIT = {
+						NOT = {MON = { has_war = yes }}
+						NOT = {MON = {has_capitulated = yes}}
+						TIB = {
+							has_country_flag = TIB_communist_support_MON
+						}
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 1000
+							producer = MON
+					}
+				}
+				IF = {
+					LIMIT = {
+						AND = {
+							NOT = {SOV = { has_war = yes }}
+							NOT = {SOV = {has_capitulated = yes}}
+							TIB = {
+								has_country_flag = TIB_communist_support_SOV
+							}
+						}
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 1000
+							producer = SOV
+					}
+				}
+				IF = {
+					LIMIT = {
+						NOT = {PRC = { has_war = yes }}
+						NOT = {PRC = {has_capitulated = yes}}
+						TIB = {
+							has_country_flag = TIB_communist_support_PRC
+						}
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 1000
+							producer = PRC
+					}
+				}
+				IF = {
+					LIMIT = {
+						NOT = {SIK = { has_war = yes }}
+						NOT = {SIK = {has_capitulated = yes}}
+						TIB = {
+							has_country_flag = TIB_communist_support_SIK
+						}
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 1000
+							producer = SIK
+					}
+				}			
+			}
+
+		}
+	}
+	
+	focus = {
+		id = TIB_the_fight_against_imperialism
+		icon = GFX_focus_GER_strike_at_the_rising_sun
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_request_support
+
+        prerequisite ={ focus = TIB_request_support}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            communism > 0.3
+			PRC = {
+				has_war = yes
+			}
+		}
+		
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					PRC = {
+						has_war = yes
+					}	
+				}
+				add_to_war = {
+					targeted_alliance = PRC
+					enemy = every_enemy_country	
+					hostility_reason = asked_to_join
+				}
+			}ELSE={
+				custom_effect_tooltip = TIB_join_prc_war_tt
+			}
+
+		}
+	}
+	#Turn Drapchi into a prison
+	focus = {
+		id = TIB_cultural_revolution
+		icon = GFX_focus_NOR_moscows_education_centers
+		x = 1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_spring_the_revolt
+
+        prerequisite ={ focus = TIB_spring_the_revolt }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_civil_war = no
+		}
+		
+		completion_reward = {
+			add_stability = -0.1
+            add_popularity = {
+                ideology = communism
+                popularity = 0.1
+            } 
+			IF = {
+				LIMIT = {
+					has_idea = TIB_spiritual_society
+				}
+				remove_idea = TIB_spiritual_society
+			}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy
+				}
+				remove_idea = TIB_bureaucracy
+			}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy1
+				}
+				remove_idea = TIB_bureaucracy1
+			}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_religious_minorities
+				}
+				remove_idea = TIB_religious_minorities
+			}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_religious_equality
+				}
+				remove_idea = TIB_religious_equality
+				set_global_flag = TIB_you_fucked_up_tt
+				mark_focus_tree_layout_dirty = yes
+			}
+			swap_ideas = {
+				remove_idea = TIB_tibet_class_system_c
+				add_idea = TIB_tibet_empowered_class_system_c
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_idea = TIB_spiritual_society_fanatic
+					}
+				}
+				set_cosmetic_tag = TIB_unmonastic_commune			
+			}
+  
+		}
+	}
+	
+	focus = {
+		id = TIB_establish_red_guard
+		icon = GFX_focus_AFG_royal_guard
+		x = -1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_spring_the_revolt
+
+        prerequisite ={ focus = TIB_spring_the_revolt }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_civil_war = no
+		}
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = TIB_infiltrate_red_guard
+		icon = GFX_SOV_an_adaptable_army_ccp_2d_sov_compatibility
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_establish_red_guard
+
+        prerequisite ={ focus = TIB_establish_red_guard }
+		mutually_exclusive = {focus = TIB_cast_down_our_neighbours}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_civil_war = no
+		}
+		
+		completion_reward = {
+			NEP = {
+				add_timed_idea = { idea = communist_influence days = 730 }
+			}
+			BHU = {
+				add_timed_idea = { idea = communist_influence days = 730 }
+			}
+			XSM = {
+				add_timed_idea = { idea = communist_influence days = 730 }
+			}
+			AFG = {
+				add_timed_idea = { idea = communist_influence days = 730 }
+			}
+			custom_effect_tooltip = TIB_unlock_decisions_to_turn_others_commie_tt
+		}
+	}
+		focus = {
+		id = TIB_cast_down_our_neighbours
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_establish_red_guard
+
+        prerequisite ={ focus = TIB_establish_red_guard }
+		mutually_exclusive = {focus = TIB_infiltrate_red_guard}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_civil_war = no
+		}
+		
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = NEP
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = BHU
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = XSM
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SIK
+			}
+		}
+	}
+#anarchist
+	focus = {
+		id = TIB_the_uprising
+		icon = GFX_focus_spr_crush_the_revolution
+		x = 0
+		y = 3
+		cost = 1
+        relative_position_id = TIB_religious_equality
+
+        prerequisite ={ focus = TIB_religious_equality }
+        prerequisite ={ focus = TIB_cultural_revolution }
+		#allow_branch = {
+			#has_global_flag = TIB_you_fucked_up_tt
+		#}
+
+		available = {
+			has_global_flag = TIB_you_fucked_up_tt	
+		}
+		visible = {
+			has_global_flag = TIB_you_fucked_up_tt		
+		}
+		
+		completion_reward = {
+			#WIP
+		}
+	}
 #democratic
     # The Chinese name (Chinese: 西藏革命黨; pinyin: Xīzàng Gémìngdǎng) means "Tibet Revolutionary Party".[2] In English, it is known as the Tibet Improvement Party or alternatively the Tibetan Progressive Party.[3][4] The Tibetan name (Tibetan: ནུབ་བོད་ལེགས་བཅོས་སྐྱིད་སྡུག, Wylie: nub-bod-legs-bcos-skyid-sdug) translates as "West Tibet Reform Association".  
 	focus = {
@@ -184,7 +744,7 @@ focus_tree = {
 		icon = GFX_focus_chi_legislative_yuan
 		x = 0
 		y = 1
-		cost = 10
+		cost = 5
         relative_position_id = TIB_outside_influences
         prerequisite ={ focus = TIB_outside_influences}
 
@@ -198,6 +758,11 @@ focus_tree = {
 		
 
 		completion_reward = {
+			set_party_name = {
+				ideology = democratic
+				long_name = "Tibet Reform Association"
+				name =  "Tibet Reform Association"
+			}
             add_political_power = 150 
             swap_ideas = {
                 remove_idea = TIB_tibet_class_system
@@ -211,7 +776,165 @@ focus_tree = {
 
 		}
 	}
+	focus = {
+		id = TIB_forward_guard_operations
+		prerequisite = { focus = TIB_legalize_the_tra}
+		relative_position_id = TIB_legalize_the_tra
 
+		icon = GFX_SOV_the_last_break_southward_ccp_2d_sov_compatibility
+		x = 3
+		y = 1
+		cost = 3
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			SIK = {
+				has_civil_war = yes
+			}
+		}
+		
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_war_support = 0.05
+			#add_ideas = TIB_volunteer to do 
+
+		}
+	}
+
+	focus = {
+		id = TIB_influence_dalai_lama_d
+		icon = GFX_focus_chi_legislative_yuan
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_legalize_the_tra
+        prerequisite ={ focus = TIB_legalize_the_tra}
+
+		ai_will_do = {
+			factor = 1
+		}
+		mutually_exclusive = { focus = TIB_agitate_for_republicanism}
+		available = {
+            democratic > 0.15
+		}
+		
+
+		completion_reward = {
+			remove_idea=TIB_young_dalai_lama
+			activate_advisor = TIB_dalai_lama_d
+		}
+	}
+	focus = {
+		id = TIB_agitate_for_republicanism
+		icon = GFX_focus_chi_legislative_yuan
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_legalize_the_tra
+        prerequisite ={ focus = TIB_legalize_the_tra}
+
+		ai_will_do = {
+			factor = 1
+		}
+		mutually_exclusive = { focus = TIB_influence_dalai_lama_d}
+		available = {
+            democratic > 0.15
+		}
+		
+
+		completion_reward = {
+
+
+		}
+	}
+	focus = {
+		id = TIB_the_fight_against_fascism
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_agitate_for_republicanism
+
+        prerequisite ={ focus = TIB_agitate_for_republicanism}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            democratic > 0.3
+			CHI = {
+				has_war = yes
+			}
+		}
+		
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					CHI = {
+						has_war = yes
+					}	
+				}
+				add_to_war = {
+					targeted_alliance = CHI
+					enemy = every_enemy_country	
+					hostility_reason = asked_to_join
+				}
+			}ELSE={
+				custom_effect_tooltip = TIB_join_CHI_war_tt
+			}
+
+		}
+	}
+
+# commie - demo
+	focus = {
+		id = TIB_request_compensation
+		icon = GFX_focus_generic_concessions
+		x = 2
+		y = 1
+		cost = 5
+        relative_position_id = TIB_the_fight_against_fascism
+
+        prerequisite ={ focus = TIB_the_fight_against_fascism focus = TIB_the_fight_against_imperialism} 
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		completion_reward = {
+			
+
+		}
+	}
+	focus = {
+		id = TIB_a_safe_northern_border
+		icon = GFX_focus_SWE_refuge_from_war
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_secure_border
+
+        prerequisite ={ focus = TIB_secure_border focus = TIB_forward_guard_operations} 
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		
+		completion_reward = {
+			
+
+		}
+	}
+# other political path
 	focus = {
 		id = TIB_stem_refugee_flow
 		icon = GFX_goal_fortify_the_westwall
@@ -263,7 +986,7 @@ focus_tree = {
 		completion_reward = {
             
             swap_ideas = {
-                remove_idea = TIB_bureauccy
+                remove_idea = TIB_bureaucracy
                 add_idea = TIB_bureaucracy1
             }
 
@@ -331,7 +1054,9 @@ focus_tree = {
         prerequisite = {focus = TIB_welcome_refugee_flow focus = TIB_stem_refugee_flow }
 
 		available = {
-
+			NOT = {
+				has_government = neutrality
+			}
 		}
 
 		completion_reward = {
@@ -341,6 +1066,8 @@ focus_tree = {
             custom_effect_tooltip = generic_skip_one_line_tt
             add_ideas = TIB_equal_beliefs
             custom_effect_tooltip = TIB_communist_danger_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = TIB_integrate_religious_minorities
 		}
 	}
 
@@ -358,12 +1085,21 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
-
+			OR = {
+				has_completed_focus = TIB_influence_dalai_lama_d
+				has_government = neutrality
+			}
 		}
 
 		completion_reward = {
             add_stability = 0.05
+
             remove_ideas = TIB_religious_minorities
+
+			swap_ideas = {
+                remove_idea = TIB_spiritual_society
+                add_idea = TIB_spiritual_society_fanatic
+            }
 		}
 	}
 }

@@ -1,4 +1,5 @@
 characters={
+#vanilla
 	TIB_jamphel_yeshe_gyaltsen={
 		name="Jamphel Yeshe Gyaltsen"
 		portraits={
@@ -8,7 +9,7 @@ characters={
 		}
 		country_leader={
 			ideology=despotism
-			traits={ HUN_the_regent_undermined }
+			traits={ ICE_the_strict_regent} #later gets NOR_shrewd_regent if upgraded
 			expire="1965.1.1.1"
 			id=-1
 		}
@@ -70,7 +71,7 @@ characters={
 					military_theorist
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Gyato Wangdu"
 		portraits={
 			army={
@@ -95,7 +96,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Bapa Yeshe"
 		portraits={
 			army={
@@ -118,7 +119,7 @@ characters={
 					air_warfare_theorist
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Sampo Tsewang Rigzin"
 		portraits={
 			army={
@@ -141,7 +142,7 @@ characters={
 					naval_theorist
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Chama Samphe"
 		portraits={
 			army={
@@ -166,7 +167,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Lhalu Tsewang Dorje"
 		portraits={
 			army={
@@ -191,7 +192,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Chodak Karma"
 		portraits={
 			army={
@@ -217,7 +218,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Tenpa Jamyang"
 		portraits={
 			army={
@@ -242,7 +243,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Sogyal Rinpoche"
 		portraits={
 			army={
@@ -267,7 +268,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Bapa Yeshe"
 		portraits={
 			army={
@@ -292,7 +293,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Jampal Rabgyé Rinpoche"
 		portraits={
 			army={
@@ -318,7 +319,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Chaghoe Namgyal Dorje"
 		portraits={
 			army={
@@ -344,7 +345,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Jamyang Rabten"
 		portraits={
 			army={
@@ -370,7 +371,7 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Khemey Sonam Wangdi"
 		portraits={
 			army={
@@ -389,7 +390,7 @@ characters={
 					war_industrialist 
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Jigme Taring"
 		portraits={
 			army={
@@ -408,7 +409,7 @@ characters={
 					compassionate_gentleman 
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Reting Rimpoche"
 		portraits={
 			army={
@@ -430,7 +431,7 @@ characters={
 					factor  = 0.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+ # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Taktra Rinpoche"
 		portraits={
 			army={
@@ -540,10 +541,10 @@ characters={
 			slot = political_advisor
 			idea_token = TIB_ishikawa_sanshiro
 			available = {
-				has_country_flag = TIB_anarchist_side_taken
+				has_completed_focus = TIB_the_uprising
 			}
 			visible = {
-				has_country_flag = TIB_anarchist_side_taken
+				has_completed_focus = TIB_the_uprising
 			}
 			allowed  = {
 					original_tag  = TIB
@@ -566,10 +567,10 @@ characters={
 			slot = political_advisor
 			idea_token = TIB_jiang_kanghu
 			available = {
-				has_country_flag = TIB_anarchist_side_taken
+				has_completed_focus = TIB_the_uprising
 			}
 			visible = {
-				has_country_flag = TIB_anarchist_side_taken
+				has_completed_focus = TIB_the_uprising
 			}
 			allowed  = {
 					original_tag  = TIB
@@ -598,10 +599,10 @@ characters={
 					international_anarchist 
 				}
 			available = {
-				has_country_flag = TIB_anarchist_side_taken
+				has_completed_focus = TIB_the_uprising
 			}
 			visible = {
-				has_country_flag = TIB_anarchist_side_taken
+				has_completed_focus = TIB_the_uprising
 			}
 
 		}
@@ -623,10 +624,10 @@ characters={
 
 		advisor = {
 			available = {
-				has_country_flag = TIB_anarchist_side_taken
+				has_completed_focus = TIB_the_uprising
 			}
 			visible = {
-				has_country_flag = TIB_anarchist_side_taken
+				has_completed_focus = TIB_the_uprising
 			}
 			idea_token = TIB_anarchist_council
 			slot = political_advisor
@@ -637,19 +638,62 @@ characters={
 	}
 
 # communist advisors
-	TIB_phuntsok_angyal ={
+	TIB_tian_guansan={
+		name= "Tian Guansan"
+		portraits={
+			civilian = {
+				large = GFX_portrait_CHI_wei_lihuang
+				small=GFX_idea_CHI_wei_lihuang
+			}
+			army={
+				small=GFX_idea_CHI_wei_lihuang
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = TIB_tian_guansan
+			cost = 75
+			visible = {
+				has_completed_focus = TIB_spring_the_revolt # change later
+			}
+			allowed = {
+				original_tag = TIB
+			}
+			traits = {
+				red_army_organizer
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer trait_SPR_stalinist_loyalties}
+			available = {
+				has_completed_focus = TIB_spring_the_revolt
+			}
+			visible = {
+				has_completed_focus = TIB_spring_the_revolt
+			}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 3
+			legacy_id = 0
+
+		}
+	}
+
+	TIB_phuntsok_wangyal ={
 		advisor={
 			slot = political_advisor
-			idea_token = TIB_phuntsok_angyal
-			allowed  = {
-					original_tag  = TIB
-				}
+			idea_token = TIB_phuntsok_wangyal
 			available = {
-				has_completed_focus = TIB_whispers_among_the_downtrodden
+				has_government = communism
 			}
 			visible = {
 				has_completed_focus = TIB_whispers_among_the_downtrodden
 			}
+			allowed  = {
+					original_tag  = TIB
+				}
 				traits  = {
 					ARG_communist_insurrectionist 
 				}
@@ -733,6 +777,7 @@ characters={
 				traits  = {
 					silver_tongue
 				}
+				available = {
 					AND = {
 						ENG = {
 							has_opinion = {
@@ -746,6 +791,7 @@ characters={
 						}
 					
 					}
+				}
 		}
 		name="Basil"
 		portraits={
@@ -754,6 +800,7 @@ characters={
 			}
 		}
 	}
+
 
 
 # minor king india
@@ -846,6 +893,9 @@ characters={
 				traits  = {
 					partisans_organizer
 				}
+				available = {
+					has_government = neutrality
+				}
 		}
 		name="Gyalo Thondup"
 		portraits={
@@ -865,6 +915,9 @@ characters={
 				traits  = {
 					self_rule_activist
 				}
+				available = {
+					has_government = neutrality
+				}
 		}
 		name="Thubten Jigme Norbu"
 		portraits={
@@ -880,6 +933,9 @@ characters={
 			idea_token = TIB_gyurme_topgyal
 			allowed  = {
 					original_tag  = TIB
+				}
+				available = {
+					has_government = neutrality
 				}
 				traits  = {
 					minister_of_the_interior_abate
@@ -943,6 +999,28 @@ characters={
 		portraits={
 			civilian={
 				small=GFX_idea_CHI_du_yuming
+			}
+		}
+	}
+	TIB_dalai_lama_d ={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_dalai_lama_d
+			can_be_fired = no
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					spiritual_leader
+				}
+				visible = {
+					has_completed_focus = TIB_influence_dalai_lama_d
+				}
+		}
+		name="The Dalai Lama"
+		portraits={
+			civilian={
+				small=YUG_peter_ii_young
 			}
 		}
 	}
@@ -1079,6 +1157,7 @@ characters={
 			}
 		}
 	}
+
 # pol_the_sejm <- parliament?
 
 

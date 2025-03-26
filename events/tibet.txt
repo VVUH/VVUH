@@ -1,0 +1,403 @@
+add_namespace = TIBWhitePeace
+add_namespace = TIB_political_events
+#WIP
+country_event = {
+	id = TIBWhitePeace.1
+	title = TIBWhitePeace.1.t
+	desc = TIBWhitePeace.1.desc
+	picture = GFX_report_event_generic_read_write
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+    trigger = {
+        RAJ = {
+            has_capitulated = yes
+        }
+        TIB = {
+            has_stability > 0.1
+        }
+        original_tag = TIB
+    }
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	# Raj is lost
+	option = {
+		name = TIBWhitePeace.1.a
+        RAJ = {
+            all_allied_country = {
+                white_peace = TIB
+            }
+        }
+		
+	}
+	
+	#We fight on
+	option = {
+		name = TIBWhitePeace.1.b
+		ai_chance = {
+			base = 90
+		}
+	}
+
+}
+
+country_event = { #Tibet boosts communist sentiments
+	id = TIB_political_events.84
+	title = TIB_political_events.84.t
+	desc = TIB_political_events.84.desc
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes
+
+	option = { #fine by us
+		name = TIB_political_events.84.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 5
+				has_opinion = {
+					target = FROM
+					value > 50
+				}
+			}
+			modifier = {
+				factor = 3
+				communism > 0.3
+			}
+			
+		}
+		add_timed_idea = {
+			idea = TIB_Tibetan_communists_active
+			days = 365
+		}
+
+		add_stability = -0.05
+
+		set_country_flag = TIB_boosting_communism_here_flag
+
+		FROM = {
+			country_event = {
+				id = TIB_political_events.85
+				hours = 12
+			}
+		}	
+		
+	}
+
+	option = { #hell no
+		name = TIB_political_events.84.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 5
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+			}
+		}
+
+		add_political_power = -100
+
+		add_opinion_modifier = {
+			target = FROM
+			modifier = medium_decrease
+		}
+
+		FROM = {
+			country_event = {
+				id = TIB_political_events.86
+				hours = 12
+			}
+
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = AUS_political_events.84.b_tt
+		
+	}
+}
+
+country_event = { #Tibet is allowed to boost communism
+	id = TIB_political_events.85
+	title = TIB_political_events.85.t
+	desc = TIB_political_events.85.desc
+	picture = GFX_report_event_communist_leader
+	is_triggered_only = yes
+
+	option = { #great! we can move on with our plan
+		name = TIB_political_events.85.a
+		ai_chance = {
+			base = 10
+		}
+		custom_effect_tooltip = AUS_political_events.85.a_tt
+		
+
+	}
+}
+
+country_event = { #Tibet is not allowed to boost communism
+	id = TIB_political_events.86
+	title = TIB_political_events.86.t
+	desc = TIB_political_events.86.desc
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+
+	option = { #drats
+		name = TIB_political_events.86.a
+		ai_chance = {
+			base = 10
+			
+		}
+		effect_tooltip = {
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medium_decrease
+				}
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+
+		FROM = {
+			set_country_flag = TIB_this_country_refused_communism_flag
+		}
+		
+	}
+
+	option = { #then we declare war!
+		name = TIB_political_events.86.b
+		ai_chance = {
+			base = 10
+			modifier = { #only do this if you are strong!
+				factor = 0.5
+				is_ai = yes
+			}
+			modifier = {
+				factor = 3
+				strength_ratio = {
+					tag = FROM
+					ratio > 1.25
+				}
+			}
+		}
+
+		create_wargoal = {
+			type = topple_government
+			target = FROM
+		}
+
+		effect_tooltip = {
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medium_decrease
+				}
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+
+		FROM = {
+			set_country_flag = TIB_this_country_refused_communism_flag
+		}
+		
+	}
+}
+
+country_event = { #Tibet demands we become communist
+	id = TIB_political_events.87
+	title = TIB_political_events.87.t
+	desc = TIB_political_events.87.desc
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	option = { #I guess we do then?
+		name = TIB_political_events.87.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 3
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.75
+				}
+			}
+		}
+
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+			last_election = "1930.09.04"
+			election_frequency = 48
+		}
+
+		add_popularity = {
+			ideology = communism
+			popularity = 0.2
+		}
+
+
+		FROM = {
+			country_event = {
+				id = TIB_political_events.88
+				hours = 12
+			}
+		}
+
+	}
+
+	option = { #NO!
+		name = TIB_political_events.87.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 3
+				strength_ratio = {
+					tag = FROM
+					ratio > 1.25
+				}
+			}
+		}
+
+		FROM = {
+			country_event = {
+				id = TIB_political_events.89
+				hours = 12
+			}
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = AUS_political_events.84.b_tt
+
+	}
+}
+
+country_event = { #Tibet informed that their demands went through
+	id = TIB_political_events.88
+	title = TIB_political_events.88.t
+	desc = TIB_political_events.88.desc
+	picture = GFX_report_event_communists_cheer
+	is_triggered_only = yes
+
+	option = { #welocme comrades!
+		name = TIB_political_events.88.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+
+		add_political_power = 100
+	}
+}
+
+country_event = { #Tibet informed that their ultimatum was rejected
+	id = TIB_political_events.89
+	title = TIB_political_events.89.t
+	desc = TIB_political_events.89.desc
+	picture = GFX_report_event_worker_protests
+	is_triggered_only = yes
+
+	option = { #drats
+		name = TIB_political_events.89.a
+		ai_chance = {
+			base = 10
+		}
+	}
+
+	option = { #war it is!
+		name = TIB_political_events.89.b
+		ai_chance = {
+			base = 10
+		}
+
+		FROM = {
+			set_temp_variable = { TIB_FROM_communist_support = party_popularity@communism }
+
+			IF = {
+				limit = {
+					has_government = democratic
+				}
+
+				start_civil_war = {
+					ideology = communism
+					ruling_party = democratic
+					size = var:TIB_FROM_communist_support 
+					ROOT = {
+						puppet = {
+							target = PREV
+							end_wars = no
+							end_civil_wars = no
+						}
+						declare_war_on = {
+							target = FROM
+							type = puppet_wargoal_focus
+						}
+					}
+				}
+			}
+
+			ELSE_IF = {
+				limit = {
+					has_government = fascism
+				}
+				start_civil_war = {
+					ideology = communism
+					ruling_party = fascism
+					size = var:TIB_FROM_communist_support
+					ROOT = {
+						puppet = {
+							target = PREV
+							end_wars = no
+							end_civil_wars = no
+						}
+						declare_war_on = {
+							target = FROM
+							type = puppet_wargoal_focus
+						}
+					}
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_government = neutrality
+				}
+
+				start_civil_war = {
+					ideology = communism
+					ruling_party = neutrality
+					size = var:TIB_FROM_communist_support
+					ROOT = {
+						puppet = {
+							target = PREV
+							end_wars = no
+							end_civil_wars = no
+						}
+						declare_war_on = {
+							target = FROM
+							type = puppet_wargoal_focus
+						}
+					}
+				}
+			}
+		
+			custom_effect_tooltip = SWE_pull_the_trigger_tt
+		}
+	}
+}

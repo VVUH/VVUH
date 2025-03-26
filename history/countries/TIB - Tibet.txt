@@ -67,7 +67,8 @@ recruit_character = TIB_trimon_shap
 recruit_character = TIB_lhalu_dorje
 recruit_character = TIB_tsipon_lungshar
 recruit_character = TIB_wangdu_kyipup
-
+recruit_character = TIB_phuntsok_wangyal
+recruit_character = TIB_tian_guansan
 
 
 

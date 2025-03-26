@@ -1,4 +1,4 @@
-TIB_formables_cat ={
+TIB_formables_cat ={ #formable general always doable
     allowed = {
         tag = TIB
     }
@@ -6,11 +6,86 @@ TIB_formables_cat ={
     icon = GFX_decision_category_generic
 
 }
-TIB_himfed_cat ={
+TIB_himfed_cat ={ #formable category specific path
     allowed = {
         tag = TIB
     }
     priority = 5
     icon = GFX_decision_category_SWI_imperial_council
 
+}
+
+TIB_decs = { #general decisions
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_spr_the_seeds_of_revolution
+}
+
+# categories not yet in use 
+TIB_faith = { # state modifiers
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_SWI_presidential_office
+}
+
+TIB_border_wars = { #border wars with china xsm and sik 
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_border_war
+}
+
+TIB_democracies = { # make nepal and bhutan democratic, turn into puppets. 
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_democracy
+}
+
+TIB_neighboring_communism_category = { #unite with xinjiang, maybe mongolia and tanna tuva? Annex PRC if you border and become union of asian socialist republics
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_SOV_permanent_revolution
+}
+
+TIB_power = { #decisions on core to get +1 building slot up to 3 times per core province
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_prospect_for_resources
+}
+
+TIB_fortress_tibet = { #forts like italy
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_mountain_fortification
+}
+
+TIB_destabilize = {
+    # give a little bit of collab and gives flags that will allow you to peace out with allies if india
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_spr_political_assassination
+}
+
+TIB_collab_japan = {
+    # allow you to get NAP, military access with japan if both at war with china
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_jap_southern_expansion
 }
