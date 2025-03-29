@@ -69,8 +69,8 @@ recruit_character = TIB_tsipon_lungshar
 recruit_character = TIB_wangdu_kyipup
 recruit_character = TIB_phuntsok_wangyal
 recruit_character = TIB_tian_guansan
-
-
+recruit_character = TIB_pandatsang_rapga
+recruit_character = TIB_dalai_lama_d
 
 1939.1.1 = {
 

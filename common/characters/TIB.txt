@@ -457,6 +457,7 @@ characters={
 					OR = {
 						has_government = fascism
 						has_idea = TIB_young_dalai_lama_f
+						has_idea = TIB_young_dalai_lama_f_puppet
 					}
 					has_completed_focus = TIB_young_leader_tutor
 				}
@@ -488,6 +489,7 @@ characters={
 					OR = {
 						has_government = fascism
 						has_idea = TIB_young_dalai_lama_f
+						has_idea = TIB_young_dalai_lama_f_puppet
 					}
 					has_completed_focus = TIB_young_leader_tutor
 				}
@@ -518,6 +520,7 @@ characters={
 					OR = {
 						has_government = fascism
 						has_idea = TIB_young_dalai_lama_f
+						has_idea = TIB_young_dalai_lama_f_puppet
 					}
 					has_completed_focus = TIB_young_leader_tutor
 				}
@@ -638,11 +641,10 @@ characters={
 	}
 
 # communist advisors
-	TIB_tian_guansan={
+	TIB_tian_guansan={ # to do because his images dont line up
 		name= "Tian Guansan"
 		portraits={
 			civilian = {
-				large = GFX_portrait_CHI_wei_lihuang
 				small=GFX_idea_CHI_wei_lihuang
 			}
 			army={
@@ -752,7 +754,12 @@ characters={
 						}
 						}
 						OR = {
+							AND = {
 							has_government = neutrality
+							NOT = {
+								has_completed_focus = TIB_whispers_among_the_downtrodden
+							}
+							}
 							has_government = democratic
 						}
 					
@@ -786,7 +793,12 @@ characters={
 						}
 						}
 						OR = {
+							AND = {
 							has_government = neutrality
+							NOT = {
+								has_completed_focus = TIB_whispers_among_the_downtrodden
+							}
+							}
 							has_government = democratic
 						}
 					
@@ -843,9 +855,11 @@ characters={
 					original_tag  = TIB
 				}
 				visible = {
-					NOT = {
-						has_government = democratic
+					OR = {
+						has_completed_focus = TIB_effective_theocratic_government
+						has_completed_focus = TIB_align_nobility
 					}
+
 				}
 				traits  = {
 					noble_beurocrat
@@ -895,6 +909,12 @@ characters={
 				}
 				available = {
 					has_government = neutrality
+					has_completed_focus = TIB_advisors_to_the_dalai_lama
+				}
+				visible = {
+					NOT = {
+						has_completed_focus = TIB_outside_influences
+					}
 				}
 		}
 		name="Gyalo Thondup"
@@ -917,6 +937,12 @@ characters={
 				}
 				available = {
 					has_government = neutrality
+					has_completed_focus = TIB_advisors_to_the_dalai_lama
+				}
+				visible = {
+					NOT = {
+						has_completed_focus = TIB_outside_influences
+					}
 				}
 		}
 		name="Thubten Jigme Norbu"
@@ -936,6 +962,12 @@ characters={
 				}
 				available = {
 					has_government = neutrality
+					has_completed_focus = TIB_advisors_to_the_dalai_lama
+				}
+				visible = {
+					NOT = {
+						has_completed_focus = TIB_outside_influences
+					}
 				}
 				traits  = {
 					minister_of_the_interior_abate
@@ -1007,7 +1039,7 @@ characters={
 			slot = political_advisor
 			idea_token = TIB_dalai_lama_d
 			can_be_fired = no
-			allowed  = {
+				allowed  = {
 					original_tag  = TIB
 				}
 				traits  = {
@@ -1020,7 +1052,7 @@ characters={
 		name="The Dalai Lama"
 		portraits={
 			civilian={
-				small=YUG_peter_ii_young
+				small=GFX_idea_YUG_peter_ii_young
 			}
 		}
 	}

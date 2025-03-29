@@ -6,14 +6,6 @@ TIB_formables_cat ={ #formable general always doable
     icon = GFX_decision_category_generic
 
 }
-TIB_himfed_cat ={ #formable category specific path
-    allowed = {
-        tag = TIB
-    }
-    priority = 5
-    icon = GFX_decision_category_SWI_imperial_council
-
-}
 
 TIB_decs = { #general decisions
     allowed = {
@@ -21,6 +13,14 @@ TIB_decs = { #general decisions
     }
     priority = 5
     icon = GFX_decision_category_spr_the_seeds_of_revolution
+}
+
+TIB_border_wars = { #border wars with china xsm and sik 
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_border_war
 }
 
 # categories not yet in use 
@@ -32,13 +32,7 @@ TIB_faith = { # state modifiers
     icon = GFX_decision_category_SWI_presidential_office
 }
 
-TIB_border_wars = { #border wars with china xsm and sik 
-    allowed = {
-        tag = TIB
-    }
-    priority = 5
-    icon = GFX_decision_category_border_war
-}
+
 
 TIB_democracies = { # make nepal and bhutan democratic, turn into puppets. 
     allowed = {

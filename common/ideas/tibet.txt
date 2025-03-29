@@ -76,7 +76,30 @@ ideas = {
 				economy_cost_factor = 0.25
 			}
 		}
+		TIB_young_dalai_lama_f_puppet = {
 
+			picture = YUG_peter_ii_young
+			
+			allowed = {
+				always = no
+			}
+
+			on_remove = {
+				add_stability = -0.1    
+			}
+			removal_cost = -1
+
+			modifier = {
+				neutrality_drift = 0.01
+				fascism_drift = 0.15
+				trade_laws_cost_factor = -0.25
+				mobilization_laws_cost_factor = -0.25
+				economy_cost_factor = -0.25
+				army_leader_start_level = 1 
+				military_leader_cost_factor = -0.5 
+
+			}
+		}
 		TIB_spiritual_society = {
 
 			picture = ARG_social_welfare_fund_ns
@@ -221,7 +244,29 @@ ideas = {
 				industrial_capacity_factory = -0.2
 			}
 		}
+		TIB_tibet_class_system_pos = {
 
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.1
+				war_support_factor = 0.1
+				drift_defence_factor = 0.2
+				army_defence_factor = 0.1
+			}
+		}
 		TIB_tibet_class_system2 = {
 
 			picture = COG_the_invisible_roof
