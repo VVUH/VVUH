@@ -5,10 +5,36 @@ characters = {
 			civilian = {
 				large = GFX_portrait_King_Zog
 			}
+			army = {
+				large = GFX_portrait_king_zog
+				small = GFX_portrait_king_zog_small
+			}
+		}
+		field_marshal = {
+			traits = { infantry_officer war_hero }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
 		}
 		country_leader = {
 			ideology = despotism
-			traits = { king_of_albania }
+			traits = { king_of_albania great_survivor}
+			expire="1965.1.1.1"
+			id = -1
+		}
+	}
+	ALB_wilhelm_of_wied = {
+		name = ALB_wilhelm_of_wied
+		portraits = {
+			civilian = {
+				large = GFX_portrait_ALB_wilhelm_of_wied
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { skanderbeg_ii }
 			expire="1965.1.1.1"
 			id = -1
 		}
@@ -22,21 +48,36 @@ characters = {
 		}
 		country_leader = {
 			ideology = stalinism
-			traits = { staunch_stalinist }
+			traits = { staunch_stalinist fortification_engineer }
 			expire = "1965.1.1.1"
 			id = -1
 		}
 	}
-	ALB_eqrem_belishi={
-		name="Eqrem Belishi"
+	ALB_Riza_Cerova={
+		name="Riza Cerova"
 		portraits={
 			civilian={
-				large=GFX_portrait_Eqrem_Belishi
+				large= GFX_portrait_Eqrem_Belishi
 			}
 		}
 		country_leader={
-			ideology=socialism
-			expire="1941.1.1.12"
+			ideology= socialism
+			traits = {permanent_revolutionary}
+			expire="1965.1.1.12"
+			id=-1
+		}
+	}
+	ALB_Fan_Noli={
+		name="Fan Noli"
+		portraits={
+			civilian={
+				large= "GFX_portrait_SOV_patriarch_meletius"
+			}
+		}
+		country_leader={
+			ideology= conservatism
+			traits = {priestly_prime_minister}
+			expire="1965.1.1.12"
 			id=-1
 		}
 	}
@@ -51,6 +92,48 @@ characters = {
 		country_leader = {
 			ideology = fascism_ideology
 			traits = { BBA_ALB_fascist_lawyer }
+			expire = "1956.1.1.12"
+			id = -1
+		}
+	}
+	ALB_Mostafa_el_Nahas_Pasha = {
+		name = "Mostafa el-Nahas Pasha "
+		portraits = {
+			civilian = {
+				large = GFX_portrait_egy_faud_i
+			}
+		}
+		country_leader = {
+			ideology = gen_nazism	
+			traits = { modernizer_and_diplomat }
+			expire = "1956.1.1.12"
+			id = -1
+		}
+	}
+	ALB_Celadet_Ali_Bedirxan = {
+		name = "Celadet Alî Bedirxan"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_EGY_generic_land_2
+			}
+		}
+		country_leader = {
+			ideology = falangism	
+			traits = { rebellious_educator }
+			expire = "1956.1.1.12"
+			id = -1
+		}
+	}
+	ALB_Said_Nursi = {
+		name = "Said Nursî"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_SAU_generic_land_3
+			}
+		}
+		country_leader = {
+			ideology = rexism	
+			traits = { caliph ICE_revolutionary_educator }
 			expire = "1956.1.1.12"
 			id = -1
 		}
@@ -74,8 +157,6 @@ characters = {
 	}
 	ALB_halil_nergutti = {
 		advisor = {
-			
-			
 			slot = high_command
 			idea_token = ALB_halil_nergutti
 			ledger = navy
@@ -142,7 +223,7 @@ characters = {
 		name="Hajrë Fetahu"
 		portraits={
 			army={
-				small="GFX_idea_generic_political_advisor_arab_1"
+				small="GFX_idea_tur_ali_fethi_okyar"
 			}
 		}
 	}
@@ -165,12 +246,11 @@ characters = {
 		name="Xhelal Mitrovica"
 		portraits={
 			army={
-				small="GFX_idea_generic_air_arab_1"
+				small="GFX_idea_tur_halil_kut"
 			}
 		}
 	}
-	ALB_selim_moishiou={
-		advisor={
+	ALB_selim_moishiou={		advisor={
 			
 			
 			slot = high_command
@@ -191,14 +271,12 @@ characters = {
 		name="Selim Moishiou"
 		portraits={
 			army={
-				small="GFX_idea_generic_army_arab_1"
+				small="GFX_idea_tur_fevzi_cakmak"
 			}
 		}
 	}
 	ALB_kol_bibe_mirakaj={
 		advisor={
-			
-			
 			slot = army_chief
 			idea_token = ALB_kol_bibe_mirakaj
 			allowed = {
@@ -216,7 +294,7 @@ characters = {
 		name="Kol Bibë Mirakaj"
 		portraits={
 			army={
-				small="GFX_idea_generic_army_arab_2"
+				small="GFX_idea_tur_zeki_dogan"
 			}
 		}
 	}
@@ -239,7 +317,7 @@ characters = {
 		name="Qemal Komani"
 		portraits={
 			army={
-				small="GFX_idea_generic_army_arab_1"
+				small="GFX_idea_tur_ali_fuat_cebesoy"
 			}
 		}
 	}
@@ -296,8 +374,6 @@ characters = {
 	}
 	ALB_aziz_sulejmani={
 		advisor={
-			
-			
 			slot = air_chief
 			idea_token = ALB_aziz_sulejmani
 			allowed = {
@@ -315,7 +391,7 @@ characters = {
 		name="Aziz Sulejmani"
 		portraits={
 			army={
-				small="GFX_idea_generic_air_arab_2"
+				small="GFX_idea_tur_muzaffer_goksenin"
 			}
 		}
 	}
@@ -347,8 +423,7 @@ characters = {
 	}
 	ALB_eqrem_libohova={
 		advisor={
-			
-			
+			#air chief? WHY? body guard and italophile and idk monarchist puppet maybe	
 			slot = air_chief
 			idea_token = ALB_eqrem_libohova
 			allowed = {
@@ -366,7 +441,7 @@ characters = {
 		name="Eqrem Libohova"
 		portraits={
 			army={
-				small="GFX_idea_generic_air_arab_1"
+				small="GFX_idea_tur_adnan_menderes"
 			}
 		}
 	}
@@ -395,35 +470,9 @@ characters = {
 			}
 		}
 	}
-	ALB_rexhep_mitrovica={
-		advisor={
-			
-			
-			slot = navy_chief
-			idea_token = ALB_rexhep_mitrovica
-			allowed = {
-					original_tag = ALB
-				}
-				traits = {
-					navy_chief_naval_aviation_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="Rexhep Mitrovica"
-		portraits={
-			army={
-				small="GFX_idea_generic_navy_arab_2"
-			}
-		}
-	}
+
 	ALB_hasan_begolli={
 		advisor={
-			
-			
 			slot = navy_chief
 			idea_token = ALB_hasan_begolli
 			allowed = {
@@ -441,44 +490,32 @@ characters = {
 		name="Hasan Begolli"
 		portraits={
 			army={
-				small="GFX_idea_generic_navy_arab_1"
+				small="GFX_idea_tur_sukru_okan"
 			}
 		}
 	}
-	ALB_fiqri_dine={
-		advisor={
-			slot = political_advisor
-			idea_token = ALB_fiqri_dine
-			allowed  = {
-					original_tag  = ALB
-				}
-				traits  = {
-					war_industrialist 
-				}
-		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="Fiqri Dine"
-		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_arab_3"
-			}
-		}
-	}
+
 	ALB_midhat_frasheri={
 		advisor={
 			slot = political_advisor
 			idea_token = ALB_midhat_frasheri
 			allowed  = {
 					original_tag  = ALB
+					NOT = {
+						has_completed_focus = {ALB_For_the_june_revolution}
+						}
+						available = {
+							NOT = has_completed_focus = {ALB_For_the_june_revolution}
+						}
 				}
 				traits  = {
-					popular_figurehead 
+					GER_revolutionary_nationalist 
 				}
 		}
 # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Midhat Frashëri"
 		portraits={
-			army={
+			civilian={
 				small="GFX_idea_generic_political_advisor_arab_1"
 			}
 		}
@@ -497,9 +534,1115 @@ characters = {
 # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Jocelyn Percy"
 		portraits={
-			army={
+			civilian={
 				small="GFX_idea_generic_political_advisor_arab_2"
 			}
 		}
 	}
+	ALB_Makram_Ebeid={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Makram_Ebeid
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = { has_completed_focus = ALB_invite_egyption_exiles}
+				traits  = {
+					finansminister  
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Makram Ebeid "
+		portraits={
+			civilian={
+				small="GFX_idea_tur_kazim_ozalp"
+			}
+		}
+	}
+	ALB_Ahmed_Hussein ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Ahmed_Hussein
+			allowed  = {
+					original_tag  = ALB
+
+				}
+				available = {has_completed_focus = ALB_invite_egyption_exiles}
+				traits  = {
+					BBA_ALB_fascist_lawyer  
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ahmed Hussein"
+		portraits={
+			civilian={
+				small="GFX_portrait_FIN_karl_august_fagerholm_small"
+			}
+		}
+	}
+	ALB_Rashid_Ali_al_Gaylani ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Rashid_Ali_al_Gaylani
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = { has_completed_focus = ALB_invite_egyption_exiles}
+				traits  = {
+					SWE_minister_of_justice  
+					veteran_guerrilla_fighter 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Rashid Ali al-Gaylani"
+		portraits={
+			army={
+				small="GFX_idea_tur_hasan_saka"
+			}
+		}
+	}
+	ALB_Mohamed_Naguib={
+		advisor={
+			slot = army_chief
+			idea_token = ALB_Mohamed_Naguib
+			allowed = {
+					original_tag = ALB
+				}
+				available = { has_completed_focus = ALB_invite_egyption_exiles}
+				traits = {
+					army_chief_reform_3
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+				name="Mohamed Naguib"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_arab_2"
+			}
+		}
+	}
 }
+ALB_Ihsan_Nuri ={
+		advisor={
+			slot = high_command
+			idea_token = ALB_Ihsan_Nuri
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = { has_completed_focus = ALB_invite_ottoman_exiles}
+				traits  = {
+					SWI_commander_in_chief   
+				}
+			cost = 150
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ihsan Nuri"
+		portraits={
+			civilian={
+				small="GFX_idea_tur_salih_omurtak"
+			}
+		}
+	}
+	ALB_Ekrem_Cemilpasa ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Ekrem_Cemilpasa
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_invite_ottoman_exiles}
+				traits  = {
+					nationalist_journalist    
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ekrem Cemilpaşa"
+		portraits={
+			civilian={
+				small="GFX_idea_tur_mehmet_fahri_engin"
+			}
+		}
+	}
+ALB_Vahan_Papazian ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Vahan_Papazian
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_invite_ottoman_exiles}
+				traits  = {
+					ICE_progressive_doctor    
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Vahan Papazian"
+		portraits={
+			civilian={
+				small="GFX_idea_TUR_kazim_orbay"
+			}
+		}
+	}
+	ALB_Francesco_Jacomoni ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Francesco_Jacomoni
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_invite_italian_advisors}
+				traits  = {
+					ALB_minister_of_foreign_affairs    
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Francesco Jacomoni"
+		portraits={
+			civilian={
+				small="GFX_idea_tur_rauf_orbay"
+			}
+		}
+	}
+	ALB_Omer_Nishani ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Omer_Nishani
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+				traits  = {
+					our_right_to_survive    
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Omer Nishani"
+		portraits={
+			civilian={
+				small="GFX_idea_tur_nihal_atsiz"
+			}
+		}
+	}
+	ALB_Haxhi_Lleshi ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Haxhi_Lleshi
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+				traits  = {
+					BRA_minister_of_defense    
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Haxhi Lleshi"
+		portraits={
+			civilian={
+				small="GFX_idea_tur_celal_bayar"
+			}
+		}
+	}
+	ALB_Mehmet_Shehu ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Mehmet_Shehu
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+				traits  = {
+					red_army_organizer    
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Mehmet Shehu"
+		portraits={
+			civilian={
+				small="GFX_idea_tur_riza_nur"
+			}
+		}
+	}
+	ALB_Nako_Spiru ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_Nako_Spiru
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+				traits  = {
+					industry_reformer    
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Nako Spiru"
+		portraits={
+			civilian={
+				small="GFX_idea_generic_political_advisor_arab_3"
+			}
+		}
+	}
+
+	ALB_abaz_kupi ={
+		# anti communist soldier politician monarchist - gives facism and neutrality but is also one of the only democratic options so screw it
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_abaz_kupi
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_For_Zog}
+				traits  = {
+					SWI_pragmatic_democrat    
+				}
+		}
+		name="Abaz Kupi"
+		portraits={
+			civilian={
+				small="GFX_idea_generic_air_chief_all_weather_commonwealth_2d"
+			}
+		}
+	}
+
+	ALB_muharrem_bajraktari ={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_muharrem_bajraktari
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_muslim_revolution}
+				traits  = {
+					anti_communist militant_minister    
+				}
+		}
+		name="Muharrem Bajraktari"
+		portraits={
+			army={
+				small="GFX_idea_generic_fortification_engineer_western_european_2d"
+			}
+		}
+	}
+
+	ALB_muharrem_bajraktari = {
+	# muslim guerilla fighter against the axis
+		name="Muharrem Bajraktari"
+		portraits = {
+			army = {
+				small="GFX_idea_generic_air_arab_1"
+			}
+		}
+		corps_commander = {
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = -1
+			traits = { guerilla_fighter }
+		}
+	}
+
+	ALB_mustafa_gjinishi = {
+		#anti enver commie
+		name="Mustafa Gjinishi"
+		portraits = {
+			civilian = {
+				small=GFX_idea_tur_sefik_husnu
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_mustafa_gjinishi
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_no_i_need_to_be_faithful}
+				traits  = {
+					marxist_academic    
+				}
+		}
+	}
+	ALB_ymer_dishnica = {
+		#commie doc
+		name="Ymer Dishnica"
+		portraits = {
+			civilian = {
+				small=GFX_idea_tur_nazim_hikmet
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_ymer_dishnica
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+				traits  = {
+					JUNO_minister_of_public_health    
+				}
+		}
+	}
+
+	ALB_liri_gega = {
+		#commie resistance woman; murderer
+		name="Liri Gega"
+		portraits = {
+			civilian = {
+				small=GFX_idea_generic_political_advisor_female_europe
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_liri_gega
+			allowed  = {
+					original_tag  = ALB
+				}
+			available = {has_completed_focus = ALB_no_i_need_to_be_faithful}
+			traits  = {
+				BRA_militant_communist    
+			}
+		}
+	}
+
+	ALB_myslym_peza = {
+		#commie leader - chairman - whatever. Yugo spy
+		name="Myslym Peza"
+		portraits = {
+			civilian = {
+				small=GFX_idea_generic_navy_fleet_log_western_european_2d
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_myslym_peza
+			allowed  = {
+					original_tag  = ALB
+				}
+			available = {has_completed_focus = ALB_no_i_need_to_be_faithful}
+			traits  = {
+				prime_minister_husnu    
+			}
+		}
+	}
+
+	ALB_Gani_bey_Kryeziu = {
+		#anti commie resistance fighter
+		name="Gani Bey Kryeziu"
+		portraits = {
+			civilian = {
+				small=GFX_idea_generic_army_europe_6
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_myslym_peza
+			allowed  = {
+					original_tag  = ALB
+				}
+			available = {has_completed_focus = ALB_For_Zog}
+			traits  = {
+				anti_communist_crusader    
+			}
+		}
+	}
+	ALB_baba_faja_mart = {
+		#anti italian clerical sufi resistance fighter
+		name="Baba Faja Martaneshi"
+		portraits = {
+			civilian = {
+				small=GFX_idea_gre_father_dimistrios
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_baba_faja_mart
+			allowed  = {
+					original_tag  = ALB
+				}
+			available = {
+			OR = { 
+			has_completed_focus = ALB_Makeing_the_worker_class
+			has_completed_focus = ALB_invite_ottoman_exiles
+			}
+			}
+			traits  = {
+				GER_sword_of_islam_trait    
+			}
+		}
+	}
+# ------- start ballists --------
+# lord and a member of parliament
+	ALB_ali_kelcyra = {
+		#anti italian resistance fighter, one of founders
+		name="Ali Këlcyra"
+		portraits = {
+			civilian = {
+				small=GFX_idea_gre_father_dimistrios
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_ali_kelcyra
+			allowed  = {
+					original_tag  = ALB
+				}
+			available = {has_completed_focus = ALB_stick_to_the_constitution_of_1928}
+			traits  = {
+				staunch_aristocrat    
+			}
+		}
+	}
+	# professor, politician, nationalist and antifacist but also nationalist, later kills himself bc of distressed by potential civil war
+	ALB_safet_butka = {
+		name="Safet Butka"
+		portraits = {
+			civilian = {
+				small=GFX_idea_gre_dimitrios_oikonomou
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_ali_kelcyra
+			allowed  = {
+					original_tag  = ALB
+				}
+			available = {has_completed_focus = ALB_ridding_the_army_of_italian}
+			traits  = {
+				nationalist_symbol    
+			}
+		}
+	}
+
+	#fascist collaborator, recruited for ss 
+	ALB_xhafer_deva = {
+		name="Xhafer Deva"
+		portraits = {
+			civilian = {
+				small=GFX_idea_gre_aristotle_onassis
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_xhafer_deva
+			allowed = {
+					original_tag  = ALB
+				}
+			available = {has_completed_focus = ALB_prepare_for_war}
+			traits  = {
+				DEN_fascist_populist    
+			}
+		}
+	}
+
+	#used to be a naval chief made no sense, collaborator prime minister
+	ALB_rexhep = {
+		name="Rexhep Mitrovica"
+		portraits = {
+			civilian = {
+				small=GFX_idea_gre_ioannis_metaxas
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_rexhep
+			allowed  = {
+					original_tag  = ALB
+				}
+			available = {has_completed_focus = ALB_prepare_for_war}
+			traits  = {
+				eager_collaborator    
+			}
+		}
+	}
+	#collaborator general, famous.
+	ALB_xhem_hasa = {
+		name="Xhem Hasa"
+		portraits = {
+			army = {
+				small=GFX_idea_gre_ioannis_metaxas
+			}
+		}
+		corps_commander = {
+			skill = 3
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+			legacy_id = -1
+			traits = { guerilla_fighter }
+		}
+	}
+	ALB_fiqri_dine={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_fiqri_dine
+			allowed  = {
+					original_tag  = ALB
+				}
+				traits  = {
+					war_industrialist 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Fiqri Dine"
+		portraits={
+			civilian={
+				small= GFX_idea_tur_zeki_velidi_togan 
+			}
+		}
+	}
+
+	# ------- end ballists --------
+
+	#soc democrat nationalist anti monarchist anti communist
+	ALB_abas_ermenji={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_abas_ermenji
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_establish_elections}
+				traits  = {
+					resolute_social_democrat 
+				}
+		}
+		name="Abas Ermenji"
+		portraits={
+			civilian={
+				small=GFX_idea_generic_air_europe_3
+			}
+		}
+	}
+
+	# major general of the albanian national liberation army
+	ALB_spiro_moisiu = {
+		name = "Spiro Moisiu"
+		portraits = {
+			army = {
+				small = GFX_idea_RAJ_archibald_wavell
+			}
+		}
+		visible = {has_government = communism}
+		field_marshal = {
+			traits = { infantry_officer  }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+
+	#didnt want to agree with king of italy as king of albania, got arrested, been released and joined the ballists, member central committee, became minister of justice for a lil bit
+	ALB_thoma_orologa={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_thoma_orologa
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_independent_alb}
+				traits  = {
+					anti_communist
+					great_survivor
+				}
+		}
+		name="Thoma Orologa"
+		portraits={
+			civilian={
+				small=GFX_portrait_GEO_grigol_robakidze_small
+			}
+		}
+	}
+	#albanian feminist
+	ALB_ollga_plumbi={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_ollga_plumbi
+			allowed  = {
+					original_tag  = ALB
+				}
+				traits  = {
+					ARG_feminist_revolutionary
+				}
+		}
+		name="Ollga Plumbi"
+		portraits={
+			civilian={
+				small=GFX_portrait_generic_sami_army_general_1_small
+			}
+		}
+	}
+
+# writer, early commie. KONARE
+	ALB_sejfulla_maleshova={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_sejfulla_maleshova
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+				traits  = {
+					socialist_writer
+				}
+		}
+		name="Sejfulla Malëshova"
+		portraits={
+			civilian={
+				small=GFX_portrait_FIN_paavo_susitaival_civilian_small
+			}
+		}
+	}
+
+	#one of the only albanians to live through the october revolution, commie, banker, dipolomat
+	ALB_kostandin_boshnjaku={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_kostandin_boshnjaku
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+				traits  = {
+					ambitious_diplomat
+				}
+		}
+		name="Kostandin Boshnjaku"
+		portraits={
+			civilian={
+				small=GFX_idea_tur_elyesa_bazna
+			}
+		}
+	}
+	#reformed education in albania was minister but resigned bc no money for plans
+	ALB_mirash_ivanaj={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_mirash_ivanaj
+			allowed  = {
+					original_tag  = ALB
+				}
+				traits  = {
+					BRA_education_pioneer
+				}
+		}
+		name="Mirash Ivanaj"
+		portraits={
+			civilian={
+				small=GFX_idea_BUL_boris_iii
+			}
+		}
+	}
+
+# Do you want some brits? You could get some brits. Julian Amery, David Smiley and Neil 'billy' mcLean are all guerillas in albania, could be nice bonus generals or smth if democratic
+
+# army commander, HATES zogu, republican
+	ALB_aziz_cami = {
+		name="Aziz Çami"
+		portraits = {
+			army = {
+				small="GFX_idea_tur_izzettin_calislar"
+			}
+		}
+		visible = { NOT = {has_country_leader=ALB_king_zog}}
+		corps_commander = {
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 1
+			traits = { trait_BUL_zveno_member trait_cautious }
+		}
+	}
+
+#helped above try to shoot zogu, became militia commander and got killed by a commie activist, also a republican
+	ALB_ndok_gjeloshi = {
+		name="Ndok Gjeloshi"
+		portraits = {
+			army = {
+				small="GFX_idea_ENG_tom_moore"
+			}
+		}
+		visible = { AND = {NOT = {has_country_leader=ALB_king_zog} NOT = {has_government = communism}}}
+		corps_commander = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+			traits = { trait_BUL_zveno_member }
+		}
+	}
+# minister of finance, vp, ministor of interior...... commie.
+	ALB_tuk_akova={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_tuk_akova
+			allowed  = {
+					original_tag  = ALB
+				}
+				traits  = {
+					peoples_commissar_of_finance
+				}
+				available = {has_government = communism}
+		}
+		name="Tuk Jakova"
+		portraits={
+			civilian={
+				small=GFX_idea_tur_refe_bele
+			}
+		}
+	}
+	#YOUNG TURK ALERT, journalist, prime minister, hates zogu, also was the prime minister of albania as collobrator
+	ALB_Mustafa_Merlika_Kruji = {
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_tuk_akova
+			allowed  = {
+					original_tag  = ALB
+				}
+				traits  = {
+					NOR_compliant_politician
+				}
+				available = { has_completed_focus = ALB_invite_ottoman_exiles}
+		}
+		name="Mustafa Merlika-Kruja"
+		portraits={
+			civilian={
+				small=GFX_idea_tur_nejdet_sancar
+			}
+		}
+	}
+	#og albanian revolt vs otttos, commie, didnt like zogu but also not rly hoxhz
+	ALB_riza_dani={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_riza_dani
+			allowed  = {
+					original_tag  = ALB
+				}
+				traits  = {
+					HUN_revolutionary_internationalist_trait
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+		}
+		name="Riza Dani"
+		portraits={
+			civilian={
+				small=GFX_idea_tur_cemil_cahit_toydemir
+			}
+		}
+	}
+	#ottoman navy, refused to surrender to italians, commie? sort of? mostly anti zogu maybe
+		ALB_qazim_koculi={
+			navy_leader = {
+				traits = { gunnery_expert old_guard_navy bold }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 1
+				maneuvering_skill = 3
+				coordination_skill = 2	
+					
+			}
+			visible = {NOT = has_country_leader=ALB_king_zog}	
+		name="Qazim Koculi"
+		portraits={
+			army={
+				small="GFX_idea_tur_fahrettin_altay"
+			}
+		}
+	}
+
+# writer and journalist, international republican feminist; commie? 
+	ALB_haki_stermilli = {
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_haki_stermilli
+			allowed  = {
+					original_tag  = ALB
+				}
+				traits  = {
+					socialist_journalist
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+		}
+		name="Haki Stërmilli"
+		portraits={
+			civilian={
+				small=GFX_idea_GRE_markos_vafiadis
+			}
+		}
+	}
+	# anti stalinist commie
+	ALB_llazar_fundo={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_llazar_fundo
+			allowed  = {
+					original_tag  = ALB
+				}
+				traits  = {
+					anti_stalinist_propagandist
+				}
+				available = {has_completed_focus = ALB_Makeing_the_worker_class}
+		}
+		name="Llazar Fundo"
+		portraits={
+			civilian={
+				small=GFX_portrait_GER_helmuth_wilberg_small
+			}
+		}
+	}
+	#italian defector
+	ALB_arnaldo_azzi = {
+		name="Arnaldo Azzi"
+		portraits = {
+			army = {
+				small="GFX_portrait_ITA_carlo_favagrossa_small"
+			}
+		}
+		visible = {
+				OR = {
+					has_war_with = ITA
+					has_completed_focus = ALB_talk_to_officers
+				}
+			}
+		corps_commander = {
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+			traits = { old_guard }
+		}
+	}
+	#3 british guerillas working with the commies and being their liason
+	ALB_david_smiley = {
+		name="David Smiley"
+		portraits = {
+			army = {
+				small="GFX_idea_jimmy_doolittle"
+			}
+		}
+		visible = {
+				OR = {
+					AND = {
+						has_war_with = ITA
+						ENG = {
+							has_war_with = ITA
+						}
+					}
+					has_completed_focus = ALB_ridding_the_army_of_italian
+				}
+			}
+		corps_commander = {
+			
+			skill = 2
+			attack_skill = 4
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			traits = { guerilla_fighter commando}
+		}
+	}
+	ALB_billy_mcclean = {
+		name="Neil 'Billy' McLean"
+		portraits = {
+			army = {
+				small="GFX_idea_claude_auchinleck"
+			}
+		}
+		visible = {
+				OR = {
+					AND = {
+						has_war_with = ITA
+						ENG = {
+							has_war_with = ITA
+						}
+					}
+					has_completed_focus = ALB_ridding_the_army_of_italian
+				}
+			}
+		corps_commander = {
+			
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
+			traits = { guerilla_fighter paratrooper}
+		}
+	}
+
+	ALB_julian_amery = {
+		name="Julian Amery"
+		portraits = {
+			army = {
+				small="GFX_portrait_ITA_adelchi_serena_small"
+			}
+		}
+		visible = {
+				OR = {
+					AND = {
+						has_war_with = ITA
+						ENG = {
+							has_war_with = ITA
+						}
+					}
+					has_completed_focus = ALB_ridding_the_army_of_italian
+				}
+			}
+		corps_commander = {
+			
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 1
+			traits = { guerilla_fighter organizer}
+		}
+	}
+
+
+# kosovo annexation fans - https://en.wikipedia.org/wiki/Committee_for_the_National_Defence_of_Kosovo / https://en.wikipedia.org/wiki/Second_League_of_Prizren 
+# anti-zogist, nationalist collaborationist but also helping anti communists and jews?
+	ALB_qazim_mulleti={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_midhat_frasheri
+			allowed  = {
+					original_tag  = ALB
+				}
+				available = {has_completed_focus = ALB_demand_montenegro_and_kosovo}
+				traits  = {
+					cautious_arbiter 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Qazim Mulleti"
+		portraits={
+			civilian={
+				small="GFX_portrait_ITA_luigi_longo_political_small"
+			}
+		}
+	}
+
+	ALB_sadik_rama={
+		name="Sadik Rama"
+		portraits = {
+			army = {
+				small="GFX_idea_generic_political_advisor_europe_5"
+			}
+		}
+		corps_commander = {
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+			traits = { guerilla_fighter infantry_officer}
+		}
+	}
+	#monarchist pro zogu
+	ALB_ismet_kryeziu={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_ismet_kryeziu
+			allowed  = {
+					original_tag  = ALB
+			}
+			available = {
+				has_country_leader = ALB_king_zog
+			}
+			traits  = {
+				staunch_monarchist 
+			}
+		}
+		# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ismet Bey Kryeziu"
+		portraits={
+			civilian={
+				small="GFX_idea_gre_nikolaos_plastiras"
+			}
+		}
+	}
+	# pro zogu
+	ALB_eshref_frasheri={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_eshref_frasheri
+			allowed  = {
+					original_tag  = ALB
+			}
+			available = {
+				has_country_leader = ALB_king_zog
+			}
+			traits  = {
+				traditionalist_theorist 
+			}
+		}
+		# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Eshref Frashëri"
+		portraits={
+			civilian={
+				small="GFX_idea_gre_konstantinos_ventiris"
+			}
+		}
+	}
+# nationalist who tought he could mobilize 120k for the nazis
+	ALB_bedri_pejani={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_bedri_pejani
+			allowed  = {
+					original_tag  = ALB
+			}
+			available = {
+				has_completed_focus = ALB_join_italy
+			}
+			traits  = {
+				BEL_mobilization_proponent 
+			}
+		}
+		# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Bedri bej Ipeku"
+		portraits={
+			civilian={
+				small="GFX_portrait_ITA_randolfo_pacciardi_small"
+			}
+		}
+	}
+
+# ANOTHER hoxha communist lmao
+	ALB_fadil_hoxa={
+		advisor={
+			slot = political_advisor
+			idea_token = ALB_fadil_hoxa
+			allowed  = {
+					original_tag  = ALB
+			}
+			available = {
+				has_completed_focus = ALB_Makeing_the_worker_class
+			}
+			traits  = {
+				proletariat_internationalist 
+			}
+		}
+		# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Fadil Hoxha"
+		portraits={
+			civilian={
+				small="GFX_portrait_ITA_enrico_fermi_small"
+			}
+		}
+	}
+}
+
+
+

@@ -1,0 +1,71 @@
+ALB_resurrect_the_Mamluk_sultanate_category = {
+
+	icon = GFX_decision_ITA_reorganize_ascari
+
+	picture = GFX_decision_cat_generic_arabia
+	
+	priority = 103
+}
+
+ALB_form_ottoman_empire_category = {
+
+	icon = generic_form_nation
+
+	picture = GFX_decision_cat_generic_ottoman_empire
+	
+	priority = 102
+}
+ALB_form_greater_albania_category = {
+
+	icon = generic_form_nation
+	
+	priority = 102
+}
+ALB_religious_unity_category = {
+
+	icon = GFX_decision_category_ITA_colonial_management
+
+	picture = GFX_decision_cat_picture_ITA_missiolinis
+	
+	priority = 105
+}
+ALB_Adriatica_category = {
+
+	icon = GFX_decision_category_SOV_propaganda
+
+	picture = GFX_decision_cat_picture_greater_italy
+	
+	priority = 106
+}
+ALB_enemies_everywhere_category = {
+
+	icon = GFX_decision_category_generic
+
+	picture = GFX_decision_cat_generic_mefo_bills
+	
+	priority = 107
+}
+ALB_revolution_in_balkan_category = {
+
+	icon = GFX_decision_category_SOV_permanent_revolution
+
+	picture = GFX_decision_cat_picture_soviet_national_academy_of_sciences
+	
+	priority = 108
+}
+ALB_mandatory_service_category = {
+
+	icon = GFX_decision_category_army_reform
+
+	picture = GFX_decision_cat_picture_NOR_fascist_war
+	
+	priority = 101
+}
+ALB_rome_reborn_category = {
+
+	icon = GFX_decision_category_generic_fascism
+
+	picture = GFX_decision_cat_generic_roman_empire
+	
+	priority = 102
+}
