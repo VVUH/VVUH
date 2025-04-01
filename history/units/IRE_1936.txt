@@ -1,0 +1,125 @@
+﻿division_template = {
+	name = "Chathlán Coisithe"		
+	# Ireland did not have full divisions until 1941, but their garrison command 
+	#	was division strength by 1939
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+
+division_template = {
+	name = "IRA Flying Column"		
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+
+units = {
+	### Army High Command ###
+	division = {
+		name = "Army High Command"
+		location = 11293
+		division_template = "Chathlán Coisithe"		# Represents Ireland's four regional commands 
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+
+	}
+	division = {
+		name = "South Wexford Brigade"
+		location = 285
+		division_template = "IRA Flying Column"		
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+	division = {
+		name = "North Wexford Brigade"
+		location = 11303
+		division_template = "IRA Flying Column"		 
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.1
+
+	}
+	division = {
+		name = "3rd Cork Brigade -Barry's Column- "
+		location = 9284
+		division_template = "IRA Flying Column"		
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+
+	}
+	division = {
+		name = "3rd Tipperary Brigade "
+		location = 9310
+		division_template = "IRA Flying Column"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Belfast Brigade"
+		location = 3242
+		division_template = "IRA Flying Column"		
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+
+	}
+	division = {
+		name = "Galway Brigade"
+		location = 9303
+		division_template = "IRA Flying Column"		
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.4
+
+	}
+	division = {
+		name = "Mayo Brigade"
+		location = 337
+		division_template = "IRA Flying Column"		
+		start_experience_factor = 0.0
+		start_equipment_factor = 0.1
+
+	}
+}
+
+air_wings = {
+	971 = {
+			fighter_equipment_0 =  {
+			owner = IRE
+			amount = 20
+		}
+		ace={ 	modifier="fighter_genius"
+			name="Brendan"
+			surname="Finucane"
+			callsign="Paddy"
+			portrait=1 
+		}
+	}
+}
+
+## STARTING PRODUCTION ##
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "IRE"
+		}
+		requested_factories = 1
+		progress = 0.75
+		efficiency = 100
+	}
+}

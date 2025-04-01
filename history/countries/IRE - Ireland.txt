@@ -1,0 +1,103 @@
+﻿capital = 971
+
+oob = "IRE_1936"
+
+set_research_slots = 3
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	tech_trucks = 1
+	gw_artillery = 1
+	basic_train = 1
+}
+
+set_convoys = 25
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1933.1.24"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 60
+	communism = 20
+	fascism = 5
+	neutrality = 15
+}
+
+1939.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1938.6.17"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	set_popularities = {
+	democratic = 70
+	communism = 13
+	fascism = 2
+	neutrality = 15
+	}
+
+}
+create_country_leader = {
+	name = "Éamon de Valera"
+	desc = "POLITICS_ÉAMON_DE_VALERA_DESC"
+	picture = "Portrait_Ireland_Eamon_de_Valera.dds"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Eoin O'Duffy"
+	desc = "POLITICS_EOIN_ODUFFY_DESC"
+	picture = "gfx/leaders/IRE/Portrait_Ireland_Duffman.dds"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "James Larkin"
+	desc = "POLITICS_JAMES_LARKIN_DESC"
+	picture = "gfx/leaders/IRE/Portrait_Ireland_Big_Jim.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "William Norton"
+	desc = "POLITICS_JAMES_LARKIN_DESC"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+	expire = "1965.1.1"
+	ideology = centrism
+	traits = {
+		#
+	}
+}
+
+add_ideas = { IRE_ira }
+add_ideas = { POR_unreliable_army }
+add_ideas = { IRE_unstable_state }
+
+create_corps_commander = {
+	name = "Michael Costello"
+	portrait_path = "gfx/leaders/ENG/Portrait_Britain_Generic_land_4.dds"
+	traits = { old_guard  }
+	skill = 3
+}
