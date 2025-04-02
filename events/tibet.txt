@@ -1,48 +1,399 @@
-add_namespace = TIBWhitePeace
 add_namespace = TIB_political_events
-#WIP
-country_event = {
-	id = TIBWhitePeace.1
-	title = TIBWhitePeace.1.t
-	desc = TIBWhitePeace.1.desc
-	picture = GFX_report_event_generic_read_write
 
-	fire_only_once = yes
+#Free puppets?
+country_event = {
+	id = TIB_political_events.42
+	title = TIB_political_events.42.t
+	desc = TIB_political_events.42.desc
+	picture = GFX_report_event_DEN_danish_politics
+
 	
 	is_triggered_only = yes
-    trigger = {
-        RAJ = {
-            has_capitulated = yes
-        }
-        TIB = {
-            has_stability > 0.1
-        }
-        original_tag = TIB
-    }
+
 
 	mean_time_to_happen = {
-		days = 1
+		days = 5
 	}
 	
-	# Raj is lost
+	# Raj agrees
 	option = {
-		name = TIBWhitePeace.1.a
-        RAJ = {
-            all_allied_country = {
-                white_peace = TIB
-            }
-        }
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.42.a
+		BHU = {
+			country_event = TIB_political_events.43
+		}
+		NEP = {
+			country_event = TIB_political_events.43
+		}
 		
 	}
 	
-	#We fight on
+	#Raj declines
 	option = {
-		name = TIBWhitePeace.1.b
-		ai_chance = {
-			base = 90
+	ai_chance = {
+		base = 1
+	}
+		name = TIB_political_events.42.b
+		TIB = {
+			country_event = TIB_political_events.44
 		}
 	}
+}
+#bhu & nep event - 43
+country_event = {
+	id = TIB_political_events.43
+	title = TIB_political_events.43.t
+	desc = TIB_political_events.43.desc
+	picture = GFX_report_event_NOR_nygaardsvold_cabinet
 
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	#  agrees
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.43.a
+		TIB = {
+			country_event = TIB_political_events.45
+		}
+		
+	}
+	
+	# declines
+	option = {
+	ai_chance = {
+		base = 1
+	}
+		name = TIB_political_events.43.b
+		TIB = {
+			country_event = TIB_political_events.44
+		}
+	}
+}
+#accept - 45
+country_event = {
+	id = TIB_political_events.45
+	title = TIB_political_events.45.t
+	desc = TIB_political_events.45.desc
+	picture = GFX_report_event_FIN_paasikivi_president
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# they agree
+	option = {
+		ai_chance = {
+			base = 9
+		}
+		name = TIB_political_events.45.a
+		TIB = {
+			puppet = {
+				target = FROM
+			}
+		}
+		
+	}
+	
+}
+#FROM declines - raj, bhu or nep
+country_event = {
+	id = TIB_political_events.44
+	title = TIB_political_events.44.t
+	desc = TIB_political_events.44.desc
+	picture = GFX_report_event_NOR_quisling_troops
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# war goal
+	option = {
+		ai_chance = {
+			base = 1
+		}
+		name = TIB_political_events.44.a
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = FROM
+		}
+		
+	}
+	
+	#sob sob
+	option = {
+	ai_chance = {
+		base = 99
+	}
+		name = TIB_political_events.44.b
+
+	}
+}
+
+# 66 - 70 land demands - 71 yes - 72 no
+country_event = {
+	id = TIB_political_events.66
+	title = TIB_political_events.66.t
+	desc = TIB_political_events.66.desc
+	picture = GFX_report_event_generic_read_write
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# country agrees
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.66.a
+		TIB = {
+			country_event = TIB_political_events.71
+			transfer_state = 759
+		}
+	}
+	
+	#country declines
+	option = {
+	ai_chance = {
+		base = 1
+	}
+		name = TIB_political_events.66.b
+		TIB = {
+			country_event = TIB_political_events.72
+		}
+	}
+}
+country_event = {
+	id = TIB_political_events.67
+	title = TIB_political_events.67.t
+	desc = TIB_political_events.67.desc
+	picture = GFX_report_event_generic_read_write
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# country agrees
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.67.a
+		TIB = {
+			country_event = TIB_political_events.71
+			transfer_state = 287
+		}
+	}
+	
+	#country declines
+	option = {
+	ai_chance = {
+		base = 1
+	}
+		name = TIB_political_events.67.b
+		TIB = {
+			country_event = TIB_political_events.72
+		}
+	}
+}
+country_event = {
+	id = TIB_political_events.68
+	title = TIB_political_events.68.t
+	desc = TIB_political_events.68.desc
+	picture = GFX_report_event_generic_read_write
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# country agrees
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.68.a
+		TIB = {
+			country_event = TIB_political_events.71
+			transfer_state = 601
+		}
+	}
+	
+	#country declines
+	option = {
+	ai_chance = {
+		base = 1
+	}
+		name = TIB_political_events.68.b
+		TIB = {
+			country_event = TIB_political_events.72
+		}
+	}
+}
+country_event = {
+	id = TIB_political_events.69
+	title = TIB_political_events.69.t
+	desc = TIB_political_events.69.desc
+	picture = GFX_report_event_generic_read_write
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# country agrees
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.69.a
+		TIB = {
+			country_event = TIB_political_events.71
+			transfer_state = 604
+		}
+	}
+	
+	#country declines
+	option = {
+	ai_chance = {
+		base = 1
+	}
+		name = TIB_political_events.69.b
+		TIB = {
+			country_event = TIB_political_events.72
+		}
+	}
+}
+country_event = {
+	id = TIB_political_events.70
+	title = TIB_political_events.70.t
+	desc = TIB_political_events.70.desc
+	picture = GFX_report_event_generic_read_write
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# country agrees
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.70.a
+		TIB = {
+			country_event = TIB_political_events.71
+			transfer_state = 755
+		}
+	}
+	
+	#country declines
+	option = {
+	ai_chance = {
+		base = 1
+	}
+		name = TIB_political_events.70.b
+		TIB = {
+			country_event = TIB_political_events.72
+		}
+	}
+}
+#accepts
+country_event = {
+	id = TIB_political_events.71
+	title = TIB_political_events.71.t
+	desc = TIB_political_events.71.desc
+	picture = GFX_report_event_generic_read_write
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# tib happy
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.71.a
+
+	}
+	
+}
+#declines
+country_event = {
+	id = TIB_political_events.72
+	title = TIB_political_events.72.t
+	desc = TIB_political_events.72.desc
+	picture = GFX_report_event_bul_partisans_plovdiv
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# tib  mobilise
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.72.a
+		create_wargoal = {
+			type = take_state_focus
+			target = FROM
+			generator = { FROM.FROM }
+			}
+	}
+	
+	#tib sigh
+	option = {
+	ai_chance = {
+		base = 1
+	}
+		name = TIB_political_events.72.b
+
+	}
 }
 
 country_event = { #Tibet boosts communist sentiments
@@ -55,7 +406,7 @@ country_event = { #Tibet boosts communist sentiments
 	option = { #fine by us
 		name = TIB_political_events.84.a
 		ai_chance = {
-			base = 1
+			base = 9
 			modifier = {
 				factor = 5
 				has_opinion = {
@@ -262,7 +613,7 @@ country_event = { #Tibet demands we become communist
 	option = { #NO!
 		name = TIB_political_events.87.b
 		ai_chance = {
-			base = 10
+			base = 1
 			modifier = {
 				factor = 3
 				strength_ratio = {

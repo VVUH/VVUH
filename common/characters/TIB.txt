@@ -9,8 +9,7 @@ characters={
 		}
 		country_leader={
 			ideology=despotism
-			traits={ ICE_the_strict_regent} #later gets NOR_shrewd_regent if upgraded
-			expire="1965.1.1.1"
+			traits={ ICE_the_strict_regent} 
 			id=-1
 		}
 	}
@@ -38,7 +37,6 @@ characters={
 		country_leader={
 			ideology=anti_revisionism
 			traits={ retired_officer }
-			expire="1945.1.1.12"
 			id=-1
 		}
 	}
@@ -50,9 +48,8 @@ characters={
 			}
 		}
 		country_leader={
-			ideology=falangism
-			traits={ ideological_crusader reluctant_interventionist }
-			expire="1946.1.1.12"
+			ideology=gen_nazism	
+			traits={ JUNO_national_socialist_occultist  }
 			id=-1
 		}
 	}
@@ -150,31 +147,7 @@ characters={
 			}
 		}
 	}
-	TIB_lhalu_tsewang_dorje={
-		advisor={
-			
-			
-			slot = navy_chief
-			idea_token = TIB_lhalu_tsewang_dorje
-			allowed = {
-					original_tag = TIB
-				}
-				traits = {
-					navy_chief_naval_aviation_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
- # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="Lhalu Tsewang Dorje"
-		portraits={
-			army={
-				small="GFX_idea_generic_navy_asia_3"
-			}
-		}
-	}
+
 	TIB_chodak_karma={
 		advisor={
 			
@@ -473,7 +446,36 @@ characters={
 			}
 		}
 	}
+	TIB_rolf_magener={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_rolf_magener
+			allowed  = {
+					original_tag  = TIB
+				}
+				visible = {
+					has_completed_focus = TIB_western_ideas
+				}
+				available = {
+					OR = {
+						has_government = fascism
+						has_idea = TIB_young_dalai_lama_f
+						has_idea = TIB_young_dalai_lama_f_puppet
+					}
+					has_completed_focus = TIB_western_ideas
+				}
+				traits  = {
+					NOR_conservative_businessman 
+				}
 
+		}
+		name="Rolf Magener"
+		portraits={
+			civilian={
+				small="GFX_portrait_GER_fedor_von_bock_small"
+			}
+		}
+	}
 
 	TIB_peter_aufschnaiter={
 		advisor={
@@ -1101,7 +1103,30 @@ characters={
 
 
 # end demo
+#jap
 
+	TIB_jinzo_nomoto ={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_jinzo_nomoto
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					HUN_military_intelligence_officer
+				}
+				visible = {
+					TIB = {has_country_flag = TIB_working_with_japanese_org_flag}
+				}
+		}
+		name="Jinzo Nomoto"
+		portraits={
+			civilian={
+				small=GFX_idea_JAP_takeo_yoshikawa
+			}
+		}
+	}
+#end jap
 # the Four Rugby Boys
 #Wangdu Norbu Kyipup -  telegraphy, surveying and cartograph - telegraph network with the copper ---- minister_of_posts_and_telegraphs?
 	TIB_wangdu_kyipup ={
@@ -1153,7 +1178,7 @@ characters={
 		name="Lhalu Tsewang Dorje"
 		portraits={
 			civilian={
-				small=GFX_idea_JAP_takeo_yoshikawa
+				small=GFX_idea_generic_navy_asia_3
 			}
 		}
 	}

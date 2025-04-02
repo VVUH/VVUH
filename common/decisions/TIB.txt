@@ -1,7 +1,7 @@
 TIB_formables_cat = {
     TIB_greater_tibet = {
 
-		icon = generic_form_nation
+		icon = GFX_decision_CHL_mapuche_reorganize_the_bolivian_government
 
 		allowed = {
 			original_tag = TIB
@@ -22,9 +22,12 @@ TIB_formables_cat = {
 			controls_state = 757
 			controls_state = 758
 			controls_state = 322
+			#CHI
+			controls_state = 601 
+			#XSM
 			controls_state = 604
             controls_state = 755
-            controls_state = 601 
+			#sik
             controls_state = 287 
             controls_state = 759
 		}
@@ -58,7 +61,7 @@ TIB_formables_cat = {
 	}
     TIB_integrate_khalistan = {
 	
-		icon = generic_form_nation
+		icon = GFX_decision_generic_nationalism
 
 		allowed = {
 			original_tag = TIB
@@ -115,7 +118,7 @@ TIB_formables_cat = {
 
 	TIB_integrate_chinese_muslim_land_sik = {
 	
-		icon = generic_form_nation
+		icon = GFX_decision_faction_tur_traditionalist
 
 		allowed = {
 			original_tag = TIB
@@ -169,7 +172,7 @@ TIB_formables_cat = {
 	
 	TIB_integrate_chinese_muslim_land_xsm = {
 	
-		icon = generic_form_nation
+		icon = GFX_decision_faction_tur_traditionalist
 
 		allowed = {
 			original_tag = TIB
@@ -226,7 +229,7 @@ TIB_formables_cat = {
 
 	TIB_work_with_the_young_men_bhuddist_org = {
 	
-		icon = generic_form_nation
+		icon = GFX_decision_CHL_grant_full_rights_to_the_mapuche
 
 		allowed = {
 			original_tag = TIB
@@ -286,7 +289,7 @@ TIB_formables_cat = {
 
 	TIB_safeguard_indian_bhuddists = {
 	
-		icon = generic_form_nation
+		icon = GFX_decision_CHL_mapuche_liberate_guarani
 
 		allowed = {
 			original_tag = TIB
@@ -335,7 +338,7 @@ TIB_formables_cat = {
 	
     TIB_integrate_south_tibetan_empire = {
 
-		icon = generic_form_nation
+		icon = GFX_decision_SWE_paid_holidays_policy
 
 		allowed = {
 			original_tag = TIB
@@ -377,20 +380,27 @@ TIB_formables_cat = {
         }
 
 	}
+
     TIB_himalayan_formable = {
 
-		icon = generic_form_nation
+		icon = GFX_decision_CHL_mapuche_liberate_tahiti
 
 		allowed = {
 			original_tag = TIB
 		}
 		highlight_states = {
-    		highlight_state_targets = { 			
+    		highlight_state_targets = { 	
+			state = 757
+			state = 758
+			state = 322		
 			state = 324
 			state = 323
             }
 		}
 		available = {
+			controls_state = 757
+			controls_state = 758
+			controls_state = 322
             OR = {
                 ROOT = {
 			        controls_state = 324
@@ -455,6 +465,7 @@ TIB_formables_cat = {
 				}
 			}
             324 = { add_core_of = ROOT } 
+
 
 		    hidden_effect ={
                 set_global_flag = TIB_hima_form
@@ -881,9 +892,7 @@ TIB_decs = {
         }
         available = {
             surrender_progress < 0.2
-			RAJ = {
-				surrender_progress > 0.4
-			}
+
         }
         cost = 10
         available = { 
@@ -916,11 +925,139 @@ TIB_decs = {
 
 }
 
+TIB_regent_political_dealings = {
+	TIB_replace_the_regent = {
+		icon = GFX_decision_SWI_dismiss_council
+		priority = 80
+		ai_will_do = {
+			base = 5
+		}
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			has_completed_focus = TIB_the_regent
+		}
+		available = {
+			is_subject = no
+
+		}
+
+		days_remove = 30
+
+		cost = 50
+		remove_effect = {
+			kill_ideology_leader = neutrality
+			hidden_effect = {
+				add_country_leader_trait = NOR_shrewd_regent
+			}
+		}
+	}
+
+	TIB_the_coup = {
+		icon = GFX_decision_SWI_guisan_speech
+		priority = 80
+		ai_will_do = {
+			base = 5
+		}
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			has_completed_focus = TIB_the_regent
+			has_country_leader = {character = TIB_jamphel_yeshe_gyaltsen ruling_only = yes} 
+		}
+		available = {
+			is_subject = no
+			has_country_leader = {character = TIB_jamphel_yeshe_gyaltsen ruling_only = yes}
+		}
+
+		days_remove = 30
+
+		cost = 50
+		remove_effect = {
+			remove_country_leader_trait = ICE_the_strict_regent
+			add_country_leader_trait = old_coup_maker
+			remove_ideas = TIB_young_dalai_lama_n
+			set_cosmetic_tag = TIB_unmonastic_commune
+		}
+	}
+
+	TIB_securing_army_loyalty = {
+		icon = GFX_decision_generic_army_support
+		priority = 80
+		ai_will_do = {
+			base = 5
+		}
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			has_completed_focus = TIB_the_regent
+		}
+		available = {
+			is_subject = no
+			OR = {
+				NOT = {
+					has_country_leader = {character = TIB_jamphel_yeshe_gyaltsen ruling_only = yes}
+				}
+				AND = {
+					has_country_leader = {character = TIB_jamphel_yeshe_gyaltsen ruling_only = yes}
+					has_country_leader_with_trait = old_coup_maker
+				}
+			}
+		}
+
+		days_remove = 30
+
+		custom_cost_trigger = {
+			has_political_power > 24
+			command_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25_pp_25
+		remove_effect = {
+		hidden_effect = {
+				add_political_power = -25
+				add_command_power = -25
+			}
+			IF = {
+				LIMIT = {
+					has_country_leader_with_trait = old_coup_maker					
+				}
+				add_country_leader_trait = celebrity_junta_leader
+			}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_tibetan_army1
+				}
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army1
+					add_idea = TIB_tibetan_army2
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army2
+					add_idea = TIB_tibetan_army3
+				}				
+			}
+		}
+	}
+}
+
 TIB_neighboring_communism_category = {
 
 
 	TIB_spur_him_communism_decision = {
-		icon = GFX_decision_generic_civil_support
+		icon = GFX_decision_onmap_recruit_operative
 		priority = 80
 		ai_will_do = {
 			base = 5
@@ -1068,7 +1205,7 @@ TIB_neighboring_communism_category = {
 	
 	TIB_strongarm_FROM = {
 		priority = 114
-		icon = ger_military_buildup
+		icon = GFX_decision_oppression
 
 		allowed = {
 			original_tag = TIB
@@ -1080,6 +1217,9 @@ TIB_neighboring_communism_category = {
 
 		available = {
 			TIB = { has_government = communism }
+			FROM = {
+				is_ai = yes
+			}
 		}
 
 		target_trigger = {
@@ -1138,5 +1278,206 @@ TIB_neighboring_communism_category = {
 		}
 
 	
+	}
+}
+
+TIB_collab_japan = {
+   TIB_collab_with_jap = {
+
+		icon = GFX_decision_jap_conquer_china
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_enemy_country = {
+				surrender_progress < 0.9
+			}
+			NOT = {
+				has_global_flag = TIB_working_with_jap_flag
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_jap_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_jap_flag
+			}
+			add_command_power = 100
+			add_war_support = 0.1
+			add_stability = 0.1
+			add_political_power = 100
+
+			diplomatic_relation = {
+				country = JAP
+				relation = non_aggression_pact
+				active = yes
+			}
+			TIB = {give_military_access = JAP}
+			JAP = {give_military_access = TIB}
+
+        }
+
+	}
+   TIB_japanese_fund_raise = {
+
+		icon = GFX_decision_generic_fundraising
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_enemy_country = {
+				surrender_progress < 0.9
+			}
+			NOT = {
+				has_global_flag = TIB_working_with_jap_flag
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+	
+		}
+
+		days_remove = 60
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_jap_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_jap_flag
+			}
+			add_offsite_building = { type = arms_factory level = 2}
+			add_offsite_building = { type = industrial_complex level = 2 }
+
+
+			JAP = {
+				add_relation_modifier = {
+					target = TIB
+					modifier = USA_special_relationship
+				}
+			}
+			TIB = {
+				add_relation_modifier = {
+					target = JAP
+					modifier = USA_special_relationship
+				}
+			}
+
+        }
+
+	}
+   TIB_jap_immigration = {
+
+		icon = GFX_decision_hol_radio_oranje
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_enemy_country = {
+				surrender_progress < 0.9
+			}
+			NOT = {
+				has_global_flag = TIB_working_with_jap_flag
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+	
+		}
+
+		days_remove = 120
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_jap_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_jap_flag
+			}
+			add_manpower = 30000
+			every_core_state = {
+				add_manpower = 50000
+			}
+
+        }
+
+	}
+   TIB_work_with_jap_orgs = {
+
+		icon = GFX_decision_jap_pacific_guardian
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_enemy_country = {
+				surrender_progress < 0.9
+			}
+			NOT = {
+				has_global_flag = TIB_working_with_jap_flag
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+	
+		}
+
+		days_remove = 60
+
+		complete_effect = {
+			set_global_flag = TIB_working_with_jap_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_jap_flag
+				TIB = { 
+					set_country_flag = TIB_working_with_japanese_org_flag
+				}
+			}
+			army_experience = 25
+			navy_experience = 15
+			air_experience = 15
+ 			custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisor_tt
+            show_ideas_tooltip = TIB_jinzo_nomoto
+        }
+
 	}
 }

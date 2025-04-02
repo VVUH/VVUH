@@ -18,6 +18,7 @@ add_ideas = {
 	TIB_religious_minorities
 	TIB_bureaucracy
 	TIB_tibet_class_system
+	TIB_tibetan_army1
 }
 
 add_manpower = 55000
@@ -71,6 +72,8 @@ recruit_character = TIB_phuntsok_wangyal
 recruit_character = TIB_tian_guansan
 recruit_character = TIB_pandatsang_rapga
 recruit_character = TIB_dalai_lama_d
+recruit_character = TIB_jinzo_nomoto
+recruit_character = TIB_rolf_magener
 
 1939.1.1 = {
 

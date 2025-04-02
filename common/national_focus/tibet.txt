@@ -69,6 +69,7 @@ focus_tree = {
                 ideology = neutrality
                 popularity = 0.1
             } 
+			add_political_power = 150
             custom_effect_tooltip = generic_skip_one_line_tt
             custom_effect_tooltip = MON_recruit_advisors_tt
 			show_ideas_tooltip = TIB_gyalo_thondup	
@@ -126,12 +127,10 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.05
 			add_stability = 0.1
-			add_political_power = 100
 			custom_effect_tooltip = TIB_unlocks_decisions_regent_tt
-			#decision unlock; one does the following
-			#kill_ideology_leader = neutrality
-			#add_country_leader_trait = NOR_shrewd_regent
-			#the other one sets tibet as unmonastic (junta) and remove_idea lama 
+			unlock_decision_tooltip	 = TIB_replace_the_regent
+			unlock_decision_tooltip = TIB_the_coup
+			unlock_decision_tooltip = TIB_securing_army_loyalty
 		}
 	}
 	focus = {
@@ -148,6 +147,9 @@ focus_tree = {
         prerequisite ={ focus = TIB_advisors_to_the_dalai_lama}
 
 		available = {
+			NOT = {
+				has_idea = TIB_tibetan_army1
+			}			
 		}
 
 		completion_reward = {
@@ -219,6 +221,7 @@ focus_tree = {
 		
 
 		completion_reward = {
+			add_war_support = 0.1
 			unlock_decision_category_tooltip = TIB_border_wars
 			custom_effect_tooltip = TIB_scope_border_raids_GTIB_tt
 		}
@@ -304,7 +307,6 @@ focus_tree = {
 		
 
 		completion_reward = {
-			add_political_power = 150 
 			swap_ruler_traits = { remove = ICE_the_strict_regent add = HUN_the_regent_undermined }
 			custom_effect_tooltip = generic_skip_one_line_tt
             swap_ideas = {
@@ -550,7 +552,24 @@ focus_tree = {
 		}
 
 		completion_reward = {
-
+			add_popularity = {
+                ideology = communism
+                popularity = -0.1
+            }
+			IF = {
+				LIMIT = {
+					has_idea = TIB_tibetan_army1
+				}
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army1
+					add_idea = TIB_tibetan_army2
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army2
+					add_idea = TIB_tibetan_army3
+				}				
+			}
 		}
 	}	
 	focus = {
@@ -746,7 +765,8 @@ focus_tree = {
 
 		completion_reward = {
 			add_research_slot = 1
-
+           custom_effect_tooltip = MON_recruit_advisor_tt
+            show_ideas_tooltip = TIB_rolf_magener
 		}
 	}
 #communist
@@ -803,6 +823,12 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			SIK = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = AST_commitment_to_the_cause
+				}
+			}
 			every_other_country = {
 					limit = {
 						has_war_with = SIK
@@ -1208,13 +1234,26 @@ focus_tree = {
 						has_war = yes
 					}	
 				}
-				add_to_war = {
-					targeted_alliance = PRC
-					enemy = every_enemy_country	
-					hostility_reason = asked_to_join
-				}
+					every_other_country = {
+							LIMIT = {
+								has_war_with = PRC
+							}
+							TIB = {
+								add_to_war = {
+									targeted_alliance = PRC
+									enemy = PREV
+									hostility_reason = asked_to_join
+								}
+							}
+					}
 			}ELSE={
 				custom_effect_tooltip = TIB_join_prc_war_tt
+			}
+			PRC = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = AST_commitment_to_the_cause
+				}
 			}
 
 		}
@@ -1268,9 +1307,9 @@ focus_tree = {
 			}
 			IF = {
 				LIMIT = {
-					has_idea = TIB_religious_equality
+					has_idea = TIB_equal_beliefs
 				}
-				remove_ideas = TIB_religious_equality
+				remove_ideas = TIB_equal_beliefs
 				set_global_flag = TIB_you_fucked_up_tt
 				mark_focus_tree_layout_dirty = yes
 			}
@@ -1311,6 +1350,20 @@ focus_tree = {
 			set_rule = {
 				can_create_factions = yes
 			}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_tibetan_army1
+				}
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army1
+					add_idea = TIB_tibetan_army2
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army2
+					add_idea = TIB_tibetan_army3
+				}				
+			}			
 		}
 	}
 	focus = {
@@ -1435,7 +1488,6 @@ focus_tree = {
 				long_name = "Tibet Reform Association"
 				name =  "Tibet Reform Association"
 			}
-			promote_character = conservatism
             add_political_power = 150 
             swap_ideas = {
                 remove_idea = TIB_tibet_class_system2
@@ -1473,6 +1525,18 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.05
 			#add_ideas = TIB_volunteer to do 
+			IF = {
+				LIMIT = {
+					has_idea = TIB_volunteer1
+				}
+				swap_ideas = {
+					remove_idea = TIB_volunteer1
+					add_idea = TIB_volunteer2
+				}ELSE = {
+					add_ideas = TIB_volunteer1
+
+				}
+			}
 
 		}
 	}
@@ -1504,7 +1568,7 @@ focus_tree = {
 				ideology = neutrality
 				popularity = 0.05
 			}
-			remove_ideas=TIB_young_dalai_lama
+			remove_ideas = TIB_young_dalai_lama
 			IF = {
 				LIMIT = {
 					amount_taken_ideas = {
@@ -1523,7 +1587,7 @@ focus_tree = {
 						is_hired_as_advisor = yes
 
 					}
-					deactivate_advisor = PREV
+					deactivate_advisor = PREV #THIS DOES NOT WORK - to do
 				}
 			}
 
@@ -1619,7 +1683,8 @@ focus_tree = {
 		cost = 5
         relative_position_id = TIB_divide_spheres_with_raj
 
-        prerequisite ={ focus = tib_demand_societal_change focus = TIB_divide_spheres_with_raj}        
+        prerequisite ={ focus = tib_demand_societal_change }
+		 prerequisite ={ focus = TIB_divide_spheres_with_raj}        
 
 		ai_will_do = {
 			factor = 1
@@ -1702,15 +1767,27 @@ focus_tree = {
 						has_war = yes
 					}	
 				}
-				add_to_war = {
-					targeted_alliance = CHI
-					enemy = every_enemy_country	
-					hostility_reason = asked_to_join
+				every_other_country = {
+						LIMIT = {
+							has_war_with = CHI
+						}
+						TIB = {
+							add_to_war = {
+								targeted_alliance = CHI
+								enemy = PREV
+								hostility_reason = asked_to_join
+							}
+						}
 				}
 			}ELSE={
 				custom_effect_tooltip = TIB_join_CHI_war_tt
 			}
-
+			CHI = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = AST_commitment_to_the_cause
+				}
+			}
 		}
 	}
 
@@ -1769,7 +1846,10 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
-			
+			SIK = {
+				has_government = ROOT
+				has_civil_war = no
+			}
 		}
 		bypass = {
 			759 = {

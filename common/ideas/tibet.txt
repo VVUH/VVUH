@@ -2,6 +2,7 @@ ideas = {
 # initials;
 
 	country = {
+#lama
 		TIB_young_dalai_lama = {
 
 			picture = YUG_peter_ii_young
@@ -100,6 +101,7 @@ ideas = {
 
 			}
 		}
+#religion
 		TIB_spiritual_society = {
 
 			picture = ARG_social_welfare_fund_ns
@@ -183,6 +185,7 @@ ideas = {
 				conscription = 0.03
 			}
 		}
+#bureaucracy
 		TIB_bureaucracy = {
 
 			picture = tur_tdpa
@@ -222,6 +225,7 @@ ideas = {
 				consumer_goods_factor = 0.08
 			}
 		}
+#class
 		TIB_tibet_class_system = {
 
 			picture = COG_the_invisible_roof
@@ -290,6 +294,7 @@ ideas = {
 				industrial_capacity_factory = -0.2
 			}
 		}
+
 		TIB_Tibetan_communists_active = {
 
 			picture = FIN_socialist_welfare
@@ -376,6 +381,7 @@ ideas = {
 				industrial_capacity_factory = -0.2
 			}
 		}
+#army
 		TIB_tibetan_army1 = {
 
 			picture = chi_army_corruption
@@ -390,10 +396,10 @@ ideas = {
 			removal_cost = -1
 				
 			modifier = {
-				political_power_gain = -0.25
+				political_power_gain = -0.15
 				war_support_factor = -0.1
 				conscription = -0.02
-				industrial_capacity_factory = -0.2
+				industrial_capacity_factory = -0.1
 			}
 		}
 
@@ -411,10 +417,10 @@ ideas = {
 			removal_cost = -1
 				
 			modifier = {
-				political_power_gain = -0.15
+				political_power_gain = -0.05
 				war_support_factor = 0.05
 				conscription = 0.01
-				industrial_capacity_factory = 0.05
+				industrial_capacity_factory = -0.05
 			}
 		}
 
@@ -433,12 +439,49 @@ ideas = {
 				
 			modifier = {
 				political_power_gain = 0.15
-				war_support_factor = 0.15
+				war_support_factor = 0.1
 				conscription = 0.03
-				industrial_capacity_factory = 0.1
+				industrial_capacity_factory = 0.05
 			}
 		}
+		TIB_volunteer1 = {
+			picture = CHL_carabineros_de_chile_fascist
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
 
+			removal_cost = -1
+				
+			modifier = {
+				send_volunteer_divisions_required = -0.5
+				send_volunteer_size = 4
+				send_volunteers_tension = -1
+				air_volunteer_cap = 1
+			}				
+		}
+		TIB_volunteer2 = {
+			picture = CHL_carabineros_de_chile_neutrality
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteer_size = 6
+				send_volunteers_tension = -1
+				air_volunteer_cap = 2
+			}				
+		}		
 		TIB_village_militias = {
 			picture = citizen_militia_1
 			
