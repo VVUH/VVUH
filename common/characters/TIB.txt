@@ -747,6 +747,12 @@ characters={
 				traits  = {
 					modernizer_and_diplomat
 				}
+				visible = {
+					NOT = {
+						has_government = fascism
+						has_government = communism
+					}
+				}
 				available = {
 					AND = {
 						ENG = {
@@ -785,6 +791,12 @@ characters={
 				}
 				traits  = {
 					silver_tongue
+				}
+				visible = {
+					NOT = {
+						has_government = fascism
+						has_government = communism
+					}
 				}
 				available = {
 					AND = {
@@ -1187,6 +1199,9 @@ characters={
 		advisor={
 			slot = political_advisor
 			idea_token = TIB_trimon_shap
+			visible = {
+				has_completed_focus = TIB_whispers_among_the_downtrodden
+			}
 			allowed  = {
 					original_tag  = TIB
 				}

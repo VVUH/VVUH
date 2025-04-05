@@ -25,11 +25,23 @@ TIB_formables_cat = {
 			#CHI
 			controls_state = 601 
 			#XSM
-			controls_state = 604
-            controls_state = 755
+            OR = {
+                ROOT = {
+			        controls_state = 604
+		            controls_state = 755
+                }
+                604 = {OWNER = {is_puppet_of = ROOT}}
+                755 = {OWNER = {is_puppet_of = ROOT}}
+            }			
 			#sik
-            controls_state = 287 
-            controls_state = 759
+            OR = {
+                ROOT = {
+			        controls_state = 287
+		            controls_state = 759
+                }
+                287 = {OWNER = {is_puppet_of = ROOT}}
+                759 = {OWNER = {is_puppet_of = ROOT}}
+            }
 		}
 
 		visible = {
@@ -49,11 +61,46 @@ TIB_formables_cat = {
                 757 = { add_core_of = ROOT }
                 758 = { add_core_of = ROOT } 
                 322 = { add_core_of = ROOT }
+
                 287 = { add_core_of = ROOT }
                 759 = { add_core_of = ROOT }
+				IF = {
+					 LIMIT = {
+					 	287 = {OWNER = {is_puppet_of = ROOT}}
+					 }
+					 TIB = {
+						transfer_state = 287
+					 }
+				}
+				IF = {
+					 LIMIT = {
+					 	759 = {OWNER = {is_puppet_of = ROOT}}
+					 }
+					 TIB = {
+						transfer_state = 759
+					 }
+				}
+                601 = { add_core_of = ROOT }
+
                 604 = { add_core_of = ROOT }
                 755 = { add_core_of = ROOT }
-                601 = { add_core_of = ROOT }
+				IF = {
+					 LIMIT = {
+					 	604 = {OWNER = {is_puppet_of = ROOT}}
+					 }
+					 TIB = {
+						transfer_state = 604
+					 }
+				}
+				IF = {
+					 LIMIT = {
+					 	755 = {OWNER = {is_puppet_of = ROOT}}
+					 }
+					 TIB = {
+						transfer_state = 755
+					 }
+				}	
+
 			}
 
         }
@@ -581,7 +628,7 @@ TIB_border_wars = {
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
-						state = 322
+						state = 757
 						num_provinces = 2
 						on_win = MON_border_conflict.1
 						on_lose = MON_border_conflict.3
@@ -591,7 +638,7 @@ TIB_border_wars = {
 						terrain_factor = 0
 					}	
 					defender = {
-						state = 757
+						state = 601
 						num_provinces = 3
 						on_win = MON_border_conflict.2
 						on_lose = MON_border_conflict.4
@@ -703,8 +750,8 @@ TIB_border_wars = {
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
-						state = 759
-						num_provinces = 1
+						state = 322
+						num_provinces = 2
 						on_win = MON_border_conflict.1
 						on_lose = MON_border_conflict.3
 						on_cancel = MON_border_conflict.5
@@ -926,6 +973,7 @@ TIB_decs = {
 }
 
 TIB_regent_political_dealings = {
+	#flag on decision removal (replace, coup etc) so not both
 	TIB_replace_the_regent = {
 		icon = GFX_decision_SWI_dismiss_council
 		priority = 80
@@ -943,12 +991,21 @@ TIB_regent_political_dealings = {
 		}
 		available = {
 			is_subject = no
-
+			NOT  = {
+				has_country_flag = TIB_coup_ongoing
+			}
 		}
 
 		days_remove = 30
 
 		cost = 50
+		complete_effect = {
+			remove_country_leader_trait = ICE_the_strict_regent
+			add_country_leader_trait = HUN_the_regent_undermined
+			hidden_effect = {
+				set_country_flag = TIB_regent_being_imprisoned
+			}
+		}
 		remove_effect = {
 			kill_ideology_leader = neutrality
 			hidden_effect = {
@@ -956,7 +1013,7 @@ TIB_regent_political_dealings = {
 			}
 		}
 	}
-
+	#flag on decision removal (replace, coup etc) so not both
 	TIB_the_coup = {
 		icon = GFX_decision_SWI_guisan_speech
 		priority = 80
@@ -975,12 +1032,18 @@ TIB_regent_political_dealings = {
 		}
 		available = {
 			is_subject = no
+			NOT = {
+				has_country_flag = TIB_regent_being_imprisoned
+			}
 			has_country_leader = {character = TIB_jamphel_yeshe_gyaltsen ruling_only = yes}
 		}
 
 		days_remove = 30
 
 		cost = 50
+		complete_effect = {
+			set_country_flag = TIB_coup_ongoing
+		}
 		remove_effect = {
 			remove_country_leader_trait = ICE_the_strict_regent
 			add_country_leader_trait = old_coup_maker
@@ -1023,12 +1086,16 @@ TIB_regent_political_dealings = {
 			has_political_power > 24
 			command_power > 24
 		}
+
 		custom_cost_text = decision_cost_CP_25_pp_25
-		remove_effect = {
-		hidden_effect = {
-				add_political_power = -25
-				add_command_power = -25
+		complete_effect = {
+			hidden_effect = {
+			add_political_power = -25
+			add_command_power = -25
 			}
+		}
+		remove_effect = {
+
 			IF = {
 				LIMIT = {
 					has_country_leader_with_trait = old_coup_maker					
@@ -1051,9 +1118,65 @@ TIB_regent_political_dealings = {
 			}
 		}
 	}
+
+
 }
 
 TIB_neighboring_communism_category = {
+	TIB_recruit_foreign_legion = {
+		icon = GFX_decision_generic_prepare_civil_war
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+				has_completed_focus = TIB_arm_chinese_communists
+			
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = TIB_foreign_legion_recruitment_in_progress
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 24.9
+		}
+		custom_cost_text = BRA_decision_cost_cangaceiro
+
+		#cost = 100
+
+		fire_only_once = no
+		days_remove = 75
+		ai_will_do = {
+			base = 100
+		}
+
+		complete_effect = {
+			set_country_flag = TIB_foreign_legion_recruitment_in_progress
+			add_command_power = -25
+		}
+
+		remove_effect = {
+			IF = {LIMIT = {has_completed_focus = TIB_communist_volunteers}
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Chinese Volunteers\" division_template = \"Chinese Communist Group\" start_experience_factor = 0.5 start_equipment_factor	= 1.0"
+						owner = TIB 
+						count = 1
+					}
+				}
+			
+			}
+
+
+			hidden_effect = {
+				clr_country_flag = TIB_foreign_legion_recruitment_in_progress
+			}
+		}
+	}
 
 
 	TIB_spur_him_communism_decision = {
@@ -1481,3 +1604,162 @@ TIB_collab_japan = {
 
 	}
 }
+
+TIB_loot_conquest = {
+	TIB_pillage_arms_industry = {
+		icon = GFX_decision_generic_industry
+		allowed = {
+			original_tag =  TIB
+		}
+		available = {
+			has_completed_focus = TIB_exploit_conquest_for_economy
+			NOT = {
+				has_country_flag = TIB_moving_arms_factory
+			}
+			any_core_state = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}				
+			}
+		}
+		
+		visible = {
+			any_owned_state = {
+				is_on_continent = asia
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	is_fully_controlled_by = ROOT
+		    	is_on_continent = asia
+		    	NOT = {
+		    		is_core_of = ROOT
+		    	}
+				num_of_military_factories > 0
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 25
+		ai_will_do = {
+			base = 0
+		}
+		fire_only_once = no
+		days_remove = 40
+
+		complete_effect = {
+			set_country_flag = TIB_moving_arms_factory
+		}
+
+		remove_effect = {
+			clr_country_flag = TIB_moving_arms_factory
+			FROM = {
+				add_resistance = 10
+				add_compliance	= -10
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			random_core_state = {
+   				prioritize = { 757 }
+				LIMIT = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+
+	TIB_pillage_civilian_industry = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			original_tag =  TIB
+		}
+		available = {
+			has_completed_focus = TIB_exploit_conquest_for_economy
+			NOT = {
+				has_country_flag = TIB_moving_civ_factory
+			}
+			any_core_state = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}				
+			}			
+		}
+		
+		visible = {
+			any_owned_state = {
+				is_on_continent = asia
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	is_fully_controlled_by = ROOT
+		    	is_on_continent = asia
+		    	NOT = {
+		    		is_core_of = ROOT
+		    	}
+				num_of_civilian_factories > 0
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 25
+		ai_will_do = {
+			base = 0
+		}
+		fire_only_once = no
+		days_remove = 40
+		
+		complete_effect = {
+			set_country_flag = TIB_moving_civ_factory
+		}
+
+		remove_effect = {
+			clr_country_flag = TIB_moving_civ_factory
+			FROM = {
+				add_resistance = 10
+				add_compliance	= -10
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_core_state = {
+   				prioritize = { 757 }
+				LIMIT = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}	

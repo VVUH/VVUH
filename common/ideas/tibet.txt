@@ -220,9 +220,9 @@ ideas = {
 			removal_cost = -1
 				
 			modifier = {
-				mobilization_laws_cost_factor = 0.2
-				mobilization_speed = -0.4
-				consumer_goods_factor = 0.08
+				mobilization_laws_cost_factor = 0.15
+				mobilization_speed = -0.35
+				consumer_goods_factor = 0.06
 			}
 		}
 #class
@@ -381,7 +381,7 @@ ideas = {
 				industrial_capacity_factory = -0.2
 			}
 		}
-#army
+#army - add mountaineer buff, core atk / def buff, small specialist bbuff, 
 		TIB_tibetan_army1 = {
 
 			picture = chi_army_corruption

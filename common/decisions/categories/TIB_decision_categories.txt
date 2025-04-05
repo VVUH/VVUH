@@ -60,6 +60,15 @@ TIB_neighboring_communism_category = { #unite with xinjiang, maybe mongolia and 
     icon = GFX_decision_category_SOV_permanent_revolution
 }
 
+TIB_loot_conquest = {
+    allowed = {
+        tag = TIB
+    }
+    priority = 0
+    icon =  GFX_decision_category_SOV_merge_designers
+}
+
+
 # categories not yet in use 
 TIB_faith = { # state modifiers
     allowed = {
@@ -94,5 +103,4 @@ TIB_fortress_tibet = { #forts like italy - decisions GFX_decision_generic_fortif
     priority = 5
     icon = GFX_decision_category_generic_mountain_fortification
 }
-
 
