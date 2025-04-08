@@ -1970,7 +1970,10 @@
 		}
 
 		bypass = {
-
+			has_completed_focus = NZL_the_national_party
+			NOT = {
+				has_completed_focus = NZL_oppose_the_labor_government
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -6498,7 +6501,9 @@
 		}
 
 		available = {
-
+			NOT = { 
+				has_completed_focus = NZL_the_1938_election
+			}
 		}
 
 		bypass = {
@@ -6508,7 +6513,7 @@
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			remove_ideas = {
@@ -6701,7 +6706,6 @@
 	focus = {
 		id = NZL_trust_in_britain
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
-		mutually_exclusive = { focus = NZL_abandon_britain }
 		prerequisite = { focus = NZL_decide_our_future }
 		x = -1
 		y = 1
@@ -6712,6 +6716,9 @@
 		}
 
 		available = {
+			NOT = {
+				has_completed_focus = NZL_abandon_britain
+			}
 		}
 
 		bypass = {
@@ -6730,7 +6737,6 @@
 	focus = {
 		id = NZL_abandon_britain
 		icon = GFX_goal_tfv_sever_ties_with_uk
-		mutually_exclusive = { focus = NZL_trust_in_britain }
 		prerequisite = { focus = NZL_call_fascist_supporters }
 		prerequisite = { focus = NZL_decide_our_future }
 		x = 1
@@ -6742,6 +6748,12 @@
 		}
 
 		available = {
+			OR = {
+				NOT = {
+					has_completed_focus = NZL_trust_in_britain
+				}
+				has_completed_focus = NZL_supply_the_british_war
+			}
 		}
 
 		bypass = {
