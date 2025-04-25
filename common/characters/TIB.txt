@@ -79,7 +79,6 @@ characters={
 	TIB_lobsang_tenzin={
 		advisor={
 			
-			
 			slot = army_chief
 			idea_token = TIB_lobsang_tenzin
 			allowed = {
@@ -149,9 +148,7 @@ characters={
 	}
 
 	TIB_chodak_karma={
-		advisor={
-			
-			
+		advisor={			
 			slot = air_chief
 			idea_token = TIB_chodak_karma
 			allowed = {
@@ -175,8 +172,6 @@ characters={
 	}
 	TIB_tenpa_jamyang={
 		advisor={
-			
-			
 			slot = high_command
 			idea_token = TIB_tenpa_jamyang
 			ledger = army
@@ -435,7 +430,7 @@ characters={
 					has_completed_focus = TIB_young_leader_tutor
 				}
 				traits  = {
-					ICE_german_consul 
+					the_foreign_connection 
 				}
 
 		}
@@ -465,14 +460,14 @@ characters={
 					has_completed_focus = TIB_western_ideas
 				}
 				traits  = {
-					NOR_conservative_businessman 
+					ICE_german_consul 
 				}
 
 		}
 		name="Rolf Magener"
 		portraits={
 			civilian={
-				small="GFX_portrait_GER_fedor_von_bock_small"
+				small="GFX_idea_GER_julius_leber"
 			}
 		}
 	}
@@ -650,7 +645,8 @@ characters={
 				small=GFX_idea_CHI_wei_lihuang
 			}
 			army={
-				small=GFX_idea_CHI_wei_lihuang
+				large="GFX_portrait_chi_wei_lihuang"
+				small="GFX_idea_CHI_wei_lihuang"
 			}
 		}
 		advisor={
@@ -658,6 +654,10 @@ characters={
 			idea_token = TIB_tian_guansan
 			cost = 75
 			visible = {
+				has_completed_focus = TIB_the_ratification_of_the_thirteenth
+				
+			}
+			available = {
 				has_completed_focus = TIB_spring_the_revolt # change later
 			}
 			allowed = {
@@ -667,6 +667,7 @@ characters={
 				red_army_organizer
 			}
 		}
+		
 		corps_commander = {
 			traits = { infantry_officer trait_SPR_stalinist_loyalties}
 			available = {
@@ -819,7 +820,7 @@ characters={
 					}
 				}
 		}
-		name="Basil"
+		name="Sir Basil Gould"
 		portraits={
 			civilian={
 				small=GFX_portrait_ENG_john_cunningham_small
@@ -938,7 +939,33 @@ characters={
 			}
 		}
 	}
-
+	TIB_tenzin_chodrag ={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_tenzin_chodrag
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					ICE_progressive_doctor
+				}
+				available = {
+					has_government = neutrality
+					has_completed_focus = TIB_advisors_to_the_dalai_lama
+				}
+				visible = {
+					NOT = {
+						has_completed_focus = TIB_outside_influences
+					}
+				}
+		}
+		name="Tenzin Chödrag"
+		portraits={
+			civilian={
+				small=GFX_idea_CHI_sun_li_jen
+			}
+		}
+	}
 	TIB_thubten_norbu ={
 		advisor={
 			slot = political_advisor
@@ -1230,8 +1257,412 @@ characters={
 		}
 	}
 
-# pol_the_sejm <- parliament?
+
+#religious freedom
+	TIB_george_patterson ={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_george_patterson
+			visible = {
+				NOT = {
+					has_completed_focus = TIB_arm_chinese_communists
+					has_completed_focus = TIB_bhuddist_supremacy
+				}
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					AFG_faith_in_god
+				}
+				available = {
+					has_completed_focus = TIB_religious_equality
+				}
+		}
+		name="George Patterson"
+		portraits={
+			civilian={
+				small=GFX_idea_CAN_george_croil
+			}
+		}
+	}
+
+	TIB_geoffrey_bull ={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_geoffrey_bull
+			visible = {
+				NOT = {
+					has_completed_focus = TIB_arm_chinese_communists
+					has_completed_focus = TIB_bhuddist_supremacy
+				}
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					new_religious_independence_activist
+				}
+				available = {
+					has_completed_focus = TIB_religious_equality
+				}
+		}
+		name="Geoffrey Bull"
+		portraits={
+			civilian={
+				small=GFX_idea_AST_jack_piddington
+			}
+		}
+	}
+
+#parliament
+	TIB_parliament_theocracy ={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_parliament_theocracy
+			visible = {
+				has_completed_focus = TIB_legalize_the_tra
+				NOT = {
+					has_completed_focus = TIB_agitate_for_republicanism
+				}
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					elected_regency_council_pro_allies
+				}
+				available = {
+					has_completed_focus = TIB_constitutional_theocracy
+				}
+		}
+		name="Theocratic Kashag"
+		portraits={
+			civilian={
+				small=GFX_idea_pol_the_sejm
+			}
+		}
+	}
+
+	TIB_parliament_republic ={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_parliament_republic
+			visible = {
+				has_completed_focus = TIB_legalize_the_tra
+				NOT = {
+					has_completed_focus = TIB_influence_dalai_lama_d
+				}
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					democratic_council_trait
+				}
+				available = {
+					has_completed_focus = TIB_republic_tibet
+				}
+		}
+		name="Kashag of the Republic"
+		portraits={
+			civilian={
+				small=GFX_idea_pol_the_sejm
+			}
+		}
+	}
+
+#american spy - nonaligned or demo has_intelligence_agency = yes
+
+	TIB_ilya_tolstoy ={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_ilya_tolstoy
+			visible = {
+				AND = {
+					OR = {
+					has_completed_focus = TIB_legalize_the_tra
+					has_completed_focus = TIB_the_ratification_of_the_thirteenth
+					}
+					has_intelligence_agency = yes
+				}			
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					HUN_military_intelligence_officer
+				}
+				available = {
+					AND = {
+						OR = {
+						has_completed_focus = TIB_legalize_the_tra
+						has_completed_focus = TIB_the_ratification_of_the_thirteenth
+						}
+						has_intelligence_agency = yes
+					}				
+				}
+		}
+		name="Ilya Tolstoy"
+		portraits={
+			civilian={
+				small=GFX_idea_AST_james_fairbairn
+			}
+		}
+	}
+
+	TIB_brooke_dolan_two ={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_brooke_dolan_two
+			visible = {
+				AND = {
+					OR = {
+					has_completed_focus = TIB_legalize_the_tra
+					has_completed_focus = TIB_the_ratification_of_the_thirteenth
+					}
+					has_intelligence_agency = yes
+				}
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					adventurous_daredevil
+				}
+				available = {
+					AND = {
+						OR = {
+						has_completed_focus = TIB_legalize_the_tra
+						has_completed_focus = TIB_the_ratification_of_the_thirteenth
+						}
+						has_intelligence_agency = yes
+					}
+				}
+		}
+		name="Brooke Dolan II"
+		portraits={
+			civilian={
+				small=GFX_idea_AST_edmund_herring
+			}
+		}
+	}
+
+#Regent decision to open up tibet + one to keep it closed for some additional stab and ws - another one to. optional decision for commies too
+	TIB_giuseppe_tucci={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_giuseppe_tucci
+			visible = {
+				has_global_flag = TIB_open_up_intellectual_discourse
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					modernist_and_reformer
+				}
+				available = {
+					has_global_flag = TIB_open_up_intellectual_discourse
+				}
+		}
+		name="Giuseppe Tucci"
+		portraits={
+			civilian={
+				small=GFX_portrait_ITA_palmiro_togliatti_small
+			}
+		}
+	}
 
 
+
+#bhuddist advisor
+	TIB_kalu_rinpoche={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_kalu_rinpoche
+			visible = {
+				NOT = {
+					has_completed_focus = TIB_arm_chinese_communists
+					has_completed_focus = TIB_religious_equality
+				}
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					driver_of_the_faithful
+				}
+				available = {
+					has_completed_focus = TIB_bhuddist_supremacy
+				}
+		}
+		name="Kalu Rinpoche"
+		portraits={
+			civilian={
+				small=GFX_idea_CHI_lin_sen
+			}
+		}
+	}
+#open up intellectual discourse
+	TIB_ngapoi_zhoigar={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_ngapoi_zhoigar
+			visible = {
+					has_global_flag = TIB_open_up_intellectual_discourse
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					JUNO_feminist_editor
+				}
+				available = {
+					has_global_flag = TIB_open_up_intellectual_discourse
+
+				}
+		}
+		name="Ngapoi Cedain Zhoigar"
+		portraits={
+			civilian={
+				small=GFX_idea_generic_political_advisor_female_asia
+			}
+		}
+	}
+	TIB_jigdral_dorje={
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_jigdral_dorje
+			visible = {
+					has_global_flag = TIB_open_up_intellectual_discourse
+
+
+			}
+			allowed  = {
+					original_tag  = TIB
+				}
+				traits  = {
+					BRA_academic_writer
+				}
+				available = {
+					has_global_flag = TIB_open_up_intellectual_discourse
+
+				}
+		}
+		name="Jigdral Yeshe Dorje"
+		portraits={
+			civilian={
+				small=GFX_idea_generic_air_chief_all_weather_asian_2d
+			}
+		}
+	}
+
+#generals
+
+	TIB_huang_musong={ 
+		name= "Huang Musong"
+		portraits={
+			army={
+				large="GFX_portrait_yun_long_yun"
+				small="GFX_portrait_yun_long_yun_small"
+			}
+		}
+		
+		corps_commander = {
+			traits = { }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	
+	TIB_tsarong_dramdul={ 
+		name= "Tsarong Dasang Dramdül"
+		portraits={
+			civilian = {
+				small=GFX_portrait_yan_xishan_small
+			}
+			army={
+				large="GFX_portrait_yan_xishan"
+				small="GFX_portrait_yan_xishan_small"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_tsarong_dramdul
+			cost = 75
+			visible = {
+				OR = {
+					#has_completed_focus = TIB_the_ratification_of_the_thirteenth
+					#has_completed_focus = TIB_legalize_the_tra
+				}
+			}
+			available = {
+				OR = {
+					#has_completed_focus = TIB_influence_dalai_lama_d 
+					#has_completed_focus = TIB_chinese_border_raids
+				}
+			}
+			allowed = {
+				original_tag = TIB
+			}
+			traits = {
+				fortification_engineer
+			}
+		}
+		
+		field_marshal = {
+			traits = { infantry_officer}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	
+	TIB_ngapoi_jigme={ 
+		name= "Ngapoi Ngawang Jigme"
+		portraits={
+			civilian = {
+				small=GFX_idea_CHI_wei_lihuang
+			}
+			army={
+				large="GFX_portrait_chi_wei_lihuang"
+				small="GFX_idea_CHI_wei_lihuang"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = TIB_ngapoi_jigme
+			cost = 75
+			allowed = {
+				original_tag = TIB
+			}
+			traits = {
+				moderate_reformist
+				#remove_trait = moderate_reformist  then add_trait = prime_minister_husnu when commies
+			}
+		}
+		
+		corps_commander = {
+			available = {
+				NOT = {
+					has_completed_focus = TIB_the_military_coup
+				}
+			}
+			traits = { 
+				politically_connected inflexible_strategist #later add trait_GRE_marxist_acolyte
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
 
 }

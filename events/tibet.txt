@@ -1,4 +1,5 @@
 add_namespace = TIB_political_events
+add_namespace = TIB_ref
 
 #Free puppets?
 country_event = {
@@ -443,7 +444,7 @@ country_event = { #Tibet boosts communist sentiments
 		ai_chance = {
 			base = 1
 			modifier = {
-				factor = 5
+				factor = 3
 				OR = {
 					has_government = fascism
 					has_government = neutrality
@@ -753,5 +754,1783 @@ country_event = { #Tibet informed that their ultimatum was rejected
 	}
 }
 
+country_event = {
+	id = TIB_ref.1
+	title = TIB_ref.1.t 
+	desc = TIB_ref.1.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
 
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.1.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 985
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 985
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					transfer_state = 985
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.2
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.1.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.3
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_SIK_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.2
+	title = TIB_ref.2.t 
+	desc = TIB_ref.2.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.2.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 985
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 985
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			985 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 985
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.3
+	title = TIB_ref.3.t 
+	desc = TIB_ref.3.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.3.a
+
+		add_political_power = 75
+		985 = {
+			add_core_of = ROOT
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_sikkim_ref_flag
+			}
+		}
+	}
+}
+
+country_event = {
+	id = TIB_ref.4
+	title = TIB_ref.4.t 
+	desc = TIB_ref.4.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.4.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 434
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 434
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					434 = {
+						remove_core_of = FROM
+					}
+
+					transfer_state = 434
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.5
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.4.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.6
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_rajpradesh_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.5
+	title = TIB_ref.5.t 
+	desc = TIB_ref.5.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.5.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 434
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 434
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			434 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 434
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.6
+	title = TIB_ref.6.t 
+	desc = TIB_ref.6.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.6.a
+
+		add_political_power = 75
+		434 = {
+			add_core_of = TIB
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_pradesh_ref_flag
+			}
+		}
+	}
+}
+
+country_event = {
+	id = TIB_ref.7
+	title = TIB_ref.7.t 
+	desc = TIB_ref.7.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.7.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 441
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 441
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					441 = {
+						remove_core_of = FROM
+					}
+					transfer_state = 441
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.8
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.7.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.9
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_rajkashmir_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.8
+	title = TIB_ref.8.t 
+	desc = TIB_ref.8.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.8.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 441
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 441
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			441 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 441
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.9
+	title = TIB_ref.9.t 
+	desc = TIB_ref.9.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.9.a
+
+		add_political_power = 75
+		441 = {
+			add_core_of = TIB
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_kashmir_ref_flag
+			}
+		}
+	}
+	
+}
+
+country_event = {
+	id = TIB_ref.10
+	title = TIB_ref.10.t 
+	desc = TIB_ref.10.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.10.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 787
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 787
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					787 = {
+						remove_core_of = FROM
+					}
+					transfer_state = 787
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.11
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.10.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.12
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_rajnorthkashmir_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.11
+	title = TIB_ref.11.t 
+	desc = TIB_ref.11.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.11.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 787
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 787
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			787 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 787
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.12
+	title = TIB_ref.12.t 
+	desc = TIB_ref.12.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.12.a
+
+		add_political_power = 75
+		787 = {
+			add_core_of = TIB
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_nkashmir_ref_flag
+			}
+		}
+	}
+}
+
+country_event = {
+	id = TIB_ref.13
+	title = TIB_ref.13.t 
+	desc = TIB_ref.13.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.13.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 990
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 990
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					transfer_state = 990
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.14
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.13.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.15
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_rajmanipur_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.14
+	title = TIB_ref.14.t 
+	desc = TIB_ref.14.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.14.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 990
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 990
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			990 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 990
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.15
+	title = TIB_ref.15.t 
+	desc = TIB_ref.15.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.15.a
+
+		add_political_power = 75
+		990 = {
+			add_core_of = TIB
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_manipur_ref_flag
+			}
+		}
+	}
+}
+country_event = {
+	id = TIB_ref.16
+	title = TIB_ref.16.t 
+	desc = TIB_ref.16.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.16.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 619
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 619
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					transfer_state = 619
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.17
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.16.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.18
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_sikyarkand_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.17
+	title = TIB_ref.17.t 
+	desc = TIB_ref.17.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.17.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 619
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 619
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			619 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 619
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.18
+	title = TIB_ref.18.t 
+	desc = TIB_ref.18.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.18.a
+
+		add_political_power = 75
+		619 = {
+			add_core_of = TIB
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_yarkand_ref_flag
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = TIB_ref.19
+	title = TIB_ref.19.t 
+	desc = TIB_ref.19.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.19.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 754
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 754
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					transfer_state = 754
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.20
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.19.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.21
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_xsmgolog_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.20
+	title = TIB_ref.20.t 
+	desc = TIB_ref.20.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.20.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 754
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 754
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			754 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 754
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.21
+	title = TIB_ref.21.t 
+	desc = TIB_ref.21.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.21.a
+
+		add_political_power = 75
+		754 = {
+			add_core_of = TIB
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_golog_ref_flag
+			}
+		}
+	}
+}
+
+country_event = {
+	id = TIB_ref.22
+	title = TIB_ref.22.t 
+	desc = TIB_ref.22.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.22.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 283
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 283
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					transfer_state = 283
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.23
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.22.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.24
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_xsmgolog_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.23
+	title = TIB_ref.23.t 
+	desc = TIB_ref.23.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.23.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 283
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 283
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			283 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 283
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.24
+	title = TIB_ref.24.t 
+	desc = TIB_ref.24.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.24.a
+
+		add_political_power = 75
+		283 = {
+			add_core_of = TIB
+			
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_golog_ref_flag
+			}
+		}
+	}
+}
+country_event = {
+	id = TIB_ref.25
+	title = TIB_ref.25.t 
+	desc = TIB_ref.25.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.25.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 753
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 753
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					transfer_state = 753
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.26
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.25.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.27
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_xsmgolog_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.26
+	title = TIB_ref.26.t 
+	desc = TIB_ref.26.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.26.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 753
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 753
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			753 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 753
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.27
+	title = TIB_ref.27.t 
+	desc = TIB_ref.27.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.27.a
+
+		add_political_power = 75
+		753 = {
+			add_core_of = TIB
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_golog_ref_flag
+			}
+		}
+	}
+}
+country_event = {
+	id = TIB_ref.28
+	title = TIB_ref.28.t 
+	desc = TIB_ref.28.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.28.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 752
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 752
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					transfer_state = 752
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.29
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.28.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.30
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_xsmgolog_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.29
+	title = TIB_ref.29.t 
+	desc = TIB_ref.29.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.29.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 752
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 752
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			752 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}			
+			}
+			TIB = {
+				transfer_state = 752
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.30
+	title = TIB_ref.30.t 
+	desc = TIB_ref.30.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.30.a
+
+		add_political_power = 75
+		752 = {
+			add_core_of = TIB
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_golog_ref_flag
+			}
+		}
+	}
+}
+country_event = {
+	id = TIB_ref.31
+	title = TIB_ref.31.t 
+	desc = TIB_ref.31.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	# If it is what the people wish for
+	option = { 
+		name = TIB_ref.31.a
+
+		ai_chance = {
+			base = 95
+		}
+
+		effect_tooltip = {
+			IF = {
+
+				limit = {
+					ROOT = {	
+						OR = {		
+							owns_state = 751
+							any_subject_country = {
+								is_ai = yes
+								owns_state = 751
+							}
+						}
+					}
+				}
+
+				add_political_power = 50
+				add_stability = 0.05
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				FROM = {
+					transfer_state = 751
+				}
+
+			}
+		}
+
+		TIB = { 
+			country_event = {
+			    id = TIB_ref.32
+			    days = 1
+			    random = 2
+			}
+		}
+	}
+
+	# The referendum was fraudulent
+	option = { 
+		name = TIB_ref.31.b
+		trigger = {
+			NOT = {
+				is_subject_of = FROM
+			}
+		}
+
+		ai_chance = {
+			base = 5
+		}
+
+		TIB = {
+			country_event = {
+			    id = TIB_ref.33
+			    days = 1
+			    random = 2
+			}
+		}
+
+		hidden_effect = {
+			set_country_flag = TIB_xsmgolog_says_no_flag
+		}
+	}
+}
+
+# X country accepts the referendum
+country_event = {
+	id = TIB_ref.32
+	title = TIB_ref.32.t 
+	desc = TIB_ref.32.desc
+	picture = GFX_report_event_generic_handshake
+	
+	is_triggered_only = yes
+
+	# A reasonable response
+	option = { 
+		name = TIB_ref.32.a
+
+		IF = {
+			limit = {
+				OR = {
+					FROM = {
+						owns_state = 751
+					}
+					FROM = {
+						any_subject_country = {
+							is_ai = yes
+							owns_state = 751
+						}
+					}
+				}
+			}
+			FROM = {
+				add_political_power = 50
+				add_stability = 0.05
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			751 = {
+				add_core_of = TIB
+				owner = {
+					remove_core_of = PREV
+				}
+			}
+			TIB = {
+				transfer_state = 751
+			}
+		}
+	}
+}
+
+# X country declares the referendum illegitimate
+country_event = {
+	id = TIB_ref.33
+	title = TIB_ref.33.t 
+	desc = TIB_ref.33.desc
+	picture = GFX_report_event_hungary_parliament
+	
+	is_triggered_only = yes
+
+	# We will have to accept it 
+	option = { 
+		name = TIB_ref.33.a
+
+		add_political_power = 75
+		751 = {
+			add_core_of = TIB
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		
+		TIB = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = BUL_rejected_our_proposal
+			}
+		}
+		
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = TIB_held_golog_ref_flag
+			}
+		}
+	}
+}
 
