@@ -306,7 +306,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = { modifier = devout_believers}
 			}
-			unlock_decision_tooltip = TIB_religious_alignment_decision
+			unlock_decision_tooltip = TIB_religious_alignment_decision_of_FROM
 		}
 	}
 
@@ -375,6 +375,13 @@ focus_tree = {
 				bonus = 0.7
 				uses = 1
 				category = cat_anti_air
+			}			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			ENG = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = IRQ_purchased_our_equipment
+				}
 			}
 			unlock_decision_tooltip = TIB_deepen_bonds_with_ENG
 		}
@@ -431,9 +438,23 @@ focus_tree = {
 
 		}
 		
-
-		completion_reward = {
- 
+		completion_reward = {     
+			if = {
+				limit = { has_idea = disarmed_nation }
+				add_ideas = volunteer_only
+			}
+			if = {
+				limit = { has_idea = volunteer_only }
+				add_ideas = limited_conscription
+			}	
+			if = {
+				limit = { has_idea = limited_conscription }
+				add_ideas = extensive_conscription
+			}
+			if = {
+				limit = { has_idea = extensive_conscription }
+				add_ideas = service_by_requirement
+			}	
 		}
 	}
 
@@ -518,7 +539,54 @@ focus_tree = {
 		
 
 		completion_reward = {
-
+			add_timed_idea = {
+				idea = TIB_crackdown_on_communists
+				days = 200
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					has_intelligence_agency = no
+				}
+					create_intelligence_agency = { 
+						name = "Tibetan Internal Security Force"
+						icon = GFX_intelligence_agency_logo_AFG_neutrality
+					}
+				}
+			upgrade_intelligence_agency = upgrade_training_centers
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = tech_military_police
+					}
+				}
+				set_technology = { tech_military_police = 1 }
+			}
+			division_template = {
+				name = "Border Guards"		
+				is_locked = no
+				force_allow_recruiting = yes
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+					militia = { x = 1 y = 2 }
+				}
+				support = {
+					military_police = { x = 0 y = 0 }
+				}
+				override_model = AFG_infantry_alt_0_entity
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Border Guards\" start_experience_factor = 0.05 start_equipment_factor = 1"
+					owner = TIB
+					count = 4
+				}
+			}
 		}
 	} 
 	focus = {
@@ -539,6 +607,7 @@ focus_tree = {
 		
 
 		completion_reward = {
+			add_stability = 0.05
 			remove_ideas = TIB_tibet_class_system2
 		}
 	}	
@@ -565,6 +634,7 @@ focus_tree = {
             } 
 			custom_effect_tooltip = MON_recruit_advisor_tt
 			show_ideas_tooltip = TIB_tsepon_shakabpa1
+			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				LIMIT = {
 					has_idea = TIB_bureaucracy
@@ -797,9 +867,6 @@ focus_tree = {
         relative_position_id = TIB_strengthen_the_professional_army
 		available = {
 			any_country = {
-				NOT = {
-					has_government = communism
-				}
 				has_opinion = {
 					target = TIB
 					value > 49
@@ -814,7 +881,10 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			#add idea
+			add_timed_idea = {
+				idea = TIB_reward_for_service
+				days = 200
+			}
 		}
 	}
 
@@ -857,7 +927,7 @@ focus_tree = {
 		icon = GFX_focus_RAJ_union_busting
 		x = -1
 		y = 1
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -868,11 +938,26 @@ focus_tree = {
         relative_position_id = TIB_exploit_conquest_for_economy
 		available = {
             fascism > 0.4
-			has_war_support > 0.5
 		}
 
 		completion_reward = {
 			add_ideas = war_economy
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}				
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}				
+			}
 		}
 	}
 	focus = {
@@ -1009,7 +1094,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_workers_for_industry
-		icon = GFX_focus_generic_tank_assembly
+		icon = GFX_focus_ITA_generic_fascist_workers
 		x = -1
 		y = 1
 		cost = 5
@@ -1134,16 +1219,69 @@ focus_tree = {
 				type = annex_everything
 				target = RAJ
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = BRM
-			}
+
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			unlock_decision_tooltip	 = TIB_integrate_south_tibetan_empire
 			custom_effect_tooltip = TIB_bengal_w_and_e_core_tt
 		}
 	}
+	focus = {
+		id = TIB_south_east_asian_expansion
+		icon = GFX_focus_GER_expand_pacific_holdings
+		x = 1 
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_cross_the_mountains}
+
+        relative_position_id = TIB_cross_the_mountains
+		available = {
+
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = BRM
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SIA
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = MAL
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = INS
+			}
+		}
+	}
+	focus = {
+		id = TIB_the_tibetan_empire
+		icon = GFX_focus_RAJ_the_sun_sets
+		x = -1 
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_cross_the_mountains}
+        prerequisite ={ focus = TIB_reclaim_the_empire}
+
+        relative_position_id = TIB_cross_the_mountains
+		available = {
+
+		}
+		completion_reward = {
+			add_ideas = TIB_tibetan_empire
+		}
+	}	
 	focus = {
 		id = TIB_western_ideas
 		icon = GFX_SOV_leningrad_polytechnical_institute_ccp_2d_sov_compatibility
@@ -1793,7 +1931,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_cultural_revolution
-		icon = GFX_focus_CHL_union_of_hispanic_republics
+		icon = GFX_focus_NOR_moscows_education_centers
 		x = 1
 		y = 1
 		cost = 10
@@ -1839,6 +1977,7 @@ focus_tree = {
 				remove_ideas = TIB_equal_beliefs
 				set_global_flag = TIB_you_fucked_up_tt
 				mark_focus_tree_layout_dirty = yes
+				complete_national_focus	= TIB_the_uprising
 			}
 			swap_ideas = {
 				remove_idea = TIB_tibet_class_system_c
@@ -1885,11 +2024,38 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = TIB_prisoner_conscription
+		icon = GFX_focus_FIN_parmis_devils
+		x = -1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_monastaries_into_prisons
 
+        prerequisite ={ focus = TIB_monastaries_into_prisons  }
+        prerequisite ={ focus = TIB_cast_down_our_neighbours  }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		
+		completion_reward = {
+			add_manpower = 50000
+			add_stability = -0.1
+            add_popularity = {
+                ideology = communism
+                popularity = 0.1
+            } 		
+
+		}
+	}
 
 	focus = {
 		id = TIB_regional_cooperation
-		icon = GFX_SOV_call_for_aid_ccp_2d_sov_compatibility
+		icon = GFX_focus_CHL_union_of_hispanic_republics
 		x = 3
 		y = 1
 		cost = 5
@@ -1988,6 +2154,11 @@ focus_tree = {
 		}
 		available = {
 			has_civil_war = no
+			NOT = {
+				has_idea = TIB_bureaucracy
+				has_idea = TIB_bureaucracy1
+
+			}
 		}
 		
 		completion_reward = {
@@ -2688,7 +2859,7 @@ focus_tree = {
 		
 		completion_reward = {
 			
-			unlock_decision_tooltip = TIB_religious_alignment_decision
+			unlock_decision_tooltip = TIB_religious_alignment_decision_of_FROM
 
 		}
 	}
@@ -3088,7 +3259,9 @@ focus_tree = {
 
 	
 		completion_reward = {
-
+			ENG = {
+				give_guarantee = TIB
+			}
 			IF = {
 				LIMIT = {
 					ENG = {
@@ -3360,11 +3533,11 @@ focus_tree = {
 	focus = {
 		id = TIB_welcome_refugee_flow
 		icon = GFX_focus_SWE_refuge_from_war
-		x = -1
-		y = 1
+		x = -2
+		y = 0
 		cost = 5
         mutually_exclusive = {focus = TIB_stem_refugee_flow}
-        relative_position_id = TIB_internal_matters
+        relative_position_id = TIB_stem_refugee_flow
         prerequisite = {focus = TIB_internal_matters}
 		ai_will_do = {
 			factor = 1
@@ -3469,4 +3642,2826 @@ focus_tree = {
 			custom_effect_tooltip = TIB_integrate_bhuddist_minorities
 		}
 	}
+
+
+# industry tree
+    
+    focus = {
+		id = TIB_a_feudal_industry
+		icon = GFX_SOV_respect_baltic_self_determination_ccp_2d_sov_compatibility
+		x = 8
+		y = 0
+		cost = 5
+        relative_position_id = TIB_internal_matters
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            has_stability > 0.25
+		}
+		completion_reward = {     
+
+		}
+	}
+	focus = {
+		id = TIB_arm_tibet
+		icon = GFX_goal_generic_construct_mil_factory
+		x = -3
+		y = 1
+		cost = 10
+        relative_position_id = TIB_a_feudal_industry
+        prerequisite = {focus = TIB_a_feudal_industry}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war_support > 0.2
+		}
+		completion_reward = {     
+			random_core_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+    focus = {
+		id = TIB_modern_state_academy
+		icon = GFX_SOV_national_academies_of_sciences_ccp_2d_sov_compatibility
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_reform_the_system
+        prerequisite = {focus = TIB_serfs_by_other_names focus = TIB_reform_the_system}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_stability > 0.4
+		}
+		completion_reward = {     
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = TIB_oil_fuel
+		icon = GFX_focus_PER_invite_oil_nations
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_modern_state_academy
+        prerequisite = {focus = TIB_modern_state_academy}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {    
+			add_resource = {
+				type = oil
+				amount = 8
+				state = 758
+			}
+			add_offsite_building = { type = arms_factory level = 1 } 
+		}
+	}
+
+	focus = {
+		id = TIB_refine_coal
+		icon = GFX_focus_PER_increase_oil_sales
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_oil_fuel
+        prerequisite = {focus = TIB_oil_fuel}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {     
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			show_ideas_tooltip = TIB_petrol 
+		}
+	}
+	focus = {
+		id = TIB_resource_effort
+		icon = GFX_focus_GER_factories_for_resources
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_refine_coal
+        prerequisite = {focus = TIB_refine_coal}
+        prerequisite = {focus = TIB_electrify_country}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {   
+			  
+			add_tech_bonus = {
+				bonus = 0.7
+				uses = 2
+				category = excavation_tech
+			}
+		}
+	}
+	focus = {
+		id = TIB_resource_mining_alu
+		icon = GFX_focus_generic_aluminum
+		x = -3
+		y = 1
+		cost = 10
+        relative_position_id = TIB_resource_effort
+        prerequisite = {focus = TIB_resource_effort}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {     
+			add_resource = {
+				type = aluminium
+				amount = 10
+				state = 758
+			}		
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_resource_mining_steel_tungsten
+		icon = GFX_focus_generic_mining_industry
+		x = -1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_resource_effort
+        prerequisite = {focus = TIB_resource_effort}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {     
+			add_resource = {
+				type = steel
+				amount = 25
+				state = 322
+			}
+			add_resource = {
+				type = tungsten
+				amount = 10
+				state = 322
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_putting_it_to_use
+		icon = GFX_focus_generic_reorient_production
+		x = 1
+		y = 1
+		cost = 12
+        relative_position_id = TIB_resource_effort
+        prerequisite = {focus = TIB_resource_effort}
+		prerequisite = {focus = TIB_modern_construction}
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {     
+			random_core_state = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_dams_for_power
+		icon = GFX_focus_generic_hydroelectric_energy
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_modern_state_academy
+        prerequisite = {focus = TIB_modern_state_academy}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {    
+			757 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 8121
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+			custom_effect_tooltip = after_completion_will_unlock_more_decisions_based_on_path_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			757 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_recruit_advisor_tt	
+			show_ideas_tooltip = TIB_rigzin_dorje_ringang 
+
+
+		}
+	}
+	focus = {
+		id = TIB_production_modernisation
+		icon = GFX_focus_generic_tank_assembly
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_dams_for_power
+        prerequisite = {focus = TIB_dams_for_power}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {    
+			add_ideas =  TIB_factory_effort1
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_production_scaling
+		icon = GFX_focus_generic_modernize_industry
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_production_modernisation
+        prerequisite = {focus = TIB_production_modernisation}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {     
+			add_ideas = war_economy
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = TIB_modern_construction
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_production_modernisation
+        prerequisite = {focus = TIB_production_modernisation}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {  
+			swap_ideas = {
+				remove_idea = TIB_factory_effort1
+				add_idea = TIB_factory_effort2
+			}   
+			random_core_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_villages_to_cities
+		icon = GFX_focus_generic_low_cost_housing
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_modern_construction
+        prerequisite = {focus = TIB_modern_construction}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			add_stability = 0.1
+			if = {
+				limit = {
+					757 = { #capital
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				757 = { set_state_category = large_city 				
+				add_extra_state_shared_building_slots = 1
+}
+	
+			}
+			if = {
+				limit = {
+					323 = { #nepal
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				323 = { set_state_category = large_city 				
+				add_extra_state_shared_building_slots = 1
+}
+			}
+			if = {
+				limit = {
+					324 = { #bhutan
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				324 = { set_state_category = large_city 				
+				add_extra_state_shared_building_slots = 1
+}
+			}
+		}
+	}
+
+	
+	focus = {
+		id = TIB_electrify_country
+		icon = GFX_focus_generic_energy
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_oil_fuel
+        prerequisite = {focus = TIB_oil_fuel focus = TIB_dams_for_power}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = TIB_electrify_FROM
+			757 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_reaching_places
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 3
+		y = 1
+		cost = 10
+        prerequisite = {focus = TIB_a_feudal_industry}
+        relative_position_id = TIB_a_feudal_industry
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			num_of_civilian_factories > 5
+		}
+
+		completion_reward = {
+			#spirit for supply hubs and railways
+			758 = {
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = {
+						id = 1961
+					}
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = TIB
+						add = 2
+					}
+				}
+				start_province = 5033
+				target_province = 1961
+			}			
+			322 = {
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = {
+						id = 5011
+					}
+				}				
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = TIB
+						add = 2
+					}
+				}
+				start_province = 5033
+				target_province = 5011
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			show_ideas_tooltip = TIB_state_infrastructure
+		}
+	}
+
+	
+
+	focus = {
+		id = TIB_tibetan_plateau_agriculture
+		icon = GFX_focus_generic_farmland
+		x = 7
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_a_feudal_industry}
+        relative_position_id = TIB_a_feudal_industry
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_ideas = TIB_agri
+		}
+	}
+	focus = {
+		id = TIB_opium_trade
+		icon = GFX_focus_RAJ_legalize_the_opium_trade
+		x = -1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_tibetan_plateau_agriculture}
+        relative_position_id = TIB_tibetan_plateau_agriculture
+		mutually_exclusive = {focus = TIB_soldier_poppies}
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+			add_stability = 0.1
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_agri
+				add_idea = TIB_agri_trade
+			}
+		}
+	}
+	focus = {
+		id = TIB_soldier_poppies
+		icon = GFX_focus_SWE_rations
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_tibetan_plateau_agriculture}
+        relative_position_id = TIB_tibetan_plateau_agriculture
+		mutually_exclusive = {focus = TIB_opium_trade}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			add_war_support = 0.1
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_agri
+				add_idea = TIB_agri_soldier
+			}		
+		}
+	}
+	focus = {
+		id = TIB_centralize_farming
+		icon = GFX_goal_generic_major_alliance
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_soldier_poppies focus = TIB_opium_trade}
+        relative_position_id = TIB_opium_trade
+		mutually_exclusive = {focus = TIB_citizen_farmlands}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+
+		}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_agri_soldier
+					add_idea = TIB_central_agri_soldier
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_agri_trade
+				}
+				swap_ideas = {
+					remove_idea = TIB_agri_trade
+					add_idea = TIB_central_agri_trade
+				}
+			}ELSE = {
+				custom_effect_tooltip = TIB_centr_farms_effect_tt
+			}
+		}
+	}
+	focus = {
+		id = TIB_citizen_farmlands
+		icon = GFX_goal_generic_neutrality_focus
+		x = 2
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_soldier_poppies focus = TIB_opium_trade}
+        relative_position_id = TIB_opium_trade
+		mutually_exclusive = {focus = TIB_centralize_farming}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_agri_soldier
+					add_idea = TIB_citz_agri_soldier
+				}
+			}ELSE_IF = {
+				limit = {
+					has_idea = TIB_agri_trade
+				}
+				swap_ideas = {
+					remove_idea = TIB_agri_trade
+					add_idea = TIB_citz_agri_trade
+				}
+			}ELSE = {
+				custom_effect_tooltip = TIB_citizen_farms_effect_tt
+			}
+		}
+	}
+	focus = {
+		id = TIB_subsidize_on_crops
+		icon = GFX_focus_generic_agricultural_subsidies
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_citizen_farmlands focus = TIB_centralize_farming}
+        relative_position_id = TIB_centralize_farming
+		mutually_exclusive = {focus = TIB_support_animal_herds}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_central_agri_trade
+				}
+					swap_ideas = {
+					remove_idea = TIB_central_agri_trade
+					add_idea = TIB_sub_central_agri_trade
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_central_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_central_agri_soldier
+					add_idea = TIB_sub_central_agri_soldier
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_citz_agri_trade
+				}
+				swap_ideas = {
+					remove_idea = TIB_citz_agri_trade
+					add_idea = TIB_sub_citz_agri_trade
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_citz_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_citz_agri_soldier
+					add_idea = TIB_sub_citz_agri_soldier
+				}			
+			}ELSE = {
+				custom_effect_tooltip = TIB_sub_crops_effect_tt
+			}
+	
+		}
+	}
+
+	focus = {
+		id = TIB_support_animal_herds
+		icon = GFX_focus_generic_sheep
+		x = 2
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_citizen_farmlands focus = TIB_centralize_farming}
+        relative_position_id = TIB_centralize_farming
+		mutually_exclusive = {focus = TIB_subsidize_on_crops}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_central_agri_trade
+				}
+					swap_ideas = {
+					remove_idea = TIB_central_agri_trade
+					add_idea = TIB_bal_central_agri_trade
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_central_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_central_agri_soldier
+					add_idea = TIB_bal_central_agri_soldier
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_bal_citz_agri_trade
+				}
+				swap_ideas = {
+					remove_idea = TIB_citz_agri_trade
+					add_idea = TIB_bal_citz_agri_trade
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_citz_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_citz_agri_soldier
+					add_idea = TIB_bal_citz_agri_soldier
+				}			
+			}ELSE = {
+				custom_effect_tooltip = TIB_herd_effect_tt
+			}
+	
+		}
+	}
+	focus = {
+		id = TIB_state_carpet_factory
+		icon = GFX_focus_CHL_enlarge_the_textile_industries
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_support_animal_herds focus = TIB_subsidize_on_crops}
+        relative_position_id = TIB_subsidize_on_crops
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			random_owned_state	 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}				
+				}
+		}
+	}
+	focus = {
+		id = TIB_civ_economy
+		icon = GFX_SOV_planned_economy_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		cost = 10
+        prerequisite = {focus = TIB_state_carpet_factory }
+        relative_position_id = TIB_state_carpet_factory
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			add_stability = 0.1
+			IF = {
+				LIMIT = {
+					has_idea = free_trade
+				}
+				swap_ideas = {
+					remove_idea = free_trade
+					add_idea = export_focus
+				}
+			}
+			IF = {
+				LIMIT = {
+					has_idea = export_focus
+				}
+				swap_ideas = {
+					remove_idea = export_focus
+					add_idea = limited_exports
+				}
+			}
+			IF = {
+				LIMIT = {
+					has_idea = limited_exports
+				}
+				swap_ideas = {
+					remove_idea = limited_exports
+					add_idea = closed_economy
+				}
+			}
+		}
+	}		
+	focus = {
+		id = TIB_factory_serfs
+		icon = GFX_focus_GER_integrated_economies
+		x = -1
+		y = 1
+		cost = 10
+        prerequisite = {focus = TIB_serfs_by_other_names}
+        relative_position_id = TIB_serfs_by_other_names
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_cheap_labor
+		icon = GFX_SOV_the_trade_union_as_labor_organizer_ccp_2d_sov_compatibility
+		x = 1
+		y = 1
+		cost = 10
+        prerequisite = {focus = TIB_reform_the_system}
+        relative_position_id = TIB_reform_the_system
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}				
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_reform_the_system
+		icon = GFX_focus_DEN_no_regulations
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_a_feudal_industry}
+        mutually_exclusive = {focus = TIB_serfs_by_other_names}
+        relative_position_id = TIB_a_feudal_industry
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+				has_government = communism
+			}
+
+		}
+
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 } 
+			add_ideas = TIB_reform_0
+		}
+	}
+
+	focus = {
+		id = TIB_reduce_inequality
+		icon = GFX_focus_AUS_womens_education_initiative
+		x = 3
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_reform_the_system}
+        relative_position_id = TIB_reform_the_system
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = TIB_education_effort
+				days = 200
+			}
+			swap_ideas = {
+				remove_idea = TIB_reform_0
+				add_idea = TIB_reform_1
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_land_reform
+		icon = GFX_SOV_reverse_the_collectivization_process_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_reduce_inequality}
+        relative_position_id = TIB_reduce_inequality
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			every_state = {
+				LIMIT = {
+					is_controlled_by = TIB
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			every_state = {
+				LIMIT = {
+					is_controlled_by = TIB
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = TIB_finish_the_reformation
+		icon = GFX_SOV_reformalize_the_role_of_the_patriarchate_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_land_reform}
+        relative_position_id = TIB_land_reform
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_reform_1
+				add_idea = TIB_reform_2
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_serfs_by_other_names
+		icon = GFX_focus_DEN_heavy_regulations
+		x = -1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_a_feudal_industry}
+        mutually_exclusive = {focus = TIB_reform_the_system}
+        relative_position_id = TIB_a_feudal_industry
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+				has_government = communism
+
+			}
+		}
+
+		completion_reward = {
+			add_ideas = TIB_feudalism_0
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+
+
+	focus = {
+		id = TIB_empower_specific_groups
+		icon = GFX_focus_BEL_belgian_gates
+		x = -2
+		y = 0
+		cost = 5
+        prerequisite = {focus = TIB_serfs_by_other_names}
+        relative_position_id = TIB_factory_serfs
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}				
+			}
+			swap_ideas = {
+				remove_idea = TIB_feudalism_0
+				add_idea = TIB_feudalism_1
+			}
+		}
+	}
+	focus = {
+		id = TIB_control_the_middle_division
+		icon = GFX_focus_BEL_government_resigns
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_empower_specific_groups}
+        relative_position_id = TIB_empower_specific_groups
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = TIB_reduce_resistance_to_ash
+				days = 150
+			}
+			swap_ideas = {
+				remove_idea = TIB_feudalism_1
+				add_idea = TIB_feudalism_2
+			}
+		}
+	}
+	focus = {
+		id = TIB_keep_the_lower_division_placated
+		icon = GFX_focus_BEL_la_dame_blanche
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_control_the_middle_division}
+        relative_position_id = TIB_control_the_middle_division
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+
+		completion_reward = {
+			add_stability = 0.1
+			swap_ideas = {
+				remove_idea = TIB_feudalism_2
+				add_idea = TIB_feudalism_3
+			}
+		}
+	}
+
+# army tree
+    focus = {
+		id = TIB_start_overhauling_army
+		icon = GFX_focus_generic_manpower
+		x = 11
+		y = -1
+		cost = 5
+        relative_position_id = TIB_tibetan_plateau_agriculture
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            has_war_support > 0.25
+		}
+		completion_reward = {     
+			IF = {
+				LIMIT = {
+					has_idea = TIB_tibetan_army1
+				}
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army1
+					add_idea = TIB_tibetan_army2
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army2
+					add_idea = TIB_tibetan_army3
+				}				
+			}
+		}
+	}
+	focus = {
+		id = TIB_issue_promotions
+		icon = GFX_focus_PAR_put_estigarribia_on_a_pedestal
+		x = -3
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army }
+
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			add_ideas = TIB_modern_officer_corps
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = TIB_supply_improvements
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		x = 3
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army }
+
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			add_ideas = TIB_supplying_mountain_troops
+		}
+	}		
+    focus = {
+		id = TIB_engineer_corps
+		icon = GFX_SOV_pc_of_mechanical_engineering_ccp_2d_sov_compatibility
+		x = -5
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army}
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {    
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = construction_tech
+			} 
+			add_ideas = elevated_engineering_corps_spirit
+		}
+	}
+	focus = {
+		id = TIB_fortification_focus
+		icon = GFX_focus_generic_mountain_fortification
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_engineer_corps}
+        relative_position_id = TIB_engineer_corps
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			every_core_state = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_forward_engineering_operations
+		icon = GFX_focus_FIN_the_cold_front
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_fortification_focus}
+		prerequisite = {focus = TIB_modernize_cannons}
+
+        relative_position_id = TIB_modernize_cannons
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			hidden_effect = {
+				division_template = {
+					name = "Tibetan Engineer Corps"			 
+					template_counter = 12
+					priority = 2
+					division_names_group = TIB_MTN_01
+					regiments = {
+						mountaineers = { x = 0 y = 0 }
+						mountaineers = { x = 0 y = 1 }
+						mountaineers = { x = 0 y = 2 }
+						artillery_brigade  = { x = 1 y = 0 }
+						artillery_brigade  = { x = 1 y = 1 }
+						artillery_brigade  = { x = 1 y = 2 }
+					}
+					    support = {
+							engineer = { x = 0 y = 0 }
+							artillery = { x = 0 y = 1 }
+						}
+				}				
+			} 
+
+			capital_scope = {
+				create_unit = {
+					division = "division_template =\"Tibetan Engineer Corps\" start_experience_factor = 0.7 start_equipment_factor = 1.0"
+					owner = TIB
+					count = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_a_cannon_to_shake_the_heavens
+		icon = GFX_focus_generic_railway_gun
+		x = 0
+		y = 1
+		cost = 15
+		prerequisite = {focus = TIB_mountain_cannons}
+
+        relative_position_id = TIB_mountain_cannons
+	
+		available = {
+			is_ai = no
+		}
+		completion_reward = {     
+			create_railway_gun = {
+				equipment = railway_gun_equipment_1
+				name = "Himalayan Hammer"
+				location = 5033
+			}
+		}
+	}	
+
+	focus = {
+		id = TIB_modernize_cannons
+		icon = GFX_focus_RAJ_mountain_guns
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_engineer_corps}
+        relative_position_id = TIB_engineer_corps
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = artillery
+			}
+		}
+	}	
+	focus = {
+		id = TIB_mountain_cannons
+		icon = GFX_focus_SMB_mountain_guns
+		x = -2
+		y = 0
+		cost = 5
+		prerequisite = {focus = TIB_modernize_cannons}
+        relative_position_id = TIB_forward_engineering_operations
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {
+			custom_effect_tooltip = mountain_guns_tt
+			hidden_effect = {
+				set_technology = {
+					mountain_gun = 1
+					popup = no
+				}
+			}
+		}
+	}
+    focus = {
+		id = TIB_himalayan_mountaineers
+		icon = GFX_focus_GER_gebirgsjager
+		x = 5
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army}
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {    
+			hidden_effect = {
+				division_template = {
+					name = "Himalayan Mountaineers"			 
+					template_counter = 10
+					priority = 2
+					division_names_group = TIB_MTN_01
+					regiments = {
+						mountaineers = { x = 0 y = 0 }
+						mountaineers = { x = 0 y = 1 }
+						mountaineers = { x = 0 y = 2 }
+						mountaineers = { x = 1 y = 0 }
+						mountaineers = { x = 1 y = 1 }
+						mountaineers = { x = 1 y = 2 }
+					}
+				}				
+			} 
+			add_ideas = TIB_himalayan_mountaineers_spirit1
+
+			hidden_effect = {
+				set_technology = {
+					sami_pathfinders_tech = 1
+					popup = no
+				}
+			}
+		
+			capital_scope = {
+				create_unit = {
+					division = "division_template =\"Himalayan Mountaineers\" start_experience_factor = 0.7 start_equipment_factor = 1.0"
+					owner = TIB
+					count = 2
+				}
+			}			
+		}
+	}
+    focus = {
+		id = TIB_regular_patrols
+		icon = GFX_focus_generic_winter_warfare
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_himalayan_mountaineers}
+        relative_position_id = TIB_himalayan_mountaineers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {
+			custom_effect_tooltip = FIN_long_range_patrols_battalion_tt
+
+			hidden_effect = {
+				set_technology = {
+					long_range_patrol_support_tech = 1
+					popup = no
+				}
+			}
+		
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = recon_tech
+			}
+		}
+	}
+
+    focus = {
+		id = TIB_mountain_cold
+		icon = GFX_focus_PER_wether_the_storm
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_himalayan_mountaineers}
+        relative_position_id = TIB_himalayan_mountaineers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {  
+			custom_effect_tooltip = FIN_winter_warfare_battalion_tt   
+			hidden_effect = {
+				set_technology = {
+					winter_logistics_support_tech = 1
+					popup = no
+				}
+			}
+			swap_ideas = {
+				remove_idea = TIB_himalayan_mountaineers_spirit1
+				add_idea = TIB_himalayan_mountaineers_spirit2
+			}
+
+		}
+	}
+    focus = {
+		id = TIB_finished_mountaineer_training
+		icon = GFX_focus_AUS_osterreichische_gebirgsjager
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_regular_patrols}
+		prerequisite = {focus = TIB_mountain_cold}
+        relative_position_id = TIB_regular_patrols
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_himalayan_mountaineers_spirit2
+				add_idea = TIB_himalayan_mountaineers_spirit3
+			}
+
+
+		}
+	}
+    focus = {
+		id = TIB_professionalize_soldiers
+		icon = GFX_focus_ITA_topple_amhara_rulers
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army}
+		mutually_exclusive = {focus = TIB_rely_on_village_militias}
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            has_war_support > 0.3
+			has_army_experience > 10
+			has_idea = TIB_tibetan_army3
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_tibetan_army3
+				add_idea = TIB_tibetan_army4_pro
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			delete_unit_template_and_units = {
+				division_template = "Juntuan"
+				disband = yes #will refund equipment and manpower
+			}		
+
+		}
+	}
+    focus = {
+		id = TIB_former_militia_equipment
+		icon = GFX_focus_AUS_raid_military_storages
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_professionalize_soldiers}
+        relative_position_id = TIB_professionalize_soldiers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+		add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 4300
+				producer = CHI
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 300
+				producer = ENG
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 600
+				producer = RAJ
+			}
+		}
+	}	
+	focus = {
+		id = TIB_professional_officers
+		icon = GFX_focus_generic_military_mission
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_former_militia_equipment}
+        relative_position_id = TIB_former_militia_equipment
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_tibetan_army4_pro
+				add_idea = TIB_tibetan_army5_pro
+			}
+		}
+	}
+	focus = {
+		id = TIB_training_and_recruitment
+		icon = GFX_focus_generic_full_social_mobilization
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_former_militia_equipment}
+        relative_position_id = TIB_former_militia_equipment
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {    
+			add_manpower = 30000
+			add_stability = -0.05
+			unlock_decision_tooltip = TIB_forceful_recruitment
+		}
+	}
+	focus = {
+		id = TIB_state_arm_factories
+		icon = GFX_focus_generic_military_industry
+		x = 1
+		y = 1
+		cost = 10
+		prerequisite = {focus = TIB_training_and_recruitment}
+        relative_position_id = TIB_training_and_recruitment
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			random_core_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_the_tibetan_soldier
+		icon = GFX_focus_AFG_adopt_nufus
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_training_and_recruitment}
+		prerequisite = {focus = TIB_professional_officers}
+
+        relative_position_id = TIB_training_and_recruitment
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_tibetan_army5_pro
+				add_idea = TIB_tibetan_army6_pro
+			}
+		}
+	}
+	focus = {
+		id = TIB_a_pain_to_invade
+		icon = GFX_focus_SMB_a_land_of_mountains
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_local_command_autonomy focus = TIB_professional_officers}
+
+        relative_position_id = TIB_professional_officers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_highest_region_on_earth1
+				add_idea = TIB_highest_region_on_earth2
+			}
+		}
+	}
+
+    focus = {
+		id = TIB_rely_on_village_militias
+		icon = GFX_focus_AFG_quami
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army}
+		mutually_exclusive = {focus = TIB_professionalize_soldiers}
+
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_idea = TIB_tibetan_army3
+		}
+		completion_reward = { 
+			add_ideas = TIB_village_militias    
+			set_division_template_lock = {
+				division_template = "Juntuan"
+				is_locked = no
+			}
+		}
+	}
+    focus = {
+		id = TIB_centralize_local_armament_production
+		icon = GFX_focus_DEN_heavy_regulations
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_rely_on_village_militias}
+
+        relative_position_id = TIB_rely_on_village_militias
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+    focus = {
+		id = TIB_local_command_autonomy
+		icon = GFX_focus_IRQ_approach_tribes_for_support
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_centralize_local_armament_production}
+
+        relative_position_id = TIB_centralize_local_armament_production
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_tibetan_army3
+				add_idea = TIB_tibetan_army4_militia
+			}
+		}
+	}
+    focus = {
+		id = TIB_irregular_groups
+		icon = GFX_focus_PER_recruit_bakhtiari
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_centralize_local_armament_production}
+
+        relative_position_id = TIB_centralize_local_armament_production
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			add_manpower = 20000
+			hidden_effect = {
+				set_technology = { ETH_improved_irregular_infantry_tech = 1 popup = no}
+				division_template = {
+					name = "Dmag Mi"	
+					priority = 5 		 
+					division_names_group = TIB_CAV_01
+					is_locked = yes 
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 0 y = 3 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+					}
+				}				
+			}
+			unlock_decision_tooltip = TIB_integrate_village_militia
+
+		}
+	}
+    focus = {
+		id = TIB_steady_supply_ammo
+		icon = GFX_focus_CONGO_copper_cartridges
+		x = -1
+		y = 1
+		cost = 10
+		prerequisite = {focus = TIB_irregular_groups}
+
+        relative_position_id = TIB_irregular_groups
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}	
+    focus = {
+		id = TIB_a_prepared_state_militia
+		icon = GFX_focus_secret_rearmament
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_irregular_groups}
+		prerequisite = {focus = TIB_local_command_autonomy}
+
+        relative_position_id = TIB_local_command_autonomy
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_village_militias
+				add_idea = TIB_state_militias
+			}
+		}
+	}
+	focus = {
+		id = TIB_increase_conscription
+		icon = GFX_SOV_barrier_troops_ccp_2d_sov_compatibility
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_professionalize_soldiers focus = TIB_rely_on_village_militias}
+
+        relative_position_id = TIB_professionalize_soldiers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			if = {
+				limit = { has_idea = disarmed_nation }
+				add_ideas = volunteer_only
+			}
+			if = {
+				limit = { has_idea = volunteer_only }
+				add_ideas = limited_conscription
+			}	
+			if = {
+				limit = { has_idea = limited_conscription }
+				add_ideas = extensive_conscription
+			}
+			if = {
+				limit = { has_idea = extensive_conscription }
+				add_ideas = service_by_requirement
+			}	
+		}
+	}
+### airforce tree
+	focus = {
+		id = TIB_the_air_corps
+
+		icon = GFX_focus_YUG_ikarus
+		x = 15
+		y = 0
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		relative_position_id = TIB_start_overhauling_army
+
+		search_filters = {FOCUS_FILTER_AIR_XP}
+
+		completion_reward = {
+			add_ideas = TIB_the_TIB_airforce_1
+			air_experience = 25
+		}
+	}
+
+	focus = {
+		id = TIB_guard_to_the_sky
+		icon = GFX_focus_PER_construct_air_defenses
+		prerequisite = { focus = TIB_the_air_corps  }
+		relative_position_id = TIB_the_air_corps
+
+		x = -5
+		y = 1
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.65
+				uses = 1
+				category = radar_tech
+			}			
+			add_tech_bonus = {
+				bonus = 0.65
+				uses = 2
+				category = cat_anti_air
+			}
+			capital_scope = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 5033
+				}
+			}
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = TIB_state_transport_planes
+
+		icon = GFX_focus_generic_copy_plane_designs
+		prerequisite = { focus = TIB_the_air_corps }
+		x = 3
+		y = 1
+		relative_position_id = TIB_the_air_corps
+		cost = 6
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		completion_reward = { #DLC broken to do
+		add_ideas = TIB_mountain_transport_planes
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment_1
+				amount = 100
+				producer = TIB
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = transport_planes_cat
+			}
+		}
+
+	}
+
+	focus = {
+		id = TIB_mountainous_paratroopers
+		mutually_exclusive = { focus = TIB_TIB_marines }
+
+		icon = GFX_focus_BRA_air_force
+		prerequisite = { focus = TIB_state_transport_planes }
+		x = 0
+		y = 1
+		relative_position_id = TIB_state_transport_planes
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_mountain_transport_planes
+				add_idea = TIB_TIB_special_forces_p
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = para_tech
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = special_forces_doctrine
+			}		
+		}
+	}
+
+
+	focus = {
+		id = TIB_expand_the_aircraft_infrastructure
+
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = TIB_the_air_corps }
+		x = -1
+		y = 1
+		relative_position_id = TIB_the_air_corps
+		cost = 10
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = radar_tech
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				if = {
+					limit = {
+						air_base < 9
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+				else = {
+					TIB = {
+						random_owned_controlled_state = {
+							limit = {
+								air_base < 9
+							}
+							add_building_construction = {
+								type = air_base
+								level = 2
+								instant_build = yes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_modernize_aircraft_facilities
+
+		icon = GFX_focus_generic_air_bases
+		prerequisite = { focus = TIB_fund_flying_schools }
+		x = 0
+		y = 1
+		relative_position_id = TIB_fund_flying_schools
+		cost = 10
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		available = {
+
+		}
+		
+		search_filters = {}
+
+		completion_reward = {
+			random_core_state = {
+				construct_building_in_random_province = {
+					air_facility = 1
+				}
+			}
+			custom_effect_tooltip = TIB_every_core_state_tt
+			every_core_state = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	
+	focus = {
+		id = TIB_import_foreign_planes
+
+		icon = GFX_focus_SMB_purchase_aircraft
+		prerequisite = { focus = TIB_expand_the_aircraft_infrastructure }
+		x = 0
+		y = 1
+		relative_position_id = TIB_expand_the_aircraft_infrastructure
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_licensed_production focus = TIB_increase_domestic_aircraft_development}
+
+		
+		completion_reward = {			
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = small_plane_airframe
+				seller_tags = {jap}
+			}
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = small_plane_airframe
+				seller_tags = {raj}
+			}
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = small_plane_airframe
+				seller_tags = {chi}
+			}
+			add_equipment_subsidy = {
+				cic = 4000
+				equipment_type = small_plane_airframe
+				seller_tags = {eng}
+			}
+			IF = {
+				LIMIT = {USA = {has_government = ROOT}}
+				add_equipment_subsidy = {
+					cic = 2000
+					equipment_type = small_plane_airframe
+					seller_tags = {usa}
+				}
+			}
+			IF = {
+				LIMIT = {GER = {has_government = ROOT}}
+				add_equipment_subsidy = {
+					cic = 2000
+					equipment_type = small_plane_airframe
+					seller_tags = {ger}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_licensed_production
+		icon = GFX_focus_generic_air_partners
+		prerequisite = { focus = TIB_expand_the_aircraft_infrastructure }
+		x = -4
+		y = 1
+		relative_position_id = TIB_expand_the_aircraft_infrastructure
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_increase_domestic_aircraft_development focus = TIB_import_foreign_planes}
+
+
+		completion_reward = {			
+			add_ideas = TIB_license_foreign_designs
+		}
+	}
+
+
+	focus = {
+		id = TIB_increase_domestic_aircraft_development
+
+		icon = GFX_focus_generic_air_research_boost
+		prerequisite = { focus = TIB_expand_the_aircraft_infrastructure }
+		x = -2
+		y = 1
+		relative_position_id = TIB_expand_the_aircraft_infrastructure
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_licensed_production focus = TIB_import_foreign_planes}
+
+		
+
+		completion_reward = {			
+			add_tech_bonus = {
+				name = TIB_increase_aircraft_production
+				bonus = 1.0
+				uses = 2
+				category = light_air
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_fund_flying_schools
+
+		icon = GFX_focus_generic_air_research_boost
+		prerequisite = { focus = TIB_the_air_corps }
+		x = 1
+		y = 1
+		relative_position_id = TIB_the_air_corps
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_AIR_XP}
+
+		completion_reward = {
+			add_ideas = veteran_air_instructors_spirit
+			swap_ideas = {
+				remove_idea = TIB_the_TIB_airforce_1
+				add_idea = TIB_the_TIB_airforce_2
+			}
+			air_experience = 25
+		}
+	}
+
+
+	focus = {
+		id = TIB_intensify_pilot_training_program
+
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		prerequisite ={focus = TIB_modernize_aircraft_facilities}
+		x = 0
+		y = 1
+		relative_position_id = TIB_modernize_aircraft_facilities
+		cost = 10
+
+		
+		search_filters = {FOCUS_FILTER_AIR_XP}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_the_TIB_airforce_2
+				add_idea = TIB_the_TIB_airforce_3
+			}
+			air_experience = 100
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = strategic_destruction_tree
+			}
+		}
+	}
+
+
+	focus = {
+		id = TIB_expand_aviation_institutes
+		icon = GFX_focus_SOV_women_in_aviation
+		prerequisite = { focus = TIB_the_air_corps }
+		x = -3
+		y = 1
+		relative_position_id = TIB_the_air_corps
+		cost = 5
+
+		available = {
+
+		}
+				search_filters = {FOCUS_FILTER_MANPOWER}
+
+		completion_reward = {
+			set_rule = {can_generate_female_aces = yes}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.6
+				uses = 3
+				category = air_doctrine
+			}
+			add_manpower = 10000
+		}
+	}
+
+	focus = {
+		id = TIB_ground_support
+
+		icon = GFX_focus_generic_cas_aircraft
+		prerequisite = { focus = TIB_increase_domestic_aircraft_development }
+		x = -1
+		y = 1
+		relative_position_id = TIB_increase_domestic_aircraft_development
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_long_range_aircraft }
+
+		available = {
+
+		}
+		
+
+		completion_reward = {
+
+			add_tech_bonus = {
+				name = TIB_ground_support
+				bonus = 0.75
+				uses = 2
+				category = light_fighter
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_long_range_aircraft
+
+		icon = GFX_focus_generic_long_range_aircraft
+		prerequisite = { focus = TIB_increase_domestic_aircraft_development }
+		x = 1
+		y = 1
+		relative_position_id = TIB_increase_domestic_aircraft_development
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_ground_support }
+
+		available = {
+
+		}
+		
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Long range aircraft"
+				bonus = 0.75
+				uses = 2
+				category = cat_heavy_fighter
+				category = tactical_bomber
+				category = cat_strategic_bomber
+			}
+		}
+	}
+
+	
+
+## A little navy tree
+	focus = {
+		id = TIB_research_modern_navies
+
+		icon = GFX_focus_BEL_antwerp_maritime_academy
+		x = 8
+		y = 0
+		cost = 5
+		relative_position_id = TIB_the_air_corps
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = naval_doctrine
+			}
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = naval_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_invest_in_dockyards
+
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = TIB_research_modern_navies }
+		x = 0
+		y = 1
+		relative_position_id = TIB_research_modern_navies
+		cost = 10
+
+		available = {
+			any_controlled_state = {
+				is_coastal = yes
+			}
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+
+	focus = {
+		id = TIB_stockpile_fuel
+		prerequisite = { focus = TIB_research_modern_navies }
+		relative_position_id = TIB_research_modern_navies
+		icon = GFX_focus_ARG_yacimientos_petroliferos_fiscales
+		x = 2
+		y = 1
+		cost = 6
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			set_technology = { fuel_silos = 1 popup = no}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = fuel_silo
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_TIB_merchant_ships
+		prerequisite = { focus = TIB_research_modern_navies }
+		relative_position_id = TIB_research_modern_navies
+
+		icon = GFX_focus_generic_government_in_exile
+		x = -2
+		y = 1
+		cost = 5
+
+		available_if_capitulated = yes
+		available = {
+			any_controlled_state = {
+				is_coastal = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = TIB_the_TIB_merchant_navy
+			add_equipment_to_stockpile	= {
+				type = convoy
+				amount = 100
+				producer = TIB
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_TIB_marines
+		prerequisite = { focus = TIB_TIB_merchant_ships }
+		relative_position_id = TIB_TIB_merchant_ships
+		mutually_exclusive = { focus = TIB_eagle_born_paratroopers }
+
+		available = {
+			any_controlled_state ={
+				is_coastal = yes
+			}
+		}
+		icon = GFX_focus_generic_naval_discipline
+		x = 0
+		y = 1
+		cost = 5
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = {TIB_TIB_special_forces_m}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = marine_tech
+				category = tp_tech
+			}
+
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_marines_doctrine
+			}
+		}
+	}
+
+	
+	focus = {
+		id = TIB_invest_in_modern_navy
+		icon = GFX_focus_ARG_navy
+	 	prerequisite = { focus = TIB_invest_in_dockyards }
+	 	mutually_exclusive = { focus = TIB_the_old_school }
+		x = 0
+		y = 1
+		relative_position_id = TIB_invest_in_dockyards
+		cost = 10
+			available = {			
+				any_controlled_state ={
+				is_coastal = yes
+				}
+			}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_ideas = TIB_the_young_school
+		}
+	}
+
+	focus = {
+		id = TIB_undersea_combat
+		icon = GFX_goal_generic_navy_submarine
+	 	prerequisite = { focus = TIB_invest_in_modern_navy }
+		x = -2
+		y = 1
+		relative_position_id = TIB_invest_in_modern_navy
+		cost = 10
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_NAVY_XP}
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = TIB_undersea_combat
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_cruiser_submarines
+		icon = GFX_focus_generic_cruiser_submarines
+		prerequisite = { focus = TIB_undersea_combat }
+		mutually_exclusive = { focus = TIB_midget_submarines }
+		x = 1
+		y = 1
+		relative_position_id = TIB_undersea_combat
+		cost = 10
+		available = {
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			navy_experience = 15
+			add_doctrine_cost_reduction = {
+				name = TIB_cruiser_submarines
+				cost_reduction = 0.5
+				uses = 1
+				category = trade_interdiction_tree
+			}
+
+			add_tech_bonus = {
+				name = TIB_cruiser_submarines
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				set_technology = { cruiser_submarines = 1 popup = no}
+
+				create_equipment_variant = {
+					name =  "'Og tu Class"
+					type = ship_hull_cruiser_submarine
+					allow_without_tech = yes 
+					parent_version = 0
+					modules = {
+						fixed_ship_torpedo_slot = ship_torpedo_sub_1
+						fixed_ship_engine_slot = sub_ship_engine_2
+						front_1_custom_slot = ship_torpedo_sub_1
+						mid_1_custom_slot = empty
+						rear_1_custom_slot = ship_torpedo_sub_1
+					}
+				}
+				#Line Production
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_cruiser_submarine
+						creator = "TIB"
+						version_name = "'Og tu Class"
+					}
+					name =  "'Og tu Class"
+					requested_factories = 1
+					progress = 0.35
+					amount = 2
+				}
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_cruiser_submarine
+						creator = "TIB"
+						version_name =  "'Og tu Class"
+					}
+					name =  "'Og tu Class"
+					requested_factories = 1
+					progress = 0.35
+					amount = 2
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = TIB
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_midget_submarines
+		icon = GFX_focus_generic_midget_submarines
+		prerequisite = { focus = TIB_undersea_combat }
+		mutually_exclusive = { focus = TIB_cruiser_submarines }
+		x = -1
+		y = 1
+		relative_position_id = TIB_undersea_combat
+		cost = 10
+		available = {
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			navy_experience = 15
+			add_doctrine_cost_reduction = {
+				name = TIB_midget_submarines
+				cost_reduction = 0.5
+				uses = 1
+				category = trade_interdiction_tree
+			}
+
+			add_tech_bonus = {
+				name = TIB_midget_submarines
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+
+			###########
+			### MTG ###
+			###########
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				set_technology = { midget_submarines = 1 popup = no}
+
+				create_equipment_variant = {
+					name = "Gru 'og tu Class"
+					type = ship_hull_midget_submarine
+					allow_without_tech = yes 
+					parent_version = 0
+					modules = {
+						fixed_ship_torpedo_slot = ship_torpedo_sub_2
+						fixed_ship_engine_slot = sub_ship_engine_2
+					}
+				}
+
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_midget_submarine
+						creator = "TIB"
+						version_name = "Gru 'og tu Class"
+					}
+					name = "Gru 'og tu"
+					requested_factories = 1
+					progress = 0.35
+					amount = 2
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = TIB
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			
+		}
+	}
+
+
+	focus = {
+		id = TIB_surface_combat
+		icon = GFX_focus_generic_destroyer
+	 	prerequisite = { focus = TIB_invest_in_modern_navy }
+		x = 1
+		y = 1
+		relative_position_id = TIB_invest_in_modern_navy
+		cost = 10
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = TIB_surface_combat
+				bonus = 2.0
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_improved_screen_ships
+		icon = GFX_focus_generic_navy_research_bonus
+	 	prerequisite = { focus = TIB_surface_combat }
+		x = 0
+		y = 1
+		relative_position_id = TIB_surface_combat
+		cost = 10
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			set_technology = { coastal_defense_ships = 1 }
+			navy_experience = 25
+			add_tech_bonus = {
+				name = TIB_improved_screen_ships
+				bonus = 2.0
+				uses = 1
+				category = cl_tech
+			}
+			add_ideas = TIB_coastal_defense_ships
+		}
+	}
+
+	
+
+	focus = {
+		id = TIB_naval_doctrine
+		icon = GFX_goal_generic_navy_doctrines_tactics
+	 	prerequisite = { 
+	 		focus = TIB_improved_screen_ships
+	 	}
+		x = 0
+		y = 1
+		relative_position_id = TIB_improved_screen_ships
+		cost = 10
+		available_if_capitulated = yes
+
+		completion_reward = {
+
+			add_doctrine_cost_reduction = {
+				name = TIB_naval_doctrine
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+
+
+
+
+
+
+
 }

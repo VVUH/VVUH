@@ -11,8 +11,12 @@ set_popularities = {
 
 # Starting tech
 inherit_technology = BOL
+set_technology = {
+    tech_mountaineers = 1
+}
 
 add_ideas = {
+	TIB_highest_region_on_earth1
 	TIB_young_dalai_lama
 	TIB_spiritual_society
 	TIB_religious_minorities
@@ -24,14 +28,12 @@ add_ideas = {
 add_manpower = 55000
 
 recruit_character = TIB_jamphel_yeshe_gyaltsen
-recruit_character = TIB_namgang_rinpoche
 recruit_character = TIB_penor_tashi
 recruit_character = TIB_tsepon_shatra
 recruit_character = TIB_gyato_wangdu
 recruit_character = TIB_lobsang_tenzin
 recruit_character = TIB_sampo_tsewang_rigzin
 recruit_character = TIB_chama_samphe
-recruit_character = TIB_lhalu_tsewang_dorje
 recruit_character = TIB_chodak_karma
 recruit_character = TIB_tenpa_jamyang
 recruit_character = TIB_sogyal_rinpoche
@@ -50,7 +52,6 @@ recruit_character = TIB_peter_aufschnaiter
 recruit_character = TIB_ishikawa_sanshiro 
 recruit_character = TIB_jiang_kanghu
 recruit_character = TIB_liu_shifu 
-recruit_character = TIB_phuntsok_angyal 
 recruit_character = TIB_ngawang_kesang 
 recruit_character = TIB_anarchist_council
 recruit_character = TIB_charles_bell
@@ -74,6 +75,20 @@ recruit_character = TIB_pandatsang_rapga
 recruit_character = TIB_dalai_lama_d
 recruit_character = TIB_jinzo_nomoto
 recruit_character = TIB_rolf_magener
+recruit_character = TIB_george_patterson
+recruit_character = TIB_geoffrey_bull
+recruit_character = TIB_parliament_republic
+recruit_character = TIB_parliament_theocracy
+recruit_character = TIB_brooke_dolan_two
+recruit_character = TIB_ilya_tolstoy
+recruit_character = TIB_giuseppe_tucci
+recruit_character = TIB_kalu_rinpoche
+recruit_character = TIB_tenzin_chodrag
+recruit_character = TIB_jigdral_dorje
+recruit_character = TIB_ngapoi_zhoigar
+recruit_character = TIB_huang_musong
+recruit_character = TIB_tsarong_dramdul
+recruit_character = TIB_ngapoi_jigme
 
 1939.1.1 = {
 

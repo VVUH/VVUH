@@ -100,25 +100,37 @@ TIB_fifth_column = {
     icon = GFX_decision_category_NOR_fascist_deploy_prep
 }
 
+TIB_power = { #decisions on core to get +1 building slot up to 3 times per core province - decisions GFX_decision_generic_construction / GFX_decision_generic_electricity
+    allowed = {
+        tag = TIB
+    }
+    visible = {
+        has_completed_focus = TIB_dams_for_power
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_prospect_for_resources
+}
+
 # categories not yet in use 
 
 
 
 #likely
-TIB_power = { #decisions on core to get +1 building slot up to 3 times per core province - decisions GFX_decision_generic_construction / GFX_decision_generic_electricity
+
+TIB_recruitment = { #forts like italy - decisions GFX_decision_generic_fortification - decision for militia raising? GFX_decision_SWE_set_army_budget
     allowed = {
         tag = TIB
     }
     priority = 5
-    icon = GFX_decision_category_generic_prospect_for_resources
+    icon = GFX_decision_category_generic_arms_trade
 }
-#likely
-TIB_fortress_tibet = { #forts like italy - decisions GFX_decision_generic_fortification - decision for militia raising? GFX_decision_SWE_set_army_budget
+
+TIB_payment = { 
     allowed = {
         tag = TIB
     }
     priority = 5
-    icon = GFX_decision_category_generic_mountain_fortification
+    icon = GFX_decision_category_GER_seize_gold_reserves
 }
 
 #GFX_decision_category_GER_seize_gold_reserves - payment for work, work with country flags and volunteering GFX_decision_hol_attract_foreign_investors decisions themselves

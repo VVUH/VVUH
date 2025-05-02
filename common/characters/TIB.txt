@@ -437,7 +437,7 @@ characters={
 		name="Heinrich Harrer"
 		portraits={
 			civilian={
-				small="GFX_portrait_GER_fedor_von_bock_small"
+				small=GFX_portrait_ETH_carl_gustav_von_rosen_small
 			}
 		}
 	}
@@ -498,7 +498,7 @@ characters={
 		name="Peter Aufschnaiter"
 		portraits={
 			civilian={
-				small=GFX_idea_manstein
+				small=GFX_portrait_AOI_enrico_cerulli_small
 			}
 		}
 	}

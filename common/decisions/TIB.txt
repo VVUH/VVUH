@@ -4303,7 +4303,7 @@ TIB_fifth_column = { #doesnt work
 }
 
 TIB_faith = {
-	TIB_religious_alignment_decision = {
+	TIB_religious_alignment_decision_of_FROM = {
 		state_target = yes
 		target_root_trigger = {
 			OR = {
@@ -4343,4 +4343,672 @@ TIB_faith = {
 			add_dynamic_modifier = { modifier = devout_believers}
 		}
 	}	
+}
+
+TIB_power = {
+	TIB_electrify_FROM = {
+		state_target = yes
+		target_root_trigger = {
+			has_completed_focus = TIB_electrify_country
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = TIB
+				is_core_of = TIB
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = MON_electrified
+					}
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_investing_in_electrification
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_electricity
+		days_remove = 40
+		cost = 30
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_electrification
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_electrification
+			}		
+			add_dynamic_modifier = MON_electrified
+			add_extra_state_shared_building_slots = 1	
+		}
+	}	
+
+	TIB_dam_the_eastern_pangong_channels{
+		targets = {758}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		available = {
+			758 = {
+				is_owned_and_controlled_by	  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			758 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 10802
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+	
+	TIB_dam_nepal{
+		targets = {323}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		available = {
+			323 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			323 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 4386
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_east_bengal{
+		targets = {430}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			has_completed_focus = TIB_cross_the_mountains
+			
+		}
+		available = {
+			430 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			430 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 4162
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}	
+	
+	TIB_dam_pradesh{
+		targets = {434}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_liberate_arunachal_pradesh
+				has_completed_focus = TIB_bhuddist_supremacy
+			}
+		}
+		available = {
+			434 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			434 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 1116
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_assam{
+		targets = {432}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_collaborate_with_british
+				has_completed_focus = TIB_collaborate_with_british
+			}
+		}
+		available = {
+			432 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			432 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 13208
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_saging{
+		targets = {998}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_collaborate_with_british
+				has_completed_focus = TIB_bhuddist_supremacy
+			}
+		}
+		available = {
+			998 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			998 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 10386
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_magwe{
+		targets = {288}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_collaborate_with_british
+				has_completed_focus = TIB_bhuddist_supremacy
+			}
+		}
+		available = {
+			288 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			288 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 4541
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_shan{
+		targets = {999}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_collaborate_with_british
+				has_completed_focus = TIB_bhuddist_supremacy
+			}
+		}
+		available = {
+			999 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			999 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 7603
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_yunnan{
+		targets = {325}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			has_completed_focus = TIB_reclaim_the_empire
+		}
+		available = {
+			325 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			325 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 12282
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_n_kashmir{
+		targets = {787}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_regional_pressure
+				has_completed_focus = TIB_religious_equality
+			}
+		}
+		available = {
+			787 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			787 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 2041
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_yarkand{
+		targets = {619}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			has_completed_focus = TIB_secure_the_wakhan_corridor
+			has_completed_focus = TIB_responsible_expansionism
+		}
+		available = {
+			619 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			add_extra_state_shared_building_slots = 1	
+			619 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 7790
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+}
+
+
+TIB_recruitment = { # GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
+	TIB_forceful_recruitment = {
+		state_target = yes
+		target_root_trigger = {
+			has_completed_focus = TIB_training_and_recruitment
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = TIB
+				NOT = {
+					has_state_flag = TIB_forceful_recruited
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_forceful_recruiting
+			}
+		}
+		visible = {
+			NOT = {
+				FROM = {has_state_flag = TIB_forceful_recruited}
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_ITA_reorganize_ascari
+		days_remove = 40
+		cost = 10
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_forceful_recruiting
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				FROM = {
+					set_state_flag = TIB_forceful_recruited
+				}
+				clr_country_flag = TIB_forceful_recruiting
+			}		
+			add_stability = -0.01
+			add_manpower = 8000
+		}
+	}
+
+	TIB_integrate_village_militia = { #doesnt go away, state flag broken?
+		state_target = yes
+		target_root_trigger = {
+			has_completed_focus = TIB_irregular_groups
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = TIB
+				NOT = {
+					has_state_flag = TIB_extracted_irregular_groups_flg
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_forceful_recruiting
+			}
+		}
+		visible = {
+			NOT = {
+				FROM={has_state_flag = TIB_extracted_irregular_groups_flg}
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_CHL_grant_full_rights_to_the_mapuche
+		days_remove = 40
+		cost = 10
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_forceful_recruiting
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_forceful_recruiting
+				FROM = {set_state_flag = TIB_extracted_irregular_groups_flg}
+				IF = {
+					LIMIT = {
+						NOT = {
+							set_global_flag = TIB_using_militias
+						}
+						set_global_flag = TIB_using_militias
+					}
+				}
+			}		
+			add_war_support = 0.01
+			FROM = { #"Dmag Mi"
+				create_unit = {
+					division = "division_template =\"Dmag Mi\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+					owner = TIB
+					count = 1
+				}				
+			}
+		}
+		
+	}	
+
+	TIB_send_them_home = {#doesnt show up
+		available = {
+			has_completed_focus = TIB_irregular_groups
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_disbanded_village_militias
+			}
+			has_global_flag = TIB_using_militias
+			has_completed_focus = TIB_irregular_groups
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		days_remove = 40
+		cost = 10
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_sending_militia_home
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_sending_militia_home
+				set_country_flag = TIB_disbanded_village_militias
+			}
+			effect_tooltip = TIB_they_aint_coming_back_tt
+			delete_unit_template_and_units = {
+				division_template = "Dmag Mi"
+				disband = yes #will refund equipment and manpower
+			}
+		}
+	}
+}
+
+TIB_payment = {
+
 }

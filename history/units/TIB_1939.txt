@@ -1,8 +1,8 @@
 ﻿start_equipment_factor = 0.2
 division_template = {
-	name = "Juntuan"			# Template uses Chinese setup of a 'corps' made up of regiment-sized (2x bns.) 'divisions' 
-								# Troops were militias, similar to other warlord levies
-	division_names_group = TIB_GAR_01
+	name = "Dmag-Sgar"			
+
+	division_names_group = TIB_INF_01
 
 	regiments = {
 		infantry = { x = 0 y = 0 }
@@ -12,9 +12,39 @@ division_template = {
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+
 	}
 }
 
+division_template = {
+	name = "Juntuan"		
+	priority = 0 	 
+	division_names_group = TIB_GAR_01
+	is_locked = yes 
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 0 y = 3 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Dob-dob"			 
+	template_counter = 8
+	priority = 0 
+	division_names_group = TIB_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+	}
+}
 
 units = {
 	##### Xi'zang Zuigao Tongshuai Bu #####
@@ -25,8 +55,9 @@ units = {
 			name_order = 1
 		}
 		location = 5033
-		division_template = "Juntuan"		
-		start_equipment_factor = 0.3
+		division_template = "Dob-dob"	
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.6
 
 	}
 	division = {
@@ -36,8 +67,9 @@ units = {
 			name_order = 5
 		}
 		location = 5033
-		division_template = "Juntuan"		
-		start_equipment_factor = 0.3
+		division_template = "Dmag-Sgar"		
+		start_equipment_factor = 0.4
+        start_experience_factor = 0.2
 
 	}
 	division = {
@@ -47,8 +79,9 @@ units = {
 			name_order = 6
 		}
 		location = 5033
-		division_template = "Juntuan"		
-		start_equipment_factor = 0.3
+		division_template = "Dmag-Sgar"		
+		start_equipment_factor = 0.4
+        start_experience_factor = 0.2
 
 	}
 	division = {
@@ -58,8 +91,10 @@ units = {
 			name_order = 2
 		}
 		location = 8068
-		division_template = "Juntuan"
-		start_equipment_factor = 0.3
+		division_template = "Dmag-Sgar"		
+		start_equipment_factor = 0.4
+        start_experience_factor = 0.2
+
 
 	}
 	division = {
@@ -70,6 +105,7 @@ units = {
 		}
 		location = 8068
 		division_template = "Juntuan"
+		start_experience_factor = 0.1
 		start_equipment_factor = 0.3
 
 	}
@@ -82,7 +118,7 @@ units = {
 		location = 8068
 		division_template = "Juntuan"
 		start_equipment_factor = 0.3
-
+		start_experience_factor = 0.1
 	}
 
 }
