@@ -84,4 +84,117 @@ BEL_form_burgundy_categorie = {
 		has_completed_focus = BEL_our_destiny
 	}
 }
+MAL_meet_kings_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+
+	icon = GFX_decision_category_eng_appeal_to_imperial_loyalists
+	priority = 100
+	picture = GFX_decision_cat_generic_majapahit_empire
+	visible_when_empty = no
+
+	visible = {
+		has_completed_focus = MAL_bolster_royalist_sentiments
+	}
+}
+MAL_invite_communist_nation_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+
+	icon = GFX_decision_category_SOV_permanent_revolution
+	priority = 110
+	visible_when_empty = no
+
+	visible = {
+		has_completed_focus = MAL_liberation_of_asia
+	}
+}
+MAL_the_malayan_emergency_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+	icon = GFX_decision_category_generic_communist_revolution
+	picture = GFX_decision_category_generic_communism
+	priority = 120
+	visible_when_empty = no
+
+	visible = {
+		has_country_flag = MAL_communist_opposition_start
+	}
+}
+MAL_buy_weapons_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+	icon = GFX_decision_category_generic_economy
+	priority = 80
+	visible_when_empty = no
+
+	visible = {
+		has_completed_focus = MAL_purchase_british_guns
+	}
+}
+MAL_core_east_asia_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+	icon = GFX_decision_category_SOV_permanent_revolution
+	priority = 80
+	visible_when_empty = no
+
+	visible = {
+		has_completed_focus = MAL_east_asian_unity
+	}
+}
+MAL_aquire_plane_secrets_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+	icon = GFX_decision_category_SWI_imperial_council
+	priority = 50
+	visible_when_empty = no
+
+	visible = {
+		has_completed_focus = MAL_aquire_plane_secrets
+	}
+}
+MAL_stabilize_the_state_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+	icon = GFX_decision_category_generic_foreign_policy
+	priority = 100
+	visible_when_empty = no
+
+	visible = {
+		has_completed_focus = MAL_revolution
+	}
+}
+MAL_immigration_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+	icon = GFX_decision_category_eng_organize_the_blackshirts
+	priority = 100
+	visible_when_empty = no
+
+	visible = {
+		always = yes
+	}
+}
+MAL_monarchy_bop_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+	icon = GFX_decision_category_eng_organize_the_blackshirts
+	priority = 100
+	visible_when_empty = no
+
+	visible = {
+		always = yes
+	}
+}
+
 
