@@ -729,6 +729,7 @@ TIB_border_wars = {
 				original_tag = TIB
 				NOT = {
 					any_controlled_state = {
+						LIMIT = {}
 						is_border_war = yes
 					}
 				}
@@ -791,6 +792,7 @@ TIB_border_wars = {
 				original_tag = TIB
 				NOT = {
 					any_controlled_state = {
+						LIMIT = {}
 						is_border_war = yes
 					}
 				}
@@ -852,6 +854,7 @@ TIB_border_wars = {
 				original_tag = TIB
 				NOT = {
 					any_controlled_state = {
+						LIMIT = {}
 						is_border_war = yes
 					}
 				}
@@ -913,6 +916,7 @@ TIB_border_wars = {
 				original_tag = TIB
 				NOT = {
 					any_controlled_state = {
+						LIMIT = {}
 						is_border_war = yes
 					}
 				}
@@ -974,6 +978,7 @@ TIB_border_wars = {
 				original_tag = TIB
 				NOT = {
 					any_controlled_state = {
+						LIMIT = {}
 						is_border_war = yes
 					}
 				}
@@ -1040,10 +1045,7 @@ TIB_decs = {
 		fire_only_once = yes
 
 		available = {
-			OR = {	
-				TIB = { has_government = communism }
-				TIB = { has_government = democratic }
-			}
+
 		
 		}
 
@@ -1055,7 +1057,7 @@ TIB_decs = {
 					has_war = yes
 					NOT = {
 						has_war_with = TIB
-						MON = {
+						TIB = {
 							any_allied_country = {
 								has_war_with = FROM
 							}
@@ -1072,7 +1074,11 @@ TIB_decs = {
 		target_root_trigger = {
 			original_tag = TIB
 			has_civil_war = no
-				has_completed_focus = TIB_support_the_fight			
+			OR = {
+				has_completed_focus = TIB_forward_guard_operations
+				has_completed_focus = TIB_secure_border		
+			}	
+
 		}
 
 		days_remove = 60
@@ -1205,6 +1211,13 @@ TIB_decs = {
 			}
 			add_stability = 0.05
 			add_war_support = 0.1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_breakthrough_points = {
+				specialization = all
+				value = 1
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip  = MON_recruit_advisors_tt
 			show_ideas_tooltip = TIB_giuseppe_tucci
 			show_ideas_tooltip = TIB_ngapoi_zhoigar
@@ -1259,6 +1272,71 @@ TIB_decs = {
 		}
 	}
 
+		
+	TIB_integrate_state_FROM = {
+		icon = GFX_decision_generic_operation
+		allowed = {
+			original_tag =  TIB
+		}
+		available = {
+			OR = {
+				has_completed_focus = TIB_asian_workers_union
+				has_completed_focus = TIB_anarchism_everywhere
+			}
+		}
+		
+		visible = {
+			OR = {
+				has_completed_focus = TIB_asian_workers_union
+				has_completed_focus = TIB_anarchism_everywhere
+			}
+			any_owned_state = {
+				is_on_continent = asia
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	is_fully_controlled_by = ROOT
+				IF ={ LIMIT = {has_completed_focus = TIB_asian_workers_union}
+		    		is_on_continent = asia
+				}ELSE_IF = {LIMIT = {has_completed_focus = TIB_anarchism_everywhere}
+					compliance > 30
+				}
+		    	
+				NOT = {
+		    		is_core_of = ROOT
+		    	}
+		    }
+			
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 25
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 10
+				any_owned_state = {
+					NOT = {
+						is_core_of = ROOT
+					}
+					is_on_continent = asia
+				}
+			}
+		}
+		fire_only_once = no
+		days_remove = 20
+
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+			}
+		}
+	}
+
 }
 
 TIB_support_for_tibet = {
@@ -1290,7 +1368,7 @@ TIB_support_for_tibet = {
 
 		visible = {
 			original_tag = TIB
-			has_completed_focus = TIB_WIP
+			has_completed_focus = TIB_regional_cooperation
 		}
 
 		days_remove = 30
@@ -1357,7 +1435,7 @@ TIB_support_for_tibet = {
 
 		visible = {
 			original_tag = TIB
-			has_completed_focus = TIB_WIP
+			has_completed_focus = TIB_regional_cooperation
 		}
 
 		days_remove = 30
@@ -1424,7 +1502,7 @@ TIB_support_for_tibet = {
 
 		visible = {
 			original_tag = TIB
-			has_completed_focus = TIB_WIP
+			has_completed_focus = TIB_regional_cooperation
 		}
 
 		days_remove = 30
@@ -1491,7 +1569,7 @@ TIB_support_for_tibet = {
 
 		visible = {
 			original_tag = TIB
-			has_completed_focus = TIB_WIP
+			has_completed_focus = TIB_regional_cooperation
 		}
 
 		days_remove = 30
@@ -1558,7 +1636,7 @@ TIB_support_for_tibet = {
 
 		visible = {
 			original_tag = TIB
-			has_completed_focus = TIB_WIP
+			has_completed_focus = TIB_regional_cooperation
 		}
 
 		days_remove = 90
@@ -1697,7 +1775,7 @@ TIB_support_for_tibet = {
 			OR = {
 				has_completed_focus = TIB_business_with_warlords
 				AND = {
-					has_completed_focus = TIB_infiltrate_red_guard
+					has_completed_focus = TIB_infiltrate_red_snow_brigades
 					XSM = {
 						is_puppet_of = TIB
 					}
@@ -2603,7 +2681,7 @@ TIB_regent_political_dealings = {
 			}
 		}
 
-		days_remove = 30
+		days_remove = 100
 
 		custom_cost_trigger = {
 			has_political_power > 24
@@ -2639,6 +2717,16 @@ TIB_regent_political_dealings = {
 					add_idea = TIB_tibetan_army3
 				}				
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					has_intelligence_agency = no
+				}
+					create_intelligence_agency = { 
+						name = "Tibetan Guard"
+						icon = GFX_intelligence_agency_logo_bul
+					}
+				}
 		}
 	}
 
@@ -2683,7 +2771,6 @@ TIB_neighboring_communism_category = {
 		}
 
 		remove_effect = {
-			IF = {LIMIT = {has_completed_focus = TIB_communist_volunteers}
 				capital_scope = {
 					create_unit = {
 						division = "name = \"Chinese Volunteers\" division_template = \"Chinese Communist Group\" start_experience_factor = 0.5 start_equipment_factor	= 1.0"
@@ -2692,9 +2779,6 @@ TIB_neighboring_communism_category = {
 					}
 				}
 			
-			}
-
-
 			hidden_effect = {
 				clr_country_flag = TIB_foreign_legion_recruitment_in_progress
 			}
@@ -2745,7 +2829,7 @@ TIB_neighboring_communism_category = {
 			original_tag = TIB
 		}
 		visible = {
-			has_completed_focus = TIB_infiltrate_red_guard
+			has_completed_focus = TIB_infiltrate_red_snow_brigades
 		}
 		available = {
 			is_subject = no
@@ -2813,7 +2897,7 @@ TIB_neighboring_communism_category = {
 			original_tag = TIB
 		}
 		visible = {
-			has_completed_focus = TIB_infiltrate_red_guard
+			has_completed_focus = TIB_infiltrate_red_snow_brigades
 		}
 		available = {
 			is_subject = no
@@ -2897,7 +2981,7 @@ TIB_neighboring_communism_category = {
 		target_root_trigger = {
 			original_tag = TIB
 			has_civil_war = no
-				has_completed_focus = TIB_infiltrate_red_guard			
+				has_completed_focus = TIB_infiltrate_red_snow_brigades			
 		}
 
 		days_remove = 60
@@ -3018,20 +3102,19 @@ TIB_collab_japan = {
 			}
 			add_offsite_building = { type = arms_factory level = 2}
 			add_offsite_building = { type = industrial_complex level = 2 }
-
-
 			JAP = {
-				add_relation_modifier = {
+				add_opinion_modifier = {
 					target = TIB
 					modifier = USA_special_relationship
 				}
 			}
 			TIB = {
-				add_relation_modifier = {
+				add_opinion_modifier = {
 					target = JAP
 					modifier = USA_special_relationship
 				}
 			}
+
 
         }
 
@@ -3128,7 +3211,7 @@ TIB_collab_japan = {
 	}
 }
 
-TIB_loot_conquest = { #doesnt send to the right cores yet
+TIB_loot_conquest = { 
 	TIB_pillage_arms_industry = {
 		icon = GFX_decision_generic_confiscation
 		allowed = {
@@ -3137,18 +3220,12 @@ TIB_loot_conquest = { #doesnt send to the right cores yet
 		available = {
 			has_completed_focus = TIB_exploit_conquest_for_economy
 			NOT = {
-				has_country_flag = TIB_moving_arms_factory
-			}
-			any_core_state = {
-				free_building_slots = {
-					building = industrial_complex
-					size > 0
-					include_locked = yes
-				}				
+				has_country_flag = TIB_moving_factory
 			}
 		}
 		
 		visible = {
+
 			any_owned_state = {
 				is_on_continent = asia
 				NOT = {
@@ -3176,11 +3253,12 @@ TIB_loot_conquest = { #doesnt send to the right cores yet
 		days_remove = 40
 
 		complete_effect = {
-			set_country_flag = TIB_moving_arms_factory
+			add_stability = -0.01
+			set_country_flag = TIB_moving_factory
 		}
 
 		remove_effect = {
-			clr_country_flag = TIB_moving_arms_factory
+			clr_country_flag = TIB_moving_factory
 			FROM = {
 				add_resistance = 10
 				add_compliance	= -10
@@ -3191,14 +3269,12 @@ TIB_loot_conquest = { #doesnt send to the right cores yet
 			}
 			random_controlled_state = {
 				LIMIT = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 0
-						include_locked = yes
-					}
 					is_core_of = TIB
 				}
+				add_extra_state_shared_building_slots = 1
+
 				add_building_construction = {
+				
 					type = arms_factory
 					level = 1
 					instant_build = yes
@@ -3216,15 +3292,9 @@ TIB_loot_conquest = { #doesnt send to the right cores yet
 		available = {
 			has_completed_focus = TIB_exploit_conquest_for_economy
 			NOT = {
-				has_country_flag = TIB_moving_civ_factory
+				has_country_flag = TIB_moving_factory
 			}
-			any_core_state = {
-				free_building_slots = {
-					building = industrial_complex
-					size > 0
-					include_locked = yes
-				}				
-			}			
+			
 		}
 		
 		visible = {
@@ -3235,6 +3305,7 @@ TIB_loot_conquest = { #doesnt send to the right cores yet
 				}
 			}
 		}
+
 		state_target = yes
 		target_trigger = {
 		    FROM = {
@@ -3255,11 +3326,12 @@ TIB_loot_conquest = { #doesnt send to the right cores yet
 		days_remove = 40
 		
 		complete_effect = {
-			set_country_flag = TIB_moving_civ_factory
+			add_stability = -0.01
+			set_country_flag = TIB_moving_factory
 		}
 
 		remove_effect = {
-			clr_country_flag = TIB_moving_civ_factory
+			clr_country_flag = TIB_moving_factory
 			FROM = {
 				add_resistance = 10
 				add_compliance	= -10
@@ -3270,14 +3342,11 @@ TIB_loot_conquest = { #doesnt send to the right cores yet
 			}
 			random_controlled_state = {
 				LIMIT = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 0
-						include_locked = yes
-					}
 					is_core_of = TIB
 				}
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
+					
 					type = industrial_complex
 					level = 1
 					instant_build = yes
@@ -4227,80 +4296,6 @@ TIB_democracies = {
 
 }
 
-TIB_fifth_column = { #doesnt work
-	#india,china, nepal, tibet, xsm, sik
-	#RAJ: NW ONE AND EAST ONE
- 	TIB_raj_fifth_NW = { 
-        allowed = {
-            tag = TIB
-        }
-
-        icon = GFX_decision_generic_reorganize_irregulars     
-        fire_only_once = yes
-        days_remove = 50
-		visible = {
-			OR = {
-				has_completed_focus = TIB_cast_down_our_neighbours
-				has_completed_focus = TIB_liberate_arunachal_pradesh
-			}
-			NOT = {
-				has_completed_focus = TIB_bhuddist_supremacy	
-			}
-		}
-		available = {
-			OR = {
-				has_completed_focus = TIB_cast_down_our_neighbours
-				has_completed_focus = TIB_liberate_arunachal_pradesh
-			}
-			RAJ = {
-				has_war_with = TIB
-			}	
-		}
-		custom_cost_trigger = {
-			command_power > 14
-			}
-			custom_cost_text = decision_cost_CP_15
-		complete_effect = {
-			hidden_effect = {
-                add_command_power = -15
-			}
-		}
-        remove_effect = {
-			hidden_effect = {
-				division_template = {
-					name = "Princely Resistance Fighters"		
-					is_locked = no
-					priority = 0
-					template_counter = 3
-					regiments = {
-						infantry  = { x = 0 y = 0 }
-						infantry  = { x = 0 y = 1 }
-						infantry  = { x = 0 y = 2 }
-
-						infantry  = { x = 1 y = 0 }
-						infantry  = { x = 1 y = 1 }
-					}
-				}
-			}
-				2041 = {
-					create_unit = {
-						allow_spawning_on_enemy_provs = yes
-						division = "name = \"Resistance Fighters\" division_template = \"Princely Resistance Fighters\" start_manpower_factor = 1 start_experience_factor = 0.3 start_equipment_factor = 1"
-						owner = TIB
-						count = 2
-					}
-				}
-			effect_tooltip = TIB_nkashmir_fifth_col_tt
-        }
-        cancel_trigger = {
-			RAJ = {
-				NOT = {has_war_with = TIB}
-			}
-        }
-
-    }
-
-}
 
 TIB_faith = {
 	TIB_religious_alignment_decision_of_FROM = {
@@ -4379,9 +4374,11 @@ TIB_power = {
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_electrification
-			}		
-			add_dynamic_modifier = MON_electrified
-			add_extra_state_shared_building_slots = 1	
+			}	
+			FROM = {
+				add_dynamic_modifier = MON_electrified
+				add_extra_state_shared_building_slots = 1	
+			}
 		}
 	}	
 
@@ -4394,7 +4391,7 @@ TIB_power = {
 		cost = 50
 		available = {
 			758 = {
-				is_owned_and_controlled_by	  = ROOT
+				is_owned_and_controlled_by = ROOT
 			}
 		}
 		complete_effect = {
@@ -4406,8 +4403,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			758 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4446,8 +4443,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			323 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4490,8 +4487,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			430 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4536,8 +4533,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			434 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4582,8 +4579,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			432 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4628,8 +4625,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			998 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4674,8 +4671,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			288 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4720,8 +4717,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			999 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4763,8 +4760,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			325 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4809,8 +4806,8 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			787 = {
+				add_extra_state_shared_building_slots = 1	
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4853,8 +4850,9 @@ TIB_power = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
-			add_extra_state_shared_building_slots = 1	
 			619 = {
+				add_extra_state_shared_building_slots = 1	
+
 				add_building_construction = {
 					type = dam
 					level = 1
@@ -4885,6 +4883,10 @@ TIB_recruitment = { # GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
 				is_owned_by = TIB
 				NOT = {
 					has_state_flag = TIB_forceful_recruited
+				}
+				OR = {
+					is_core_of = TIB
+					compliance > 25
 				}
 			}
 		}
@@ -4929,6 +4931,10 @@ TIB_recruitment = { # GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
 				is_owned_by = TIB
 				NOT = {
 					has_state_flag = TIB_extracted_irregular_groups_flg
+				}
+				OR = {
+					is_core_of = TIB
+					compliance > 25
 				}
 			}
 		}
@@ -5000,7 +5006,7 @@ TIB_recruitment = { # GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
 				clr_country_flag = TIB_sending_militia_home
 				set_country_flag = TIB_disbanded_village_militias
 			}
-			effect_tooltip = TIB_they_aint_coming_back_tt
+			custom_effect_tooltip = TIB_they_aint_coming_back_tt
 			delete_unit_template_and_units = {
 				division_template = "Dmag Mi"
 				disband = yes #will refund equipment and manpower
@@ -5009,6 +5015,3 @@ TIB_recruitment = { # GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
 	}
 }
 
-TIB_payment = {
-
-}

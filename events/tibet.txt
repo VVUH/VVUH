@@ -869,9 +869,11 @@ country_event = {
 
 			985 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				remove_core_of = RAJ
+
+			}
+			RAJ = {
+				remove_state_claim = 985
 			}
 			TIB = {
 				transfer_state = 985
@@ -953,7 +955,8 @@ country_event = {
 
 				FROM = {
 					434 = {
-						remove_core_of = FROM
+						remove_core_of = RAJ
+						#REMOVE CLAIM?
 					}
 
 					transfer_state = 434
@@ -1034,9 +1037,8 @@ country_event = {
 
 			434 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				remove_core_of = RAJ
+				#REMOVE CLAIM?
 			}
 			TIB = {
 				transfer_state = 434
@@ -1118,7 +1120,11 @@ country_event = {
 
 				FROM = {
 					441 = {
-						remove_core_of = FROM
+						remove_core_of = RAJ
+						add_core_of = TIB
+					}
+					RAJ = {
+						remove_state_claim = 441
 					}
 					transfer_state = 441
 				}
@@ -1198,9 +1204,7 @@ country_event = {
 
 			441 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				#REMOVE CLAIM?
 			}
 			TIB = {
 				transfer_state = 441
@@ -1285,6 +1289,9 @@ country_event = {
 					787 = {
 						remove_core_of = FROM
 					}
+					RAJ = {
+						remove_state_claim = 787
+					}
 					transfer_state = 787
 				}
 
@@ -1363,9 +1370,8 @@ country_event = {
 
 			787 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				remove_core_of = FROM
+				#REMOVE CLAIM?
 			}
 			TIB = {
 				transfer_state = 787
@@ -1524,9 +1530,7 @@ country_event = {
 
 			990 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				remove_core_of = FROM				
 			}
 			TIB = {
 				transfer_state = 990
@@ -1684,9 +1688,8 @@ country_event = {
 
 			619 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				remove_core_of = SIK
+				
 			}
 			TIB = {
 				transfer_state = 619
@@ -1846,9 +1849,8 @@ country_event = {
 
 			754 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				remove_core_of = XSM
+
 			}
 			TIB = {
 				transfer_state = 754
@@ -2007,9 +2009,8 @@ country_event = {
 
 			283 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				remove_core_of = XSM
+				
 			}
 			TIB = {
 				transfer_state = 283
@@ -2168,9 +2169,8 @@ country_event = {
 
 			753 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				remove_core_of = XSM
+				
 			}
 			TIB = {
 				transfer_state = 753
@@ -2328,9 +2328,8 @@ country_event = {
 
 			752 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}			
+				remove_core_of = CHI
+						
 			}
 			TIB = {
 				transfer_state = 752
@@ -2488,9 +2487,8 @@ country_event = {
 
 			751 = {
 				add_core_of = TIB
-				owner = {
-					remove_core_of = PREV
-				}
+				remove_core_of = CHI
+				
 			}
 			TIB = {
 				transfer_state = 751

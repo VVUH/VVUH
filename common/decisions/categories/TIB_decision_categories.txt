@@ -14,6 +14,7 @@ TIB_decs = { #general decisions
     priority = 5
     icon = GFX_decision_category_generic_political_actions
 }
+
 TIB_support_for_tibet = { #general decisions
     allowed = {
         tag = TIB
@@ -92,13 +93,6 @@ TIB_democracies = { # decision GFX_decision_SWI_swiss_democratic_tradition_campa
     icon = GFX_decision_category_generic_democracy
 }
 
-TIB_fifth_column = { 
-    allowed = {
-        tag = TIB
-    }
-    priority = 10
-    icon = GFX_decision_category_NOR_fascist_deploy_prep
-}
 
 TIB_power = { #decisions on core to get +1 building slot up to 3 times per core province - decisions GFX_decision_generic_construction / GFX_decision_generic_electricity
     allowed = {
@@ -111,13 +105,7 @@ TIB_power = { #decisions on core to get +1 building slot up to 3 times per core 
     icon = GFX_decision_category_generic_prospect_for_resources
 }
 
-# categories not yet in use 
-
-
-
-#likely
-
-TIB_recruitment = { #forts like italy - decisions GFX_decision_generic_fortification - decision for militia raising? GFX_decision_SWE_set_army_budget
+TIB_recruitment = {
     allowed = {
         tag = TIB
     }
@@ -125,13 +113,7 @@ TIB_recruitment = { #forts like italy - decisions GFX_decision_generic_fortifica
     icon = GFX_decision_category_generic_arms_trade
 }
 
-TIB_payment = { 
-    allowed = {
-        tag = TIB
-    }
-    priority = 5
-    icon = GFX_decision_category_GER_seize_gold_reserves
-}
+
 
 #GFX_decision_category_GER_seize_gold_reserves - payment for work, work with country flags and volunteering GFX_decision_hol_attract_foreign_investors decisions themselves
 # add foreign investments? Legalize foreign investment - GFX_decision_category_gre_investment_decisions (also allow nobles to do so)

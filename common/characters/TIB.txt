@@ -670,9 +670,6 @@ characters={
 		
 		corps_commander = {
 			traits = { infantry_officer trait_SPR_stalinist_loyalties}
-			available = {
-				has_completed_focus = TIB_spring_the_revolt
-			}
 			visible = {
 				has_completed_focus = TIB_spring_the_revolt
 			}
@@ -1596,14 +1593,17 @@ characters={
 			cost = 75
 			visible = {
 				OR = {
-					#has_completed_focus = TIB_the_ratification_of_the_thirteenth
-					#has_completed_focus = TIB_legalize_the_tra
+					has_completed_focus = TIB_the_ratification_of_the_thirteenth
+					has_completed_focus = TIB_legalize_the_tra
+				}
+				NOT = {
+					has_completed_focus = TIB_agitate_for_republicanism
 				}
 			}
 			available = {
 				OR = {
-					#has_completed_focus = TIB_influence_dalai_lama_d 
-					#has_completed_focus = TIB_chinese_border_raids
+					has_completed_focus = TIB_influence_dalai_lama_d 
+					has_completed_focus = TIB_chinese_border_raids
 				}
 			}
 			allowed = {
@@ -1649,7 +1649,7 @@ characters={
 		}
 		
 		corps_commander = {
-			available = {
+			visible = {
 				NOT = {
 					has_completed_focus = TIB_the_military_coup
 				}
