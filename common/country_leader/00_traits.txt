@@ -42,7 +42,19 @@
 ###Todo remove commented advisor experience gains
 
 leader_traits = {
-
+	father_of_nuclear_physics = {
+		random = no
+		production_speed_nuclear_reactor_factor = 0.15
+		research_speed_factor = 0.12
+		industrial_capacity_factory = 0.1
+	}
+	corrupt_politician = {
+		random = no
+		sprite = 13
+		political_power_gain = -0.1
+		consumer_goods_factor = 0.25
+		political_advisor_cost_factor = 0.15
+	}
 	ALB_minister_of_foreign_affairs = {
 		random = no
 		sprite = 13

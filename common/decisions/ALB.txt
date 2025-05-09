@@ -1,0 +1,5418 @@
+ALB_resurrect_the_Mamluk_sultanate_category = {
+
+ ALB_new_home_land = {
+
+		icon = generic_nationalism
+
+		ai_will_do = {
+			base = 300
+		}
+
+		allowed = { 
+			original_tag = ALB
+		}
+		
+		available = {
+			447 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+		has_completed_focus = ALB_resurrect_the_Mamluk_sultanate
+		} 
+
+		cost = 35
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_capital = {
+  state = 447
+  remember_old_capital = no
+}
+447 = {
+				add_building_construction = { type = coastal_bunker province = 4076 level = 2 instant_build = yes }
+				add_building_construction = { type = bunker province = 1071 level = 2 instant_build = yes }
+			}
+447 = {
+		if = {
+			    limit = {
+					    447 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+ }
+ALB_to_the_west_b = {
+    activation = {
+        has_completed_focus = ALB_retaking_the_west
+	    has_war_with = ITA
+    }
+    available = {
+       451 = {
+				is_fully_controlled_by = ALB
+			}
+		663 = {
+				is_fully_controlled_by = ALB
+			}
+		450 = {
+				is_fully_controlled_by = ALB
+			}
+    }
+
+	selectable_mission = yes
+
+	days_mission_timeout = 120
+    cancel_trigger = {
+        452 = {
+				is_fully_controlled_by = ITA
+			}
+    }
+	visible = {
+			 has_completed_focus = ALB_retaking_the_west
+		}
+
+    icon = GFX_decision_generic_military  
+
+	complete_effect = {
+		ITA = {
+        country_event = albania_events.22
+    } 
+	}
+
+    timeout_effect = {
+			country_event = albania_events.21
+		}
+}
+ALB_to_the_west_b_1 = {
+    activation = {
+        has_completed_focus = ALB_retaking_the_west
+	    has_war_with = ITA
+    }
+    available = {
+        451 = {
+				is_fully_controlled_by = ALB
+			}
+		663 = {
+				is_fully_controlled_by = ALB
+			}
+		450 = {
+				is_fully_controlled_by = ALB
+			}
+	    662 = {
+				is_fully_controlled_by = ALB
+			}
+		449 = {
+				is_fully_controlled_by = ALB
+			}
+		661 = {
+				is_fully_controlled_by = ALB
+			}
+		448 = {
+				is_fully_controlled_by = ALB
+			}
+    }
+
+	selectable_mission = yes
+
+	days_mission_timeout = 120
+    cancel_trigger = {
+        452 = {
+				is_fully_controlled_by = ITA
+			}
+    }
+	visible = {
+			 has_completed_focus = ALB_retaking_the_west
+		}
+
+    icon = GFX_decision_generic_military 
+
+	complete_effect = {
+		ITA = {
+        country_event = albania_events.23
+    } 
+	}
+
+    timeout_effect = {
+			country_event = albania_events.21
+		}
+}
+ ALB_to_the_west = {
+
+		icon = generic_nationalism
+
+		ai_will_do = {
+			base = 300
+		}
+
+		allowed = { 
+			original_tag = ALB
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 451
+				state = 663
+				state = 450
+			}
+		}
+
+		available = {
+			451 = {
+				is_controlled_by = ROOT
+			}
+			663 = {
+				is_controlled_by = ROOT
+			}
+			450 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+		has_completed_focus = ALB_resurrect_the_Mamluk_sultanate
+		} 
+
+		cost = 35
+
+		days_remove = 35
+
+		fire_only_once = yes
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 451
+						state = 663
+						state = 450
+					}
+				}
+				add_core_of = ALB
+				hidden_effect = {
+					remove_claim_by = ALB
+				}
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+
+			IF = {
+				limit = {
+					451 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+					663 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+					450 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+				}
+				ROOT = {
+					transfer_state = 451
+					transfer_state = 450
+					transfer_state = 662
+				}
+			}
+		}
+	}
+
+	ALB_to_the_east_b = {
+
+		icon = generic_nationalism
+
+		ai_will_do = {
+			base = 300
+		}
+
+		allowed = { 
+			original_tag = ALB
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 454
+				state = 455
+			}
+		}
+
+		available = {
+			454 = {
+				is_controlled_by = JOR
+			}
+			455 = {
+				is_controlled_by = JOR
+			}
+		}
+
+		visible = {
+		has_completed_focus = ALB_resurrect_the_Mamluk_sultanate
+		} 
+
+		cost = 35
+
+		days_remove = 35
+		
+		fire_only_once = yes
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			annex_country = {
+    target = EGY
+    transfer_troops = yes
+}
+		}
+	}
+
+	ALB_to_the_east = {
+
+		icon = generic_nationalism
+
+		ai_will_do = {
+			base = 300
+		}
+
+		allowed = { 
+			original_tag = ALB
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 454
+				state = 455
+			}
+		}
+
+		available = {
+			454 = {
+				is_controlled_by = ROOT
+			}
+			455 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+		has_completed_focus = ALB_resurrect_the_Mamluk_sultanate
+		} 
+
+		cost = 35
+
+		days_remove = 35
+		
+		fire_only_once = yes
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 454
+						state = 455
+					}
+				}
+				add_core_of = ALB
+				hidden_effect = {
+					remove_claim_by = ALB
+				}
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+
+			IF = {
+				limit = {
+					454 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+					455 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+				}
+				ROOT = {
+					transfer_state = 454
+					transfer_state = 455
+				}
+			}
+		}
+	}
+	ALB_to_the_south = {
+
+		icon = generic_nationalism
+
+		ai_will_do = {
+			base = 300
+		}
+
+		allowed = { 
+			original_tag = ALB
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 551
+				state = 883
+				state = 886
+				state = 549
+				state = 884
+				state = 887
+				state = 885
+			}
+		}
+
+		available = {
+			551 = {
+				is_controlled_by = ROOT
+			}
+			883 = {
+				is_controlled_by = ROOT
+			}
+			886 = {
+				is_controlled_by = ROOT
+			}
+			549 = {
+				is_controlled_by = ROOT
+			}
+			884 = {
+				is_controlled_by = ROOT
+			}
+			887 = {
+				is_controlled_by = ROOT
+			}
+			885 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+		has_completed_focus = ALB_resurrect_the_Mamluk_sultanate
+		} 
+
+		cost = 100
+
+		days_remove = 35
+		
+		fire_only_once = yes
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			every_state = {
+				limit = {
+					OR = {
+				state = 551
+				state = 883
+				state = 886
+				state = 549
+				state = 884
+				state = 887
+				state = 885
+					}
+				}
+				add_core_of = ALB
+				hidden_effect = {
+					remove_claim_by = ALB
+				}
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+
+			IF = {
+				limit = {
+					551 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+					883 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+					886 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+					549 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+					884 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+					887 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+					885 = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+					}
+				}
+				ROOT = {
+				transfer_state = 551
+				transfer_state = 883
+				transfer_state = 886
+				transfer_state = 549
+				transfer_state = 884
+				transfer_state = 887
+				transfer_state = 885
+				}
+			}
+		}
+	}
+	form_andalusia = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+			highlight_states = {
+			highlight_state_targets = {
+			state = 173
+			state = 789
+			state = 168
+			state = 167
+			state = 175
+			state = 170
+			state = 179
+			state = 795
+			state = 169
+			state = 118
+			}
+		}
+
+		available = {
+			is_subject = no
+			# Spain
+		    173 = {
+				is_controlled_by = ROOT
+			}
+			789 = {
+				is_controlled_by = ROOT
+			}
+			168 = {
+				is_controlled_by = ROOT
+			}
+			167 = {
+				is_controlled_by = ROOT
+			}
+			175 = {
+				is_controlled_by = ROOT
+			}
+			170 = {
+				is_controlled_by = ROOT
+			}
+			179 = {
+				is_controlled_by = ROOT
+			}
+		    795 = {
+				is_controlled_by = ROOT
+			}
+			169 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+				original_tag = ALB
+				has_completed_focus = ALB_restore_andalusia
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			# Andalusia 
+			custom_effect_tooltip = form_country_andalusia_coring_states_tt
+				789 = { add_core_of = ROOT }
+				173 = { add_core_of = ROOT }
+				169 = { add_core_of = ROOT }
+				168 = { add_core_of = ROOT }
+				167 = { add_core_of = ROOT }
+				175 = { add_core_of = ROOT }
+				170 = { add_core_of = ROOT }
+				179 = { add_core_of = ROOT }
+				795 = { add_core_of = ROOT }
+				118 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	adu_restore_sultanate_of_africa = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+		highlight_states = {
+				highlight_state_targets = {
+				state = 290
+				state = 461
+				state = 462
+				state = 783
+				state = 458
+				state = 665
+				state = 459
+				state = 460
+				state = 513
+				state = 448
+				state = 449
+				state = 661
+				state = 662
+			}
+		}
+
+		available = {
+			290 = {
+				is_controlled_by = ROOT
+			}
+			461 = {
+				is_controlled_by = ROOT
+			}
+			462 = {
+				is_controlled_by = ROOT
+			}
+			783 = {
+				is_controlled_by = ROOT
+			}
+		    458 = {
+				is_controlled_by = ROOT
+			}
+			665 = {
+				is_controlled_by = ROOT
+			}
+			459 = {
+				is_controlled_by = ROOT
+			}
+			460 = {
+				is_controlled_by = ROOT
+			}
+			513 = {
+				is_controlled_by = ROOT
+			}
+			448 = {
+				is_controlled_by = ROOT
+			}
+			449 = {
+				is_controlled_by = ROOT
+			}
+			661 = {
+				is_controlled_by = ROOT
+			}
+			662 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+				original_tag = AlB
+				has_completed_focus = ALB_restore_andalusia
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+				290 = { add_core_of = ROOT }
+				461 = { add_core_of = ROOT }
+				462 = { add_core_of = ROOT }
+				783 = { add_core_of = ROOT }
+				458 = { add_core_of = ROOT }
+				665 = { add_core_of = ROOT }
+				699 = { add_core_of = ROOT }
+				459 = { add_core_of = ROOT }
+				460 = { add_core_of = ROOT }
+				513 = { add_core_of = ROOT }
+				514 = { add_core_of = ROOT }
+				273 = { add_core_of = ROOT }
+				448 = { add_core_of = ROOT }
+				449 = { add_core_of = ROOT }
+				661 = { add_core_of = ROOT }
+				662 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	adu_mediterrenean_emirates = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+		highlight_states = {
+		highlight_state_targets = {
+				state = 115
+				state = 116
+				state = 164
+				state = 182
+				state = 183
+			}
+		}
+
+		available = {
+			115 = {
+				is_controlled_by = ROOT
+			}
+			116 = {
+				is_controlled_by = ROOT
+			}
+			164 = {
+				is_controlled_by = ROOT
+			}
+			182 = {
+				is_controlled_by = ROOT
+			}
+			183 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+			original_tag = AlB
+			has_completed_focus = ALB_restore_andalusia
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+				115 = { add_core_of = ROOT }
+				116 = { add_core_of = ROOT }
+				164 = { add_core_of = ROOT }
+				182 = { add_core_of = ROOT }
+				183 = { add_core_of = ROOT }
+				114 = { add_core_of = ROOT }
+				1 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	adu_restore_umayyad_caliphate = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+		highlight_states = {
+		highlight_state_targets = {
+				state = 676
+				state = 675
+				state = 291
+				state = 292
+				state = 679
+				state = 678
+				state = 857
+				state = 858
+				state = 854
+				state = 855
+				state = 856
+				state = 859
+				state = 677
+				state = 680
+				state = 553
+				state = 554
+				state = 799
+				state = 293
+				state = 294
+				state = 656
+				state = 658
+				state = 765
+				state = 659
+				state = 906
+				state = 1010
+				state = 1011
+				state = 1015
+				state = 1016
+				state = 992
+			}
+		}
+
+		available = {
+			is_subject = no
+			# Iraq
+			custom_trigger_tooltip = {
+				tooltip = form_country_iraq_required_states_tt
+			}
+			1010 = {
+				is_controlled_by = ROOT
+			}
+			1011 = {
+				is_controlled_by = ROOT
+			}
+			1015 = {
+				is_controlled_by = ROOT
+			}
+			1016 = {
+				is_controlled_by = ROOT
+			}
+			992 = {
+				is_controlled_by = ROOT
+			}
+			676 = {
+				is_controlled_by = ROOT
+			}
+			675 = {
+				is_controlled_by = ROOT
+			}
+			291 = {
+				is_controlled_by = ROOT
+			}
+			# Saudi Arabia
+			custom_trigger_tooltip = {
+				tooltip = form_country_saudi_required_states_tt
+			}
+			292 = {
+				is_controlled_by = ROOT
+			}
+			679 = {
+				is_controlled_by = ROOT
+			}
+			678 = {
+				is_controlled_by = ROOT
+			}
+			857 = {
+				is_controlled_by = ROOT
+			}
+			858 = {
+				is_controlled_by = ROOT
+			}
+			854 = {
+				is_controlled_by = ROOT
+			}
+			855 = {
+				is_controlled_by = ROOT
+			}
+			856 = {
+				is_controlled_by = ROOT
+			}
+			859 = {
+				is_controlled_by = ROOT
+			}
+			# France
+			custom_trigger_tooltip = {
+				tooltip = form_persia_france_required_states_tt
+			}
+				# Syria
+			677 = {
+				is_controlled_by = ROOT
+			}
+			680 = {
+				is_controlled_by = ROOT
+			}
+			553 = {
+				is_controlled_by = ROOT
+			}
+			554 = {
+				is_controlled_by = ROOT
+			}
+			799 = {
+				is_controlled_by = ROOT
+			}
+			
+		679 = {
+				is_controlled_by = ROOT
+			}
+		293 = {
+				is_controlled_by = ROOT
+			}
+		294 = {
+				is_controlled_by = ROOT
+			}
+		656 = {
+				is_controlled_by = ROOT
+			}
+		658 = {
+				is_controlled_by = ROOT
+			}
+		765 = {
+				is_controlled_by = ROOT
+			}
+		659 = {
+				is_controlled_by = ROOT
+			}
+		906 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+		original_tag = AlB
+		has_completed_focus = ALB_restore_andalusia
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			custom_effect_tooltip = middle_east_coring_states_tt
+			hidden_effect = {
+				# Iraq
+				1010 = { add_core_of = ROOT }
+				1011 = { add_core_of = ROOT }
+				1015 = { add_core_of = ROOT }
+				1016 = { add_core_of = ROOT }
+				992 = { add_core_of = ROOT }
+				676 = { add_core_of = ROOT }
+				675 = { add_core_of = ROOT }
+				291 = { add_core_of = ROOT }
+				# Saudi Arabia
+				292 = { add_core_of = ROOT }
+				679 = { add_core_of = ROOT }
+				678 = { add_core_of = ROOT }
+				857 = { add_core_of = ROOT }
+				858 = { add_core_of = ROOT }
+				854 = { add_core_of = ROOT }
+				855 = { add_core_of = ROOT }
+				856 = { add_core_of = ROOT }
+				859 = { add_core_of = ROOT }
+				# Colonial Arabia
+				677 = { add_core_of = ROOT }
+				680 = { add_core_of = ROOT }
+				553 = { add_core_of = ROOT }
+				554 = { add_core_of = ROOT }
+				679 = { add_core_of = ROOT }
+				293 = { add_core_of = ROOT }
+				294 = { add_core_of = ROOT }
+				656 = { add_core_of = ROOT }
+				658 = { add_core_of = ROOT }
+				799 = { add_core_of = ROOT }
+				765 = { add_core_of = ROOT }
+				659 = { add_core_of = ROOT }
+				906 = { add_core_of = ROOT }
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	adu_recreate_rashid_expansion = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+		highlight_states = {
+		highlight_state_targets = {
+				state = 419
+				state = 421
+				state = 420
+				state = 417
+				state = 413
+				state = 266
+				state = 418
+				state = 411
+				state = 412
+				state = 416
+				state = 414
+				state = 410
+				state = 415
+				state = 267
+				state = 787
+				state = 445
+				state = 442
+				state = 443
+				state = 444
+				state = 440
+				state = 441
+				state = 1000
+				state = 1001
+				state = 1002
+				state = 1003
+				state = 1004
+				state = 1005
+				state = 1006
+				state = 1007
+				state = 1008
+				state = 1009
+				state = 988
+				state = 1012
+				state = 987
+			}
+		}
+
+		available = {
+			is_subject = no
+			419 = {
+				is_controlled_by = ROOT
+			}
+			421 = {
+				is_controlled_by = ROOT
+			}
+			420 = {
+				is_controlled_by = ROOT
+			}
+			417 = {
+				is_controlled_by = ROOT
+			}
+			413 = {
+				is_controlled_by = ROOT
+			}
+			266 = {
+				is_controlled_by = ROOT
+			}
+			418 = {
+				is_controlled_by = ROOT
+			}
+			411 = {
+				is_controlled_by = ROOT
+			}
+			412 = {
+				is_controlled_by = ROOT
+			}
+			416 = {
+				is_controlled_by = ROOT
+			}
+			414 = {
+				is_controlled_by = ROOT
+			}
+			410 = {
+				is_controlled_by = ROOT
+			}
+			415 = {
+				is_controlled_by = ROOT
+			}
+			267 = {
+				is_controlled_by = ROOT
+			}
+			787 = {
+				is_controlled_by = ROOT
+			}
+			445 = {
+				is_controlled_by = ROOT
+			}
+			442 = {
+				is_controlled_by = ROOT
+			}
+			444 = {
+				is_controlled_by = ROOT
+			}
+			440 = {
+				is_controlled_by = ROOT
+			}
+			443 = {
+				is_controlled_by = ROOT
+			}
+			441 = {
+				is_controlled_by = ROOT
+			}	
+			1000 = {
+				is_controlled_by = ROOT
+			}
+			1001 = {
+				is_controlled_by = ROOT
+			}
+			1002 = {
+				is_controlled_by = ROOT
+			}
+			1003 = {
+				is_controlled_by = ROOT
+			}
+			1004 = {
+				is_controlled_by = ROOT
+			}
+			1005 = {
+				is_controlled_by = ROOT
+			}
+			1006 = {
+				is_controlled_by = ROOT
+			}
+			1007 = {
+				is_controlled_by = ROOT
+			}
+			1008 = {
+				is_controlled_by = ROOT
+			}
+			1009 = {
+				is_controlled_by = ROOT
+			}
+			988 = {
+				is_controlled_by = ROOT
+			}
+			1012 = {
+				is_controlled_by = ROOT
+			}
+			987 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+		original_tag = AlB
+		has_completed_focus = ALB_restore_andalusia
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			release_puppet = AFG
+			    1000 = { add_core_of = AFG }
+			1001 = { add_core_of = AFG }
+			1002 = { add_core_of = AFG }
+			1003 = { add_core_of = AFG }
+			1004 = { add_core_of = AFG }
+			1005 = { add_core_of = AFG }
+			1006 = { add_core_of = AFG }
+			1007 = { add_core_of = AFG }
+			1008 = { add_core_of = AFG }
+			1009 = { add_core_of = AFG }
+			988 = { add_core_of = AFG }
+			1012 = { add_core_of = AFG }
+			987 = { add_core_of = AFG }
+				419 = { add_core_of = AFG }
+				421 = { add_core_of = AFG }
+				420 = { add_core_of = AFG }
+				417 = { add_core_of = AFG }
+				413 = { add_core_of = AFG }
+				266 = { add_core_of = AFG }
+				418 = { add_core_of = AFG }
+				411 = { add_core_of = AFG }
+				412 = { add_core_of = AFG }
+				416 = { add_core_of = AFG }
+				414 = { add_core_of = AFG }
+				410 = { add_core_of = AFG }
+				415 = { add_core_of = AFG }
+				267 = { add_core_of = AFG }
+				787 = { add_core_of = AFG }
+				445 = { add_core_of = AFG }
+				442 = { add_core_of = AFG }
+				444 = { add_core_of = AFG }
+				440 = { add_core_of = AFG }
+				441 = { add_core_of = AFG }
+				443 = { add_core_of = AFG }
+				AFG = {
+				transfer_state = 419
+				transfer_state = 420
+				transfer_state = 421
+				transfer_state = 417
+				transfer_state = 413
+				transfer_state = 266
+				transfer_state = 418
+				transfer_state = 411
+				transfer_state = 412
+				transfer_state = 416
+				transfer_state = 414
+				transfer_state = 410
+				transfer_state = 267
+				transfer_state = 787
+				transfer_state = 445
+				transfer_state = 442
+				transfer_state = 444
+				transfer_state = 440
+				transfer_state = 441
+				transfer_state = 443
+				transfer_state = 1000
+			transfer_state = 1001
+			transfer_state = 1002
+			transfer_state = 1003
+			transfer_state = 1004
+			transfer_state = 1005
+			transfer_state = 1006
+			transfer_state = 1007
+			transfer_state = 1008
+			transfer_state = 1009
+			transfer_state = 988
+			transfer_state = 1012
+			transfer_state = 987
+		}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	adu_northern_expansion = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+		highlight_states = {
+		highlight_state_targets = {
+				state = 229
+				state = 230
+				state = 231
+				state = 232
+				state = 233
+				state = 821
+				state = 828
+				state = 827
+				state = 826
+				state = 350
+				state = 352
+				state = 353
+				state = 354
+				state = 800
+			}
+		}
+
+		available = {
+			is_subject = no
+			# Azerbaijan
+		229 = {
+				is_controlled_by = ROOT
+			}
+			# Armenia
+		230 = {
+				is_controlled_by = ROOT
+			}
+			# Georgia
+		231 = {
+				is_controlled_by = ROOT
+			}
+			# Northern Caucasus
+		232 = {
+				is_controlled_by = ROOT
+			}
+		233 = {
+				is_controlled_by = ROOT
+			}
+		821 = {
+				is_controlled_by = ROOT
+			}
+		828 = {
+				is_controlled_by = ROOT
+			}
+		827 = {
+				is_controlled_by = ROOT
+			}
+		826 = {
+				is_controlled_by = ROOT
+			}
+			# turkey
+		350 = {
+				is_controlled_by = ROOT
+			}
+		352 = {
+				is_controlled_by = ROOT
+			}
+		353 = {
+				is_controlled_by = ROOT
+			}
+		354 = {
+				is_controlled_by = ROOT
+			}
+		800 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+	    original_tag = AlB
+		has_completed_focus = ALB_restore_andalusia
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			release_puppet = CIN
+			# Azerbaijan
+			229 = { add_core_of = CIN }
+			# Armenia
+			230 = { add_core_of = CIN }
+			# Georgia
+			231 = { add_core_of = CIN }
+			# Grozny
+			232 = { add_core_of = CIN }
+			233 = { add_core_of = CIN }
+			821 = { add_core_of = CIN }
+			828 = { add_core_of = CIN }
+			827 = { add_core_of = CIN }
+			826 = { add_core_of = CIN }
+			# turkey
+			350 = { add_core_of = CIN }
+			352 = { add_core_of = CIN }
+			353 = { add_core_of = CIN }
+			354 = { add_core_of = CIN }
+			800 = { add_core_of = CIN }
+		CIN = {
+			transfer_state = 229
+			transfer_state = 230
+			transfer_state = 231
+			transfer_state = 232
+			transfer_state = 233
+			transfer_state = 821
+			transfer_state = 828
+			transfer_state = 827
+			transfer_state = 826
+			transfer_state = 350
+			transfer_state = 352
+			transfer_state = 353
+			transfer_state = 354
+			transfer_state = 800
+		}
+			hidden_effect = { set_global_flag = andalusia_north_expansion_flag }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	adu_make_the_emirate_of_west_africa = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+		highlight_states = {
+		highlight_state_targets = {
+				state = 699
+				state = 557
+				state = 786
+				state = 272
+				state = 701
+				state = 296
+				state = 780
+				state = 700
+				state = 298
+				state = 779
+				state = 556
+				state = 899
+				state = 898
+				state = 782
+				state = 778
+				state = 274
+				state = 777
+				state = 776
+				state = 781
+				state = 515
+				state = 902
+				state = 901
+				state = 558
+				state = 900
+				state = 773
+				state = 774
+				state = 775
+				state = 297
+			}
+		}
+
+		available = {
+			is_subject = no
+		699 = {
+				is_controlled_by = ROOT
+			}
+		557 = {
+				is_controlled_by = ROOT
+			}
+		786 = {
+				is_controlled_by = ROOT
+			}
+		272 = {
+				is_controlled_by = ROOT
+			}
+		701 = {
+				is_controlled_by = ROOT
+			}
+		296 = {
+				is_controlled_by = ROOT
+			}
+		780 = {
+				is_controlled_by = ROOT
+			}
+		700 = {
+				is_controlled_by = ROOT
+			}
+		298 = {
+				is_controlled_by = ROOT
+			}
+		779 = {
+				is_controlled_by = ROOT
+			}
+		556 = {
+				is_controlled_by = ROOT
+			}
+		899 = {
+				is_controlled_by = ROOT
+			}
+		782 = {
+				is_controlled_by = ROOT
+			}
+		898 = {
+				is_controlled_by = ROOT
+			}
+		778 = {
+				is_controlled_by = ROOT
+			}
+		274 = {
+				is_controlled_by = ROOT
+			}
+		777 = {
+				is_controlled_by = ROOT
+			}
+		776 = {
+				is_controlled_by = ROOT
+			}
+		781 = {
+				is_controlled_by = ROOT
+			}
+		515 = {
+				is_controlled_by = ROOT
+			}
+		902 = {
+				is_controlled_by = ROOT
+			}
+		901 = {
+				is_controlled_by = ROOT
+			}
+		558 = {
+				is_controlled_by = ROOT
+			}
+		900 = {
+				is_controlled_by = ROOT
+			}
+		773 = {
+				is_controlled_by = ROOT
+			}
+		774 = {
+				is_controlled_by = ROOT
+			}
+		775 = {
+				is_controlled_by = ROOT
+			}
+		297 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+	    original_tag = AlB
+		has_completed_focus = ALB_restore_andalusia
+		}
+
+		complete_effect = {
+			release_puppet = MRT
+		699 = {add_core_of = MRT}
+		557 = {add_core_of = MRT}
+		786 = {add_core_of = MRT}
+		272 = {add_core_of = MRT}
+		701 = {add_core_of = MRT}
+		296 = {add_core_of = MRT}
+		780 = {add_core_of = MRT}
+		700 = {add_core_of = MRT}
+		298 = {add_core_of = MRT}
+		779 = {add_core_of = MRT}
+		556 = {add_core_of = MRT}
+		899 = {add_core_of = MRT}
+		782 = {add_core_of = MRT}
+		898 = {add_core_of = MRT}
+		778 = {add_core_of = MRT}
+		274 = {add_core_of = MRT}
+		777 = {add_core_of = MRT}
+		776 = {add_core_of = MRT}
+		781 = {add_core_of = MRT}
+		515 = {add_core_of = MRT}
+		902 = {add_core_of = MRT}
+		901 = {add_core_of = MRT}
+		558 = {add_core_of = MRT}
+		900 = {add_core_of = MRT}
+		773 = {add_core_of = MRT}
+		774 = {add_core_of = MRT}
+		775 = {add_core_of = MRT}
+		297 = {add_core_of = MRT}
+		MRT = {
+				transfer_state = 699
+				transfer_state = 557
+				transfer_state = 786
+				transfer_state = 272
+				transfer_state = 701
+				transfer_state = 296
+				transfer_state = 780
+				transfer_state = 700
+				transfer_state = 298
+				transfer_state = 779
+				transfer_state = 556
+				transfer_state = 899
+				transfer_state = 898
+				transfer_state = 782
+				transfer_state = 778
+				transfer_state = 274
+				transfer_state = 777
+				transfer_state = 776
+				transfer_state = 781
+				transfer_state = 515
+				transfer_state = 902
+				transfer_state = 901
+				transfer_state = 558
+				transfer_state = 900
+				transfer_state = 773
+				transfer_state = 774
+				transfer_state = 775
+				transfer_state = 297
+		}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	adu_make_the_emirate_of_central_africa = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+		highlight_states = {
+		highlight_state_targets = {
+				state = 660
+				state = 539
+				state = 772
+				state = 796
+				state = 538
+				state = 718
+				state = 890
+				state = 295
+				state = 888
+				state = 889
+				state = 540
+				state = 892
+				state = 891
+				state = 981
+				state = 771
+				state = 542
+				state = 545
+				state = 895
+				state = 894
+				state = 541
+				state = 893
+				state = 681
+				state = 275
+				state = 719
+			}
+		}
+
+		available = {
+			is_subject = no
+		660 = {
+				is_controlled_by = ROOT
+			}
+		539 = {
+				is_controlled_by = ROOT
+			}
+		796 = {
+				is_controlled_by = ROOT
+			}
+		772 = {
+				is_controlled_by = ROOT
+			}
+		538 = {
+				is_controlled_by = ROOT
+			}
+		718 = {
+				is_controlled_by = ROOT
+			}
+		890 = {
+				is_controlled_by = ROOT
+			}
+		295 = {
+				is_controlled_by = ROOT
+			}
+		888 = {
+				is_controlled_by = ROOT
+			}
+		889 = {
+				is_controlled_by = ROOT
+			}
+		540 = {
+				is_controlled_by = ROOT
+			}
+		892 = {
+				is_controlled_by = ROOT
+			}
+		891 = {
+				is_controlled_by = ROOT
+			}
+		981 = {
+				is_controlled_by = ROOT
+			}
+		771 = {
+				is_controlled_by = ROOT
+			}
+		542 = {
+				is_controlled_by = ROOT
+			}
+		545 = {
+				is_controlled_by = ROOT
+			}
+		895 = {
+				is_controlled_by = ROOT
+			}
+		894 = {
+				is_controlled_by = ROOT
+			}
+		541 = {
+				is_controlled_by = ROOT
+			}
+		893 = {
+				is_controlled_by = ROOT
+			}
+		681 = {
+				is_controlled_by = ROOT
+			}
+		275 = {
+				is_controlled_by = ROOT
+			}
+		719 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+	    original_tag = AlB
+		has_completed_focus = ALB_restore_andalusia
+		}
+
+		complete_effect = {
+			release_puppet = CAR
+		660 = {add_core_of = CAR}
+		539 = {add_core_of = CAR}
+		772 = {add_core_of = CAR}
+		796 = {add_core_of = CAR}
+		538 = {add_core_of = CAR}
+		718 = {add_core_of = CAR}
+		890 = {add_core_of = CAR}
+		295 = {add_core_of = CAR}
+		888 = {add_core_of = CAR}
+		889 = {add_core_of = CAR}
+		540 = {add_core_of = CAR}
+		892 = {add_core_of = CAR}
+		891 = {add_core_of = CAR}
+		981 = {add_core_of = CAR}
+		771 = {add_core_of = CAR}
+		542 = {add_core_of = CAR}
+		545 = {add_core_of = CAR}
+		895 = {add_core_of = CAR}
+		894 = {add_core_of = CAR}
+		541 = {add_core_of = CAR}
+		893 = {add_core_of = CAR}
+		681 = {add_core_of = CAR}
+		275 = {add_core_of = CAR}
+		719 = {add_core_of = CAR}
+		CAR = {
+				transfer_state = 660
+				transfer_state = 539
+				transfer_state = 772
+				transfer_state = 796
+				transfer_state = 538
+				transfer_state = 718
+				transfer_state = 890
+				transfer_state = 295
+				transfer_state = 888
+				transfer_state = 889
+				transfer_state = 540
+				transfer_state = 892
+				transfer_state = 891
+				transfer_state = 981
+				transfer_state = 771
+				transfer_state = 542
+				transfer_state = 545
+				transfer_state = 895
+				transfer_state = 894
+				transfer_state = 541
+				transfer_state = 893
+				transfer_state = 681
+				transfer_state = 275
+				transfer_state = 719
+		}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	adu_make_the_emirate_of_east_africa = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+		highlight_states = {
+		highlight_state_targets = {
+				state = 544
+				state = 896
+				state = 897
+				state = 770
+				state = 543
+				state = 708
+				state = 546
+				state = 769
+				state = 768
+				state = 548
+				state = 905
+				state = 903
+				state = 904
+				state = 547
+				state = 844
+				state = 559
+				state = 269
+				state = 268
+				state = 550
+				state = 841
+				state = 842
+				state = 908
+				state = 843
+				state = 835
+				state = 271
+				state = 839
+				state = 838
+				state = 837
+				state = 836
+				state = 840
+			}
+		}
+
+		available = {
+			is_subject = no
+		544 = {
+				is_controlled_by = ROOT
+			}
+		896 = {
+				is_controlled_by = ROOT
+			}
+		897 = {
+				is_controlled_by = ROOT
+			}
+		770 = {
+				is_controlled_by = ROOT
+			}
+		543 = {
+				is_controlled_by = ROOT
+			}
+		708 = {
+				is_controlled_by = ROOT
+			}
+		546 = {
+				is_controlled_by = ROOT
+			}
+		769 = {
+				is_controlled_by = ROOT
+			}
+		768 = {
+				is_controlled_by = ROOT
+			}
+		548 = {
+				is_controlled_by = ROOT
+			}
+		905 = {
+				is_controlled_by = ROOT
+			}
+		903 = {
+				is_controlled_by = ROOT
+			}
+		904 = {
+				is_controlled_by = ROOT
+			}
+		547 = {
+				is_controlled_by = ROOT
+			}
+		844 = {
+				is_controlled_by = ROOT
+			}
+		559 = {
+				is_controlled_by = ROOT
+			}
+		269 = {
+				is_controlled_by = ROOT
+			}
+		268 = {
+				is_controlled_by = ROOT
+			}
+		550 = {
+				is_controlled_by = ROOT
+			}
+		841 = {
+				is_controlled_by = ROOT
+			}
+		842 = {
+				is_controlled_by = ROOT
+			}
+		908 = {
+				is_controlled_by = ROOT
+			}
+		843 = {
+				is_controlled_by = ROOT
+			}
+		835 = {
+				is_controlled_by = ROOT
+			}
+		271 = {
+				is_controlled_by = ROOT
+			}
+
+		839 = {
+				is_controlled_by = ROOT
+			}
+		838 = {
+				is_controlled_by = ROOT
+			}
+		837 = {
+				is_controlled_by = ROOT
+			}
+		836 = {
+				is_controlled_by = ROOT
+			}
+		840 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+	    original_tag = AlB
+		has_completed_focus = ALB_restore_andalusia
+		}
+
+		complete_effect = {
+			release_puppet = SOM
+		544 = {add_core_of = SOM}
+		896 = {add_core_of = SOM}
+		897 = {add_core_of = SOM}
+		770 = {add_core_of = SOM}
+		543 = {add_core_of = SOM}
+		708 = {add_core_of = SOM}
+		546 = {add_core_of = SOM}
+		769 = {add_core_of = SOM}
+		768 = {add_core_of = SOM}
+		548 = {add_core_of = SOM}
+		905 = {add_core_of = SOM}
+		903 = {add_core_of = SOM}
+		904 = {add_core_of = SOM}
+		547 = {add_core_of = SOM}
+		844 = {add_core_of = SOM}
+		559 = {add_core_of = SOM}
+		269 = {add_core_of = SOM}
+		268 = {add_core_of = SOM}
+		550 = {add_core_of = SOM}
+		841 = {add_core_of = SOM}
+		842 = {add_core_of = SOM}
+		908 = {add_core_of = SOM}
+		843 = {add_core_of = SOM}
+		835 = {add_core_of = SOM}
+		271 = {add_core_of = SOM}
+		839 = {add_core_of = SOM}
+		838 = {add_core_of = SOM}
+		837 = {add_core_of = SOM}
+		836 = {add_core_of = SOM}
+		840 = {add_core_of = SOM}
+		SOM = {
+				transfer_state = 544
+				transfer_state = 896
+				transfer_state = 897
+				transfer_state = 770
+				transfer_state = 543
+				transfer_state = 708
+				transfer_state = 546
+				transfer_state = 769
+				transfer_state = 768
+				transfer_state = 548
+				transfer_state = 905
+				transfer_state = 903
+				transfer_state = 904
+				transfer_state = 547
+				transfer_state = 844
+				transfer_state = 559
+				transfer_state = 269
+				transfer_state = 268
+				transfer_state = 550
+				transfer_state = 841
+				transfer_state = 842
+				transfer_state = 908
+				transfer_state = 843
+				transfer_state = 835
+				transfer_state = 271
+				transfer_state = 839
+				transfer_state = 838
+				transfer_state = 837
+				transfer_state = 836
+				transfer_state = 840
+		}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	ALB_the_Mamluk_sultanate_reborn = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		available = {
+		is_subject = no
+		451 = {
+				is_controlled_by = ROOT
+			}
+		907 = {
+				is_controlled_by = ROOT
+			}
+		454 = {
+				is_controlled_by = ROOT
+			}
+		886 = {
+				is_controlled_by = ROOT
+			}
+		551 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+	    original_tag = AlB
+		has_completed_focus = ALB_resurrect_the_Mamluk_sultanate
+		}
+		fire_only_once = yes
+
+		complete_effect = {
+			set_cosmetic_tag = MAM_fascism
+			add_stability = 0.1
+			add_war_support = 0.1
+			army_experience = 35
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+	ALB_form_ottoman_empire_category = {
+
+	form_ottoman_empire = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 797
+				state = 341
+				state = 340
+				state = 339
+				state = 342
+				state = 343
+				state = 347
+				state = 49
+				state = 798
+				state = 346
+				state = 345
+				state = 356
+				state = 348
+				state = 344
+				state = 355
+				state = 349
+				state = 354
+			}
+		}
+
+		available = {
+			is_subject = no
+			# turkey
+			custom_trigger_tooltip = {
+				controls_state = 797
+				controls_state = 341
+				controls_state = 340
+				controls_state = 339
+				controls_state = 342
+				controls_state = 343
+				controls_state = 347
+				controls_state = 49
+				controls_state = 798
+				controls_state = 346
+				controls_state = 345
+				controls_state = 356
+				controls_state = 348
+				controls_state = 344
+				controls_state = 355
+				controls_state = 349
+				controls_state = 354
+			}
+		}
+
+		visible = {
+            has_completed_focus = ALB_Restore_the_divan
+			original_tag = ALB
+			NOT = { has_global_flag = form_ottoman_empire_flag }
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = OTT_UNIFIED
+			797 = { add_core_of = ROOT }
+			341 = { add_core_of = ROOT }
+			340 = { add_core_of = ROOT }
+			339 = { add_core_of = ROOT }
+			342 = { add_core_of = ROOT }
+			343 = { add_core_of = ROOT }
+			347 = { add_core_of = ROOT }
+			49 = { add_core_of = ROOT }
+			798 = { add_core_of = ROOT }
+			346 = { add_core_of = ROOT }
+			345 = { add_core_of = ROOT }
+			356 = { add_core_of = ROOT }
+			348 = { add_core_of = ROOT }
+			344 = { add_core_of = ROOT }
+			355 = { add_core_of = ROOT }
+			349 = { add_core_of = ROOT }
+			354 = { add_core_of = ROOT }
+
+			hidden_effect = {
+				news_event = { id = wtt_news.61 hours = 6 }
+				set_global_flag = form_ALBoman_empire_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ALB_reform_the_eyalet_of_rumelia_Greece = { #Greece + Albania + Bulgaria + South Yugoslavia
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 47
+				state = 185
+				state = 731
+				state = 184
+				state = 186
+			}
+		}
+
+		available = {
+			is_subject = no
+			#Greece
+			custom_trigger_tooltip = {
+				tooltip = form_rumelia_greece_required_states_tt
+				controls_state = 47
+				controls_state = 185
+				controls_state = 731
+				controls_state = 184
+				controls_state = 186
+			}
+		}
+		
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			# Greece
+			custom_effect_tooltip = form_rumelia_greece_coring_states_tt
+			hidden_effect = {
+				47 = { add_core_of = ROOT }
+				185 = { add_core_of = ROOT }
+				731 = { add_core_of = ROOT }
+				184 = { add_core_of = ROOT }
+				186 = { add_core_of = ROOT }
+			}
+			hidden_effect = {
+				set_global_flag = ALBoman_balkans_flag_Greece
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	ALB_reform_the_eyalet_of_rumelia_Bulgaria = { #Greece + Albania + Bulgaria + South Yugoslavia
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 48
+				state = 801
+				state = 212
+				state = 211
+			}
+		}
+
+		available = {
+			is_subject = no
+			#Bulgaria
+			custom_trigger_tooltip = {
+				tooltip = form_rumelia_bulgaria_required_states_tt
+				controls_state = 48
+				controls_state = 801
+				controls_state = 212
+				controls_state = 211
+			}
+		}
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			# Bulgaria
+			custom_effect_tooltip = form_rumelia_bulgaria_coring_states_tt
+			hidden_effect = {
+				48 = { add_core_of = ROOT }
+				801 = { add_core_of = ROOT }
+				212 = { add_core_of = ROOT }
+				211 = { add_core_of = ROOT }
+			}
+			hidden_effect = {
+				set_global_flag = ALBoman_balkans_flag_Bulgaria
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	ALB_merge_the_eyalets_of_morea_crete_and_kibris = { #Greece + Cyprus
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 182
+			state = 187
+			state = 164 
+			state = 183 
+			}
+		}
+
+		available = {
+			is_subject = no
+			#Greece
+			controls_state = 182
+			controls_state = 187
+			controls_state = 164 #Dodecanese
+			controls_state = 183 #Cyprus
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			182 = { add_core_of = ROOT }
+			187 = { add_core_of = ROOT }
+			164 = { add_core_of = ROOT }
+			183 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = ALBoman_greece_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ALB_enlarge_the_vilayet_of_yugoslavia = { 
+
+		icon = generic_form_nation
+
+		allowed = {
+		OR = {
+			original_tag = ALB
+			original_tag = TUR
+				}
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 104
+			state = 804
+			state = 103
+			state = 105
+			state = 108
+			state = 802
+			state = 803
+			state = 107
+			state = 106
+			state = 970
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 104
+			controls_state = 804
+			controls_state = 103
+			controls_state = 105
+			controls_state = 108
+			controls_state = 802
+			controls_state = 803
+			controls_state = 107
+			controls_state = 106
+			controls_state = 970
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			104 = { add_core_of = ROOT }
+			106 = { add_core_of = ROOT }
+			804 = { add_core_of = ROOT }
+			103 = { add_core_of = ROOT }
+			105 = { add_core_of = ROOT }
+			108 = { add_core_of = ROOT }
+			802 = { add_core_of = ROOT }
+			803 = { add_core_of = ROOT }
+			107 = { add_core_of = ROOT }
+			970 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = ALBoman_bosnia_flag
+				163 = { add_core_of = ROOT }
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	ALB_restore_the_vilayet_of_the_danube_and_moldova = { #Romania
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 46
+			state = 79
+			state = 81
+		    state = 77
+			state = 766 
+			state = 84 
+			state = 76
+			state = 83 
+			state = 82 
+			state = 971
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 46
+			controls_state = 79
+			controls_state = 81
+			controls_state = 77
+			controls_state = 766 
+			controls_state = 84 
+			controls_state = 76
+			controls_state = 83 
+			controls_state = 82 
+			controls_state = 971
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			46 = { add_core_of = ROOT }
+			79 = { add_core_of = ROOT }
+			81 = { add_core_of = ROOT }
+			77 = { add_core_of = ROOT }
+			766 = { add_core_of = ROOT }
+			84 = { add_core_of = ROOT }
+			76 = { add_core_of = ROOT }
+			83 = { add_core_of = ROOT }
+			82 = { add_core_of = ROOT }
+			971 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = ALBoman_romania_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	ALB_restore_the_vilayet_of_georgia = { #Romania
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 826
+			state = 231
+			state = 230
+		    state = 229
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 826
+			controls_state = 231
+			controls_state = 230
+		    controls_state = 229
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			826 = { add_core_of = ROOT }
+			231 = { add_core_of = ROOT }
+			230 = { add_core_of = ROOT }
+			229 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = ALBoman_georgia_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+		ALB_restore_the_vilayet_of_crimea = { #Romania
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 192
+			state = 197
+			state = 196
+		    state = 200
+			state = 137 
+			state = 227
+			state = 218
+			state = 234
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 192
+			controls_state = 197
+			controls_state = 196
+		    controls_state = 200
+			controls_state = 137 
+			controls_state = 227
+			controls_state = 218
+			controls_state = 234
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			192 = { add_core_of = ROOT }
+			197 = { add_core_of = ROOT }
+			196 = { add_core_of = ROOT }
+			200 = { add_core_of = ROOT }
+			137 = { add_core_of = ROOT }
+			227 = { add_core_of = ROOT }
+			218 = { add_core_of = ROOT }
+			234 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = ALBoman_crimea_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	ALB_restore_the_vilayet_of_halep = { #Syria
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 680
+			state = 554
+			state = 799
+			state = 677
+			state = 553
+			}
+		}
+
+		available = {
+			is_subject = no
+			# France
+			custom_trigger_tooltip = {
+				tooltip = form_persia_france_required_states_tt
+				# Syria
+				controls_state = 680
+				controls_state = 554
+				controls_state = 677
+				controls_state = 553
+			}
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			# French Syria
+			custom_effect_tooltip = form_persia_france_coring_states_tt 
+			hidden_effect = {
+				677 = { add_core_of = ROOT }
+				680 = { add_core_of = ROOT }
+				554 = { add_core_of = ROOT }
+				799 = { add_core_of = ROOT }
+				553 = { add_core_of = ROOT }
+			}
+			hidden_effect = {
+				set_global_flag = ALBoman_syria_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ALB_restore_the_vilayet_of_beirut = { #Lebanon + Levant
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 454
+			state = 455
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 454
+			controls_state = 455
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			454 = { add_core_of = ROOT }
+			455 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = ALBoman_levant_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ALB_restore_the_vilayet_of_baghdad = { #Iraq
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 676
+			state = 675
+			state = 291
+			state = 1011
+			state = 1010
+			}
+		}
+
+		available = {
+			is_subject = no
+			# Iraq
+			custom_trigger_tooltip = {
+				tooltip = form_country_iraq_required_states_tt
+				controls_state = 676
+				controls_state = 675
+				controls_state = 291
+				controls_state = 1011
+			    controls_state = 1010
+			}
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			# Iraq
+			custom_effect_tooltip = form_country_iraq_coring_states_tt
+			hidden_effect = {
+				676 = { add_core_of = ROOT }
+				675 = { add_core_of = ROOT }
+				291 = { add_core_of = ROOT }
+				1011 = { add_core_of = ROOT }
+			    1010 = { add_core_of = ROOT }
+			}
+			hidden_effect = {
+				set_global_flag = ALBoman_mesopotamia_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ALB_extend_the_lasha_eyalet = { #Arabia + Gulf + Oman
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 656
+			state = 765
+			state = 658
+			state = 678
+			state = 859
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 656
+			controls_state = 765
+			controls_state = 658
+			controls_state = 678
+			controls_state = 859
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			656 = { add_core_of = ROOT }
+			765 = { add_core_of = ROOT }
+			658 = { add_core_of = ROOT }
+			859 = { add_core_of = ROOT }
+			678 = { add_core_of = ROOT }
+			294 = { add_core_of = ROOT }
+			create_wargoal = { 
+				type = annex_everything
+				target = OMA
+			}
+			hidden_effect = {
+				set_global_flag = ALBoman_arabia_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ALB_merge_the_eyalets_of_jeddah_habesh_and_yemen = { #Yemen + Hejaz
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+			state = 679
+			state = 293
+			state = 855
+			state = 856
+			state = 854
+			state = 857
+			state = 292
+			state = 858
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 679
+			controls_state = 293
+			controls_state = 855
+			controls_state = 856
+			controls_state = 854
+			controls_state = 857
+			controls_state = 292
+			controls_state = 858
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			679 = { add_core_of = ROOT }
+			293 = { add_core_of = ROOT }
+			659 = { add_core_of = ROOT }
+			855 = { add_core_of = ROOT }
+			856 = { add_core_of = ROOT } 
+			854 = { add_core_of = ROOT } 
+			857 = { add_core_of = ROOT } 
+			292 = { add_core_of = ROOT } 
+			858 = { add_core_of = ROOT } 
+			hidden_effect = {
+				set_global_flag = ALBoman_yemen_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ALB_integrate_the_khedivate_of_egypt = { #Egypt
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+		    state = 446
+			state = 447
+			state = 453
+			state = 452
+			state = 456
+			state = 457
+			state = 552
+			state = 767
+			state = 551
+			state = 883
+			state = 907
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 446
+			controls_state = 447
+			controls_state = 453
+			controls_state = 452
+			controls_state = 456
+			controls_state = 457
+			controls_state = 552
+			controls_state = 767
+			controls_state = 551
+			controls_state = 883
+			controls_state = 907
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			446 = { add_core_of = ROOT }
+			447 = { add_core_of = ROOT }
+			453 = { add_core_of = ROOT }
+			452 = { add_core_of = ROOT }
+			456 = { add_core_of = ROOT }
+			457 = { add_core_of = ROOT }
+			552 = { add_core_of = ROOT }
+			767 = { add_core_of = ROOT }
+			551 = { add_core_of = ROOT }
+			883 = { add_core_of = ROOT }
+			907 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = ALBoman_egypt_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ALB_restore_the_vilayet_of_tripolALBnia = { #Libya
+
+		icon = generic_form_nation
+
+		allowed = {
+		OR = {
+			original_tag = ALB
+			original_tag = TUR
+				}
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+		    state = 448
+			state = 661
+			state = 449
+			state = 662
+			state = 450
+			state = 451
+			state = 663
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 448
+			controls_state = 661
+			controls_state = 449
+			controls_state = 662
+			controls_state = 450
+			controls_state = 451
+			controls_state = 663
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			# ALBlian North Africa
+			custom_effect_tooltip = form_ALBoman_italy_coring_states_tt
+			hidden_effect = {
+				448 = { add_core_of = ROOT }
+				661 = { add_core_of = ROOT }
+				449 = { add_core_of = ROOT }
+				662 = { add_core_of = ROOT }
+				450 = { add_core_of = ROOT }
+				451 = { add_core_of = ROOT }
+				663 = { add_core_of = ROOT }
+			}
+			hidden_effect = {
+				set_global_flag = ALBoman_libya_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ALB_absorb_the_tunis_and_algerian_eyalets = { #Tunisia + Algeria
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+		    state = 458
+			state = 665
+			state = 459
+			state = 460
+			state = 513
+			}
+		}
+
+		available = {
+			is_subject = no
+			controls_state = 458
+			controls_state = 665
+			controls_state = 459
+			controls_state = 460
+			controls_state = 513
+		}
+
+		visible = {
+			has_completed_focus = ALB_Restore_the_divan
+		}
+
+		complete_effect = {
+			458 = { add_core_of = ROOT }
+			665 = { add_core_of = ROOT }
+			459 = { add_core_of = ROOT }
+			460 = { add_core_of = ROOT }
+			513 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = ALBoman_tunisia_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	}
+	ALB_form_greater_albania_category = {
+
+	greater_albania = {
+
+		icon = GFX_decision_generic_confiscation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 970
+				state = 802
+				state = 105
+			}
+		}
+
+		available = {
+			is_subject = no
+			# turkey
+			custom_trigger_tooltip = {
+				controls_state = 970
+				controls_state = 802
+				controls_state = 105
+			}
+		}
+
+		visible = {
+			original_tag = ALB
+		}
+
+		complete_effect = {
+			970 = { add_core_of = ROOT }
+			802 = { add_core_of = ROOT }
+			105 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	peace_with_italy = {
+
+		icon = GFX_decision_hol_war_on_pacifism
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+
+		available = {
+			is_subject = no
+ITA = {has_completed_focus = ITA_albanian_occupation}
+
+OR = {
+war_length_with = {
+    tag = ITA
+    months > 7
+}
+ITA = {
+	casualties_inflicted_by = {
+    opponent = AlB
+    thousands > 200
+}
+}
+}
+		}
+
+		visible = {
+			original_tag = ALB
+		}
+
+		complete_effect = {
+			white_peace = ITA
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	}
+	ALB_religious_unity_category = {
+	ALB_referendum_on_religious_unity = {
+
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = {
+			tag = ALB
+		}
+
+		available = {
+			democratic > 0.65
+			has_country_flag = ALB_request_church_support_for_new_factories_flag
+			has_country_flag = ALB_request_church_support_for_factory_workers_flag
+			has_country_flag = ALB_request_church_support_for_dockyard_workers_flag
+			has_country_flag = ALB_request_church_support_for_construction_workers_flag
+			has_country_flag = ALB_request_church_support_for_crusade_propaganda_flag
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ALB
+			has_completed_focus = ALB_pope_1
+		}
+
+		complete_effect = {
+			PAP = {
+				every_unit_leader = {
+					set_nationality = ALB
+				}
+			}
+			annex_country = {
+			    target = PAP
+			    transfer_troops = yes
+			}
+			every_state = {
+				limit = {
+					is_core_of = PAP
+				}
+				add_core_of = ALB
+			}
+			set_cosmetic_tag = THO_democratic
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	ALB_request_church_support_for_new_factories = {
+
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = {
+			tag = ALB
+		}
+
+		available = {
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ALB
+			has_completed_focus = ALB_pope_1
+		}
+
+		complete_effect = {
+			set_country_flag = ALB_request_church_support_for_new_factories_flag
+			add_popularity = {
+			    ideology = democratic 
+			    popularity = 0.02
+			}
+			if = {
+				limit = {
+					has_stability < 0.9
+				}
+				add_stability = 0.05
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ALB_request_church_support_for_factory_workers = {
+
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = {
+			tag = ALB
+		}
+
+		available = {
+			NOT = { has_idea = ALB_church_support_for_factory_workers }
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ALB
+			has_completed_focus = ALB_pope_1
+		}
+
+		complete_effect = {
+			add_popularity = {
+			    ideology = democratic 
+			    popularity = 0.02
+			}
+			set_country_flag = ALB_request_church_support_for_factory_workers_flag
+			if = {
+				limit = {
+					has_stability < 0.9
+				}
+				add_stability = 0.05
+			}
+			add_timed_idea = { idea = ALB_church_support_for_factory_workers days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ALB_request_church_support_for_dockyard_workers = {
+
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = {
+			tag = ALB
+		}
+
+		available = {
+			NOT = { has_idea = ALB_church_support_for_dockyard_workers }
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ALB
+			has_completed_focus = ALB_pope_1
+		}
+
+		complete_effect = {
+			add_popularity = {
+			    ideology = democratic 
+			    popularity = 0.02
+			}
+			set_country_flag = ALB_request_church_support_for_dockyard_workers_flag
+			if = {
+				limit = {
+					has_stability < 0.9
+				}
+				add_stability = 0.05
+			}
+			add_timed_idea = { idea = ALB_church_support_for_dockyard_workers days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ALB_request_church_support_for_construction_workers = {
+
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = {
+			tag = ALB
+		}
+
+		available = {
+			NOT = { has_idea = ALB_church_support_for_construction_workersrt }
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ALB
+			has_completed_focus = ALB_pope_1
+		}
+
+		complete_effect = {
+			add_popularity = {
+			    ideology = democratic 
+			    popularity = 0.02
+			}
+			set_country_flag = ALB_request_church_support_for_construction_workers_flag
+			if = {
+				limit = {
+					has_stability < 0.9
+				}
+				add_stability = 0.05
+			}
+			add_timed_idea = { idea = ALB_church_support_for_construction_workersrt days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ALB_request_church_support_for_crusade_propaganda = {
+
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		allowed = {
+			tag = ALB
+		}
+
+		available = {
+			NOT = { has_idea = ALB_church_support_for_crusade_propaganda }
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ALB
+			has_completed_focus = ALB_pope_1
+		}
+
+		complete_effect = {
+			add_popularity = {
+			    ideology = democratic 
+			    popularity = 0.02
+			}
+			set_country_flag = ALB_request_church_support_for_crusade_propaganda_flag
+			if = {
+				limit = {
+					has_stability < 0.9
+				}
+				add_stability = 0.05
+			}
+			add_timed_idea = { idea = ALB_church_support_for_crusade_propaganda days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	}
+
+	ALB_Adriatica_category = { 
+	
+	proclaim_Adriatica = { 
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = ALB # italy
+		}
+
+		visible = {
+				original_tag = ALB # italy
+				has_completed_focus = ALB_pope_4_big_italy		
+		}
+
+		available = {
+			has_completed_focus = ALB_pope_4_big_italy
+			custom_trigger_tooltip = {
+				tooltip = greater_italy_required_states
+				controls_state = 852 # Istria
+				controls_state = 736 # Litorale
+				controls_state = 160 # Veneto
+				controls_state = 39 # Alto Adige
+				controls_state = 850 # Trentino
+				controls_state = 159 # Lombardia
+				controls_state = 158 # Piedmonte
+				controls_state = 161 # Emilia Romagna
+				controls_state = 162 # Toscana 
+				controls_state = 157 # Abruzzo
+				controls_state = 2 # Latium
+				controls_state = 849 # Puglia
+				controls_state = 117 # Campania
+				controls_state = 156 # Calabria
+				controls_state = 115 # Sicilia
+				controls_state = 114
+				controls_state = 1 # Sardegna
+				controls_state = 735
+				controls_state = 163
+				controls_state = 103
+				controls_state = 853
+				controls_state = 116
+				controls_state = 164
+				controls_state = 104
+				controls_state = 105
+				controls_state = 804
+				controls_state = 32
+				controls_state = 21
+				controls_state = 851
+				controls_state = 934
+				controls_state = 44
+				controls_state = 805
+			}  
+		}
+			highlight_states = {
+		highlight_state_targets = {
+		    state = 852 # Istria
+			state = 736 # Litorale
+			state = 160 # Veneto
+			state = 39 # Alto Adige
+			state = 850 # Trentino
+			state = 159 # Lombardia
+			state = 158 # Piedmonte
+			state = 161 # Emilia Romagna
+			state = 162 # Toscana 
+			state = 157 # Abruzzo
+			state = 2 # Latium
+			state = 849 # Puglia
+			state = 117 # Campania
+			state = 156 # Calabria
+			state = 115 # Sicilia
+			state = 114
+			state = 1 # Sardegna
+			state = 735
+			state = 163
+			state = 103
+			state = 853
+			state = 116
+			state = 164
+			state = 104
+			state = 105
+			state = 804
+			state = 32
+			state = 21
+			state = 851
+			state = 934
+			state = 44
+			state = 805
+			}
+		}
+			custom_trigger_tooltip = {
+				tooltip = ALB_pope_4_big_italy 
+				AND = {
+					OR = {
+						ALB = { 
+						controls_state = 1 # Corsica 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 1 # Corsica
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 735 # Savoy 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 735 # Savoy
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 163 # Zara 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 163 # Zara
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 103 # Dalmatia 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 103 # Dalmatia
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 853 # Ljubljana 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 853 # Ljubljana
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 116 # Malta 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 116 # Malta
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 164 # Dodecaneso 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 164 # Dodecaneso
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 104 # Dodecaneso 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 104 # Dodecaneso
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 105 # Dodecaneso 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 105 # Dodecaneso
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 804 # Dodecaneso 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 804 # Dodecaneso
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 32 # Dodecaneso 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 32 # Dodecaneso
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 21 # Dodecaneso 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 21 # Dodecaneso
+						}
+					}
+					OR = {
+						ALB = { 
+						controls_state = 851 # Dodecaneso 
+						}
+						any_country = {
+							is_subject_of = ALB
+							controls_state = 851 # Dodecaneso
+						}
+					}
+				}
+			}
+		complete_effect = {
+			
+			hidden_effect = { 
+
+				# Corsica
+				ALB = {
+					transfer_state = 1
+				}
+				1 = { 
+					add_core_of = ROOT
+					set_state_name = ITA_italian_corsica_name
+				}
+				set_province_name = {
+				    id = 3838 
+				    name = ITA_italian_ajaccio_name   
+				} 
+				# Savoy
+				ALB = {
+					transfer_state = 735
+				}
+				735 = { 
+					add_core_of = ROOT
+					set_state_name = ITA_italian_savoy_name
+				}
+				set_province_name = {
+				    id = 9909 
+				    name = ITA_italian_nice_name
+				} 
+				set_province_name = {
+				    id = 778  
+				    name = ITA_italian_annecy_name
+				} 
+				 
+				# Zara
+				ALB = {
+					transfer_state = 163
+				} 
+				163 = { add_core_of = ROOT }
+				
+				# Dalmatia
+				ALB = {
+					transfer_state = 103
+				}
+				103 = { 
+					add_core_of = ROOT 
+					set_state_name = ITA_italian_dalmatia_name
+				}
+				set_province_name = {
+				    id = 3924
+				    name = ITA_italian_split_name
+				} 
+				set_province_name = {
+				    id = 6889  
+				    name = ITA_italian_dubrovnik_name
+				} 
+	 
+				# Ljubljana
+				ALB = {
+					transfer_state = 853
+				}
+				853 = { 
+					add_core_of = ROOT 
+					set_state_name = ITA_italian_ljubljana_state_name
+				}
+				set_province_name = {
+				    id = 9627
+				    name = ITA_italian_ljubljana_name
+				}
+
+				# Malta
+				ALB = {
+					transfer_state = 116
+				}
+				116 = { add_core_of = ROOT }
+				# Dodecaneso
+				ALB = {
+					transfer_state = 164
+				}
+		        	164 = { add_core_of = ROOT }
+				104 = { 
+					add_core_of = ROOT
+				}
+				105 = { 
+					add_core_of = ROOT
+				}
+				804 = { 
+					add_core_of = ROOT
+				}
+				32 = { 
+					add_core_of = ROOT
+				}
+				21 = { 
+					add_core_of = ROOT
+				}
+				851 = { 
+					add_core_of = ROOT
+				}
+				every_state = {
+				limit = {
+					is_core_of = LBA
+				}
+				ALB = {
+					add_core_of = ROOT
+				}
+			}
+			}
+		}
+		ai_will_do = {
+			base = 500
+		}
+	}
+}
+ALB_enemies_everywhere_category = {
+
+ ALB_form_militia_Organization = {
+
+		icon = GFX_decision_generic_decision
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 300
+		}
+
+		allowed = { 
+			original_tag = ALB
+		}
+		
+		available = {
+			has_completed_focus = ALB_enemies_everywhere
+		}
+
+		visible = {
+			has_completed_focus = ALB_enemies_everywhere
+		} 
+
+		complete_effect = {
+			add_ideas = {ALB_militia_org}
+			 division_template = {
+						name = "Workers' Militias"
+						is_locked = no
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }							
+						}
+						support = {
+						artillery = { x = 0 y = 0 }
+						}
+					}
+					44 = {
+						create_unit = {
+							division = "name = \"Workers' Militia\" division_template = \"Workers' Militias\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = ALB
+							allow_spawning_on_enemy_provs = yes 
+							count = 3
+						}
+					}
+}
+}
+ALB_seize_religious_property = {
+
+		icon = GFX_decision_generic_decision
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 300
+		}
+
+		allowed = { 
+			original_tag = ALB
+		}
+		
+		available = {
+			has_completed_focus = ALB_enemies_everywhere
+		}
+
+		visible = {
+			has_completed_focus = ALB_enemies_everywhere
+		} 
+
+		complete_effect = {
+			every_owned_state = {
+                limit = {
+                    is_fully_controlled_by = ROOT
+                    is_core_of = ALB
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+			add_stability = -0.1
+}
+}
+ALB_develop_military = {
+
+		icon = GFX_decision_generic_decision
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			base = 300
+		}
+
+		allowed = { 
+			original_tag = ALB
+		}
+		
+		available = {
+			has_completed_focus = ALB_enemies_everywhere
+		}
+
+		visible = {
+			has_completed_focus = ALB_enemies_everywhere
+		} 
+
+		complete_effect = {
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_stability = -0.05
+		}
+}
+}
+ALB_revolution_in_balkan_category = {
+
+ALB_revolution_in_yugoslavia = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 106
+				state = 108
+				state = 107
+				state = 803
+				state = 104
+				state = 804
+				state = 103
+				state = 105
+				state = 802
+				state = 970
+			}
+		}
+
+		cost = 200
+
+		available = {
+			OR = {
+		has_completed_focus = ALB_they_have_it_out_for_me
+		has_completed_focus = ALB_carry_the_revolution_north
+		}
+			is_subject = no
+			106 = {
+				is_controlled_by = ROOT
+			}
+			108 = {
+				is_controlled_by = ROOT
+			}
+			107 = {
+				is_controlled_by = ROOT
+			}
+			803 = {
+				is_controlled_by = ROOT
+			}
+			104 = {
+				is_controlled_by = ROOT
+			}
+			804 = {
+				is_controlled_by = ROOT
+			}
+			103 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+		OR = {
+		has_completed_focus = ALB_they_have_it_out_for_me
+		has_completed_focus = ALB_carry_the_revolution_north
+		}
+		original_tag = ALB
+		} 
+
+
+		complete_effect = {
+			106 = { add_core_of = ROOT }
+			108 = { add_core_of = ROOT }
+			107 = { add_core_of = ROOT }
+			803 = { add_core_of = ROOT }
+			104 = { add_core_of = ROOT }
+			804 = { add_core_of = ROOT }
+		    103 = { add_core_of = ROOT }
+			163 = { add_core_of = ROOT }
+			852 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+}
+	ALB_revolution_in_greece = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 731
+				state = 185
+				state = 47
+				state = 186
+			}
+		}
+
+		cost = 150
+
+		available = {
+			OR = {
+		has_completed_focus = ALB_they_have_it_out_for_me
+		has_completed_focus = ALB_carry_the_revolution_north
+		}
+			is_subject = no
+			731 = {
+				is_controlled_by = ROOT
+			}
+			185 = {
+				is_controlled_by = ROOT
+			}
+			47 = {
+				is_controlled_by = ROOT
+			}
+			186 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		OR = {
+		has_completed_focus = ALB_they_have_it_out_for_me
+		has_completed_focus = ALB_carry_the_revolution_north
+		}
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			731 = { add_core_of = ROOT }
+			185 = { add_core_of = ROOT }
+			47 = { add_core_of = ROOT }
+			186 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+ALB_mandatory_service_category = {
+
+ALB_mandatory_service_mission = {
+    activation = {
+        has_idea = ALB_mandatory_service
+	OR = {
+	has_army_manpower = {
+	size > 124999
+	}
+	has_manpower > 249999
+	}
+    }
+    available = {
+        hidden_trigger = { always = no }
+    }
+
+	days_mission_timeout = 55
+    cancel_trigger = {
+        NOT = {has_idea = ALB_mandatory_service}
+    }
+	visible = {
+			has_idea = ALB_mandatory_service
+		}
+
+    icon = GFX_decision_generic_military  
+
+    timeout_effect = {
+			country_event = albania_events.18
+		}
+}
+}
+
+ALB_rome_reborn_category = {
+
+ALB_restore_macedonia = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 44
+				state = 970
+				state = 106
+				state = 731
+				state = 47
+			}
+		}
+
+		cost = 50
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			44 = {
+				is_controlled_by = ROOT
+			}
+			970 = {
+				is_controlled_by = ROOT
+			}
+			731 = {
+				is_controlled_by = ROOT
+			}
+			106 = {
+				is_controlled_by = ROOT
+			}
+			47 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			44 = { add_core_of = ROOT }
+			970 = { add_core_of = ROOT }
+			106 = { add_core_of = ROOT }
+			731 = { add_core_of = ROOT }
+			47 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+}
+		
+		ALB_restore_epirus = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 805
+				state = 185
+			}
+		}
+
+		cost = 10
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			805 = {
+				is_controlled_by = ROOT
+			}
+			185 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			805 = { add_core_of = ROOT }
+			185 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		ALB_restore_achaea = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 186
+				state = 182
+				state = 187
+			}
+		}
+
+		cost = 10
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			186 = {
+				is_controlled_by = ROOT
+			}
+			182 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			186 = { add_core_of = ROOT }
+			182 = { add_core_of = ROOT }
+			187 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		ALB_restore_thracia = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 184
+				state = 212
+				state = 797
+				state = 801
+				state = 211
+				state = 341
+			}
+		}
+
+		cost = 50
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			184 = {
+				is_controlled_by = ROOT
+			}
+			212 = {
+				is_controlled_by = ROOT
+			}
+			797 = {
+				is_controlled_by = ROOT
+			}
+			801 = {
+				is_controlled_by = ROOT
+			}
+			211 = {
+				is_controlled_by = ROOT
+			}
+			341 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			184 = { add_core_of = ROOT }
+			212 = { add_core_of = ROOT }
+			797 = { add_core_of = ROOT }
+			801 = { add_core_of = ROOT }
+			211 = { add_core_of = ROOT }
+			341 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		ALB_restore_moesia_inferior = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 77
+				state = 971
+			}
+		}
+
+		cost = 10
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			77 = {
+				is_controlled_by = ROOT
+			}
+			971 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			77 = { add_core_of = ROOT }
+			971 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		ALB_restore_moesia_superior = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 48
+				state = 803
+				state = 108
+				state = 802
+				state = 107
+			}
+		}
+
+		cost = 30
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			48 = {
+				is_controlled_by = ROOT
+			}
+			803 = {
+				is_controlled_by = ROOT
+			}
+			108 = {
+				is_controlled_by = ROOT
+			}
+			802 = {
+				is_controlled_by = ROOT
+			}
+			107 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			48 = { add_core_of = ROOT }
+			803 = { add_core_of = ROOT }
+			108 = { add_core_of = ROOT }
+			802 = { add_core_of = ROOT }
+			107 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	ALB_restore_dalmatia = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 934
+				state = 104
+				state = 103
+				state = 163
+				state = 804
+				state = 105
+			}
+		}
+
+		cost = 30
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			934 = {
+				is_controlled_by = ROOT
+			}
+			104 = {
+				is_controlled_by = ROOT
+			}
+			103 = {
+				is_controlled_by = ROOT
+			}
+			804 = {
+				is_controlled_by = ROOT
+			}
+			105 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			934 = { add_core_of = ROOT }
+			103 = { add_core_of = ROOT }
+			104 = { add_core_of = ROOT }
+			163 = { add_core_of = ROOT }
+			804 = { add_core_of = ROOT }
+			105 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		
+ALB_restore_dacia = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 764
+				state = 82
+				state = 84
+				state = 81
+			}
+		}
+
+		cost = 30
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			764 = {
+				is_controlled_by = ROOT
+			}
+			82 = {
+				is_controlled_by = ROOT
+			}
+			81 = {
+				is_controlled_by = ROOT
+			}
+			84 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			764 = { add_core_of = ROOT }
+			82 = { add_core_of = ROOT }
+			81 = { add_core_of = ROOT }
+			84 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+ALB_restore_pannonia = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 853
+				state = 102
+				state = 109
+				state = 45
+				state = 155
+				state = 974
+				state = 4
+				state = 152
+				state = 976
+				state = 975
+			}
+		}
+
+		cost = 75
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			853 = {
+				is_controlled_by = ROOT
+			}
+			102 = {
+				is_controlled_by = ROOT
+			}
+			109 = {
+				is_controlled_by = ROOT
+			}
+			45 = {
+				is_controlled_by = ROOT
+			}
+			155 = {
+				is_controlled_by = ROOT
+			}
+			974 = {
+				is_controlled_by = ROOT
+			}
+			4 = {
+				is_controlled_by = ROOT
+			}
+			152 = {
+				is_controlled_by = ROOT
+			}
+			976 = {
+				is_controlled_by = ROOT
+			}
+			975 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			853 = { add_core_of = ROOT }
+			102 = { add_core_of = ROOT }
+			109 = { add_core_of = ROOT }
+			45 = { add_core_of = ROOT }
+			155 = { add_core_of = ROOT }
+			974 = { add_core_of = ROOT }
+			4 = { add_core_of = ROOT }
+			152 = { add_core_of = ROOT }
+			976 = { add_core_of = ROOT }
+			975 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+
+	
+		ALB_restore_asia = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 347
+				state = 340
+				state = 339
+				state = 49
+				state = 356
+				state = 342
+				state = 164
+				state = 346
+				state = 345
+				state = 798
+				state = 348
+				state = 349
+				state = 355
+				state = 354
+				state = 343
+			}
+		}
+
+		cost = 100
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			347 = {
+				is_controlled_by = ROOT
+			}
+			340 = {
+				is_controlled_by = ROOT
+			}
+			339 = {
+				is_controlled_by = ROOT
+			}
+			49 = {
+				is_controlled_by = ROOT
+			}
+			356 = {
+				is_controlled_by = ROOT
+			}
+			342 = {
+				is_controlled_by = ROOT
+			}
+			346 = {
+				is_controlled_by = ROOT
+			}
+			345 = {
+				is_controlled_by = ROOT
+			}
+			798 = {
+				is_controlled_by = ROOT
+			}
+			348 = {
+				is_controlled_by = ROOT
+			}
+			349 = {
+				is_controlled_by = ROOT
+			}
+			355 = {
+				is_controlled_by = ROOT
+			}
+			354 = {
+				is_controlled_by = ROOT
+			}
+			343 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			347 = { add_core_of = ROOT }
+			340 = { add_core_of = ROOT }
+			339 = { add_core_of = ROOT }
+			49 = { add_core_of = ROOT }
+			356 = { add_core_of = ROOT }
+			342 = { add_core_of = ROOT }
+			164 = { add_core_of = ROOT }
+			346 = { add_core_of = ROOT }
+			345 = { add_core_of = ROOT }
+			798 = { add_core_of = ROOT }
+			348 = { add_core_of = ROOT }
+			349 = { add_core_of = ROOT }
+			355 = { add_core_of = ROOT }
+			354 = { add_core_of = ROOT }
+			343 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		ALB_restore_aegyptus = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 344
+				state = 799
+				state = 677
+				state = 554
+				state = 553
+				state = 455
+				state = 454
+				state = 453
+				state = 446
+				state = 447
+				state = 907
+				state = 452
+				state = 457
+				state = 883
+				state = 456
+				state = 551
+				state = 183
+			}
+		}
+
+		cost = 125
+
+		available = {
+			has_completed_focus = ALB_dispute_with_italy
+			is_subject = no
+			344 = {
+				is_controlled_by = ROOT
+			}
+			799 = {
+				is_controlled_by = ROOT
+			}
+			677 = {
+				is_controlled_by = ROOT
+			}
+			554 = {
+				is_controlled_by = ROOT
+			}
+			553 = {
+				is_controlled_by = ROOT
+			}
+			455 = {
+				is_controlled_by = ROOT
+			}
+			454 = {
+				is_controlled_by = ROOT
+			}
+			453 = {
+				is_controlled_by = ROOT
+			}
+			446 = {
+				is_controlled_by = ROOT
+			}
+			447 = {
+				is_controlled_by = ROOT
+			}
+			907 = {
+				is_controlled_by = ROOT
+			}
+			452 = {
+				is_controlled_by = ROOT
+			}
+			457 = {
+				is_controlled_by = ROOT
+			}
+			883 = {
+				is_controlled_by = ROOT
+			}
+			456 = {
+				is_controlled_by = ROOT
+			}
+			551 = {
+				is_controlled_by = ROOT
+			}
+			
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			344 = { add_core_of = ROOT }
+			799 = { add_core_of = ROOT }
+			677 = { add_core_of = ROOT }
+			554 = { add_core_of = ROOT }
+			553 = { add_core_of = ROOT }
+			455 = { add_core_of = ROOT }
+			454 = { add_core_of = ROOT }
+			453 = { add_core_of = ROOT }
+			446 = { add_core_of = ROOT }
+			447 = { add_core_of = ROOT }
+			907 = { add_core_of = ROOT }
+			452 = { add_core_of = ROOT }
+			457 = { add_core_of = ROOT }
+			883 = { add_core_of = ROOT }
+			456 = { add_core_of = ROOT }
+			551 = { add_core_of = ROOT }
+			183 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+	ALB_restore_africa = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 451
+				state = 663
+				state = 450
+				state = 662
+				state = 449
+				state = 661
+				state = 448
+				state = 665
+				state = 458
+				state = 460
+				state = 513
+				state = 459
+				state = 461
+				state = 462
+				state = 783
+				state = 290
+			}
+		}
+
+		cost = 125
+
+		available = {
+			has_completed_focus = ALB_parliament_of_all_romans
+			is_subject = no
+			451 = {
+				is_controlled_by = ROOT
+			}
+			663 = {
+				is_controlled_by = ROOT
+			}
+			450 = {
+				is_controlled_by = ROOT
+			}
+			662 = {
+				is_controlled_by = ROOT
+			}
+		    449 = {
+				is_controlled_by = ROOT
+			}
+			661 = {
+				is_controlled_by = ROOT
+			}
+			448 = {
+				is_controlled_by = ROOT
+			}
+			665 = {
+				is_controlled_by = ROOT
+			}
+			458 = {
+				is_controlled_by = ROOT
+			}
+			460 = {
+				is_controlled_by = ROOT
+			}
+			513 = {
+				is_controlled_by = ROOT
+			}
+			459 = {
+				is_controlled_by = ROOT
+			}
+			461 = {
+				is_controlled_by = ROOT
+			}
+			462 = {
+				is_controlled_by = ROOT
+			}
+			783 = {
+				is_controlled_by = ROOT
+			}
+			290 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			451 = { add_core_of = ROOT }
+			663 = { add_core_of = ROOT }
+			450 = { add_core_of = ROOT }
+			662 = { add_core_of = ROOT }
+		    449 = { add_core_of = ROOT }
+			661 = { add_core_of = ROOT }
+			448 = { add_core_of = ROOT }
+			665 = { add_core_of = ROOT }
+			458 = { add_core_of = ROOT }
+			460 = { add_core_of = ROOT }
+			513 = { add_core_of = ROOT }
+			459 = { add_core_of = ROOT }
+			461 = { add_core_of = ROOT }
+			462 = { add_core_of = ROOT }
+			783 = { add_core_of = ROOT }
+			290 = { add_core_of = ROOT }
+			116 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+			ALB_restore_hispania_tarraconensis = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 118
+				state = 169
+				state = 173
+				state = 789
+				state = 175
+				state = 168
+				state = 167
+				state = 793
+				state = 166
+				state = 794
+				state = 165
+				state = 41
+				state = 172
+				state = 176
+				state = 792
+				state = 170
+				state = 788
+				state = 174
+				state = 790
+				state = 171
+				state = 791
+			}
+		}
+
+		cost = 125
+
+		available = {
+			has_completed_focus = ALB_parliament_of_all_romans
+			is_subject = no
+			118 = {
+				is_controlled_by = ROOT
+			}
+			169 = {
+				is_controlled_by = ROOT
+			}
+			173 = {
+				is_controlled_by = ROOT
+			}
+		    789 = {
+				is_controlled_by = ROOT
+			}
+			175 = {
+				is_controlled_by = ROOT
+			}
+			168 = {
+				is_controlled_by = ROOT
+			}
+			167 = {
+				is_controlled_by = ROOT
+			}
+			793 = {
+				is_controlled_by = ROOT
+			}
+			166 = {
+				is_controlled_by = ROOT
+			}
+			794 = {
+				is_controlled_by = ROOT
+			}
+			165 = {
+				is_controlled_by = ROOT
+			}
+			41 = {
+				is_controlled_by = ROOT
+			}
+			172 = {
+				is_controlled_by = ROOT
+			}
+			176 = {
+				is_controlled_by = ROOT
+			}
+			792 = {
+				is_controlled_by = ROOT
+			}
+			170 = {
+				is_controlled_by = ROOT
+			}
+			788 = {
+				is_controlled_by = ROOT
+			}
+			174 = {
+				is_controlled_by = ROOT
+			}
+			790 = {
+				is_controlled_by = ROOT
+			}
+			171 = {
+				is_controlled_by = ROOT
+			}
+			791 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			118 = { add_core_of = ROOT }
+			169 = { add_core_of = ROOT }
+			173 = { add_core_of = ROOT }
+		    789 = { add_core_of = ROOT }
+			175 = { add_core_of = ROOT }
+			168 = { add_core_of = ROOT }
+			167 = { add_core_of = ROOT }
+			793 = { add_core_of = ROOT }
+			166 = { add_core_of = ROOT }
+			794 = { add_core_of = ROOT }
+			165 = { add_core_of = ROOT }
+			41 = { add_core_of = ROOT }
+			172 = { add_core_of = ROOT }
+			176 = { add_core_of = ROOT }
+			792 = { add_core_of = ROOT }
+			170 = { add_core_of = ROOT }
+			788 = { add_core_of = ROOT }
+			174 = { add_core_of = ROOT }
+			790 = { add_core_of = ROOT }
+			171 = { add_core_of = ROOT }
+			791 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+			ALB_restore_hispania_lusitania = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 180
+				state = 112
+				state = 795
+				state = 179
+				state = 181
+			}
+		}
+
+		cost = 75
+
+		available = {
+			has_completed_focus = ALB_parliament_of_all_romans
+			is_subject = no
+			180 = {
+				is_controlled_by = ROOT
+			}
+			112 = {
+				is_controlled_by = ROOT
+			}
+		    795 = {
+				is_controlled_by = ROOT
+			}
+			179 = {
+				is_controlled_by = ROOT
+			}
+			181 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			180 = { add_core_of = ROOT }
+			112 = { add_core_of = ROOT }
+		    795 = { add_core_of = ROOT }
+			179 = { add_core_of = ROOT }
+			181 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		
+		ALB_restore_gallia_aquitnia = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 806
+				state = 19
+				state = 23
+				state = 25
+				state = 31
+				state = 26
+				state = 22
+				state = 20
+				state = 32
+				state = 21
+				state = 851
+				state = 735
+			}
+		}
+
+		cost = 75
+
+		available = {
+			has_completed_focus = ALB_parliament_of_all_romans
+			is_subject = no
+			806 = {
+				is_controlled_by = ROOT
+			}
+			19 = {
+				is_controlled_by = ROOT
+			}
+			23 = {
+				is_controlled_by = ROOT
+			}
+			25 = {
+				is_controlled_by = ROOT
+			}
+			31 = {
+				is_controlled_by = ROOT
+			}
+			26 = {
+				is_controlled_by = ROOT
+			}
+			22 = {
+				is_controlled_by = ROOT
+			}
+			20 = {
+				is_controlled_by = ROOT
+			}
+			32 = {
+				is_controlled_by = ROOT
+			}
+			21 = {
+				is_controlled_by = ROOT
+			}
+			851 = {
+				is_controlled_by = ROOT
+			}
+			735 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			806 = { add_core_of = ROOT }
+			19 = { add_core_of = ROOT }
+			23 = { add_core_of = ROOT }
+			25 = { add_core_of = ROOT }
+			31 = { add_core_of = ROOT }
+			26 = { add_core_of = ROOT }
+			22 = { add_core_of = ROOT }
+			20 = { add_core_of = ROOT }
+			32 = { add_core_of = ROOT }
+			21 = { add_core_of = ROOT }
+			851 = { add_core_of = ROOT }
+			735 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		ALB_restore_gallia_lugdunensis = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 33
+				state = 24
+				state = 30
+				state = 14
+				state = 15
+				state = 16
+				state = 785
+				state = 29
+				state = 6
+				state = 18
+				state = 28
+				state = 17
+				state = 27
+			}
+		}
+
+		cost = 75
+
+		available = {
+			has_completed_focus = ALB_parliament_of_all_romans
+			is_subject = no
+			33 = {
+				is_controlled_by = ROOT
+			}
+			24 = {
+				is_controlled_by = ROOT
+			}
+			30 = {
+				is_controlled_by = ROOT
+			}
+			14 = {
+				is_controlled_by = ROOT
+			}
+			15 = {
+				is_controlled_by = ROOT
+			}
+			16 = {
+				is_controlled_by = ROOT
+			}
+			785 = {
+				is_controlled_by = ROOT
+			}
+			29 = {
+				is_controlled_by = ROOT
+			}
+			6 = {
+				is_controlled_by = ROOT
+			}
+			18 = {
+				is_controlled_by = ROOT
+			}
+			28 = {
+				is_controlled_by = ROOT
+			}
+			17 = {
+				is_controlled_by = ROOT
+			}
+			27 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			33 = { add_core_of = ROOT }
+			24 = { add_core_of = ROOT }
+			30 = { add_core_of = ROOT }
+			14 = { add_core_of = ROOT }
+			15 = { add_core_of = ROOT }
+			16 = { add_core_of = ROOT }
+			785 = { add_core_of = ROOT }
+			29 = { add_core_of = ROOT }
+			6 = { add_core_of = ROOT }
+			18 = { add_core_of = ROOT }
+			28 = { add_core_of = ROOT }
+			17 = { add_core_of = ROOT }
+			27 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		ALB_restore_britannia = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 131
+				state = 931
+				state = 130
+				state = 132
+				state = 122
+				state = 128
+				state = 129
+				state = 338
+				state = 123
+				state = 127
+				state = 126
+				state = 125
+			}
+		}
+
+		cost = 125
+
+		available = {
+			has_completed_focus = ALB_parliament_of_all_romans
+			is_subject = no
+			131 = {
+				is_controlled_by = ROOT
+			}
+			931 = {
+				is_controlled_by = ROOT
+			}
+			130 = {
+				is_controlled_by = ROOT
+			}
+			132 = {
+				is_controlled_by = ROOT
+			}
+			122 = {
+				is_controlled_by = ROOT
+			}
+			128 = {
+				is_controlled_by = ROOT
+			}
+			129 = {
+				is_controlled_by = ROOT
+			}
+			338 = {
+				is_controlled_by = ROOT
+			}
+			123 = {
+				is_controlled_by = ROOT
+			}
+			127 = {
+				is_controlled_by = ROOT
+			}
+		    126 = {
+				is_controlled_by = ROOT
+			}
+			125 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			131 = { add_core_of = ROOT }
+			931 = { add_core_of = ROOT }
+			130 = { add_core_of = ROOT }
+			132 = { add_core_of = ROOT }
+			122 = { add_core_of = ROOT }
+			128 = { add_core_of = ROOT }
+			129 = { add_core_of = ROOT }
+			338 = { add_core_of = ROOT }
+			123 = { add_core_of = ROOT }
+			127 = { add_core_of = ROOT }
+		    126 = { add_core_of = ROOT }
+			125 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+		ALB_restore_germania = {
+
+		icon = generic_form_nation
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ALB
+		}
+
+		highlight_states = {
+		highlight_state_targets = {
+				state = 153
+				state = 848
+				state = 151
+				state = 3
+				state = 847
+				state = 845
+				state = 52
+				state = 50
+				state = 978
+				state = 42
+				state = 51
+				state = 8
+				state = 980
+				state = 34
+				state = 977
+				state = 35
+			}
+		}
+
+		cost = 125
+
+		available = {
+			has_completed_focus = ALB_parliament_of_all_romans
+			is_subject = no
+			153 = {
+				is_controlled_by = ROOT
+			}
+			848 = {
+				is_controlled_by = ROOT
+			}
+			151 = {
+				is_controlled_by = ROOT
+			}
+			3 = {
+				is_controlled_by = ROOT
+			}
+			847 = {
+				is_controlled_by = ROOT
+			}
+			845 = {
+				is_controlled_by = ROOT
+			}
+			52 = {
+				is_controlled_by = ROOT
+			}
+			50 = {
+				is_controlled_by = ROOT
+			}
+			978 = {
+				is_controlled_by = ROOT
+			}
+			42 = {
+				is_controlled_by = ROOT
+			}
+			51 = {
+				is_controlled_by = ROOT
+			}
+			8 = {
+				is_controlled_by = ROOT
+			}
+			980 = {
+				is_controlled_by = ROOT
+			}
+			34 = {
+				is_controlled_by = ROOT
+			}
+			977 = {
+				is_controlled_by = ROOT
+			}
+			35 = {
+				is_controlled_by = ROOT
+			}
+			}
+
+		visible = {
+		has_completed_focus = ALB_dispute_with_italy
+		original_tag = ALB
+		}
+
+		complete_effect = {
+			153 = { add_core_of = ROOT }
+			848 = { add_core_of = ROOT }
+			151 = { add_core_of = ROOT }
+			3 = { add_core_of = ROOT }
+			847 = { add_core_of = ROOT }
+			845 = { add_core_of = ROOT }
+			52 = { add_core_of = ROOT }
+			50 = { add_core_of = ROOT }
+			978 = { add_core_of = ROOT }
+			42 = { add_core_of = ROOT }
+			51 = { add_core_of = ROOT }
+			8 = { add_core_of = ROOT }
+			980 = { add_core_of = ROOT }
+			34 = { add_core_of = ROOT }
+			977 = { add_core_of = ROOT }
+			35 = { add_core_of = ROOT }
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		}
+}

@@ -1642,3 +1642,47 @@ MON_asianFed_democratic = {
 	color = rgb { 37 150 190}
     color_ui = rgb { 37 150 190}
 }
+THO_communism = {
+        color = rgb { 248 240 203 }
+	color_ui = rgb { 248 240 203 }
+}
+THO_democratic = {
+        color = rgb { 248 240 203 }
+	color_ui = rgb { 248 240 203 }
+}
+THO_fascism = {
+        color = rgb { 248 240 203 }
+	color_ui = rgb { 248 240 203 }
+}
+MAM_neutrality = {
+        color = rgb { 250 215 37 }
+	color_ui = rgb { 250 215 37 }
+}
+MAM_communism = {
+        color = rgb { 250 215 37 }
+	color_ui = rgb { 250 215 37 }
+}
+MAM_democratic = {
+        color = rgb { 250 215 37 }
+	color_ui = rgb { 250 215 37 }
+}
+MAM_fascism = {
+        color = rgb { 250 215 37 }
+	color_ui = rgb { 250 215 37 }
+}
+ILL_neutrality = {
+        color = rgb { 179 9 9 }
+	color_ui = rgb { 179 9 9 }
+}
+ILL_communism = {
+        color = rgb { 179 9 9 }
+	color_ui = rgb { 179 9 9 }
+}
+ILL_democratic = {
+        color = rgb { 179 9 9 }
+	color_ui = rgb { 179 9 9 }
+}
+ILL_fascism = {
+        color = rgb { 179 9 9 }
+	color_ui = rgb { 179 9 9 }
+}
