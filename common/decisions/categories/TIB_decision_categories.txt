@@ -113,7 +113,3 @@ TIB_recruitment = {
     icon = GFX_decision_category_generic_arms_trade
 }
 
-
-
-#GFX_decision_category_GER_seize_gold_reserves - payment for work, work with country flags and volunteering GFX_decision_hol_attract_foreign_investors decisions themselves
-# add foreign investments? Legalize foreign investment - GFX_decision_category_gre_investment_decisions (also allow nobles to do so)

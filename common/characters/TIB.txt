@@ -541,10 +541,10 @@ characters={
 			slot = political_advisor
 			idea_token = TIB_ishikawa_sanshiro
 			available = {
-				has_completed_focus = TIB_the_uprising
+				has_completed_focus = TIB_radical_immigrants
 			}
 			visible = {
-				has_completed_focus = TIB_the_uprising
+				has_completed_focus = TIB_radical_immigrants
 			}
 			allowed  = {
 					original_tag  = TIB
@@ -567,10 +567,10 @@ characters={
 			slot = political_advisor
 			idea_token = TIB_jiang_kanghu
 			available = {
-				has_completed_focus = TIB_the_uprising
+				has_completed_focus = TIB_radical_immigrants
 			}
 			visible = {
-				has_completed_focus = TIB_the_uprising
+				has_completed_focus = TIB_radical_immigrants
 			}
 			allowed  = {
 					original_tag  = TIB
@@ -599,10 +599,10 @@ characters={
 					international_anarchist 
 				}
 			available = {
-				has_completed_focus = TIB_the_uprising
+				has_completed_focus = TIB_radical_immigrants
 			}
 			visible = {
-				has_completed_focus = TIB_the_uprising
+				has_completed_focus = TIB_radical_immigrants
 			}
 
 		}
@@ -624,10 +624,10 @@ characters={
 
 		advisor = {
 			available = {
-				has_completed_focus = TIB_the_uprising
+				has_completed_focus = TIB_radical_immigrants
 			}
 			visible = {
-				has_completed_focus = TIB_the_uprising
+				has_completed_focus = TIB_radical_immigrants
 			}
 			idea_token = TIB_anarchist_council
 			slot = political_advisor
@@ -868,7 +868,7 @@ characters={
 				}
 				visible = {
 					OR = {
-						has_completed_focus = TIB_effective_theocratic_government
+						has_completed_focus = TIB_effective_government
 						has_completed_focus = TIB_align_nobility
 					}
 
@@ -1236,7 +1236,7 @@ characters={
 					AND = {
 					has_government = communism
 					NOT = {
-						TIB_lhalu_dorje ={
+						TIB_trimon_shap ={
 							is_hired_as_advisor = yes 
 						}
 						TIB_lhalu_dorje ={

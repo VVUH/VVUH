@@ -51,7 +51,7 @@ focus_tree = {
 		icon = GFX_focus_BUL_form_a_regency_council
 		x = 0
 		y = 1
-		cost = 5
+		cost = 10
         relative_position_id = TIB_the_ratification_of_the_thirteenth
 		ai_will_do = {
 			factor = 1
@@ -292,6 +292,8 @@ focus_tree = {
 			unlock_decision_tooltip = TIB_make_a_deal_with_RAJ
 			unlock_decision_tooltip = TIB_request_NEP_blueprints
 			unlock_decision_tooltip = TIB_demand_BHU_secrets
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+
 		}
 	}	
 
@@ -524,6 +526,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_open_up_to_intellectuals
 			unlock_decision_tooltip = TIB_clamp_down_on_national_narrative
+			unlock_decision_tooltip = TIB_overhaul_school_curriculum
 
 		}
 	}	
@@ -533,7 +536,7 @@ focus_tree = {
 #historical - ahistorical
 	focus = {
 		id = TIB_large_tibetan_army
-		icon = GFX_focus_GER_all_for_the_front
+		icon = GFX_focus_RAJ_headhunt_army_personell
 		x = -1
 		y = 1
 		cost = 5
@@ -544,28 +547,28 @@ focus_tree = {
 		prerequisite ={ focus = TIB_mobilize_paramilitaries_for_offence focus = TIB_foreign_research}
 
 		available = {
-
+			NOT = {
+				has_idea = TIB_bureaucracy
+				has_idea = TIB_bureaucracy1				
+			}
 		}
+
 		search_filters = {FOCUS_FILTER_MANPOWER}
 
 		completion_reward = {     
-			if = {
+			IF = {
 				limit = { has_idea = disarmed_nation }
 				add_ideas = volunteer_only
-			}
-			if = {
+			}ELSE_IF = {
 				limit = { has_idea = volunteer_only }
 				add_ideas = limited_conscription
-			}	
-			if = {
+			}ELSE_IF = { 
 				limit = { has_idea = limited_conscription }
 				add_ideas = extensive_conscription
-			}
-			if = {
+			}ELSE_IF = { 
 				limit = { has_idea = extensive_conscription }
 				add_ideas = service_by_requirement
-			}
-			if = {
+			}ELSE_IF = {
 				limit = { has_idea = service_by_requirement }
 				add_ideas = all_adults_serve
 			}	
@@ -868,6 +871,7 @@ focus_tree = {
 			unlock_decision_tooltip = TIB_establish_pan_asian_bonds_with_JAP
 			unlock_decision_tooltip = TIB_collaborate_with_MAN
 			unlock_decision_tooltip = TIB_work_with_MEN
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
 		}
 	}
 	focus = {
@@ -1552,6 +1556,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_open_up_to_intellectuals
 			unlock_decision_tooltip = TIB_clamp_down_on_national_narrative
+			unlock_decision_tooltip = TIB_overhaul_school_curriculum
 
 		}
 	}
@@ -1607,11 +1612,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			#add if commie this if repub that else tooltip
 			add_research_slot = 1
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_open_up_to_intellectuals
 			unlock_decision_tooltip = TIB_clamp_down_on_national_narrative
+			unlock_decision_tooltip = TIB_overhaul_school_curriculum
 
 		}
 	}
@@ -1695,7 +1700,7 @@ focus_tree = {
 						}
 						SOV = { has_opinion = { target = MON value > 49 } } 
 					}
-					set_country_flag = TIB_communist_support_SOV
+					set_global_flag = TIB_communist_support_SOV
 					
 				}
 				if = { 
@@ -1706,7 +1711,7 @@ focus_tree = {
 						}
 						MON = { has_opinion = { target = MON value > 49 } } 
 					}
-						set_country_flag = TIB_communist_support_MON
+						set_global_flag = TIB_communist_support_MON
 					
 				}
 				if = { 
@@ -1717,7 +1722,7 @@ focus_tree = {
 						}
 						TAN = { has_opinion = { target = MON value > 49 } } 
 					}
-						set_country_flag = TIB_communist_support_TAN
+						set_global_flag = TIB_communist_support_TAN
 					
 				}
 				if = { 
@@ -1728,7 +1733,7 @@ focus_tree = {
 						}
 						PRC = { has_opinion = { target = MON value > 49 } } 
 					}
-						set_country_flag = TIB_communist_support_PRC
+						set_global_flag = TIB_communist_support_PRC
 					
 				}	
 			}
@@ -1761,10 +1766,20 @@ focus_tree = {
                 ideology = communism
                 popularity = 0.1
             } 
-            PRC = {
-				add_opinion_modifier = {
-					target = TIB
-					modifier = NZL_strengthen_ties
+			IF = {
+				LIMIT = {
+					country_exists = PRC
+					NOT = {
+						PRC = {
+							has_war_with = TIB 
+						}
+					}
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = TIB
+						modifier = NZL_strengthen_ties
+					}
 				}
 			}
 			hidden_effect = {
@@ -1842,7 +1857,7 @@ focus_tree = {
 				target = PRC
 				transfer_troops = yes
 			}
-			set_cosmetic_tag = TIB_prc_union
+			set_cosmetic_tag = TIB_restored_communism
 			every_state = {
 				LIMIT = {
 					is_core_of = PRC
@@ -1888,9 +1903,7 @@ focus_tree = {
 			kill_ideology_leader = neutrality
 			start_civil_war = {
 				ruling_party = communism
-
 				ideology = neutrality
-
 				size = 0.45
 				capital = 758
 				states = {
@@ -1925,10 +1938,8 @@ focus_tree = {
 				hidden_effect = {
 					IF = {
 						LIMIT = {
-							AND = {
-								has_country_flag = TIB_communist_support_SOV
-								has_completed_focus = TIB_request_support
-							}
+							has_global_flag = TIB_communist_support_SOV
+							
 						}
 					
 						capital_scope = {
@@ -1941,10 +1952,7 @@ focus_tree = {
 					}
 					IF = {
 						LIMIT = {
-							AND = {
-								has_country_flag = TIB_communist_support_MON
-								has_completed_focus = TIB_request_support
-							}
+							has_global_flag = TIB_communist_support_MON
 						}
 					
 						capital_scope = {
@@ -1957,10 +1965,7 @@ focus_tree = {
 					}
 					IF = {
 						LIMIT = {
-							AND = {
-								has_country_flag = TIB_communist_support_TAN
-								has_completed_focus = TIB_request_support
-							}
+							has_global_flag = TIB_communist_support_TAN
 						}
 					
 						capital_scope = {
@@ -1973,10 +1978,7 @@ focus_tree = {
 					}
 					IF = {
 						LIMIT = {
-							AND = {
-								has_country_flag = TIB_communist_support_PRC
-								has_completed_focus = TIB_request_support
-							}
+							has_global_flag = TIB_communist_support_PRC
 						}
 					
 						capital_scope = {
@@ -1993,12 +1995,7 @@ focus_tree = {
 		
 				IF = {
 					LIMIT = {
-						AND = {
-							NOT = {MON = { has_war = yes }}
-							NOT = {MON = {has_capitulated = yes}}
-							has_completed_focus = TIB_request_support
-							has_country_flag = TIB_communist_support_MON
-						}
+						has_global_flag = TIB_communist_support_MON
 					}
 					add_equipment_to_stockpile ={
 						    type = infantry_equipment
@@ -2008,12 +2005,7 @@ focus_tree = {
 				}
 				IF = {
 					LIMIT = {
-						AND = {
-							NOT = {SOV = { has_war = yes }}
-							NOT = {SOV = {has_capitulated = yes}}
-							has_completed_focus = TIB_request_support
-							has_country_flag = TIB_communist_support_SOV
-						}
+						has_global_flag = TIB_communist_support_SOV		
 					}
 					add_equipment_to_stockpile ={
 						    type = infantry_equipment
@@ -2023,12 +2015,7 @@ focus_tree = {
 				}
 				IF = {
 					LIMIT = {
-						AND = {
-							NOT = {PRC = { has_war = yes }}
-							NOT = {PRC = {has_capitulated = yes}}
-							has_completed_focus = TIB_request_support
-							has_country_flag = TIB_communist_support_PRC
-						}
+						has_global_flag = TIB_communist_support_PRC						
 					}
 					add_equipment_to_stockpile ={
 						    type = infantry_equipment
@@ -2038,12 +2025,7 @@ focus_tree = {
 				}
 				IF = {
 					LIMIT = {
-						AND = {
-							NOT = {SIK = { has_war = yes }}
-							NOT = {SIK = {has_capitulated = yes}}
-							has_completed_focus = TIB_request_support
-							has_country_flag = TIB_communist_support_SIK
-						}
+						has_global_flag = TIB_communist_support_SIK
 					}
 					add_equipment_to_stockpile ={
 						    type = infantry_equipment
@@ -2134,21 +2116,8 @@ focus_tree = {
 				search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			PRC = {
+			all_allied_country = {
 				give_military_access = TIB
-			}
-			IF = {
-				LIMIT = {
-					country_exists = XSM
-					NOT = {
-						XSM = {
-							has_war_with = TIB 
-						}
-					}
-				}
-				XSM = {
-				give_military_access = TIB
-				}
 			}
 			IF = {
 				PRC = {
@@ -2199,7 +2168,7 @@ focus_tree = {
 				}
 				remove_ideas = TIB_spiritual_society
 			}
-
+			
 			IF = {
 				LIMIT = {
 					has_idea = TIB_religious_minorities
@@ -2284,9 +2253,12 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
-
+			OR = {
+				has_completed_focus = TIB_subsidize_on_crops
+				has_completed_focus = TIB_support_animal_herds
+			}
 		}
-				search_filters = {FOCUS_FILTER_STABILITY}
+		search_filters = {FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
 			add_stability = 0.1
@@ -2356,13 +2328,15 @@ focus_tree = {
 		available = {
 
 		}
+		search_filters = {FOCUS_FILTER_STABILITY}
 
 
 		completion_reward = {
-
+			add_stability = 0.1
+			set_cosmetic_tag = TIB_union_of_asia_tag
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_integrate_state_FROM
-
+			custom_effect_tooltip = MON_core_asia_tt
 		}
 	}
 	focus = {
@@ -2389,13 +2363,12 @@ focus_tree = {
 		}
 		bypass = {
 			NOT = {
-				AND={
 					country_exists = PRC
 					country_exists = SOV
 					country_exists = SIK
 					country_exists = MON
 					country_exists = TAN	
-				}		
+					
 			}
 		}
 		
@@ -2408,6 +2381,8 @@ focus_tree = {
 			unlock_decision_tooltip = TIB_concessions_SIK
 			unlock_decision_tooltip = TIB_influence_MON
 			unlock_decision_tooltip = TIB_exploit_TAN
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+
 		}
 	}
 	focus = {
@@ -2451,6 +2426,35 @@ focus_tree = {
 				}
 					country_event = generic.5
 			}
+		
+		}
+	}
+	focus = {
+		id = TIB_radical_immigrants
+		icon = GFX_focus_generic_communist
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_asian_communist_alignment
+
+        prerequisite ={ focus = TIB_asian_communist_alignment  }
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		completion_reward = {
+			add_political_power = 150
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisors_tt
+			show_ideas_tooltip = TIB_ishikawa_sanshiro	
+			show_ideas_tooltip = TIB_jiang_kanghu	
+			show_ideas_tooltip = TIB_liu_shifu	
+			show_ideas_tooltip = TIB_anarchist_council
 		
 		}
 	}
@@ -2559,9 +2563,7 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
-			TIB = {
-				controls_state = 287
-			}
+
 		}
 		bypass = {
 			619 = {
@@ -2569,11 +2571,30 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			619 = {
-				controller = {
-					country_event = TIB_ref.16
+			IF = {
+				LIMIT = {
+					TIB = {
+						controls_state = 287
+					}
+				}
+				619 = {
+					controller = {
+						country_event = TIB_ref.16
+					}
+				}
+			}ELSE = {
+				619 = {
+					controller = {
+						ROOT = {
+							create_wargoal = {
+								type = annex_everything
+								target = PREV
+							}			
+						}
+					}
 				}
 			}
+			custom_effect_tooltip = TIB_if_control_taklamakan_you_can_event_get_yarkand_tt
 
 
 		}
@@ -2600,6 +2621,7 @@ focus_tree = {
 			}
 		}
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+		search_filters = {FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
 			create_wargoal = {
@@ -2786,30 +2808,7 @@ focus_tree = {
 			}
 		}
 	}
-#anarchist
-	focus = {
-		id = TIB_the_uprising
-		icon = GFX_focus_ARG_no_gods_no_masters
-		x = 0
-		y = 5
-		cost = 1
-        relative_position_id = TIB_religious_equality
 
-		#allow_branch = {
-			#has_global_flag = TIB_you_fucked_up_tt
-		#}
-
-		available = {
-			has_global_flag = TIB_you_fucked_up_tt	
-		}
-		visible = {
-			has_global_flag = TIB_you_fucked_up_tt		
-		}
-		
-		completion_reward = {
-			#WIP if flag x then y if flag y then z. 
-		}
-	}
 #democratic
     # The Chinese name (Chinese: 西藏革命黨; pinyin: Xīzàng Gémìngdǎng) means "Tibet Revolutionary Party".[2] In English, it is known as the Tibet Improvement Party or alternatively the Tibetan Progressive Party.[3][4] The Tibetan name (Tibetan: ནུབ་བོད་ལེགས་བཅོས་སྐྱིད་སྡུག, Wylie: nub-bod-legs-bcos-skyid-sdug) translates as "West Tibet Reform Association".  
 	focus = {
@@ -2977,6 +2976,8 @@ focus_tree = {
 				}
 				unlock_decision_tooltip = TIB_deepen_bonds_with_ENG
 			}
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+
 		}
 	}
 	focus = {
@@ -3049,6 +3050,7 @@ focus_tree = {
 					}
 				}
 				unlock_decision_tooltip = TIB_request_NEP_blueprints
+				custom_effect_tooltip = TIB_work_with_tooltip_tt
 				NEP = {
 					set_politics = {
 						ruling_party = democratic
@@ -3321,7 +3323,7 @@ focus_tree = {
 				search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			CHI = {
+			all_allied_country = {
 				give_military_access = TIB
 			}
 			IF = {
@@ -3502,6 +3504,8 @@ focus_tree = {
 			unlock_decision_tooltip = TIB_request_SHX_guidance
 			unlock_decision_tooltip = TIB_collaborate_with_MAN
 			unlock_decision_tooltip = TIB_work_with_MEN
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+
 		}
 	}
 
@@ -3657,7 +3661,9 @@ focus_tree = {
 		}
 
 		available = {
-		
+			ENG = {
+				has_war = yes	
+			}	
 		}
 
 	
@@ -3977,7 +3983,19 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-            add_stability = -0.15
+			IF = {
+				LIMIT = {
+					OR = {
+						has_completed_focus = TIB_subsidize_on_crops
+						has_completed_focus = TIB_support_animal_herds
+					}
+				}
+				add_stability = 0.05
+			}ELSE = {
+				add_stability = -0.15
+				custom_effect_tooltip = TIB_no_stab_hit_if_crops_or_herds_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = MON_war_refuge_tt
 			every_country = {
 				LIMIT = {
@@ -4090,7 +4108,22 @@ focus_tree = {
             has_stability > 0.25
 		}
 		completion_reward = {     
-
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}	
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}	
 		}
 	}
 	focus = {
@@ -4186,6 +4219,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = TIB_you_will_unlock_industrial_concern_tt
 			show_ideas_tooltip = TIB_petrol 
 		}
 	}
@@ -4345,7 +4379,7 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = MON_recruit_advisor_tt	
+			custom_effect_tooltip = TIB_you_will_unlock_industrial_concern_tt
 			show_ideas_tooltip = TIB_rigzin_dorje_ringang 
 
 
@@ -4592,6 +4626,7 @@ focus_tree = {
 				target_province = 5011
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_you_will_unlock_industrial_concern_tt
 			show_ideas_tooltip = TIB_state_infrastructure
 		}
 	}
@@ -5108,6 +5143,40 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_government = communism
+				}
+				add_popularity = {
+                	ideology = communism
+                	popularity = 0.25
+           		}
+			}ELSE_IF = {
+				LIMIT = {
+					has_government = fascism
+				}
+				add_popularity = {
+                	ideology = fascism
+                	popularity = 0.25
+           		}
+			}ELSE_IF={
+				LIMIT = {
+					has_government = neutrality
+				}		
+				add_popularity = {
+                	ideology = neutrality
+                	popularity = 0.25
+           		}	
+			}ELSE_IF ={
+				LIMIT = {
+					has_government = democratic
+				}
+				add_popularity = {
+                	ideology = democratic
+                	popularity = 0.25
+           		}
+			}
+			
 			swap_ideas = {
 				remove_idea = TIB_reform_1
 				add_idea = TIB_reform_2
@@ -5448,11 +5517,11 @@ focus_tree = {
 			add_breakthrough_points = {
 				specialization = specialization_land
 				value = 1
-				}
+			}
+			set_technology = { railway_gun = 1 popup = no}
 			create_railway_gun = {
 				equipment = railway_gun_equipment_1
 				name = "Himalayan Hammer"
-				location = 5033
 			}
 		}
 	}	
@@ -6057,28 +6126,27 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
-
+			NOT = {
+				has_idea = TIB_bureaucracy
+				has_idea = TIB_bureaucracy1				
+			}
 		}
 		search_filters = {FOCUS_FILTER_MANPOWER}
 
 		completion_reward = {     
-			if = {
+			IF = {
 				limit = { has_idea = disarmed_nation }
 				add_ideas = volunteer_only
-			}
-			if = {
+			}ELSE_IF = {
 				limit = { has_idea = volunteer_only }
 				add_ideas = limited_conscription
-			}	
-			if = {
+			}ELSE_IF = { 
 				limit = { has_idea = limited_conscription }
 				add_ideas = extensive_conscription
-			}
-			if = {
+			}ELSE_IF = { 
 				limit = { has_idea = extensive_conscription }
 				add_ideas = service_by_requirement
-			}	
-			if = {
+			}ELSE_IF = {
 				limit = { has_idea = service_by_requirement }
 				add_ideas = all_adults_serve
 			}
@@ -6503,6 +6571,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_MANPOWER}
 
 		completion_reward = {
+			add_ideas = veteran_air_instructors_spirit
 			set_rule = {can_generate_female_aces = yes}
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.6
@@ -6664,6 +6733,16 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						any_controlled_state = {
+							is_coastal = yes
+						}	
+					}
+				}
+				custom_effect_tooltip = TIB_you_get_dockyards_tt
+			}
 		}
 	}
 
@@ -6759,7 +6838,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = TIB_invest_in_dockyards
-		cost = 10
+		cost = 5
 			available = {			
 				any_controlled_state ={
 				is_coastal = yes
@@ -6784,6 +6863,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_NAVY_XP}
 		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = TIB_undersea_combat
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
 			navy_experience = 25
 			add_tech_bonus = {
 				name = TIB_undersea_combat
@@ -7011,35 +7096,6 @@ focus_tree = {
 			add_ideas = TIB_coastal_defense_ships
 		}
 	}
-
-	
-
-	focus = {
-		id = TIB_naval_doctrine
-		icon = GFX_goal_generic_navy_doctrines_tactics
-	 	prerequisite = { 
-	 		focus = TIB_improved_screen_ships
-	 	}
-		x = 0
-		y = 1
-		relative_position_id = TIB_improved_screen_ships
-		cost = 10
-		available_if_capitulated = yes
-
-		completion_reward = {
-
-			add_doctrine_cost_reduction = {
-				name = TIB_naval_doctrine
-				cost_reduction = 0.5
-				uses = 2
-				category = naval_doctrine
-			}
-		}
-	}
-
-
-
-
 
 
 

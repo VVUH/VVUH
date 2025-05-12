@@ -2991,6 +2991,26 @@
  TIB_constitutional_theocracy_tag_fascism:0 "Constitutional Tibetan Empire"
  TIB_constitutional_theocracy_tag_fascism_DEF:0 "the Constitutional Tibetan Empire"
 
+
+ TIB_restored_fascism:0 "Chinese Empire"
+ TIB_restored_neutrality:0 "Chinese Empire"
+ TIB_restored_democratic:0 "Chinese Constitutional Monarchy"
+ TIB_restored_communism:0 "United Chinese People's Republics"
+ TIB_restored_fascism_DEF:0 "the Chinese Empire"
+ TIB_restored_neutrality_DEF:0 "the Chinese Empire"
+ TIB_restored_democraticDEF:0 "the Chinese Constitutional Monarchy"
+ TIB_restored_communism_DEF:0 "the United Chinese People's Republics"
+
+ TIB_union_of_asia_tag:0 "United Asia"
+ TIB_union_of_asia_tag_democratic:0 "United Asian Federation"
+ TIB_union_of_asia_tag_democratic_DEF:0 "the United Asian Federation"
+ TIB_union_of_asia_tag_communism:0 "United Asian People's Republic"
+ TIB_union_of_asia_tag_communism_DEF:0 "the United Asian People's Republic"
+ TIB_union_of_asia_tag_neutrality:0 "Great United Asia"
+ TIB_union_of_asia_tag_neutrality_DEF:0 "the Great United Asian State"
+ TIB_union_of_asia_tag_fascism:0 "Unitary Asian Empire"
+ TIB_union_of_asia_tag_fascism_DEF:0 "the Unitary Asian Empire"
+
  MON_MPR:0 "Mongolia"
  MON_MPR_communism:0 "Mongolian People's Republic"
  MON_MPR_communism_DEF:0 "the Mongolian People's Republic"`

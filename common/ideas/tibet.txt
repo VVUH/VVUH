@@ -226,6 +226,7 @@ ideas = {
 			}
 			cancel = {
 				NOT = {
+					original_tag = TIB
 					is_in_faction_with = TIB
 				}
 			}
@@ -716,7 +717,7 @@ ideas = {
 				neutrality_drift = 0.03
 				conscription = 0.02
 				starting_compliance = 0.2
-				enemy_local_supplies = -0.1
+				out_of_supply_factor = 0.1
 			}
 		}
 		TIB_democratic_law = {
@@ -935,7 +936,8 @@ ideas = {
 			modifier = {
 				max_command_power = 20
 				command_power_gain = 0.1
-				land_reinforce_rate = 0.25
+				land_reinforce_rate = 0.07
+				supply_consumption_factor = -0.06
 
 				political_power_gain = 0.15
 				war_support_factor = 0.1
@@ -958,6 +960,8 @@ ideas = {
 				
 			modifier = {
 				army_org_factor = 0.1
+				land_reinforce_rate = -0.03
+				supply_consumption_factor = 0.03
 				political_power_gain = 0.15
 				war_support_factor = 0.1
 				conscription = 0.03
@@ -982,6 +986,8 @@ ideas = {
 				command_power_gain = 0.1
 				experience_gain_army = 0.4
 				army_org_factor = 0.12
+				land_reinforce_rate = -0.03
+				supply_consumption_factor = 0.03
 				political_power_gain = 0.15
 				war_support_factor = 0.1
 				conscription = 0.03

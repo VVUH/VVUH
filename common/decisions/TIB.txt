@@ -1131,10 +1131,12 @@ TIB_decs = {
         icon = GFX_decision_eng_propaganda_campaigns
         priority = 50
         targets = {ENG}
+		targets_dynamic = no
         target_trigger = {
             FROM = {
                 has_war_with = ROOT
             }
+			is_major = yes
         }
         available = {
             surrender_progress < 0.2
@@ -1181,14 +1183,16 @@ TIB_decs = {
 			original_tag = TIB
 		}
 		visible = {
-			OR = {
-				has_completed_focus = TIB_foreign_research
-				has_completed_focus = TIB_invite_intellectuals
-				has_completed_focus = TIB_western_ideas
-			}			
-			NOT = {
-				has_country_flag = TIB_clamp_down_narrative
-				has_country_flag = TIB_open_up_intellectual_discourse
+			AND = {
+				OR = {
+					has_completed_focus = TIB_foreign_research
+					has_completed_focus = TIB_invite_intellectuals
+					has_completed_focus = TIB_western_ideas
+				}			
+				NOT = {
+					has_country_flag = TIB_clamp_down_narrative
+					has_global_flag = TIB_open_up_intellectual_discourse
+				}
 			}
 		}
 		available = {
@@ -1207,7 +1211,7 @@ TIB_decs = {
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = TIB_free_speech
-				set_country_flag = TIB_open_up_intellectual_discourse
+				set_global_flag = TIB_open_up_intellectual_discourse
 			}
 			add_stability = 0.05
 			add_war_support = 0.1
@@ -1224,7 +1228,49 @@ TIB_decs = {
 			show_ideas_tooltip = TIB_jigdral_dorje
 		}
 	}
+	TIB_overhaul_school_curriculum = {
+		icon = GFX_decision_ger_mefo_bills
+		priority = 5
+		ai_will_do = {
+			base = 1
+		}
+		
+		fire_only_once = yes
 
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			AND = {
+				OR = {
+					has_completed_focus = TIB_foreign_research
+					has_completed_focus = TIB_invite_intellectuals
+					has_completed_focus = TIB_western_ideas
+				}			
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_clamping
+				has_country_flag = TIB_free_speech
+			}
+			OR = {
+				has_country_flag = TIB_clamp_down_narrative
+				has_global_flag = TIB_open_up_intellectual_discourse
+			}
+		}
+
+		days_remove = 50
+
+		cost = 300
+		complete_effect = {
+			add_stability = 0.05
+		}
+		remove_effect = {
+			add_research_slot = 1
+		}
+	}
+	
 	TIB_clamp_down_on_national_narrative = {
 		icon = GFX_decision_generic_political_address
 		priority = 10
@@ -1279,17 +1325,13 @@ TIB_decs = {
 			original_tag =  TIB
 		}
 		available = {
-			OR = {
 				has_completed_focus = TIB_asian_workers_union
-				has_completed_focus = TIB_anarchism_everywhere
-			}
+			
 		}
 		
 		visible = {
-			OR = {
-				has_completed_focus = TIB_asian_workers_union
-				has_completed_focus = TIB_anarchism_everywhere
-			}
+			has_completed_focus = TIB_asian_workers_union
+			
 			any_owned_state = {
 				is_on_continent = asia
 				NOT = {
@@ -1301,11 +1343,8 @@ TIB_decs = {
 		target_trigger = {
 		    FROM = {
 		    	is_fully_controlled_by = ROOT
-				IF ={ LIMIT = {has_completed_focus = TIB_asian_workers_union}
-		    		is_on_continent = asia
-				}ELSE_IF = {LIMIT = {has_completed_focus = TIB_anarchism_everywhere}
-					compliance > 30
-				}
+		    	is_on_continent = asia
+
 		    	
 				NOT = {
 		    		is_core_of = ROOT
@@ -2255,7 +2294,6 @@ TIB_support_for_tibet = {
 					target = TIB
 					value > 69
 				}
-				is_free_or_subject_of_root = yes
 				NOT = {
 					has_war_with = TIB 
 				}
@@ -2329,30 +2367,14 @@ TIB_support_for_tibet = {
 					has_war_with = TIB 
 				}
 			}
-			OR = {
-				IF = {
-					LIMIT = {
-						RAJ = {
-							is_puppet_of = ENG
-						}
-					}
-					has_completed_focus = TIB_divide_spheres_with_raj
-				}
-				has_completed_focus = TIB_british_weapons
-			}
 		}
 
 		visible = {
 			original_tag = TIB
-			IF = {
-				LIMIT = {
-					RAJ = {
-						is_puppet_of = ENG
-					}
-				}
-				has_completed_focus = TIB_divide_spheres_with_raj
+			OR = {
+				has_completed_focus = TIB_collaborate_with_british
+				has_completed_focus = TIB_british_weapons
 			}
-			has_completed_focus = TIB_british_weapons
 		}
 
 		days_remove = 90
@@ -2589,6 +2611,9 @@ TIB_regent_political_dealings = {
 		}
 		visible = {
 			has_completed_focus = TIB_the_regent
+			NOT = { 
+				has_country_leader_with_trait = old_coup_maker
+			}
 		}
 		available = {
 			is_subject = no
@@ -2734,57 +2759,6 @@ TIB_regent_political_dealings = {
 }
 
 TIB_neighboring_communism_category = {
-	TIB_recruit_foreign_legion = {
-		icon = GFX_decision_generic_prepare_civil_war
-
-		allowed = {
-			original_tag = TIB
-		}
-
-		visible = {
-				has_completed_focus = TIB_arm_chinese_communists
-			
-		}
-
-		available = {
-			NOT = {
-				has_country_flag = TIB_foreign_legion_recruitment_in_progress
-			}
-		}
-
-		custom_cost_trigger = {
-			command_power > 24.9
-		}
-		custom_cost_text = BRA_decision_cost_cangaceiro
-
-		#cost = 100
-
-		fire_only_once = no
-		days_remove = 75
-		ai_will_do = {
-			base = 100
-		}
-
-		complete_effect = {
-			set_country_flag = TIB_foreign_legion_recruitment_in_progress
-			add_command_power = -25
-		}
-
-		remove_effect = {
-				capital_scope = {
-					create_unit = {
-						division = "name = \"Chinese Volunteers\" division_template = \"Chinese Communist Group\" start_experience_factor = 0.5 start_equipment_factor	= 1.0"
-						owner = TIB 
-						count = 1
-					}
-				}
-			
-			hidden_effect = {
-				clr_country_flag = TIB_foreign_legion_recruitment_in_progress
-			}
-		}
-	}
-
 
 	TIB_spur_him_communism_decision = {
 		icon = GFX_decision_onmap_recruit_operative
@@ -2846,12 +2820,20 @@ TIB_neighboring_communism_category = {
 
 		days_remove = 30
 
-		cost = 100
-
-		
-		complete_effect = {
-
+		custom_cost_text = decision_cost_CP_25_pp_25
+		ai_hint_pp_cost = 25
+		custom_cost_trigger = {
+			has_political_power > 24
+			command_power > 24
 		}
+		custom_cost_text = decision_cost_CP_25_pp_25
+		complete_effect = {
+			hidden_effect = {
+				add_political_power = -25
+				add_command_power = -25
+			}
+		}`
+
 
 		remove_effect = {
 
@@ -2914,7 +2896,7 @@ TIB_neighboring_communism_category = {
 
 		days_remove = 50
 
-		cost = 150
+		cost = 50
 
 		
 		complete_effect = {
@@ -2992,18 +2974,10 @@ TIB_neighboring_communism_category = {
 			puppet = FROM
 		}
 
-		ai_hint_pp_cost = 25
-		custom_cost_trigger = {
-			has_political_power > 24
-			command_power > 24
-		}
-		custom_cost_text = decision_cost_CP_25_pp_25
+		cost = 75
 
 		complete_effect = {
-			hidden_effect = {
-				add_political_power = -25
-				add_command_power = -25
-			}
+
 
 		}
 
@@ -4334,8 +4308,10 @@ TIB_faith = {
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_region_alignment
-			}			
-			add_dynamic_modifier = { modifier = devout_believers}
+			}
+			from = {			
+				add_dynamic_modifier = { modifier = devout_believers}
+			}
 		}
 	}	
 }
@@ -4376,22 +4352,31 @@ TIB_power = {
 				clr_country_flag = TIB_investing_in_electrification
 			}	
 			FROM = {
-				add_dynamic_modifier = MON_electrified
+				add_dynamic_modifier = { modifier = MON_electrified}
 				add_extra_state_shared_building_slots = 1	
 			}
 		}
 	}	
 
-	TIB_dam_the_eastern_pangong_channels{
+	TIB_dam_the_eastern_pangong_channels = {
 		targets = {758}
 		state_target = yes 
 		on_map_mode = map_and_decisions_view
 		icon = GFX_decision_generic_construction
 		days_remove = 100
 		cost = 50
+		visible = {
+			has_completed_focus = TIB_dams_for_power
+			NOT = {
+				has_global_flag = TIB_dammed_pangong
+			}	
+		}
 		available = {
 			758 = {
 				is_owned_and_controlled_by = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_pangong
 			}
 		}
 		complete_effect = {
@@ -4402,6 +4387,7 @@ TIB_power = {
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_pangong
 			}		
 			758 = {
 				add_extra_state_shared_building_slots = 1	
@@ -4429,9 +4415,18 @@ TIB_power = {
 		icon = GFX_decision_generic_construction
 		days_remove = 100
 		cost = 50
+		visible = {
+			has_completed_focus = TIB_dams_for_power
+			NOT = {
+				has_global_flag = TIB_dammed_nepal
+			}	
+		}
 		available = {
 			323 = {
 				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_nepal
 			}
 		}
 		complete_effect = {
@@ -4442,6 +4437,7 @@ TIB_power = {
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_nepal
 			}		
 			323 = {
 				add_extra_state_shared_building_slots = 1	
@@ -4471,11 +4467,16 @@ TIB_power = {
 		cost = 50
 		visible = {
 			has_completed_focus = TIB_cross_the_mountains
-			
+			NOT = {
+				has_global_flag = TIB_dammed_bengal
+			}
 		}
 		available = {
 			430 = {
 				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_bengal
 			}
 		}
 		complete_effect = {
@@ -4486,6 +4487,7 @@ TIB_power = {
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_bengal
 			}		
 			430 = {
 				add_extra_state_shared_building_slots = 1	
@@ -4518,10 +4520,16 @@ TIB_power = {
 				has_completed_focus = TIB_liberate_arunachal_pradesh
 				has_completed_focus = TIB_bhuddist_supremacy
 			}
+			NOT = {
+				has_global_flag = TIB_dammed_pradesh
+			}
 		}
 		available = {
 			434 = {
 				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_pradesh
 			}
 		}
 		complete_effect = {
@@ -4531,6 +4539,7 @@ TIB_power = {
 		}
 		remove_effect = {
 			hidden_effect = {
+				set_global_flag = TIB_dammed_pradesh
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
 			434 = {
@@ -4560,14 +4569,17 @@ TIB_power = {
 		days_remove = 100
 		cost = 50
 		visible = {
-			OR = {
-				has_completed_focus = TIB_collaborate_with_british
-				has_completed_focus = TIB_collaborate_with_british
+			has_completed_focus = TIB_collaborate_with_british
+			NOT = {
+				has_global_flag = TIB_dammed_assam
 			}
 		}
 		available = {
 			432 = {
 				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_assam
 			}
 		}
 		complete_effect = {
@@ -4577,6 +4589,7 @@ TIB_power = {
 		}
 		remove_effect = {
 			hidden_effect = {
+				set_global_flag = TIB_dammed_assam
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
 			432 = {
@@ -4610,10 +4623,16 @@ TIB_power = {
 				has_completed_focus = TIB_collaborate_with_british
 				has_completed_focus = TIB_bhuddist_supremacy
 			}
+			NOT = {
+				has_global_flag = TIB_dammed_saging
+			}
 		}
 		available = {
 			998 = {
 				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_saging
 			}
 		}
 		complete_effect = {
@@ -4624,6 +4643,7 @@ TIB_power = {
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_assam
 			}		
 			998 = {
 				add_extra_state_shared_building_slots = 1	
@@ -4656,15 +4676,22 @@ TIB_power = {
 				has_completed_focus = TIB_collaborate_with_british
 				has_completed_focus = TIB_bhuddist_supremacy
 			}
+			NOT = {
+				has_global_flag = TIB_dammed_magwe
+			}
 		}
 		available = {
 			288 = {
 				is_owned_and_controlled_by  = ROOT
 			}
+			NOT = {
+				has_global_flag = TIB_dammed_magwe
+			}
 		}
 		complete_effect = {
 			hidden_effect = {
 				set_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_magwe
 			}
 		}
 		remove_effect = {
@@ -4702,10 +4729,16 @@ TIB_power = {
 				has_completed_focus = TIB_collaborate_with_british
 				has_completed_focus = TIB_bhuddist_supremacy
 			}
+			NOT = {
+				has_global_flag = TIB_dammed_shan
+			}
 		}
 		available = {
 			999 = {
 				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_shan
 			}
 		}
 		complete_effect = {
@@ -4715,6 +4748,7 @@ TIB_power = {
 		}
 		remove_effect = {
 			hidden_effect = {
+			set_global_flag  = TIB_dammed_shan
 				clr_country_flag = TIB_investing_in_a_dam
 			}		
 			999 = {
@@ -4745,10 +4779,16 @@ TIB_power = {
 		cost = 50
 		visible = {
 			has_completed_focus = TIB_reclaim_the_empire
+			NOT = {
+				has_global_flag = TIB_dammed_yunnan
+			}
 		}
 		available = {
 			325 = {
 				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_yunnan
 			}
 		}
 		complete_effect = {
@@ -4759,6 +4799,7 @@ TIB_power = {
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_yunnan
 			}		
 			325 = {
 				add_extra_state_shared_building_slots = 1	
@@ -4791,15 +4832,22 @@ TIB_power = {
 				has_completed_focus = TIB_regional_pressure
 				has_completed_focus = TIB_religious_equality
 			}
+			NOT = {
+				has_global_flag = TIB_dammed_kashmir
+			}
 		}
 		available = {
 			787 = {
 				is_owned_and_controlled_by  = ROOT
 			}
+			NOT = {
+				has_global_flag = TIB_dammed_kashmir
+			}
 		}
 		complete_effect = {
 			hidden_effect = {
 				set_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_kashmir
 			}
 		}
 		remove_effect = {
@@ -4833,12 +4881,20 @@ TIB_power = {
 		days_remove = 100
 		cost = 50
 		visible = {
-			has_completed_focus = TIB_secure_the_wakhan_corridor
-			has_completed_focus = TIB_responsible_expansionism
+			OR = {
+				has_completed_focus = TIB_secure_the_wakhan_corridor
+				has_completed_focus = TIB_responsible_expansionism
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_yarkand
+			}
 		}
 		available = {
 			619 = {
 				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_yarkand
 			}
 		}
 		complete_effect = {
@@ -4849,6 +4905,7 @@ TIB_power = {
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_yarkand
 			}		
 			619 = {
 				add_extra_state_shared_building_slots = 1	
