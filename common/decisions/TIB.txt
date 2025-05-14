@@ -727,12 +727,6 @@ TIB_border_wars = {
 			}
 			allowed = {
 				original_tag = TIB
-				NOT = {
-					any_controlled_state = {
-						LIMIT = {}
-						is_border_war = yes
-					}
-				}
 			}
 			available = {
 				604 = {

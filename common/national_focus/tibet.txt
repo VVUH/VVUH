@@ -128,6 +128,7 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.05
 			add_stability = 0.1
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TIB_unlocks_decisions_regent_tt
 			unlock_decision_tooltip	 = TIB_replace_the_regent
 			unlock_decision_tooltip = TIB_the_coup
@@ -253,6 +254,7 @@ focus_tree = {
 					interwar_antiair = 1
 				}
 			}
+			custom_effect_tooltip = TIB_every_core_state_tt
 			every_core_state = {
 				add_building_construction = {
 					type = anti_air_building
@@ -416,7 +418,9 @@ focus_tree = {
 				}
 				add_dynamic_modifier = { modifier = devout_believers}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_religious_alignment_decision_of_FROM
+			custom_effect_tooltip = TIB_religious_alignment_tt
 		}
 	}
 
@@ -494,7 +498,10 @@ focus_tree = {
 					modifier = IRQ_purchased_our_equipment
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			unlock_decision_tooltip = TIB_deepen_bonds_with_ENG
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
 		}
 	}
 	focus = {
@@ -524,6 +531,7 @@ focus_tree = {
 				category = industry
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_research_decisions_tt
 			unlock_decision_tooltip = TIB_open_up_to_intellectuals
 			unlock_decision_tooltip = TIB_clamp_down_on_national_narrative
 			unlock_decision_tooltip = TIB_overhaul_school_curriculum
@@ -1554,6 +1562,7 @@ focus_tree = {
            custom_effect_tooltip = MON_recruit_advisor_tt
             show_ideas_tooltip = TIB_rolf_magener
 			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_research_decisions_tt
 			unlock_decision_tooltip = TIB_open_up_to_intellectuals
 			unlock_decision_tooltip = TIB_clamp_down_on_national_narrative
 			unlock_decision_tooltip = TIB_overhaul_school_curriculum
@@ -1614,6 +1623,7 @@ focus_tree = {
 		completion_reward = {
 			add_research_slot = 1
 			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_research_decisions_tt
 			unlock_decision_tooltip = TIB_open_up_to_intellectuals
 			unlock_decision_tooltip = TIB_clamp_down_on_national_narrative
 			unlock_decision_tooltip = TIB_overhaul_school_curriculum
@@ -1660,6 +1670,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_send_support
+			custom_effect_tooltip = TIB_sending_support_tt
 		}
 	}
 	focus = {
@@ -1688,9 +1699,7 @@ focus_tree = {
                 ideology = communism
                 popularity = 0.1
             } 
-			custom_effect_tooltip = TIB_support_of_local_commies_tt
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = TIB_starting_commes_tt
+
 			hidden_effect = {
 				if = { 
 					limit = { 
@@ -1848,8 +1857,10 @@ focus_tree = {
 					is_ai = yes
 					has_war_together_with = TIB
 					has_war_with_major = yes
+					has_government = ROOT
 				}
 			}
+			has_government = communism
 		}
 		
 		completion_reward = {
@@ -1857,7 +1868,7 @@ focus_tree = {
 				target = PRC
 				transfer_troops = yes
 			}
-			set_cosmetic_tag = TIB_restored_communism
+			set_cosmetic_tag = TIB_restored
 			every_state = {
 				LIMIT = {
 					is_core_of = PRC
@@ -1990,7 +2001,6 @@ focus_tree = {
 						}
 					}
 				}
-				custom_effect_tooltip = TIB_two_div_per_flag
 				custom_effect_tooltip = generic_skip_one_line_tt
 		
 				IF = {
@@ -2159,6 +2169,9 @@ focus_tree = {
 		}
 		available = {
 			has_civil_war = no
+			NOT = {
+				has_completed_focus = TIB_religious_equality
+			}
 		}
 		
 		completion_reward = {
@@ -2648,6 +2661,8 @@ focus_tree = {
 				add_war_support = -0.05
 			}
 			unlock_decision_tooltip = TIB_central_asian_union
+			custom_effect_tooltip = TIB_central_asian_union_tt
+
 		}
 	}
 	focus = {
@@ -2884,6 +2899,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_send_support
+			custom_effect_tooltip = TIB_sending_support_tt
 
 		}
 	}
@@ -2950,7 +2966,7 @@ focus_tree = {
 		icon = GFX_focus_RAJ_seek_allies_with_the_muslim_league
 		x = -1
 		y = 1
-		cost = 5
+		cost = 10
         relative_position_id = TIB_influence_dalai_lama_d
         prerequisite ={ focus = TIB_influence_dalai_lama_d}
 
@@ -2967,6 +2983,7 @@ focus_tree = {
 			RAJ = {
 				country_event = TIB_political_events.42
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_make_a_deal_with_RAJ
 			IF = {
 				LIMIT = {
@@ -3122,7 +3139,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			set_cosmetic_tag = TIB_constitutional_theocracy_tag
+			set_cosmetic_tag = TIB_unmonastic_commune
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			set_politics = {
@@ -3204,7 +3221,9 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = TIB_revamped_monastaries
+			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_religious_alignment_decision_of_FROM
+			custom_effect_tooltip= TIB_religious_alignment_tt
 
 		}
 	}
@@ -3420,20 +3439,26 @@ focus_tree = {
 
 		completion_reward = {
 			CHI = {
-				add_opinion_modifier = {
-					target = TIB
-					modifier = USA_special_relationship
+				country_event = TIB_political_events.1
+				random_core_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
 				}
-			}
-			TIB = {
-				add_opinion_modifier = {
-					target = CHI
-					modifier = USA_special_relationship
+				random_core_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			TIB = {
-				add_ideas = TIB_sino_tibetan_alignment
 				random_core_state = {
 					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
@@ -3451,26 +3476,7 @@ focus_tree = {
 					}
 				}
 			}			
-			custom_effect_tooltip = generic_skip_one_line_tt
-			CHI = {
-				add_ideas = TIB_sino_tibetan_alignment
-				random_core_state = {
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-					}
-				}
-				random_core_state = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
+
 		}
 	}
 	focus = {
@@ -4549,6 +4555,7 @@ focus_tree = {
 
 		completion_reward = {
 			unlock_decision_tooltip = TIB_electrify_FROM
+			custom_effect_tooltip = TIB_eleftrify_tt
 			757 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -5835,6 +5842,7 @@ focus_tree = {
 			army_experience = 50
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_forceful_recruitment
+			custom_effect_tooltip = TIB_ff_rec_benefit_tt
 			custom_effect_tooltip = TIB_need_core_or_25_comp_tt
 		}
 	}
@@ -6047,6 +6055,8 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_integrate_village_militia
+			custom_effect_tooltip = TIB_militia_rec_benefit_tt
+
 			custom_effect_tooltip = TIB_need_core_or_25_comp_tt
 
 		}
