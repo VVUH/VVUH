@@ -206,6 +206,9 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
+			cancel = {
+				has_government = communism 
+			}
 
 			removal_cost = -1
 				
@@ -354,6 +357,11 @@ ideas = {
 			allowed = {
 				always = no
 			}
+			cancel = {
+				NOT = {
+					has_government = neutrality 
+				}
+			}
 			allowed_civil_war = {
 				NOT = {
 					has_government = democratic
@@ -378,9 +386,7 @@ ideas = {
 				always = no
 			}
 			allowed_civil_war = {
-				NOT = {
-					has_government = democratic
-				}
+
 			}
 
 			removal_cost = -1
@@ -401,6 +407,9 @@ ideas = {
 			allowed = {
 				always = no
 			}
+			cancel = {
+				has_government = communism 
+			}
 
 			removal_cost = -1
 				
@@ -420,6 +429,7 @@ ideas = {
 					has_government = democratic
 				}
 			}
+
 
 			removal_cost = -1
 				
@@ -444,7 +454,11 @@ ideas = {
 				has_government = communism
 				
 			}
-
+			cancel = {
+				NOT = {
+					has_government = communism 
+				}
+			}
 			removal_cost = -1
 				
 			modifier = {
@@ -637,6 +651,11 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
+			cancel = {
+				NOT = {
+					has_government = communism 
+				}
+			}
 
 			removal_cost = -1
 				
@@ -659,7 +678,11 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-
+			cancel = {
+				NOT = {
+					has_government = communism 
+				}
+			}
 			removal_cost = -1
 				
 			modifier = {
@@ -1363,25 +1386,6 @@ ideas = {
 			}
 
 		}
-
-	#por_hydroelectric_power <- (hydro)electric power? vs AFG_electrification reg
-
-	#prc_low_popular_support - prc_low_popular_support2 - prc_low_popular_support3
-
-	#raj_all_india_forward_bloc_communism free india as commie tibet 
-	#raj_all_india_forward_bloc_fascism conquer raj as fascist tibet
-
-	# hol_haven_of_tolerance <- work WITH CCP spirit 
-
-	#tur_kemalist_officers_disloyalty_effect <- officers disloyal tur_kemalist_officers_loyalty_effect <- officers fiercely loyal
-
-	#ARG_no_gods_no_masters anarchism 
-
-	#ARG_growing_nationalism_modifier nationalism or maybe greater tibet spirit 
-
-	#ARG_civilian_economy_boost civ economy boost 
-
-	# anti china tur_sectarian_troubles_fundamentalism - tur_sectarian_troubles_kurdistan anti raj - weaker anti both tur_sectarian_woes
 
 #farm
 		TIB_agri = {

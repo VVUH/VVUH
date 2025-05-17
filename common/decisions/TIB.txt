@@ -749,8 +749,14 @@ TIB_border_wars = {
 				has_completed_focus = TIB_chinese_border_raids
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			604 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -812,8 +818,14 @@ TIB_border_wars = {
 				has_completed_focus = TIB_chinese_border_raids
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			601 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -874,8 +886,14 @@ TIB_border_wars = {
 				has_completed_focus = TIB_chinese_border_raids
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			755 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -936,8 +954,14 @@ TIB_border_wars = {
 				has_completed_focus = TIB_chinese_border_raids
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			759 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -998,8 +1022,14 @@ TIB_border_wars = {
 				has_completed_focus = TIB_chinese_border_raids
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			287 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -2826,8 +2856,9 @@ TIB_neighboring_communism_category = {
 				add_political_power = -25
 				add_command_power = -25
 			}
-		}`
+		}
 
+		days_remove = 30
 
 		remove_effect = {
 

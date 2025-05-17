@@ -30,8 +30,9 @@ focus_tree = {
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 3
 		}
+
 		mutually_exclusive = { focus = TIB_outside_influences}
 		available = { # change decision; china NAP ofz
 
@@ -61,7 +62,9 @@ focus_tree = {
 		available = {
 
 		}
-		
+		ai_will_do = {
+			base = 2
+		}
 		completion_reward = {
 			add_popularity = {
                 ideology = neutrality
@@ -313,7 +316,7 @@ focus_tree = {
         prerequisite ={ focus = TIB_improve_tibet}
 
 		available = {
-			
+			is_ai = no
 		}
 
 		completion_reward = {
@@ -592,7 +595,11 @@ focus_tree = {
 		cost = 5
         relative_position_id = TIB_the_ratification_of_the_thirteenth
 		ai_will_do = {
-			factor = 1
+			base = 0
+			modifier = {
+				add = 5
+				is_historical_focus_on = no
+			}
 		}
 		mutually_exclusive = {focus = TIB_the_ratification_of_the_thirteenth}
 		available = {
@@ -618,7 +625,7 @@ focus_tree = {
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 3
 		}
         prerequisite ={ focus = TIB_outside_influences}
         relative_position_id = TIB_outside_influences
@@ -998,6 +1005,7 @@ focus_tree = {
 		prerequisite = { focus = TIB_army_expeditions}
         relative_position_id = TIB_strengthen_the_professional_army
 		available = {
+			is_ai = no
 			any_country = {
 				has_opinion = {
 					target = TIB
@@ -1580,7 +1588,7 @@ focus_tree = {
         prerequisite ={ focus = TIB_outside_influences }
 
 		ai_will_do = {
-			factor = 1
+			factor = 3
 		}
 		mutually_exclusive = { focus = TIB_young_leader_tutor focus = TIB_legalize_the_tra}
 		available = {
@@ -1860,6 +1868,7 @@ focus_tree = {
 					has_government = ROOT
 				}
 			}
+			is_ai = no
 			has_government = communism
 		}
 		
@@ -2537,6 +2546,7 @@ focus_tree = {
 		}
 		available = {
 			has_civil_war = no
+			is_ai = no
 		}
 		
 		completion_reward = {
@@ -2836,7 +2846,7 @@ focus_tree = {
         prerequisite ={ focus = TIB_outside_influences}
 
 		ai_will_do = {
-			factor = 1
+			factor = 5
 		}
 		mutually_exclusive = { focus = TIB_whispers_among_the_downtrodden focus = TIB_young_leader_tutor}
 		available = {
@@ -3529,6 +3539,7 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
+			is_ai = no
 		}
 		#referendum
 		
@@ -3760,7 +3771,7 @@ focus_tree = {
 		}
 
 		available = {
-		
+			is_ai = no
 		}
 
 		
@@ -3823,6 +3834,7 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
+			is_ai = no
 			NOT = {
 				CHI = {has_war_with = JAP}
 				CHI = {has_war_with = PRC}
@@ -3867,6 +3879,7 @@ focus_tree = {
 				has_government = ROOT
 				has_civil_war = no
 			}
+			is_ai = no
 		}
 		bypass = {
 			759 = {
@@ -4108,7 +4121,7 @@ focus_tree = {
         relative_position_id = TIB_internal_matters
 
 		ai_will_do = {
-			factor = 1
+			factor = 10
 		}
 		available = {
             has_stability > 0.25
@@ -4143,7 +4156,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		ai_will_do = {
-			factor = 1
+			factor = 3
 		}
 		available = {
 			has_war_support > 0.2
@@ -4576,7 +4589,7 @@ focus_tree = {
         relative_position_id = TIB_a_feudal_industry
 
 		ai_will_do = {
-			factor = 1
+			factor = 6
 		}
 		available = {
 			num_of_civilian_factories > 5
@@ -5045,7 +5058,7 @@ focus_tree = {
         relative_position_id = TIB_a_feudal_industry
 
 		ai_will_do = {
-			factor = 1
+			factor = 8
 		}
 		available = {
 			OR = {
@@ -5406,7 +5419,7 @@ focus_tree = {
         relative_position_id = TIB_start_overhauling_army
 
 		ai_will_do = {
-			factor = 1
+			factor = 4
 		}
 		available = {
 
@@ -5435,7 +5448,7 @@ focus_tree = {
         relative_position_id = TIB_engineer_corps
 
 		ai_will_do = {
-			factor = 1
+			factor = 5
 		}
 		available = {
 
@@ -5586,7 +5599,7 @@ focus_tree = {
 		icon = GFX_focus_GER_gebirgsjager
 		x = 5
 		y = 1
-		cost = 5
+		cost = 10
 		prerequisite = {focus = TIB_start_overhauling_army}
         relative_position_id = TIB_start_overhauling_army
 
@@ -6427,7 +6440,9 @@ focus_tree = {
 		cost = 5
 
 		mutually_exclusive = { focus = TIB_licensed_production focus = TIB_increase_domestic_aircraft_development}
-
+		ai_will_do = {
+			factor = 10
+		}
 		
 		completion_reward = {			
 			add_equipment_subsidy = {

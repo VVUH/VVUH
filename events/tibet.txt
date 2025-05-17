@@ -496,9 +496,8 @@ country_event = {
 		}
 		name = TIB_political_events.72.a
 		create_wargoal = {
-			type = take_state_focus
+			type = annex_everything
 			target = FROM
-			generator = { FROM.FROM }
 			}
 	}
 	
@@ -645,7 +644,7 @@ country_event = { #Tibet is not allowed to boost communism
 	option = { #then we declare war!
 		name = TIB_political_events.86.b
 		ai_chance = {
-			base = 10
+			base = 1
 			modifier = { #only do this if you are strong!
 				factor = 0.5
 				is_ai = yes
@@ -713,7 +712,7 @@ country_event = { #Tibet demands we become communist
 
 		add_popularity = {
 			ideology = communism
-			popularity = 0.2
+			popularity = 0.25
 		}
 
 
@@ -745,9 +744,6 @@ country_event = { #Tibet demands we become communist
 				hours = 12
 			}
 		}
-
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = AUS_political_events.84.b_tt
 
 	}
 }
@@ -793,78 +789,9 @@ country_event = { #Tibet informed that their ultimatum was rejected
 		ai_chance = {
 			base = 10
 		}
-
-		FROM = {
-			set_temp_variable = { TIB_FROM_communist_support = party_popularity@communism }
-
-			IF = {
-				limit = {
-					has_government = democratic
-				}
-
-				start_civil_war = {
-					ideology = communism
-					ruling_party = democratic
-					size = var:TIB_FROM_communist_support 
-					ROOT = {
-						puppet = {
-							target = PREV
-							end_wars = no
-							end_civil_wars = no
-						}
-						declare_war_on = {
-							target = FROM
-							type = puppet_wargoal_focus
-						}
-					}
-				}
-			}
-
-			ELSE_IF = {
-				limit = {
-					has_government = fascism
-				}
-				start_civil_war = {
-					ideology = communism
-					ruling_party = fascism
-					size = var:TIB_FROM_communist_support
-					ROOT = {
-						puppet = {
-							target = PREV
-							end_wars = no
-							end_civil_wars = no
-						}
-						declare_war_on = {
-							target = FROM
-							type = puppet_wargoal_focus
-						}
-					}
-				}
-			}
-			ELSE_IF = {
-				limit = {
-					has_government = neutrality
-				}
-
-				start_civil_war = {
-					ideology = communism
-					ruling_party = neutrality
-					size = var:TIB_FROM_communist_support
-					ROOT = {
-						puppet = {
-							target = PREV
-							end_wars = no
-							end_civil_wars = no
-						}
-						declare_war_on = {
-							target = FROM
-							type = puppet_wargoal_focus
-						}
-					}
-				}
-			}
-		
-			custom_effect_tooltip = SWE_pull_the_trigger_tt
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = FROM
 		}
 	}
 }
