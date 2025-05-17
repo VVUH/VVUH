@@ -1999,8 +1999,14 @@ MON_border_raids = {
 				has_completed_focus = MON_anti_communist_incursions
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			760 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -2061,8 +2067,14 @@ MON_border_raids = {
 				}
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			329 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -2118,8 +2130,14 @@ MON_border_raids = {
 				has_completed_focus = MON_regaining_mongolia
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			761 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -2176,8 +2194,14 @@ MON_border_raids = {
 			}
 
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			612 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -2234,14 +2258,20 @@ MON_border_raids = {
 				}
 			}
 
-			complete_effect = {
+			days_remove = 5
+			611 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
 				IF = {
 					LIMIT = {
 						612 = {
 							is_owned_by  = MON
 						}
 					}
-					custom_effect_tooltip = MON_starts_now_tt
+					
 						start_border_war = {
 							change_state_after_war = no
 							attacker = {
@@ -2264,7 +2294,7 @@ MON_border_raids = {
 						}
 					
 				} else = {
-					custom_effect_tooltip = MON_starts_now_tt
+					
 					start_border_war = {
 						change_state_after_war = no
 						attacker = {
@@ -2330,8 +2360,14 @@ MON_border_raids = {
 				}
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			621 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 						attacker = {
@@ -2387,8 +2423,14 @@ MON_border_raids = {
 				has_completed_focus = MON_suiyan_operation
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			746 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {#
 					change_state_after_war = no
 						attacker = {
@@ -2444,8 +2486,14 @@ MON_border_raids = {
 				has_completed_focus = MON_regaining_mongolia
 			}
 
-			complete_effect = {
-				custom_effect_tooltip = MON_starts_now_tt
+			days_remove = 5
+			756 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
 				start_border_war = {
 					change_state_after_war = no
 						attacker = {

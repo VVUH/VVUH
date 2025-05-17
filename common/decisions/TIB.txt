@@ -790,12 +790,6 @@ TIB_border_wars = {
 			}
 			allowed = {
 				original_tag = TIB
-				NOT = {
-					any_controlled_state = {
-						LIMIT = {}
-						is_border_war = yes
-					}
-				}
 			}
 			available = {
 				601 = {
@@ -858,12 +852,6 @@ TIB_border_wars = {
 			}
 			allowed = {
 				original_tag = TIB
-				NOT = {
-					any_controlled_state = {
-						LIMIT = {}
-						is_border_war = yes
-					}
-				}
 			}
 			available = {
 				755 = {
@@ -926,12 +914,7 @@ TIB_border_wars = {
 			}
 			allowed = {
 				original_tag = TIB
-				NOT = {
-					any_controlled_state = {
-						LIMIT = {}
-						is_border_war = yes
-					}
-				}
+
 			}
 			available = {
 				759 = {
@@ -948,11 +931,10 @@ TIB_border_wars = {
 				NOT = {
 					controls_state = 759
 				}
-			}		
-			visible = {
 				original_tag = TIB
 				has_completed_focus = TIB_chinese_border_raids
-			}
+			}		
+
 
 			days_remove = 5
 			759 = {
@@ -994,12 +976,7 @@ TIB_border_wars = {
 			}
 			allowed = {
 				original_tag = TIB
-				NOT = {
-					any_controlled_state = {
-						LIMIT = {}
-						is_border_war = yes
-					}
-				}
+
 			}
 			available = {
 				287 = {
@@ -5046,7 +5023,7 @@ TIB_recruitment = { # GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
 				IF = {
 					LIMIT = {
 						NOT = {
-							set_global_flag = TIB_using_militias
+							has_global_flag = TIB_using_militias
 						}
 						set_global_flag = TIB_using_militias
 					}

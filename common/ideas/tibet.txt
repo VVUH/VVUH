@@ -1101,6 +1101,7 @@ ideas = {
 				send_volunteer_size = 6
 				send_volunteers_tension = -1
 				air_volunteer_cap = 2
+				operative_slot = 1
 			}				
 		}		
 		TIB_village_militias = {

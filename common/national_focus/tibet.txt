@@ -2135,12 +2135,16 @@ focus_tree = {
 				search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			all_allied_country = {
-				give_military_access = TIB
+			all_country = {
+				LIMIT = {has_war_together_with = ROOT}
+					give_military_access = ROOT
+
 			}
 			IF = {
-				PRC = {
-					has_war = no
+				LIMIT = {
+					PRC = {
+						has_war = no
+					}
 				}
 				custom_effect_tooltip = TIB_rail_to_capital_tt
 			}ELSE = {
@@ -2357,7 +2361,6 @@ focus_tree = {
 			add_stability = 0.1
 			set_cosmetic_tag = TIB_union_of_asia_tag
 			custom_effect_tooltip = generic_skip_one_line_tt
-			unlock_decision_tooltip = TIB_integrate_state_FROM
 			custom_effect_tooltip = MON_core_asia_tt
 		}
 	}
@@ -2436,7 +2439,7 @@ focus_tree = {
 		completion_reward = {
 			create_faction = "Eastern People's Front"
 			every_country = {
-				limit = {
+				LIMIT = {
 					NOT = {
 						has_war_with = TIB
 						is_major = yes
@@ -2448,7 +2451,6 @@ focus_tree = {
 				}
 					country_event = generic.5
 			}
-		
 		}
 	}
 	focus = {
@@ -3352,12 +3354,16 @@ focus_tree = {
 				search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			all_allied_country = {
-				give_military_access = TIB
+			all_country = {
+				LIMIT = {has_war_together_with = ROOT}
+					give_military_access = ROOT
+
 			}
 			IF = {
-				CHI = {
-					has_war = no
+				LIMIT = {
+					CHI = {
+						has_war = no
+					}
 				}
 				custom_effect_tooltip = TIB_rail_to_capital_tt
 			}ELSE = {
@@ -4687,13 +4693,13 @@ focus_tree = {
 		ai_will_do = {
 			factor = 5
 		}
-				search_filters = {FOCUS_FILTER_STABILITY}
+		search_filters = {FOCUS_FILTER_STABILITY}
 
 		available = {
-			add_stability = 0.1
 		}
 
 		completion_reward = {
+			add_stability = 0.1
 			swap_ideas = {
 				remove_idea = TIB_agri
 				add_idea = TIB_agri_trade
@@ -4746,6 +4752,9 @@ focus_tree = {
 			IF = {
 				LIMIT = {
 					has_idea = TIB_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_agri_soldier
 					add_idea = TIB_central_agri_soldier
 				}
 			}ELSE_IF = {
@@ -4761,9 +4770,9 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = { 
 		id = TIB_citizen_farmlands
-		icon = GFX_goal_generic_neutrality_focus
+		icon = GFX_focus_generic_public_works
 		x = 2
 		y = 1
 		cost = 5
@@ -4781,10 +4790,13 @@ focus_tree = {
 			IF = {
 				LIMIT = {
 					has_idea = TIB_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_agri_soldier
 					add_idea = TIB_citz_agri_soldier
 				}
 			}ELSE_IF = {
-				limit = {
+				LIMIT = {
 					has_idea = TIB_agri_trade
 				}
 				swap_ideas = {
@@ -4817,7 +4829,7 @@ focus_tree = {
 				LIMIT = {
 					has_idea = TIB_central_agri_trade
 				}
-					swap_ideas = {
+				swap_ideas = {
 					remove_idea = TIB_central_agri_trade
 					add_idea = TIB_sub_central_agri_trade
 				}
@@ -5106,7 +5118,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_land_reform
-		icon = GFX_SOV_reverse_the_collectivization_process_ccp_2d_sov_compatibility
+		icon = GFX_goal_generic_neutrality_focus
 		x = 0
 		y = 1
 		cost = 5
