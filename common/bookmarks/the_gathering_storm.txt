@@ -69,6 +69,7 @@ bookmarks = {
 		}
 		"RAJ"={
 			history = "RAJ_GATHERING_STORM_DESC"
+			minor = yes
 			ideology = neutrality
 			ideas = {
 				RAJ_agrarian_society
@@ -78,6 +79,20 @@ bookmarks = {
 				RAJ_all_india_forward_bloc
 				RAJ_indian_gurkhas
 				RAJ_found_economic_union
+			}
+		}
+		"TIB"={
+			history = "TIB_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				TIB_young_dalai_lama
+				TIB_spiritual_society
+				TIB_tibet_class_system
+			}
+			focuses = {
+				TIB_the_regent
+				TIB_constitutional_theocracy
+				TIB_arm_chinese_communists
 			}
 		}
 		"CZE"={

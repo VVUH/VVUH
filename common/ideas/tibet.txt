@@ -1,0 +1,2046 @@
+ideas = {
+# initials;
+
+	country = {
+#lama
+		TIB_young_dalai_lama = {
+
+			picture = YUG_peter_ii_young
+			
+			allowed = {
+				always = no
+			}
+
+			on_remove = {
+				add_stability = -0.1    
+			}
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			modifier = {
+				neutrality_drift = 0.05
+				trade_laws_cost_factor = 0.25
+				mobilization_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+			}
+		}
+		TIB_young_dalai_lama_n = {
+
+			picture = YUG_peter_ii_young
+			
+			allowed = {
+				always = no
+			}
+
+			on_remove = {
+				add_stability = -0.1    
+			}
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			modifier = {
+				neutrality_drift = 0.1
+				stability_factor = 0.1
+				trade_laws_cost_factor = 0.25
+				mobilization_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+			}
+		}
+		TIB_young_dalai_lama_f = {
+
+			picture = YUG_peter_ii_young
+			
+			allowed = {
+				always = no
+			}
+
+			on_remove = {
+				add_stability = -0.1    
+			}
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			modifier = {
+				neutrality_drift = 0.03
+				fascism_drift = 0.1
+				trade_laws_cost_factor = 0.25
+				mobilization_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+			}
+		}
+		TIB_young_dalai_lama_f_puppet = {
+
+			picture = YUG_peter_ii_young
+			
+			allowed = {
+				always = no
+			}
+			cancel = {
+				AND = {
+					NOT = {
+						has_government = neutrality
+					}
+					NOT = {
+						has_government = fascism
+					}
+				}
+			}
+			on_remove = {
+				add_stability = -0.1    
+			}
+			removal_cost = -1
+
+			modifier = {
+				neutrality_drift = 0.01
+				fascism_drift = 0.15
+				trade_laws_cost_factor = -0.25
+				mobilization_laws_cost_factor = -0.25
+				economy_cost_factor = -0.25
+				army_leader_start_level = 1 
+				military_leader_cost_factor = -0.5 
+
+			}
+		}
+#religion
+		TIB_spiritual_society = {
+
+			picture = ARG_social_welfare_fund_ns
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				neutrality_drift = 0.1
+				resistance_decay = 0.1
+				conscription = 0.03
+			}
+		}
+		TIB_spiritual_society_fanatic = {
+
+			picture = GER_reichswerke
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				neutrality_drift = 0.15
+				resistance_decay = 0.15
+				conscription = 0.04
+				weekly_manpower = 300
+			}
+		}
+		TIB_religious_minorities = {
+
+			picture = raj_marginalized_muslim_community
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				war_support_factor = -0.1
+				conscription = -0.02
+			}
+		}
+
+		TIB_equal_beliefs = {
+			
+			picture = raj_marginalized_muslim_community
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.25
+				war_support_factor = 0.1
+				resistance_decay = 0.1
+				conscription = 0.04
+			}
+		}
+#political 
+
+		TIB_crackdown_on_communists = {
+			
+			picture = NOR_anti_communist_sentiment
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				has_government = communism 
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.25
+				communism_drift = -0.2
+			}
+		}
+		TIB_state_food_program = {
+			
+			picture = RAJ_specialized_dietery_requirements
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					original_tag = TIB
+					is_in_faction_with = TIB
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.15
+				production_factory_efficiency_gain_factor = 0.03
+				production_factory_max_efficiency_factor = 0.02
+				monthly_population = 0.1
+				weekly_manpower = 100
+			}
+		}
+#industry
+		TIB_factory_effort1 = {
+			
+			picture = POL_succesful_four_year_plan
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				industrial_capacity_factory = 0.05
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.07
+
+
+			}
+		}
+		TIB_factory_effort2 = {
+			
+			picture = POL_succesful_four_year_plan
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				industrial_capacity_factory = 0.07
+				production_speed_industrial_complex_factor = 0.15
+				production_speed_arms_factory_factor = 0.1
+				production_speed_buildings_factor = 0.05
+				cic_construction_boost = 0.03
+
+			}
+		}	
+#bureaucracy
+		TIB_bureaucracy = {
+
+			picture = tur_tdpa
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				mobilization_laws_cost_factor = 0.25
+				mobilization_speed = -0.5
+				consumer_goods_factor = 0.1
+			}
+		}
+
+		TIB_bureaucracy1 = {
+
+			picture = tur_tdpa
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				mobilization_laws_cost_factor = 0.15
+				mobilization_speed = -0.35
+				consumer_goods_factor = 0.06
+			}
+		}
+#class
+		TIB_tibet_class_system = {
+
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				stability_factor = -0.1
+				drift_defence_factor = -0.2
+				industrial_capacity_factory = -0.2
+			}
+		}
+		TIB_tibet_class_system_pos = {
+
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			cancel = {
+				NOT = {
+					has_government = neutrality 
+				}
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.1
+				war_support_factor = 0.1
+				drift_defence_factor = 0.2
+				army_defence_factor = 0.1
+			}
+		}
+		TIB_tibet_class_system2 = {
+
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				neutrality_drift = -0.2
+				stability_factor = -0.1
+				drift_defence_factor = -0.35
+				industrial_capacity_factory = -0.2
+			}
+		}
+
+		TIB_Tibetan_communists_active = {
+
+			picture = FIN_socialist_welfare
+			
+			allowed = {
+				always = no
+			}
+			cancel = {
+				has_government = communism 
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				communism_drift = 0.15
+			}
+		}
+		TIB_tibet_class_system_c = {
+
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.15
+				neutrality_drift = -0.25
+				stability_factor = -0.1
+				drift_defence_factor = -0.35
+				communism_drift = 0.1
+				industrial_capacity_factory = -0.2
+			}
+		}
+
+		TIB_tibet_empowered_class_system_c = {
+
+			picture = NOR_sivog
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = communism
+				
+			}
+			cancel = {
+				NOT = {
+					has_government = communism 
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.15
+				neutrality_drift = -0.25
+				stability_factor = 0.1
+				drift_defence_factor = 0.1
+				communism_drift = 0.15
+				industrial_capacity_factory = 0.1
+			}
+		}
+		TIB_tibet_class_system_d = {
+
+			picture = COG_the_invisible_roof
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.15
+				neutrality_drift = -0.25
+				stability_factor = -0.1
+				drift_defence_factor = -0.35
+				democratic_drift = 0.15
+				industrial_capacity_factory = -0.2
+			}
+		}
+#politics:
+		TIB_army_of_the_tibetan_empire_0 = { #initial
+
+			picture = usa_tank_destroyer_board
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				fascism_drift = 0.03
+				resistance_decay = 0.1
+				local_non_core_manpower = -0.01
+				conscription = 0.01
+			}
+		}
+		TIB_army_of_the_tibetan_empire_1a = { #tanks
+
+			picture = usa_tank_destroyer_board
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				fascism_drift = 0.04
+				resistance_decay = 0.15
+				local_non_core_manpower = -0.02
+				conscription = 0.02
+				army_attack_factor = 0.05
+				army_attack_speed_factor = 0.1
+				army_armor_attack_factor = 0.1
+				army_armor_defence_factor = 0.05
+
+			}
+		}
+		TIB_army_of_the_tibetan_empire_1b = { #people
+
+			picture = usa_tank_destroyer_board
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				fascism_drift = 0.04
+				resistance_decay = 0.15
+				local_non_core_manpower = 0.01
+				conscription = 0.02
+				army_attack_factor = 0.03
+				army_infantry_attack_factor = 0.1
+				army_infantry_defence_factor = 0.05
+			}
+		}
+		TIB_army_of_the_tibetan_empire_2a = { #tank + workers
+
+			picture = usa_tank_destroyer_board
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				fascism_drift = 0.05
+				resistance_decay = 0.15
+				local_non_core_manpower = -0.05
+				conscription = 0.02
+				army_attack_factor = 0.05
+				army_attack_speed_factor = 0.1
+				army_armor_attack_factor = 0.1
+				army_armor_defence_factor = 0.05
+				industrial_capacity_factory = 0.1
+			}
+		}
+		TIB_army_of_the_tibetan_empire_2b = { #infantry plus workers
+
+			picture = usa_tank_destroyer_board
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				fascism_drift = 0.05
+				resistance_decay = 0.15
+				local_non_core_manpower = -0.01
+				conscription = 0.02
+				army_attack_factor = 0.03
+				army_infantry_attack_factor = 0.1
+				army_infantry_defence_factor = 0.05
+				industrial_capacity_factory = 0.1
+				grant_medal_cost_factor = -0.5
+				field_officer_promotion_penalty = -0.5
+			}
+		}	
+		TIB_army_of_the_tibetan_empire_3 = { #infantry
+
+			picture = usa_tank_destroyer_board
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				fascism_drift = 0.07
+				resistance_decay = 0.2
+				local_non_core_manpower = 0.02
+				conscription = 0.02
+				army_attack_factor = 0.03
+				army_infantry_attack_factor = 0.1
+				army_infantry_defence_factor = 0.05
+				army_org_factor = 0.07
+				industrial_capacity_factory = 0.1
+				grant_medal_cost_factor = -0.5
+				field_officer_promotion_penalty = -0.5
+			}
+		}		
+		TIB_lhasa_doctrine = {
+
+			picture = HUN_the_rakosi_battalion_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					has_government = communism 
+				}
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				communism_drift = 0.03
+				puppet_cost_factor = -0.2
+				subjects_autonomy_gain = -0.5
+				operation_cost = -0.25
+				weekly_manpower = 350 
+				offensive_war_stability_factor	= 0.2
+			}
+		}
+		TIB_himalayan_red_tide = {
+
+			picture = GER_wage_war_on_capitalism
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					has_government = communism 
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {
+				communism_drift = 0.03
+				annex_cost_factor = -0.15
+				equipment_capture_factor = 0.2
+				foreign_subversive_activites = -0.25
+				command_power_gain = 0.1
+				offensive_war_stability_factor	= 0.2
+				non_core_manpower = 0.1
+			}
+		}
+		TIB_the_junta = {
+
+			picture = BRA_estado_novo
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {
+				neutrality_drift = 0.03
+				non_core_manpower = 0.1
+				equipment_capture_factor = 0.2
+				org_loss_at_low_org_factor = -0.2
+			}
+		}
+		TIB_a_modern_theocracy = {
+
+			picture = HUN_agrarian_tradition
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {
+				neutrality_drift = 0.03
+				conscription = 0.02
+				starting_compliance = 0.2
+				out_of_supply_factor = 0.1
+			}
+		}
+		TIB_democratic_law = {
+
+			picture = SOV_scientist_defect
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {
+				stability_weekly = 0.01
+				compliance_gain = 0.01
+				democratic_drift = 0.03
+			}
+		}
+		TIB_revamped_monastaries = {
+
+			picture = ARG_argentine_metropole
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {
+				research_speed_factor = 0.05
+				training_time_army_factor = -0.3
+				non_core_manpower = 0.1
+			}
+		}
+		TIB_sino_tibetan_alignment = {
+
+			picture = chi_warlord_integration5
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				OR = {
+					has_war_with = CHI
+					has_war_with = TIB
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.1
+				industrial_capacity_factory = 0.05
+				industry_repair_factor = 0.1
+				local_resources_factor = 0.1
+			}
+		}
+#army - add mountaineer buff, core atk / def buff, small specialist bbuff, 
+
+		TIB_supplying_mountain_troops = {
+
+			picture = PER_feat_of_engineering_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				supply_node_range = 0.15
+				supply_consumption_factor = -0.1
+				production_speed_supply_node_factor = 0.2
+				production_speed_infrastructure_factor = 0.1
+				production_speed_rail_way_factor = 0.1
+			}
+		}		
+		TIB_highest_region_on_earth1 = {
+
+			picture = generic_wall_line
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				army_core_attack_factor	 = 0.02
+				army_core_defence_factor = 0.07
+				mountaineers_special_forces_contribution_factor = -0.05
+				special_forces_cap = 0.07
+				custom_modifier_tooltip = TIB_peaceout_tt
+			}
+		}
+		TIB_highest_region_on_earth2 = {
+
+			picture = generic_wall_line
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				army_core_attack_factor	 = 0.05
+				army_core_defence_factor = 0.1
+				mountaineers_special_forces_contribution_factor = -0.08
+				special_forces_cap = 0.15
+				recon_factor_while_entrenched = 0.05
+				pocket_penalty = -0.05
+				custom_modifier_tooltip = TIB_peaceout_tt
+			}
+		}		
+		TIB_tibetan_army1 = {
+
+			picture = chi_army_corruption
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.15
+				war_support_factor = -0.1
+				conscription = -0.02
+				industrial_capacity_factory = -0.1
+			}
+		}
+
+		TIB_tibetan_army2 = {
+
+			picture = chi_army_corruption2
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.05
+				war_support_factor = 0.05
+				conscription = 0.01
+				industrial_capacity_factory = -0.05
+			}
+		}
+
+		TIB_tibetan_army3 = {
+
+			picture = chi_army_corruption3
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.15
+				war_support_factor = 0.1
+				conscription = 0.03
+				industrial_capacity_factory = 0.05
+			}
+		}
+		TIB_tibetan_army4_militia = {
+
+			picture = chi_army_corruption3
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				max_command_power = 20
+				command_power_gain = 0.1
+				land_reinforce_rate = 0.07
+				supply_consumption_factor = -0.06
+
+				political_power_gain = 0.15
+				war_support_factor = 0.1
+				conscription = 0.03
+				industrial_capacity_factory = 0.05
+			}
+		}
+		TIB_tibetan_army4_pro = {
+
+			picture = chi_army_corruption3
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				army_org_factor = 0.1
+				land_reinforce_rate = -0.03
+				supply_consumption_factor = 0.03
+				political_power_gain = 0.15
+				war_support_factor = 0.1
+				conscription = 0.03
+				industrial_capacity_factory = 0.05
+			}
+		}
+		TIB_tibetan_army5_pro = {
+
+			picture = chi_army_corruption3
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				max_command_power_mult = 0.2
+				command_power_gain = 0.1
+				experience_gain_army = 0.4
+				army_org_factor = 0.12
+				land_reinforce_rate = -0.03
+				supply_consumption_factor = 0.03
+				political_power_gain = 0.15
+				war_support_factor = 0.1
+				conscription = 0.03
+				industrial_capacity_factory = 0.05
+			}
+		}	
+		TIB_tibetan_army6_pro = {
+
+			picture = AFG_adopt_nufus
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				planning_speed = 0.1
+				recon_factor_while_entrenched = 0.1
+				max_command_power_mult = 0.2
+				command_power_gain = 0.1
+				experience_gain_army = 0.4
+				army_org_factor = 0.13
+				political_power_gain = 0.15
+				war_support_factor = 0.1
+				conscription = 0.03
+				industrial_capacity_factory = 0.05
+			}
+		}
+		TIB_modern_officer_corps = {
+
+			picture = ARG_military_government
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				army_leader_start_level = 1 
+				army_leader_start_attack_level = 1 
+				army_leader_start_logistics_level = 1 
+				military_leader_cost_factor = -0.5 
+				field_officer_promotion_penalty = -0.2
+
+			}
+		}
+		TIB_volunteer1 = {
+			picture = CHL_carabineros_de_chile_fascist
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				send_volunteer_divisions_required = -0.5
+				send_volunteer_size = 4
+				send_volunteers_tension = -1
+				air_volunteer_cap = 1
+			}				
+		}
+		TIB_volunteer2 = {
+			picture = CHL_carabineros_de_chile_neutrality
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteer_size = 6
+				send_volunteers_tension = -1
+				air_volunteer_cap = 2
+				operative_slot = 1
+			}				
+		}		
+		TIB_village_militias = {
+			picture = citizen_militia_1
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				weekly_manpower = 500 
+				army_morale_factor = 0.1
+				experience_gain_army_unit_factor = 0.20
+
+			}	
+		}
+
+		TIB_state_militias = {
+			picture = citizen_militia_2
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				weekly_manpower = 1000 
+				army_morale_factor = 0.15
+				experience_gain_army_unit_factor = 0.25
+				max_dig_in_factor = 0.1
+				army_attack_against_major_factor = 0.05
+				army_breakthrough_against_major_factor = 0.05
+				army_defence_against_major_factor = 0.1
+
+			}	
+		}
+
+		TIB_himalayan_mountaineers_spirit1 = {
+			picture = PER_special_units_division_idea
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				initiative_factor = 0.02
+				mountaineers_special_forces_contribution_factor = -0.08
+				custom_modifier_tooltip = FIN_sami_pathfinders_recon_bonus_tt
+			}
+		}
+		TIB_himalayan_mountaineers_spirit2 = {
+			picture = PER_special_units_division_idea
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				winter_attrition_factor = -0.15
+				acclimatization_cold_climate_gain_factor = 0.25
+				supply_combat_penalties_on_core_factor = -0.1
+				initiative_factor = 0.02
+				mountaineers_special_forces_contribution_factor = -0.1
+				custom_modifier_tooltip = FIN_sami_pathfinders_recon_bonus_tt
+			}
+		}
+		TIB_himalayan_mountaineers_spirit3 = {
+			picture = PER_special_units_division_idea
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				winter_attrition_factor = -0.2
+				acclimatization_cold_climate_gain_factor = 0.3
+				supply_combat_penalties_on_core_factor = -0.1
+				initiative_factor = 0.03
+				mountaineers_special_forces_contribution_factor = -0.15
+				special_forces_cap_flat = 10
+				custom_modifier_tooltip = FIN_sami_pathfinders_recon_bonus_tt
+			}
+		}
+#industry 
+		TIB_feudalism_0 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				consumer_goods_factor = -0.08
+				conscription_factor = -0.07
+			}
+
+		}
+		TIB_feudalism_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				consumer_goods_factor = -0.10
+				conscription_factor = -0.05
+			}
+
+		}
+		TIB_feudalism_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				industrial_capacity_factory = 0.06
+				industrial_capacity_dockyard = 0.06
+				consumer_goods_factor = -0.10
+				conscription_factor = -0.06
+			}
+
+		}
+
+		TIB_feudalism_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				consumer_goods_factor = -0.25
+				conscription_factor = -0.07
+			}
+
+		}
+		TIB_reduce_resistance_to_ash = {
+			picture = AUS_covering_the_phonix_insurance
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				research_speed_factor = -0.05
+				war_support_weekly = 0.01
+				weekly_manpower = 700
+
+			}	
+		}
+		TIB_education_effort = {
+			picture = AUS_women_in_academia
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				research_speed_factor = 0.1
+				stability_weekly = 0.01
+				weekly_manpower = 100
+
+			}	
+		}
+		TIB_reform_0 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				consumer_goods_factor = 0.08
+				conscription_factor = 0.04
+			}
+
+		}
+		TIB_reform_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				consumer_goods_factor = 0.10
+				conscription_factor = 0.05
+			}
+
+		}
+		TIB_reform_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				conscription_factor = 0.06
+			}
+
+		}
+
+#farm
+		TIB_agri = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				local_resources_factor = 0.1
+			}
+		}
+		TIB_agri_trade = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				local_resources_factor = 0.15
+				consumer_goods_factor = -0.1
+			}
+		}
+		
+		TIB_agri_soldier = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				local_resources_factor = 0.15
+				supply_factor = -0.05
+				army_org_regain = 0.1
+				experience_loss_factor = -0.1			
+			}
+		}	
+
+
+		TIB_central_agri_trade = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_factor = 0.15
+				local_resources_factor = 0.15
+				consumer_goods_factor = -0.1
+			}
+		}
+
+		TIB_central_agri_soldier = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_factor = 0.15
+				local_resources_factor = 0.15
+				supply_factor = -0.02
+				army_org_regain = 0.1
+				experience_loss_factor = -0.1			
+			}
+		}
+
+
+		TIB_citz_agri_trade = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				monthly_population = 0.25
+				local_resources_factor = 0.15
+				consumer_goods_factor = -0.1
+			}
+		}
+
+		TIB_citz_agri_soldier = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				monthly_population = 0.25
+				local_resources_factor = 0.15
+				supply_factor = -0.05
+				army_org_regain = 0.1
+				experience_loss_factor = -0.1			
+			}
+		}
+
+		TIB_sub_central_agri_trade = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				global_building_slots = 1
+				political_power_factor = 0.15
+				local_resources_factor = 0.2
+				consumer_goods_factor = -0.1
+			}
+		}
+
+		TIB_sub_central_agri_soldier = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				global_building_slots = 1
+				political_power_factor = 0.15
+				local_resources_factor = 0.2
+				supply_factor = -0.02
+				army_org_regain = 0.1
+				experience_loss_factor = -0.1				
+			}
+		}
+
+		TIB_sub_citz_agri_trade = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				global_building_slots = 1
+				monthly_population = 0.25
+				local_resources_factor = 0.2
+				consumer_goods_factor = -0.1
+			}
+		}
+
+		TIB_sub_citz_agri_soldier = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				global_building_slots = 1
+				monthly_population = 0.25
+				local_resources_factor = 0.2
+				supply_factor = -0.05
+				army_org_regain = 0.1
+				experience_loss_factor = -0.1			
+			}
+		}
+
+
+
+		TIB_bal_central_agri_trade = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				global_building_slots_factor = 0.3
+				political_power_factor = 0.15
+				local_resources_factor = 0.2
+				consumer_goods_factor = -0.1
+			}
+		}
+		
+		TIB_bal_central_agri_soldier = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				global_building_slots_factor = 0.3
+				political_power_factor = 0.15
+				local_resources_factor = 0.2
+				supply_factor = -0.02
+				army_org_regain = 0.1
+				experience_loss_factor = -0.1			
+			}
+		}
+
+
+		TIB_bal_citz_agri_trade = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				global_building_slots_factor = 0.3
+				monthly_population = 0.25
+				local_resources_factor = 0.2
+				consumer_goods_factor = -0.1
+			}
+		}
+
+		TIB_bal_citz_agri_soldier = {
+
+			picture = LIT_invested_in_farms
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				global_building_slots_factor = 0.3
+				monthly_population = 0.25
+				local_resources_factor = 0.2
+				supply_factor = -0.05
+				army_org_regain = 0.1
+				experience_loss_factor = -0.1			
+			}
+		}
+
+		TIB_reward_for_service = {
+
+			picture = PER_white_revolution_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				consumer_goods_factor = -0.2
+				war_support_weekly = 0.01
+				drift_defence_factor = 0.3
+				equipment_capture_factor = 0.25 
+				production_lack_of_resource_penalty_factor = -0.3 
+
+			}
+		}
+
+
+#navy and airforce
+
+# navy
+
+		TIB_the_young_school = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_navy_submarines
+
+			modifier = {
+				industrial_capacity_dockyard = 0.1
+			}
+		}
+
+		TIB_coastal_defense_ships = {
+
+			picture = generic_coastal_defense_ships
+
+			removal_cost = -1
+			
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+
+			}
+
+			equipment_bonus = { #If you change this - Change the custom tooltip too: ROM_coastal_defense_ships_tech_tt
+				ship_hull_cruiser = {
+					armor_value = 0.2
+					hg_attack = 0.1
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			
+				ship_hull_light = {
+					torpedo_attack = 0.2
+					instant = yes
+				}
+			}
+		}
+
+		TIB_the_TIB_airforce_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = KAT_katangese_airforce
+
+			modifier = {
+				experience_gain_air = 0.1
+
+			}
+			
+		}
+
+		TIB_the_TIB_airforce_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = SWE_formation_flying
+
+			modifier = {
+				experience_gain_air = 0.1
+				air_advisor_cost_factor = -0.35
+				air_training_xp_gain_factor = 0.15
+				air_doctrine_cost_factor = -0.05
+				air_range_factor = 0.04
+			}
+			
+		}
+		TIB_the_TIB_airforce_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_air_interception
+
+			modifier = {
+				experience_gain_air = 0.15
+				air_advisor_cost_factor = -0.4
+				air_training_xp_gain_factor = 0.25
+				air_doctrine_cost_factor = -0.10
+				air_fuel_consumption_factor = -0.1
+				air_range_factor = 0.15
+			}
+			
+		}
+		
+		TIB_mountain_transport_planes = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_air_bonus
+
+			modifier = {
+				paratrooper_weight_factor = -0.15
+			}
+		}
+
+		TIB_TIB_special_forces_p = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_aircraft_support
+
+			modifier = {
+				paratrooper_weight_factor = -0.2
+				special_forces_cap = 0.025
+				special_forces_out_of_supply_factor = -0.15
+				paratroopers_special_forces_contribution_factor = -0.1
+				extra_paratrooper_supply_grace = 70
+				paratrooper_aa_defense = 0.5
+			}
+		}
+
+		TIB_TIB_special_forces_m = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = ARG_war_division
+
+			modifier = {
+				special_forces_cap = 0.025
+				special_forces_out_of_supply_factor = -0.1
+				marines_special_forces_contribution_factor = -0.15
+				naval_invasion_prep_speed = 0.05
+				naval_invasion_penalty = -0.15
+			}
+		}
+
+		TIB_the_TIB_merchant_navy = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_sea_focused_navy
+
+			modifier = {
+				transport_capacity = -0.2
+				
+			}
+		}
+
+		TIB_license_foreign_designs = {
+			picture = generic_army_war_college
+
+			allowed = {
+				original_tag = TIB
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				license_purchase_cost = -0.45
+				license_production_speed = 0.15
+			}
+		}
+
+	
+	}
+		industrial_concern = {
+
+			TIB_state_infrastructure = {
+					
+				picture = FIN_outokumpu
+			
+				allowed = {
+					original_tag = TIB
+				}
+				available = { 
+					has_completed_focus = TIB_reaching_places
+				}	
+
+				cost = 75			
+				
+				research_bonus = {
+					industry = 0.15
+				}
+				
+				traits = { linchpin_of_infrastructure }
+			}
+
+			TIB_petrol = {
+				
+				picture = CHL_ejercito_de_chile
+			
+				allowed = {
+					original_tag = TIB
+				}
+
+				available = { 
+					has_completed_focus = TIB_refine_coal
+				}
+			
+
+				cost = 75
+				
+				research_bonus = {
+					synth_resources = 0.1
+					industry = 0.05
+				}
+				
+				traits = { refinery_concern }
+				
+				modifier = {
+					production_speed_synthetic_refinery_factor = 0.05
+				}
+			}
+
+			TIB_rigzin_dorje_ringang= {
+				
+				picture = JAP_mineichi_koga
+
+				
+				allowed = {
+					original_tag = TIB
+				}
+
+				available = {
+					has_completed_focus = TIB_dams_for_power
+				}
+				research_bonus = {
+					electronics = 0.1
+				}
+
+				cost = 100
+				
+				traits = { NOR_hydroelectric_company_trait }
+			}
+
+			TIB_khyenrab_kunzang_mondo= {
+				
+				picture = tur_kamil_tolon
+
+				
+				allowed = {
+					original_tag = TIB
+				}
+
+			
+				research_bonus = {
+					industry = 0.1
+				}
+
+				cost = 100
+				
+				traits = { mining_company }
+			}
+		}
+	
+}

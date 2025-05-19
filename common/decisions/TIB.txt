@@ -1,0 +1,5076 @@
+TIB_formables_cat = {
+    TIB_greater_tibet = {
+
+		icon = GFX_decision_CHL_mapuche_reorganize_the_bolivian_government
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+			state = 757
+			state = 758
+			state = 322
+			state = 604
+            state = 755
+            state = 601 
+            state = 287 
+            state = 759
+            }
+		}
+		available = {
+			controls_state = 757
+			controls_state = 758
+			controls_state = 322
+			#CHI
+			controls_state = 601 
+			#XSM
+            OR = {
+                ROOT = {
+			        controls_state = 604
+		            controls_state = 755
+                }
+                604 = {OWNER = {is_puppet_of = ROOT}}
+                755 = {OWNER = {is_puppet_of = ROOT}}
+            }			
+			#sik
+            OR = {
+                ROOT = {
+			        controls_state = 287
+		            controls_state = 759
+                }
+                287 = {OWNER = {is_puppet_of = ROOT}}
+                759 = {OWNER = {is_puppet_of = ROOT}}
+            }
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = GTIB_unified
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			set_cosmetic_tag = GTIB_unified_tag
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = GTIB_unified
+                757 = { add_core_of = ROOT }
+                758 = { add_core_of = ROOT } 
+                322 = { add_core_of = ROOT }
+
+                287 = { add_core_of = ROOT }
+                759 = { add_core_of = ROOT }
+				IF = {
+					 LIMIT = {
+					 	287 = {OWNER = {is_puppet_of = ROOT}}
+					 }
+					 TIB = {
+						transfer_state = 287
+					 }
+				}
+				IF = {
+					 LIMIT = {
+					 	759 = {OWNER = {is_puppet_of = ROOT}}
+					 }
+					 TIB = {
+						transfer_state = 759
+					 }
+				}
+                601 = { add_core_of = ROOT }
+
+                604 = { add_core_of = ROOT }
+                755 = { add_core_of = ROOT }
+				IF = {
+					 LIMIT = {
+					 	604 = {OWNER = {is_puppet_of = ROOT}}
+					 }
+					 TIB = {
+						transfer_state = 604
+					 }
+				}
+				IF = {
+					 LIMIT = {
+					 	755 = {OWNER = {is_puppet_of = ROOT}}
+					 }
+					 TIB = {
+						transfer_state = 755
+					 }
+				}	
+
+			}
+
+        }
+
+	}
+
+	TIB_central_asian_union = {
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_liberate_central_asia
+		}
+
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = form_country_kazakhstan_required_states
+				controls_state = 402
+				controls_state = 404
+				controls_state = 406
+				controls_state = 407
+				controls_state = 583
+				controls_state = 586
+				controls_state = 587
+				controls_state = 588
+				controls_state = 589
+				controls_state = 590
+				controls_state = 881
+				controls_state = 882
+			}
+			custom_trigger_tooltip = {
+				tooltip = form_country_uzbekistan_required_states
+				controls_state = 405
+				controls_state = 585
+				controls_state = 830
+				controls_state = 823
+				controls_state = 831
+			}
+			controls_state = 732 # Kyrgyzstan
+			controls_state = 742 # Tajikistan
+			controls_state = 584 # Turkmenistan
+			controls_state = 832 # Tashauz
+		}
+
+		visible = {
+			original_tag = MON
+			NOT = { has_global_flag = form_turkestan_flag }
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = turkestan_united
+			add_stability = 0.05
+			add_war_support = 0.1
+
+			# Kazakhstan
+			custom_effect_tooltip = form_country_kazakhstan_coring_states_tt
+			hidden_effect = {
+				402 = { add_core_of = ROOT }
+				404 = { add_core_of = ROOT }
+				406 = { add_core_of = ROOT }
+				407 = { add_core_of = ROOT }
+				583 = { add_core_of = ROOT }
+				586 = { add_core_of = ROOT }
+				587 = { add_core_of = ROOT }
+				588 = { add_core_of = ROOT }
+				589 = { add_core_of = ROOT }
+				590 = { add_core_of = ROOT }
+				881 = { add_core_of = ROOT }
+				882 = { add_core_of = ROOT }
+			}
+			
+			# Turkmenistan
+			584 = { add_core_of = ROOT }
+			
+			# Tashauz
+			832 = { add_core_of = ROOT }
+			
+			# Uzbekistan
+			custom_effect_tooltip = form_country_uzbekistan_coring_states_tt
+			hidden_effect = {
+				405 = { add_core_of = ROOT }
+				585 = { add_core_of = ROOT }
+				830 = { add_core_of = ROOT }
+				823 = { add_core_of = ROOT }
+				831 = { add_core_of = ROOT }
+			}
+			
+			# Kyrgyzstan
+			732 = { add_core_of = ROOT }
+			
+			# Tajikistan
+			742 = { add_core_of = ROOT }
+			
+			# Tuva
+			329 = { add_core_of = ROOT }
+			
+			# Altai
+			654 = { add_core_of = ROOT }
+			40 = { add_core_of = ROOT }
+			
+			# Sinkiang
+			custom_effect_tooltip = form_country_sinkiang_coring_states_tt
+			hidden_effect = {
+				287 = { add_core_of = ROOT }
+				617 = { add_core_of = ROOT }
+				618 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				759 = { add_core_of = ROOT }
+				760 = { add_core_of = ROOT }
+			}
+			IF = {
+				LIMIT = {
+					NOT  ={ has_idea = soldiers_of_the_steppe}
+				}
+				add_ideas = soldiers_of_the_steppe
+			}
+			
+			hidden_effect = {
+				news_event = { id = nsb_news.3 hours = 6 }
+				set_global_flag = form_turkestan_flag
+			}
+		}
+
+	}
+	
+    TIB_integrate_khalistan = {
+	
+		icon = GFX_decision_generic_nationalism
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+			state = 445
+			state = 440
+			state = 987
+			state = 442
+            state = 787
+            state = 986 
+            state = 438 
+			state = 441
+            }
+		}
+		available = {
+			controls_state = 445
+			controls_state = 440
+			controls_state = 987
+			controls_state = 442
+            controls_state = 787
+            controls_state = 986 
+            controls_state = 438 
+			controls_state = 441
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = TIB_integrate_khalistan_flag
+			}
+			has_completed_focus = TIB_religious_equality
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = TIB_integrate_khalistan_flag
+				445 = { add_core_of = ROOT } 
+				440 = { add_core_of = ROOT } 
+				987 = { add_core_of = ROOT }
+				442 = { add_core_of = ROOT } 
+				787 = { add_core_of = ROOT } 
+				986 = { add_core_of = ROOT }
+				438 = { add_core_of = ROOT }
+				441 = { add_core_of = ROOT }
+			}
+
+        }	
+	}
+
+	TIB_integrate_chinese_muslim_land_sik = {
+	
+		icon = GFX_decision_faction_tur_traditionalist
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+				state = 619
+				state = 287
+				state = 759
+				state = 617
+				state = 760
+				state = 618
+            }
+		}
+		available = {
+			controls_state = 619
+			controls_state = 287
+			controls_state = 759
+			controls_state = 617
+			controls_state = 760
+			controls_state = 618
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = TIB_mus_chin_flag_sik
+			}
+			has_completed_focus = TIB_religious_equality
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = TIB_mus_chin_flag_sik
+			
+			ROOT = { #SIK
+				add_state_core = 619
+				add_state_core = 287
+				add_state_core = 759
+				add_state_core = 617
+				add_state_core = 760
+				add_state_core = 618
+			}
+			}
+
+        }	
+	}
+
+	TIB_liberate_pradesh = {
+	
+		icon = GFX_decision_CHL_mapuche_reorganize_the_bolivian_government
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+				state = 434
+
+            }
+		}
+		available = {
+			controls_state = 434
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = TIB_pradesh_freed
+			}
+			has_global_flag = GTIB_unified
+		}
+
+		complete_effect = {
+			add_stability = 0.02
+            add_war_support = 0.05
+		    hidden_effect ={
+                set_global_flag = TIB_pradesh_freed
+			}
+			ROOT = { #SIK
+				add_state_core = 434
+			}
+
+        }	
+	}
+
+	TIB_integrate_chinese_muslim_land_xsm = {
+	
+		icon = GFX_decision_faction_tur_traditionalist
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+				state = 604
+				state = 755
+				state = 756
+				state = 754
+				state = 616
+				state = 753
+				state = 283
+            }
+		}
+		available = {
+				controls_state = 604
+				controls_state = 755
+				controls_state = 756
+				controls_state = 754
+				controls_state = 616
+				controls_state = 753
+				controls_state = 283
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = TIB_mus_chin_flag_xsm
+			}
+			has_completed_focus = TIB_religious_equality
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = TIB_mus_chin_flag_xsm
+			
+			ROOT = { #XSM
+				add_state_core = 604
+				add_state_core = 755
+				add_state_core = 756
+				add_state_core = 754
+				add_state_core = 616
+				add_state_core = 753
+				add_state_core = 283
+			}
+			}
+
+        }	
+	}
+
+	TIB_work_with_the_young_men_bhuddist_org = {
+	
+		icon = GFX_decision_CHL_grant_full_rights_to_the_mapuche
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+				state = 998
+				state = 288
+				state = 997
+				state = 999
+				state = 995
+				state = 996
+				state = 993
+				state = 994
+            }
+		}
+		available = {
+			OR = {
+                ROOT = {
+					controls_state = 998
+					controls_state = 288
+					controls_state = 997
+					controls_state = 999
+					controls_state = 995
+					controls_state = 996
+					controls_state = 993
+					controls_state = 994
+                }
+				998 = {OWNER = {is_puppet_of = ROOT}}
+				288 = {OWNER = {is_puppet_of = ROOT}}
+				997 = {OWNER = {is_puppet_of = ROOT}}
+				999 = {OWNER = {is_puppet_of = ROOT}}
+				995 = {OWNER = {is_puppet_of = ROOT}}
+				996 = {OWNER = {is_puppet_of = ROOT}} 
+				993 = {OWNER = {is_puppet_of = ROOT}}
+				994 = {OWNER = {is_puppet_of = ROOT}} 
+            }
+
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = TIB_brm_flag
+			}
+			has_completed_focus = TIB_bhuddist_supremacy
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			if = {
+				limit = {
+					BRM = {
+						is_subject_of = ROOT
+					}
+				}
+				
+				BRM = {
+					every_unit_leader = {
+						set_nationality = ROOT
+					}
+				}				
+				
+				annex_country = {
+					target = BRM
+					transfer_troops = yes
+				}
+			}
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = TIB_brm_flag
+			
+			ROOT = { #brm
+				add_state_core = 998
+				add_state_core = 288
+				add_state_core = 997
+				add_state_core = 999
+				add_state_core = 995
+				add_state_core = 996
+				add_state_core = 993
+				add_state_core = 994
+			}
+		}
+
+        }	
+	}
+
+	TIB_safeguard_indian_bhuddists = {
+	
+		icon = GFX_decision_CHL_mapuche_liberate_guarani
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+				state = 985
+				state = 990
+				state = 434
+				state = 432
+
+            }
+		}
+		available = {
+			controls_state = 985
+			controls_state = 990
+			controls_state = 434
+			controls_state = 432
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = TIB_raj_bhud_flag
+			}
+			has_completed_focus = TIB_bhuddist_supremacy
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = TIB_raj_bhud_flag
+			
+			ROOT = { #raj
+				add_state_core = 985
+				add_state_core = 990
+				add_state_core = 434
+				add_state_core = 432
+			}
+			}
+
+        }	
+	}
+	
+    TIB_integrate_south_tibetan_empire = {
+
+		icon = GFX_decision_SWE_paid_holidays_policy
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+			state = 430
+			state = 985
+			state = 431
+            }
+		}
+		available = {
+			controls_state = 430
+  			controls_state = 431
+			controls_state = 985
+
+		}
+
+		visible = {
+			has_completed_focus = TIB_reclaim_the_empire
+			original_tag = TIB
+			NOT = {
+				has_global_flag = TIB_integrate_south_tibetan_empire_flag
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			
+            430 = { add_core_of = ROOT }
+            431 = { add_core_of = ROOT } 
+            985 = { add_core_of = ROOT } 
+
+		    hidden_effect ={
+                set_global_flag = TIB_integrate_south_tibetan_empire_flag
+			}
+
+        }
+
+	}
+
+    TIB_himalayan_formable = {
+
+		icon = GFX_decision_CHL_mapuche_liberate_tahiti
+
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+    		highlight_state_targets = { 	
+			state = 757
+			state = 758
+			state = 322		
+			state = 324
+			state = 323
+            }
+		}
+		available = {
+			controls_state = 757
+			controls_state = 758
+			controls_state = 322
+            OR = {
+                ROOT = {
+			        controls_state = 324
+                }
+                324 = {OWNER = {is_puppet_of = ROOT}}
+            }
+            OR = {
+                ROOT = {
+			        controls_state = 323
+                }
+                323 = {OWNER = {is_puppet_of = ROOT}}
+            }
+		}
+
+		visible = {
+			original_tag = TIB
+			NOT = {
+				has_global_flag = TIB_hima_form
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.1
+            add_war_support = 0.05
+			set_cosmetic_tag = TIB_hima
+            if = {
+				limit = {
+					NEP = {
+						is_subject_of = ROOT
+					}
+				}
+				
+				NEP = {
+					every_unit_leader = {
+						set_nationality = ROOT
+					}
+				}				
+				
+				annex_country = {
+					target = NEP
+					transfer_troops = yes
+				}
+			}
+            323 = { add_core_of = ROOT }
+
+            if = {
+				limit = {
+					BHU = {
+						is_subject_of = ROOT
+					}
+				}
+				
+				BHU = {
+					every_unit_leader = {
+						set_nationality = ROOT
+					}
+				}				
+				
+				annex_country = {
+					target = BHU
+					transfer_troops = yes
+				}
+			}
+            324 = { add_core_of = ROOT } 
+
+
+		    hidden_effect ={
+                set_global_flag = TIB_hima_form
+			}
+
+        }
+
+	}
+
+}
+
+TIB_border_wars = {
+		TIB_take_qinghai = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 604 }
+			}
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+				604 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TIB
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 604
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 604
+				}
+			}		
+			visible = {
+				original_tag = TIB
+				has_completed_focus = TIB_chinese_border_raids
+			}
+
+			days_remove = 5
+			604 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 322
+						num_provinces = 3
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 604
+						num_provinces = 2
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+
+		TIB_take_xikang = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 601 }
+			}
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+				601 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TIB
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 601
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 601
+				}
+			}		
+			visible = {
+				original_tag = TIB
+				has_completed_focus = TIB_chinese_border_raids
+			}
+
+			days_remove = 5
+			601 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 757
+						num_provinces = 2
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 601
+						num_provinces = 3
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+		TIB_take_haixi = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 755 }
+			}
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+				755 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TIB
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 755
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 755
+				}
+			}		
+			visible = {
+				original_tag = TIB
+				has_completed_focus = TIB_chinese_border_raids
+			}
+
+			days_remove = 5
+			755 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 604
+						num_provinces = 3
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 755
+						num_provinces = 3
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+		TIB_take_kunlun_shan = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 759 }
+			}
+			allowed = {
+				original_tag = TIB
+
+			}
+			available = {
+				759 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TIB
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 759
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 759
+				}
+				original_tag = TIB
+				has_completed_focus = TIB_chinese_border_raids
+			}		
+
+
+			days_remove = 5
+			759 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 322
+						num_provinces = 2
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 759
+						num_provinces = 2
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+		TIB_take_taklamakan = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 287 }
+			}
+			allowed = {
+				original_tag = TIB
+
+			}
+			available = {
+				287 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TIB
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 287
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 287
+				}
+			}		
+			visible = {
+				original_tag = TIB
+				has_completed_focus = TIB_chinese_border_raids
+			}
+
+			days_remove = 5
+			287 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 322
+						num_provinces = 1
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 287
+						num_provinces = 1
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+}
+
+TIB_decs = {
+	TIB_send_support = {
+		priority = 114
+		icon = ger_military_buildup
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {		}
+
+		fire_only_once = yes
+
+		available = {
+
+		
+		}
+
+		target_trigger = {
+			FROM = {
+				has_government = ROOT
+				is_subject = no
+				AND = {
+					has_war = yes
+					NOT = {
+						has_war_with = TIB
+						TIB = {
+							any_allied_country = {
+								has_war_with = FROM
+							}
+						}
+						FROM = { is_justifying_wargoal_against = ROOT }
+						TIB = { is_justifying_wargoal_against = FROM }
+						FROM = { has_wargoal_against = ROOT }
+						TIB = { has_wargoal_against = FROM }
+					}
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+			has_civil_war = no
+			OR = {
+				has_completed_focus = TIB_forward_guard_operations
+				has_completed_focus = TIB_secure_border		
+			}	
+
+		}
+
+		days_remove = 60
+
+		days_re_enable = 365
+
+		remove_effect = {
+			effect_tooltip = {
+				FROM = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2500
+						producer = TIB
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment
+						amount = 50
+						producer = TIB
+					}
+					add_opinion_modifier = {
+						target = TIB
+						modifier = SOV_sent_us_weapons
+					}
+				}
+			}
+			hidden_effect = {
+				FROM = { country_event = { id = BBA_italy_sends_military_support.1 } }
+			}
+		}
+
+		ai_hint_pp_cost = 25
+		custom_cost_trigger = {
+			has_political_power > 24
+			command_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25_pp_25
+
+		complete_effect = {
+			hidden_effect = {
+				add_political_power = -25
+				add_command_power = -25
+			}
+
+		}
+
+	
+	}
+
+	TIB_negotiate_with_imperialists = { 
+        icon = GFX_decision_eng_propaganda_campaigns
+        priority = 50
+        targets = {ENG}
+		targets_dynamic = no
+        target_trigger = {
+            FROM = {
+                has_war_with = ROOT
+            }
+			is_major = yes
+        }
+        available = {
+            surrender_progress < 0.2
+
+        }
+        cost = 10
+        available = { 
+            war_length_with = {
+                tag = FROM
+                months > 3
+            }
+        }
+        fire_only_once = yes
+        targets_dynamic = yes
+        complete_effect = { 
+			custom_effect_tooltip = TIB_negotiate_with_imperialists_tt
+			any_controlled_state = {
+				LIMIT = {
+					is_core_of = TIB
+					OR = {
+						is_owned_by = RAJ
+						is_owned_by = BRM
+					}
+				}
+				transfer_state_to = TIB
+			}
+            start_peace_conference = {
+                tag = FROM
+                score_factor = 0.0
+            }
+        }
+    }
+
+	TIB_open_up_to_intellectuals = {
+		icon = GFX_decision_hol_exchange_intelligence_data
+		priority = 5
+		ai_will_do = {
+			base = 1
+		}
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			AND = {
+				OR = {
+					has_completed_focus = TIB_foreign_research
+					has_completed_focus = TIB_invite_intellectuals
+					has_completed_focus = TIB_western_ideas
+				}			
+				NOT = {
+					has_country_flag = TIB_clamp_down_narrative
+					has_global_flag = TIB_open_up_intellectual_discourse
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_clamp_down_narrative
+				has_country_flag = TIB_clamping
+			}
+		}
+
+		days_remove = 30
+
+		cost = 50
+		complete_effect = {
+			set_country_flag = TIB_free_speech
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_free_speech
+				set_global_flag = TIB_open_up_intellectual_discourse
+			}
+			add_stability = 0.05
+			add_war_support = 0.1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_breakthrough_points = {
+				specialization = all
+				value = 1
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip  = MON_recruit_advisors_tt
+			show_ideas_tooltip = TIB_giuseppe_tucci
+			show_ideas_tooltip = TIB_ngapoi_zhoigar
+			show_ideas_tooltip = TIB_jigdral_dorje
+		}
+	}
+	TIB_overhaul_school_curriculum = {
+		icon = GFX_decision_ger_mefo_bills
+		priority = 5
+		ai_will_do = {
+			base = 1
+		}
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			AND = {
+				OR = {
+					has_completed_focus = TIB_foreign_research
+					has_completed_focus = TIB_invite_intellectuals
+					has_completed_focus = TIB_western_ideas
+				}			
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_clamping
+				has_country_flag = TIB_free_speech
+			}
+			OR = {
+				has_country_flag = TIB_clamp_down_narrative
+				has_global_flag = TIB_open_up_intellectual_discourse
+			}
+		}
+
+		days_remove = 50
+
+		cost = 300
+		complete_effect = {
+			add_stability = 0.05
+		}
+		remove_effect = {
+			add_research_slot = 1
+		}
+	}
+	
+	TIB_clamp_down_on_national_narrative = {
+		icon = GFX_decision_generic_political_address
+		priority = 10
+		ai_will_do = {
+			base = 10
+		}
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			OR = {
+				has_completed_focus = TIB_foreign_research
+				has_completed_focus = TIB_western_ideas
+				has_completed_focus = TIB_invite_intellectuals
+			}
+			NOT = {
+				has_country_flag = TIB_clamp_down_narrative
+				has_country_flag = TIB_open_up_intellectual_discourse
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_open_up_intellectual_discourse
+				has_country_flag = TIB_free_speech
+			}
+		}
+
+		days_remove = 30
+
+		cost = 50
+		complete_effect = {
+			set_country_flag = TIB_clamping
+		}
+		remove_effect = {
+			add_stability = 0.1
+			add_war_support = 0.15
+			add_manpower = 25000
+			hidden_effect = {
+				clr_country_flag = TIB_clamping
+				set_country_flag = TIB_clamp_down_narrative
+			}
+		}
+	}
+
+		
+	TIB_integrate_state_FROM = {
+		icon = GFX_decision_generic_operation
+		allowed = {
+			original_tag =  TIB
+		}
+		available = {
+				has_completed_focus = TIB_asian_workers_union
+			
+		}
+		
+		visible = {
+			has_completed_focus = TIB_asian_workers_union
+			
+			any_owned_state = {
+				is_on_continent = asia
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	is_fully_controlled_by = ROOT
+		    	is_on_continent = asia
+
+		    	
+				NOT = {
+		    		is_core_of = ROOT
+		    	}
+		    }
+			
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 25
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 10
+				any_owned_state = {
+					NOT = {
+						is_core_of = ROOT
+					}
+					is_on_continent = asia
+				}
+			}
+		}
+		fire_only_once = no
+		days_remove = 20
+
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+			}
+		}
+	}
+
+}
+
+TIB_support_for_tibet = {
+	TIB_cooperate_PRC = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			PRC = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				has_government = ROOT
+				NOT = {
+					has_war_with = TIB 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_regional_cooperation
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = infantry_weapons2 } can_research = infantry_weapons2 }
+				set_technology = {
+					infantry_weapons2  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = infantry_weapons
+				}			
+			}
+        }
+
+	}
+
+	TIB_concessions_SIK = {
+
+		icon = GFX_decision_generic_civil_support
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			SIK = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				has_government = ROOT
+				NOT = {
+					has_war_with = TIB 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_regional_cooperation
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = interwar_artillery } can_research = interwar_artillery }
+				set_technology = {
+					interwar_artillery  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = artillery
+				}			
+			}
+        }
+
+	}
+
+	TIB_influence_MON = {
+
+		icon = GFX_decision_generic_civil_support
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			MON = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				has_government = ROOT
+				NOT = {
+					has_war_with = TIB 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_regional_cooperation
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {AND = {has_tech = dispersed_industry has_tech = concentrated_industry}}}
+				set_technology = {
+					dispersed_industry = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = dispersed_industry_category
+				}			
+			}
+        }
+
+	}
+
+	TIB_exploit_TAN = {
+
+		icon = GFX_decision_generic_civil_support
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			TAN = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				has_government = ROOT
+				NOT = {
+					has_war_with = TIB 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_regional_cooperation
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = construction1} can_research = construction1}
+				set_technology = {
+					construction1 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = construction_tech
+				}			
+			}
+        }
+
+	}
+
+	TIB_seek_SOV_assistance = {
+
+		icon = GFX_decision_onmap_recruit_operative
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			SOV = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				has_government = ROOT
+				NOT = {
+					has_war_with = TIB 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_regional_cooperation
+		}
+
+		days_remove = 90
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			add_resource = {
+				type = steel
+				amount = 10
+				state = 758
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = motorised_infantry  } can_research = motorised_infantry  }
+				set_technology = {
+					motorised_infantry   = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = motorized_equipment
+				}			
+			}
+        }
+
+	}
+
+	TIB_reach_out_to_YUN = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			YUN = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_business_with_warlords
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = interwar_artillery } can_research = interwar_artillery }
+				set_technology = {
+					interwar_artillery  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = artillery
+				}			
+			}
+        }
+
+	}
+	
+	TIB_XSM_joint_operations = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			XSM = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}			
+			}
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = TIB_business_with_warlords
+				AND = {
+					has_completed_focus = TIB_infiltrate_red_snow_brigades
+					XSM = {
+						is_puppet_of = TIB
+					}
+				}
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = infantry_weapons2 } can_research = infantry_weapons2 }
+				set_technology = {
+					infantry_weapons2  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = infantry_weapons
+				}			
+			}
+        }
+
+	}
+
+	TIB_obtain_GXC_resources = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			GXC = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_business_with_warlords
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = excavation1} can_research = excavation1}
+				set_technology = {
+					excavation1 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = excavation_tech
+				}			
+			}
+        }
+
+	}	
+
+	TIB_request_SHX_guidance = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			SHX = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_business_with_warlords
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {AND = {has_tech = dispersed_industry has_tech = concentrated_industry}}}
+				set_technology = {
+					dispersed_industry = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = dispersed_industry_category
+				}			
+			}
+        }
+
+	}	
+
+	TIB_collaborate_with_MAN = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			OR = {
+				has_completed_focus = TIB_fascist_support
+				has_completed_focus = TIB_business_with_warlords
+			}
+			MAN = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			OR = {
+				has_completed_focus = TIB_fascist_support
+				has_completed_focus = TIB_business_with_warlords
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = basic_fortification_tech}}
+				set_technology = {
+					basic_fortification_tech = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = cat_fortification
+				}			
+			}
+        }
+
+	}
+
+	TIB_work_with_MEN = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			OR = {
+				has_completed_focus = TIB_fascist_support
+				has_completed_focus = TIB_business_with_warlords
+			}
+			MAN = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			OR = {
+				has_completed_focus = TIB_fascist_support
+				has_completed_focus = TIB_business_with_warlords
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = tech_recon}}
+				set_technology = {
+					tech_recon = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = support_tech
+				}			
+			}
+        }
+
+	}
+
+	TIB_request_NEP_blueprints = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			NEP = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				exists = yes
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			OR = {			
+				has_completed_focus = TIB_align_territory
+				has_completed_focus = TIB_influence_bhuddists_nearby
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = tech_mountaineers2} can_research = tech_mountaineers2}
+				set_technology = {
+					tech_mountaineers2 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = mountaineers_tech
+				}			
+			}
+        }
+
+	}
+
+	TIB_demand_BHU_secrets = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			BHU = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				exists = yes
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			OR = {			
+				has_completed_focus = TIB_align_territory
+				has_completed_focus = TIB_influence_bhuddists_nearby
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = construction1} can_research = construction1}
+				set_technology = {
+					construction1 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = construction_tech
+				}			
+			}
+        }
+
+	}
+
+	TIB_make_a_deal_with_RAJ = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			RAJ = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				NOT = {
+					has_war_with = TIB 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			OR = {
+				has_completed_focus = TIB_divide_spheres_with_raj
+				has_completed_focus = TIB_influence_bhuddists_nearby
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = improved_machine_tools} can_research = improved_machine_tools}
+				set_technology = {
+					improved_machine_tools = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = cat_production
+				}			
+			}
+        }
+
+	}
+
+	TIB_deepen_bonds_with_ENG = {
+
+		icon = GFX_decision_generic_political_discourse
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			ENG = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			OR = {
+				has_completed_focus = TIB_collaborate_with_british
+				has_completed_focus = TIB_british_weapons
+			}
+		}
+
+		days_remove = 90
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = infantry_weapons2 } can_research = infantry_weapons2 }
+				set_technology = {
+					infantry_weapons2  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = infantry_weapons
+				}			
+			}
+			IF = {
+				limit = {NOT = {has_tech = armored_car1 } can_research = armored_car1 }
+				set_technology = {
+					armored_car1  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = cat_armored_cars
+				}			
+			}
+        }
+
+	}	
+
+	TIB_establish_pan_asian_bonds_with_JAP = {
+
+		icon = GFX_decision_generic_political_address
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			JAP = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = TIB 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_fascist_support
+		}
+
+		days_remove = 90
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}					
+			}
+			IF = {
+				limit = {NOT = {has_tech = excavation1} can_research = excavation1}
+				set_technology = {
+					excavation1 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = excavation_tech
+				}			
+			}
+			IF = {
+				limit = {NOT = {AND = {has_tech = dispersed_industry has_tech = concentrated_industry}}}
+				set_technology = {
+					synth_oil_experiments = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = dispersed_industry_category
+				}			
+			}
+        }
+
+	}
+
+	TIB_seek_GER_assistance = {
+
+		icon = GFX_decision_generic_speech
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = TIB_working_with_someone_flag
+			}
+			GER = {
+				has_opinion = {
+					target = TIB
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				has_government = ROOT
+				NOT = {
+					has_war_with = TIB 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+			has_completed_focus = TIB_fascist_support
+		}
+
+		days_remove = 90
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_someone_flag
+			}
+			add_resource = {
+				type = oil
+				amount = 5
+				state = 758
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = synth_oil_experiments}}
+				set_technology = {
+					synth_oil_experiments = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = synth_resources
+				}			
+			}
+			IF = {
+				limit = {NOT = {has_tech = motorised_infantry  } can_research = motorised_infantry  }
+				set_technology = {
+					motorised_infantry   = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = motorized_equipment
+				}			
+			}
+        }
+
+	}
+
+
+}
+
+TIB_regent_political_dealings = {
+	#flag on decision removal (replace, coup etc) so not both
+	TIB_replace_the_regent = {
+		icon = GFX_decision_SWI_dismiss_council
+		priority = 80
+		ai_will_do = {
+			base = 5
+		}
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			has_completed_focus = TIB_the_regent
+			NOT = { 
+				has_country_leader_with_trait = old_coup_maker
+			}
+		}
+		available = {
+			is_subject = no
+			NOT  = {
+				has_country_flag = TIB_coup_ongoing
+			}
+		}
+
+		days_remove = 30
+
+		cost = 50
+		complete_effect = {
+			remove_country_leader_trait = ICE_the_strict_regent
+			add_country_leader_trait = HUN_the_regent_undermined
+			hidden_effect = {
+				set_country_flag = TIB_regent_being_imprisoned
+			}
+		}
+		remove_effect = {
+			kill_ideology_leader = neutrality
+			hidden_effect = {
+				add_country_leader_trait = NOR_shrewd_regent
+			}
+		}
+	}
+	#flag on decision removal (replace, coup etc) so not both
+	TIB_the_coup = {
+		icon = GFX_decision_SWI_guisan_speech
+		priority = 80
+		ai_will_do = {
+			base = 5
+		}
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			has_completed_focus = TIB_the_regent
+			has_country_leader = {character = TIB_jamphel_yeshe_gyaltsen ruling_only = yes} 
+		}
+		available = {
+			is_subject = no
+			NOT = {
+				has_country_flag = TIB_regent_being_imprisoned
+			}
+			has_country_leader = {character = TIB_jamphel_yeshe_gyaltsen ruling_only = yes}
+		}
+
+		days_remove = 30
+
+		cost = 50
+		complete_effect = {
+			set_country_flag = TIB_coup_ongoing
+		}
+		remove_effect = {
+			remove_country_leader_trait = ICE_the_strict_regent
+			add_country_leader_trait = old_coup_maker
+			remove_ideas = TIB_young_dalai_lama_n
+			set_cosmetic_tag = TIB_unmonastic_commune
+		}
+	}
+
+	TIB_securing_army_loyalty = {
+		icon = GFX_decision_generic_army_support
+		priority = 80
+		ai_will_do = {
+			base = 5
+		}
+		
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			has_completed_focus = TIB_the_regent
+		}
+		available = {
+			is_subject = no
+			OR = {
+				NOT = {
+					has_country_leader = {character = TIB_jamphel_yeshe_gyaltsen ruling_only = yes}
+				}
+				AND = {
+					has_country_leader = {character = TIB_jamphel_yeshe_gyaltsen ruling_only = yes}
+					has_country_leader_with_trait = old_coup_maker
+				}
+			}
+		}
+
+		days_remove = 100
+
+		custom_cost_trigger = {
+			has_political_power > 24
+			command_power > 24
+		}
+
+		custom_cost_text = decision_cost_CP_25_pp_25
+		complete_effect = {
+			hidden_effect = {
+			add_political_power = -25
+			add_command_power = -25
+			}
+		}
+		remove_effect = {
+
+			IF = {
+				LIMIT = {
+					has_country_leader_with_trait = old_coup_maker					
+				}
+				add_country_leader_trait = celebrity_junta_leader
+			}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_tibetan_army1
+				}
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army1
+					add_idea = TIB_tibetan_army2
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army2
+					add_idea = TIB_tibetan_army3
+				}				
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					has_intelligence_agency = no
+				}
+					create_intelligence_agency = { 
+						name = "Tibetan Guard"
+						icon = GFX_intelligence_agency_logo_bul
+					}
+				}
+		}
+	}
+
+
+}
+
+TIB_neighboring_communism_category = {
+
+	TIB_spur_him_communism_decision = {
+		icon = GFX_decision_onmap_recruit_operative
+		priority = 80
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 10
+				FROM = {
+					is_neighbor_of = ROOT
+				}
+			}
+
+			modifier = {
+				factor = 0.1
+				FROM = {
+					is_major = yes
+				}
+			}
+		}
+		
+		fire_only_once = yes
+
+		targets = { NEP BHU SIK XSM AFG}
+
+		target_trigger = {
+			country_exists = FROM
+
+			NOT = { has_war_with = FROM }
+			NOT = { FROM = { is_subject_of = ROOT } }
+			NOT = { is_in_faction_with = FROM }
+			FROM = {
+				has_capitulated = no
+				NOT = { 
+					has_country_flag = TIB_attempt_to_spur_communism_sent_flag 
+					has_government = communism
+				}
+			}
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			has_completed_focus = TIB_infiltrate_red_snow_brigades
+		}
+		available = {
+			is_subject = no
+			FROM = {
+				NOT = {
+					OR = {
+						is_subject = yes
+						has_war_with = ROOT
+						has_government = communism
+					}
+				}
+			}
+		}
+
+		days_remove = 30
+
+		custom_cost_text = decision_cost_CP_25_pp_25
+		ai_hint_pp_cost = 25
+		custom_cost_trigger = {
+			has_political_power > 24
+			command_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25_pp_25
+		complete_effect = {
+			hidden_effect = {
+				add_political_power = -25
+				add_command_power = -25
+			}
+		}
+
+		days_remove = 30
+
+		remove_effect = {
+
+			FROM = {
+				country_event = {
+					id = TIB_political_events.84
+					hours = 12
+				}
+			}
+		}
+	}
+
+	TIB_demand_liberation_of_workers_decision = {
+		icon = GFX_decision_generic_political_rally
+		priority = 80
+		ai_will_do = {
+			base = 2
+			modifier = { #do this sparingly please
+				factor = 0.1
+				is_major = yes
+			}
+		}
+		
+		fire_only_once = yes
+
+		targets = { NEP BHU SIK XSM AFG}
+
+		target_trigger = {
+			country_exists = FROM
+			NOT = { has_war_with = FROM }
+			NOT = { FROM = { is_subject_of = ROOT } }
+			FROM = {
+				has_capitulated = no
+				has_country_flag = TIB_boosting_communism_here_flag
+				NOT = { 
+					has_country_flag = TIB_demand_to_liberate_workers_sent_flag 
+					has_government = communism
+				}
+			}
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+		visible = {
+			has_completed_focus = TIB_infiltrate_red_snow_brigades
+		}
+		available = {
+			is_subject = no
+			FROM = {
+				is_subject = no
+				NOT = {
+					OR = {
+						has_war_with = ROOT
+						has_government = communism
+					}
+				}
+			}
+		}
+
+		days_remove = 50
+
+		cost = 50
+
+		
+		complete_effect = {
+
+		}
+
+		remove_effect = {
+
+			FROM = {
+				country_event = {
+					id = TIB_political_events.87
+					hours = 12
+				}
+				set_country_flag = TIB_demand_to_liberate_workers_sent_flag 
+			}
+		}
+	}
+	
+	TIB_strongarm_FROM = {
+		priority = 114
+		icon = GFX_decision_oppression
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {		}
+
+		fire_only_once = yes
+
+		available = {
+			TIB = { has_government = communism }
+			FROM = {
+				is_ai = yes
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				has_government = ROOT
+				is_subject = no
+				is_ai = yes
+				AND = {
+					has_country_flag = TIB_demand_to_liberate_workers_sent_flag
+					is_neighbor_of = ROOT
+					NOT = {
+						controls_province = 705
+						controls_province = 604
+						has_war_with = TIB
+						MON = {
+							any_allied_country = {
+								has_war_with = FROM
+							}
+						}
+						FROM = { is_justifying_wargoal_against = ROOT }
+						TIB = { is_justifying_wargoal_against = FROM }
+						FROM = { has_wargoal_against = ROOT }
+						TIB = { has_wargoal_against = FROM }
+					}
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+			has_civil_war = no
+				has_completed_focus = TIB_infiltrate_red_snow_brigades			
+		}
+
+		days_remove = 60
+
+		days_re_enable = 365
+
+		remove_effect = {
+			puppet = FROM
+		}
+
+		cost = 75
+
+		complete_effect = {
+
+
+		}
+
+	
+	}
+}
+
+TIB_collab_japan = {
+   TIB_collab_with_jap = {
+
+		icon = GFX_decision_jap_conquer_china
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_enemy_country = {
+				surrender_progress < 0.9
+			}
+			NOT = {
+				has_global_flag = TIB_working_with_jap_flag
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_jap_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_jap_flag
+			}
+			add_command_power = 100
+			add_war_support = 0.1
+			add_stability = 0.1
+			add_political_power = 100
+
+			diplomatic_relation = {
+				country = JAP
+				relation = non_aggression_pact
+				active = yes
+			}
+			TIB = {give_military_access = JAP}
+			JAP = {give_military_access = TIB}
+
+        }
+
+	}
+   TIB_japanese_fund_raise = {
+
+		icon = GFX_decision_generic_fundraising
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_enemy_country = {
+				surrender_progress < 0.9
+			}
+			NOT = {
+				has_global_flag = TIB_working_with_jap_flag
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+	
+		}
+
+		days_remove = 60
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_jap_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_jap_flag
+			}
+			add_offsite_building = { type = arms_factory level = 2}
+			add_offsite_building = { type = industrial_complex level = 2 }
+			JAP = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = USA_special_relationship
+				}
+			}
+			TIB = {
+				add_opinion_modifier = {
+					target = JAP
+					modifier = USA_special_relationship
+				}
+			}
+
+
+        }
+
+	}
+   TIB_jap_immigration = {
+
+		icon = GFX_decision_hol_radio_oranje
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_enemy_country = {
+				surrender_progress < 0.9
+			}
+			NOT = {
+				has_global_flag = TIB_working_with_jap_flag
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+	
+		}
+
+		days_remove = 120
+
+
+		
+		complete_effect = {
+			set_global_flag = TIB_working_with_jap_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_jap_flag
+			}
+			add_manpower = 30000
+			every_core_state = {
+				add_manpower = 50000
+			}
+
+        }
+
+	}
+   TIB_work_with_jap_orgs = {
+
+		icon = GFX_decision_jap_pacific_guardian
+		fire_only_once = yes
+		allowed = {
+			original_tag = TIB
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_enemy_country = {
+				surrender_progress < 0.9
+			}
+			NOT = {
+				has_global_flag = TIB_working_with_jap_flag
+			}
+		}
+
+		visible = {
+			original_tag = TIB
+	
+		}
+
+		days_remove = 60
+
+		complete_effect = {
+			set_global_flag = TIB_working_with_jap_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = TIB_working_with_jap_flag
+				TIB = { 
+					set_country_flag = TIB_working_with_japanese_org_flag
+				}
+			}
+			army_experience = 25
+			navy_experience = 15
+			air_experience = 15
+ 			custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisor_tt
+            show_ideas_tooltip = TIB_jinzo_nomoto
+        }
+
+	}
+}
+
+TIB_loot_conquest = { 
+	TIB_pillage_arms_industry = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  TIB
+		}
+		available = {
+			has_completed_focus = TIB_exploit_conquest_for_economy
+			NOT = {
+				has_country_flag = TIB_moving_factory
+			}
+		}
+		
+		visible = {
+
+			any_owned_state = {
+				is_on_continent = asia
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	is_fully_controlled_by = ROOT
+		    	is_on_continent = asia
+		    	NOT = {
+		    		is_core_of = ROOT
+		    	}
+				arms_factory > 0
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 25
+		ai_will_do = {
+			base = 0
+		}
+		fire_only_once = no
+		days_remove = 40
+
+		complete_effect = {
+			add_stability = -0.01
+			set_country_flag = TIB_moving_factory
+		}
+
+		remove_effect = {
+			clr_country_flag = TIB_moving_factory
+			FROM = {
+				add_resistance = 10
+				add_compliance	= -10
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			random_controlled_state = {
+				LIMIT = {
+					is_core_of = TIB
+				}
+				add_extra_state_shared_building_slots = 1
+
+				add_building_construction = {
+				
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+
+	TIB_pillage_civilian_industry = {
+		icon = GFX_decision_generic_scorched_earth
+		allowed = {
+			original_tag =  TIB
+		}
+		available = {
+			has_completed_focus = TIB_exploit_conquest_for_economy
+			NOT = {
+				has_country_flag = TIB_moving_factory
+			}
+			
+		}
+		
+		visible = {
+			any_owned_state = {
+				is_on_continent = asia
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	is_fully_controlled_by = ROOT
+		    	is_on_continent = asia
+		    	NOT = {
+		    		is_core_of = ROOT
+		    	}
+				civilian_factories > 0
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 25
+		ai_will_do = {
+			base = 0
+		}
+		fire_only_once = no
+		days_remove = 40
+		
+		complete_effect = {
+			add_stability = -0.01
+			set_country_flag = TIB_moving_factory
+		}
+
+		remove_effect = {
+			clr_country_flag = TIB_moving_factory
+			FROM = {
+				add_resistance = 10
+				add_compliance	= -10
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_controlled_state = {
+				LIMIT = {
+					is_core_of = TIB
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}	
+
+TIB_democracies = {
+	#india aligned ones - theocracy
+	TIB_referendum_in_sikkim = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_regional_pressure
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_SIK_says_no_flag
+					has_country_flag = TIB_held_sikkim_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 985
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 985
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 985
+			}
+		}
+
+		available = {
+			985 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_regional_pressure
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.1
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_sikkim_ref_flag
+				}
+			}
+		}
+	}	
+
+	TIB_referendum_in_pradesh = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_regional_pressure
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_rajpradesh_says_no_flag
+					has_country_flag = TIB_held_pradesh_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 434
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 434
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 434
+			}
+		}
+
+		available = {
+			434 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_regional_pressure
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.4
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_pradesh_ref_flag
+				}
+			}
+		}
+	}	
+	
+	TIB_referendum_in_kashmir = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_regional_pressure
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_rajkashmir_says_no_flag
+					has_country_flag = TIB_held_kashmir_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 441
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 441
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 441
+			}
+		}
+
+		available = {
+			441 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_regional_pressure
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.7
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_kashmir_ref_flag
+				}
+			}
+		}
+	}
+
+	TIB_referendum_in_northkashmir = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_regional_pressure
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_rajnorthkashmir_says_no_flag
+					has_country_flag = TIB_held_nkashmir_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 787
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 787
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 787
+			}
+		}
+
+		available = {
+			787 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_regional_pressure
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.10
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_nkashmir_ref_flag
+				}
+			}
+		}
+	}	
+
+	TIB_referendum_in_manipur = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_regional_pressure
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_rajmanipur_says_no_flag
+					has_country_flag = TIB_held_manipur_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 990
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 990
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 990
+			}
+		}
+
+		available = {
+			990 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_regional_pressure
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.13
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_nkashmir_ref_flag
+				}
+			}
+		}
+	}	
+
+	# chi aligned ones -chi aligned republic
+	TIB_referendum_in_yarkand = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_responsible_expansionism
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_sikyarkand_says_no_flag
+					has_country_flag = TIB_held_yarkand_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 619
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 619
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 619
+			}
+		}
+
+		available = {
+			619 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_responsible_expansionism
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.16
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_yarkand_ref_flag
+				}
+			}
+		}
+	}		
+
+	TIB_referendum_in_golog = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_responsible_expansionism
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_xsmgolog_says_no_flag
+					has_country_flag = TIB_held_golog_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 754
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 754
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 754
+			}
+		}
+
+		available = {
+			754 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_responsible_expansionism
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.19
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_golog_ref_flag
+				}
+			}
+		}
+	}	
+
+	TIB_referendum_in_gansu = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_responsible_expansionism
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_xsmgansu_says_no_flag
+					has_country_flag = TIB_held_gansu_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 283
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 283
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 283
+			}
+		}
+
+		available = {
+			283 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_responsible_expansionism
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.22
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_gansu_ref_flag
+				}
+			}
+		}
+	}	
+	
+	TIB_referendum_in_gannan = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_responsible_expansionism
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_xsmgannan_says_no_flag
+					has_country_flag = TIB_held_gannan_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 753
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 753
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 753
+			}
+		}
+
+		available = {
+			753 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_responsible_expansionism
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.25
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_gannan_ref_flag
+				}
+			}
+		}
+	}	
+
+	TIB_referendum_in_ganzi = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_responsible_expansionism
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_chiganzi_says_no_flag
+					has_country_flag = TIB_held_ganzi_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 752
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 752
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 752
+			}
+		}
+
+		available = {
+			752 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_responsible_expansionism
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.28
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_ganzi_ref_flag
+				}
+			}
+		}
+	}	
+
+	TIB_referendum_in_liangshan = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_responsible_expansionism
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_chiliangshan_says_no_flag
+					has_country_flag = TIB_held_liangshan_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 751
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 751
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 751
+			}
+		}
+
+		available = {
+			751 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_responsible_expansionism
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.31
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_liangshan_ref_flag
+				}
+			}
+		}
+	}	
+
+}
+
+
+TIB_faith = {
+	TIB_religious_alignment_decision_of_FROM = {
+		state_target = yes
+		target_root_trigger = {
+			OR = {
+			has_completed_focus = TIB_fund_monastaries
+			has_completed_focus = TIB_monastaries_for_the_people
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = TIB
+				is_core_of = TIB
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = devout_believers
+					}
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_investing_in_region_alignment
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_SOV_place_hq
+		days_remove = 50
+		cost = 40
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_region_alignment
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_region_alignment
+			}
+			from = {			
+				add_dynamic_modifier = { modifier = devout_believers}
+			}
+		}
+	}	
+}
+
+TIB_power = {
+	TIB_electrify_FROM = {
+		state_target = yes
+		target_root_trigger = {
+			has_completed_focus = TIB_electrify_country
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = TIB
+				is_core_of = TIB
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = MON_electrified
+					}
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_investing_in_electrification
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_electricity
+		days_remove = 40
+		cost = 30
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_electrification
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_electrification
+			}	
+			FROM = {
+				add_dynamic_modifier = { modifier = MON_electrified}
+				add_extra_state_shared_building_slots = 1	
+			}
+		}
+	}	
+
+	TIB_dam_the_eastern_pangong_channels = {
+		targets = {758}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			has_completed_focus = TIB_dams_for_power
+			NOT = {
+				has_global_flag = TIB_dammed_pangong
+			}	
+		}
+		available = {
+			758 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_pangong
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_pangong
+			}		
+			758 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 10802
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+	
+	TIB_dam_nepal{
+		targets = {323}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			has_completed_focus = TIB_dams_for_power
+			NOT = {
+				has_global_flag = TIB_dammed_nepal
+			}	
+		}
+		available = {
+			323 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_nepal
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_nepal
+			}		
+			323 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 4386
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_east_bengal{
+		targets = {430}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			has_completed_focus = TIB_cross_the_mountains
+			NOT = {
+				has_global_flag = TIB_dammed_bengal
+			}
+		}
+		available = {
+			430 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_bengal
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_bengal
+			}		
+			430 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 4162
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}	
+	
+	TIB_dam_pradesh{
+		targets = {434}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_liberate_arunachal_pradesh
+				has_completed_focus = TIB_bhuddist_supremacy
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_pradesh
+			}
+		}
+		available = {
+			434 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_pradesh
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				set_global_flag = TIB_dammed_pradesh
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			434 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 1116
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_assam{
+		targets = {432}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			has_completed_focus = TIB_collaborate_with_british
+			NOT = {
+				has_global_flag = TIB_dammed_assam
+			}
+		}
+		available = {
+			432 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_assam
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				set_global_flag = TIB_dammed_assam
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			432 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 13208
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_saging{
+		targets = {998}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_collaborate_with_british
+				has_completed_focus = TIB_bhuddist_supremacy
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_saging
+			}
+		}
+		available = {
+			998 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_saging
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_assam
+			}		
+			998 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 10386
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_magwe{
+		targets = {288}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_collaborate_with_british
+				has_completed_focus = TIB_bhuddist_supremacy
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_magwe
+			}
+		}
+		available = {
+			288 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_magwe
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_magwe
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			288 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 4541
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_shan{
+		targets = {999}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_collaborate_with_british
+				has_completed_focus = TIB_bhuddist_supremacy
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_shan
+			}
+		}
+		available = {
+			999 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_shan
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+			set_global_flag  = TIB_dammed_shan
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			999 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 7603
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_yunnan{
+		targets = {325}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			has_completed_focus = TIB_reclaim_the_empire
+			NOT = {
+				has_global_flag = TIB_dammed_yunnan
+			}
+		}
+		available = {
+			325 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_yunnan
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_yunnan
+			}		
+			325 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 12282
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_n_kashmir{
+		targets = {787}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_regional_pressure
+				has_completed_focus = TIB_religious_equality
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_kashmir
+			}
+		}
+		available = {
+			787 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_kashmir
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_kashmir
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+			}		
+			787 = {
+				add_extra_state_shared_building_slots = 1	
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 2041
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+
+	TIB_dam_yarkand{
+		targets = {619}
+		state_target = yes 
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_construction
+		days_remove = 100
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = TIB_secure_the_wakhan_corridor
+				has_completed_focus = TIB_responsible_expansionism
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_yarkand
+			}
+		}
+		available = {
+			619 = {
+				is_owned_and_controlled_by  = ROOT
+			}
+			NOT = {
+				has_global_flag = TIB_dammed_yarkand
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_investing_in_a_dam
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_investing_in_a_dam
+				set_global_flag = TIB_dammed_yarkand
+			}		
+			619 = {
+				add_extra_state_shared_building_slots = 1	
+
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 7790
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+		}
+	}
+}
+
+
+TIB_recruitment = { # GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
+	TIB_forceful_recruitment = {
+		state_target = yes
+		target_root_trigger = {
+			has_completed_focus = TIB_training_and_recruitment
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = TIB
+				NOT = {
+					has_state_flag = TIB_forceful_recruited
+				}
+				OR = {
+					is_core_of = TIB
+					compliance > 25
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_forceful_recruiting
+			}
+		}
+		visible = {
+			NOT = {
+				FROM = {has_state_flag = TIB_forceful_recruited}
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_ITA_reorganize_ascari
+		days_remove = 40
+		cost = 10
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_forceful_recruiting
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				FROM = {
+					set_state_flag = TIB_forceful_recruited
+				}
+				clr_country_flag = TIB_forceful_recruiting
+			}		
+			add_stability = -0.01
+			add_manpower = 8000
+		}
+	}
+
+	TIB_integrate_village_militia = { #doesnt go away, state flag broken?
+		state_target = yes
+		target_root_trigger = {
+			has_completed_focus = TIB_irregular_groups
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = TIB
+				NOT = {
+					has_state_flag = TIB_extracted_irregular_groups_flg
+				}
+				OR = {
+					is_core_of = TIB
+					compliance > 25
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = TIB_forceful_recruiting
+			}
+		}
+		visible = {
+			NOT = {
+				FROM={has_state_flag = TIB_extracted_irregular_groups_flg}
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_CHL_grant_full_rights_to_the_mapuche
+		days_remove = 40
+		cost = 10
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_forceful_recruiting
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_forceful_recruiting
+				FROM = {set_state_flag = TIB_extracted_irregular_groups_flg}
+				IF = {
+					LIMIT = {
+						NOT = {
+							has_global_flag = TIB_using_militias
+						}
+						set_global_flag = TIB_using_militias
+					}
+				}
+			}		
+			add_war_support = 0.01
+			FROM = { #"Dmag Mi"
+				create_unit = {
+					division = "division_template =\"Dmag Mi\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+					owner = TIB
+					count = 1
+				}				
+			}
+		}
+		
+	}	
+
+	TIB_send_them_home = {#doesnt show up
+		available = {
+			has_completed_focus = TIB_irregular_groups
+		}
+		visible = {
+			NOT = {
+				has_country_flag = TIB_disbanded_village_militias
+			}
+			has_global_flag = TIB_using_militias
+			has_completed_focus = TIB_irregular_groups
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		days_remove = 40
+		cost = 10
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = TIB_sending_militia_home
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = TIB_sending_militia_home
+				set_country_flag = TIB_disbanded_village_militias
+			}
+			custom_effect_tooltip = TIB_they_aint_coming_back_tt
+			delete_unit_template_and_units = {
+				division_template = "Dmag Mi"
+				disband = yes #will refund equipment and manpower
+			}
+		}
+	}
+}
+

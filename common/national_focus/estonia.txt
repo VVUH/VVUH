@@ -1969,7 +1969,6 @@ focus_tree = {
 		id = EST_finno_estonian_supremacy_league
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = EST_national_pride_in_finland }
-		mutually_exclusive = { focus = EST_unite_our_nations }
 		x = 0
 		y = 1
 		relative_position_id = EST_national_pride_in_finland
@@ -1993,6 +1992,9 @@ focus_tree = {
 		}
 
 		bypass = {
+			FIN = {
+				exists = no
+			}	
 		}
 
 		cancel_if_invalid = yes
@@ -2058,7 +2060,6 @@ focus_tree = {
 		id = EST_unite_our_nations
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = EST_national_pride_in_finland }
-		mutually_exclusive = { focus = EST_finno_estonian_supremacy_league }
 		x = 2
 		y = 1
 		relative_position_id = EST_national_pride_in_finland
