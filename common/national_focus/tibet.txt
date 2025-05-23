@@ -424,6 +424,9 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_religious_alignment_decision_of_FROM
 			custom_effect_tooltip = TIB_religious_alignment_tt
+			capital_scope = {
+				add_dynamic_modifier = { modifier = centre_of_mongol_belief}
+			}
 		}
 	}
 
@@ -3236,7 +3239,9 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = TIB_religious_alignment_decision_of_FROM
 			custom_effect_tooltip= TIB_religious_alignment_tt
-
+			capital_scope = {
+				add_dynamic_modifier = { modifier = centre_of_mongol_belief}
+			}
 		}
 	}
 	focus = { #relocate
