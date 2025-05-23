@@ -1,0 +1,184 @@
+ideas = {
+# initials;
+
+	country = {
+		SAU_sunni_minorities = {
+
+			picture = raj_marginalized_muslim_community
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				war_support_factor = -0.1
+				conscription = -0.01
+				neutrality_drift = -0.05
+			}
+		}
+		SAU_the_ulema = {
+
+			picture = PER_adult_literacy_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				mobilization_speed = 0.3
+				local_intel_to_enemies = -0.1
+				army_core_defence_factor = 0.05
+			}
+		}	
+		SAU_hajj_pilgrims = {
+
+			picture = ITA_battaglie_per_la_nascite
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #buff 
+				weekly_manpower = 50
+				political_power_gain = 0.25
+				monthly_population = 0.1
+
+			}
+		}
+		SAU_limited_agri = {
+
+			picture = RAJ_state_of_famine_country
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				local_resources_factor = -0.1
+				stability_factor = -0.1
+				economy_cost_factor = 0.5
+			}
+		}
+
+		SAU_poor_country = {
+
+			picture = chi_hyper_inflation
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				consumer_goods_factor = 0.1
+				production_factory_efficiency_gain_factor = -0.05
+				production_factory_max_efficiency_factor = -0.1
+				industry_repair_factor = -0.1
+				drift_defence_factor = -0.3
+			}
+		}
+
+
+
+
+
+
+	}
+
+
+		industrial_concern = {
+
+			SAU_state_infrastructure = {
+					
+				picture = FIN_outokumpu
+			
+				allowed = {
+					original_tag = SAU
+				}
+				available = { 
+					has_completed_focus = SAU_reaching_places
+				}	
+
+				cost = 75			
+				
+				research_bonus = {
+					industry = 0.15
+				}
+				
+				traits = { linchpin_of_infrastructure }
+			}
+
+			SAU_petrol = {
+				
+				picture = CHL_ejercito_de_chile
+			
+				allowed = {
+					original_tag = SAU
+				}
+
+				available = { 
+					has_completed_focus = SAU_refine_coal
+				}
+			
+
+				cost = 75
+				
+				research_bonus = {
+					synth_resources = 0.1
+					industry = 0.05
+				}
+				
+				traits = { refinery_concern }
+				
+				modifier = {
+					production_speed_synthetic_refinery_factor = 0.05
+				}
+			}
+
+			SAU_state_mining_company= {
+				
+				picture = tur_kamil_tolon
+
+				
+				allowed = {
+					original_tag = SAU
+				}
+
+			
+				research_bonus = {
+					industry = 0.1
+				}
+
+				cost = 100
+				
+				traits = { mining_company }
+			}
+		}
+	
+}

@@ -1,0 +1,1236 @@
+characters={
+	SAU_abdulaziz_ibn_saud={
+		name="Abdulaziz Ibn Saud"
+		portraits={
+			civilian={
+				large=GFX_portrait_Abdulaziz_Ibn_Saud
+			}
+		}
+		country_leader = {
+			traits  = {
+				PER_rightful_king_trait 
+			}
+			ideology=despotism
+		}
+	}
+	SAU_khalid_ibn_saud={
+		name="Khalid bin Abdulaziz Al Saud"
+		portraits={
+			civilian={
+				large = GFX_portrait_AFG_amanullah_khan
+				small = GFX_portrait_AFG_amanullah_khan_small
+			}
+		}
+		country_leader = {
+			traits  = {
+				PER_rightful_king_trait
+				hedonist 
+			}  
+			ideology=despotism
+	
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_khalid_ibn_saud
+			cost = 150
+			visible = {
+				AND = {
+					NOT = {
+						OR = {
+							has_country_leader = SAU_abdulaziz_ibn_saud
+							has_country_leader = SAU_khalid_ibn_saud
+						}
+					}
+					has_government = neutrality
+				}
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				PER_disinherited_heir_trait
+			}
+		}
+	}
+	SAU_faisal_ibn_saud={
+		name="Faisal bin Abdulaziz Al Saud "
+			portraits = {
+				civilian = {
+					large = GFX_portrait_PER_mohammed_reza_pahlavi
+					small = GFX_portrait_PER_mohammed_reza_pahlavi_small
+				}
+				army = {
+					large = GFX_portrait_PER_mohammed_reza_pahlavi
+					small = GFX_portrait_PER_mohammed_reza_pahlavi_small			
+				}
+			}
+		country_leader = {
+			traits  = {
+				RAJ_GOE_scholar_king
+			}
+			ideology=despotism
+		}
+		advisor={
+			visible = {
+				has_government = neutrality
+			}
+			slot = army_chief
+			idea_token = SAU_faisal_ibn_saud
+			allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					army_chief_maneuver_2 
+				}
+				ai_will_do  = {
+					factor  = 5.000
+				}
+		}
+		corps_commander = {
+			visible = {
+				has_government = neutrality
+			}
+			traits = {politically_connected brilliant_strategist}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	#demo leader
+	SAU_al_ateeqi ={ 
+		name= "Abdulaziz Al Ateeqi"
+		portraits={
+			army={
+				small="GFX_idea_tur_adnan_menderes"
+				large="GFX_portrait_tur_adnan_menderes"
+			}
+			civilian = {
+				small="GFX_idea_tur_adnan_menderes"
+				large = "GFX_portrait_tur_adnan_menderes"
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_al_ateeqi
+			cost = 150
+			visible = {
+				NOT = {
+					has_country_leader = SAU_al_ateeqi
+				}
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				IRQ_minister_of_education
+			}
+		}
+		country_leader = {
+			traits  = {
+				backed_by_political_coalition 
+			}
+			ideology=conservatism
+		}
+		corps_commander = {
+			visible = {has_government = democratic}
+			traits = {infantry_leader trait_cautious}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 3
+		}
+	}
+	SAU_yusuf_yasin ={ 
+		name= "Yusuf Yasin"
+		portraits={
+			civilian = {
+				small = GFX_portrait_PER_ahmad_amir_ahmadi_small
+				large = GFX_portrait_PER_ahmad_amir_ahmadi
+
+			}
+			army={
+				large = GFX_portrait_PER_ahmad_amir_ahmadi
+				small = GFX_portrait_PER_ahmad_amir_ahmadi_small
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_yusuf_yasin
+			cost = 150
+			visible = {
+				has_government = neutrality
+			}
+			available = {
+				has_government = neutrality
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {#as advisor
+				IRQ_nationalist
+			}
+		}
+		country_leader = {
+			traits  = {
+				IRQ_knight_of_arabism 
+			}
+			ideology=fascism_ideology
+		}
+		corps_commander = {
+			traits = {cavalry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+
+	SAU_mansur_saud={
+		name="Mansour Al Saud"
+		portraits={
+			civilian={
+				large = GFX_portrait_PER_ghulam_yahya_daneshian
+				small = GFX_portrait_PER_ghulam_yahya_daneshian_small
+			}
+			army={
+				large = GFX_portrait_PER_ghulam_yahya_daneshian
+				small = GFX_portrait_PER_ghulam_yahya_daneshian_small
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_mansur_saud
+			cost = 150
+			visible = {
+				has_government = neutrality
+			}
+			available = {
+				SAU_mishaal_al_saud = {
+					is_hired_as_advisor = no
+				}
+
+			}
+			visible = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				BRA_minister_of_defense
+			}
+		}
+		corps_commander = {
+			visible = {
+				has_government = neutrality
+			}
+			traits = {politically_connected old_guard}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	SAU_nasser_saud={
+		name="Nasser Al Saud"
+		portraits={ # to do 
+			civilian={
+				small = GFX_portrait_arabia_generic_land_6_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_nasser_saud
+			cost = 150
+			visible = {
+				has_government = neutrality
+			}
+			available = {
+
+			}
+			visible = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				silent_workhorse
+			}
+		}
+	}
+	SAU_sara_saud={
+		name="Sara Al Saud"
+		portraits={ # to do 
+			civilian={
+				small = GFX_portrait_PAL_tarab_abdul_hadi_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_nasser_saud
+			cost = 150
+			visible = {
+				has_government = neutrality
+			}
+			available = {
+
+			}
+			visible = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				AUS_resourceful_princess
+			}
+		}
+	}
+	SAU_muhammad_saud={
+		name="Muhammad Al Saud"
+		portraits={ # to do 
+			civilian={
+				large = GFX_portrait_arabia_generic_land_5
+				small = GFX_portrait_arabia_generic_land_5_small
+			}
+			army={
+				large = GFX_portrait_arabia_generic_land_5
+				small = GFX_portrait_arabia_generic_land_5_small
+			}
+		}
+		
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_muhammad_saud
+			cost = 150
+			visible = {
+
+			}
+			available = {
+
+			}
+			visible = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				ARG_conservative_traditionalist
+			}
+		}
+		corps_commander = {
+			visible = {
+				has_government = neutrality
+			}
+			traits = {politically_connected old_guard}
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	SAU_mishaal_al_saud={
+		name="Mishaal Al Saud"
+		portraits={
+			civilian={
+				small = "GFX_portrait_PER_mohammad_hassan_mirza_qajar_small"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_said_bin_taimur
+			cost = 150
+			visible = {
+				has_government = neutrality
+			}
+			available = {
+				SAU_mansur_saud = {
+					is_hired_as_advisor = no
+				}
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				IRQ_minister_of_defense
+			}
+		}
+	}
+	SAU_philip_gordon_lee={
+		advisor={
+			slot = navy_chief
+			idea_token = SAU_philip_gordon_lee
+			allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					navy_chief_naval_aviation_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Philip Gordon-Lee"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_1"
+			}
+		}
+	}
+	SAU_youssef_al_bishi={
+		advisor={
+			slot = high_command
+			idea_token = SAU_youssef_al_bishi
+			ledger  = army 
+				allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					army_armored_1 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Youssef al-Bishi"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_2"
+			}
+		}
+	}
+	SAU_hamadan_al_odha={
+		advisor={
+			slot = navy_chief
+			idea_token = SAU_hamadan_al_odha
+			allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					navy_chief_commerce_raiding_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Hamadan al-Odha"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_2"
+			}
+		}
+	}
+	SAU_sa_ad_shaddad_al_outaibi={
+		advisor={
+			slot = theorist
+			idea_token = SAU_sa_ad_shaddad_al_outaibi
+			ledger  = army 
+				allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					military_theorist 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Sa'ad Shaddad al Outaibi"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_arab_1"
+			}
+		}
+	}
+	SAU_karim_nassar={
+		advisor={
+			slot = high_command
+			idea_token = SAU_karim_nassar
+			ledger  = army 
+				allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					army_cavalry_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Karim Nassar"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_arab_3"
+			}
+		}
+	}
+	SAU_hamed_al_sabani={
+		advisor={
+			slot = theorist
+			idea_token = SAU_hamed_al_sabani
+			ledger  = navy 
+				allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					naval_theorist 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Hamed al-Sabani"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_arab_2"
+			}
+		}
+	}
+	SAU_saud_al_saud={
+		advisor={
+			slot = high_command
+			idea_token = SAU_saud_al_saud
+			ledger  = army 
+				allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					army_logistics_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Saud al Saud"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_1"
+			}
+		}
+	}
+	SAU_ismail_ali_al_salhi={
+		advisor={
+			slot = army_chief
+			idea_token = SAU_ismail_ali_al_salhi
+			allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					army_chief_defensive_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ismail Ali al-Salhi"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_3"
+			}
+		}
+	}
+	SAU_ali_muhammed_khan={
+		advisor={
+			slot = air_chief
+			idea_token = SAU_ali_muhammed_khan
+			allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					air_chief_ground_support_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ali Muhammed Khan"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_arab_2"
+			}
+		}
+	}
+
+	SAU_gholam_wali={
+		advisor={
+			slot = air_chief
+			idea_token = SAU_gholam_wali
+			allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					air_chief_reform_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Gholam Wali"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_arab_1"
+			}
+		}
+	}
+
+	#generals
+	SAU_placeholder={ 
+		name= "General placeholder"
+		portraits={
+				army={
+					large = GFX_portrait_AFG_sardar_shah_wali_khan
+					small = GFX_portrait_AFG_sardar_shah_wali_khan_small
+				}
+		}
+		
+		corps_commander = {
+			traits = { }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	#will die in event if not saved - does not like ikhwan
+	SAU_abd_al_saud_old ={ 
+		name= "Abdullah bin Jiluwi Al Saud"
+		portraits={
+			civilian = {
+				small=GFX_idea_ivanoe_bonomi
+			}
+			army = {
+				small = GFX_idea_ivanoe_bonomi
+				large = GFX_portrait_ITA_ivanoe_bonomi
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_abd_al_saud_old
+			cost = 150
+			visible = {
+
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				GER_governor_general_trait
+			}
+		}
+		
+		field_marshal = {
+			traits = { infantry_officer}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+
+
+
+#advisors
+	SAU_al_hamdan ={ 
+		name= "Abdullah bin Suleiman Al Hamdan"
+		portraits={
+			civilian = {
+				small = GFX_portrait_PER_abdolhossein_hazhir_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_al_hamdan
+			cost = 150
+			visible = {
+
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				minister_of_finance_deressa
+			}
+		}
+	}
+
+
+
+	SAU_olayan ={ 
+		name= "Suliman S. Olayan"
+		portraits={
+			civilian = {#theres also a large one
+				small = GFX_portrait_PER_mohammad_mosaddegh_small 
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_olayan
+			cost = 150
+			visible = {
+
+			}
+			available = {
+				NOT = {
+					has_idea = free_trade
+				}
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				JUNO_conservative_businessman
+			}
+		}
+	}
+
+	SAU_ahmed_juffali ={ 
+		name= "Ahmed Juffali"
+		portraits={
+			civilian = { 
+				small = "GFX_portrait_AFG_abdul_hai_habibi_small"
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_ahmed_juffali
+			cost = 150
+			visible = {
+
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				the_banker
+			}
+		}
+	}
+
+#democratic --- 
+
+	SAU_hafiz_wahbe ={ 
+		name= "Hafiz Wahba"
+		portraits={
+			civilian = {
+				small = GFX_portrait_AFG_muhammad_ibrahim_khan_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_hafiz_wahbe
+			cost = 150
+			visible = {
+				NOT = {
+					has_war_with = ENG
+				}
+			}
+			available = {
+				NOT = {
+					has_war_with = ENG
+				}
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				BEL_ambassador_to_london
+			}
+		}
+	}
+#end demo
+#fascism
+	SAU_khalid_gargani ={ 
+		name= "Khalid Al Hud Al Gargani"
+		portraits={
+			civilian = {
+				small = GFX_portrait_AFG_ghulam_yahya_khan_tarzi_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_khalid_gargani
+			cost = 150
+			visible = {
+
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				socialite_connections
+			}
+		}
+	}
+	SAU_hamza ={ 
+		name= "Fuad Hamza"
+		portraits={
+			civilian = {
+				small = GFX_portrait_PER_ardeshir_ovanessian_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_hamza
+			cost = 150
+			visible = {
+
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				special_envoy
+			}
+		}
+	}
+
+#end fascism
+
+
+
+
+
+	SAU_shakib_arslan ={ 
+		name= "Shakib Arslan"
+		portraits={
+			civilian = {  
+				small = GFX_idea_TUR_celal_bayar
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_shakib_arslan
+			cost = 150
+			visible = {
+
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				RAJ_GOE_cultural_icon
+			}
+		}
+	}
+#commies
+
+	SAU_yusuf_yaqub ={ 
+		name= "Yusuf al-Shaykh Ya'qub"
+		portraits={
+			civilian={
+				large="GFX_portrait_tur_mehmet_nuri_yamut"
+				small=GFX_portrait_TUR_mehmet_nuri_yamut_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_yusuf_yaqub
+			cost = 150
+			visible = {
+				#commie path chosen
+			}
+			available = {
+				#commie focus done
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				socialist_journalist
+			}
+		}
+		country_leader = {
+			traits  = {
+				GER_staunch_stalinist 
+			}
+			ideology=stalinism
+		}
+	}
+	SAU_karim_khakimov ={ 
+		name= "Karim Khakimov"
+		portraits={
+			civilian={
+				small=GFX_portrait_SOV_vasily_primakov_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_karim_khakimov
+			cost = 150
+			visible = {
+				#commie path chosen
+			}
+			available = {
+				#commie focus done
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				political_commissar
+			}
+		}
+	}
+	SAU_ishaq_yaqub ={ 
+		name= "Ishaq al-Shaykh Ya'qub"
+		portraits={
+			army = {
+				large = GFX_portrait_IRQ_salah_al_din_al_sabbagh
+				small = GFX_portrait_IRQ_salah_al_din_al_sabbagh_military_small
+			}
+			civilian = {
+				small = GFX_portrait_IRQ_salah_al_din_al_sabbagh_civilian_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_ishaq_yaqub
+			cost = 150
+			visible = {
+				#commie path chosen
+			}
+			available = {
+				#commie focus done
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				NOR_stern_communist
+			}
+		}
+		corps_commander = {
+			traits = {cavalry_officer }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	SAU_abd_al_sunayd ={ 
+		name= "Abd al-Aziz al-Sunayd"
+		portraits={
+			civilian = {
+				small = GFX_portrait_IRQ_muhammad_amin_zaki_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_abd_al_sunayd
+			cost = 150
+			visible = {
+				#commie path chosen
+			}
+			available = {
+				#commie focus done
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				RAJ_freedom_fighter
+			}
+		}
+
+	}
+#foreigners
+	SAU_rob_bingham ={ 
+		name= "Robert W. Bingham"
+		portraits={
+			civilian = {#todo
+				small = GFX_portrait_ENG_thomas_jacomb_hutton_small
+			}
+
+		}
+		advisor={ 
+			slot = political_advisor
+			idea_token = SAU_rob_bingham
+			cost = 150
+			visible = {
+				NOT = {
+					has_war_with = USA
+				}
+			}
+			available = {
+				NOT = {
+					has_war_with = USA
+				}
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				BRA_distinguished_diplomat
+			}
+		}
+	}
+
+	SAU_fritz_grobba ={ 
+		name= "Fritz Grobba"
+		portraits={
+			civilian = {
+				small = GFX_idea_CAN_tim_buck
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_fritz_grobba
+			cost = 150
+			visible = {
+				NOT = {
+					has_war_with = GER
+				}
+			}
+			available = {
+				NOT = {
+					has_war_with = GER
+				}
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				IRQ_german_ambassador
+			}
+		}
+	}
+
+
+
+#end of foreigners
+#foreigner in kuwait
+	SAU_harold_dickson ={  
+		name= "Harold Dickson"
+		portraits={
+			civilian = {
+				small = GFX_portrait_ENG_john_cunningham_small
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_harold_dickson
+			cost = 150
+			visible = {
+
+			}
+			available = {
+				#xyz or museum
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				RAJ_conservationalist
+			}
+		}
+	}
+#end kuwait
+
+#pals
+
+	SAU_amin_al_husseini = {
+		name = PAL_amin_al_husseini
+		portraits = {
+			civilian = {
+				large = GFX_portrait_PAL_amin_al_husseini
+				small = GFX_portrait_PAL_amin_al_husseini_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SAU_amin_al_husseini
+			traits = {
+				IRQ_the_grand_mufti
+			}
+			visible = {
+				AND = {
+					NOT = {country_exists = PAL}
+ 
+				}
+			}
+			available = {
+
+			}
+			cost = 150
+		}
+	}
+
+	SAU_abdul_al_husayni = {
+		name = "Abdul Qadir al-Husayni"
+		portraits = {
+			civilian = {	#also has large
+				small = GFX_portrait_IRQ_mustafa_barzani_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SAU_abdul_al_husayni
+			traits = {
+				guerilla_warfare_expert
+			}
+			visible = {
+				AND = {
+					NOT = {country_exists = PAL}
+ 
+				}
+			}
+			available = {
+
+			}
+			cost = 150
+		}
+	}
+#end pals 
+#oman  
+	SAU_said_bin_taimur={
+		name="Said bin Taimur"
+		portraits={
+			civilian={
+				large="GFX_portrait_oman_said_bin_taimur"
+				small = "GFX_portrait_oman_said_bin_taimur_small"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_said_bin_taimur
+			cost = 150
+			visible = {
+				AND = {
+					NOT = {country_exists = OMA}
+ 
+				}
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				SWE_ardent_conservative
+			}
+		}
+	}
+#end oman
+#kuwait
+	SAU_ahmad_al_sabah = {
+
+		name = KUW_ahmad_al_sabah
+
+		portraits = {
+			civilian = {
+				large = GFX_portrait_KUW_ahmad_al_sabah
+				small = GFX_portrait_KUW_ahmad_al_sabah_civilian_small
+			}
+			army = {
+				small = GFX_portrait_KUW_ahmad_al_sabah_military_small
+			}
+		}
+
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_ahmad_al_sabah
+			cost = 150
+			visible = {
+				AND = {
+					NOT = {country_exists = KUW}
+ 
+				}
+			}
+			available = {
+
+			}
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				minister_of_finance_mariyam
+			}
+		}
+
+		field_marshal = {
+			traits = { organizer cavalry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			visible = {
+
+	
+			}
+		}
+
+	}
+
+
+
+#end kuwait 
+
+
+}

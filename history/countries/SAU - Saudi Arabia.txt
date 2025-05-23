@@ -1,0 +1,87 @@
+﻿capital = 292
+
+oob = "SAU_1936"
+
+# Starting tech
+inherit_technology = BOL
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+
+	set_technology = { camelry = 1 }
+	set_technology = {gwtank_chassis = 1}
+	set_technology = {armored_car1 = 1}
+	set_technology = {fuel_refining = 1}
+
+set_convoys = 5
+
+recruit_character = SAU_abdulaziz_ibn_saud
+recruit_character = SAU_khalid_ibn_saud
+recruit_character = SAU_faisal_ibn_saud
+recruit_character = SAU_mansur_saud
+recruit_character = SAU_mishaal_al_saud
+recruit_character = SAU_muhammad_saud
+recruit_character = SAU_saud_al_saud
+recruit_character = SAU_nasser_saud
+recruit_character = SAU_sara_saud
+
+recruit_character = SAU_philip_gordon_lee
+recruit_character = SAU_youssef_al_bishi
+recruit_character = SAU_hamadan_al_odha
+recruit_character = SAU_sa_ad_shaddad_al_outaibi
+recruit_character = SAU_karim_nassar
+recruit_character = SAU_hamed_al_sabani
+recruit_character = SAU_ismail_ali_al_salhi
+recruit_character = SAU_ali_muhammed_khan
+recruit_character = SAU_gholam_wali
+recruit_character = SAU_abd_al_saud_old
+recruit_character = SAU_al_hamdan
+recruit_character = SAU_al_ateeqi
+recruit_character = SAU_hamza
+recruit_character = SAU_olayan
+recruit_character = SAU_ahmed_juffali
+recruit_character = SAU_hafiz_wahbe
+recruit_character = SAU_khalid_gargani
+recruit_character = SAU_shakib_arslan
+recruit_character = SAU_rob_bingham
+recruit_character = SAU_fritz_grobba
+recruit_character = SAU_harold_dickson   
+recruit_character = SAU_amin_al_husseini  
+recruit_character = SAU_abdul_al_husayni  
+recruit_character = SAU_said_bin_taimur 
+recruit_character = SAU_ahmad_al_sabah  
+recruit_character = SAU_abd_al_sunayd
+recruit_character = SAU_ishaq_yaqub
+recruit_character = SAU_yusuf_yaqub
+recruit_character = SAU_karim_khakimov
+recruit_character = SAU_yusuf_yasin
+
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 2
+	neutrality = 90
+	fascism = 5
+	communism = 3
+}
+
+
+add_ideas = {
+	SAU_sunni_minorities
+	SAU_limited_agri
+	SAU_poor_country
+	SAU_hajj_pilgrims
+	SAU_the_ulema
+}
+
