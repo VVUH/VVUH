@@ -18197,10 +18197,10 @@ SPR_recovering_from_civil_war = {
 
 		available = {
 			FROM = {
-				compliance > 35
+				compliance > 30
 			}
 			has_equipment = {
-			    infantry_equipment > 2000
+			    infantry_equipment > 1750
 			}
 			has_army_experience > 10
 		}
