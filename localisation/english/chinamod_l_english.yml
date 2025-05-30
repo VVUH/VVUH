@@ -1,4 +1,8 @@
 ﻿l_english:
+ CHI_war_of_resistance_cat:0 "War of Resistance"
+ CHI_bolster_spirits:0 "Bolster Spirits"
+ CHI_call_for_more_resistance:0 "Call for more Resistance"
+ CHI_every_man_will_fight:0 "Every Man will fight"
  CHI_custom_tt_ally_puyi:0 "§YOnce we start our independence war against [JAP.GetFlag]Japan, we will annex [MAN.GetFlag]Manchukuo if they're not a player and Puyi will become our leader§!"
  CHI_custom_tt_deal_with_legation_city:0 "§YWe will receive an event allowing us to §!§Rdeclare war§!§Y, §!§Oseize the city§!§Y,§!§8 purchase the city §!§Yor§! §tdemand the city in an ultimatum§!"
  CHI_custom_tt_deal_with_legation_city_purchase:0 "§YWe will attempt to §!§8purchase§!§Y the city from its owner§!"
@@ -7,7 +11,7 @@
  CHI_core_east_asia:0 "Pan-Asianism"
  CHI_core_siam:0 "Integrate Siam"
  CHI_core_mal:0 "Integrate Malaya"
- CHI_core_core_indochina:0 "Integrate Indochina"
+ CHI_core_indochina:0 "Integrate Indochina"
  CHI_deal_with_the_legation_cities_cat:0 "Dealing with the Legation Cities"
  CHI_deal_with_the_legation_cities:0 "Dealing with the Legation Cities"
  CHI_deal_with_the_legation_cities_cat_desc:0 "In the last century we have suffered humiliation after humiliation. Now it is time to show the western powers that China is a force to reckond with and that their unequal treaties will not be accepted anymore."
