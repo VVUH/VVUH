@@ -1292,7 +1292,7 @@ TIB_decs = {
 			}
 			NOT = {
 				has_country_flag = TIB_clamp_down_narrative
-				has_country_flag = TIB_open_up_intellectual_discourse
+				has_global_flag = TIB_open_up_intellectual_discourse
 			}
 		}
 		available = {
