@@ -41,54 +41,8 @@ BEL_flemish_tension_up = {
 				limit = {
 					has_idea = BEL_flemish_very_high_tensions
 				}
-				if = {
-					limit = {
-						has_completed_focus = BEL_prepare_national_uprising
-						has_completed_focus = BEL_flemish_nationalism
-					}
-					set_politics = {
-   						ruling_party = fascism
-    					elections_allowed = no
-						name = vlaamsch_nationaal_verbond
-						long_name = vlaamsch_nationaal_verbond_long
-					}
-					FRA = {
-						diplomatic_relation = {
-						country = BEL
-						relation = military_access
-						active = no
-						}
-					}
-					promote_character = {
-						character = BEL_staf_de_clercq
-					}
-					start_civil_war = {
-   						ruling_party = fascism
-    					ideology = democratic
-    					size = 0.3
-    					capital = 34
-   						states = {
-        					34
-    					}
-						keep_all_characters = yes
-					}
-				}
-				else = { 
-					start_civil_war = {
-   						ruling_party = ROOT
-    					ideology = fascism
-    					size = 0.5
-    					capital = 6
-   						states = {
-        					6
-    					}
-						keep_all_characters = yes
-					}
-				}
-				swap_ideas = {
-					remove_idea = BEL_flemish_very_high_tensions
-					add_idea = BEL_flemish_neutral
-				}
+				add_stability = -0.05
+				add_war_support = -0.05
 			}
 			if = {
 				limit = {
