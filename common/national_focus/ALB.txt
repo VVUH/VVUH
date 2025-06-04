@@ -238,7 +238,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		x = 4
 		y = 7
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 1
 		}
@@ -401,7 +401,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		x = 6
 		y = 7
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 1
 		}
@@ -572,7 +572,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		x = 10
 		y = 4
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 1
 		}
@@ -676,7 +676,7 @@ random_owned_state = {
 		cancel_if_invalid = yes
 		x = 11
 		y = 7
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 1
 		}
@@ -836,7 +836,7 @@ swap_ideas = {
 		cancel_if_invalid = yes
 		x = 9
 		y = 7
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 1
 		}
@@ -1259,6 +1259,10 @@ swap_ideas = {
 			factor = 9
 		}
 
+		available = {
+        NOT = {has_war_with = ITA}
+		}
+
 		available_if_capitulated = no
 
 		completion_reward = {
@@ -1282,6 +1286,10 @@ swap_ideas = {
 		}
 
 		available_if_capitulated = no
+
+		available = {
+        NOT = {has_war_with = ITA}
+		}
 
 		completion_reward = {
 			add_equipment_to_stockpile = {
@@ -1311,15 +1319,26 @@ swap_ideas = {
 		ai_will_do = {
 		factor = 8
 		}
-
+                allow_branch = {
+if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+		NOT = { has_completed_focus = ALB_For_Zog }
+		}
+              }
+}
 		completion_reward = {
+		mark_focus_tree_layout_dirty = yes
 		add_popularity = {
 			    ideology = neutrality
 			    popularity = -0.15
 			}
 			add_political_power = -25
-	}			
-		}
+	}	
 	focus = {
 		id = ALB_For_Zog
 		icon = GFX_focus_rom_royal_dictatorship
@@ -1334,10 +1353,21 @@ swap_ideas = {
 		ai_will_do = {
 			factor = 8
 		}
-		
+                allow_branch = {
+if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+		NOT = { has_completed_focus = ALB_Challenge_Zog }
+		}
+              }
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = 0.05
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	focus = {
@@ -2183,7 +2213,7 @@ swap_ideas = {
 		x = 0
 		y = 2
 		relative_position_id = ALB_officers_school_of_the_revolution
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 9
 		}
@@ -2324,11 +2354,12 @@ swap_ideas = {
 
 		
          available = {
-			has_political_power > 125
+
 		}
 
 		completion_reward = {
 			add_political_power = -125
+			add_stability = 0.075
 		}
 	}
 	focus = {
@@ -2350,7 +2381,7 @@ swap_ideas = {
 		 }
 
 		completion_reward = {
-			set_technology = { stronghold_network_tech  = 1 popup = yes}
+			complete_special_project = sp:sp_land_stronghold_network
 		}
 	}
 	focus = {
@@ -2416,7 +2447,7 @@ swap_ideas = {
 		x = 0
 		y = 2
 		relative_position_id = ALB_found_a_cult_of_personality
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 9
 		}
@@ -2535,6 +2566,10 @@ swap_ideas = {
 
 		completion_reward = {
 			add_ideas = {ALB_KPPB}
+			create_intelligence_agency = {
+    			name = "Directorate of State Security"
+    			icon = GFX_intelligence_agency_logo_yug
+			}
 		}
 	}
 	focus = {
@@ -4646,6 +4681,11 @@ swap_ideas = {
 
 		completion_reward = {
 			add_ideas = {ALB_socialism_with_chinese_characteristics}
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1250
+    producer = ALB
+}
 		}
 	}
 	focus = {
@@ -4670,6 +4710,14 @@ swap_ideas = {
 				category = cat_mass_assault
 			}
 			army_experience = 75
+			set_technology = {
+				basic_train  = 1
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment_1
+				amount = 15
+				producer = SOV
+			}
 		}
 	}
 	focus = {
