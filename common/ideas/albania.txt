@@ -292,9 +292,9 @@ ideas = {
 			picture = saf_soviet_advisers
 
             modifier = {
-				enemy_operative_detection_chance_factor = 0.2
-				own_operative_detection_chance_factor = -0.2
-				operative_slot = 1
+				enemy_operative_detection_chance_factor = 0.4
+				own_operative_detection_chance_factor = -0.35
+				operative_slot = 2
 			}
 		}
 		ALB_school_of_revolution = {
