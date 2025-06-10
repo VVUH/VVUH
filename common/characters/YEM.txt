@@ -4,26 +4,62 @@ characters={
 		portraits={
 			civilian={
 				large="GFX_portrait_yemen_imam_yahya"
+				small = GFX_portrait_yemen_imam_yahya_small
+			}
+			army = {
+				large="GFX_portrait_yemen_imam_yahya"
+				small = GFX_portrait_yemen_imam_yahya_small	
 			}
 		}
 		country_leader={
-			traits = {dynastic_reformer}
+			traits = {ARG_conservative_traditionalist}
 			ideology=despotism
-			expire="1939.1.1.12"
+			expire="1938.1.1.1"
+			#doenst work, event?
 			id=-1
+		}
+		field_marshal = {
+			traits = { infantry_officer}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 2
 		}
 	}
 	YEM_imam_al_wazir={
 		name="Abdullah al-Wazir"
 		portraits={
 			civilian={
+				small = GFX_portrait_AFG_faqir_of_ipi_small
+				large="GFX_portrait_AFG_faqir_of_ipi"
+			}
+			army = {
+				small = GFX_portrait_AFG_faqir_of_ipi_small
 				large="GFX_portrait_AFG_faqir_of_ipi"
 			}
 		}
 		country_leader={
+			on_add = {
+				owner = {
+					add_timed_idea = {
+						idea = SAU_recent_coup
+						days = 180
+					}
+					set_global_flag = SAU_al_waziri_coup_happened_flag
+				}
+			}
 			traits = {old_coup_maker}
 			ideology=despotism
 			id=-1
+		}
+		field_marshal = {
+			traits = { infantry_officer}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
 		}
 	}
 	YEM_imam_yahya={
@@ -31,12 +67,25 @@ characters={
 		portraits={
 			civilian={
 				large="GFX_portrait_IRQ_ahmed_barzani"
+				small = GFX_portrait_IRQ_ahmed_barzani_small
+			}
+			army = {
+				large="GFX_portrait_IRQ_ahmed_barzani"
+				small = GFX_portrait_IRQ_ahmed_barzani_small
 			}
 		}
 		country_leader={
 			traits = {PER_rightful_king_trait}
 			ideology=despotism
 			id=-1
+		}
+		corps_commander = {
+			traits = { infantry_officer}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
 		}
 	}
 	YEM_chandler_ibn_khalid={
@@ -63,7 +112,7 @@ characters={
 		country_leader={
 			traits = {RAJ_freedom_fighter}
 			ideology=anti_revisionism
-			expire="1941.1.1.12"
+			expire="1951.1.1.12"
 			id=-1
 		}
 	}
@@ -252,7 +301,7 @@ characters={
 		name="Mansur al Badr"
 		portraits={
 			army={
-				small="GFX_idea_generic_air_arab_3"
+				small="GFX_idea_generic_air_arab_2"
 			}
 		}
 	}
@@ -450,7 +499,7 @@ characters={
 					original_tag  = YEM
 				}
 				traits  = {
-					silent_workhorse 
+					social_agitator 
 				}
 		}
 # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!

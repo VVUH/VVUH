@@ -1,4 +1,5 @@
 ﻿capital = 454
+oob = "PAL_1936"
 
 # Starting tech
 set_technology = {
@@ -95,6 +96,8 @@ set_popularities = {
 recruit_character = PAL_harold_macmichael
 recruit_character = PAL_amin_al_husseini2
 recruit_character = PAL_rahib_nasha
+recruit = PAL_arthur_wauchope
+recruit = PAL_rob_hain
 
 create_country_leader = {
 	name = "Ahmed Hilmi Pasha"

@@ -22,7 +22,6 @@ if = {
 set_convoys = 5
 
 recruit_character = SAU_abdulaziz_ibn_saud
-recruit_character = SAU_khalid_ibn_saud
 recruit_character = SAU_faisal_ibn_saud
 recruit_character = SAU_mansur_saud
 recruit_character = SAU_mishaal_al_saud
@@ -31,6 +30,12 @@ recruit_character = SAU_saud_al_saud
 recruit_character = SAU_nasser_saud
 recruit_character = SAU_sara_saud
 
+recruit_character = SAU_yusuf_yasin
+recruit_character = SAU_muhammad_sheikh
+recruit_character = SAU_khalid_ibn_saud
+
+recruit_character = SAU_ibra_al_suwayel
+recruit_character = SAU_abdullah_ash_sheikh
 recruit_character = SAU_philip_gordon_lee
 recruit_character = SAU_youssef_al_bishi
 recruit_character = SAU_hamadan_al_odha
@@ -60,8 +65,10 @@ recruit_character = SAU_abd_al_sunayd
 recruit_character = SAU_ishaq_yaqub
 recruit_character = SAU_yusuf_yaqub
 recruit_character = SAU_karim_khakimov
-recruit_character = SAU_yusuf_yasin
-
+recruit_character = SAU_hamad_al_suwailem
+recruit_character = SAU_muhammad_al_shanqiti
+recruit_character = SAU_abdullah_humayd
+recruit_character = SAU_abdul_al_duwish
 
 set_politics = {
 	ruling_party = neutrality

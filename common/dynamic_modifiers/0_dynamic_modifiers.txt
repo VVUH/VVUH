@@ -1290,3 +1290,15 @@ MON_electrified = {
 	local_building_slots_factor = 0.2
 	state_production_speed_infrastructure_factor = 0.2
 }
+
+SAU_defensive_coast_battery = { #STATE MODIFIER
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_armored_battery
+	
+	army_defence_factor = 0.1
+	cas_damage_reduction = 0.1
+	dig_in_speed_factor = 0.25
+	max_dig_in_factor = 0.1
+	pocket_penalty = -0.15
+}

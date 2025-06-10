@@ -4,3 +4,1368 @@ SAU_formables_cat = {
 SAU_decs_cat = {
 	
 }
+
+#works:
+SAU_laissez_faire_cat = {
+	SAU_land_owners_finding_funding  = {
+		icon = GFX_decision_gre_paying_ifc_debt
+		allowed = {
+			has_completed_focus = SAU_liberal_economy
+			original_tag = SAU
+		}
+		visible = {
+			always = yes
+			has_completed_focus = SAU_liberal_economy
+		}
+		is_good = yes
+		available = { hidden_trigger = { always = no } }
+
+		activation = {
+			has_completed_focus = SAU_liberal_economy
+		}
+		
+		days_mission_timeout = 50
+		timeout_effect = {
+			random_state = {
+				limit = {
+					is_controlled_by = ROOT
+					impassable = no
+				}
+				random_list = {
+					seed = random 
+					2.5 = {
+						modifier = {
+							free_building_slots = {
+								building = industrial_complex
+								size < 1
+							}
+							factor = 0
+						}
+						modifier = {
+							ROOT = {
+								has_completed_focus = SAU_empower_businessmen
+							}
+							factor = 2.5
+						}
+						modifier = {
+							has_variable = ROOT.is_literally_not_a_factory
+							add = var:ROOT.is_literally_not_a_factory
+						}
+						if = {
+							limit = {
+								has_variable = ROOT.is_literally_not_a_factory
+							}
+							clear_variable = ROOT.is_literally_not_a_factory
+						}
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+
+						ROOT = { add_to_variable = { built_a_civ = 1 } }
+					}
+					2.5 = {
+						modifier = {
+							free_building_slots = {
+								building = arms_factory
+								size < 1  
+							}
+							factor = 0
+						}
+						modifier = {
+							ROOT = {
+								has_completed_focus = SAU_empower_businessmen
+							}
+							factor = 2.5
+						}
+						modifier = {
+							has_variable = ROOT.is_literally_not_a_factory
+							add = var:ROOT.is_literally_not_a_factory
+						}
+						if = {
+							limit = {
+								has_variable = ROOT.is_literally_not_a_factory
+							}
+							clear_variable = ROOT.is_literally_not_a_factory
+						}
+
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+
+						ROOT = { add_to_variable = { built_a_mil = 1 } }
+					}
+					2 = {
+						modifier = {
+							free_building_slots = {
+								building = dockyard
+								size < 1 
+							}
+							factor = 0
+						}
+						modifier = {
+							ROOT = {
+								any_core_state = {
+									is_coastal = no
+								}
+							}
+							factor = 0
+						}
+						add_building_construction = {
+							type = dockyard
+							level = 1
+							instant_build = yes
+						}
+						modifier = {
+							ROOT = {
+								has_completed_focus = SAU_empower_businessmen
+							}
+							factor = 2.5
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.1 }
+						ROOT = { add_to_variable = { built_a_dockyard = 1 } }
+					}
+					3 = {
+						modifier = {
+							infrastructure > 4
+							factor = 0
+						}
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.15 }
+						ROOT = { add_to_variable = { built_a_infra = 1 } }
+					}
+					2 = {
+						modifier = {
+							air_base > 9
+							factor = 0
+						}
+						add_building_construction = {
+							type = air_base
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.25 }
+						ROOT = { add_to_variable = { built_an_airbase = 1 } }
+					}
+
+					1 = {
+						modifier = {
+							anti_air_building > 4
+							factor = 0
+						}
+
+						modifier = {
+							ROOT = { NOT = {  has_tech = interwar_antiair } }
+							factor = 0
+						}
+						add_building_construction = {
+							type = anti_air_building
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.2 }
+						ROOT = { add_to_variable = { built_an_aa = 1 } }
+					}
+
+					1 = {
+						modifier = {
+							radar_station > 4
+							factor = 0
+						}
+
+						modifier = { #level 1
+							ROOT = { NOT = {  has_tech = radio_detection } }
+							factor = 0
+						}
+
+						modifier = { #level 2
+							radar_station > 0
+							ROOT = { NOT = {  has_tech = decimetric_radar } }
+							factor = 0
+						}
+
+						modifier = { #level 3
+							radar_station > 2
+							ROOT = { NOT = {  has_tech = improved_decimetric_radar } }
+							factor = 0
+						}
+
+						modifier = { #level 4
+							radar_station > 3
+							ROOT = { NOT = {  has_tech = centimetric_radar } }
+							factor = 0
+						}
+						modifier = { #level 5
+							radar_station > 4
+							ROOT = { NOT = {  has_tech = improved_centimetric_radar } }
+							factor = 0
+						}
+
+						modifier = { #level 6
+							radar_station > 4
+							ROOT = { NOT = {  has_tech = advanced_centimetric_radar } }
+							factor = 0
+						}
+
+						add_building_construction = {
+							type = radar_station
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.25 }
+						ROOT = { add_to_variable = { built_a_radar = 1 } }
+					}
+
+					2 =	{
+						add_building_construction = {
+							type = supply_node
+							province = {
+								all_provinces = yes
+							}
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.2 }
+						ROOT = { add_to_variable = { built_a_hub = 1 } }
+					}
+
+					3 = {
+						modifier = {
+							free_building_slots = {
+								building = industrial_complex
+								size < 1 
+							}
+							factor = 2
+						}
+						modifier = {
+							ROOT = {
+								has_completed_focus = SAU_empower_businessmen
+							}
+							factor = 2.5
+						}
+						add_extra_state_shared_building_slots = 1
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.1 }
+						ROOT = { add_to_variable = { added_slot = 1 } }
+
+					}
+				}
+					
+			}
+			activate_mission = SAU_land_owners_finding_funding
+		}
+	}
+}
+
+#dont work:
+SAU_promote_immigration_cat = {
+
+	SAU_promote_immigration_in_state_ITA = {
+
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+	
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 10
+				has_political_power > 300
+			}
+		}
+	
+		cost = 75
+		fire_only_once = yes
+	
+		allowed = {
+			original_tag = SAU
+		}
+	
+		available = {
+			
+			NOT = {
+				has_country_flag = SAU_promote_immigration_ongoing
+				has_country_flag = SAU_ITA_immigration_completed
+			}
+		}
+	
+	
+		visible = {
+			has_country_flag = SAU_promote_immigration_flag
+			NOT = {
+				has_country_flag = SAU_ITA_immigration_completed
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		state_target = yes
+
+		targets = {	292	859	856 }
+
+
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+				NOT = {
+					has_state_flag = SAU_promote_immigration_complete
+				}
+				if = {
+					limit = {
+						ROOT = {
+							original_tag = SAU
+						}
+					}
+					OR = {
+						state = 292
+						state = 859
+						state = 856
+					}
+				}
+
+
+			}
+		}
+
+		days_remove = 20
+
+		complete_effect = {
+			set_country_flag = SAU_promote_immigration_ongoing
+			set_country_flag = SAU_ITA_immigration_completed
+			ITA = {
+				add_opinion_modifier = {
+   					target = ROOT
+  					modifier = JUNO_promoted_immigration
+  				}	
+			}
+
+			custom_effect_tooltip = JUNO_promote_immigration_in_state_tt
+		}
+	
+		remove_effect = {
+			clr_country_flag = SAU_promote_immigration_ongoing
+
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = JUNO_immigration_promoted
+				}
+				set_state_flag = SAU_promote_immigration_complete
+			}
+		}
+	}
+
+	SAU_promote_immigration_in_state_JAP = {
+
+
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+	
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 10
+				has_political_power > 300
+			}
+		}
+	
+		cost = 75
+		fire_only_once = yes
+	
+		allowed = {
+			original_tag = SAU
+		}
+	
+		available = {
+			
+			NOT = {
+				has_country_flag = SAU_promote_immigration_ongoing
+				has_country_flag = SAU_JAP_immigration_completed
+			}
+		}
+	
+	
+		visible = {
+			has_country_flag = SAU_promote_immigration_flag
+			NOT = {
+				has_country_flag = SAU_JAP_immigration_completed
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		state_target = yes
+		targets = {	292	859	856 }
+
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+				NOT = {
+					has_state_flag = SAU_promote_immigration_complete
+				}
+				OR = {
+					state = 500
+					state = 501
+					state = 499
+				}
+			}
+		}
+
+		days_remove = 20
+
+		complete_effect = {
+			set_country_flag = SAU_promote_immigration_ongoing
+			set_country_flag = SAU_JAP_immigration_completed
+			JAP = {
+				add_opinion_modifier = {
+   					target = ROOT
+  					modifier = JUNO_promoted_immigration
+  				}	
+			}
+			custom_effect_tooltip = JUNO_promote_immigration_in_state_tt
+		}
+	
+		remove_effect = {
+			clr_country_flag = SAU_promote_immigration_ongoing
+
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = JUNO_immigration_promoted
+				}
+				set_state_flag = SAU_promote_immigration_complete
+			}
+		}
+	}
+
+	SAU_promote_immigration_in_state_POR = {
+
+
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+	
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 10
+				has_political_power > 300
+			}
+		}
+	
+		cost = 75
+		fire_only_once = yes
+	
+		allowed = {
+			original_tag = SAU
+		}
+	
+		available = {
+			
+			NOT = {
+				has_country_flag = SAU_promote_immigration_ongoing
+				has_country_flag = SAU_POR_immigration_completed
+			}
+		}
+	
+	
+		visible = {
+			
+			has_country_flag = SAU_promote_immigration_flag
+			NOT = {
+				has_country_flag = SAU_POR_immigration_completed
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		state_target = yes
+		targets = {	292	859	856 }
+
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+				NOT = {
+					has_state_flag = SAU_promote_immigration_complete
+				}
+				OR = {
+					state = 500
+					state = 501
+					state = 499
+				}
+			}
+		}
+
+		days_remove = 20
+
+		complete_effect = {
+			set_country_flag = SAU_promote_immigration_ongoing
+			set_country_flag = SAU_POR_immigration_completed
+			POR = {
+				add_opinion_modifier = {
+   					target = ROOT
+  					modifier = JUNO_promoted_immigration
+  				}	
+			}
+			custom_effect_tooltip = JUNO_promote_immigration_in_state_tt
+		}
+	
+		remove_effect = {
+			clr_country_flag = SAU_promote_immigration_ongoing
+
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = JUNO_immigration_promoted
+				}
+				set_state_flag = SAU_promote_immigration_complete
+			}
+		}
+	}
+
+
+	
+
+	SAU_promote_immigration_in_state_GER = {
+
+
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+	
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 10
+				has_political_power > 300
+			}
+		}
+	
+		cost = 75
+		fire_only_once = yes
+	
+		allowed = {
+			original_tag = SAU
+	
+		}
+	
+		available = {
+			
+			NOT = {
+				has_country_flag = SAU_promote_immigration_ongoing
+				has_country_flag = SAU_GER_immigration_completed
+			}
+		}
+	
+	
+		visible = {
+			has_country_flag = SAU_promote_immigration_flag
+			NOT = {
+				has_country_flag = SAU_GER_immigration_completed
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		state_target = yes
+
+		targets = {	292	859	856 }
+
+
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+				NOT = {
+					has_state_flag = SAU_promote_immigration_complete
+				}
+
+				if = {
+					limit = {
+						ROOT = {
+							original_tag = SAU
+						}
+					}
+					OR = {
+						state = 292
+						state = 859
+						state = 856
+					}
+				}
+			}
+		}
+
+		days_remove = 20
+
+		complete_effect = {
+			set_country_flag = SAU_promote_immigration_ongoing
+			set_country_flag = SAU_GER_immigration_completed
+			GER = {
+				add_opinion_modifier = {
+   					target = ROOT
+  					modifier = JUNO_promoted_immigration
+  				}	
+			}
+			custom_effect_tooltip = JUNO_promote_immigration_in_state_tt
+		}
+	
+		remove_effect = {
+			clr_country_flag = SAU_promote_immigration_ongoing
+
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = JUNO_immigration_promoted
+				}
+				set_state_flag = SAU_promote_immigration_complete
+			}
+		}
+	}
+
+	SAU_promote_immigration_in_state_SPR = {
+
+
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+	
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 10
+				has_political_power > 300
+			}
+		}
+	
+		cost = 75
+		fire_only_once = yes
+	
+		allowed = {
+			original_tag = SAU
+		}
+	
+		available = {
+			
+			NOT = {
+				has_country_flag = SAU_promote_immigration_ongoing
+				has_country_flag = SAU_SPR_immigration_completed
+			}
+		}
+	
+	
+		visible = {
+			
+			has_country_flag = SAU_promote_immigration_flag
+			NOT = {
+				has_country_flag = SAU_SPR_immigration_completed
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		state_target = yes
+		targets = {	292	859	856 }
+
+
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+				NOT = {
+					has_state_flag = SAU_promote_immigration_complete
+				}
+			}
+		}
+
+		days_remove = 20
+
+		complete_effect = {
+			set_country_flag = SAU_promote_immigration_ongoing
+			set_country_flag = SAU_SPR_immigration_completed
+			SPR = {
+				add_opinion_modifier = {
+   					target = ROOT
+  					modifier = JUNO_promoted_immigration
+  				}	
+			}
+			custom_effect_tooltip = JUNO_promote_immigration_in_state_tt
+		}
+	
+		remove_effect = {
+			clr_country_flag = SAU_promote_immigration_ongoing
+
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = JUNO_immigration_promoted
+				}
+				set_state_flag = SAU_promote_immigration_complete
+			}
+		}
+	}
+
+	SAU_promote_immigration_in_state_ENG = {
+
+
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+	
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 10
+				has_political_power > 300
+			}
+		}
+	
+		cost = 75
+		fire_only_once = yes
+	
+		allowed = {
+			original_tag = SAU
+		}
+	
+		available = {
+			NOT = {
+				has_country_flag = SAU_promote_immigration_ongoing
+				has_country_flag = SAU_ENG_immigration_completed
+			}
+		}
+	
+	
+		visible = {
+			has_country_flag = SAU_promote_immigration_flag
+			NOT = {
+				has_country_flag = SAU_ENG_immigration_completed
+			}
+		}
+
+		on_map_mode = decision_view_only
+
+		state_target = yes
+		targets = {	292	859	856 }
+
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+				NOT = {
+					has_state_flag = SAU_promote_immigration_complete
+				}
+			}
+		}
+
+		days_remove = 20
+
+		complete_effect = {
+			set_country_flag = SAU_promote_immigration_ongoing
+			set_country_flag = SAU_ENG_immigration_completed
+			ENG = {
+				add_opinion_modifier = {
+   					target = ROOT
+  					modifier = JUNO_promoted_immigration
+  				}	
+			}
+			custom_effect_tooltip = JUNO_promote_immigration_in_state_tt
+		}
+	
+		remove_effect = {
+			clr_country_flag = SAU_promote_immigration_ongoing
+
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = JUNO_immigration_promoted
+				}
+				set_state_flag = SAU_promote_immigration_complete
+			}
+		}
+	}
+}
+#dont work:
+SAU_collab_foreign_ally = {
+   SAU_collab_with_foreign_ally = {
+
+		icon = GFX_decision_foreign_ally_conquer_china
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_country = {
+				has_war_together_with = SAU
+			
+				has_opinion = {
+					target = SAU
+					value > 39
+				}
+			}
+			NOT = {
+				has_global_flag = SAU_working_with_foreign_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_foreign_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_foreign_ally_flag
+			}
+			add_command_power = 100
+			add_war_support = 0.1
+			add_stability = 0.1
+			add_political_power = 100
+
+			diplomatic_relation = {
+				country = foreign_ally
+				relation = non_aggression_pact
+				active = yes
+			}
+			SAU = {give_military_access = foreign_ally}
+			foreign_ally = {give_military_access = SAU}
+
+        }
+
+	}
+   SAU_foreign_allyanese_fund_raise = {
+
+		icon = GFX_decision_generic_fundraising
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_country = {
+				has_war_together_with = SAU
+			
+				has_opinion = {
+					target = SAU
+					value > 39
+				}
+			}
+			NOT = {
+				has_global_flag = SAU_working_with_foreign_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+	
+		}
+
+		days_remove = 60
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_foreign_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_foreign_ally_flag
+			}
+			add_offsite_building = { type = arms_factory level = 2}
+			add_offsite_building = { type = industrial_complex level = 2 }
+
+
+
+        }
+
+	}
+   SAU_foreign_ally_immigration = {
+
+		icon = GFX_decision_hol_radio_oranje
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_country = {
+				has_war_together_with = SAU
+			
+			has_opinion = {
+				target = SAU
+				value > 39
+			}
+			}
+			NOT = {
+				has_global_flag = SAU_working_with_foreign_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+	
+		}
+
+		days_remove = 120
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_foreign_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_foreign_ally_flag
+			}
+			add_manpower = 30000
+			every_core_state = {
+				add_manpower = 50000
+			}
+
+        }
+
+	}
+   SAU_work_with_foreign_ally_orgs = {
+
+		icon = GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+   
+		}
+		available = {
+			any_country = {
+				has_war_together_with = SAU
+			
+			has_opinion = {
+				target = SAU
+				value > 39
+			}
+			}
+			NOT = {
+				has_global_flag = SAU_working_with_foreign_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+	
+		}
+
+		days_remove = 60
+
+		complete_effect = {
+			set_global_flag = SAU_working_with_foreign_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_foreign_ally_flag
+				SAU = { 
+					set_country_flag = SAU_working_with_foreign_ally_org_flag
+				}
+			}
+			army_experience = 45
+			navy_experience = 35
+			air_experience = 35
+        }
+
+	}
+}
+
+SAU_naval_decisions = {
+	purchase_dreadnoughts_usa = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = generic_purchase_dreadnoughts_flag
+			USA = { 
+				NOT = { 
+					has_country_flag = sold_dreadnoughts_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT  
+				}
+			}
+			NOT = { has_war_with = USA}
+		}
+		available = {
+			USA = {
+				has_civil_war = no
+				has_capitulated = no
+				NOT = {
+					has_opinion = {
+						target = ROOT
+						value < 50
+					}
+				}
+			}
+			
+		}
+		days_remove = 14
+		remove_effect = {
+			SMB_purchase_dreadnoughts_tt_gen = yes
+			USA = {
+				country_event = {
+					id = generic_purchase_ships_events.04
+					hours = 1
+				}
+				set_country_flag = negotiating_dreadnought_purchase_flag@ROOT
+			}
+		}
+	}
+	purchase_dreadnoughts_ENG = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = generic_purchase_dreadnoughts_flag
+			ENG = { 
+				NOT = { 
+					has_country_flag = sold_dreadnoughts_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT  
+				}
+			}
+			NOT = { has_war_with = ENG}
+		}
+		available = {
+			ENG = {
+				has_civil_war = no
+				has_capitulated = no
+				NOT = {
+					has_opinion = {
+						target = ROOT
+						value < 50
+					}
+				}
+			}			
+		}
+		days_remove = 14
+		remove_effect = {
+			SMB_purchase_dreadnoughts_tt_gen = yes
+			ENG = {
+				country_event = {
+					id = generic_purchase_ships_events.04
+					hours = 1
+				}
+				set_country_flag = negotiating_dreadnought_purchase_flag@ROOT
+			}
+		}
+	}
+	purchase_dreadnoughts_FRA = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = generic_purchase_dreadnoughts_flag
+			FRA = { 
+				NOT = { 
+					has_country_flag = sold_dreadnoughts_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT  
+				}
+			}
+			NOT = { has_war_with = FRA}
+		}
+		available = {
+			FRA = {
+				has_civil_war = no
+				has_capitulated = no
+				NOT = {
+					has_opinion = {
+						target = ROOT
+						value < 50
+					}
+				}
+			}			
+		}
+		days_remove = 14
+		remove_effect = {
+			SMB_purchase_dreadnoughts_tt_gen = yes
+			FRA = {
+				country_event = {
+					id = generic_purchase_ships_events.04
+					hours = 1
+				}
+				set_country_flag = negotiating_dreadnought_purchase_flag@ROOT
+			}
+		}
+	}
+	purchase_dreadnoughts_ITA = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = generic_purchase_dreadnoughts_flag
+			ITA = { 
+				NOT = { 
+					has_country_flag = sold_dreadnoughts_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT  
+				}
+			}
+			NOT = { has_war_with = ITA}
+		}
+		available = {
+			ITA = {
+				has_civil_war = no
+				has_capitulated = no
+				NOT = {
+					has_opinion = {
+						target = ROOT
+						value < 50
+					}
+				}
+			}			
+		}
+		days_remove = 14
+		remove_effect = {
+			SMB_purchase_dreadnoughts_tt_gen = yes
+			ITA = {
+				country_event = {
+					id = generic_purchase_ships_events.04
+					hours = 1
+				}
+				set_country_flag = negotiating_dreadnought_purchase_flag@ROOT
+			}
+		}
+	}
+	purchase_dreadnoughts_GER = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = generic_purchase_dreadnoughts_flag
+			GER = { 
+				NOT = { 
+					has_country_flag = sold_dreadnoughts_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT  
+				}
+			}
+			NOT = { has_war_with = GER}
+		}
+		available = {
+			GER = {
+				has_civil_war = no
+				has_capitulated = no
+				NOT = {
+					has_opinion = {
+						target = ROOT
+						value < 50
+					}
+				}
+			}			
+		}
+		days_remove = 14
+		remove_effect = {
+			SMB_purchase_dreadnoughts_tt_gen = yes
+			GER = {
+				country_event = {
+					id = generic_purchase_ships_events.04
+					hours = 1
+				}
+				set_country_flag = negotiating_dreadnought_purchase_flag@ROOT
+			}
+		}
+	}
+	purchase_dreadnoughts_JAP = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = generic_purchase_dreadnoughts_flag
+			JAP = { 
+				NOT = { 
+					has_country_flag = sold_dreadnoughts_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT  
+				}
+			}
+			NOT = { has_war_with = JAP}
+		}
+		available = {
+			JAP = {
+				has_civil_war = no
+				has_capitulated = no
+				NOT = {
+					has_opinion = {
+						target = ROOT
+						value < 50
+					}
+				}
+			}			
+		}
+		days_remove = 14
+		remove_effect = {
+			SMB_purchase_dreadnoughts_tt_gen = yes
+			JAP = {
+				country_event = {
+					id = generic_purchase_ships_events.04
+					hours = 1
+				}
+				set_country_flag = negotiating_dreadnought_purchase_flag@ROOT
+			}
+		}
+	}
+
+	#above works, below doesnt work
+	SAU_purchase_ships_eng = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = SAU_purchase_old_ships_flag
+			ENG = { 
+				NOT = { 
+					has_country_flag = sold_ships_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT 
+				}
+			}
+			NOT = { has_war_with = ENG}
+		}
+		available = {
+			NOT = {
+				ENG = {
+					OR = {
+						has_civil_war = yes
+						has_capitulated = yes
+						has_opinion = {
+							target = FROM
+							value < 30
+						}
+					}					
+				}
+			}
+			
+		}
+		days_remove = 14
+		remove_effect = {
+			ENG = {
+				country_event = {
+					id = generic_purchase_ships_events.01
+					hours = 1
+				}
+				set_country_flag = negotiating_ship_purchase_flag@ROOT
+			}			
+		}
+	}
+	SAU_purchase_ships_sov = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = SAU_purchase_old_ships_flag
+			SOV = { 
+					has_country_flag = sold_ships_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT 
+			}
+
+			NOT = { has_war_with = SOV}
+		}
+		available = {
+			NOT = {
+				SOV = {
+					OR = {
+						has_civil_war = yes
+						has_capitulated = yes
+						has_opinion = {
+							target = FROM
+							value < 30
+						}
+					}					
+				}
+			}
+			
+		}
+		days_remove = 14
+		remove_effect = {
+			SOV = {
+				country_event = {
+					id = generic_purchase_ships_events.01
+					hours = 1
+				}
+				set_country_flag = negotiating_ship_purchase_flag@ROOT
+			}
+		}
+	}
+	SAU_purchase_ships_ger = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = SAU_purchase_old_ships_flag
+			GER = { 
+				NOT = { 
+					has_country_flag = sold_ships_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT
+				}
+
+			}
+			NOT = { has_war_with = GER}
+		}
+		available = {
+			NOT = {
+				GER = {
+					OR = {
+						has_civil_war = yes
+						has_capitulated = yes
+						has_opinion = {
+							target = FROM
+							value < 30
+						}
+					}					
+				}
+			}
+			
+		}
+		days_remove = 14
+		remove_effect = {
+			GER = {
+				country_event = {
+					id = generic_purchase_ships_events.01
+					hours = 1
+				}
+				set_country_flag = negotiating_ship_purchase_flag@ROOT
+			}
+		}
+	}
+	SAU_purchase_ships_usa = {
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = SAU_purchase_old_ships_flag
+			USA = { 
+				NOT = { 
+					has_country_flag = sold_ships_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT  
+				}
+			}
+			NOT = { has_war_with = USA}
+		}
+		available = {
+			NOT = {
+				USA = {
+					OR = {
+						has_civil_war = yes
+						has_capitulated = yes
+						has_opinion = {
+							target = FROM
+							value < 30
+						}
+					}					
+				}
+			}
+			
+		}
+		days_remove = 14
+		remove_effect = {
+			USA = {
+				country_event = {
+					id = generic_purchase_ships_events.01
+					hours = 1
+				}
+				set_country_flag = negotiating_ship_purchase_flag@ROOT
+			}
+		}
+	}
+}

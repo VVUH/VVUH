@@ -305,7 +305,7 @@ characters = {
 					original_tag  = KUW
 				}
 				traits  = {
-					captain_of_industry 
+					ARG_communist_insurrectionist 
 				}
 		}
 # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
@@ -323,7 +323,7 @@ characters = {
 					original_tag  = KUW
 				}
 				traits  = {
-					smooth_talking_charmer 
+					ARG_conservative_traditionalist 
 				}
 		}
 # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!

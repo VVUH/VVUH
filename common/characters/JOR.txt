@@ -19,7 +19,96 @@ characters = {
 		}
 
 	}
+	JOR_ab_jundi={
+		advisor={
+			slot = high_command
+			idea_token = JOR_ab_jundi
+			allowed  = {
+					original_tag  = JOR
+				}
+				traits  = {
+					army_chief_drill_1 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		name=" Abdul Qadir el Jundi"
+		portraits={
+			army={
+				large=GFX_portrait_arabia_generic_land_6
+				small=GFX_portrait_arabia_generic_land_6_small
+			}
+		}
+		field_marshal = {
+			traits = { organizer}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	JOR_bah_tab={
+		advisor={
+			slot = army_chief
+			idea_token = JOR_bah_tab
+			allowed  = {
+					original_tag  = JOR
+				}
+				traits  = {
+					army_regrouping_1 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		name="Bahjat Bey Tabbara"
+		portraits={
+			army={
+				large=GFX_portrait_arabia_generic_land_5
+				small=GFX_portrait_arabia_generic_land_5_small
+			}
+		}
+		corps_commander = {
+			traits = { engineer_officer}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
 
-	
+	JOR_ab_tal={
+		advisor={
+			slot = army_chief
+			idea_token = JOR_ab_tal
+			allowed  = {
+					original_tag  = JOR
+				}
+				traits  = {
+					army_infantry_1 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		name="Abdullah Tal"
+		portraits={
+			army={
+				large=GFX_portrait_arabia_generic_land_7
+				small=GFX_portrait_arabia_generic_land_7_small
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer}
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
 
 }

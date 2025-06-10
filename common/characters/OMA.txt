@@ -7,7 +7,7 @@ characters={
 			}
 		}
 		country_leader={
-			traits = {ARG_conservative_traditionalist}
+			traits = {dynastic_reformer}
 			ideology=despotism
 			expire="1965.1.1.1"
 			id=-1
@@ -405,7 +405,7 @@ characters={
 					original_tag  = OMA
 				}
 				traits  = {
-					compassionate_gentleman 
+					IRQ_minister_of_defense 
 				}
 		}
 # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
@@ -424,7 +424,7 @@ characters={
 					original_tag  = OMA
 				}
 				traits  = {
-					silent_workhorse 
+					IRQ_pan_arab_nationalist 
 				}
 		}
 # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!

@@ -1,4 +1,5 @@
 ﻿capital = 455
+oob = "JOR_1936"
 
 # Starting tech
 set_technology = {
@@ -91,6 +92,9 @@ set_popularities = {
 }
 
 recruit_character = JOR_abdullah_bin_al_hussein
+recruit_character = JOR_ab_tal
+recruit_character = JOR_ab_jundi
+recruit_character = JOR_bah_tab
 
 create_country_leader = {
 	name = "Hashim Kheir"
