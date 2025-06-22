@@ -1804,7 +1804,7 @@ characters={
 		}
 	}
 	BEL_staf_de_clercq={
-		name=BEL_staf_de_clercq
+		name="Staf de Clerq"
 		portraits={
 			civilian={
 				large=GFX_portrait_BEL_staf_de_clercq
