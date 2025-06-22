@@ -5225,7 +5225,8 @@ if = {
 							support = {
 								artillery = { x = 0 y = 0 }  
 								engineer = { x = 0 y = 1 }   
-								recon = { x = 0 y = 2 }      
+								recon = { x = 0 y = 2 }
+								sturmtruppe_battalion = { x = 0 y = 3 }
 							}
 						}
 						capital_scope = {
@@ -5417,7 +5418,7 @@ if = {
 		x = 2
 		y = 1
 		relative_position_id = ALB_Restore_the_divan
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 9
 		}
@@ -5497,7 +5498,8 @@ if = {
 							support = {
 								artillery = { x = 0 y = 0 }  
 								engineer = { x = 0 y = 1 }   
-								recon = { x = 0 y = 2 }      
+								recon = { x = 0 y = 2 }  
+								sturmtruppe_battalion = { x = 0 y = 3 }    
 							}
 						}
 						capital_scope = {
@@ -5684,6 +5686,10 @@ available = {
 			add_state_claim = 347
 			add_state_claim = 797
 		}
+	TUR = { country_event = {
+    id = albania_events.24
+	}
+	}
 		}
 	}
 	focus = {
@@ -5704,6 +5710,7 @@ available = {
 			retire_character = ALB_Celadet_Ali_Bedirxan
 			add_popularity = { ideology = fascism popularity = 0.05 }
 			promote_character = ALB_Said_Nursi
+			add_political_power = 50
 		}
 	}
 	focus = {
@@ -5769,6 +5776,31 @@ available = {
     type = annex_everything
 	target = ITA
 	}
+		division_template = {
+							name = "Janissaries"			
+							division_names_group = ALB_INF_01
+							priority = 2
+                            template_counter = 35
+                            division_cap = 24
+							regiments = {
+								 penal_battalion = { x = 0 y = 0 }
+								 penal_battalion = { x = 0 y = 1 }
+								 penal_battalion = { x = 0 y = 2 }
+								 penal_battalion = { x = 0 y = 3 }
+								 penal_battalion = { x = 1 y = 0 }
+								 penal_battalion = { x = 1 y = 1 }
+								 penal_battalion = { x = 1 y = 2 }
+								 penal_battalion = { x = 2 y = 0 }
+								 penal_battalion = { x = 2 y = 1 }
+								 penal_battalion = { x = 2 y = 2 }
+							}
+							support = {
+								artillery = { x = 0 y = 0 }  
+								engineer = { x = 0 y = 1 }   
+								recon = { x = 0 y = 2 }  
+								sturmtruppe_battalion = { x = 0 y = 3 }    
+							}
+						}
 	capital_scope = {
                 create_unit = {
                     division = "name = \"janissaries\"division_template = \"janissaries\" start_experience_factor = 0.2 start_equipment_factor = 1.0 start_manpower_factor = 1"
