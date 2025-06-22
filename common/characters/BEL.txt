@@ -4,7 +4,7 @@ characters={
 ####### Country Leaders #######
 
 
-	BEL_hubert_pierlot={
+	BEL_hubert_pierlot={ 
 		name=BEL_hubert_pierlot
 		portraits={
 			civilian={
