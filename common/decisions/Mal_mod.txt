@@ -550,6 +550,18 @@ MAL_the_malayan_emergency_categorie = {
 		complete_effect = {
 			add_political_power = 25
 			custom_effect_tooltip = "Avoid the civil War"
+			if = {
+				limit = {
+					has_idea = MAL_communist_movement
+				}
+				remove_ideas = MAL_communist_movement
+			}
+			if = {
+				limit = {
+					has_idea = MAL_communist_movement_2
+				}
+				remove_ideas = MAL_communist_movement_2
+			}
 		}
 		timeout_effect = { 
 			start_civil_war = {
@@ -1264,7 +1276,10 @@ MAL_stabilize_the_state_categorie = {
 			add_stability = 0.05
 		}
 		timeout_effect = { 
-			add_political_power = -20
+			add_timed_idea = {
+				idea = MAL_failed_popularity
+				days = 180
+			}
 		}
 	}
 	MAL_stabilize_the_state_mission = { 
@@ -1285,9 +1300,16 @@ MAL_stabilize_the_state_categorie = {
 				ideology = communism
 				popularity = 0.02
 			}
+			add_timed_idea = {
+				idea = MAL_achieved_stability
+				days = 180
+			}
 		}
 		timeout_effect = { 
-			add_political_power = -20
+			add_timed_idea = {
+				idea = MAL_failed_stability
+				days = 180
+			}
 		}
 	}
 	MAL_improve_economy = { 
@@ -1308,15 +1330,22 @@ MAL_stabilize_the_state_categorie = {
 				ideology = communism
 				popularity = 0.02
 			}
+			add_timed_idea = {
+				idea = MAL_achieved_economy
+				days = 180
+			}
 		}
 		timeout_effect = { 
-			add_political_power = -20
+			add_timed_idea = {
+				idea = MAL_failed_economy
+				days = 180
+			}
 		}
 	}
 	MAL_expand_the_military = { 
 		icon = GFX_decision_generic_military 
 		priority = 50
-		days_mission_timeout = 260
+		days_mission_timeout = 520
 		activation = { always = no }
 		is_good = no
 		available = {
@@ -1329,9 +1358,20 @@ MAL_stabilize_the_state_categorie = {
 		complete_effect = {
 			army_experience = 10
 			add_stability = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+			add_timed_idea = {
+				idea = MAL_achieved_military
+				days = 365
+			}
 		}
 		timeout_effect = { 
-			add_political_power = -20
+			add_timed_idea = {
+				idea = MAL_failed_military
+				days = 365
+			}
 		}
 	}
 	MAL_expansion_of_territory = { 
@@ -1349,9 +1389,16 @@ MAL_stabilize_the_state_categorie = {
 		complete_effect = {
 			add_war_support = 0.05
 			add_political_power = 50
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
 		}
 		timeout_effect = { 
-			add_political_power = -20
+			add_timed_idea = {
+				idea = MAL_failed_expansion
+				days = 180
+			}
 		}
 	}
 	MAL_implement_communist_policies = { 
@@ -1407,25 +1454,146 @@ political_actions = {
 	MAL_expand_asean = { 
 		icon = GFX_decision_hol_exchange_intelligence_data
 		priority = 100
-		cost = 0
+		cost = 10
+		days_remove = 2
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			OR = {
+				has_completed_focus = ASE_shared
+				has_completed_focus = MAL_alliance_with_siam
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_subject = no
+				is_in_faction = no
+				OR = {
+					tag = MAL
+					tag = PHI
+					tag = SIA
+					tag = INS
+					tag = VIN
+					tag = BRM
+					tag = CAM
+					tag = LAO
+				}
+			}
+		}
+		available = {
+			is_subject = no
+			is_faction_leader = yes
+    	}
+		fire_only_once = yes
+		remove_effect = {
+		    FROM = {
+				custom_effect_tooltip = invite_to_faction_tt
+				hidden_effect = { country_event = { id = generic.5 } }
+			}
+		}
+	}
+	MAL_demand_independence_for_FROM = { 
+		icon = GFX_decision_hol_exchange_intelligence_data
+		priority = 100
+		cost = 25
 		days_remove = 35
 		ai_will_do = {
 			base = 100
 		}
 		visible = {
-			has_completed_focus = MAL_alliance_with_siam
+			has_completed_focus = ASE_demand_independence
+		}
+		target_trigger = {
+			FROM = {
+				is_subject = yes
+			
+				OR = {
+					tag = MAL
+					tag = PHI
+					tag = SIA
+					tag = INS
+					tag = VIN
+					tag = BRM
+					tag = CAM 
+					tag = LAO
+				}
+			}
 		}
 		available = {
-			PHI = {
-				exists = yes
-				is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = "Not currently demanding independence for a country"
+				NOT = { has_country_flag = MAL_demanded_independence }
+			}
+			is_subject = no
+			is_faction_leader = yes
+    	}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = MAL_demanded_independence
+			set_variable = {
+				var = mod_mal_demand_independence_target
+				value = FROM
+			}
+		}
+		remove_effect = {
+			FROM = {
+				overlord = {
+					country_event = {
+						days = 1
+						id = mal.mod.36
+					}
+				}
+			}
+		}
+	}
+	MAL_unify_asean = { 
+		icon = GFX_decision_eng_trade_unions_demand
+		priority = 100
+		cost = 25
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			has_completed_focus = ASE_asean_we_are_bonded_as_one
+		}
+		available = {
+			is_subject = no
+			is_faction_leader = yes
+			any_allied_country = {
+				OR = {
+						tag = MAL
+						tag = PHI
+						tag = SIA
+						tag = INS
+						tag = VIN
+						tag = BRM
+						tag = CAM
+						tag = LAO
+					}
 			}
     	}
 		fire_only_once = yes
-		remove_effect = {
-		    PHI = {
-				custom_effect_tooltip = invite_to_faction_tt
-				hidden_effect = { country_event = { id = generic.5 } }
+		complete_effect = {
+			every_country = {
+				limit = {
+					NOT = { is_faction_leader = yes }
+					is_in_faction_with = ROOT
+					OR = {
+						tag = MAL
+						tag = PHI
+						tag = SIA
+						tag = INS
+						tag = VIN
+						tag = BRM
+						tag = CAM
+						tag = LAO
+					}
+				}
+				country_event = {
+					days = 1
+					id = mal.mod.38
+				}
 			}
 		}
 	}
@@ -1456,6 +1624,7 @@ MAL_immigration_categorie = {
 			monthly_population = -0.1
 			consumer_goods_factor = -0.1
 			communism_drift = -0.01
+			democratic_drift = -0.01
 		}
 		remove_effect = {
 			custom_effect_tooltip = "This decision will reappear after 100 days"
@@ -1488,6 +1657,7 @@ MAL_immigration_categorie = {
 			weekly_manpower = 500
 			industrial_capacity_factory = 0.05
 			communism_drift = 0.01
+			democratic_drift = 0.01
 		}
 		remove_effect = {
 			custom_effect_tooltip = "This decision will reappear after 100 days"
@@ -1625,6 +1795,156 @@ MAL_monarchy_bop_categorie = {
 				id = MAL_rulers_power_bop
 				value = 0.25
 				tooltip_side = MAL_rulers_weak
+			}
+		}
+	}
+
+}
+MAL_muslim_categorie = {
+	MAL_use_islam_to_justify_claims = { 
+		icon = GFX_decision_hol_draw_up_staff_plans
+		priority = 120
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		visible = {
+			NOT = {
+				has_country_flag = MAL_a_muslim_faction_flag
+			}
+		}
+		available = {
+    	}
+		fire_only_once = yes
+		complete_effect = {
+			add_ideas = MAL_muslim_claims_idea
+			add_war_support = 0.05
+			set_country_flag = MAL_use_islam_to_justify_claims_flag
+			unlock_decision_tooltip = MAL_claim_important_cities
+			unlock_decision_tooltip = MAL_demand_saudi_submission
+			custom_effect_tooltip = "This will lock you out from beeing able to form a muslim faction"
+
+		}
+	}
+	MAL_claim_important_cities = { 
+		icon = GFX_decision_generic_form_nation
+		priority = 120
+		cost = 75
+		ai_will_do = {
+			base = 0
+		}
+		visible = {
+			has_country_flag = MAL_use_islam_to_justify_claims_flag
+		}
+		available = {
+			is_subject = no
+    	}
+		fire_only_once = yes
+		complete_effect = {
+			add_state_core = 454
+			add_state_core = 856
+			add_state_core = 291
+			add_state_core = 797
+		}
+	}
+	MAL_demand_saudi_submission = { 
+		icon = GFX_decision_infiltrate_state
+		priority = 120
+		days_remove = 30
+		war_with_on_remove = SAU
+		cost = 75
+		ai_will_do = {
+			base = 0
+		}
+		visible = {
+			has_country_flag = MAL_use_islam_to_justify_claims_flag
+		}
+		available = {
+			is_subject = no
+			OR = {
+				any_neighbor_country = {
+					tag = SAU
+				}
+				any_allied_country = {
+					any_neighbor_country = {
+						tag = SAU
+					}
+				}
+				any_subject_country = {
+					any_neighbor_country = {
+						tag = SAU
+					}
+				}
+			}
+    	}
+		fire_only_once = yes
+		complete_effect = {
+			SAU = {
+				country_event = {
+					id = mal.mod.32
+					days = 1
+				}
+			}
+			custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+		}
+	}
+	MAL_a_muslim_faction = { 
+		icon = GFX_decision_hol_exchange_intelligence_data
+		priority = 120
+		cost = 50
+		ai_will_do = {
+			base = 0
+		}
+		visible = {
+			NOT = { has_country_flag = MAL_use_islam_to_justify_claims_flag }
+		}
+		available = {
+    	}
+		fire_only_once = yes
+		complete_effect = {
+			add_stability = 0.05
+			create_faction = "Muslim Alliance"
+			set_country_flag = MAL_a_muslim_faction_flag
+			unlock_decision_tooltip = MAL_invite_muslim_country
+			custom_effect_tooltip = "This will lock you out from beeing able to claim muslim land"
+		}
+	}
+	MAL_invite_muslim_country = { 
+		icon = GFX_decision_hol_exchange_intelligence_data
+		priority = 120
+		cost = 25
+		ai_will_do = {
+			base = 0
+		}
+		visible = {
+			has_country_flag = MAL_a_muslim_faction_flag
+		}
+		target_trigger = {
+			is_subject = no
+			is_in_faction = no
+			OR = {
+				tag = TUR
+				tag = IRQ
+				tag = SAU
+				tag = JOR
+				tag = PER
+				tag = AFG
+				tag = YEM
+				tag = OMA
+				tag = KUW
+				tag = PAL
+				tag = SYR
+				tag = LEB
+			}
+		}
+		available = {
+			is_subject = no
+			is_faction_leader = yes
+    	}
+		fire_only_once = yes
+		complete_effect = {
+			FROM = {
+				country_event = { id = generic.5 }
 			}
 		}
 	}

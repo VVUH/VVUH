@@ -184,6 +184,18 @@ MAL_immigration_categorie = {
 		always = yes
 	}
 }
+MAL_muslim_categorie = {
+	allowed = {
+		original_tag = MAL
+	}
+	icon = GFX_decision_faction_tur_traditionalist
+	priority = 110
+	visible_when_empty = no
+
+	visible = {
+		has_completed_focus = MAL_ally_the_home_of_islam
+	}
+}
 MAL_monarchy_bop_categorie = {
 	allowed = {
 		original_tag = MAL

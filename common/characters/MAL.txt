@@ -169,6 +169,7 @@ characters={
 				civilian={
 					#these people have pictures and I know you love your black and whites so imma leave that to you^
 					large="GFX_portrait_abdul_rahman"
+					small = "GFX_idea_CHI_h_h_kung"
 				}
 			}
 			advisor={
@@ -242,6 +243,7 @@ characters={
 				civilian={
 					#these people have pictures and I know you love your black and whites so imma leave that to you
 					large="GFX_portrait_abdul_aziz"
+					small="GFX_idea_TUR_refe_pasha"
 				}
 			}
 			advisor={
@@ -250,6 +252,11 @@ characters={
 				idea_token = MAL_abdul_aziz
 				available  = { 
 					has_completed_focus = MAL_elective_monarchy
+					NOT = {
+						has_country_leader = {
+							character = MAL_abdul_aziz
+						}
+					}
 				}
 				allowed  = {
 					original_tag = MAL
@@ -311,7 +318,7 @@ characters={
 			name= "Tan Malaka"
 			portraits={
 				civilian={
-					small="GFX_portrait_JAP_kuniaki_koiso_small"
+					small="GFX_idea_JAP_generic_land_5"
 				}
 			}
 			advisor = {
@@ -494,7 +501,7 @@ characters={
 			name= "Burhanuddin al-Helmy"
 			portraits={
 				civilian={
-					small="GFX_idea_generic_army_asia_1"
+					small="GFX_idea_asia_generic_communism"
 				}
 			}
 			
@@ -503,6 +510,10 @@ characters={
 					
 				}
 				available = {
+					OR = {
+						has_completed_focus = MAL_social_democracy
+						has_completed_focus = MAL_form_the_umno
+					}
 				}
 				slot = political_advisor
 				idea_token = MAL_kes_muda
@@ -518,7 +529,7 @@ characters={
 			name= "Ibrahim Yaacob"
 			portraits={
 				civilian={
-					small="GFX_idea_generic_army_asia_1"
+					small = "GFX_idea_CHI_h_h_kung"
 					large="GFX_portrait_Ibrahim_Hj_Yaacob"
 				}
 			}
@@ -570,7 +581,7 @@ characters={
 			name= "Mustapha Hussain"
 			portraits={
 				civilian={
-					small="GFX_idea_generic_army_asia_1"
+					small="GFX_idea_CHI_chen_guofu"
 				}
 			}
 			advisor = {
@@ -578,7 +589,7 @@ characters={
 					
 				}
 				available = {
-					
+					has_completed_focus = MAL_found_the_kmm
 				}
 				slot = political_advisor
 				idea_token = MAL_must_hussain
@@ -591,7 +602,7 @@ characters={
 			name= "Donald Roberts"
 			portraits={
 				civilian={
-					small="GFX_idea_generic_army_asia_1"
+					small="GFX_idea_CHI_chiang_ching_kuo"
 				}
 			}
 			advisor = {
@@ -612,7 +623,7 @@ characters={
 			name= "Francis Gough"
 			portraits={
 				civilian={
-					small="GFX_idea_generic_army_asia_1"
+					small="GFX_idea_PRC_zhou_enlai"
 				}
 			}
 			advisor = {
@@ -633,7 +644,7 @@ characters={
 			name= "Douglas Plummer"
 			portraits={
 				civilian={
-					small="GFX_idea_generic_army_asia_1"
+					small="GFX_idea_CHI_chen_yi"
 				}
 			}
 			advisor = {
@@ -647,6 +658,27 @@ characters={
 				idea_token = MAL_douglas_plummer
 				traits = {
 					monarchist_media_mogul
+				}
+			}
+		}
+		MAL_ernest_tipson={
+			name= "Ernest Tipson"
+			portraits={
+				civilian={
+					small="GFX_idea_generic_political_advisor_asia_2"
+				}
+			}
+			advisor = {
+				visible = {	
+				}
+				available = {
+					has_government = democratic
+					is_in_faction_with = ENG
+				}
+				slot = political_advisor
+				idea_token = MAL_ernest_tipson
+				traits = {
+					british_missionary
 				}
 			}
 		}
