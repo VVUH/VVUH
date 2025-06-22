@@ -2733,7 +2733,7 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		set_cosmetic_tag = MAL
+		drop_cosmetic_tag = yes
 		add_political_power = -50
 		overlord = {
 			set_autonomy = {
@@ -2791,14 +2791,61 @@ country_event = {
 	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = no
-	trigger = { 
-	}
 	option = {
-		trigger = {
-		}
 		name = "Sure"
 		ai_chance = {
-			factor = 100
+			base = 50
+			modifier = { MAL = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = MAL
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
 		}
 		MAL = {
 			country_event = {
@@ -2809,11 +2856,9 @@ country_event = {
 		
 	}
 	option = {
-		trigger = {
-		}
 		name = "No aid to socialists"
 		ai_chance = {
-			factor = 0
+			base = 10
 		}
 		MAL = {
 			country_event = {
@@ -2831,11 +2876,7 @@ country_event = {
 	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
 	fire_only_once = no
-	trigger = { 
-	}
 	option = {
-		trigger = {
-		}
 		name = "Good"
 		ai_chance = {
 			factor = 100
@@ -2882,6 +2923,61 @@ country_event = {
 		name = "No point in starting a war over this"
 		ai_chance = {
 			base = 50
+			modifier = { MAL = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = MAL
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = neutrality
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+			modifier = {
+				is_in_faction_with = MAL
+				factor = 2
+			}
 		}
 		MAL = {
 			country_event = mal.mod.7
@@ -2890,7 +2986,18 @@ country_event = {
 	option = {
 		name = "No way"
 		ai_chance = {
-			base = 0
+			base = 10
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 35
+				}
+				add = -10
+			}
+			modifier = { 
+				has_war = yes
+				factor = 0.5
+			}
 		}
 		MAL = {
 			country_event = mal.mod.8
@@ -2924,6 +3031,61 @@ country_event = {
 		name = "We have no choice but to give in"
 		ai_chance = {
 			base = 50
+			modifier = { MAL = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = MAL
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = neutrality
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+			modifier = {
+				is_in_faction_with = MAL
+				factor = 2
+			}
 		}
 		MAL = {
 			country_event = mal.mod.10
@@ -2932,7 +3094,7 @@ country_event = {
 	option = {
 		name = "No way"
 		ai_chance = {
-			base = 0
+			base = 70
 		}
 		MAL = {
 			country_event = mal.mod.8
@@ -2966,6 +3128,61 @@ country_event = {
 		name = "Give in"
 		ai_chance = {
 			base = 50
+			modifier = { MAL = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = MAL
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = neutrality
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+			modifier = {
+				is_in_faction_with = MAL
+				factor = 2
+			}
 		}
 		MAL = {
 			country_event = mal.mod.12
@@ -2974,7 +3191,7 @@ country_event = {
 	option = {
 		name = "No way"
 		ai_chance = {
-			base = 0
+			base = 70
 		}
 		MAL = {
 			country_event = mal.mod.8
@@ -3147,6 +3364,61 @@ country_event = {
 		name = "Give in"
 		ai_chance = {
 			base = 50
+			modifier = { MAL = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = MAL
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = neutrality
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+			modifier = {
+				is_in_faction_with = MAL
+				factor = 2
+			}
 		}
 		MAL = {
 			country_event = mal.mod.18
@@ -3155,7 +3427,7 @@ country_event = {
 	option = {
 		name = "No way"
 		ai_chance = {
-			base = 0
+			base = 50
 		}
 		MAL = {
 			country_event = mal.mod.8
@@ -3187,6 +3459,61 @@ country_event = {
 		name = "Give in"
 		ai_chance = {
 			base = 50
+			modifier = { MAL = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = MAL
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = neutrality
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+			modifier = {
+				is_in_faction_with = MAL
+				factor = 2
+			}
 		}
 		MAL = {
 			country_event = mal.mod.20
@@ -3195,7 +3522,7 @@ country_event = {
 	option = {
 		name = "No way"
 		ai_chance = {
-			base = 0
+			base = 30
 		}
 		MAL = {
 			country_event = mal.mod.8
@@ -3226,6 +3553,53 @@ country_event = {
 		name = "Sure"
 		ai_chance = {
 			base = 50
+			modifier = { MAL = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = MAL
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
 		}
 		MAL = {
 			country_event = {
@@ -3246,7 +3620,7 @@ country_event = {
 	option = {
 		name = "No way"
 		ai_chance = {
-			base = 0
+			base = 20
 		}
 		MAL = {
 			country_event = {
@@ -3409,6 +3783,7 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = no
 	trigger = {
+		has_idea = MAL_communist_movement
 		has_war = yes
 		tag = MAL
 		date > 1939.11.1
@@ -3452,6 +3827,7 @@ country_event = {
 		ai_chance = {
 			base = 100
 		}
+		add_political_power = -50
 		add_ideas = MAL_british_companies_2
 		ENG = {
 			remove_opinion_modifier = {
@@ -3469,6 +3845,7 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
+		add_political_power = 150
 		ENG = {
 			add_opinion_modifier = {
 				target = MAL
@@ -3477,7 +3854,7 @@ country_event = {
 		}
 		add_timed_idea = {
 			idea = MAL_taxes_on_british_companies
-			days = 180
+			days = 365
 		}	
 	}
 }
@@ -3686,6 +4063,57 @@ country_event = {
 		name = "Give in"
 		ai_chance = {
 			base = 50
+			modifier = { MAL = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = MAL
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = neutrality
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
 		}
 		MAL = {
 			country_event = mal.mod.31
@@ -3694,7 +4122,7 @@ country_event = {
 	option = {
 		name = "No way"
 		ai_chance = {
-			base = 0
+			base = 50
 		}
 		MAL = {
 			country_event = mal.mod.8
@@ -3746,5 +4174,328 @@ country_event = {
 			base = 0
 		}
 		promote_character = MAL_tkk
+	}
+}
+country_event = {
+	id = mal.mod.34
+	title = "[From.GetNameDef] wants to protect Indochina"
+	desc = "They want to occupy our indochinese colony. How do we respond?"
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = "Give in"
+		ai_chance = {
+			base = 50
+			modifier = { MAL = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = MAL
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = MAL
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = neutrality
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+			modifier = {
+				is_in_faction_with = MAL
+				factor = 2
+			}
+		}
+		MAL = {
+			country_event = mal.mod.35
+		}
+	}
+	option = {
+		name = "No way"
+		ai_chance = {
+			base = 30
+		}
+		MAL = {
+			country_event = mal.mod.8
+		}
+	}
+}
+country_event = {
+	id = mal.mod.35
+	title = "[From.GetNameDef] gives in"
+	desc = "We now own Indochina"
+	picture = GFX_report_event_chinese_japanese_handshake
+	is_triggered_only = yes
+	option = {
+		name = "Great News"
+		ai_chance = {
+			factor = 100
+		}
+		transfer_state = 671
+		transfer_state = 670
+		transfer_state = 741
+		transfer_state = 286 
+	}
+}
+country_event = {
+	id = mal.mod.36
+	title = "[From.GetNameDef] wants us to liberate [?FROM.mod_mal_demand_independence_target.GetNameDef]"
+	desc = "[From.GetNameDef] the leader of the East Asian Faction has come to us demanding the liberation of [?mod_mal_demand_independence_target.GetNameDef] and threatend war if we didn't. How do we respond?"
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = "Give in"
+		ai_chance = {
+			base = 50
+			modifier = { From = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = From
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = neutrality
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+			modifier = {
+				is_in_faction_with = From
+				factor = 2
+			}
+		}
+		var:FROM.mod_mal_demand_independence_target = {
+			overlord = { 
+				set_autonomy = {
+					target = var:FROM.mod_mal_demand_independence_target
+					autonomous_state = autonomy_free
+					end_wars = yes
+					end_civil_wars = yes
+				}
+			}
+			drop_cosmetic_tag = yes
+			leave_faction = yes
+		}
+		FROM = {
+			country_event = mal.mod.37
+		}
+	}
+	option = {
+		name = "No way"
+		ai_chance = {
+			base = 30
+		}
+		FROM = {
+			country_event = mal.mod.8
+			clear_variable = FROM.mod_mal_demand_independence_target
+		}
+	}
+}
+country_event = {
+	id = mal.mod.37
+	title = "[From.GetNameDef] liberates [?mod_mal_demand_independence_target.GetNameDef]"
+	desc = ""
+	picture = GFX_report_event_chinese_japanese_handshake
+	is_triggered_only = yes
+	option = {
+		name = "Great News"
+		ai_chance = {
+			factor = 100
+		}
+		clr_country_flag = MAL_demanded_independence
+		clear_variable = mod_mal_demand_independence_target
+	}
+}
+country_event = {
+	id = mal.mod.38
+	title = "[From.GetNameDef] wants to unite ASEAN"
+	desc = "[From.GetNameDef] the leader of ASEAN has come to us suggesting the unificationof ASEAN in order to protect from outside powers, howevery this would cost us our sovereignty. How do we respond?"
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = "We are destined for unification!"
+		ai_chance = {
+			base = 50
+			modifier = { From = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = From
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = From
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				has_government = neutrality
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+			modifier = {
+				is_in_faction_with = From
+				factor = 2
+			}
+		}
+		From = {
+			country_event = mal.mod.39
+		}
+		custom_effect_tooltip = "This will end the game for us!"
+	}
+	option = {
+		name = "We should keep our independence"
+		ai_chance = {
+			base = 30
+		}
+		From = {
+			country_event = mal.mod.40
+		}
+	}
+}
+country_event = {
+	id = mal.mod.39
+	title = "[From.GetNameDef] votes for unification"
+	desc = "After our suggestion [From.GetNameDef] has held a public referendum that turned out in favor of ASEAN Unification"
+	picture = GFX_report_event_chinese_japanese_handshake
+	is_triggered_only = yes
+	option = {
+		name = "Great News"
+		ai_chance = {
+			factor = 100
+		}
+		every_state = {
+			limit = {
+				is_core_of = FROM
+			}
+			add_core_of = ROOT
+		}
+	 	annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+	}
+}
+country_event = {
+	id = mal.mod.40
+	title = "[From.GetNameDef] votes against unification"
+	desc = "After our suggestion [From.GetNameDef] has held a public referendum that turned out against ASEAN Unification"
+	picture = GFX_report_event_chinese_japanese_handshake
+	is_triggered_only = yes
+	option = {
+		name = "We will still be allies"
+		ai_chance = {
+			factor = 100
+		}
+	 	add_political_power = 10
 	}
 }
