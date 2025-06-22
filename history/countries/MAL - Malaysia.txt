@@ -1,15 +1,17 @@
-﻿capital = 336 #Kuala Lumpur
+﻿capital = 1017 #Kuala Lumpur
 
 oob = "MAL_1936"
 
 set_research_slots = 2
 
+mark_focus_tree_layout_dirty = yes
+
 recruit_character = MAL_shenton_thomas
 recruit_character = MAL_onn_jaafar
 recruit_character = MAL_lai_teck
-recruit_character = MAL_ibrahim_hj_yaacob
 recruit_character = MAL_ruler_council
 recruit_character = MAL_advisor_parliament
+recruit_character = MAL_ernest_tipson
 recruit_character = MAL_advisor_foreign_military_advisors
 recruit_character = MAL_tkk
 recruit_character = MAL_abdul_rahman
