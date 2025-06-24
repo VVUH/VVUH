@@ -1,4 +1,4 @@
-SAU_formables_cat ={ #formable general always doable
+SAU_formables_cat ={ #formable general always doable, this is more for specifics like iran
     allowed = {
         tag = SAU
     }
@@ -14,14 +14,35 @@ SAU_decs_cat = { #general decisions
     priority = 5
     icon = GFX_decision_category_generic_political_actions
 }
-SAU_laissez_faire_cat = {
+SAU_extremist_resistance = { #general decisions
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_eng_organize_the_blackshirts
+}
+SAU_trade = {  
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_gre_paying_ifc_debt
+}
+SAU_border_wars = { #works
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_border_conflicts
+}
+SAU_laissez_faire_cat = { #works
     allowed = {
         tag = SAU
     }
     priority = 5
     icon = GFX_decision_category_gre_investment_decisions
 }
-SAU_mine_the_arabian_shield = {
+SAU_mine_the_arabian_shield = { #check
    allowed = {
         tag = SAU
     }
@@ -31,7 +52,7 @@ SAU_mine_the_arabian_shield = {
     priority = 10
     icon = GFX_decision_category_generic_prospect_for_resources  
 }
-SAU_command_economic_direction = {
+SAU_command_economic_direction = { #not yet worked on, swap civillian direction and military direction
     allowed = {
         tag = SAU
     }
@@ -41,7 +62,7 @@ SAU_command_economic_direction = {
     priority = 10
     icon = GFX_decision_category_SOV_merge_designers  
 }
-SAU_attract_migrant_workers = { 
+SAU_attract_migrant_workers = { #doesnt work
     allowed = {
         tag = SAU
     }
@@ -49,24 +70,20 @@ SAU_attract_migrant_workers = {
     priority = 10
     icon = GFX_decision_category_generic_foreign_policy  
 }
-SAU_naval_decisions = { 
+SAU_naval_decisions = { #works - except blockades
     allowed = {
         tag = SAU
     }
 
     priority = 10
-    icon = GFX_decision_category_generic_foreign_policy  
+    icon = GFX_decision_category_generic_naval  
 }
-SAU_collab_foreign_ally = {
-    # doesnt work
+SAU_collab_foreign_ally = {    # doesnt work
+
     allowed = {
         tag = TIB
     }
-    visible = {
-        any_country = {
-            has_war_together_with = SAU
-        }
-    }
+
     priority = 5
     icon = GFX_decision_category_GER_war_planning
 }

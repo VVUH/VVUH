@@ -2,9 +2,891 @@ SAU_formables_cat = {
 
 }
 SAU_decs_cat = {
-	
+	# Collectivization of Society
+	SAU_collectivize_society  = {
+
+		priority = 50
+
+		icon = GFX_decision_SOV_place_hq
+
+		ai_will_do = {
+			base = 0
+		}
+
+		allowed = {  
+			original_tag = SAU
+		}
+
+		available = {
+
+			has_government = communism
+
+
+		}
+
+		visible = { 
+
+			tag = SAU
+
+			has_government = communism
+
+			NOT = {
+				has_country_flag = SAU_collectivized_society_flag
+			}
+
+		} 
+
+		days_remove = 105 
+
+		cost = 70
+
+		complete_effect = {
+			add_stability = -0.05
+		}
+
+		modifier = {
+		}
+
+		remove_effect = {
+			
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}		
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}	
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}		
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}	
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			hidden_effect = {
+				set_country_flag = SAU_collectivized_society_flag
+			}
+		}
+
+	}
+	SAU_broker_peace_between_the_imamate_and_the_west = {
+		icon = GFX_decision_generic_assassination
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			AND = {
+				has_completed_focus = SAU_bolster_the_omani_imam
+				any_country = {
+					original_tag = IMO
+					is_subject = no
+					is_ai = yes
+					has_war = yes
+				}
+				OMA = {
+					has_capitulated = yes
+				}
+			}
+
+		}
+		
+		visible = {
+			has_completed_focus = SAU_bolster_the_omani_imam
+			NOT = {
+				has_global_flag = SAU_IMO_puppet
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				set_global_flag = SAU_IMO_puppet
+				
+			}
+			puppet = {
+				target = IMO
+				end_wars = yes
+			}
+			IMO = {
+				transfer_state = 1016
+				transfer_state = 294
+				transfer_state = 1013
+			}
+		}
+
+	}
+	SAU_integrate_yemen= {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			YEM = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+		}
+		
+		visible = {
+			YEM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			annex_country = {
+				target = YEM
+				transfer_troops = yes
+			}
+		}
+	}
+	SAU_integrate_imo= {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			IMO = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+		}
+		
+		visible = {
+			IMO = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			annex_country = {
+				target = IMO
+				transfer_troops = yes
+			}
+		}
+	}
+	SAU_integrate_oman= {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			OMA = {
+				is_puppet_of = ROOT
+				is_ai = yes
+
+			}
+		}
+		
+		visible = {
+			OMA = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			annex_country = {
+				target = OMA
+				transfer_troops = yes
+			}
+		}
+	}
+	SAU_integrate_kuwait = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			KUW = {
+				is_puppet_of = ROOT
+				is_ai = yes
+
+			}
+		}
+		
+		visible = {
+			KUW = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			annex_country = {
+				target = KUW
+				transfer_troops = yes
+			}
+		}
+	}
 }
 
+SAU_border_wars = { #works, still got it baby
+	SAU_liberate_jordan = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 455 }
+			}
+			allowed = {
+				original_tag = SAU
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				455 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 455
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 455
+				}
+
+				original_tag = SAU
+				has_completed_focus = SAU_intervene_in_the_levant
+			}
+
+			days_remove = 5
+			455 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 854
+						num_provinces = 2
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 455
+						num_provinces = 3
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+	}
+	SAU_deploy_troops_in_palestine = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 454 }
+			}
+			allowed = {
+				original_tag = SAU
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				454 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 454
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 454
+				}
+
+				original_tag = SAU
+				has_completed_focus = SAU_intervene_in_the_levant
+			}
+
+			days_remove = 5
+			454 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 455
+						num_provinces = 5
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 454
+						num_provinces = 5
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+	}
+	#656 - kuwait 2v2; attacker: 859
+	#658 - trucial 2v2; attacker: 678
+	#765 - qatar 1v1; attack: 859
+	SAU_coup_kuwait = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 656 }
+			}
+			allowed = {
+				original_tag = SAU
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				656 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 656
+				}
+			}
+			visible = {
+				has_global_flag = SAU_anti_colonial_raids_flag
+				NOT = {
+					controls_state = 656
+				}
+				
+				original_tag = SAU
+			}
+
+			days_remove = 5
+			656 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 859
+						num_provinces = 2
+						on_win = SAU_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 656
+						num_provinces = 2
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+	}
+	SAU_a_change_in_qatar = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 765 }
+			}
+			allowed = {
+				original_tag = SAU
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				765 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 765
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 765
+				}
+				has_global_flag = SAU_anti_colonial_raids_flag
+				original_tag = SAU
+
+			}		
+
+			days_remove = 5
+			765 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 859
+						num_provinces = 1
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 765
+						num_provinces = 1
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+	}
+	SAU_establish_our_nobles_in_the_trucial_states = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 658 }
+			}
+			allowed = {
+				original_tag = SAU
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				658 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 658
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 658
+				}
+				has_global_flag = SAU_anti_colonial_raids_flag
+				original_tag = SAU
+			}		
+
+			days_remove = 5
+			658 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 678
+						num_provinces = 2
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 658
+						num_provinces = 2
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+	}	
+	#unif agenda; oman
+	SAU_border_conflict_over_oman = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 1015 }
+			}
+			allowed = {
+				original_tag = SAU
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				1015 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 1015
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 1015
+				}
+				has_global_flag = SAU_anti_colonial_raids_flag
+				original_tag = SAU
+			}		
+
+			days_remove = 5
+			1015 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 678
+						num_provinces = 1
+						on_win = SAU_border_conflict.2
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 1015
+						num_provinces = 2
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+	}
+	SAU_march_on_dhofar = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 1016 }
+			}
+			allowed = {
+				original_tag = SAU
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				1016 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 1016
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 1016
+				}
+				has_global_flag = SAU_anti_colonial_raids_flag
+				original_tag = SAU
+			}		
+
+			days_remove = 5
+			1016 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 678
+						num_provinces = 2
+						on_win = SAU_border_conflict.2
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 1016
+						num_provinces = 1
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+	}	
+	SAU_install_a_friendly_regime_in_muscat = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 294 }
+			}
+			allowed = {
+				original_tag = SAU
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+			
+					1015 = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 294
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 294
+				}
+				has_global_flag = SAU_anti_colonial_raids_flag
+				original_tag = SAU
+			}		
+
+			days_remove = 5
+			294 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 1015
+						num_provinces = 2
+						on_win = SAU_border_conflict.2
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 294
+						num_provinces = 3
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+	}				
+}
+
+SAU_extremist_action = { #doesnt work
+	SAU_religious_placation_decision_of_FROM = {
+		state_target = yes
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = TIB_fund_monastaries
+				has_completed_focus = TIB_monastaries_for_the_people
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = SAU
+				is_core_of = SAU
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = islamists_placated
+					}
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = SAU_investing_in_regional_placation
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_SOV_place_hq
+		days_remove = 25
+		cost = 20
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_investing_in_regional_placation
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.01
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = SAU_investing_in_regional_placation
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.03
+			}
+			from = {			
+				add_dynamic_modifier = { modifier = islamists_placated}
+			}
+		}
+	}
+	
+	SAU_religious_alignment_decision_of_FROM = {
+		state_target = yes
+		target_root_trigger = {
+			has_completed_focus = SAU_foster_fanaticism
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = SAU
+				is_core_of = SAU
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = devout_islamists
+					}
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = SAU_investing_in_region_alignment
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_SOV_place_hq
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_investing_in_region_alignment
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.03
+			}
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			hidden_effect = {
+				clr_country_flag = SAU_investing_in_region_alignment
+			}
+			from = {			
+				add_dynamic_modifier = { modifier = devout_islamists}
+			}
+		}
+	}
+}
 #works:
 SAU_laissez_faire_cat = {
 	SAU_land_owners_finding_funding  = {
@@ -817,14 +1699,6 @@ SAU_collab_foreign_ally = {
 			add_stability = 0.1
 			add_political_power = 100
 
-			diplomatic_relation = {
-				country = foreign_ally
-				relation = non_aggression_pact
-				active = yes
-			}
-			SAU = {give_military_access = foreign_ally}
-			foreign_ally = {give_military_access = SAU}
-
         }
 
 	}
@@ -977,12 +1851,12 @@ SAU_collab_foreign_ally = {
 }
 
 SAU_naval_decisions = {
-	purchase_dreadnoughts_usa = {
+	SAU_purchase_dreadnoughts_usa = {
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = generic_purchase_dreadnoughts_flag
+			has_completed_focus = SAU_purchage_old_dreadnoughts
 			USA = { 
 				NOT = { 
 					has_country_flag = sold_dreadnoughts_to_us@ROOT
@@ -1016,12 +1890,12 @@ SAU_naval_decisions = {
 			}
 		}
 	}
-	purchase_dreadnoughts_ENG = {
+	SAU_purchase_dreadnoughts_ENG = {
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = generic_purchase_dreadnoughts_flag
+			has_completed_focus = SAU_purchage_old_dreadnoughts
 			ENG = { 
 				NOT = { 
 					has_country_flag = sold_dreadnoughts_to_us@ROOT
@@ -1054,12 +1928,12 @@ SAU_naval_decisions = {
 			}
 		}
 	}
-	purchase_dreadnoughts_FRA = {
+	SAU_purchase_dreadnoughts_FRA = {
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = generic_purchase_dreadnoughts_flag
+			has_completed_focus = SAU_purchage_old_dreadnoughts
 			FRA = { 
 				NOT = { 
 					has_country_flag = sold_dreadnoughts_to_us@ROOT
@@ -1092,12 +1966,12 @@ SAU_naval_decisions = {
 			}
 		}
 	}
-	purchase_dreadnoughts_ITA = {
+	SAU_purchase_dreadnoughts_ITA = {
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = generic_purchase_dreadnoughts_flag
+			has_completed_focus = SAU_purchage_old_dreadnoughts
 			ITA = { 
 				NOT = { 
 					has_country_flag = sold_dreadnoughts_to_us@ROOT
@@ -1130,12 +2004,12 @@ SAU_naval_decisions = {
 			}
 		}
 	}
-	purchase_dreadnoughts_GER = {
+	SAU_purchase_dreadnoughts_GER = {
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = generic_purchase_dreadnoughts_flag
+			has_completed_focus = SAU_purchage_old_dreadnoughts
 			GER = { 
 				NOT = { 
 					has_country_flag = sold_dreadnoughts_to_us@ROOT
@@ -1168,12 +2042,12 @@ SAU_naval_decisions = {
 			}
 		}
 	}
-	purchase_dreadnoughts_JAP = {
+	SAU_purchase_dreadnoughts_JAP = {
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = generic_purchase_dreadnoughts_flag
+			has_completed_focus = SAU_purchage_old_dreadnoughts
 			JAP = { 
 				NOT = { 
 					has_country_flag = sold_dreadnoughts_to_us@ROOT
@@ -1213,7 +2087,7 @@ SAU_naval_decisions = {
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = SAU_purchase_old_ships_flag
+			has_completed_focus = SAU_obtain_destroyers_and_subs
 			ENG = { 
 				NOT = { 
 					has_country_flag = sold_ships_to_us@ROOT
@@ -1253,7 +2127,7 @@ SAU_naval_decisions = {
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = SAU_purchase_old_ships_flag
+			has_completed_focus = SAU_obtain_destroyers_and_subs
 			SOV = { 
 					has_country_flag = sold_ships_to_us@ROOT
 					has_country_flag = negotiating_ship_purchase_flag@ROOT 
@@ -1292,7 +2166,7 @@ SAU_naval_decisions = {
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = SAU_purchase_old_ships_flag
+			has_completed_focus = SAU_obtain_destroyers_and_subs
 			GER = { 
 				NOT = { 
 					has_country_flag = sold_ships_to_us@ROOT
@@ -1333,7 +2207,7 @@ SAU_naval_decisions = {
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
-			has_country_flag = SAU_purchase_old_ships_flag
+			has_completed_focus = SAU_obtain_destroyers_and_subs
 			USA = { 
 				NOT = { 
 					has_country_flag = sold_ships_to_us@ROOT
@@ -1368,4 +2242,390 @@ SAU_naval_decisions = {
 			}
 		}
 	}
+
+	SAU_coastal_garrisons = {
+		priority = 6
+
+		icon = GFX_decision_generic_military
+
+		ai_will_do = {
+			base = 1
+		}
+
+		allowed = {
+			original_tag = SAU
+		}
+
+		visible = {
+				has_completed_focus = SAU_protect_trade_ports
+			
+			OR = {
+				has_full_control_of_state = 856
+				has_full_control_of_state = 859
+				has_full_control_of_state = 293
+				has_full_control_of_state = 1013
+				has_full_control_of_state = 765
+				has_full_control_of_state = 656
+				has_full_control_of_state = 1016
+				has_full_control_of_state = 294
+				has_full_control_of_state = 992
+			}
+		}
+
+		available = {
+			OR = {
+				has_full_control_of_state = 856
+				has_full_control_of_state = 859
+				has_full_control_of_state = 293
+				has_full_control_of_state = 1013
+				has_full_control_of_state = 765
+				has_full_control_of_state = 656
+				has_full_control_of_state = 1016
+				has_full_control_of_state = 294
+				has_full_control_of_state = 992
+			}
+			has_war = yes
+		}
+
+		cost =  50
+
+		days_remove = 20
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_coastal_garrisons_deployed_flag 
+			}
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					has_completed_focus = SAU_coastal_defence_batteries
+				}
+				division_template = {
+					name = "Coast Guard"
+					priority = 0
+					template_counter = 6
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }		
+						infantry = { x = 0 y = 3 }
+						infantry = { x = 1 y = 0 }	
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }		
+						infantry = { x = 1 y = 3 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }					
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+						artillery = { x = 0 y = 1 }
+					}
+				}
+			}
+			else = {
+				division_template = {
+					name = "Coast Guard"
+					priority = 0
+					template_counter = 6
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }			
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }			
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+						artillery = { x = 0 y = 1 }
+					}
+				}
+			}
+			if = { 
+				limit = {
+					856 = {
+						is_fully_controlled_by = ROOT
+						naval_base > 0
+					}
+				}
+				856 = {
+					create_unit = {
+						division = "name = \"Coast Guard\" division_template = \"Coast Guard\" start_experience_factor = 0.3 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+						owner = ROOT
+						prioritize_location = 12883
+						allow_spawning_on_enemy_provs = no  
+						count = 1 
+					}
+				}
+			}
+			if = { 
+				limit = {
+					859 = {
+						is_fully_controlled_by = ROOT
+						naval_base > 0
+					}
+				}
+				859 = {
+					create_unit = {
+						division = "name = \"Coast Guard\" division_template = \"Coast Guard\" start_experience_factor = 0.3 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+						owner = ROOT
+						prioritize_location = 12702
+						allow_spawning_on_enemy_provs = no  
+						count = 1 
+					}
+				}
+			}
+			if = { #n yemen
+				limit = {
+					293 = {
+						is_fully_controlled_by = ROOT
+						naval_base > 0
+					}
+				}
+				293 = {
+					create_unit = {
+						division = "name = \"Coast Guard\" division_template = \"Coast Guard\" start_experience_factor = 0.3 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+						owner = ROOT
+						prioritize_location = 10840
+						allow_spawning_on_enemy_provs = no  
+						count = 1 
+					}
+				}
+			}
+			if = { #musundum
+				limit = {
+					1013 = {
+						is_fully_controlled_by = ROOT
+						naval_base > 0
+					}
+				}
+				1013 = {
+					create_unit = {
+						division = "name = \"Coast Guard\" division_template = \"Coast Guard\" start_experience_factor = 0.3 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+						owner = ROOT
+						prioritize_location = 13369
+						allow_spawning_on_enemy_provs = no  
+						count = 1 
+					}
+				}
+			}
+			if = { #qatar
+				limit = {
+					765 = {
+						is_fully_controlled_by = ROOT
+						naval_base > 0
+					}
+				}
+				765 = {
+					create_unit = {
+						division = "name = \"Coast Guard\" division_template = \"Coast Guard\" start_experience_factor = 0.3 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+						owner = ROOT
+						prioritize_location = 3122
+						allow_spawning_on_enemy_provs = no  
+						count = 1 
+					}
+				}
+			}
+			if = { #kuwait
+				limit = {
+					656 = {
+						is_fully_controlled_by = ROOT
+						naval_base > 0
+					}
+				}
+				656 = {
+					create_unit = {
+						division = "name = \"Coast Guard\" division_template = \"Coast Guard\" start_experience_factor = 0.3 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+						owner = ROOT
+						prioritize_location = 8085
+						allow_spawning_on_enemy_provs = no  
+						count = 1 
+					}
+				}
+			}
+			if = { #dhofar
+				limit = {
+					1016 = {
+						is_fully_controlled_by = ROOT
+						naval_base > 0
+					}
+				}
+				1016 = {
+					create_unit = {
+						division = "name = \"Coast Guard\" division_template = \"Coast Guard\" start_experience_factor = 0.3 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+						owner = ROOT
+						prioritize_location = 2103
+						allow_spawning_on_enemy_provs = no  
+						count = 1 
+					}
+				}
+			}
+			if = { #muscat
+				limit = {
+					294 = {
+						is_fully_controlled_by = ROOT
+						naval_base > 0
+					}
+				}
+				294 = {
+					create_unit = {
+						division = "name = \"Coast Guard\" division_template = \"Coast Guard\" start_experience_factor = 0.3 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+						owner = ROOT
+						prioritize_location = 10760
+						allow_spawning_on_enemy_provs = no  
+						count = 1 
+					}
+				}
+			}
+			if = { #aden
+				limit = {
+					992 = {
+						is_fully_controlled_by = ROOT
+						naval_base > 0
+					}
+				}
+				992 = {
+					create_unit = {
+						division = "name = \"Coast Guard\" division_template = \"Coastal Guard\" start_experience_factor = 0.3 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+						owner = ROOT
+						prioritize_location = 5074
+						allow_spawning_on_enemy_provs = no  
+						count = 1 
+					}
+				}
+			}
+		}
+	}
+	SAU_swap_naval_focus = {
+		icon = GFX_decision_generic_human_torpedo
+		fire_only_once = no
+		visible = {
+			OR = {
+				has_idea = SAU_coastal_defenders
+				has_idea = SAU_arabian_raiders
+			}
+		}
+		available = {
+			OR = {
+				has_idea = SAU_coastal_defenders
+				has_idea = SAU_arabian_raiders
+			}
+		}
+		days_remove = 5
+
+		ai_hint_pp_cost = 15
+		custom_cost_trigger = {
+			has_political_power > 14
+			has_navy_experience > 9
+		}
+		custom_cost_text = decision_cost_pp_15_NavXP_10
+
+		complete_effect = {
+			hidden_effect = {
+				add_political_power = -15
+				navy_experience = -10
+			}
+		}
+
+		remove_effect = {
+			IF = {
+				LIMIT = {
+					has_idea = SAU_coastal_defenders
+				}
+				swap_ideas = {
+					remove_idea = SAU_coastal_defenders
+					add_idea = SAU_arabian_raiders
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = SAU_arabian_raiders
+				}
+				swap_ideas = {
+					remove_idea = SAU_arabian_raiders
+					add_idea = SAU_coastal_defenders
+				}	
+			}
+		}
+	}
+	SAU_blockade_IRQ = {
+		icon = generic_naval
+
+		cost = 25
+		fire_only_once = no
+		allowed = {
+			always = yes
+		}
+
+		visible = {
+			has_completed_focus = SAU_our_northern_foe
+			has_global_flag = SAU_anti_colonial_raids_flag
+		}
+
+		available = {
+			IRQ = {
+				is_guaranteed_by = ENG
+				NOT ={
+					is_in_faction_with = SAU
+				}
+			}
+
+			SAU = {
+				has_full_control_of_state  = 658
+				has_full_control_of_state  = 1013
+				has_full_control_of_state  = 765
+				has_full_control_of_state  = 455
+			}
+			NOT = {
+				PER = {
+					is_in_faction_with = ENG
+				}
+			}
+			IF = {
+				LIMIT = {
+					has_global_flag = SAU_granted_iranian_support
+				}
+				ships_in_area = {
+					area = 203
+					type = capital_ship
+					size > 1
+				}
+			}ELSE={
+				ships_in_area = {
+					area = 203
+					type = capital_ship
+					size > 3
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				set_global_flag = SAU_iraqi_blockade_flag
+			}
+			ENG = {
+				diplomatic_relation = {
+					country = IRQ
+					relation = guarantee
+					active = no
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = embargoed_us
+				}	
+			}
+				IRQ = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = embargoed_us
+					}	
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = SAU_if_iranian_support_less_cost_in_ships_tt
+		}
+	}
+
 }

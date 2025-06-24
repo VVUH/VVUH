@@ -141,8 +141,8 @@ characters={
 		name= "Muhammad Al ash-Sheikh"
 		portraits={
 			civilian = {
-					large = GFX_portrait_AFG_sardar_shah_wali_khan
-					small = GFX_portrait_AFG_sardar_shah_wali_khan_small
+				small = GFX_portrait_PER_mohammad_mosaddegh_small
+				large = GFX_portrait_PER_mohammad_mosaddegh
 			}
 		}
 		advisor={
@@ -164,7 +164,7 @@ characters={
 		}
 		country_leader = {
 			traits  = {
-				IRQ_knight_of_arabism 
+				AFG_follower_of_islam_trait 
 			}
 			ideology=fascism_ideology
 		}
@@ -440,12 +440,12 @@ characters={
 		name="Muhammad Al Saud"
 		portraits={ 
 			civilian={
-				large = GFX_portrait_arabia_generic_land_5
-				small = GFX_portrait_arabia_generic_land_5_small
+				large="GFX_portrait_tur_kazim_karabekir"
+				small="GFX_idea_tur_kazim_karabekir"
 			}
 			army={
-				large = GFX_portrait_arabia_generic_land_5
-				small = GFX_portrait_arabia_generic_land_5_small
+				large="GFX_portrait_tur_kazim_karabekir"
+				small="GFX_idea_tur_kazim_karabekir"
 			}
 		}
 		
@@ -546,6 +546,25 @@ characters={
 #end foreigner
 	SAU_youssef_al_bishi={
 		advisor={
+			on_add = {
+				custom_effect_tooltip = SAU_while_youssef_is_employed_you_will_gain_the_following:
+				custom_effect_tooltip = GER_heavy_armored_car_recon_company_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
+				hidden_effect = {
+					set_technology = {
+						GER_heavy_armored_car = 1
+						popup = no
+					}
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					set_technology = {
+						GER_heavy_armored_car = 0
+						popup = no
+					}
+				}
+			}
 			slot = high_command
 			idea_token = SAU_youssef_al_bishi
 			ledger  = army 
@@ -583,7 +602,7 @@ characters={
 		name="Hamadan al-Odha"
 		portraits={
 			army={
-				small="GFX_idea_generic_air_arab_3"
+				small=GFX_portrait_IRQ_hamdi_al_pachachi_small
 			}
 		}
 	}
@@ -643,7 +662,7 @@ characters={
 		name="Hamed al-Sabani"
 		portraits={
 			army={
-				small="GFX_idea_generic_navy_arab_2"
+				small=GFX_portrait_PER_abdollah_zelli_small
 			}
 		}
 	}
@@ -692,7 +711,7 @@ characters={
 		name="Ismail Ali al-Salhi"
 		portraits={
 			army={
-				small="GFX_idea_generic_political_advisor_arab_3"
+				small=GFX_portrait_IRQ_naji_al_suwaidi_small
 			}
 		}
 	}
@@ -777,6 +796,13 @@ characters={
 		}
 		
 		field_marshal = {
+			visible = {
+				NOT = {
+					has_global_flag = SAU_abd_died_flag
+					has_global_flag = SAU_fate_of_sauds_negative
+					has_government = democratic
+				}
+			}
 			traits = { thorough_planner}
 			skill = 2
 			attack_skill = 2
@@ -821,7 +847,7 @@ characters={
 		name= "Abdullah ibn Humayd"
 		portraits={
 			civilian = {
-				small = GFX_portrait_PER_generic_1_small
+				small = GFX_portrait_IRQ_sharaf_bin_rajeh_small
 			}
 
 		}
@@ -830,7 +856,7 @@ characters={
 			idea_token = SAU_abdullah_humayd
 			cost = 150
 			visible = {
-				#historical ulema focus - replace ulema with younger
+				has_completed_focus = SAU_strengthen_the_clergy
 			}
 			available = {
 
@@ -848,17 +874,17 @@ characters={
 		name= "Muhammad al-Shanqiti"
 		portraits={
 			civilian = {
-				large = GFX_portrait_PER_davud_monshizadeh
-				small = GFX_portrait_PER_davud_monshizadeh_civilian_small
+				large = GFX_portrait_IRQ_ahmed_barzani
+				small = GFX_portrait_IRQ_ahmed_barzani_small
 			}
 			army = {
-				large = GFX_portrait_PER_davud_monshizadeh
-				small = GFX_portrait_PER_davud_monshizadeh_civilian_small
+				large = GFX_portrait_IRQ_ahmed_barzani
+				small = GFX_portrait_IRQ_ahmed_barzani_small
 			}
 		}
 		corps_commander = {
 			visible = {
-				#same focus replace ulema with younger
+				has_completed_focus = SAU_strengthen_the_clergy
 			}
 			traits = {cavalry_officer }
 			skill = 2
@@ -872,7 +898,7 @@ characters={
 			idea_token = SAU_abdullah_ash_sheikh
 			cost = 150
 			visible = {
-				#historical replace ulema focus, general too 
+				has_completed_focus = SAU_strengthen_the_clergy
 			}
 			available = {
 
@@ -881,7 +907,7 @@ characters={
 				original_tag = SAU
 			}
 			traits = {
-				AFG_follower_of_islam_trait
+				GER_traditionalist
 			}
 		}
 	}
@@ -889,7 +915,7 @@ characters={
 		name= "Hamad Al-Suwailem"
 		portraits={
 			civilian = {
-				small = GFX_portrait_PER_generic_2_small
+				small = GFX_portrait_IRQ_amir_al_illah_small
 			}
 
 		}
@@ -899,6 +925,8 @@ characters={
 			cost = 150
 			visible = {
 				#historical ulema focus or democratic focus
+				has_completed_focus = SAU_strengthen_the_clergy
+
 			}
 			available = {
 
@@ -925,6 +953,8 @@ characters={
 			cost = 150
 			visible = {
 				#historical ulema focus
+				has_completed_focus = SAU_strengthen_the_clergy
+
 			}
 			available = {
 
@@ -982,10 +1012,10 @@ characters={
 			idea_token = SAU_ahmed_juffali
 			cost = 150
 			visible = {
-
+				has_completed_focus = SAU_investing_oil_money_into_economy
 			}
 			available = {
-
+				has_completed_focus = SAU_investing_oil_money_into_economy
 			}
 			allowed = {
 				original_tag = SAU
@@ -1016,8 +1046,11 @@ characters={
 				}
 			}
 			available = {
-				NOT = {
-					has_war_with = ENG
+				AND = {
+					has_completed_focus = SAU_negotiating_the_end		
+					NOT = {
+						has_war_with = ENG
+					}
 				}
 			}
 			allowed = {
@@ -1069,7 +1102,13 @@ characters={
 			idea_token = SAU_hamza
 			cost = 150
 			visible = {
-
+				NOT = {
+					OR = {
+						has_completed_focus = SAU_arming_the_revolt
+						has_completed_focus = SAU_negotiating_the_end
+						has_completed_focus = SAU_funnel_foreign_funds
+					}
+				}
 			}
 			available = {
 
@@ -1099,9 +1138,17 @@ characters={
 			idea_token = SAU_ishaq_yaqub
 			cost = 150
 			visible = {
+				NOT = {
+					OR = {
+						has_completed_focus = SAU_arming_the_revolt
+						has_completed_focus = SAU_negotiating_the_end
+						has_completed_focus = SAU_funnel_foreign_funds
+					}
+				}
 				#miltiia path chosen
 			}
 			available = {
+				has_completed_focus = SAU_intervene_in_the_levant
 				#militia focus done
 			}
 			allowed = {
@@ -1168,6 +1215,13 @@ characters={
 				NOT = {
 					has_global_flag = SAU_foreign_clamp_down
 				}
+				NOT = {
+					OR = {
+						has_completed_focus = SAU_intervene_in_the_levant
+						has_completed_focus = SAU_negotiating_the_end
+						has_completed_focus = SAU_funnel_foreign_funds
+					}
+				}
 			}
 			available = {
 				#commie focus done
@@ -1198,6 +1252,13 @@ characters={
 			cost = 150
 			visible = {
 				#commie path chosen
+				NOT = {
+					OR = {
+						has_completed_focus = SAU_intervene_in_the_levant
+						has_completed_focus = SAU_negotiating_the_end
+						has_completed_focus = SAU_funnel_foreign_funds
+					}
+				}
 			}
 			available = {
 				#commie focus done
@@ -1232,7 +1293,13 @@ characters={
 			idea_token = SAU_abd_al_sunayd
 			cost = 150
 			visible = {
-				#commie path chosen
+				NOT = {
+					OR = {
+						has_completed_focus = SAU_intervene_in_the_levant
+						has_completed_focus = SAU_negotiating_the_end
+						has_completed_focus = SAU_funnel_foreign_funds
+					}
+				}
 			}
 			available = {
 				#commie focus done
@@ -1266,11 +1333,15 @@ characters={
 				NOT = {
 					has_global_flag = SAU_foreign_clamp_down
 				}
+				has_completed_focus = SAU_negotiating_the_end
 			}
 
 			available = {
-				NOT = {
-					has_war_with = USA
+				AND = {
+					has_completed_focus = SAU_negotiating_the_end		
+					NOT = {
+						has_war_with = USA
+					}
 				}
 			}
 			allowed = {
@@ -1295,6 +1366,7 @@ characters={
 			idea_token = SAU_fritz_grobba
 			cost = 150
 			visible = {
+				has_completed_focus = SAU_intervene_in_the_levant
 				NOT = {
 					has_war_with = GER
 				}
@@ -1456,10 +1528,8 @@ characters={
 			idea_token = SAU_ahmad_al_sabah
 			cost = 150
 			visible = {
-				AND = {
-					NOT = {country_exists = KUW}
- 
-				}
+				NOT = {country_exists = KUW}
+				NOT = {has_completed_focus = SAU_intervene_in_the_levant}
 			}
 			available = {
 
@@ -1473,6 +1543,10 @@ characters={
 		}
 
 		field_marshal = {
+			visible = {
+				NOT = {country_exists = KUW}
+				
+			}
 			traits = { organizer cavalry_officer }
 			skill = 3
 			attack_skill = 3

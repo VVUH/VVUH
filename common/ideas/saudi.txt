@@ -128,7 +128,7 @@ ideas = {
 			}
 
 			removal_cost = -1
-				
+
 			modifier = { #debuff 
 				consumer_goods_factor = 0.1
 				production_factory_efficiency_gain_factor = -0.05
@@ -139,13 +139,14 @@ ideas = {
 			rule = {
 				can_access_market = no
 			}
+
 		}
 
 #end initials
 #politics
 		SAU_meddling_funds = {
 
-			picture = ARG_military_government
+			picture = ARG_political_corruption_modifier
 			
 			allowed = {
 				always = no
@@ -208,6 +209,72 @@ ideas = {
 				army_org_factor = -0.02
 			}
 		}
+		SAU_religious_upheaval = {
+
+			picture = ITA_hardened_irregular_bands
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			rule = {
+				can_join_factions = no
+			}
+
+			modifier = {  
+				consumer_goods_factor = 0.15
+				stability_factor = -0.2
+				war_support_factor = -0.15
+				army_speed_factor = -0.5
+			}
+		}
+		SAU_centralising_government = {
+
+			picture = ARG_political_corruption_modifier
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = 0.15
+				war_support_weekly = -0.01
+				state_production_speed_buildings_factor = -0.05
+				fascism_drift = 0.03
+				neutrality_drift = -0.1
+				fascism_acceptance = 50
+				drift_defence_factor = -0.25
+			}
+		}
+		SAU_developing_fanaticism = {
+
+			picture = ARG_subdue_dissension
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = 0.15
+				stability_weekly = -0.01
+				required_garrison_factor = 0.1
+				fascism_drift = 0.07
+				fascism_acceptance = 50
+				drift_defence_factor = -0.25
+			}
+		}
 		SAU_taxed_pilgrims = {
 
 			picture = NOR_printing_money
@@ -244,10 +311,29 @@ ideas = {
 				local_intel_to_enemies = -0.15
 				army_core_attack_factor = 0.05
 				army_core_defence_factor = 0.1
-				conscription = -0.03
+				conscription = 0.02
 			}
 		}
+		SAU_strengthened_monarchy = {
 
+			picture = PER_white_revolution_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.35
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.05
+				conscription = 0.03
+			}
+		}
 		SAU_legalised_muslim_equality = {
 
 			picture = tur_funkplan
@@ -285,8 +371,7 @@ ideas = {
 				political_power_gain = 0.25
 				war_support_factor = 0.1
 				conscription = 0.02
-				offensive_war_stability_factor = -0.2
-				attrition = -0.1
+				offensive_war_stability_factor = 0.2
 			}
 		}
 		SAU_secular_politics = {
@@ -529,7 +614,7 @@ ideas = {
 		}
 		SAU_corruption = {
 
-			picture = ETH_taxed_nobility
+			picture = HABSBURG_economy
 			
 			allowed = {
 				always = no
@@ -656,8 +741,135 @@ ideas = {
 			}
 		}
 
-	}		
+			
 #end economy
+
+#army of arabia CHL_carabineros_de_chile_fascist as gfx initially, CHL_carabineros_de_chile_neutrality for traditional warfare (inf) other raj_heavy_vehicles_factory_avadi -> raj_ordnance_factory_medak
+		SAU_arabian_army = {
+
+			picture = CHL_carabineros_de_chile_fascist 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_army = 0.05
+
+				
+			}
+		}
+#end of army
+#arabian airforce
+		SAU_arabian_airforce = {
+			#improves into generic_air_bonus or air_support_focus - specialises into combined_bomber_offensive <- bomber | generic_aircraft_support into SWE_land_air_warfare <- cas
+			picture = KAT_katangese_airforce
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.05
+
+				
+			}
+		}
+#end of airforce
+#navy of arabia 
+		SAU_arabian_navy = {
+
+			picture = generic_coastal_defense_ships
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+			}
+		}
+		SAU_arabian_navy2 = {
+
+			picture = generic_coastal_defense_ships2
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15
+			}
+		}
+
+#specialising; generic_navy_cruiser_warfare - generic_navy_submarines - generic_navy_bonus - generic_navy_carrier_bonus
+
+#generic_sea_focused_navy vs generic_coastal_navy - range and attack] vs [fuel use and defense] replaceavke with decision?
+		SAU_coastal_defenders = {
+
+			picture = generic_coastal_navy
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				navy_fuel_consumption_factor = -0.3
+				naval_defense_factor = 0.1
+				naval_coordination = 0.1
+
+			}
+		}
+		SAU_arabian_raiders = {
+
+			picture = generic_sea_focused_navy
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				navy_max_range_factor = 0.25
+				naval_damage_factor = 0.1
+				naval_coordination = 0.1
+
+			}
+		}
+#end of navy
+
+#industrial concern
 	industrial_concern = {
         designer = yes
 
@@ -683,7 +895,7 @@ ideas = {
 
 			SAU_petrol = {
 				
-				picture = CHL_ejercito_de_chile
+				picture = generic_refining_concern_1
 			
 				allowed = {
 					original_tag = SAU
@@ -710,7 +922,7 @@ ideas = {
 
 			SAU_USA_petrolium_company = {
 				
-				picture = bul_petrol_ad
+				picture = gre_dep
 			
 				allowed = {
 					original_tag = SAU
