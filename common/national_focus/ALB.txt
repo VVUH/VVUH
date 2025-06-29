@@ -5015,6 +5015,17 @@ if = {
 
 		completion_reward = {
 			add_ideas = {ALB_ottoman_army}
+			add_unit_bonus = {
+                penal_battalion = {
+                    soft_attack = 0.1
+                    breakthrough = 0.1
+					max_organisation = 5
+					mountain = {
+                        attack = 0.08
+                        movement = 0.15 #If you change this - Change the custom tooltip too: mountain_guns_tt ROM_modern_at_guns_tech_tt
+                    }
+                }
+            }
 		}
 	}
 	focus = {
@@ -5476,6 +5487,23 @@ if = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_unit_bonus = {
+                penal_battalion = {
+                    soft_attack = 0.05
+                    breakthrough = 0.05
+					max_organisation = 5
+					max_dig_in = 5
+					combat_width = -0.4
+					hills = {
+                        attack = 0.1
+                        movement = 0.15 #If you change this - Change the custom tooltip too: mountain_guns_tt ROM_modern_at_guns_tech_tt
+                    }
+					plains  = {
+                        attack = 0.05
+                        breakthrough = 0.05
+                    }
+                }
+            }
 			add_ideas = {ALB_janissaries}
 			division_template = {
 							name = "Janissaries"			
