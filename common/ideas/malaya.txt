@@ -1,0 +1,2906 @@
+ideas = {
+    country = {
+        MAL_failed_expansion = {
+            name = "Weak Foreign Policy"
+            removal_cost = -1
+            picture = generic_flexible_foreign_policy
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            modifier = {
+                political_power_factor = -0.05
+                justify_war_goal_time = 0.3
+                communism_drift = -0.01
+            }
+        }
+        MAL_failed_military = {
+            name = "Demoralized Military"
+            removal_cost = -1
+            picture = SPR_disbanded_army
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            modifier = {
+                political_power_factor = -0.05
+                army_attack_factor = -0.05
+                army_defence_factor = -0.05
+                army_org_factor = -0.08
+                army_morale_factor = -0.1
+            }
+        }
+        MAL_achieved_military = {
+            name = "Strengthend Military"
+            removal_cost = -1
+            picture = MEX_revolutionary_army
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            modifier = {
+                mobilization_speed = 0.1
+                army_attack_factor = 0.05
+                army_defence_factor = 0.05
+                army_morale_factor = 0.05
+            }
+        }
+        MAL_failed_economy = {
+            name = "Slow Economic Growth"
+            removal_cost = -1
+            picture = GER_recovering_economy
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            modifier = {
+                political_power_factor = -0.05
+                production_speed_buildings_factor = -0.05
+            }
+        }
+        MAL_achieved_economy = {
+            name = "Fast Economic Growth"
+            removal_cost = -1
+            picture = ARG_civilian_economy_boost
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            modifier = {
+                political_power_factor = 0.05
+                production_speed_buildings_factor = 0.05
+                consumer_goods_factor = -0.05
+            }
+        }
+        MAL_failed_stability = {
+            name = "Unstable Regime"
+            removal_cost = -1
+            picture = chi_war_of_resistance2
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            modifier = {
+                political_power_factor = -0.05
+                consumer_goods_factor = 0.1
+            }
+        }
+        MAL_achieved_stability = {
+            name = "Stable Regime"
+            removal_cost = -1
+            picture = ARG_subdue_dissension
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            modifier = {
+                political_power_factor = 0.05
+                consumer_goods_factor = -0.15
+                communism_drift = 0.01
+            }
+        }
+        MAL_failed_popularity = {
+            name = "Unpopular Regime"
+            removal_cost = -1
+            picture = prc_low_popular_support
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            modifier = {
+                political_power_factor = -0.05
+                war_support_factor = -0.05
+            }
+        }
+        MAL_the_japanese_threat_idea = { 
+            name = "Anti-Japanese Propaganda"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = generic_japanese_conflict
+
+            targeted_modifier = {
+                tag = JAP
+                attack_bonus_against = 0.1
+                defense_bonus_against = 0.1
+            }
+            targeted_modifier = {
+                tag = MAN
+                attack_bonus_against = 0.1
+                defense_bonus_against = 0.1
+            }
+            targeted_modifier = {
+                tag = MEN
+                attack_bonus_against = 0.1
+                defense_bonus_against = 0.1
+            }
+        }
+        MAL_anti_western_idea = { 
+            name = "Anti-Western Propaganda"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_anti_american_propaganda
+
+            targeted_modifier = {
+                tag = USA
+                attack_bonus_against = 0.1
+                defense_bonus_against = 0.1
+            }
+            targeted_modifier = {
+                tag = ENG
+                attack_bonus_against = 0.1
+                defense_bonus_against = 0.1
+            }
+            targeted_modifier = {
+                tag = FRA
+                attack_bonus_against = 0.1
+                defense_bonus_against = 0.1
+            }
+        }
+        MAL_aid_to_china = { 
+            name = "Aid to China"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = chi_chinese_unity
+
+            modifier = {
+                send_volunteer_divisions_required = -1
+                lend_lease_tension = -1
+                send_volunteers_tension = -1
+                experience_gain_army_factor = 0.15
+                experience_gain_air_factor = 0.15
+            }
+        }
+        MAL_leader_of_asean_idea = { 
+            name = "Leader of ASEAN"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = AFG_parliament_building
+
+            modifier = {
+                political_power_gain = 0.1
+                war_support_factor = 0.05
+                army_defence_factor = 0.05
+                drift_defence_factor = 0.4
+            }
+        }
+        MAL_asean_peacekeeping_idea = { 
+            name = "Keeping Peace in East Asia"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = AFG_parliament_building
+
+            modifier = {
+                conscription = 0.01
+                resistance_target = -0.05
+                drift_defence_factor = 0.2
+                army_core_defence_factor = 0.05
+            }
+        }
+        MAL_giant_oil_market_idea = { 
+            name = "Giant Oil Market"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = MEX_oil_concessions
+
+            modifier = {
+                fuel_gain_factor = 0.4
+                max_fuel_factor = 0.2
+                army_fuel_consumption_factor = -0.05
+                air_fuel_consumption_factor = -0.05
+                navy_fuel_consumption_factor = -0.05
+            }
+        }
+        MAL_international_aid_idea = { 
+            name = "International Aid"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = SPR_international_brigades
+
+            modifier = {
+                political_power_factor = 0.1
+                production_speed_buildings_factor = 0.025
+                consumer_goods_factor = -0.025
+                monthly_population = 0.2
+                weekly_manpower = 200
+            }
+        }
+        MAL_social_policies_idea = { 
+            name = "Expanded Social Policies"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = SPR_international_brigades
+
+            modifier = {
+                political_power_factor = 0.1
+                stability_weekly = 0.001
+            }
+        }
+        MAL_american_aid_idea = { 
+            name = "American Aid"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_american_allyship
+
+            modifier = {
+                min_export = 0.15
+                production_speed_industrial_complex_factor = 0.1
+                consumer_goods_factor = -0.15
+                democratic_drift = 0.01
+            }
+        }
+        MAL_align_with_the_soviets_idea = { 
+            name = "Soviet Aid"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = eng_spirit_of_the_industrial_revolution
+
+            modifier = {
+                political_power_factor = -0.1
+                stability_factor = 0.05
+                production_speed_buildings_factor = 0.05
+                consumer_goods_factor = -0.1
+                communism_drift = 0.01
+            }
+        }
+        MAL_aid_to_japan = { 
+            name = "Aid to Japan"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = chi_chinese_unity
+
+            modifier = {
+                send_volunteer_divisions_required = -1
+                lend_lease_tension = -1
+                send_volunteers_tension = -1
+                research_speed_factor = 0.05
+                experience_gain_navy_factor = 0.15
+            }
+        }
+        MAL_malaysian_aid = { 
+            name = "Aid from Malaysia"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_chinese_unity
+
+            modifier = {
+                planning_speed = 0.05
+                supply_consumption_factor = -0.05
+                experience_gain_army_factor = 0.15
+            }
+        }
+        MAL_colonial_government = { 
+            name = "Colonial Government"
+            allowed = {
+                always = no
+            }
+            cancel = {
+                is_subject = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = hol_caved_to_the_british
+
+            modifier = {
+                drift_defence_factor = 0.2
+                stability_factor = 0.05
+                war_support_factor = -0.05
+                consumer_goods_factor = 0.1
+                political_power_factor = -0.1
+                research_speed_factor = -0.05
+                autonomy_gain = -0.1
+            }
+        }
+        MAL_colonial_government_weak = { 
+            name = "Colonial Government"
+            allowed = {
+                always = no
+            }
+            cancel = {
+                is_subject = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = hol_caved_to_the_british
+
+            modifier = {
+                drift_defence_factor = 0.1
+                stability_factor = -0.05
+                research_speed_factor = -0.05
+                autonomy_gain = 0.5
+            }
+        }
+        MAL_colonial_government_2 = { 
+            name = "Colonial Government"
+            allowed = {
+                always = no
+            }
+            cancel = {
+                is_subject = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = hol_caved_to_the_british
+
+            modifier = {
+                drift_defence_factor = 0.3
+                stability_factor = 0.1
+                war_support_factor = -0.05
+                consumer_goods_factor = 0.1
+                political_power_factor = 0.05
+                autonomy_gain = -0.2
+            }
+        }
+        MAL_colonial_government_3 = { 
+            name = "Colonial Government"
+            allowed = {
+                always = no
+            }
+            cancel = {
+                is_subject = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = hol_caved_to_the_british
+
+            modifier = {
+                drift_defence_factor = 0.4
+                stability_factor = 0.1
+                conscription = 0.005
+                mobilization_speed = 0.5
+                production_speed_bunker_factor = 0.5
+                consumer_goods_factor = 0.1
+                political_power_factor = 0.15
+                autonomy_gain = -0.3
+            }
+        }
+        MAL_divided_nation = { 
+            name = "Divided Nation"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_wargaming_division
+
+            modifier = {
+                stability_factor = -0.05
+                war_support_factor = -0.1
+                political_power_factor = -0.1
+                army_attack_factor = -0.1
+                autonomy_gain = 0.1
+            }
+        }
+        MAL_divided_nation_balance = { 
+            name = "Divided Nation"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_wargaming_division
+
+            modifier = {
+                war_support_factor = -0.05
+                political_power_factor = -0.05
+                army_attack_factor = -0.05
+                autonomy_gain = 0.5
+            }
+        }
+        MAL_divided_nation_centralization = { 
+            name = "Divided Nation"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_wargaming_division
+
+            modifier = {
+                stability_factor = -0.05
+                war_support_factor = -0.1
+                local_resources_factor = 0.1
+                production_speed_buildings_factor = 0.05
+            }
+        }
+        MAL_divided_nation_malayan_union = { 
+            name = "Accepted Malayan Union"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_wargaming_division
+
+            modifier = {
+                political_power_factor = -0.1
+                stability_factor = -0.05
+                war_support_factor = -0.05
+                local_resources_factor = 0.2
+                research_speed_factor = 0.1
+                consumer_goods_factor = -0.2
+                conscription_factor = 0.25
+                production_speed_buildings_factor = 0.15
+                autonomy_gain = -0.01
+            }
+        }
+        MAL_divided_nation_malayan_federation = { 
+            name = "Rejected Malayan Union"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_wargaming_division
+
+            modifier = {
+                political_power_factor = 0.1
+                local_resources_factor = 0.1
+                research_speed_factor = 0.05
+                consumer_goods_factor = -0.05
+                production_speed_buildings_factor = 0.05
+                autonomy_gain = 1
+            }
+        }
+        MAL_divided_nation_malayan_federation_2 = { 
+            name = "The Malayan Federation"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_wargaming_division
+
+            modifier = {
+                political_power_factor = 0.15
+                stability_factor = 0.05
+                local_resources_factor = 0.1
+                research_speed_factor = 0.1
+                consumer_goods_factor = -0.1
+                production_speed_buildings_factor = 0.1
+                autonomy_gain = 1
+            }
+        }
+        MAL_divided_nation_decentralization = { 
+            name = "Decentralization"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_local_self_management
+
+            modifier = {
+                stability_factor = 0.05
+                war_support_factor = 0.05
+                enemy_army_bonus_air_superiority_factor = -0.25
+                industry_air_damage_factor = -0.25
+                production_factory_start_efficiency_factor = 0.05
+                production_lack_of_resource_penalty_factor = -0.1 
+                line_change_production_efficiency_factor = 0.1
+            }
+        }
+        MAL_chinese_immigrants = { 
+            name = "Chinese Immigrants"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = prc_low_popular_support3
+
+            modifier = {
+                monthly_population = 0.25
+                stability_factor = -0.08
+                war_support_factor = -0.08
+                political_power_factor = -0.1
+                consumer_goods_expected_value = 0.15
+                communism_drift = 0.02
+                democratic_drift = 0.02
+            }
+        }
+        MAL_chinese_immigrants_supported = { 
+            name = "Chinese Immigrants"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_chinese_unity
+
+            modifier = {
+                monthly_population = 0.35
+                stability_factor = -0.1
+                war_support_factor = -0.1
+                consumer_goods_expected_value = 0.05
+                communism_drift = 0.04
+                democratic_drift = 0.04
+                conscription = 0.02
+            }
+        }
+        MAL_chinese_immigrants_supported_2_d = { 
+            name = "Chinese Immigrants"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_chinese_unity
+
+            modifier = {
+                monthly_population = 0.5
+                political_power_gain = 0.1
+                stability_factor = -0.05
+                war_support_factor = -0.05
+                consumer_goods_factor = -0.1
+                democratic_drift = 0.04
+                conscription = 0.03
+            }
+        }
+        MAL_chinese_immigrants_supported_2_c = { 
+            name = "Chinese Immigrants"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = chi_chinese_unity
+
+            modifier = {
+                monthly_population = 0.5
+                political_power_gain = 0.1
+                stability_factor = -0.05
+                war_support_factor = -0.05
+                consumer_goods_factor = -0.1
+                communism_drift = 0.04
+                conscription = 0.03
+            }
+        }
+        MAL_chinese_immigrants_crackdown = { 
+            name = "Chinese Immigrants"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = jap_intervene_in_china
+
+            modifier = {
+                monthly_population = 0.15
+                stability_factor = -0.1
+                war_support_factor = -0.1
+                consumer_goods_expected_value = 0.05
+            }
+        }
+        MAL_chinese_immigrants_crackdown_temp = { 
+            name = "Crackdown on the Chinese"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = NOR_anti_communist_sentiment
+
+            modifier = {
+                stability_weekly = 0.005
+                war_support_weekly = 0.005
+                stability_factor = -0.03
+                communism_drift = -0.02
+            }
+        }
+        MAL_malay_nationalism_idea = { 
+            name = "Malay Nationalist Education"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = ARG_growing_nationalism_modifier
+
+            modifier = {
+                stability_factor = 0.05
+                war_support_factor = 0.05
+                research_speed_factor = 0.05
+                neutrality_drift = 0.02
+                army_core_defence_factor = 0.2
+                conscription_factor = 0.25
+                autonomy_gain = 0.2
+            }
+        }
+        MAL_british_companies = { 
+            name = "British Companies"
+            allowed = {
+                always = no
+            }
+            cancel = {
+                NOT = {
+                    is_in_faction_with = ENG
+                }
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = ARG_british_influences
+
+            modifier = {
+                conscription = -0.005
+                consumer_goods_factor = 0.05
+                production_speed_buildings_factor = 0.1
+                global_building_slots = 1
+                local_resources_factor = 0.1
+            }
+        }
+        MAL_british_companies_2 = { 
+            name = "British Companies"
+            allowed = {
+                always = no
+            }
+            cancel = {
+                has_war_with = ENG             
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_british_influences
+
+            modifier = {
+                consumer_goods_factor = 0.1
+                production_speed_buildings_factor = 0.1
+                global_building_slots = 1
+                local_resources_factor = 0.1
+            }
+        }
+        MAL_seize_the_means_of_production_idea = { 
+            name = "Seized the means of Production"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_communism_drift_bonus
+
+            modifier = {
+                production_speed_buildings_factor = 0.1
+                consumer_goods_factor = -0.2
+            }
+        }
+        MAL_increase_exports_idea = { 
+            name = "Increased Exports"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = ARG_british_influences
+
+            modifier = {
+                local_resources_factor = 0.1
+                production_factory_max_efficiency_factor = 0.05
+                consumer_goods_factor = -0.1
+                research_speed_factor = 0.05
+                min_export = 0.15
+            }
+        }
+        MAL_power_balance = { 
+            name = "Balancing the Powers"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = ARG_maintain_neutrality
+
+            modifier = {
+                political_power_factor = 0.1
+                stability_weekly = 0.005
+                production_speed_buildings_factor = 0.1
+            }
+        }
+        MAL_industrial_expansion_2_idea = { 
+            name = "State Investments"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = ARG_public_works_investment
+
+            modifier = {
+                consumer_goods_factor = 0.05
+                production_speed_buildings_factor = 0.1
+            }
+        }
+        MAL_communism_rising = { 
+            name = "Rising Communist Support"
+            allowed = {
+                always = no
+            }
+            cancel = {
+                OR = {
+                    has_completed_focus = MAL_revolution
+                    communism > 0.5
+                }
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_communism_drift_bonus
+
+            modifier = {
+                drift_defence_factor = -0.5
+                stability_factor = -0.05
+                communism_drift = 0.05
+            }
+        }
+        MAL_monarchism_rising = { 
+            name = "Bolstered Monarchist Support"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_neutrality_drift_bonus
+
+            modifier = {
+                war_support_factor = 0.05
+                neutrality_drift = 0.05
+                autonomy_gain = 1
+            }
+        }
+        MAL_mpaja = { 
+            name = "Malayan Peoples Anti-Japanese Army"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_communist_army
+
+            modifier = {
+                war_support_factor = 0.05
+                conscription = 0.05
+                conscription_factor = 0.25
+                army_core_attack_factor = 0.05
+                army_core_defence_factor = 0.05
+                resistance_growth_on_our_occupied_states = 0.5
+                resistance_target_on_our_occupied_states = 0.5
+                compliance_growth_on_our_occupied_states = -0.5
+                communism_drift = 0.1
+            }
+        }
+        MAL_kmm = { 
+            name = "Kesatuan Melayu Muda"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_fascist_workers
+
+            modifier = {
+                fascism_drift = 0.08
+                communism_drift = 0.03
+                autonomy_gain = 0.5
+            }
+        }
+        MAL_kmm_2 = { 
+            name = "Kesatuan Melayu Muda"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_fascist_workers
+
+            modifier = {
+                fascism_drift = 0.08
+                communism_drift = 0.03
+                autonomy_gain = 2
+            }
+        }
+        MAL_kmm_3 = { 
+            name = "Kesatuan Melayu Muda"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_fascist_workers
+
+            modifier = {
+                production_factory_efficiency_gain_factor = 0.05
+                fascism_drift = 0.02
+                communism_drift = 0.08
+                autonomy_gain = 2
+            }
+        }
+        MAL_seized_religious_property = { 
+            name = "Seized Religious Property"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = SPR_appropriate_church_riches
+
+            modifier = {
+                consumer_goods_factor = -0.2
+                stability_factor = -0.08
+            }
+        }
+        MAL_cash_out_idea = { 
+            name = "Exploited communist funds"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = ROM_king_carol_emptied_accounts
+
+            modifier = {
+                consumer_goods_factor = -0.2
+                stability_factor = -0.1
+                communism_drift = -0.03
+            }
+        }
+        MAL_taxes_on_british_companies = { 
+            name = "Taxed british companies"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = RAJ_taxes
+
+            modifier = {
+                political_power_factor = 0.15
+                production_speed_buildings_factor = 0.05
+                consumer_goods_factor = -0.4
+            }
+        }
+        MAL_muslim_claims_idea = { 
+            name = "Muslim Claims"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = raj_marginalized_muslim_community_angry
+
+            modifier = {
+                justify_war_goal_time = -0.6
+            }
+        }
+        MAL_use_the_chaos_idea = { 
+            name = "Use the Chaos"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = RAJ_just_good_business
+
+            modifier = {
+                political_power_factor = 0.1
+                consumer_goods_factor = -0.2
+                justify_war_goal_time = -0.5
+                army_attack_factor = 0.05
+                army_defence_factor = 0.05
+            }
+        }
+        MAL_malay_revanchism_idea = { 
+            name = "Malay Revanchism"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_intel_bonus
+
+            modifier = {
+                war_support_factor = 0.05
+                subversive_activites_upkeep = -0.1
+                justify_war_goal_time = -0.5
+                army_attack_factor = 0.02
+                army_defence_factor = 0.02
+            }
+        }
+        MAL_malay_revanchism_idea_2 = { 
+            name = "Malay Revanchism"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_intel_bonus
+
+            modifier = {
+                war_support_factor = 0.1
+                subversive_activites_upkeep = -0.1
+                justify_war_goal_time = -0.5
+                army_attack_factor = 0.05
+                army_defence_factor = 0.05
+            }
+        }
+        MAL_malay_revanchism_idea_3 = { 
+            name = "Malay Revanchism"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_intel_bonus
+
+            modifier = {
+                war_support_factor = 0.15
+                subversive_activites_upkeep = -0.1
+                justify_war_goal_time = -0.5
+                army_attack_factor = 0.1
+                army_defence_factor = 0.1
+            }
+        }
+        MAL_expansionism = { 
+            name = "Expansionism"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = CZE_planning_bonus
+
+            modifier = {
+                war_support_factor = 0.05
+                conscription = 0.02
+                justify_war_goal_time = -0.5
+                naval_invasion_penalty = -0.5
+                naval_invasion_capacity = 10
+                invasion_preparation = -0.5
+                naval_damage_factor = 0.1
+                naval_defense_factor = 0.1
+                naval_detection = 0.1
+            }
+        }
+        MAL_sail_the_seas_idea = { 
+            name = "Naval Expansion"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = CZE_planning_bonus
+
+            modifier = {
+                production_speed_dockyard_factor = 0.1
+                industrial_capacity_dockyard = 0.1
+                naval_accidents_chance = -0.05
+                naval_coordination = 0.05
+                experience_gain_navy = 0.1
+                naval_morale_factor = 0.05
+            }
+        }
+        MAL_rally_the_youth_idea = { 
+            name = "Rally the Youth"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_manpower_bonus
+
+            modifier = {
+                stability_factor = -0.05
+                conscription = 0.03
+                conscription_factor = 0.1
+                mobilization_speed = 0.25
+            }
+        }
+        MAL_japanese_advisors = { 
+            name = "Japanese Advisors"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel = {
+                has_war_with = JAP
+            }
+
+            removal_cost = -1
+            picture = jap_militarism_showa
+
+            modifier = {
+                experience_gain_army = 0.1
+                experience_gain_navy = 0.1
+                experience_gain_air = 0.1
+            }
+        }
+        MAL_expand_our_agency_idea = { 
+            name = "Malay National Liberation Army"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = nkvd_2
+
+            modifier = {
+                operative_slot = 1
+                subversive_activites_upkeep = -0.2
+            }
+        }
+        MAL_expand_our_agency_idea_2 = { 
+            name = "Expanded Agency"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = nkvd_2
+
+            modifier = {
+                operative_slot = 2
+                subversive_activites_upkeep = -0.4
+            }
+        }
+        MAL_the_true_allegiance_idea = { 
+            name = "Government of Spies"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = nkvd_2
+
+            modifier = {
+                political_power_gain = 0.3
+                operative_slot = 3
+                war_support_factor = -0.05
+            }
+        }
+        MAL_the_true_allegiance_idea_2 = { 
+            name = "Global Spy Network"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = nkvd_2
+
+            modifier = {
+                political_power_gain = 0.5
+                consumer_goods_expected_value = -0.05
+                operative_slot = 5
+                war_support_factor = -0.05
+            }
+        }
+        MAL_glorious_army = { 
+            name = "Our Glorious Army"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = MEX_revolutionary_army
+
+            modifier = {
+                army_breakthrough_against_major_factor = 0.1
+                army_defence_against_major_factor = 0.1
+                army_attack_against_major_factor = 0.1
+                cas_damage_reduction = 0.2
+            }
+        }
+        MAL_royal_army = { 
+            name = "Royal Armies"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = por_colonial_army
+
+            modifier = {
+                army_core_attack_factor = 0.15
+                army_core_defence_factor = 0.15
+                supply_consumption_factor = -0.1
+                out_of_supply_factor = -0.2
+                attrition = -0.15
+                conscription = 0.01
+                cas_damage_reduction = 0.2
+            }
+        }
+        MAL_colonial_army = { 
+            name = "Colonial Army"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_army_war_college
+
+            modifier = {
+                army_leader_start_level = 2
+                army_leader_cost_factor = -0.5 
+                army_attack_factor = 0.05
+                army_defence_factor = 0.05
+                military_leader_cost_factor = -0.5
+                max_planning_factor = 0.5
+                planning_speed = 0.2
+            }
+        }
+        MAL_malay_army = { 
+            name = "Malay Army"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = HUN_rapid_army_expansion
+
+            modifier = {
+                conscription = 0.02
+                special_forces_min = 10
+                army_org = 10
+                army_morale_factor = 0.1
+            }
+        }
+        MAL_integration_efforts_idea = { 
+            name = "Integration Efforts"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = SOV_rehabilitated_military_ns_nsb_ccp_sov_compatibility
+
+            modifier = {
+                compliance_gain = 0.05
+                compliance_growth = 0.1
+                resistance_target = -0.05
+                required_garrison_factor = -0.1
+            }
+        }
+        MAL_resistance_efforts_idea = { 
+            name = "Suppression Efforts"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = ast_classify_aliens
+
+            modifier = {
+                non_core_manpower = 0.01
+                resistance_target = -0.05
+                required_garrison_factor = -0.1
+                resistance_decay = 0.5
+                resistance_garrison_penetration_chance = -0.25
+                resistance_damage_to_garrison = -0.25
+            }
+        }
+        MAL_a_great_malaysia_idea = { 
+            name = "A Great Malaysia"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = BEL_legacy_of_the_great_war
+
+            modifier = {
+                non_core_manpower = 0.2
+                political_power_gain = 0.5
+                local_resources_factor = 0.5
+                research_speed_factor = 0.1
+                industrial_capacity_factory = 0.1
+                industrial_capacity_dockyard = 0.1
+                consumer_goods_factor = -0.15
+                conscription = 0.02
+                stability_factor = 0.05
+                war_support_factor = 0.05
+                army_attack_factor = 0.05
+                army_defence_factor = 0.05
+                compliance_gain = 0.05
+            }
+        }
+        MAL_malaysian_airforce_idea_1 = { 
+            name = "The Malaysian Airforce"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = NORDIC_airforce_monarchist
+
+            modifier = {
+                air_volunteer_cap = 2
+                send_volunteer_divisions_required = -1
+                send_volunteers_tension = -1
+                air_ace_generation_chance_factor = 0.1
+                air_agility_factor = 0.05
+            }
+        }
+        MAL_malaysian_airforce_idea_2 = { 
+            name = "The Malaysian Airforce"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = NORDIC_airforce_monarchist
+
+            modifier = {
+                air_volunteer_cap = 2
+                send_volunteer_divisions_required = -1
+                send_volunteers_tension = -1
+                air_ace_generation_chance_factor = 0.1
+                air_agility_factor = 0.075
+                production_factory_max_efficiency_factor = 0.025
+                custom_modifier_tooltip = MAL_plane_cost_modifier_5_tt
+            }
+        }
+        MAL_malaysian_airforce_idea_2a = { 
+            name = "The Malaysian Airforce"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = NORDIC_airforce_monarchist
+
+            modifier = {
+                air_volunteer_cap = 2
+                send_volunteer_divisions_required = -1
+                send_volunteers_tension = -1
+                air_ace_generation_chance_factor = 0.1
+                air_agility_factor = 0.15
+                air_attack_factor = 0.1
+                air_defence_factor = 0.1
+                air_cas_efficiency = 0.1
+                air_interception_detect_factor = 0.1
+                production_factory_max_efficiency_factor = 0.025
+                custom_modifier_tooltip = MAL_plane_cost_modifier_5_tt
+            }
+        }
+        MAL_malaysian_airforce_idea_2b = { 
+            name = "The Malaysian Airforce"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = NORDIC_airforce_monarchist
+
+            modifier = {
+                air_volunteer_cap = 2
+                send_volunteer_divisions_required = -1
+                send_volunteers_tension = -1
+                air_ace_generation_chance_factor = 0.1
+                air_agility_factor = 0.075
+                production_factory_max_efficiency_factor = 0.05
+                custom_modifier_tooltip = MAL_plane_cost_modifier_15_tt
+            }
+        }
+        MAL_malaysian_military_idea_1 = { 
+            name = "The Malaysian Military"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_military_government
+
+            modifier = {
+                experience_gain_army = 0.05
+                supply_consumption_factor = -0.05
+            }
+        }
+        MAL_malaysian_military_idea_2a = { 
+            name = "The Malaysian Military"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_military_government
+
+            modifier = {
+                experience_gain_army = 0.05
+                conscription_factor = 0.05
+                supply_consumption_factor = -0.05
+            }
+        }
+        MAL_malaysian_military_idea_2b = { 
+            name = "The Malaysian Military"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_military_government
+
+            modifier = {
+                experience_gain_army = 0.05
+                production_factory_max_efficiency_factor = 0.05
+                supply_consumption_factor = -0.05
+            }
+        }
+        MAL_malaysian_military_idea_2ab = { 
+            name = "The Malaysian Military"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_military_government
+
+            modifier = {
+                experience_gain_army = 0.05
+                production_factory_max_efficiency_factor = 0.05
+                conscription_factor = 0.05
+                supply_consumption_factor = -0.05
+            }
+        }
+        MAL_malaysian_military_idea_3 = { 
+            name = "The Malaysian Military"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_military_government
+
+            modifier = {
+                experience_gain_army = 0.05
+                production_factory_max_efficiency_factor = 0.05
+                conscription_factor = 0.1
+                non_core_manpower = 0.1
+                army_leader_start_level = 1 
+                field_officer_promotion_penalty = -0.5
+                army_morale_factor = 0.1
+                supply_consumption_factor = -0.05
+            }
+        }
+        MAL_malaysian_military_idea_4 = { 
+            name = "The Malaysian Military"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_military_government
+
+            modifier = {
+                experience_gain_army = 0.05
+                production_factory_max_efficiency_factor = 0.05
+                conscription_factor = 0.1
+                non_core_manpower = 0.1
+                army_leader_start_level = 1 
+                field_officer_promotion_penalty = -0.5
+                army_morale_factor = 0.1
+                supply_consumption_factor = -0.15
+                pocket_penalty = -0.2
+                org_loss_at_low_org_factor = -0.2
+            }
+        }
+        MAL_malaysian_military_idea_4b = { 
+            name = "The Malaysian Military"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_military_government
+
+            modifier = {
+                experience_gain_army = 0.05
+                production_factory_max_efficiency_factor = 0.05
+                conscription_factor = 0.1
+                non_core_manpower = 0.1
+                army_leader_start_level = 1 
+                field_officer_promotion_penalty = -0.5
+                army_morale_factor = 0.1
+                supply_consumption_factor = -0.05
+                army_org_factor = 0.1
+                research_speed_factor = 0.07
+            }
+            research_bonus = { air_equipment = 0.10 }
+            research_bonus = { armor = 0.10 }
+        }
+        MAL_malaysian_military_idea_5b = { 
+            name = "The Malaysian Military"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = ARG_military_government
+
+            modifier = {
+                experience_gain_army = 0.05
+                production_factory_max_efficiency_factor = 0.05
+                conscription_factor = 0.1
+                non_core_manpower = 0.1
+                army_leader_start_level = 1 
+                field_officer_promotion_penalty = -0.5
+                army_morale_factor = 0.1
+                supply_consumption_factor = -0.05
+                army_org_factor = 0.1
+                research_speed_factor = 0.07
+                army_armor_attack_factor = 0.075
+                army_armor_defence_factor = 0.075
+                army_speed_factor = 0.1
+            }
+            research_bonus = { air_equipment = 0.10 }
+            research_bonus = { armor = 0.10 }
+        }
+        MAL_local_plane_research = { 
+            name = "Local Air Research"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+            picture = jap_duplicate_research
+
+            modifier = {
+                consumer_goods_factor = 0.05
+                experience_gain_air = 0.05
+            }
+            research_bonus = { air_equipment = 0.16 }
+        }
+        MAL_volunteers = { 
+            name = "Volunteers"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            cancel = {
+                has_war = no
+            }
+
+            removal_cost = -1
+            picture = ast_volunteer_defence_corps
+
+            modifier = {
+                weekly_manpower = 1000
+                custom_modifier_tooltip = "Will be removed if at peace"
+            }
+        }
+        MAL_independence_movements = { 
+            name = "Independence Movements"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel = {
+                is_subject = no
+            }
+
+            removal_cost = -1
+            picture = RAJ_independence_movement
+
+            modifier = {
+                autonomy_gain = 1
+                custom_modifier_tooltip = "Will be removed if independent"
+            }
+        }
+        MAL_independence_movements_2 = { 
+            name = "Independence Movements"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel = {
+                is_subject = no
+            }
+
+            removal_cost = -1
+            picture = RAJ_independence_movement
+
+            modifier = {
+                autonomy_gain = 2
+                custom_modifier_tooltip = "Will be removed if independent"
+            }
+        }
+        MAL_communist_movement = { 
+            name = "Communist Movements"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            cancel = {
+                has_government = communism
+            }
+
+            removal_cost = -1
+            picture = HUN_resurgent_communist_party_idea
+
+            modifier = {
+                communism_drift = 0.01
+                custom_modifier_tooltip = "If Communist support goes over 20%, they will prepare to overthrow our government"
+            }
+        }
+        MAL_communist_movement_2 = { 
+            name = "Communist Movements"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            cancel = {
+                has_government = communism
+            }
+
+            removal_cost = -1
+            picture = HUN_resurgent_communist_party_idea
+
+            modifier = {
+                communism_drift = 0.03
+                fascism_drift = -0.02
+                democratic_drift = -0.01
+                custom_modifier_tooltip = "If Communist support goes over 20%, they will prepare to overthrow our government"
+            }
+        }
+        MAL_kmm_opposition = { 
+            name = "Kesatuan Melayu Muda"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = no
+            }
+            cancel = {
+                OR = {
+                    has_government = fascism
+                    has_capitulated = yes
+                }
+
+            }
+
+            removal_cost = -1
+            picture = generic_fascism_drift_bonus
+
+            modifier = {
+                fascism_drift = 0.01
+                autonomy_gain = 0.1
+                surrender_limit = -0.05
+            }
+        }
+        MAL_mobilized_working_class = { 
+            name = "Mobilized Working Class"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                has_government = communism
+            }
+            cancel = {
+                NOT = {
+                    has_government = communism
+                }
+            }
+
+            removal_cost = -1
+            picture = SPR_class_war
+
+            modifier = {
+                communism_drift = 0.02
+                conscription = 0.05
+                stability_factor = -0.05
+                war_support_factor = 0.05
+            }
+        }
+
+        MAL_every_house_a_factory_idea = { 
+            name = "Every House a Factory"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = generic_production_bonus
+
+            modifier = {
+                stability_factor = -0.05
+                production_factory_max_efficiency_factor = -0.075
+                industrial_capacity_factory = -0.075
+                production_factory_efficiency_gain_factor = -0.075
+                line_change_production_efficiency_factor = -0.05
+                industry_free_repair_factor = 0.2
+                industry_air_damage_factor = -0.1
+                supply_node_range = 0.1
+                army_core_attack_factor = 0.05
+                army_core_defence_factor = 0.05
+            }
+        }
+
+        MAL_research_cooperation_idea = { 
+            name = "Research Cooperation"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+            cancel = {
+                is_in_faction = no
+            }
+
+            removal_cost = -1
+            picture = generic_research_bonus
+
+            modifier = {
+                research_speed_factor = 0.12
+            }
+        }
+
+        MAL_research_cooperation_idea_weak = { 
+            name = "Research Cooperation"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+                NOT = {
+                    is_in_faction_with = MAL
+                }
+            }
+
+            removal_cost = -1
+            picture = generic_research_bonus
+
+            modifier = {
+                research_speed_factor = 0.08
+            }
+        }
+        MAL_stolen_assets = { 
+            name = "Stolen Assets"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                NOT = {
+                    has_government = communism
+                }
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = NOR_printing_money
+
+            modifier = {
+                consumer_goods_factor = -0.05
+            }
+        }
+        MAL_implementing_communist_policies = { 
+            name = "Implementing Communist Policies"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                has_government = communism
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = new_economic_policy
+
+            modifier = {
+                political_power_factor = 0.05
+                consumer_goods_factor = 0.1
+                stability_factor = -0.05
+                industrial_capacity_factory = -0.05
+                production_speed_buildings_factor = 0.05
+                production_factory_efficiency_gain_factor = 0.05
+                production_factory_max_efficiency_factor = -0.1
+                communism_drift = 0.02
+            }
+        }
+        MAL_economic_chaos = { 
+            name = "Economic Chaos"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                has_government = communism
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = generic_economic_crisis
+
+            modifier = {
+                political_power_factor = -0.05
+                consumer_goods_factor = 0.1
+                stability_factor = -0.05
+                industrial_capacity_factory = -0.05
+                production_factory_max_efficiency_factor = -0.05
+                communism_drift = -0.02
+            }
+        }
+        MAL_economic_cooperation_idea = { 
+            name = "Economic Cooperation"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = ARG_civilian_economy_boost
+
+            modifier = {
+                consumer_goods_factor = -0.1
+                stability_factor = 0.05
+                industrial_capacity_factory = 0.05
+                production_factory_max_efficiency_factor = 0.025
+                production_factory_efficiency_gain_factor = 0.1
+            }
+        }
+        MAL_economic_reforms_idea = { 
+            name = "Economic Reforms"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = ARG_economic_reactivation
+
+            modifier = {
+                consumer_goods_factor = -0.1
+                industrial_capacity_factory = 0.05
+                global_building_slots = 1
+                industry_free_repair_factor = 0.1
+            }
+        }
+        MAL_economic_reforms_idea_2 = { 
+            name = "Economic Boom"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = ARG_economic_reactivation
+
+            modifier = {
+                consumer_goods_factor = -0.15
+                industrial_capacity_factory = 0.05
+                production_speed_buildings_factor = 0.1
+                local_resources_factor = 0.05
+                global_building_slots = 2
+                industry_free_repair_factor = 0.3
+            }
+        }
+        MAL_guerilla_warfare = { 
+            name = "Guerilla Warfare"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                has_government = communism
+            }
+
+            cancel = {
+                has_civil_war = no
+            }
+
+            removal_cost = -1
+            picture = SWE_en_svensk_tiger
+
+            modifier = {
+                surrender_limit = 1
+                army_defence_factor = 0.2
+                war_support_factor = 0.5
+                supply_consumption_factor = -0.3
+                military_factory_donations = 1
+            }
+        }
+        MAL_the_malayan_emergency_idea = { 
+            name = "The Malayan Emergency"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                NOT = {
+                    has_government = communism
+                }
+            }
+
+            cancel = {
+                has_civil_war = no
+            }
+
+            removal_cost = -1
+            picture = RAJ_partition_chaos_bad
+
+            modifier = {
+                surrender_limit = 0.1
+                stability_weekly = -0.003
+                war_support_factor = -0.3
+                political_power_factor = -0.2
+            }
+        }
+        MAL_expand_citizenship_idea = { 
+            name = "Expanded Citizenship"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = prc_low_popular_support3
+
+            modifier = {
+                stability_factor = -0.05
+                conscription = 0.03
+                monthly_population = 0.2
+                industrial_capacity_factory = 0.15
+                industrial_capacity_dockyard = 0.15
+                production_speed_buildings_factor = 0.15
+            }
+        }
+        MAL_expand_citizenship_weak_idea = { 
+            name = "Expanded Citizenship"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = prc_low_popular_support2
+
+            modifier = {
+                stability_factor = -0.05
+                conscription = 0.01
+                monthly_population = 0.05
+                industrial_capacity_factory = 0.05
+                industrial_capacity_dockyard = 0.05
+                production_speed_buildings_factor = 0.05
+            }
+        }
+        MAL_malay_unrest_idea = { 
+            name = "Malay Unrest"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = chi_war_of_resistance
+
+            modifier = {
+                stability_factor = -0.12
+                war_support_factor = -0.12
+                consumer_goods_factor = 0.25
+            }
+        }
+        MAL_counter_terror_idea = { 
+            name = "Counter Terror"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = SWE_marauder_bombers
+
+            modifier = {
+                political_power_factor = -0.1
+                stability_weekly = 0.003
+                army_attack_factor = 0.2
+                army_breakthrough_against_minor_factor = 0.2
+                air_cas_efficiency = 0.5
+                air_cas_present_factor = 0.5
+                war_support_factor = -0.05
+                consumer_goods_factor = -0.1
+                production_speed_buildings_factor = -0.1
+            }
+        }
+        MAL_reinvested_resources = { 
+            name = "Reinvested Resources"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = SWE_marauder_bombers
+
+            modifier = {
+                production_factory_efficiency_gain_factor = 0.1
+                consumer_goods_factor = -0.1
+                production_speed_buildings_factor = 0.05
+            }
+        }
+        MAL_spirit_of_revolution = { 
+            name = "Spirit of Revolution"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                has_government = communism
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = home_of_revolution
+
+            modifier = {
+                political_power_factor = 0.05
+                stability_factor = -0.05
+                war_support_factor = 0.1
+                communism_drift = 0.1
+                justify_war_goal_time = -0.5
+                army_morale_factor = 0.05
+                army_attack_factor = 0.05
+            }
+        }
+        MAL_victorious_revolution = { 
+            name = "Victorious Revolution"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                has_government = communism
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = home_of_revolution
+
+            modifier = {
+                political_power_factor = 0.25
+                stability_factor = 0.1
+                war_support_factor = 0.1
+                army_core_defence_factor = 0.1
+                army_core_defence_factor = 0.1
+                communism_drift = 0.1
+                drift_defence_factor = 0.5
+                justify_war_goal_time = -0.5
+                conscription_factor = 0.1
+                army_morale_factor = 0.1
+                army_attack_factor = 0.1
+            }
+        }
+        MAL_admiral_school_idea = { 
+            name = "Admiral School"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = BRA_navy
+
+            modifier = {
+                navy_leader_cost_factor = -0.8
+                navy_leader_start_level = 1 
+                navy_leader_start_attack_level = 1
+                navy_leader_start_coordination_level = 1
+                navy_leader_start_defense_level = 1
+                navy_leader_start_maneuvering_level = 1 
+            }
+        }
+        MAL_special_forces_idea = { 
+            name = "Special Combat Forces"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = PER_special_units_division_idea
+
+            modifier = {
+                extra_marine_supply_grace = 24
+                extra_paratrooper_supply_grace = 24
+                special_forces_training_time_factor = -0.1
+                marines_special_forces_contribution_factor = -0.05
+                paratroopers_special_forces_contribution_factor = -0.05
+                special_forces_cap = 0.05
+            }
+        }
+        MAL_special_forces_idea_2 = { 
+            name = "Special Combat Forces"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = PER_special_units_division_idea
+
+            modifier = {
+                extra_marine_supply_grace = 48
+                extra_paratrooper_supply_grace = 48
+                special_forces_training_time_factor = -0.1
+                marines_special_forces_contribution_factor = -0.1
+                paratroopers_special_forces_contribution_factor = -0.1
+                special_forces_cap = 0.1
+                special_forces_attack_factor = 0.05
+                special_forces_defence_factor = 0.05
+            }
+        }
+        
+    }
+    hidden_ideas = {
+        MAL_hidden_cost_reduction_royal_title = { 
+            name = "The Malaysian Airforce"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+
+            equipment_bonus = {
+                small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				cv_small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				cv_small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				medium_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				medium_plane_scout_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				large_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				large_plane_maritime_patrol_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+            }
+        }
+        MAL_hidden_cost_reduction_focus_on_production = { 
+            name = "The Malaysian Airforce"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+
+            equipment_bonus = {
+                small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				cv_small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				cv_small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				medium_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				medium_plane_scout_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				large_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				large_plane_maritime_patrol_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+            }
+        }
+        
+        MAL_hidden_cost_reduction = { 
+            name = "Aquired Airplane Secrets"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+
+            equipment_bonus = {
+                small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				cv_small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				cv_small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				medium_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				medium_plane_scout_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				large_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				large_plane_maritime_patrol_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+            }
+        }
+        MAL_hidden_cost_reduction_2 = { 
+            name = "Aquired Airplane Secrets"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+
+            equipment_bonus = {
+                small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				cv_small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				cv_small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				medium_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				medium_plane_scout_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				large_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				large_plane_maritime_patrol_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+            }
+        }
+        MAL_hidden_cost_reduction_3 = { 
+            name = "Aquired Airplane Secrets"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+
+            equipment_bonus = {
+                small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				cv_small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				cv_small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				medium_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				medium_plane_scout_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				large_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				large_plane_maritime_patrol_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+            }
+        }
+        MAL_hidden_cost_reduction_4 = { 
+            name = "Aquired Airplane Secrets"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+
+            equipment_bonus = {
+                small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				cv_small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				cv_small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				medium_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				medium_plane_scout_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				large_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				large_plane_maritime_patrol_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
+            }
+        }
+        MAL_hidden_cost_reduction_5 = { 
+            name = "Aquired Airplane Secrets"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+
+            equipment_bonus = {
+                small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				cv_small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				cv_small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				medium_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				medium_plane_scout_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				large_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				large_plane_maritime_patrol_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.25
+				}
+            }
+        }
+        MAL_hidden_cost_reduction_6 = { 
+            name = "Aquired Airplane Secrets"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                tag = MAL
+            }
+
+            removal_cost = -1
+
+            equipment_bonus = {
+                small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				cv_small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				cv_small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				medium_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				medium_plane_fighter_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				medium_plane_scout_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				large_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				large_plane_maritime_patrol_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.3
+				}
+            }
+        }
+    }
+}

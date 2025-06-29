@@ -1,0 +1,9703 @@
+focus_tree = {
+	id = malayan_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = mal
+		}
+
+		#modifier = {
+		#	add = 10
+		#	original_tag = AST
+		#	has_dlc = "Together for Victory"
+		#}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 2000 }
+
+	shared_focus = ASE_shared
+
+	focus = {
+		id = MAL_form_the_royal_armoured_corps
+		icon = GFX_focus_SWE_lynx_armored_car
+		x = 47
+		y = 7
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				name = "Form the Royal Armored Corps"
+				bonus = 1
+				uses = 1
+				category = armor
+				category = cat_armored_cars
+				category = motorized_equipment
+				category = cat_mechanized_equipment
+			}
+		}
+	}
+	focus = {
+		id = MAL_train_paratroopers
+		icon = GFX_focus_generic_paratrooper
+		x = -2
+		y = 1
+		relative_position_id = MAL_form_the_royal_armoured_corps
+		prerequisite = { focus = MAL_form_the_royal_armoured_corps }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_idea = MAL_special_forces_idea
+						has_idea = MAL_special_forces_idea_2
+					}
+				}
+				add_ideas = MAL_special_forces_idea
+			}
+			else_if = {
+				limit = {
+					has_idea = MAL_special_forces_idea
+				}
+				swap_ideas = {
+					remove_idea = MAL_special_forces_idea
+					add_idea = MAL_special_forces_idea_2
+				}
+			}
+			air_experience = 15
+			add_tech_bonus = {
+				name = "Train Paratroopers"
+				bonus = 3
+				uses = 1
+				category = para_tech
+			}
+		}
+	}
+	focus = {
+		id = MAL_adopt_mobile_warfare
+		icon = GFX_focus_generic_tank_assault
+		x = 0
+		y = 1
+		relative_position_id = MAL_form_the_royal_armoured_corps
+		prerequisite = { focus = MAL_form_the_royal_armoured_corps }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = "Adopt mobile Warfare"
+				cost_reduction = 0.5
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+	focus = {
+		id = MAL_armour_museum
+		icon = GFX_focus_PER_national_museum
+		x = 2
+		y = 1
+		relative_position_id = MAL_form_the_royal_armoured_corps
+		prerequisite = { focus = MAL_form_the_royal_armoured_corps }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_political_power = 80
+			army_experience = 5
+			add_tech_bonus = {
+				name = "Armour Museum"
+				bonus = 0.5
+				uses = 1
+				category = armor
+				category = cat_armored_cars
+				category = motorized_equipment
+				category = cat_mechanized_equipment
+			}
+		}
+	}
+	focus = {
+		id = MAL_armored_research
+		icon = GFX_focus_CZE_military_research_institute
+		x = 0
+		y = 1
+		relative_position_id = MAL_adopt_mobile_warfare
+		prerequisite = { focus = MAL_adopt_mobile_warfare }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Armored Research"
+				bonus = 2
+				uses = 2
+				category = armor
+				category = cat_armored_cars
+			}
+		}
+	}
+	focus = {
+		id = MAL_learn_from_the_raf
+		icon = GFX_focus_PER_raf_planes
+		x = 54
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_in_faction_with = ENG
+		}
+
+		bypass = {
+			NOT = {
+				is_in_faction_with = ENG
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_autonomy_score = {
+				value = -100
+			}
+			air_experience = 25
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = "Learn from the RAF"
+				bonus = 1
+				uses = 1
+				category = light_air
+				category = medium_air
+				category = heavy_air
+			}
+		}
+	}
+
+	focus = {
+		id = MAL_aquire_licenses
+		icon = GFX_focus_generic_copy_plane_designs
+		x = 3
+		y = 2
+		relative_position_id = MAL_learn_from_the_raf
+		prerequisite = { focus = MAL_learn_from_the_raf}
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = HUN_license_foreign
+		}
+	}
+	focus = {
+		id = MAL_study_air_tactics
+		icon = GFX_goal_generic_air_doctrine
+		x = -2
+		y = 1
+		relative_position_id = MAL_learn_from_the_raf
+		prerequisite = { focus = MAL_learn_from_the_raf}
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			air_experience = 50
+			add_doctrine_cost_reduction = {
+				name = "Study Tactics"
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = MAL_form_the_volunteer_air_force
+		icon = GFX_focus_eng_special_air_service
+		x = -1
+		y = 2
+		relative_position_id = MAL_learn_from_the_raf
+		prerequisite = { focus = MAL_learn_from_the_raf}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			set_rule = { can_send_volunteers = yes }
+			add_ideas = MAL_malaysian_airforce_idea_1
+		}
+	}
+	focus = {
+		id = MAL_grant_the_royal_title
+
+		icon = {
+			trigger = {
+				has_government = communism
+			}
+			value = GFX_focus_PER_the_peoples_airforce
+		}
+
+		icon = GFX_focus_PER_perfect_iranian_airforce
+		
+		x = 1
+		y = 1
+		relative_position_id = MAL_form_the_volunteer_air_force
+		prerequisite = { focus = MAL_form_the_volunteer_air_force }
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = MAL_malaysian_airforce_idea_1
+				add_idea = MAL_malaysian_airforce_idea_2
+			}
+			custom_effect_tooltip = MAL_grant_royal_title_tt
+			hidden_effect = {
+				add_ideas = MAL_hidden_cost_reduction_royal_title
+			}
+		}
+	}
+	focus = {
+		id = MAL_focus_on_air_production
+		icon = GFX_focus_generic_aircraft_production
+		x = 1
+		y = 1
+		relative_position_id = MAL_grant_the_royal_title
+		prerequisite = { focus = MAL_grant_the_royal_title }
+		mutually_exclusive = { focus = MAL_focus_on_air_quality }
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = MAL_malaysian_airforce_idea_2
+				add_idea = MAL_malaysian_airforce_idea_2b
+			}
+			custom_effect_tooltip = MAL_focus_on_air_production_tt
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = MAL_hidden_cost_reduction_royal_title
+					add_idea = MAL_hidden_cost_reduction_focus_on_production
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_aquire_plane_secrets
+		icon = GFX_focus_SWI_embrace_rote_drei
+		x = 2
+		y = 1
+		relative_position_id = MAL_learn_from_the_raf
+		prerequisite = { focus = MAL_learn_from_the_raf }
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			set_variable = {
+				var = MAL_got_plane_secrets
+				value = 0
+			}
+			set_variable = {
+				var = MAL_var_air_attack_bonus
+				value = 0
+			}
+			set_variable = {
+				var = MAL_var_air_agility_bonus
+				value = 0
+			}
+			set_variable = {
+				var = MAL_var_air_cost_bonus
+				value = 0
+			}
+			set_variable = {
+				var = MAL_var_air_defense_bonus
+				value = 0
+			}
+			set_variable = {
+				var = MAL_consumer_goods_var
+				value = 0
+			}
+			add_dynamic_modifier = {
+				modifier = MAL_aquired_plane_secrets_idea
+			}
+			unlock_decision_category_tooltip = MAL_aquire_plane_secrets_categorie
+			custom_effect_tooltip = "We will be able to sell our Rubber to major or player nations in return for Air Combat or Production Bonuses"
+		}
+	}
+	focus = {
+		id = MAL_local_development
+		icon = GFX_focus_generic_air_research_boost
+		x = 0
+		y = 1
+		relative_position_id = MAL_learn_from_the_raf
+		prerequisite = { focus = MAL_learn_from_the_raf }
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_local_plane_research
+			add_tech_bonus = {
+				name = "Local Development"
+				bonus = 1
+				uses = 1
+				category = light_air
+				category = medium_air
+				category = heavy_air
+			}
+		}
+	}
+	focus = {
+		id = MAL_focus_on_air_quality
+		icon = GFX_goal_generic_air_fighter
+		x = -1
+		y = 1
+		relative_position_id = MAL_grant_the_royal_title
+		prerequisite = { focus = MAL_grant_the_royal_title }
+		mutually_exclusive = { focus = MAL_focus_on_air_production }
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = MAL_malaysian_airforce_idea_2
+				add_idea = MAL_malaysian_airforce_idea_2a
+			}
+		}
+	}
+
+	focus = {
+		id = MAL_air_doctrines
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = MAL_focus_on_air_production focus = MAL_focus_on_air_quality }
+		x = 0
+		y = 2
+		relative_position_id = MAL_grant_the_royal_title
+
+		cost = 10
+
+		ai_will_do = {
+			base = 8
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = "Air Doctrines"
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+
+
+	focus = {
+		id = MAL_modern_technology
+		icon = GFX_focus_generic_radio_communication
+		x = 31
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			NOT = {
+				has_tech = radio
+			}
+		}
+
+		bypass = {
+			has_tech = radio
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			set_technology = {
+				radio = 1
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+	focus = {
+		id = MAL_britsh_radar_tech
+		icon = GFX_goal_generic_radar
+		x = 0
+		y = 1
+		prerequisite = { focus = MAL_modern_technology }
+		relative_position_id = MAL_modern_technology
+
+		cost = 10
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			OR = {
+				is_subject_of = ENG
+				is_in_faction_with = ENG
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			complete_special_project = {
+				project = sp:sp_air_radar
+			}
+		}
+	}
+	focus = {
+		id = MAL_request_old_naval_vessels
+		icon = GFX_focus_chi_british_cooperation
+		x = 45
+		y = 0
+
+		cost = 5
+
+		mutually_exclusive = { focus = MAL_pirate_techniques }
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_subject_of = ENG#
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_autonomy_score = {
+				value = -100
+			}
+			navy_experience = 25
+			custom_effect_tooltip = NZL_transfer_ships_tt
+			ENG = {
+			    transfer_ship = {
+			        type = light_cruiser
+			        target = MAL
+			    }
+			    transfer_ship = {
+			        type = light_cruiser
+			        target = MAL
+			    }
+			}
+		}
+	}
+	focus = {
+		id = MAL_study_air_defence
+		icon = GFX_focus_generic_air_defense
+		x = 0
+		y = 1
+		relative_position_id = MAL_request_old_naval_vessels
+
+		prerequisite = { focus = MAL_request_old_naval_vessels }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			navy_experience = 10
+			air_experience = 10
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 2
+				uses = 1
+				category = cat_anti_air
+			}
+		}
+	}
+	focus = {
+		id = MAL_naval_research
+		icon = GFX_focus_ger_accept_british_naval_dominance
+		x = 0
+		y = 1
+		relative_position_id = MAL_study_air_defence
+
+		prerequisite = { focus = MAL_study_air_defence }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			navy_experience = 35
+			add_tech_bonus = {
+				name = "Naval Research"
+				bonus = 2
+				uses = 2
+				category = naval_equipment
+			}
+		}
+	}
+	focus = {
+		id = MAL_pirate_techniques
+		icon = GFX_focus_generic_naval_invasion
+		x = 49
+		y = 0
+
+		mutually_exclusive = { focus = MAL_request_old_naval_vessels }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_subject = no
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			navy_experience = 25
+			MAL = {
+				create_ship = {
+					type = ship_hull_submarine_1
+					equipment_variant = "S Class"
+					creator = ENG
+					name = "Pirated Ship"
+				}
+				create_ship = {
+					type = ship_hull_submarine_1
+					equipment_variant = "S Class"
+					creator = ENG
+					name = "Pirated Ship"
+				}
+				create_ship = {
+					type = ship_hull_submarine_1
+					equipment_variant = "S Class"
+					creator = ENG
+					name = "Pirated Ship"
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_study_tactics
+		icon = GFX_focus_ARG_study_the_battle_of_the_river_plate 
+		x = -2
+		y = 1
+		relative_position_id = MAL_pirate_techniques
+
+		prerequisite = { focus = MAL_pirate_techniques focus = MAL_request_old_naval_vessels }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			navy_experience = 30
+			add_doctrine_cost_reduction = {
+				name = "Study Tactics"
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = MAL_train_marines
+		icon = GFX_focus_generic_naval_discipline
+		x = 0
+		y = 1
+		relative_position_id = MAL_study_tactics
+
+		prerequisite = { focus = MAL_study_tactics }
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_idea = MAL_special_forces_idea
+						has_idea = MAL_special_forces_idea_2
+					}
+				}
+				add_ideas = MAL_special_forces_idea
+			}
+			else_if = {
+				limit = {
+					has_idea = MAL_special_forces_idea
+				}
+				swap_ideas = {
+					remove_idea = MAL_special_forces_idea
+					add_idea = MAL_special_forces_idea_2
+				}
+			}
+			navy_experience = 30
+			add_tech_bonus = {
+				name = "Train Marines"
+				bonus = 3.0
+				uses = 1
+				category = marine_tech
+			}
+			random_core_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_build_dockyards
+		icon = GFX_focus_BEL_maritime_phoenix
+		x = 0
+		y = 1
+		relative_position_id = MAL_train_marines
+
+		prerequisite = { focus = MAL_train_marines focus = MAL_naval_research focus = MAL_build_offshore_oil_rigs }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_build_dockyards_2
+		icon = GFX_focus_SWE_coastal_support
+		x = -1
+		y = 1
+		relative_position_id = MAL_build_dockyards
+
+		prerequisite = { focus = MAL_build_dockyards }
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_cheaper_ships
+		icon = GFX_focus_generic_refit_civilian_ships
+		x = 1
+		y = 1
+		relative_position_id = MAL_build_dockyards
+
+		prerequisite = { focus = MAL_build_dockyards }
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = ICE_civilian_fleet
+			add_ideas = CZE_naval_focus
+		}
+	}
+	focus = {
+		id = MAL_occupy_batam
+		icon = GFX_goal_generic_occupy_states_coastal
+		x = 0
+		y = 1
+		relative_position_id = MAL_pirate_techniques
+
+		prerequisite = { focus = MAL_pirate_techniques }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_threat = 1
+			navy_experience = 15
+			transfer_state = 1020
+			1020 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_build_offshore_oil_rigs
+		icon = GFX_focus_generic_offshore_oil_rig
+		x = 0
+		y = 1
+		relative_position_id = MAL_occupy_batam
+
+		prerequisite = { focus = MAL_occupy_batam }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			controls_state = 1020
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			1020 = {
+				add_extra_state_shared_building_slots = 2
+			}
+			add_resource = {
+				type = oil
+				amount = 8
+				state = 1020
+			}
+		}
+	}
+	focus = {
+		id = MAL_expand_oil_rigs
+		icon = GFX_focus_PER_increase_oil_sales
+		x = 1
+		y = 1
+		relative_position_id = MAL_build_offshore_oil_rigs
+
+		prerequisite = { focus = MAL_build_offshore_oil_rigs }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			controls_state = 1020
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			1020 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_resource = {
+				type = oil
+				amount = 4
+				state = 1020
+			}
+		}
+	}
+	focus = {
+		id = MAL_giant_oil_market
+		icon = GFX_focus_PER_oil_baron
+		x = 0
+		y = 1
+		relative_position_id = MAL_expand_oil_rigs
+
+		prerequisite = { focus = MAL_expand_oil_rigs }
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			controls_state = 1020
+			controls_state = 333
+			controls_state = 334
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_giant_oil_market_idea
+		}
+	}
+	focus = {
+		id = MAL_modernize_the_royal_regiment
+
+
+		icon = {
+			trigger = {
+				has_government = communism
+			}
+			value = GFX_focus_NORDIC_com_army
+		}
+
+		icon = GFX_focus_NORDIC_mon_army
+		x = 39
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			base = 20
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_malaysian_military_idea_1
+			army_experience = 25
+		}
+	}
+	focus = {
+		id = MAL_purchase_british_guns
+		icon = GFX_focus_SWE_let_fly_all_guns
+		prerequisite = { focus = MAL_modernize_the_royal_regiment }
+		x = 3
+		y = 1
+		relative_position_id = MAL_modernize_the_royal_regiment
+
+		cost = 5
+
+		ai_will_do = {
+			base = 20
+		}
+
+		available = {
+			NOT = {
+				has_war_with = ENG
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 25
+			unlock_decision_category_tooltip = MAL_buy_weapons_categorie
+		}
+	}
+	focus = {
+		id = MAL_buy_british_ships
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = MAL_purchase_british_guns }
+		prerequisite = { focus = MAL_request_old_naval_vessels }
+		x = 4
+		y = 2
+		relative_position_id = MAL_modernize_the_royal_regiment
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			NOT = {
+				has_war_with = ENG
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 20
+			unlock_decision_tooltip = MAL_buy_light_cruiser
+			unlock_decision_tooltip = MAL_buy_destroyer
+		}
+	}
+	focus = {
+		id = MAL_admiral_school
+		icon = GFX_focus_BEL_antwerp_maritime_academy
+		prerequisite = { focus = MAL_buy_british_ships }
+		x = 0
+		y = 1
+		relative_position_id = MAL_buy_british_ships
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_admiral_school_idea
+		}
+	}
+	focus = {
+		id = MAL_military_research
+		icon = GFX_focus_research
+		prerequisite = { focus = MAL_admiral_school focus = MAL_war_college }
+		x = -1
+		y = 1
+		relative_position_id = MAL_admiral_school
+
+		cost = 10
+
+		ai_will_do = {
+			base = 8
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			army_experience = 5
+			navy_experience = 5
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = MAL_military_doctrines
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = MAL_military_research focus = MAL_every_house_a_factory focus = MAL_modern_army_tactics }
+		x = -2
+		y = 2
+		relative_position_id = MAL_war_college
+
+		cost = 10
+
+		ai_will_do = {
+			base = 8
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = "Military Doctrines"
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = MAL_naval_doctrines
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = MAL_build_dockyards_2 }
+		prerequisite = { focus = MAL_cheaper_ships }
+		x = 4
+		y = 2
+		relative_position_id = MAL_admiral_school
+
+		cost = 10
+
+		ai_will_do = {
+			base = 8
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = "Naval Doctrines"
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+	focus = {
+		id = MAL_expand_the_malay_regiment_act
+		icon = GFX_focus_AUS_lawmaking_leniency
+		x = -1
+		y = 1
+		relative_position_id = MAL_modernize_the_royal_regiment
+		prerequisite = { focus = MAL_modernize_the_royal_regiment}
+
+		cost = 5
+
+		ai_will_do = {
+			base = 20
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = MAL_malaysian_military_idea_2b
+				}
+				swap_ideas = {
+					remove_idea = MAL_malaysian_military_idea_2b
+					add_idea = MAL_malaysian_military_idea_2ab
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = MAL_malaysian_military_idea_1
+					add_idea = MAL_malaysian_military_idea_2a
+				}
+			}
+			army_experience = 20
+			add_manpower = 5000
+		}
+	}
+	focus = {
+		id = MAL_increase_military_spending
+		icon = GFX_focus_FIN_increase_military_budget
+		x = 1
+		y = 1
+		relative_position_id = MAL_modernize_the_royal_regiment
+		prerequisite = { focus = MAL_modernize_the_royal_regiment}
+
+		cost = 10
+
+		ai_will_do = {
+			base = 20
+		}
+
+		available = {
+			has_war_support > 0.3
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = MAL_malaysian_military_idea_2a
+				}
+				swap_ideas = {
+					remove_idea = MAL_malaysian_military_idea_2a
+					add_idea = MAL_malaysian_military_idea_2ab
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = MAL_malaysian_military_idea_1
+					add_idea = MAL_malaysian_military_idea_2b
+				}
+			}
+			army_experience = 10
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MAL_form_dalforce
+		icon = GFX_focus_CONGO_congolese_generals
+		relative_position_id = MAL_increase_military_spending
+		prerequisite = { focus = MAL_increase_military_spending }
+		prerequisite = { focus = MAL_expand_the_malay_regiment_act }
+		x = -1
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 20
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		available = {
+			has_war_support > 0.35
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = MAL_malaysian_military_idea_2ab
+				add_idea = MAL_malaysian_military_idea_3
+			}
+			add_manpower = 3000
+			show_unit_leaders_tooltip = MAL_john_dalley
+		}
+	}
+
+	focus = {
+		id = MAL_war_college
+		icon = GFX_focus_generic_military_academy
+		relative_position_id = MAL_form_dalforce
+		prerequisite = { focus = MAL_form_dalforce }
+		x = 2
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 8
+		}
+
+		available = {
+			has_war_support > 0.4
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = CZE_war_college_idea
+		}
+	}
+
+	focus = {
+		id = MAL_irregulare_warfare
+		icon = GFX_focus_ETH_scavenging_tactics
+		relative_position_id = MAL_form_dalforce
+		prerequisite = { focus = MAL_form_dalforce }
+		mutually_exclusive = { focus = MAL_towards_a_modern_army }
+		x = -2
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			base = 8
+		}
+
+		available = {
+			has_war_support > 0.4
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = "Irregulare Warfare"
+				cost_reduction = 0.5
+				uses = 1
+				category = cat_mass_assault
+			}
+			swap_ideas = {
+				remove_idea = MAL_malaysian_military_idea_3
+				add_idea = MAL_malaysian_military_idea_4
+			}
+		}
+	}
+	focus = {
+		id = MAL_every_house_a_factory
+		icon = GFX_focus_FIN_weapon_caches
+		relative_position_id = MAL_irregulare_warfare
+		prerequisite = { focus = MAL_irregulare_warfare }
+		x = -1
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+			is_subject = no
+			has_war_support > 0.7
+			has_stability > 0.5
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_stability = -0.05
+			add_offsite_building = { type = arms_factory level = 10 }
+			add_ideas = MAL_every_house_a_factory_idea
+		}
+	}
+	focus = {
+		id = MAL_towards_a_modern_army
+		icon = GFX_focus_generic_armored_air_support
+		relative_position_id = MAL_form_dalforce
+		prerequisite = { focus = MAL_form_dalforce }
+		mutually_exclusive = { focus = MAL_irregulare_warfare }
+		x = 0
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			base = 8
+		}
+
+		available = {
+			has_war_support > 0.4
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = "Towards a modern army"
+				cost_reduction = 0.5
+				uses = 1
+				category = cat_grand_battle_plan
+				category = cat_superior_firepower
+			}
+			swap_ideas = {
+				remove_idea = MAL_malaysian_military_idea_3
+				add_idea = MAL_malaysian_military_idea_4b
+			}
+		}
+	}
+
+	focus = {
+		id = MAL_modern_army_tactics
+		icon = GFX_focus_generic_heavy_tank
+		relative_position_id = MAL_towards_a_modern_army
+		prerequisite = { focus = MAL_towards_a_modern_army }
+		x = 0
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+			has_war_support > 0.4
+			amount_research_slots > 3
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			army_experience = 35
+			swap_ideas = {
+				remove_idea = MAL_malaysian_military_idea_4b
+				add_idea = MAL_malaysian_military_idea_5b
+			}
+		}
+	}
+
+	focus = {
+		id = MAL_british_malaya
+		icon = GFX_focus_SWE_en_svensk_tiger
+		x = 12
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_political_power = 130
+		}
+	}
+	focus = {
+		id = MAL_choose_path
+		icon = GFX_focus_eng_decolonization
+		prerequisite = { focus = MAL_british_malaya }
+		x = 0
+		y = 1
+		relative_position_id = MAL_british_malaya
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			country_event = mal.mod.1
+			set_rule = { can_decline_call_to_war = yes }
+		}
+	}
+	focus = {
+		id = MAL_british_aid
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = MAL_british_malaya }
+		x = 16
+		y = 1
+		relative_position_id = MAL_british_malaya
+
+		cost = 5
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+			OR = {
+				is_subject_of = ENG
+				is_in_faction_with = ENG
+			}
+		}
+
+		bypass = {
+			NOT = {
+				is_subject_of = ENG
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_autonomy_score = {
+				value = -100
+			}
+			add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+	focus = {
+		id = MAL_clear_lands_for_industry
+		icon = GFX_focus_generic_land_reclamation
+		x = 34
+		y = 0
+
+		cost = 5
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 15
+			every_core_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = MAL_build_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = MAL_clear_lands_for_industry }
+		relative_position_id = MAL_clear_lands_for_industry
+		x = 0
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+		}
+
+		bypass = {
+			has_completed_focus = MAL_new_villages
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = 25
+			every_core_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			1017 = {
+				increase_state_category = yes
+				add_extra_state_shared_building_slots = 1
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
+				add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+			1018 = {
+				increase_state_category = yes
+				add_extra_state_shared_building_slots = 1
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
+				add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+			1019 = {
+				increase_state_category = yes
+				add_extra_state_shared_building_slots = 1
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
+				add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+		}
+	}
+	focus = {
+		id = MAL_singapore_metropole
+		icon = GFX_focus_generic_low_cost_housing
+		prerequisite = { focus = MAL_build_infrastructure }
+		relative_position_id = MAL_build_infrastructure
+		x = 0
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+			controls_state = 336
+		}
+
+		bypass = {
+			NOT = {
+				controls_state = 336
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_stability = 0.04
+			add_political_power = 35
+			336 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_develop_north_borneo
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		prerequisite = { focus = MAL_clear_lands_for_industry }
+		relative_position_id = MAL_clear_lands_for_industry
+		x = 2
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+			controls_state = 333
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			333 = {
+				increase_state_category = yes
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
+				add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+		}
+	}
+	focus = {
+		id = MAL_develop_north_borneo_2
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = MAL_develop_north_borneo }
+		relative_position_id = MAL_develop_north_borneo
+		x = 0
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+			has_tech = construction2
+			controls_state = 333
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			333 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+		}
+	}
+	focus = {
+		id = MAL_industrial_expansion
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = { focus = MAL_british_aid }
+		x = 2
+		y = 1
+		relative_position_id = MAL_british_aid
+
+		cost = 5
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_industrial_expansion_2
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = MAL_industrial_expansion }
+		x = -1
+		y = 1
+		relative_position_id = MAL_industrial_expansion
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_timed_idea = {
+				idea = MAL_industrial_expansion_2_idea
+				days = 730
+			}
+		}
+	}
+	focus = {
+		id = MAL_industrial_expansion_3
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = MAL_industrial_expansion }
+		x = 0
+		y = 2
+		relative_position_id = MAL_industrial_expansion
+
+		cost = 10
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+			has_tech = construction2
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			random_core_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_industrial_expansion_4
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = MAL_industrial_expansion_3 }
+		x = 0
+		y = 1
+		relative_position_id = MAL_industrial_expansion_3
+
+		cost = 10
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+			has_tech = construction3
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_economic_reforms_idea
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_industrial_expansion_5
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = MAL_industrial_expansion_4 }
+		x = 0
+		y = 1
+		relative_position_id = MAL_industrial_expansion_4
+
+		cost = 10
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+			has_tech = construction4
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = MAL_economic_reforms_idea
+				add_idea = MAL_economic_reforms_idea_2
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_resource_tech
+		icon = GFX_focus_GER_factories_for_resources
+		prerequisite = { focus = MAL_industrial_expansion_2 }
+		prerequisite = { focus = MAL_increase_exports focus = MAL_all_for_ourselves }
+		x = -1
+		y = 1
+		relative_position_id = MAL_industrial_expansion_2
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				ahead_reduction = 1
+				bonus = 1.0
+				uses = 3
+				category = excavation_tech
+				category = synth_resources
+			}
+		}
+	}
+	focus = {
+		id = MAL_increase_exports
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = MAL_british_aid }
+		mutually_exclusive = { focus = MAL_all_for_ourselves }
+		x = -2
+		y = 1
+		relative_position_id = MAL_british_aid
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_increase_exports_idea
+		}
+	}
+	focus = {
+		id = MAL_all_for_ourselves
+		icon = GFX_focus_generic_central_planning
+		prerequisite = { focus = MAL_british_aid }
+		mutually_exclusive = { focus = MAL_increase_exports }
+		x = 0
+		y = 1
+		relative_position_id = MAL_british_aid
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			is_in_faction = no
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_threat = 2
+
+			add_ideas = autarkic_economy
+			add_ideas = MAL_reinvested_resources
+		}
+	}
+	focus = {
+		id = MAL_armament_buildup
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = MAL_british_aid }
+		x = 4
+		y = 1
+		relative_position_id = MAL_british_aid
+
+		cost = 5
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			random_core_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_armament_buildup_2
+		icon = GFX_focus_generic_military_industry
+		prerequisite = { focus = MAL_armament_buildup}
+		prerequisite = { focus = MAL_singapore_metropole }
+		x = 1
+		y = 1
+		relative_position_id = MAL_armament_buildup
+
+		cost = 10
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			random_core_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_expand_education
+		icon = GFX_focus_AFG_education_reform
+		prerequisite = { focus = MAL_industrial_expansion }
+		x = 1
+		y = 1
+		relative_position_id = MAL_industrial_expansion
+
+		cost = 10
+
+		ai_will_do = {
+			base = 12
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = MAL_military_tech
+		icon = GFX_focus_generic_advanced_military_studies
+		prerequisite = { focus = MAL_armament_buildup_2 }
+		prerequisite = { focus = MAL_expand_education }
+		x = 0
+		y = 2
+		relative_position_id = MAL_armament_buildup
+
+		cost = 10
+
+		ai_will_do = {
+			base = 11
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				name = NZL_army_reforms
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 1
+				bonus = 1
+				uses = 3
+				category = infantry_weapons
+				category = artillery
+				category = support_tech
+			}
+		}
+	}
+
+	focus = {
+		id = MAL_imperialist_invaders
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = MAL_british_malaya }
+		x = -16
+		y = 1
+		relative_position_id = MAL_british_malaya
+
+		cost = 2
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+			has_defensive_war = yes
+			any_country = {
+				has_war_with = ROOT
+				is_major = yes
+			}
+		}
+
+		bypass = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_autonomy_score = {
+				value = 400
+			}
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = MAL_fortify_our_ports
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = MAL_imperialist_invaders }
+		x = -2
+		y = 2
+		relative_position_id = MAL_imperialist_invaders
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			336 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 5
+					instant_build = yes
+					province = {
+						id = 12299
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					instant_build = yes
+					province = {
+						id = 12299
+					}
+				}
+			}
+			1017 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 5
+					instant_build = yes
+					province = {
+						id = 11027
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					instant_build = yes
+					province = {
+						id = 10297
+					}
+				}
+			}
+			1018 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 5
+					instant_build = yes
+					province = {
+						id = 7329
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					instant_build = yes
+					province = {
+						id = 7329
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_fortify_north_borneo
+		icon = GFX_focus_CHL_protect_the_easter_island
+		prerequisite = { focus = MAL_fortify_our_ports }
+		x = 0
+		y = 1
+		relative_position_id = MAL_fortify_our_ports
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			333 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 5
+					instant_build = yes
+					province = {
+						id = 1208
+						id = 7371
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					instant_build = yes
+					province = {
+						id = 1208
+						id = 7371
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_request_volounteers
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = MAL_imperialist_invaders }
+		x = -1
+		y = 1
+		relative_position_id = MAL_imperialist_invaders
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+			has_defensive_war = yes
+			any_country = {
+				has_war_with = ROOT
+				is_major = yes
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+
+			add_ideas = MAL_volunteers
+			add_manpower = 10000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = MAL
+			}
+		}
+	}
+	focus = {
+		id = MAL_fortify_the_land_border
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = MAL_imperialist_invaders }
+		x = 0
+		y = 2
+		relative_position_id = MAL_imperialist_invaders
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			1018 = {
+				add_building_construction = {
+					type = bunker
+					level = 5
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			1017 = {
+				add_building_construction = {
+					type = bunker
+					level = 5
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_preemtive_strike_into_siam
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = MAL_fortify_the_land_border }
+		x = 0
+		y = 1
+		relative_position_id = MAL_fortify_the_land_border
+
+		cost = 8
+
+		will_lead_to_war_with = SIA
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			SIA = {
+				exists = yes
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SIA
+			}
+		}
+	}
+	focus = {
+		id = MAL_work_with_the_communists
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = { focus = MAL_imperialist_invaders }
+		mutually_exclusive = { focus = MAL_build_up_the_communists }
+		x = 1
+		y = 1
+		relative_position_id = MAL_imperialist_invaders
+
+		cost = 2
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Has influenced the Communist Party to make an alliance with the Government"
+				has_country_flag = MAL_alliance_with_communists
+			}
+			has_defensive_war = yes
+			any_country = {
+				has_war_with = ROOT
+				is_major = yes
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_political_power = -50
+			add_war_support = 0.05
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+				producer = MAL
+			}
+		}
+	}
+
+	# Historcal Path #################################################
+
+	focus = {
+		id = MAL_continue_the_status_quo
+		icon = GFX_focus_ARG_maintain_the_status_quo
+		prerequisite = { focus = MAL_choose_path }
+		x = 0
+		y = 1
+		relative_position_id = MAL_choose_path
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			always = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			effect_tooltip = {
+				add_political_power = 100
+				add_stability = 0.05
+			}
+		}
+	}
+	focus = {
+		id = MAL_malay_nationalism
+		icon = GFX_focus_SWE_education_reform
+		prerequisite = { focus = MAL_continue_the_status_quo focus = MAL_strengthen_the_local_rulers }
+		x = 3
+		y = 1
+		relative_position_id = MAL_continue_the_status_quo
+
+		cost = 10
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_research_slot = 1
+			add_political_power = 50
+			add_ideas = MAL_malay_nationalism_idea
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = -0.05
+				tooltip_side = MAL_rulers_dominates
+			}
+			add_autonomy_score = {
+				value = 100
+			}
+		}
+	}
+	focus = {
+		id = MAL_malay_army_expansion
+		icon = GFX_focus_HUN_expand_the_army
+		prerequisite = { focus = MAL_continue_the_status_quo }
+		x = 0
+		y = 1
+		relative_position_id = MAL_continue_the_status_quo
+
+		cost = 10
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_ideas = MAL_malay_army
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = MAL
+			}
+		}
+	}
+	focus = {
+		id = MAL_crack_down_on_the_chinese
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = MAL_malay_nationalism }
+		x = 0
+		y = 1
+		relative_position_id = MAL_malay_nationalism
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = -0.04
+			add_timed_idea = {
+				idea = MAL_chinese_immigrants_crackdown_temp
+				days = 140
+			}
+			swap_ideas = {
+				remove_idea = MAL_chinese_immigrants
+				add_idea = MAL_chinese_immigrants_crackdown
+			}
+		}
+	}
+	focus = {
+		id = MAL_fight_communism
+		icon = GFX_focus_GER_end_european_communism
+		prerequisite = { focus = MAL_malay_nationalism }
+		x = -2
+		y = 1
+		relative_position_id = MAL_malay_nationalism
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = -0.05
+				tooltip_side = MAL_rulers_dominates
+			}
+			add_stability = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = MAL_nationalize_chinese_business
+		icon = GFX_focus_usa_voter_registration_act
+		prerequisite = { focus = MAL_crack_down_on_the_chinese }
+		x = 0
+		y = 1
+		relative_position_id = MAL_crack_down_on_the_chinese
+
+		cost = 2
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			NOT = {
+				has_idea = MAL_chinese_immigrants_crackdown_temp
+			}
+		}
+
+		bypass = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = -0.05
+			add_political_power = 50
+			remove_ideas = MAL_chinese_immigrants_crackdown
+		}
+	}
+	focus = {
+		id = MAL_balance_the_powers
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = MAL_malay_army_expansion }
+		prerequisite = { focus = MAL_strengthen_the_colonial_government }
+		prerequisite = { focus = MAL_crack_down_on_the_chinese }
+		x = 0
+		y = 3
+		relative_position_id = MAL_continue_the_status_quo
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_stability = 0.05
+			swap_ideas = {
+				remove_idea = MAL_divided_nation
+				add_idea = MAL_divided_nation_balance
+			}
+			add_timed_idea = {
+				idea = MAL_power_balance
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = MAL_cooperate_with_britain
+		icon = GFX_focus_chi_british_cooperation
+		prerequisite = { focus = MAL_continue_the_status_quo focus = MAL_strengthen_ties_with_britain }
+		x = -3
+		y = 1
+		relative_position_id = MAL_continue_the_status_quo
+
+		cost = 10
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_autonomy_ratio = {
+				value = 0.6
+			}
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_political_power = 100
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.08
+			}
+		}
+	}
+	focus = {
+		id = MAL_strengthen_the_colonial_government
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = MAL_cooperate_with_britain }
+		x = 0
+		y = 1
+		relative_position_id = MAL_cooperate_with_britain
+
+		cost = 5
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+			is_subject = yes
+			has_idea = MAL_colonial_government
+		}
+
+		bypass = {
+			is_subject = no			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = MAL_colonial_government
+				add_idea = MAL_colonial_government_2
+			}
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 0.05
+				tooltip_side = MAL_rulers_weak
+			}
+		}
+	}
+	focus = {
+		id = MAL_control_the_rulers
+		icon = GFX_focus_RAJ_provincial_autonomy
+		prerequisite = { focus = MAL_cooperate_with_britain }
+		x = 2
+		y = 1
+		relative_position_id = MAL_cooperate_with_britain
+
+		cost = 10
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+
+		bypass = {	
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_political_power = 70
+			add_stability = 0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 0.1
+				tooltip_side = MAL_rulers_weak
+			}
+		}
+	}
+	focus = {
+		id = MAL_prepare_for_the_storm
+		icon = GFX_focus_NOR_drobak_coastal_fort
+		prerequisite = { focus = MAL_strengthen_the_colonial_government }
+		x = 0
+		y = 1
+		relative_position_id = MAL_strengthen_the_colonial_government
+
+		cost = 8
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+			is_subject = yes
+			has_idea = MAL_colonial_government_2
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			complete_national_focus = MAL_imperialist_invaders
+			swap_ideas = {
+				remove_idea = MAL_colonial_government_2
+				add_idea = MAL_colonial_government_3
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = MAL
+			}
+		}
+	}
+	# BRITAIN PATH ###########################################################
+	focus = {
+		id = MAL_strengthen_ties_with_britain
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = MAL_choose_path }
+		x = -6
+		y = 1
+		relative_position_id = MAL_choose_path
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			always = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			effect_tooltip = {
+				add_political_power = 50
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_attract_british_investors
+		icon = GFX_focus_generic_british_trade
+		prerequisite = { focus = MAL_strengthen_ties_with_britain }
+		x = 0
+		y = 1
+		relative_position_id = MAL_strengthen_ties_with_britain
+
+		cost = 5
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 3 }
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	focus = {
+		id = MAL_reduce_ruler_power
+		icon = GFX_focus_ITA_topple_amhara_rulers
+		prerequisite = { focus = MAL_attract_british_investors }
+		x = 0
+		y = 1
+		relative_position_id = MAL_attract_british_investors
+
+		cost = 5
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 0.1
+				tooltip_side = MAL_rulers_weak
+			}
+			add_political_power = 150
+		}
+	}
+	focus = {
+		id = MAL_centralization
+		icon = GFX_focus_generic_central_planning
+		prerequisite = { focus = MAL_reduce_ruler_power }
+		prerequisite = { focus = MAL_strengthen_the_colonial_government }
+		x = 0
+		y = 1
+		relative_position_id = MAL_reduce_ruler_power
+
+		cost = 5
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+			power_balance_value = {
+				id = MAL_rulers_power_bop
+				value > 0.1
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = -50
+			swap_ideas = {
+				remove_idea = MAL_divided_nation
+				add_idea = MAL_divided_nation_centralization
+			}
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 0.05
+				tooltip_side = MAL_rulers_weak
+			}
+		}
+	}
+	focus = {
+		id = MAL_colonial_armies
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = MAL_centralization }
+		x = -1
+		y = 1
+		relative_position_id = MAL_centralization
+
+		cost = 10
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			army_experience = 10
+			add_ideas = MAL_colonial_army
+		}
+	}
+	focus = {
+		id = MAL_embrace_democracy
+		icon = GFX_focus_AFG_promote_the_counter_elite
+		prerequisite = { focus = MAL_centralization focus = MAL_balance_the_powers }
+		mutually_exclusive = { focus = MAL_elective_monarchy }
+		x = 2
+		y = 1
+		relative_position_id = MAL_centralization
+
+		cost = 5
+
+		ai_will_do = {
+			base = 50
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+
+		available = {
+			NOT = {
+				has_idea = MAL_power_balance
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 120
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_advisor_parliament
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_donald_roberts
+		}
+	}
+	focus = {
+		id = MAL_form_the_umno
+		icon = GFX_focus_ARG_defense_and_democracy
+		prerequisite = { focus = MAL_embrace_democracy focus = MAL_elective_monarchy }
+		mutually_exclusive = { focus = MAL_absolute_monarchy }
+		x = 7
+		y = 1
+		relative_position_id = MAL_embrace_democracy
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+			modifier = {
+				is_historical_focus_on = yes
+				date > 1946.03.1
+				factor = 0
+			}
+			modifier = {
+				has_completed_focus = MAL_strengthen_ties_with_britain
+				factor = 0
+			}
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_ideas = MAL_independence_movements
+			add_stability = 0.1
+			set_party_name = {
+				ideology = democratic
+				long_name = "United Malays National Organisation"
+				name = "UMNO"
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.5
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = MAL_independence_movements
+		icon = GFX_focus_generic_workers
+		prerequisite = { focus = MAL_absolute_monarchy focus = MAL_form_the_umno }
+		x = 2
+		y = 1
+		relative_position_id = MAL_form_the_umno
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			is_subject = yes
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_political_power = 120
+			add_autonomy_score = {
+				value = 200
+			}
+			swap_ideas = {
+				remove_idea = MAL_independence_movements
+				add_idea = MAL_independence_movements_2
+			}
+		}
+	}
+	focus = {
+		id = MAL_declare_independence
+		icon = GFX_focus_RAJ_a_tiger_unchained
+		prerequisite = { focus = MAL_absolute_monarchy focus = MAL_form_the_umno }
+		x = 0
+		y = 1
+		relative_position_id = MAL_form_the_umno
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+			modifier = {
+				is_historical_focus_on = yes
+				date > 1957.1.1
+				factor = 0
+			}
+		}
+
+		available = {
+			compare_autonomy_state > autonomy_puppet
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			hidden_effect = {
+				every_country = {
+					news_event = {
+						id = mal.mod.26
+						days = 1
+					}
+				}
+			}
+			set_capital = {state = 1017 }
+			retire_character = MAL_shenton_thomas
+			overlord = {
+				set_autonomy = {
+					target = MAL
+					autonomous_state = autonomy_free
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			drop_cosmetic_tag = yes
+			if = {
+				limit = {
+					has_government = democratic
+				}
+				custom_effect_tooltip = "If Malaysia is democratic, we will now hold elections"
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+					election_frequency = 48
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_the_malayan_federation
+		icon = GFX_focus_eng_imperial_federation
+		prerequisite = { focus = MAL_declare_independence }
+		prerequisite = { focus = MAL_reject_the_malayan_union_proposal }
+		x = -3
+		y = 1
+		relative_position_id = MAL_declare_independence
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			leave_faction = yes
+			add_political_power = 50
+			add_manpower = 10000
+			add_offsite_building = { type = industrial_complex level = 2 }
+			set_rule = { can_only_justify_war_on_threat_country = no }
+			set_rule = { can_create_factions = yes }
+			country_event = {
+				id = mal.mod.25
+				days = 7
+			}
+			swap_ideas = {
+				remove_idea = MAL_divided_nation_malayan_federation
+				add_idea = MAL_divided_nation_malayan_federation_2
+			}
+			if = {
+				limit = {
+					has_completed_focus = MAL_form_the_umno
+				}
+				unlock_decision_tooltip = MAL_elect_a_new_umno_leader
+			}
+		}
+	}
+	focus = {
+		id = MAL_the_old_commonwealth
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = MAL_the_malayan_federation }
+		x = 1
+		y = 1
+		relative_position_id = MAL_the_malayan_federation
+
+		cost = 5
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			OR = {
+				is_faction_leader = yes
+				is_in_faction = no
+			}
+			any_country = {
+				OR = {
+					tag = AST
+					tag = NZL
+					tag = RAJ
+					tag = CAN
+					tag = SAF
+				}
+				is_in_faction = no
+			}
+			NOT = {
+				has_idea = neutrality_idea
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					is_in_faction = no
+				}
+				create_faction = "The old Commonwealth"
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = MAL_the_malayan_federation
+					}
+				}
+				create_faction = "The old Commonwealth"
+				custom_effect_tooltip = "This will invite all commonwealth nations that aren't in any faction"
+			}
+			else = {
+				every_country = {
+					limit = {
+						OR = {
+							tag = AST
+							tag = NZL
+							tag = RAJ
+							tag = CAN
+							tag = SAF
+						}
+						is_in_faction = no
+					}
+					custom_effect_tooltip = invite_to_faction_tt
+					hidden_effect = { country_event = { id = generic.5 } }
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_research_cooperation
+		icon = GFX_focus_research2
+		prerequisite = { focus = MAL_the_old_commonwealth }
+		x = 0
+		y = 1
+		relative_position_id = MAL_the_old_commonwealth
+
+		cost = 5
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			any_country = {
+				OR = {
+					tag = AST
+					tag = NZL
+					tag = RAJ
+					tag = CAN
+					tag = SAF
+				}
+				is_in_faction_with = MAL
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_research_cooperation_idea
+			custom_effect_tooltip = "Every Faction Member will also get this idea. Current Effect:"
+			every_country = {
+				limit = {
+					is_in_faction_with = MAL
+				}
+				add_ideas = MAL_research_cooperation_idea_weak
+			}
+		}
+	}
+	focus = {
+		id = MAL_a_great_malaysia
+		icon = GFX_focus_BEL_legacy_of_the_great_war
+		prerequisite = { focus = MAL_the_malayan_federation }
+		x = 0
+		y = 3
+		relative_position_id = MAL_the_malayan_federation
+
+		cost = 20
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_army_manpower = {
+				size > 100000
+			}
+			OR = {
+				surrender_progress < 0.01
+				has_war = no
+			}
+			is_subject = no
+			controls_state = 724
+			OR = {
+				num_subjects > 0
+				any_state = {
+					NOT = { state = 724 }
+					NOT = {
+						is_core_of = MAL
+					}
+					is_controlled_by = MAL
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_state_core = 724
+			add_political_power = 100
+			add_war_support = 0.1
+			add_ideas = MAL_a_great_malaysia_idea
+			add_victory_points = {
+				province = 10297
+				value = 25
+			}
+		}
+	}
+	focus = {
+		id = MAL_annex_siam
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = MAL_the_malayan_federation focus = MAL_the_sixth_dominion }
+		mutually_exclusive = { focus = MAL_attack_siam focus = MAL_alliance_with_siam }
+		x = -5
+		y = 1
+		relative_position_id = MAL_the_malayan_federation
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+		}
+
+		will_lead_to_war_with = SIA
+
+		available = {
+			NOT = {
+				has_idea = neutrality_idea
+			}
+			has_army_manpower = {
+				size > 75000
+			}
+			SIA = {
+				is_ai = yes
+				OR = {
+					AND = {
+						is_subject = yes
+						overlord = {
+							has_opinion = {
+								target = MAL
+								value > 9
+							}
+						}
+					}
+					AND = {
+						is_subject = no
+						has_opinion = {
+							target = MAL
+							value > 9
+						}
+					}
+					exists = no
+				}	
+			}
+		}
+
+		bypass = {
+			all_state = {
+				OR = {
+					NOT = { is_core_of = SIA }
+					controller = {
+						OR = {
+							is_in_faction_with = MAL
+							tag = MAL
+						}
+					}
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					SIA = {
+						is_subject = yes
+					}
+				}
+				SIA = {
+					overlord = {
+						country_event = {
+							id = mal.mod.9
+							days = 1
+						}
+					}
+				}
+				custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+			}
+			if = {
+				limit = {
+					SIA = {
+						is_subject = no
+					}
+				}
+				SIA = {
+					country_event = {
+						id = mal.mod.9
+						days = 1
+					}
+				}
+				custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+			}
+			if = {
+				limit = {
+					SIA = {
+						exists = no
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = SIA
+					}
+					owner = {
+						MAL = {
+							create_wargoal = {
+								type = puppet_wargoal_focus
+								target = PREV
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_attack_siam
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = MAL_the_malayan_federation focus = MAL_the_sixth_dominion }
+		mutually_exclusive = { focus = MAL_annex_siam focus = MAL_alliance_with_siam }
+		x = -3
+		y = 1
+		relative_position_id = MAL_the_malayan_federation
+
+		will_lead_to_war_with = SIA
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			NOT = {
+				has_idea = neutrality_idea
+				is_in_faction_with = SIA
+			}
+			SIA = {
+				exists = yes
+			}
+		}
+
+		bypass = {
+			OR = {
+				has_war_with = SIA
+				SIA = {
+					is_subject_of = MAL
+				}
+				SIA = {
+					exists = no
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SIA
+			}
+		}
+	}
+	focus = {
+		id = MAL_alliance_with_siam
+		icon = GFX_focus_NOR_approach_the_fatherland_league
+		prerequisite = { focus = MAL_the_malayan_federation }
+		mutually_exclusive = { focus = MAL_annex_siam focus = MAL_attack_siam }
+		x = -1
+		y = 1
+		relative_position_id = MAL_the_malayan_federation
+
+		cost = 6
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			OR = {
+				is_faction_leader = yes
+				is_in_faction = no
+			}
+			NOT = {
+				has_idea = neutrality_idea
+			}
+			SIA = {
+				exists = yes
+				is_in_faction = no
+			}
+		}
+
+		bypass = {
+			is_faction_leader = yes
+			is_in_faction_with = SIA
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = MAL_the_malayan_federation
+					}
+				}
+				create_faction = "ASA"
+				SIA = {
+					custom_effect_tooltip = invite_to_faction_tt
+					hidden_effect = { country_event = { id = generic.5 } }
+				}
+			}
+			else_if = {
+				limit = {
+					is_in_faction = no
+				}
+				create_faction = "ASA"
+				SIA = {
+					custom_effect_tooltip = invite_to_faction_tt
+					hidden_effect = { country_event = { id = generic.5 } }
+				}
+			}
+			else = {
+				SIA = {
+					custom_effect_tooltip = invite_to_faction_tt
+					hidden_effect = { country_event = { id = generic.5 } }
+				}
+			}
+			unlock_decision_tooltip = MAL_expand_asean
+		}
+	}
+	focus = {
+		id = MAL_economic_cooperation
+		icon = GFX_focus_AFG_a_modern_economy
+		prerequisite = { focus = MAL_alliance_with_siam }
+		x = 0
+		y = 1
+		relative_position_id = MAL_alliance_with_siam
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			is_in_faction_with = SIA
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_economic_cooperation_idea
+			custom_effect_tooltip = "Every Faction Member will also get this idea. Current Effect:"
+			every_country = {
+				limit = {
+					is_in_faction_with = MAL
+				}
+				add_ideas = MAL_economic_cooperation_idea
+			}
+		}
+	}
+	focus = {
+		id = MAL_ask_for_northern_malay
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = MAL_alliance_with_siam focus = MAL_attack_siam focus = MAL_annex_siam }
+		x = -2
+		y = 1
+		relative_position_id = MAL_alliance_with_siam
+
+		cost = 6
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			OR = {
+				SIA = {
+					NOT = {
+						controls_state = 724
+					}
+				}
+				is_in_faction_with = SIA
+			}
+			NOT = {
+				controls_state = 724
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			724 = {
+				owner = {
+					country_event = {
+						id = mal.mod.19
+						days = 1
+					}
+				}
+			}
+			custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+		}
+	}
+	focus = {
+		id = MAL_deal_with_resistance
+		icon = GFX_focus_RAJ_union_busting
+		prerequisite = { focus = MAL_annex_siam focus = MAL_attack_siam focus = MAL_alliance_with_siam }
+		x = 0
+		y = 1
+		relative_position_id = MAL_annex_siam
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			any_controlled_state = {
+				NOT = {
+					is_core_of = MAL
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_resistance_efforts_idea
+		}
+	}
+	focus = {
+		id = MAL_annex_burma
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = MAL_the_malayan_federation }
+		mutually_exclusive = { focus = MAL_attack_burma focus = MAL_support_the_burma_road }
+		x = 5
+		y = 1
+		relative_position_id = MAL_the_malayan_federation
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+		}
+
+		will_lead_to_war_with = BRM
+
+		available = {
+			NOT = {
+				has_idea = neutrality_idea
+			}
+			has_army_manpower = {
+				size > 75000
+			}
+			is_subject = no
+			BRM = {
+				is_ai = yes
+				OR = {
+					AND = {
+						is_subject = yes
+						overlord = {
+							has_opinion = {
+								target = MAL
+								value > 9
+							}
+						}
+					}
+					AND = {
+						is_subject = no
+						has_opinion = {
+							target = MAL
+							value > 9
+						}
+					}
+					exists = no
+				}	
+			}
+		}
+
+		bypass = {
+			all_state = {
+				OR = {
+					NOT = { is_core_of = BRM }
+					controller = {
+						OR = {
+							is_in_faction_with = MAL
+							tag = MAL
+						}
+					}
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					BRM = {
+						is_subject = yes
+					}
+				}
+				BRM = {
+					overlord = {
+						country_event = {
+							id = mal.mod.11
+							days = 1
+						}
+					}
+					custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+				}
+			}
+			if = {
+				limit = {
+					BRM = {
+						is_subject = no
+					}
+				}
+				BRM = {
+					country_event = {
+						id = mal.mod.11
+						days = 1
+					}
+				}
+				custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+			}
+			if = {
+				limit = {
+					BRM = {
+						exists = no
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = BRM
+					}
+					owner = {
+						MAL = {
+							create_wargoal = {
+								type = puppet_wargoal_focus
+								target = PREV
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_support_the_burma_road
+		icon = GFX_focus_GER_ally_chiang_kai_shek
+		prerequisite = { focus = MAL_the_malayan_federation }
+		mutually_exclusive = { focus = MAL_attack_burma focus = MAL_annex_burma }
+		x = 3
+		y = 1
+		relative_position_id = MAL_the_malayan_federation
+
+		cost = 5
+
+		ai_will_do = {
+			base = 0
+		}
+
+		will_lead_to_war_with = BRM
+
+		available = {
+			NOT = {
+				has_war_with = CHI
+				has_war_with = BRM
+			}
+			is_subject = no
+			CHI = {
+				exists = yes
+				has_war = yes
+			}
+			BRM = {
+				exists = yes
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			CHI = {
+				add_political_power = 50
+				add_offsite_building = { type = arms_factory level = 2 }
+			}
+		}
+	}
+	focus = {
+		id = MAL_attack_burma
+		icon = GFX_focus_attack_australia
+		prerequisite = { focus = MAL_the_malayan_federation }
+		mutually_exclusive = { focus = MAL_annex_burma focus = MAL_support_the_burma_road }
+		x = 7
+		y = 1
+		relative_position_id = MAL_the_malayan_federation
+
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+		}
+
+		will_lead_to_war_with = BRM
+
+		available = {
+			NOT = {
+				has_idea = neutrality_idea
+				is_in_faction_with = BRM
+			}
+			is_subject = no
+			BRM = {
+				exists = yes
+			}
+		}
+
+		bypass = {
+			OR = {
+				has_war_with = BRM
+				BRM = {
+					is_subject_of = MAL
+				}
+				BRM = {
+					exists = no
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BRM
+			}
+		}
+	}
+	focus = {
+		id = MAL_exploit_chinese_weakness
+		icon = GFX_focus_attack_china
+		prerequisite = { focus = MAL_attack_burma focus = MAL_annex_burma }
+		mutually_exclusive = { focus = MAL_join_the_united_front }
+		x = -2
+		y = 1
+		relative_position_id = MAL_attack_burma
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+		}
+
+		will_lead_to_war_with = CHI
+		will_lead_to_war_with = GXC
+		will_lead_to_war_with = YUN
+
+		available = {
+			NOT = {
+				has_idea = neutrality_idea
+				is_in_faction_with = ENG
+				is_in_faction_with = USA
+				is_in_faction_with = CHI
+			}
+			OR = {
+				CHI = {
+					exists = yes
+				}
+				GXC = {
+					exists = yes
+				}
+				YUN = {
+					exists = yes
+				}
+			}
+
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CHI
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GXC
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = YUN
+			}
+		}
+	}
+	focus = {
+		id = MAL_join_the_united_front
+		icon = GFX_focus_chi_united_front
+		prerequisite = { focus = MAL_attack_burma focus = MAL_annex_burma focus = MAL_support_the_burma_road }
+		mutually_exclusive = { focus = MAL_exploit_chinese_weakness }
+		x = -4
+		y = 1
+		relative_position_id = MAL_attack_burma
+		cost = 5
+
+		ai_will_do = {
+			base = 0
+		}
+
+		available = {
+			is_in_faction = no
+			JAP = {
+				has_war_with = CHI
+			}
+			CHI = {
+				is_faction_leader = yes
+			}
+			NOT = {
+				has_idea = neutrality_idea
+			}
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_war_support = 0.05
+			CHI = {
+				country_event = { id = generic.2 }
+			}
+		}
+	}
+	focus = {
+		id = MAL_elective_monarchy
+		icon = GFX_focus_AUS_bring_back_the_habsburg_rule
+		prerequisite = { focus = MAL_decentralize focus = MAL_balance_the_powers }
+		mutually_exclusive = { focus = MAL_embrace_democracy }
+		x = 1
+		y = 1
+		relative_position_id = MAL_nationalize_chinese_business
+
+		cost = 5
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+			NOT = {
+				has_idea = MAL_power_balance
+			}
+		}
+
+		bypass = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = -0.1
+				tooltip_side = MAL_rulers_dominates
+			}
+			add_political_power = 20
+			add_autonomy_score = {
+				value = 200
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.1
+			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_ruler_council
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_abdul_aziz
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_abdul_rahman
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_munawir
+		}
+	}
+	focus = {
+		id = MAL_absolute_monarchy
+		icon = GFX_focus_generic_monarchist_sentiment
+		prerequisite = { focus = MAL_tributes_from_every_king }
+		mutually_exclusive = { focus = MAL_form_the_umno }
+		x = 1
+		y = 1
+		relative_position_id = MAL_elective_monarchy
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			power_balance_value = {
+				id = MAL_rulers_power_bop
+				value < -0.5
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = -0.5
+				tooltip_side = MAL_rulers_dominates
+			}
+			add_ideas = MAL_independence_movements
+			add_political_power = 120
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = yes
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = MAL_return_to_our_past
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = MAL_declare_independence }
+		x = -1
+		y = 2
+		relative_position_id = MAL_absolute_monarchy
+
+		will_lead_to_war_with = INS
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_government = neutrality
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = INS
+				}
+				owner = {
+					MAL = {
+						create_wargoal = {
+							type = puppet_wargoal_focus
+							target = PREV
+						}
+					}
+				}
+			}
+			every_state = {
+				limit = {
+					OR = { is_core_of = INS state = 721 }
+				}
+				MAL = {
+					add_state_claim = PREV
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_neutrality_and_peace
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = MAL_declare_independence }
+		x = -1
+		y = 1
+		relative_position_id = MAL_declare_independence
+
+		cost = 10
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_war = no
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = neutrality_idea
+			add_political_power = 150
+			add_stability = 0.15
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_support_the_chinese
+		icon = GFX_focus_SWE_refuge_from_war
+		prerequisite = { focus = MAL_strengthen_ties_with_britain focus = MAL_build_up_the_communists }
+		x = -3
+		y = 1
+		relative_position_id = MAL_strengthen_ties_with_britain
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = MAL_unify_with_the_communists
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_research_slot = 1
+			add_political_power = -50
+			swap_ideas = {
+				remove_idea = MAL_chinese_immigrants
+				add_idea = MAL_chinese_immigrants_supported
+			}
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 0.05
+				tooltip_side = MAL_rulers_weak
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_tkk
+			
+		}
+	}
+	focus = {
+		id = MAL_ethnic_equality
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = MAL_support_the_chinese }
+		x = -1
+		y = 1
+		relative_position_id = MAL_support_the_chinese
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			OR = {
+				AND = {
+					has_government = democratic
+					democratic > 0.5
+				}
+				AND = {
+					has_government = communism
+					communism > 0.5
+				}
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			custom_effect_tooltip = "Depending on our government we will loose the popularity gain for the party that is not in the government"
+			if = {
+				limit = {
+					has_government = democratic
+				}
+				swap_ideas = {
+					remove_idea = MAL_chinese_immigrants_supported
+					add_idea = MAL_chinese_immigrants_supported_2_d
+				}
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				swap_ideas = {
+					remove_idea = MAL_chinese_immigrants_supported
+					add_idea = MAL_chinese_immigrants_supported_2_c
+				}
+			}
+			if = {
+				limit = {
+					has_idea = MAL_malay_unrest_idea
+				}
+				modify_timed_idea = {
+					idea = MAL_malay_unrest_idea
+					days = 200
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = MAL_malay_unrest_idea
+					days = 200
+				}
+			}			
+		}
+	}
+	focus = {
+		id = MAL_aid_china
+		icon = {
+			trigger = {
+				has_government = communism
+			}
+			value = GFX_focus_chi_cooperation_with_the_communists
+		}
+		icon = {
+			value = GFX_focus_GER_ally_chiang_kai_shek 
+		}
+		prerequisite = { focus = MAL_support_the_chinese }
+		x = 1
+		y = 1
+		relative_position_id = MAL_support_the_chinese
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			OR = {
+				AND = {
+					CHI = {
+						has_war = yes
+					}
+					has_government = democratic
+				}
+				AND = {
+					PRC = {
+						has_war = yes
+					}
+					has_government = communism
+				}
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_government = communism
+					}
+				}
+				add_opinion_modifier = {
+					target = CHI
+					modifier = medium_increase
+				}
+				CHI = {
+					add_opinion_modifier = {
+						target = MAL
+						modifier = large_increase
+					}
+				}
+				add_timed_idea = {
+					idea = MAL_aid_to_china
+					days = 835
+				}
+				CHI = {
+					army_experience = 50
+					add_timed_idea = {
+						idea = MAL_malaysian_aid
+						days = 835
+					}
+				}
+			}
+			else = {
+				add_opinion_modifier = {
+					target = PRC
+					modifier = medium_increase
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = MAL
+						modifier = large_increase
+					}
+				}
+				add_timed_idea = {
+					idea = MAL_aid_to_china
+					days = 835
+				}
+				PRC = {
+					army_experience = 50
+					add_timed_idea = {
+						idea = MAL_malaysian_aid
+						days = 835
+					}
+				}
+			}
+		}
+	}
+
+	# INDEPENDENT NEUTRALITY PATH ########################################################
+
+	focus = {
+		id = MAL_strengthen_the_local_rulers
+		icon = GFX_focus_ETH_sway_the_warlords
+		prerequisite = { focus = MAL_choose_path }
+		x = 6
+		y = 1
+		relative_position_id = MAL_choose_path
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			always = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			effect_tooltip = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.05
+				}
+				add_war_support = 0.01
+			}
+		}
+	}
+	focus = {
+		id = MAL_bolster_royalist_sentiments
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = MAL_strengthen_the_local_rulers }
+		mutually_exclusive = { focus = MAL_reach_out_to_japan }
+		x = 0
+		y = 1
+		relative_position_id = MAL_strengthen_the_local_rulers
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = -0.1
+				tooltip_side = MAL_rulers_dominates
+			}
+			add_ideas = MAL_monarchism_rising
+			hidden_effect = {
+				set_variable = {
+					var = met_kings
+					value = 0
+				}
+			}
+			unlock_decision_category_tooltip = MAL_meet_kings_categorie
+		}
+	}
+	focus = {
+		id = MAL_unite_the_kings
+		icon = GFX_focus_AFG_contact_rural_loyalists
+		prerequisite = { focus = MAL_bolster_royalist_sentiments }
+		x = 0
+		y = 1
+		relative_position_id = MAL_bolster_royalist_sentiments
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Has met with all Monarchs"
+				check_variable = {
+					met_kings > 12
+				}
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 100
+			remove_ideas = MAL_divided_nation
+		}
+	}
+	focus = {
+		id = MAL_weaken_the_colonial_government
+		icon = GFX_focus_ARG_cut_ties_with_britain
+		prerequisite = { focus = MAL_bolster_royalist_sentiments focus = MAL_reach_out_to_japan }
+		x = 3
+		y = 1
+		relative_position_id = MAL_bolster_royalist_sentiments
+
+		cost = 5
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+			has_idea = MAL_colonial_government
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = -0.1
+				tooltip_side = MAL_rulers_dominates
+			}
+			swap_ideas = {
+				remove_idea = MAL_colonial_government
+				add_idea = MAL_colonial_government_weak
+			}
+		}
+	}
+	focus = {
+		id = MAL_decentralize
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = MAL_unite_the_kings }
+		x = 0
+		y = 1
+		relative_position_id = MAL_unite_the_kings
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			power_balance_value = {
+				id = MAL_rulers_power_bop
+				value < 0.5
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = -0.1
+				tooltip_side = MAL_rulers_dominates
+			}
+			add_ideas = MAL_divided_nation_decentralization
+			add_autonomy_score = {
+				value = 100
+			}
+		}
+	}
+	focus = {
+		id = MAL_tributes_from_every_king
+		icon = GFX_focus_RAJ_kingmaker
+		prerequisite = { focus = MAL_decentralize }
+		x = 0
+		y = 1
+		relative_position_id = MAL_decentralize
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 13000
+				producer = MAL
+			}
+		}
+	}
+	focus = {
+		id = MAL_royal_armies
+		icon = GFX_focus_AFG_royal_guard
+		prerequisite = { focus = MAL_tributes_from_every_king }
+		x = 1
+		y = 1
+		relative_position_id = MAL_tributes_from_every_king
+
+		cost = 10
+
+		ai_will_do = {
+			base = 80
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = -0.1
+				tooltip_side = MAL_rulers_dominates
+			}
+			army_experience = 10
+			add_ideas = MAL_royal_army
+			add_autonomy_score = {
+				value = 50
+			}
+		}
+	}
+
+	focus = {
+		id = MAL_ally_the_home_of_islam
+		icon = GFX_focus_PER_islamic_solidarity
+		prerequisite = { focus = MAL_declare_independence }
+		x = 0
+		y = 3
+		relative_position_id = MAL_tributes_from_every_king
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_government = neutrality
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			unlock_decision_tooltip = MAL_a_muslim_faction
+			unlock_decision_tooltip = MAL_use_islam_to_justify_claims
+		}
+	}
+	
+	focus = {
+		id = MAL_reject_the_malayan_union_proposal
+		icon = GFX_focus_AUS_disregard_the_treaties
+		prerequisite = { focus = MAL_embrace_democracy focus = MAL_elective_monarchy }
+		mutually_exclusive = { focus = MAL_accept_the_malayan_union_proposal }
+		x = -7
+		y = 1
+		relative_position_id = MAL_elective_monarchy
+
+		cost = 5
+
+		ai_will_do = {
+			base = 50
+		}
+
+		available = {
+			power_balance_value = {
+				id = MAL_rulers_power_bop
+				value < 0.75
+			}
+		}
+
+		bypass = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = MAL_divided_nation
+				}
+				swap_ideas = {
+					remove_idea = MAL_divided_nation
+					add_idea = MAL_divided_nation_malayan_federation
+				}
+			}
+			if = {
+				limit = {
+					has_idea = MAL_divided_nation_centralization
+				}
+				swap_ideas = {
+					remove_idea = MAL_divided_nation_centralization
+					add_idea = MAL_divided_nation_malayan_federation
+				}
+			}
+			if = {
+				limit = {
+					has_idea = MAL_divided_nation_balance
+				}
+				swap_ideas = {
+					remove_idea = MAL_divided_nation_balance
+					add_idea = MAL_divided_nation_malayan_federation
+				}
+			}
+			if = {
+				limit = {
+					has_idea = MAL_divided_nation_decentralization
+				}
+				add_ideas = MAL_divided_nation_malayan_federation
+			}
+		}
+	}
+	focus = {
+		id = MAL_demand_kalimantan
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = MAL_reject_the_malayan_union_proposal }
+		x = 1
+		y = 1
+		relative_position_id = MAL_reject_the_malayan_union_proposal
+
+		cost = 5
+
+		ai_will_do = {
+			base = 0
+		}
+		will_lead_to_war_with = INS
+
+		available = {
+			NOT = {
+				has_idea = neutrality_idea
+				controls_state = 334
+			}
+			INS = {
+				is_ai = yes
+				OR = {
+					AND = {
+						is_subject = yes
+						overlord = {
+							has_opinion = {
+								target = MAL
+								value > 10
+							}
+						}
+					}
+					AND = {
+						is_subject = no
+						has_opinion = {
+							target = MAL
+							value > 10
+						}
+					}
+					exists = no
+				}	
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			if = {
+				limit = {
+					334 = {
+						owner = {
+							is_subject = yes
+						}
+					}
+				}
+				334 = {
+					owner = {
+						overlord = {
+							country_event = {
+								id = mal.mod.17
+								days = 1
+							}
+						}
+					}
+				}
+			}
+			else = {
+				334 = {
+					owner = {
+						country_event = {
+							id = mal.mod.17
+							days = 1
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+		}
+	}
+	focus = {
+		id = MAL_accept_the_malayan_union_proposal
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = MAL_embrace_democracy }
+		mutually_exclusive = { focus = MAL_reject_the_malayan_union_proposal }
+		x = -1
+		y = 1
+		relative_position_id = MAL_embrace_democracy
+
+		cost = 5
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				has_completed_focus = MAL_strengthen_ties_with_britain
+				add = 100
+			}
+		}
+
+		available = {
+			power_balance_value = {
+				id = MAL_rulers_power_bop
+				value > 0.1
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 0.25
+				tooltip_side = MAL_rulers_weak
+			}
+			add_stability = -0.1
+			add_offsite_building = { type = industrial_complex level = 3 }
+			if = {
+				limit = {
+					has_idea = MAL_divided_nation
+				}
+				swap_ideas = {
+					remove_idea = MAL_divided_nation
+					add_idea = MAL_divided_nation_malayan_union
+				}
+			}
+			if = {
+				limit = {
+					has_idea = MAL_divided_nation_centralization
+				}
+				swap_ideas = {
+					remove_idea = MAL_divided_nation_centralization
+					add_idea = MAL_divided_nation_malayan_union
+				}
+			}
+			if = {
+				limit = {
+					has_idea = MAL_divided_nation_balance
+				}
+				swap_ideas = {
+					remove_idea = MAL_divided_nation_balance
+					add_idea = MAL_divided_nation_malayan_union
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_the_united_indies
+		icon = GFX_focus_GER_south_east_asian_natural_wealth
+		prerequisite = { focus = MAL_accept_the_malayan_union_proposal }
+		x = -1
+		y = 1
+		relative_position_id = MAL_accept_the_malayan_union_proposal
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		will_lead_to_war_with = INS
+
+		available = {
+			INS = {
+				is_ai = yes
+				OR = {
+					AND = {
+						is_subject = yes
+						overlord = {
+							has_opinion = {
+								target = MAL
+								value > 9
+							}
+						}
+					}
+					AND = {
+						is_subject = no
+						has_opinion = {
+							target = MAL
+							value > 9
+						}
+					}
+					exists = no
+				}	
+			}
+
+		}
+
+		bypass = {
+			INS = {
+				is_ai = no
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			if = {
+				limit = {
+					INS = {
+						is_subject = yes
+						exists = yes
+					}
+				}
+				INS = {
+					overlord = {
+						country_event = {
+							id = mal.mod.6
+							days = 1
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					INS = {
+						is_subject = no
+					}
+				}
+				INS = {
+					country_event = {
+						id = mal.mod.6
+						days = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					INS = {
+						exists = no
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = INS
+					}
+					owner = {
+						MAL = {
+							create_wargoal = {
+								type = puppet_wargoal_focus
+								target = PREV
+							}
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+		}
+	}
+	focus = {
+		id = MAL_the_sixth_dominion
+		icon = GFX_focus_eng_bring_the_dominions_back_into_the_fold
+		prerequisite = { focus = MAL_the_united_indies }
+		x = 1
+		y = 1
+		relative_position_id = MAL_the_united_indies
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 50
+			add_autonomy_ratio = {
+				value = 1
+			}
+			set_rule = { can_only_justify_war_on_threat_country = no }
+			set_rule = { can_decline_call_to_war = yes }
+			set_rule = { can_not_declare_war = no }
+		}
+	}
+	focus = {
+		id = MAL_expand_citizenship
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		prerequisite = { focus = MAL_accept_the_malayan_union_proposal focus = MAL_reject_the_malayan_union_proposal }
+		x = 1
+		y = 1
+		relative_position_id = MAL_accept_the_malayan_union_proposal
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				has_completed_focus = MAL_strengthen_ties_with_britain
+				add = 100
+			}
+		}
+
+		available = {
+			has_government = democratic
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = MAL_accept_the_malayan_union_proposal
+				}
+				add_ideas = MAL_expand_citizenship_idea
+				if = {
+					limit = {
+						has_idea = MAL_malay_unrest_idea
+					}
+					modify_timed_idea = {
+						idea = MAL_malay_unrest_idea
+						days = 360
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = MAL_malay_unrest_idea
+						days = 360
+					}
+				}
+			}
+			else = {
+				add_ideas = MAL_expand_citizenship_weak_idea
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = "Completing the focus 'Accept the Malayan Union Proposal' will upgrade this spirit"
+				custom_effect_tooltip = generic_skip_one_line_tt
+				if = {
+					limit = {
+						has_idea = MAL_malay_unrest_idea
+					}
+					modify_timed_idea = {
+						idea = MAL_malay_unrest_idea
+						days = 200
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = MAL_malay_unrest_idea
+						days = 200
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_tkk
+		}
+	}
+	focus = {
+		id = MAL_build_up_the_communists
+		icon = GFX_focus_generic_spur_communist_revolutions
+		prerequisite = { focus = MAL_choose_path }
+		x = -12
+		y = 1
+		relative_position_id = MAL_choose_path
+		mutually_exclusive = { focus = MAL_work_with_the_communists }
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			always = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			effect_tooltip = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}
+				add_stability = -0.01
+			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_francis_gough
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_chin_peng
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_tan_malaka
+		}
+	}
+	focus = {
+		id = MAL_reorganize_the_party
+		icon = GFX_focus_generic_workers
+		prerequisite = { focus = MAL_build_up_the_communists }
+		x = 0
+		y = 1
+		relative_position_id = MAL_build_up_the_communists
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = MAL_unify_with_the_communists
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_communism_rising
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+		}
+	}
+	focus = {
+		id = MAL_malayan_peoples_anti_japanese_army
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = MAL_build_up_the_communists focus = MAL_work_with_the_communists }
+		x = -2
+		y = 1
+		relative_position_id = MAL_build_up_the_communists
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_ideas = MAL_mpaja
+			show_unit_leaders_tooltip = MAL_lau_yew
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_lau_yew
+		}
+	}
+	focus = {
+		id = MAL_expose_the_traitor
+		icon = GFX_focus_IRQ_attempted_assasination_of_sidqi
+		prerequisite = { focus = MAL_reorganize_the_party }
+		x = 0
+		y = 1
+		relative_position_id = MAL_reorganize_the_party
+
+		cost = 2
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = MAL_undermine_the_party
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_stability = -0.02
+			add_opinion_modifier = {
+				target = FRA
+				modifier = small_decrease
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = small_decrease
+				}
+			}
+			ENG = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = small_decrease
+				}
+			}
+			kill_ideology_leader = communism
+		}
+	}
+	##shhh secret path
+	focus = {
+		id = MAL_undermine_the_party
+		icon = GFX_focus_generic_infiltration
+		x = -8
+		y = -1
+		relative_position_id = MAL_revolution
+
+		cost = 5
+
+		ai_will_do = {
+			base = 0
+		}
+		allow_branch = {
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+		available = {
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_political_power = 80
+			create_intelligence_agency = {
+				name = "The Shadow Hand"
+				icon = GFX_intelligence_agency_logo_BRA_communist
+			}
+		}
+	}
+	focus = {
+		id = MAL_cash_out
+		icon = GFX_focus_RAJ_war_taxes
+		x = -1
+		y = 1
+		relative_position_id = MAL_the_true_allegiance
+		prerequisite = { focus = MAL_the_true_allegiance }
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+		available = {
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 3 }
+			add_timed_idea = {
+				idea = MAL_cash_out_idea
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = MAL_the_true_allegiance
+		icon = GFX_focus_RAJ_red_in_the_shadows
+		x = 0
+		y = 1
+		relative_position_id = MAL_undermine_the_party
+		prerequisite = { focus = MAL_undermine_the_party }
+
+		cost = 10
+
+		ai_will_do = {
+			
+		}
+		available = {
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = MAL_the_true_allegiance_idea
+		}
+	}
+	focus = {
+		id = MAL_ultimate_betrayal
+		icon = GFX_focus_SWI_embrace_rote_drei
+		x = 1
+		y = 1
+		relative_position_id = MAL_the_true_allegiance
+		prerequisite = { focus = MAL_the_true_allegiance }
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+		available = {
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+			OR = {
+				is_in_faction = yes
+				is_subject = yes
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				overlord = {
+					set_autonomy = {
+						target = MAL
+						autonomous_state = autonomy_free
+						end_wars = no
+						end_civil_wars = no
+					}
+				}
+			}
+			leave_faction = yes
+			uncomplete_national_focus = {
+				focus = MAL_ultimate_betrayal
+				uncomplete_children = yes
+				refund_political_power = no
+			}
+		}
+	}
+	focus = {
+		id = MAL_secure_the_state
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		x = 0
+		y = 2
+		relative_position_id = MAL_the_true_allegiance
+		prerequisite = { focus = MAL_the_true_allegiance }
+
+		cost = 10
+
+		ai_will_do = {
+			
+		}
+		available = {
+			is_subject = no
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_stability = 0.25
+		}
+	}
+	focus = {
+		id = MAL_infiltrate_siam
+		icon = GFX_focus_prc_infiltration
+		x = 1
+		y = 1
+		relative_position_id = MAL_secure_the_state
+		prerequisite = { focus = MAL_secure_the_state }
+		will_lead_to_war_with = SIA
+		cost = 10
+
+		ai_will_do = {
+			
+		}
+		available = {
+			is_subject = no
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			SIA = {
+				country_event = {
+					id = mal.mod.30
+					days = 1
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_build_a_global_spy_network
+		icon = GFX_focus_POL_support_global_falangism
+		x = -1
+		y = 1
+		relative_position_id = MAL_secure_the_state
+		prerequisite = { focus = MAL_secure_the_state }
+
+		cost = 10
+
+		ai_will_do = {
+			
+		}
+		available = {
+			is_subject = no
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = MAL_the_true_allegiance_idea
+				add_idea = MAL_the_true_allegiance_idea_2
+			}
+		}
+	}
+	focus = {
+		id = MAL_dethrown_the_monarchy
+		icon = GFX_focus_NOR_send_the_king_back_to_denmark
+		x = -3
+		y = 1
+		relative_position_id = MAL_secure_the_state
+		prerequisite = { focus = MAL_secure_the_state }
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+		available = {
+			is_subject = no
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 30
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 1
+				tooltip_side = MAL_rulers_weak
+			}
+		}
+	}
+	focus = {
+		id = MAL_police_state
+		icon = GFX_focus_BRA_end_the_state_of_emergency
+		x = 0
+		y = 2
+		relative_position_id = MAL_secure_the_state
+		prerequisite = { focus = MAL_secure_the_state }
+
+		cost = 10
+
+		ai_will_do = {
+			
+		}
+		available = {
+			is_subject = no
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			remove_ideas = MAL_divided_nation
+		}
+	}
+	focus = {
+		id = MAL_use_the_chaos_in_the_world
+		icon = GFX_focus_RAJ_just_good_business
+		x = 0
+		y = 1
+		relative_position_id = MAL_police_state
+		prerequisite = { focus = MAL_police_state }
+
+		cost = 10
+
+		ai_will_do = {
+			
+		}
+		available = {
+			is_subject = no
+			has_country_leader = {
+				character = MAL_lai_teck
+			}
+		}
+
+		bypass = {		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_use_the_chaos_idea
+		}
+	}
+	focus = {
+		id = MAL_organize_strikes
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = MAL_expose_the_traitor }
+		x = 1
+		y = 1
+		relative_position_id = MAL_expose_the_traitor
+
+		cost = 2
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			has_government = communism
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = MAL_mobilize_the_working_class
+		icon = GFX_focus_spr_class_war
+		prerequisite = { focus = MAL_organize_strikes }
+		x = 1
+		y = 1
+		relative_position_id = MAL_organize_strikes
+
+		cost = 10
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_mobilized_working_class
+		}
+	}
+	focus = {
+		id = MAL_smuggle_arms
+		icon = GFX_focus_GER_support_the_proletarian_uprising
+		prerequisite = { focus = MAL_expose_the_traitor }
+		x = -1
+		y = 1
+		relative_position_id = MAL_expose_the_traitor
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = MAL
+			}
+		}
+	}
+	focus = {
+		id = MAL_train_infiltrators
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = MAL_smuggle_arms }
+		x = -1
+		y = 1
+		relative_position_id = MAL_smuggle_arms
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_government = communism
+			has_intelligence_agency = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_intelligence_agency = {
+				name = "Malay National Liberation Army"
+				icon = GFX_intelligence_agency_logo_generic_9
+			}
+			if = {
+				limit = {
+					NOT = { has_idea = MAL_expand_our_agency_idea_2 }
+				}
+				add_ideas = MAL_expand_our_agency_idea
+			}
+		}
+	}
+	focus = {
+		id = MAL_revolution
+		icon = GFX_focus_CHL_union_of_hispanic_republics
+		prerequisite = { focus = MAL_expose_the_traitor }
+		x = 0
+		y = 2
+		relative_position_id = MAL_expose_the_traitor
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+			communism > 0.4
+		}
+
+		bypass = {
+			is_subject = no
+			has_government = communism			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			activate_mission = MAL_secure_public_support
+			activate_mission = MAL_stabilize_the_state_mission
+			activate_mission = MAL_improve_economy
+			activate_mission = MAL_expand_the_military
+			activate_mission = MAL_expansion_of_territory
+			activate_mission = MAL_implement_communist_policies
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 0.5
+				tooltip_side = MAL_rulers_weak
+			}
+			add_stability = -0.1
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				country_event = mal.mod.2
+			}
+		}
+	}
+	focus = {
+		id = MAL_unify_the_country
+		icon = GFX_focus_AUS_danubian_socialist_communes
+		prerequisite = { focus = MAL_revolution }
+		x = 1
+		y = 1
+		relative_position_id = MAL_revolution
+
+		cost = 10
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = MAL_reach_out_to_japan
+			}
+			has_government = communism
+			communism > 0.5
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 100
+			remove_ideas = MAL_divided_nation
+		}
+	}
+	focus = {
+		id = MAL_stabilize_the_state
+		icon = GFX_focus_SOV_military_purge
+		prerequisite = { focus = MAL_seize_the_means_of_production }
+		prerequisite = { focus = MAL_unify_the_country }
+		x = 0
+		y = 2
+		relative_position_id = MAL_revolution
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_government = communism
+			communism > 0.5
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.15
+		}
+	}
+	focus = {
+		id = MAL_forceful_industrialization
+		icon = GFX_focus_generic_communist_industry
+		prerequisite = { focus = MAL_seize_the_means_of_production focus = MAL_international_aid focus = MAL_align_with_the_soviets }
+		x = -2
+		y = 2
+		relative_position_id = MAL_revolution
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_government = communism
+			has_completed_focus = MAL_build_infrastructure
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_stability = -0.05
+			1017 = {
+				increase_state_category = yes
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+			1018 = {
+				increase_state_category = yes
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+			1019 = {
+				increase_state_category = yes
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+		}
+	}
+	focus = {
+		id = MAL_liberation_of_asia
+		icon = GFX_focus_GER_south_east_asian_natural_wealth
+		prerequisite = { focus = MAL_stabilize_the_state }
+		x = 0
+		y = 1
+		relative_position_id = MAL_stabilize_the_state
+
+		cost = 10
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_government = communism
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			leave_faction = yes
+			add_ideas = MAL_spirit_of_revolution
+			add_manpower = 10000
+			set_rule = { can_create_factions = yes }
+			create_faction = "East Asian Liberation Army"
+			unlock_decision_category_tooltip = MAL_invite_communist_nation_categorie
+		}
+	}
+	focus = {
+		id = MAL_expand_our_agency
+		icon = GFX_focus_generic_secret_service_agency
+		prerequisite = { focus = MAL_stabilize_the_state }
+		x = 2
+		y = 1
+		relative_position_id = MAL_stabilize_the_state
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_government = communism
+			has_intelligence_agency = yes
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_idea = MAL_expand_our_agency_idea
+					}
+				}
+				add_ideas = MAL_expand_our_agency_idea_2
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = MAL_expand_our_agency_idea
+					add_idea = MAL_expand_our_agency_idea_2
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = MAL_our_glorious_army
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		prerequisite = { focus = MAL_stabilize_the_state }
+		x = -2
+		y = 1
+		relative_position_id = MAL_stabilize_the_state
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = NZL_army_reforms
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			add_tech_bonus = {
+				name = "Our Glorious Army"
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+			add_ideas = MAL_glorious_army
+		}
+	}
+	focus = {
+		id = MAL_liberate_siam
+		icon = GFX_focus_usa_focus_on_asia
+		prerequisite = { focus = MAL_liberation_of_asia }
+		x = -2
+		y = 1
+		relative_position_id = MAL_liberation_of_asia
+
+		will_lead_to_war_with = SIA
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_army_manpower = {
+				size > 45000
+			}
+			is_subject = no
+			has_government = communism
+		}
+
+		bypass = {
+			all_state = {
+				OR = {
+					NOT = { is_core_of = SIA }
+					controller = {
+						OR = {
+							is_in_faction_with = MAL
+							tag = MAL
+						}
+					}
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = SIA
+				}
+				owner = {
+					MAL = {
+						create_wargoal = {
+							type = puppet_wargoal_focus
+							target = PREV
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_integrate_northern_malay
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = MAL_liberate_siam }
+		x = -2
+		y = 2
+		relative_position_id = MAL_liberation_of_asia
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			controls_state = 724
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 120
+			add_manpower = 10000
+			add_state_core = 724
+		}
+	}
+	focus = {
+		id = MAL_influence_the_philippines
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = MAL_liberation_of_asia focus = MAL_infiltrate_siam }
+		x = -5
+		y = 1
+		relative_position_id = MAL_liberation_of_asia
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_subject = no
+			PHI = {
+				exists = yes
+			}
+			has_government = communism
+		}
+
+		bypass = {
+			PHI = {
+				has_government = communism
+			}			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			PHI = {
+				add_timed_idea = { idea = communist_influence days = 1095 }
+				hidden_effect = {
+					country_event = { id = generic.1 }
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_kickstart_a_revolution
+		icon = GFX_focus_ARG_anti_american_propaganda
+		prerequisite = { focus = MAL_influence_the_philippines }
+		x = 0
+		y = 1
+		relative_position_id = MAL_influence_the_philippines
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		will_lead_to_war_with = PHI
+
+		available = {
+			is_subject = no
+			PHI = {
+				exists = yes
+				communism > 0.4
+			}
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 120
+			MAL = {
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = PHi
+				}
+			}
+			PHI = {
+				start_civil_war = {
+					ideology = communism
+					keep_political_leader = yes
+				}
+				if = {
+					limit = {
+						MAL = { is_in_faction = no }
+					}
+					MAL = {
+						create_faction = "East Asian Liberation Army"
+						PHI = {
+						custom_effect_tooltip = invite_to_faction_tt
+						hidden_effect = { country_event = { id = generic.5 } }
+						}
+					}
+				}					
+			}
+		}
+	}
+	focus = {
+		id = MAL_liberate_the_dei
+		icon = GFX_focus_hol_continue_the_war_in_batavia
+		prerequisite = { focus = MAL_liberation_of_asia }
+		x = 0
+		y = 1
+		relative_position_id = MAL_liberation_of_asia
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_army_manpower = {
+				size > 45000
+			}
+			is_subject = no
+			has_government = communism
+		}
+
+		bypass = {
+			every_state = {
+				is_core_of = INS
+				controller = {
+					OR = {
+						is_in_faction_with = MAL
+						tag = MAL
+					}
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = INS
+				}
+				owner = {
+					MAL = {
+						create_wargoal = {
+							type = puppet_wargoal_focus
+							target = PREV
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_work_with_ho_chi_min
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		prerequisite = { focus = MAL_liberation_of_asia }
+		x = 3
+		y = 1
+		relative_position_id = MAL_liberation_of_asia
+
+		cost = 10
+
+		ai_will_do = {
+			base = 20
+		}
+
+		available = {
+			has_army_manpower = {
+				size > 40000
+			}
+			is_subject = no
+			has_government = communism
+		}
+
+		bypass = {
+			every_state = {
+				is_core_of = VIN
+				controller = {
+					OR = {
+						is_in_faction_with = MAL
+						tag = MAL
+					}
+				}
+			}			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			if = {
+				limit = {
+					VIN = {
+						exists = yes
+						has_government = communism
+					}
+				}
+				if = {
+						limit = {
+							is_in_faction = no
+						}
+						create_faction = "East Asian Liberation Army"
+						VIN = {
+							country_event = { id = generic.5 }
+						}
+					}
+					else_if = {
+						limit = {
+							is_in_faction = yes
+							is_faction_leader = yes
+						}
+						VIN = {
+							country_event = { id = generic.5 }
+						}
+					}
+			}
+			else_if = {
+				limit = {
+					VIN = {
+						exists = yes
+						NOT = { has_government = communism }
+					}
+				}
+				VIN = { 
+					start_civil_war = {
+						ruling_party = communism
+						ideology = ROOT
+						size = 0.4
+						capital = 286
+						states = {
+							286
+						}
+						keep_political_leader = yes
+						MAL = {
+							create_wargoal = {
+								type = puppet_wargoal_focus
+								target = PREV
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					VIN = {
+						exists = no
+					}
+				}
+				671 = {
+					owner = {
+						VIN = { 
+							add_state_claim = 670
+							add_state_claim = 741
+						}
+						release = VIN
+						VIN = {
+							declare_war_on = {
+								target = PREV
+								type = take_state_focus
+   								generator = { 741 670 }
+							}
+							set_politics = {
+								ruling_party = communism
+								elections_allowed = no
+							}
+							division_template = {
+								name = "Partisans"
+								is_locked = yes
+								regiments = {
+									infantry = { x = 0 y = 0 }
+									infantry = { x = 0 y = 1 }
+									infantry = { x = 0 y = 2 }
+									infantry = { x = 0 y = 3 }
+									infantry = { x = 0 y = 3 }
+									infantry = { x = 0 y = 3 }
+								}
+								support = {
+								}
+							}
+							286 = {
+								create_unit = {
+									division = "name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 1"
+									owner = VIN
+									prioritize_location = 4401
+									count = 5
+								}
+							}
+							671 = {
+								create_unit = {
+									division = "name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 1"
+									owner = VIN
+									prioritize_location = 4075
+									count = 5
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_war_with_japan
+		icon = GFX_focus_attack_japan
+		prerequisite = { focus = MAL_work_with_ho_chi_min focus = MAL_integration_efforts }
+		x = 2
+		y = 1
+		relative_position_id = MAL_work_with_ho_chi_min
+
+		will_lead_to_war_with = JAP
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			JAP = {
+				exists = yes
+			}
+			is_subject = no
+			NOT = {
+				has_idea = neutrality_idea
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = JAP
+			}
+		}
+	}
+	focus = {
+		id = MAL_annex_vitnam
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = MAL_work_with_ho_chi_min }
+		x = -1
+		y = 1
+		relative_position_id = MAL_work_with_ho_chi_min
+
+		cost = 10
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+			VIN = {
+				exists = yes
+				OR = {
+					is_subject = no
+					is_subject_of = MAL
+				}
+				has_government = communism
+			}
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			set_cosmetic_tag = MAL_east_asia
+			add_political_power = 120
+			every_state = {
+				limit = {
+					is_core_of = VIN
+				}
+				MAL = {
+					add_state_core = PREV
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = "If Vietnam controls Cambodia we will also receive control of that state. "
+			if = {
+				limit = {
+					VIN = {
+						controls_state = 741
+					}
+				}
+				transfer_state = 741
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = "If Vietnam controls Laos we will also receive control of that state. "
+			if = {
+				limit = {
+					VIN = {
+						controls_state = 670
+					}
+				}
+				transfer_state = 670
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			annex_country = {
+				target = VIN
+				transfer_troops = yes
+			}
+		}
+	}
+	focus = {
+		id = MAL_total_liberation
+		icon = GFX_focus_GER_liberate_exploited_colonial_workers
+		prerequisite = { focus = MAL_liberate_the_dei }
+		x = -3
+		y = 1
+		relative_position_id = MAL_work_with_ho_chi_min
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_army_manpower = {
+				size > 60000
+			}
+			is_subject = no
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 80
+			add_war_support = 0.1
+			add_manpower = 10000
+			every_state = {
+				limit = {
+					OR = {
+						AND = {
+							is_core_of = RAJ
+							NOT = {
+								is_controlled_by = RAJ
+							}
+						}
+						AND = {
+							is_core_of = SIA
+							NOT = {
+								is_controlled_by = SIA
+							}
+						}
+						AND = {
+							is_core_of = GXC
+							NOT = {
+								is_controlled_by = GXC
+							}
+						}
+						AND = {
+							is_core_of = AST
+							NOT = {
+								is_controlled_by = AST
+							}
+						}
+						AND = {
+							is_core_of = NZL
+							NOT = {
+								is_controlled_by = NZL
+							}
+						}
+						AND = {
+							is_core_of = PNG
+							NOT = {
+								is_controlled_by = PNG
+							}
+						}
+						AND = {
+							is_core_of = PHI
+							NOT = {
+								is_controlled_by = PHI
+							}
+						}
+						AND = {
+							is_core_of = BRM
+							NOT = {
+								is_controlled_by = BRM
+							}
+						}
+					}
+				}
+				controller = {
+
+					MAL = {
+						create_wargoal = {
+							type = puppet_wargoal_focus
+							target = PREV
+						}
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					NOT = {
+						has_government = communism
+					}
+					OR = {
+						tag = AST
+						tag = NZL
+						tag = SIA
+						tag = BRM
+						tag = PHI
+						tag = RAJ
+						tag = GXC
+						tag = PNG
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_east_asian_unity
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
+		prerequisite = { focus = MAL_total_liberation }
+		x = 0
+		y = 1
+		relative_position_id = MAL_total_liberation
+
+		cost = 20
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			num_of_controlled_states > 10
+			is_subject = no
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			set_cosmetic_tag = MAL_east_asia
+			add_political_power = 200
+			swap_ideas = {
+				remove_idea = MAL_spirit_of_revolution
+				add_idea = MAL_victorious_revolution
+			}
+			unlock_decision_category_tooltip = MAL_core_east_asia_categorie
+		}
+	}
+	focus = {
+		id = MAL_crack_down_on_monarchism
+		icon = GFX_goal_tfv_burn_the_royal_portraits
+		prerequisite = { focus = MAL_revolution }
+		x = 3
+		y = 1
+		relative_position_id = MAL_revolution
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 0.2
+				tooltip_side = MAL_rulers_weak
+			}
+			add_political_power = -50
+			add_stability = 0.05
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+	}
+	focus = {
+		id = MAL_end_religion
+		icon = GFX_focus_PER_forced_secularization
+		prerequisite = { focus = MAL_crack_down_on_monarchism }
+		x = 4
+		y = 2
+		relative_position_id = MAL_revolution
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = 0.1
+				tooltip_side = MAL_rulers_weak
+			}
+			add_timed_idea = {
+				idea = MAL_seized_religious_property
+				days = 730
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = MAL_integration_efforts
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = MAL_end_religion focus = MAL_the_united_indies }
+		x = 1
+		y = 1
+		relative_position_id = MAL_end_religion
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_integration_efforts_idea
+		}
+	}
+	focus = {
+		id = MAL_seize_the_means_of_production
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = MAL_revolution }
+		x = -1
+		y = 1
+		relative_position_id = MAL_revolution
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = MAL_seize_the_means_of_production_idea
+		}
+	}
+	focus = {
+		id = MAL_international_aid
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = MAL_revolution }
+		mutually_exclusive = { focus = MAL_align_with_the_soviets }
+		x = -3
+		y = 1
+		relative_position_id = MAL_revolution
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			any_country = {
+				NOT = {
+					tag = MAL
+					tag = SOV
+				}
+				has_government = communism
+			}
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_ideas = MAL_international_aid_idea
+			every_country = {
+				limit = {
+					NOT = {
+						tag = SOV
+					}
+					has_government = communism
+				}
+				MAL = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2000
+						producer = MAL
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_align_with_the_soviets
+		icon = GFX_focus_AFG_defender_of_central_asia
+		prerequisite = { focus = MAL_revolution focus = MAL_the_true_allegiance }
+		mutually_exclusive = { focus = MAL_international_aid }
+		x = -5
+		y = 1
+		relative_position_id = MAL_revolution
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			SOV = {
+				has_government = communism
+			}
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_timed_idea = {
+				idea = MAL_align_with_the_soviets_idea
+				days = 235
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+				producer = SOV
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = SOV_sent_us_weapons
+			}
+			SOV = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = NOR_communist_aligned_good
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_communist_volunteers
+		icon = GFX_focus_generic_communism_anti_fascism
+		prerequisite = { focus = MAL_international_aid focus = MAL_align_with_the_soviets }
+		x = -4
+		y = 2
+		relative_position_id = MAL_revolution
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_government = communism
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = BEL_volunteer_effort2_ns
+			set_rule = { can_send_volunteers = yes }
+		}
+	}
+	focus = {
+		id = MAL_reach_out_to_japan
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		prerequisite = { focus = MAL_strengthen_the_local_rulers }
+		mutually_exclusive = { focus = MAL_bolster_royalist_sentiments }
+		x = 6
+		y = 1
+		relative_position_id = MAL_strengthen_the_local_rulers
+
+		cost = 2
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			JAP = {
+				exists = yes
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_stability = -0.05
+			add_opinion_modifier = {
+				target = JAP
+				modifier = medium_increase
+			}
+			JAP = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = medium_increase
+				}
+			}
+			show_unit_leaders_tooltip = MAL_ibrahim_yaacob
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MAL_ibrahim_yaacob
+		}
+	}
+	focus = {
+		id = MAL_found_the_kmm
+		icon = GFX_focus_POL_complete_april_constitution
+		prerequisite = { focus = MAL_reach_out_to_japan }
+		x = 0
+		y = 1
+		relative_position_id = MAL_reach_out_to_japan
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_kmm
+			add_stability = -0.02
+			add_popularity = {
+					ideology = fascism
+					popularity = 0.05
+				}
+			set_party_name = {
+				ideology = fascism
+				long_name = "Kesatuan Melayu Muda"
+				name = "Kesatuan Melayu Muda"
+			}
+			country_event = {
+				id = mal.mod.15
+				hours = 6
+			}
+		}
+	}
+	focus = {
+		id = MAL_infiltrate_the_beaucracy
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = MAL_found_the_kmm }
+		x = -2
+		y = 1
+		relative_position_id = MAL_found_the_kmm
+
+		cost = 5
+
+		ai_will_do = {
+			base = 90
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_autonomy_score = {
+				value = 100
+			}
+			add_political_power = 50
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = MAL_raid_armories
+		icon = GFX_focus_AUS_raid_military_storages
+		prerequisite = { focus = MAL_infiltrate_the_beaucracy }
+		x = -1
+		y = 1
+		relative_position_id = MAL_infiltrate_the_beaucracy
+
+		cost = 5
+
+		ai_will_do = {
+			base = 70
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 7500
+				producer = MAL
+			}
+		}
+	}
+	focus = {
+		id = MAL_spread_anti_british_sentiment
+		icon = GFX_focus_generic_whispers
+		prerequisite = { focus = MAL_found_the_kmm }
+		x = 0
+		y = 1
+		relative_position_id = MAL_found_the_kmm
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_autonomy_score = {
+				value = 100
+			}
+			swap_ideas = {
+				remove_idea = MAL_kmm
+				add_idea = MAL_kmm_2
+			}
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = MAL
+			}
+		}
+	}
+	focus = {
+		id = MAL_request_japanese_aid
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = MAL_found_the_kmm }
+		x = 2
+		y = 1
+		relative_position_id = MAL_found_the_kmm
+
+		cost = 5
+
+		ai_will_do = {
+			base = 120
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = MAL_stage_a_coup
+			}
+			JAP = {
+				exists = yes
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			custom_effect_tooltip = "If Japan accepts we won't have to fight a civil war"
+			JAP = {
+				country_event = {
+					id = mal.mod.3
+					days = 1
+				}
+			}
+			custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+		}
+	}
+	focus = {
+		id = MAL_stage_a_coup
+		icon = GFX_focus_ARG_march_to_la_casa_rosada
+		prerequisite = { focus = MAL_spread_anti_british_sentiment }
+		prerequisite = { focus = MAL_infiltrate_the_beaucracy }
+		x = 0
+		y = 1
+		relative_position_id = MAL_spread_anti_british_sentiment
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			fascism > 0.25
+			compare_autonomy_state > autonomy_integrated_puppet	
+		}
+
+		bypass = {
+			is_subject = no
+			has_government = fascism		
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		completion_reward = {
+			drop_cosmetic_tag = yes
+			remove_ideas = MAL_kmm_2
+			overlord = {
+				set_autonomy = {
+					target = MAL
+					autonomous_state = autonomy_free
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+			leave_faction = yes
+			add_stability = -0.1
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = japan_aid
+					}
+				}
+				custom_effect_tooltip = "No support from the Japanese means we will have to fight a civil war"
+				start_civil_war = {
+					ruling_party = fascism
+					ideology = democratic
+					size = 0.3
+					keep_political_leader = no
+					keep_political_party_members = yes
+				}
+				every_country = {
+					limit = {
+						has_government = democratic
+						original_tag = MAL
+						NOT = {
+							tag = MAL
+						}
+					}
+					ENG = {
+						set_autonomy = {
+							target = PREV
+							autonomous_state = autonomy_puppet
+							end_wars = no
+							end_civil_wars = no
+						}
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+			}
+			set_party_name = {
+				ideology = democratic
+				long_name = "United Malays National Organisation"
+				name = "UMNO"
+			}
+		}
+	}
+	focus = {
+		id = MAL_closer_japanese_ties
+		icon = GFX_focus_jap_pacific_guardian
+		prerequisite = { focus = MAL_stage_a_coup }
+		prerequisite = { focus = MAL_request_japanese_aid }
+		mutually_exclusive = { focus = MAL_social_democracy focus = MAL_unify_with_the_communists }
+		x = 3
+		y = 2
+		relative_position_id = MAL_spread_anti_british_sentiment
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			JAP = {
+				exists = yes
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			custom_effect_tooltip = "We will align with Japan and we will copy their ideology"
+			custom_effect_tooltip = "Our country leader will gain a different trait depending on Japan's ideology"
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_popularity = {
+				ideology = JAP
+				popularity = 0.1
+			}
+			set_politics = {
+				ruling_party = JAP
+				elections_allowed = no
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_government = communism
+					}
+					add_country_leader_role = {
+						character = "MAL_ibrahim_yaacob"
+						country_leader = {
+						ideology=marxism
+						traits = { eager_collaborator NOR_conciliatory_socialist }
+						expire="1965.1.1"
+						}
+						promote_leader = yes
+					}
+					set_party_name = {
+						ideology = communism
+						long_name = "Kesatuan Melayu Muda"
+						name = "Kesatuan Melayu Muda"
+					}
+				}
+				if = {
+					limit = {
+						has_government = democratic
+					}
+					add_country_leader_role = {
+						character = "MAL_ibrahim_yaacob"
+						country_leader = {
+						ideology=marxism
+						traits = { eager_collaborator resolute_social_democrat }
+						expire="1965.1.1"
+						}
+						promote_leader = yes
+					}
+					set_party_name = {
+							ideology = democratic
+							long_name = "Kesatuan Melayu Muda"
+							name = "Kesatuan Melayu Muda"
+						}
+				}
+				if = {
+					limit = {
+						has_government = neutrality
+					}
+					add_country_leader_role = {
+						character = "MAL_ibrahim_yaacob"
+						country_leader = {
+						ideology=marxism
+						traits = { eager_collaborator japanizer }
+						expire="1965.1.1"
+						}
+						promote_leader = yes
+					}
+					set_party_name = {
+						ideology = neutrality
+						long_name = "Kesatuan Melayu Muda"
+						name = "Kesatuan Melayu Muda"
+					}
+				}
+				if = {
+					limit = {
+						has_government = fascism
+					}
+					swap_ruler_traits = { remove = fascist_demagogue add = japanizer }
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_invite_japanese_military_advisors
+		icon = GFX_focus_generic_japanese_imperial_glory
+		prerequisite = { focus = MAL_closer_japanese_ties }
+		x = 0
+		y = 1
+		relative_position_id = MAL_closer_japanese_ties
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			JAP = {
+				exists = yes
+			}
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_japanese_advisors
+			add_doctrine_cost_reduction = {
+				name = NZL_army_reforms
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = MAL_japanese_economical_aid
+		icon = GFX_focus_RAJ_trickle_down_economics
+		prerequisite = { focus = MAL_closer_japanese_ties }
+		x = 2
+		y = 1
+		relative_position_id = MAL_closer_japanese_ties
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			JAP = {
+				exists = yes
+			}
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Japanese Econimc Aid"
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			add_offsite_building = { type = industrial_complex level = 2 }		
+		}
+	}
+	focus = {
+		id = MAL_influence_japanese_plans
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = MAL_closer_japanese_ties }
+		x = 4
+		y = 1
+		relative_position_id = MAL_closer_japanese_ties
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			JAP = {
+				exists = yes
+				has_government = fascism
+			}
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			custom_effect_tooltip = "This will bypass the Strike South focus for Japan"
+			diplomatic_relation = {
+				country = JAP
+				relation = non_aggression_pact
+				active = yes
+			}
+			JAP = {
+				diplomatic_relation = {
+					country = MAL
+					relation = guarantee
+					active = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_aid_japan
+		icon = GFX_focus_PER_fascist_reach_out_to_japan
+		prerequisite = { focus = MAL_closer_japanese_ties }
+		x = 6
+		y = 2
+		relative_position_id = MAL_closer_japanese_ties
+		cost = 8
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			NOT = {
+				is_in_faction_with = ENG
+				is_in_faction_with = USA
+				is_in_faction_with = CHI
+				has_war_with = JAP
+			}
+			JAP = {
+				exists = yes
+				has_war = yes
+			}
+
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			navy_experience = 10
+			army_experience = 10
+			add_opinion_modifier = {
+				target = JAP
+				modifier = medium_increase
+			}
+			JAP = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = large_increase
+				}
+			}
+			add_timed_idea = {
+				idea = MAL_aid_to_japan
+				days = 835
+			}
+			JAP = {
+				add_timed_idea = {
+					idea = MAL_malaysian_aid
+					days = 835
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_war_with_china
+		icon = GFX_focus_attack_china
+		prerequisite = { focus = MAL_aid_japan }
+		x = 0
+		y = 1
+		relative_position_id = MAL_aid_japan
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		will_lead_to_war_with = CHI
+		will_lead_to_war_with = GXC
+		will_lead_to_war_with = YUN
+
+		available = {
+			NOT = {
+				is_in_faction_with = ENG
+				is_in_faction_with = USA
+				is_in_faction_with = CHI
+			}
+			OR = {
+				CHI = {
+					exists = yes
+				}
+				GXC = {
+					exists = yes
+				}
+				YUN = {
+					exists = yes
+				}
+			}
+
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CHI
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GXC
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = YUN
+			}
+		}
+	}
+	focus = {
+		id = MAL_social_democracy
+		icon = GFX_focus_generic_social_democracy
+		prerequisite = { focus = MAL_stage_a_coup }
+		mutually_exclusive = { focus = MAL_unify_with_the_communists focus = MAL_closer_japanese_ties }
+		x = -3
+		y = 2
+		relative_position_id = MAL_spread_anti_british_sentiment
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 100
+			hidden_effect = {
+				set_temp_variable = {
+					var = suspend_the_constitution_var_mal2
+					value = party_popularity@fascism
+				}
+			}
+			add_popularity = {
+			    ideology = democratic
+			    popularity = suspend_the_constitution_var_mal2
+			}
+			add_popularity = {
+			    ideology = fascism
+			    popularity = -1
+			}
+			set_party_name = {
+				ideology = democratic
+				long_name = "Kesatuan Melayu Muda"
+				name = "Kesatuan Melayu Muda"
+			}
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+			add_country_leader_role = {
+				character = "MAL_ibrahim_yaacob"
+				country_leader = {
+				  ideology=socialism
+				  traits = { eager_collaborator resolute_social_democrat }
+				  expire="1965.1.1"
+				}
+				promote_leader = yes
+			}
+		}
+	}
+	focus = {
+		id = MAL_unify_with_the_communists
+		icon = GFX_focus_spr_unify_the_london_bureau
+		prerequisite = { focus = MAL_stage_a_coup }
+		mutually_exclusive = { focus = MAL_social_democracy focus = MAL_closer_japanese_ties }
+		x = 0
+		y = 2
+		relative_position_id = MAL_spread_anti_british_sentiment
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			OR = {
+				NOT = {
+					has_completed_focus = MAL_request_japanese_aid
+				}
+				JAP = {
+					has_government = communism
+				}
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_stability = -0.1
+			unlock_national_focus = MAL_revolution
+			unlock_national_focus = MAL_build_up_the_communists
+			hidden_effect = {
+				set_temp_variable = {
+					var = suspend_the_constitution_var_mal
+					value = party_popularity@fascism
+				}
+			}
+			add_popularity = {
+			    ideology = communism
+			    popularity = suspend_the_constitution_var_mal
+			}
+			add_popularity = {
+			    ideology = fascism
+			    popularity = -1
+			}
+			set_party_name = {
+				ideology = communism
+				long_name = "Kesatuan Melayu Muda"
+				name = "Kesatuan Melayu Muda"
+			}
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			add_country_leader_role = {
+				character = "MAL_ibrahim_yaacob"
+				country_leader = {
+				  ideology=marxism
+				  traits = { eager_collaborator NOR_conciliatory_socialist }
+				  expire="1965.1.1"
+				}
+				promote_leader = yes
+			}
+		}
+	}
+	focus = {
+		id = MAL_promote_nationalism
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = MAL_social_democracy focus = MAL_closer_japanese_ties focus = MAL_unify_with_the_communists }
+		x = 0
+		y = 1
+		relative_position_id = MAL_unify_with_the_communists
+
+		cost = 10
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			set_rule = { can_use_kamikaze_pilots = yes }
+			add_political_power = 150
+			add_stability = 0.1
+			add_war_support = 0.1
+			custom_effect_tooltip = "Our current ideology will be strengthend. Current Effect:"
+			if = {
+				limit = { ROOT = { has_government = fascism } }
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = { ROOT = { has_government = democratic } }
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = { ROOT = { has_government = communism } }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = { ROOT = { has_government = neutrality } }
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.1
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_expand_social_policies
+		icon = GFX_focus_FIN_finnish_federation_of_trade_unions
+		prerequisite = { focus = MAL_social_democracy }
+		x = 0
+		y = 1
+		relative_position_id = MAL_social_democracy
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_manpower = 15000
+			add_political_power = 100
+			add_stability = 0.05
+			add_ideas = MAL_social_policies_idea
+		}
+	}
+	focus = {
+		id = MAL_american_aid
+		icon = GFX_focus_generic_american_investments
+		prerequisite = { focus = MAL_social_democracy focus = MAL_form_the_umno focus = MAL_absolute_monarchy }
+		x = -2
+		y = 1
+		relative_position_id = MAL_social_democracy
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = MAL_anti_western_focus
+				has_war_with = USA
+			}
+			USA = {
+				has_opinion = {
+					target = MAL
+					value > 9
+				}
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_timed_idea = {
+				idea = MAL_american_aid_idea
+				days = 720
+			}
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_increase
+			}
+			USA = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = small_increase
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_towards_melayu_raya
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = MAL_promote_nationalism }
+		x = -1
+		y = 1
+		relative_position_id = MAL_promote_nationalism
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 150
+			add_war_support = 0.1
+			remove_ideas = MAL_divided_nation
+			every_state = {
+				limit = {
+					OR = { is_core_of = INS state = 721 }
+				}
+				MAL = {
+					add_state_claim = PREV
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_malay_revanchism
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = MAL_promote_nationalism }
+		x = 1
+		y = 1
+		relative_position_id = MAL_promote_nationalism
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_malay_revanchism_idea
+		}
+	}
+	focus = {
+		id = MAL_sail_the_seas
+		icon = GFX_focus_ICE_the_viking_spirit
+		prerequisite = { focus = MAL_promote_nationalism }
+		x = 5
+		y = 1
+		relative_position_id = MAL_promote_nationalism
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			navy_experience = 50
+			random_core_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			add_ideas = MAL_sail_the_seas_idea
+		}
+	}
+	focus = {
+		id = MAL_anti_western_focus
+		icon = GFX_focus_ARG_anti_american_propaganda
+		prerequisite = { focus = MAL_sail_the_seas }
+		x = 2
+		y = 1
+		relative_position_id = MAL_sail_the_seas
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_war_support = 0.05
+			add_opinion_modifier = {
+				target = USA
+				modifier = large_decrease
+			}
+			USA = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = large_decrease
+				}
+			}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = large_decrease
+			}
+			ENG = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = large_decrease
+				}
+			}
+			add_opinion_modifier = {
+				target = FRA
+				modifier = large_decrease
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = large_decrease
+				}
+			}
+			add_ideas = MAL_anti_western_idea
+			if = {
+				limit = {
+					has_idea = MAL_american_aid_idea
+				}
+				remove_ideas = MAL_american_aid_idea
+			}
+		}
+	}
+	focus = {
+		id = MAL_the_japanese_threat
+		icon = GFX_focus_AST_war_japan
+		prerequisite = { focus = MAL_sail_the_seas }
+		x = -2
+		y = 1
+		relative_position_id = MAL_sail_the_seas
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = MAL_closer_japanese_ties
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_war_support = 0.05
+			add_opinion_modifier = {
+				target = JAP
+				modifier = large_decrease
+			}
+			JAP = {
+				add_opinion_modifier = {
+					target = MAL
+					modifier = large_decrease
+				}
+			}
+			add_ideas = MAL_the_japanese_threat_idea
+		}
+	}
+	focus = {
+		id = MAL_a_grand_fleet
+		icon = GFX_focus_SMB_blue_water_fleet
+		prerequisite = { focus = MAL_sail_the_seas }
+		x = 0
+		y = 1
+		relative_position_id = MAL_sail_the_seas
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			navy_experience = 20
+			random_core_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_protect_indochina
+		icon = GFX_focus_chi_reach_out_to_france
+		prerequisite = { focus = MAL_the_japanese_threat }
+		mutually_exclusive = { focus = MAL_war_with_france }
+		x = 1
+		y = 1
+		relative_position_id = MAL_the_japanese_threat
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			FRA = {
+				exists = yes
+				is_subject = no
+				controls_state = 671
+				controls_state = 670
+				controls_state = 741
+				controls_state = 286
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			FRA = {
+				country_event = {
+					id = mal.mod.34
+					days = 1
+				}
+			}
+			custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+		}
+	}
+	focus = {
+		id = MAL_rally_the_youth
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = { focus = MAL_promote_nationalism }
+		x = -3
+		y = 1
+		relative_position_id = MAL_promote_nationalism
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_war_support > 0.6
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = MAL_rally_the_youth_idea
+		}
+	}
+	focus = {
+		id = MAL_uplift_our_leader
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = MAL_promote_nationalism }
+		x = 3
+		y = 1
+		relative_position_id = MAL_promote_nationalism
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_war_support > 0.5
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_country_leader_trait = stalin_great_commander
+		}
+	}
+	focus = {
+		id = MAL_uprising_in_indonesia
+		icon = GFX_focus_TUR_the_sun_language_theory
+		prerequisite = { focus = MAL_towards_melayu_raya }
+		x = 0
+		y = 1
+		relative_position_id = MAL_towards_melayu_raya
+		will_lead_to_war_with = INS
+
+		cost = 10
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			custom_effect_tooltip = "If Indonesia is not a player a civil war will start in Indonesia"
+			if = {
+				limit = {
+					INS = {
+						is_ai = yes
+					}
+				}
+				INS = {
+					start_civil_war = {
+						ruling_party = INS
+						ideology = MAL
+						states = {
+							672 669
+						}
+					}
+				}
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = INS
+			}
+			every_state = {
+				limit = {
+					OR = { is_core_of = INS state = 721 }
+				}
+				MAL = {
+					add_state_core = PREV
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_form_greater_indoneasia
+		icon = GFX_focus_PER_form_savak
+		prerequisite = { focus = MAL_uprising_in_indonesia }
+		x = 0
+		y = 2
+		relative_position_id = MAL_towards_melayu_raya
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1000
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = MAL_east_asia
+			custom_effect_tooltip = "Annex the revolting Indonesia"
+			every_country = {
+				limit = {
+					original_tag = INS
+					NOT = {
+						tag = INS
+					}
+				}
+				MAL = {
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_war_with_portugal
+		icon = GFX_focus_generic_attack_portugal
+		prerequisite = { focus = MAL_towards_melayu_raya focus = MAL_the_malayan_federation }
+		x = -2
+		y = 1
+		relative_position_id = MAL_towards_melayu_raya
+
+		will_lead_to_war_with = POR
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			NOT = {
+				has_idea = neutrality_idea
+			}
+			POR = {
+				exists = yes
+			}
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = POR
+			}
+		}
+	}
+	
+	focus = {
+		id = MAL_war_with_uk
+		icon = GFX_focus_attack_britain
+		prerequisite = { focus = MAL_uprising_in_indonesia focus = MAL_attack_burma focus = MAL_annex_burma }
+		x = -4
+		y = 1
+		relative_position_id = MAL_uprising_in_indonesia
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		will_lead_to_war_with = ENG
+
+		available = {
+			NOT = {
+				has_idea = neutrality_idea
+				is_in_faction_with = ENG
+			}
+			ENG = {
+				exists = yes
+			}
+
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ENG
+			}
+		}
+	}
+	focus = {
+		id = MAL_war_with_france
+		icon = GFX_focus_attack_france
+		prerequisite = { focus = MAL_anti_western_focus }
+		mutually_exclusive = { focus = MAL_protect_indochina }
+		x = -1
+		y = 1
+		relative_position_id = MAL_anti_western_focus
+		cost = 5
+		will_lead_to_war_with = FRA
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			FRA = {
+				exists = yes
+			}
+			is_subject = no
+			NOT = {
+				is_in_faction_with = FRA
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FRA
+			}
+		}
+	}
+	focus = {
+		id = MAL_war_with_usa
+		icon = GFX_focus_generic_attack_usa
+		prerequisite = { focus = MAL_aid_japan focus = MAL_anti_western_focus }
+		x = 1
+		y = 1
+		relative_position_id = MAL_anti_western_focus
+		cost = 5
+		will_lead_to_war_with = USA
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			OR = {
+				has_completed_focus = MAL_anti_western_focus
+				JAP = {
+					has_war_with = USA
+				}
+			}
+			USA = {
+				exists = yes
+			}
+			is_subject = no
+			NOT = {
+				is_in_faction_with = USA
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = USA
+			}
+		}
+	}
+	
+	focus = {
+		id = MAL_a_malayan_alliance
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = MAL_uprising_in_indonesia }
+		x = -2
+		y = 1
+		relative_position_id = MAL_uprising_in_indonesia
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_subject = no
+			is_in_faction = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 120
+			set_rule = { can_create_factions = yes }
+			create_faction = "Malaysian Supremacy Pact"
+		}
+	}
+	focus = {
+		id = MAL_expand_our_claims
+		icon = GFX_focus_GER_expand_pacific_holdings
+		prerequisite = { focus = MAL_form_greater_indoneasia }
+		prerequisite = { focus = MAL_march_to_greatness }
+		x = 1
+		y = 1
+		relative_position_id = MAL_form_greater_indoneasia
+		cost = 20
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			has_war_support > 0.8
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = MAL_expansionism
+			every_state = {
+				limit = {
+					is_core_of = PHI
+				}
+				MAL = {
+					add_state_core = PREV
+				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = SIA
+				}
+				MAL = {
+					add_state_core = PREV
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_bolster_our_spirits
+		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		prerequisite = { focus = MAL_malay_revanchism }
+		x = 0
+		y = 1
+		relative_position_id = MAL_malay_revanchism
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		available = {
+			is_subject = no
+			num_of_controlled_states > 5
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = MAL_malay_revanchism_idea
+				add_idea = MAL_malay_revanchism_idea_2
+			}
+			custom_effect_tooltip = "Our current ideology will be strengthend. Current Effect:"
+			if = {
+				limit = { ROOT = { has_government = fascism } }
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = { ROOT = { has_government = democratic } }
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = { ROOT = { has_government = communism } }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = { ROOT = { has_government = neutrality } }
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.1
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_march_to_greatness
+		icon = GFX_focus_spa_strengthen_the_supreme_reality_of_spain
+		prerequisite = { focus = MAL_bolster_our_spirits }
+		x = 0
+		y = 1
+		relative_position_id = MAL_bolster_our_spirits
+
+		cost = 5
+
+		ai_will_do = {
+			base = 10
+		}
+
+		will_lead_to_war_with = SIA
+		will_lead_to_war_with = PHI
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SIA
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PHI
+			}
+			swap_ideas = {
+				remove_idea = MAL_malay_revanchism_idea_2
+				add_idea = MAL_malay_revanchism_idea_3
+			}
+		}
+	}
+	focus = {
+		id = MAL_the_malayan_emergency
+		icon = GFX_focus_BRA_cohen_plan
+		x = 39
+		y = 7
+
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "This will automatically be bypassed once a communist civil war happens"
+				always = no
+			}
+		}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				has_government = communism
+			}
+			any_country = {
+				original_tag = MAL
+				has_government = communism
+				has_war_with = MAL
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		bypass_effect = {
+			add_stability = -0.1
+			add_ideas = MAL_the_malayan_emergency_idea
+			hidden_effect = {
+				every_country = {
+					news_event = {
+						id = mal.mod.28
+						days = 1
+					}
+				}
+			}
+		}		
+		completion_reward = {
+			custom_effect_tooltip = "When this gets bypassed:"
+			add_stability = -0.1
+			add_ideas = MAL_the_malayan_emergency_idea
+		}
+	}
+	focus = {
+		id = MAL_urge_the_british_for_autonomy
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		x = -2
+		y = 1
+		relative_position_id = MAL_the_malayan_emergency
+
+		prerequisite = { focus = MAL_the_malayan_emergency }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			is_subject = yes
+			has_completed_focus = MAL_form_the_umno
+		}
+
+		bypass = {
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 70
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			add_autonomy_score = {
+				value = 200
+			}
+		}
+	}
+	focus = {
+		id = MAL_counter_terror
+		icon = GFX_focus_SWE_marauder_bombers
+		x = -4
+		y = 1
+		relative_position_id = MAL_the_malayan_emergency
+
+		prerequisite = { focus = MAL_the_malayan_emergency }
+
+		cost = 2
+
+		ai_will_do = {
+			base = 101
+		}
+
+		available = {
+			has_civil_war = yes
+		}
+
+		bypass = {
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = MAL_counter_terror_idea
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = MAL_reactivate_the_navy
+		icon = GFX_goal_continuous_naval_production
+		x = 4
+		y = 1
+		relative_position_id = MAL_the_malayan_emergency
+
+		prerequisite = { focus = MAL_the_malayan_emergency }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			navy_experience = 15
+			random_core_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MAL_new_villages
+		icon = GFX_focus_generic_energy
+		x = 2
+		y = 1
+		relative_position_id = MAL_the_malayan_emergency
+
+		prerequisite = { focus = MAL_the_malayan_emergency }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 100
+		}
+
+		available = {
+			has_civil_war = yes
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_political_power = -35
+			add_stability = -0.05
+			1017 = {
+				increase_state_category = yes
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+			1018 = {
+				increase_state_category = yes
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+			1019 = {
+				increase_state_category = yes
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
+				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
+			}
+		}
+	}
+	focus = {
+		id = MAL_ban_the_communist_party
+		icon = GFX_focus_BRA_ban_communist_party
+		x = 1
+		y = 2
+		relative_position_id = MAL_the_malayan_emergency
+
+		prerequisite = { focus = MAL_the_malayan_emergency }
+
+		mutually_exclusive = { focus = MAL_allow_the_communists_in_politics }
+
+		cost = 5
+
+		ai_will_do = {
+			
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = -0.02
+			add_political_power = 75
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			unlock_decision_tooltip = ban_communist_party
+		}
+	}
+	focus = {
+		id = MAL_allow_the_communists_in_politics
+		icon = GFX_focus_ETH_re-convene_the_parliament
+		x = -1
+		y = 2
+		relative_position_id = MAL_the_malayan_emergency
+
+		prerequisite = { focus = MAL_the_malayan_emergency }
+
+		mutually_exclusive = { focus = MAL_ban_the_communist_party }
+
+		cost = 15
+
+		ai_will_do = {
+			base = 100
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		available = {
+			has_elections = yes
+			any_country = {
+				original_tag = MAL
+				NOT = {
+					tag = MAL
+				}
+				has_government = communism
+				has_war_with = MAL
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.05
+			custom_effect_tooltip = "This will end the civil war"
+			every_country = {
+				limit = {
+					has_government = communism
+					original_tag = MAL
+					NOT = {
+						tag = MAL
+					}
+				}
+				MAL = {
+					annex_country = {
+						target = PREV
+						transfer_troops = no
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+}
+
+

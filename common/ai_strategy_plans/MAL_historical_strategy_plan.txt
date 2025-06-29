@@ -1,0 +1,87 @@
+MAL_historical = {
+	name = "Malayan historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		is_historical_focus_on = yes
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		MAL_british_malaya
+
+		### ASAP when Japan attacks
+		MAL_imperialist_invaders
+		MAL_work_with_the_communists
+		MAL_malayan_peoples_anti_japanese_army
+		MAL_request_volounteers
+		MAL_fortify_our_ports
+		MAL_fortify_north_borneo
+		MAL_fortify_the_land_border
+
+		MAL_choose_path
+		MAL_malay_nationalism
+		MAL_fight_communism
+
+		### ASAP when Malayan Emergency happens
+		MAL_new_villages
+		MAL_counter_terror
+		MAL_urge_the_british_for_autonomy
+		MAL_reactivate_the_navy
+
+		MAL_malay_army_expansion
+		MAL_crack_down_on_the_chinese
+		MAL_cooperate_with_britain
+		MAL_strengthen_the_colonial_government
+		MAL_control_the_rulers
+		MAL_nationalize_chinese_business
+		MAL_prepare_for_the_storm
+		MAL_modern_technology
+		MAL_britsh_radar_tech
+		MAL_modernize_the_royal_regiment
+		MAL_expand_the_malay_regiment_act
+		MAL_increase_military_spending
+		MAL_form_dalforce
+		MAL_purchase_british_guns
+		MAL_british_aid
+		MAL_industrial_expansion
+		MAL_expand_education
+		MAL_learn_from_the_raf
+		MAL_request_old_naval_vessels
+		MAL_study_air_tactics
+		MAL_naval_research
+		MAL_study_tactics
+		MAL_train_marines
+		MAL_build_dockyards
+		MAL_build_dockyards_2
+		MAL_form_the_volunteer_air_force
+		MAL_increase_exports
+	}
+
+	research = {
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+	}
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+
