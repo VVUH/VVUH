@@ -3000,11 +3000,15 @@
  TIB_union_of_asia_tag_fascism:0 "Unitary Asian Empire"
  TIB_union_of_asia_tag_fascism_DEF:0 "the Unitary Asian Empire"
 
- SAU_junta_democratic:0 "Nejd and Hejazi Republics" 
+ SAU_junta_democratic:0 "Nejd and Hejazi Republic" 
  SAU_junta_fascism:0 "Arabian Junta" 
- SAU_junta_neutrality:0 "the Sultanate of Nejd and Hejaz" 
+ SAU_junta_neutrality:0 "Sultanate of Nejd and Hejaz" 
+ SAU_junta_communism:0 "Nejd and Hejazi Worker's State"
 
  SAU_kuwaitconquered_neutrality:0  "Kingdom of the Arabian Gulf"  
+ SAU_kuwaitconquered_communism:0 "Arabian Gulf Commune"  
+ SAU_kuwaitconquered_fascism:0 "Empire of the Arabian Gulf"  
+ SAU_kuwaitconquered_democratic:0 "Republic of the Arabian Gulf"  
 
  SAU_modern_saud_fascism:0 "Najdi Sultanate"  
  SAU_modern_saud_neutrality:0 "Saudi Arabian Kingdom"  
@@ -3012,29 +3016,47 @@
  SAU_traditonal_cosmetictag_communism:0 "Worker's State of Arabia"  
  SAU_traditonal_cosmetictag_democratic:0 "United Kingdom of Arabia"  
  SAU_traditonal_cosmetictag_fascism:0 "Arabian Emirate"  
+ SAU_traditonal_cosmetictag_neutrality:0 "Najdi Kingdom"
+
+ SAU_end_game_tag_cosmetictag_communism:0 "Union of Arab Soviet Republics"  
+ SAU_end_game_tag_cosmetictag_democratic:0 "United Arab State"  
+ SAU_end_game_tag_cosmetictag_fascism:0 "Fifth Arabian Empire"  
+ SAU_end_game_tag_cosmetictag_neutrality:0 "Arab Kingdom"
+ SAU_end_game_tag_cosmetictag_communism_DEF:0 "the Union of Arab Soviet Republics"  
+ SAU_end_game_tag_cosmetictag_democratic_DEF:0 "the United Arab State"  
+ SAU_end_game_tag_cosmetictag_fascism_DEF:0 "the Fifth Arabian Empire"  
+ SAU_end_game_tag_cosmetictag_neutrality_DEF:0 "the Arab Kingdom"
 
  SAU_imamate_fascism:0 "Imamate of Arabia"  
  SAU_imamate_fascism_DEF:0 "the Imamate of Arabia"  
+ SAU_imamate_democratic:0 "Federation of Arabia"  
+ SAU_imamate_democraticDEF:0 "the Federation of Arabia"  
 
  SAU_unmodern_fascism:0 "Arabian Sharifate"  
- SAU_unmodern_neutrality:0 "Najdi Kingdom"  
+ SAU_unmodern_neutrality:0 "Najdi Sultanate"  
 
- SAU_junta_democratic_DEF:0 "the Nejd and Hejazi Republics" 
+ SAU_junta_democratic_DEF:0 "the Nejd and Hejazi Republic" 
  SAU_junta_fascism_DEF:0 "the Arabian Junta" 
  SAU_junta_neutrality_DEF:0 "the Sultanate of Nejd and Hejaz" 
+ SAU_junta_communism_DEF:0 "the Nejd and Hejazi Worker's State"
 
  SAU_kuwaitconquered_neutrality_DEF:0 "the Kingdom of the Arabian Gulf" 
+ SAU_kuwaitconquered_communism_DEF:0 "the Arabian Gulf Commune"  
+ SAU_kuwaitconquered_fascism_DEF:0 "the Empire of the Arabian Gulf"  
+ SAU_kuwaitconquered_democratic_DEF:0 "the Republic of the Arabian Gulf" 
 
  SAU_modern_saud_fascism_DEF:0 "the Najdi Sultanate"  
  SAU_modern_saud_neutrality_DEF:0 "the Saudi Arabian Kingdom"  
 
  SAU_traditonal_cosmetictag_communism_DEF:0 "the Worker's State of Arabia"  
- SAU_traditonal_cosmetictag_democratic_DEF:0 "the Arabian Federation"  
+ SAU_traditonal_cosmetictag_democratic_DEF:0 "the United Kingdom of Arabia"  
  SAU_traditonal_cosmetictag_fascism_DEF:0 "the Arabian Emirate"  
- SAU_traditonal_cosmetictag_neutrality_DEF:0 "Najdi Kingdom"  
+ SAU_traditonal_cosmetictag_neutrality_DEF:0 "the Najdi Kingdom"  
+
+ SAU_junta_communism_DEF:0 "the Nejd and Hejazi Worker's State"
 
  SAU_unmodern_fascism_DEF:0 "the Arabian Sharifate"  
- SAU_unmodern_neutrality_DEF:0 "the Najdi Kingdom"  
+ SAU_unmodern_neutrality_DEF:0 "the Najdi Sultanate"  
 
  SAU_caliphate:0 "United Asia"
  SAU_caliphate_democratic:0 "United Ummah Federation"

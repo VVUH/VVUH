@@ -1,7 +1,7 @@
 ﻿division_template = {
 	name = "Peacekeeping Force"		# 'Infantry Division' - Represents local tribal levies (militia)
 
-	division_names_group = PAL_INF_01
+	division_names_group = SAU_INF_01
 
 	regiments = {
 		infantry = { x = 0 y = 0 }
@@ -14,7 +14,7 @@
 division_template = {
 	name = "Militia forces"	
 	priority = 0 		 
-	division_names_group = PAL_GAR_01
+	division_names_group = SAU_GAR_01
 	regiments = {
 		militia = { x = 0 y = 0 }
 		militia = { x = 0 y = 1 }
@@ -40,7 +40,7 @@ division_template = {
 division_template = {
 	name = "Light Armor Brigade"		# Camel-mounted levies (militia)
 
-	division_names_group = PAL_MEC_01
+	division_names_group = SAU_MEC_01
 
 	regiments = {
 		light_armor = { x = 0 y = 0 }

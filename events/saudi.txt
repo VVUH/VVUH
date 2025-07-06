@@ -2,6 +2,7 @@ add_namespace = SAU_political_events
 add_namespace = SAU_fascism
 add_namespace = SAU_ref
 add_namespace = SAU_border_conflict
+add_namespace = SAU_commies_event
 
 	country_event = {
 		id = SAU_border_conflict.1
@@ -67,7 +68,7 @@ add_namespace = SAU_border_conflict
 			}
 		}
 	}
-#greater yemen fascist path
+	#greater yemen fascist path
 	#yemen mediate for FSA
 	country_event = {
 		id = SAU_fascism.1
@@ -304,7 +305,7 @@ add_namespace = SAU_border_conflict
 			}
 			name = SAU_fascism.7.a
 			custom_effect_tooltip = SAU_work_with_turkey_irq_cancel_guarantee_tur_gets_syr_leb
-			create_faction = "The Dammam Pact"
+			create_faction = "Dammam Pact"
 
 			TUR = {
 				country_event = SAU_fascism.8
@@ -332,19 +333,28 @@ add_namespace = SAU_border_conflict
 			}
 			name = SAU_fascism.7.c
 			custom_effect_tooltip = SAU_faction_and_collab_decisions
-			create_faction = "The Union of the Sword"
+			create_faction = "Union of the Sword"
 			every_country = {
 				LIMIT = {
 					AND = {
 						OR = {
-							is_major = no 
+							has_government = ROOT
 							is_ai= no
 						}
-						has_government = ROOT
+							IF = {
+								LIMIT = {
+									is_ai = no
+								}
+								is_major = no 
+							}
+							is_in_faction = no
+							is_free_or_subject_of_root = yes
 					}
 				}
 				country_event = generic.5
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = SAU_reach_out_to_IRQ
 			hidden_effect = {
 				set_global_flag = SAU_arabian_team_collaboration
 			}
@@ -412,6 +422,9 @@ add_namespace = SAU_border_conflict
 				base = 99
 			}
 			name = SAU_fascism.9.a
+			hidden_effect = {
+				set_country_flag = SAU_working_with_turkey_flag
+			}
 				TUR = {
 					add_opinion_modifier = {
 						target = SAU
@@ -424,9 +437,6 @@ add_namespace = SAU_border_conflict
 						modifier = USA_special_relationship
 					}
 				}
-				TUR = {
-
-				}
 				ENG = {
 					diplomatic_relation = {
 						country = IRQ
@@ -434,6 +444,8 @@ add_namespace = SAU_border_conflict
 						active = no
 					}
 				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = SAU_obtain_TUR_resources
 			TUR = {
 				country_event = generic.5
 				IF = {
@@ -498,4 +510,415 @@ add_namespace = SAU_border_conflict
 		}
 	}
 
-	#GFX_report_event_PER_reza_shah_pahlavi shah, iran cooperation, mutual guarantees
+	#iran cooperation, 
+	country_event = {
+		id = SAU_fascism.11
+		title = SAU_fascism.11.t
+		desc = SAU_fascism.11.desc
+		picture = GFX_report_event_PER_reza_shah_pahlavi
+
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#YES
+		option = {
+			ai_chance = {
+				base = 99
+			}
+			name = SAU_fascism.11.a
+			SAU={country_event = SAU_fascism.12}
+		}
+		#NO
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_fascism.11.b
+			SAU={country_event = SAU_fascism.13}
+		}
+	}
+	#accepts
+	country_event = {
+		id = SAU_fascism.12
+		title = SAU_fascism.12.t
+		desc = SAU_fascism.12.desc
+		picture = GFX_report_event_PER_shah_inspection
+
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#Wonderful! Our cooperation will last for ages
+		option = {
+			ai_chance = {
+				base = 99
+			}
+			name = SAU_fascism.12.a
+			PER = {
+				diplomatic_relation = {
+					country = SAU
+					relation = non_aggression_pact
+					active = yes
+				}
+				add_opinion_modifier = {
+					target = SAU
+					modifier = USA_special_relationship
+				}
+				add_offsite_building = { type = industrial_complex level = 1 }
+
+			}
+			SAU = {
+				add_offsite_building = { type = industrial_complex level = 1 }
+				add_opinion_modifier = {
+					target = PER
+					modifier = USA_special_relationship
+				}
+			}
+			hidden_effect = {
+				set_global_flag = SAU_working_with_iran_flag
+			}
+			create_faction = "League of the Crescent"
+
+			PER = {
+				country_event = generic.5
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = SAU_PER_joint_operations
+		}
+		#Nice, just to cuck iraq, MAYBE FIGHT SOME WARS?
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_fascism.12.b
+			hidden_effect = {
+				set_global_flag = SAU_working_with_iran_flag
+			}
+			create_faction = "League of the Crescent"
+
+			PER = {
+				country_event = generic.5
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = SAU_PER_joint_operations
+		}
+		#Nice, just to cuck iraq
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_fascism.12.b
+			hidden_effect = {
+				set_global_flag = SAU_working_with_iran_flag
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = SAU_PER_joint_operations
+		}
+	}
+	#sob sob
+	country_event = {
+		id = SAU_fascism.13
+		title = SAU_fascism.13.t
+		desc = SAU_fascism.13.desc
+		picture = GFX_report_event_PER_persepolis_party
+
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#yipee
+		option = {
+			ai_chance = {
+				base = 99
+			}
+			name = SAU_fascism.13.a
+
+		}
+		#sob sob how dare they, show them we mean business
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_fascism.13.b
+			PER = {
+				random_owned_controlled_state = {
+					damage_building = {
+						type = infrastructure
+						damage = 1
+					}
+				}
+			}
+		}
+	}
+
+	country_event = {
+		id = SAU_commies_event.1
+		title = SAU_commies_event.1.t
+		desc = SAU_commies_event.1.desc
+		picture = GFX_report_event_FIN_risto_ryti_speech
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#YES
+		option = {
+			ai_chance = {
+				base = 99
+			}
+			name = SAU_commies_event.1.a
+			SAU = {country_event = SAU_commies_event.2}
+		}
+		#NO
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_commies_event.1.b
+			SAU = {country_event = SAU_commies_event.3}
+		}
+	}
+	country_event = {
+		id = SAU_commies_event.2
+		title = SAU_commies_event.2.t
+		desc = SAU_commies_event.2.desc
+		picture = GFX_report_event_canada_treaty
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#YES, GOOD
+		option = {
+			name = SAU_commies_event.2.a
+			ENG = {
+				release_puppet = UAE
+				release_puppet = BHR
+				release_puppet = QAT				
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						country_exists = FSA 
+					}
+				}
+				release_puppet = FSA				
+
+			}
+		}
+
+	}
+	country_event = {
+		id = SAU_commies_event.3
+		title = SAU_commies_event.3.t
+		desc = SAU_commies_event.3.desc
+		picture = GFX_report_event_ARG_coup_consolidating
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#NOOOOOOOOO
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_commies_event.3.a
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				generator = { 1014 765 658}
+			}
+		}
+		#arm them!
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_commies_event.3.b
+			658 ={
+				add_resistance = 100
+			}
+			765 ={
+				add_resistance = 100
+			}
+			1014 ={
+				add_resistance = 100
+			}
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				generator = { 1014 765 658}
+			}
+		}
+		#too bad...
+		option = {
+			ai_chance = {
+				base = 99
+			}
+			name = SAU_fascism.3.c
+
+		}	
+	}
+	country_event = {
+		id = SAU_commies_event.4
+		title = SAU_commies_event.4.t
+		desc = SAU_commies_event.4.desc
+		picture = GFX_report_event_tur_kurdish_guerillas
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#YES
+		option = {
+			ai_chance = {
+				base = 9
+			}
+			name = SAU_commies_event.4.a
+			hidden_effect = {
+   				save_event_target_as = FROM
+			}
+			SAU = {country_event = SAU_commies_event.5}
+		}
+		#NO
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_commies_event.4.b
+			SAU = {country_event = SAU_commies_event.6}
+		}
+	}
+	#YIPEE
+	country_event = {
+		id = SAU_commies_event.5
+		title = SAU_commies_event.5.t
+		desc = SAU_commies_event.5.desc
+		picture = GFX_report_event_tur_upheaval_celebration
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#YES
+		option = {
+			ai_chance = {
+				base = 9
+			}
+			name = SAU_commies_event.5.a
+			TAG = {country_event = generic.20}
+			#make a var or something		
+		}
+		#NO just invite 
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_commies_event.5.b
+			TAG = {country_event = generic.5}
+		}
+		#buffer state!
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_commies_event.5.c
+
+		}
+	}
+
+	#ANGRY! NO! GRRR! WARGOALS!-
+	country_event = {
+		id = SAU_commies_event.6
+		title = SAU_commies_event.6.t
+		desc = SAU_commies_event.6.desc
+		picture = GFX_report_event_tur_kurds_traditionalists_thwarted
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#YES kill them with hammers
+		option = {
+			ai_chance = {
+				base = 9
+			}
+			name = SAU_commies_event.6.a
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FROM
+			}
+		}
+		#NO too bad i cry
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_commies_event.6.b
+		
+		}
+	}
+
+	country_event = {
+		id = SAU_commies_event.7
+		title = SAU_commies_event.7.t
+		desc = SAU_commies_event.7.desc
+		picture = GFX_report_event_tur_kurds_traditionalists_thwarted
+		
+		is_triggered_only = yes
+
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#No, religion cringe SAU_secular_politics
+		option = {
+			ai_chance = {
+				base = 9
+			}
+			name = SAU_commies_event.7.a
+				swap_ideas = {
+					remove_idea = SAU_the_ulema
+					add_idea = SAU_secular_politics
+				}
+				swap_ideas = {
+					remove_idea = SAU_hajj_pilgrims
+					add_idea = SAU_taxed_pilgrims
+				}
+		}
+		#yipee islamism or something
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_commies_event.7.b
+				swap_ideas = {
+					remove_idea = SAU_the_ulema
+					add_idea = SAU_legalised_muslim_equality
+				}
+			custom_effect_tooltip = SAU_placate_the_religious_folks_decisions_if_done_focus_SAU_squash_counter_coups_tt
+		}
+	}

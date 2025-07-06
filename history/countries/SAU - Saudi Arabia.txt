@@ -69,6 +69,10 @@ recruit_character = SAU_hamad_al_suwailem
 recruit_character = SAU_muhammad_al_shanqiti
 recruit_character = SAU_abdullah_humayd
 recruit_character = SAU_abdul_al_duwish
+recruit_character = SAU_shura_council_democratic
+recruit_character = SAU_soviet_council
+recruit_character = SAU_shura_council_neutrality
+recruit_character = SAU_ulema_council
 
 set_politics = {
 	ruling_party = neutrality
@@ -85,7 +89,7 @@ set_popularities = {
 
 
 add_ideas = {
-	SAU_sunni_minorities
+	SAU_shia_minorities
 	SAU_limited_agri
 	SAU_poor_country
 	SAU_hajj_pilgrims

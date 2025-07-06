@@ -4,7 +4,6 @@ SAU_formables_cat ={ #formable general always doable, this is more for specifics
     }
     priority = 5
     icon = GFX_decision_category_generic
-
 }
 
 SAU_decs_cat = { #general decisions
@@ -14,12 +13,26 @@ SAU_decs_cat = { #general decisions
     priority = 5
     icon = GFX_decision_category_generic_political_actions
 }
-SAU_extremist_resistance = { #general decisions
+SAU_extremist_action = { #general decisions
     allowed = {
         tag = SAU
     }
     priority = 5
     icon = GFX_decision_category_eng_organize_the_blackshirts
+}
+SAU_working_together = {
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_foreign_policy 
+}
+SAU_international_liberation_front = {
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_spr_the_seeds_of_revolution 
 }
 SAU_trade = {  
     allowed = {
@@ -41,6 +54,14 @@ SAU_laissez_faire_cat = { #works
     }
     priority = 5
     icon = GFX_decision_category_gre_investment_decisions
+}
+SAU_national_state_radio = { #works
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_propaganda
+    picture = GFX_decision_cat_picture_national_iranian_radio
 }
 SAU_mine_the_arabian_shield = { #check
    allowed = {

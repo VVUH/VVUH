@@ -12,6 +12,12 @@ characters={
 				PER_rightful_king_trait 
 			}
 			ideology=despotism
+			on_remove = { 
+				add_popularity = {
+					ideology = neutrality
+					popularity = -0.1
+				}
+			}
 		}
 	}
 	
@@ -141,8 +147,8 @@ characters={
 		name= "Muhammad Al ash-Sheikh"
 		portraits={
 			civilian = {
-				small = GFX_portrait_PER_mohammad_mosaddegh_small
-				large = GFX_portrait_PER_mohammad_mosaddegh
+				small = GFX_idea_ivanoe_bonomi
+				large = GFX_portrait_ITA_ivanoe_bonomi
 			}
 		}
 		advisor={
@@ -164,7 +170,7 @@ characters={
 		}
 		country_leader = {
 			traits  = {
-				AFG_follower_of_islam_trait 
+				well_mannered_iman 
 			}
 			ideology=fascism_ideology
 		}
@@ -220,6 +226,8 @@ characters={
 			}
 		}
 	}
+
+	#demo leader - united kingdom of arabia
 	SAU_faisal_ibn_saud={
 		name="Faisal bin Abdulaziz Al Saud "
 			portraits = {
@@ -271,7 +279,7 @@ characters={
 			logistics_skill = 2
 		}
 	}
-	#demo leader
+	#demo leader - unitary
 	SAU_al_ateeqi ={ 
 		name= "Abdulaziz Al Ateeqi"
 		portraits={
@@ -766,11 +774,11 @@ characters={
 		name= "Abdullah bin Jiluwi Al Saud"
 		portraits={
 			civilian = {
-				small=GFX_idea_ivanoe_bonomi
+				small=GFX_portrait_PER_mohammad_mosaddegh_small
 			}
 			army = {
-				small = GFX_idea_ivanoe_bonomi
-				large = GFX_portrait_ITA_ivanoe_bonomi
+				small = GFX_portrait_PER_mohammad_mosaddegh_small
+				large = GFX_portrait_PER_mohammad_mosaddegh
 			}
 		}
 		advisor={
@@ -983,7 +991,9 @@ characters={
 			idea_token = SAU_olayan
 			cost = 150
 			visible = {
-
+				NOT = {
+					has_completed_focus = SAU_arming_the_revolt
+				}
 			}
 			available = {
 				NOT = {
@@ -1026,8 +1036,41 @@ characters={
 		}
 	}
 
-#democratic --- 
+#democratic ---
 
+
+	#federation leader
+	SAU_shura_council_democratic ={ 
+		name= "Shura Council"
+		portraits={
+			civilian = {
+				small = GFX_portrait_POL_the_sejm_small
+				large = GFX_portrait_POL_the_sejm
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_hafiz_wahbe
+			cost = 150
+			visible = {
+				has_completed_focus = SAU_negotiating_the_end		
+				NOT = {
+					has_country_leader = SAU_shura_council_democratic
+				}
+			}
+			available = {
+				has_completed_focus = SAU_strengthen_shura_council		
+			}
+
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				democratic_council_trait
+			}
+		}
+	}
 	SAU_hafiz_wahbe ={ 
 		name= "Hafiz Wahba"
 		portraits={
@@ -1063,6 +1106,39 @@ characters={
 	}
 #end demo
 #fascism
+	SAU_ulema_council ={ 
+		name= "Shura Council"
+		portraits={
+			civilian = {
+				small = GFX_portrait_POL_the_sejm_small
+				large = GFX_portrait_POL_the_sejm
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_hafiz_wahbe
+			cost = 150
+			visible = {
+				OR = {
+					has_completed_focus = SAU_disband_the_shura_council
+					has_completed_focus = SAU_a_religious_state
+				}
+			}
+			available = {
+				NOT = {
+					has_ideas = SAU_secular_politics
+				}
+			}
+
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				fascist_council_trait
+			}
+		}
+	}
 	SAU_khalid_gargani ={ 
 		name= "Khalid Al Hud Al Gargani"
 		portraits={
@@ -1076,7 +1152,7 @@ characters={
 			idea_token = SAU_khalid_gargani
 			cost = 150
 			visible = {
-
+				has_completed_focus = SAU_intervene_in_the_levant
 			}
 			available = {
 
@@ -1196,8 +1272,65 @@ characters={
 			}
 		}
 	}
-#commies
+	SAU_shura_council_neutrality ={ 
+		name= "Shura Council"
+		portraits={
+			civilian = {
+				small = GFX_portrait_POL_the_sejm_small
+				large = GFX_portrait_POL_the_sejm
+			}
 
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_hafiz_wahbe
+			cost = 150
+			visible = {
+				has_completed_focus = SAU_funnel_foreign_funds		
+
+			}
+			available = {
+				#has_completed_focus = SAU_strengthen_shura_council		
+			}
+
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				non_aligned_council_trait
+			}
+		}
+	}
+#commies
+	SAU_soviet_council ={ 
+		name= "Worker's Council"
+		portraits={
+			civilian = {
+				small = GFX_portrait_POL_the_sejm_small
+				large = GFX_portrait_POL_the_sejm
+			}
+
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SAU_hafiz_wahbe
+			cost = 150
+			visible = {
+				has_completed_focus = SAU_arming_the_revolt		
+
+			}
+			available = {
+				has_completed_focus = SAU_squash_counter_coups		
+			}
+
+			allowed = {
+				original_tag = SAU
+			}
+			traits = {
+				communist_council_trait
+			}
+		}
+	}
 
 	SAU_karim_khakimov ={ 
 		name= "Karim Khakimov"
@@ -1225,6 +1358,7 @@ characters={
 			}
 			available = {
 				#commie focus done
+				has_completed_focus = SAU_soviet_assistance
 			}
 			allowed = {
 				original_tag = SAU

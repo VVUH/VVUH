@@ -134,6 +134,10 @@ focus_tree = {
 				ideology = communism
 				popularity = 0.05
 			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
 			add_political_power = 50
 			custom_effect_tooltip = generic_skip_one_line_tt
 			PAL = {
@@ -142,8 +146,1029 @@ focus_tree = {
 					amount = 2000
 					producer = GER
 				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1500
+					producer = ITA
+				}
 				add_ideas = SAU_meddling_arms
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			JOR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1200
+					producer = ITA
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 800
+					producer = GER
+				}
+				add_ideas = SAU_meddling_arms		
+			}
+		}
+	}
+	focus = {
+		id = SAU_off_the_back_of_a_truck
+
+		icon = GFX_focus_FIN_weapon_caches
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_arming_the_revolt
+		prerequisite = {focus = SAU_arming_the_revolt}
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = GER
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1500
+					producer = ITA
+				}
+							custom_effect_tooltip = generic_skip_one_line_tt
+
+				add_ideas = SAU_meddling_arms
+		}
+	}
+	focus = {
+		id = SAU_soviet_assistance
+
+		icon = GFX_SOV_call_for_aid_ccp_2d_sov_compatibility
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_arming_the_revolt
+		prerequisite = {focus = SAU_arming_the_revolt}
+		available = {
+					SOV = {
+						has_opinion = {
+							target = SAU
+							value > 49
+						}
+					}
+
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.07
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_political_power = 200
+			kill_ideology_leader = neutrality
+			add_country_leader_role = {
+				character = SAU_khalid_ibn_saud
+				promote_leader = yes
+				country_leader = {
+					ideology = despotism
+					traits = { hedonist }
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+					producer = SOV
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = SAU_you_will_get_more_equipment_if_you_complete_coup_attempt_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = SAU_seek_SOV_assistance
+		}
+	}
+	focus = {
+		id = SAU_organize_mixed_militias
+
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_off_the_back_of_a_truck
+		prerequisite = {focus = SAU_off_the_back_of_a_truck}
+		available = {
+			communism > 0.15
+
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = -0.05
+
+			IF = {
+				LIMIT = {
+					has_government = communism
+				}
+				division_template = {
+					name = "Mixed Militia"		
+					priority = 0
+					template_counter = 4
+					division_cap = 12
+					force_allow_recruiting = yes
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+						militia = { x = 0 y = 2 }
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
+						
+						irregular_infantry = { x = 1 y = 2 }
+						irregular_infantry = { x = 2 y = 0 }
+						irregular_infantry = { x = 2 y = 1 }
+						irregular_infantry = { x = 2 y = 2 }
+
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = SAU_militia_tt
+
+				capital_scope = {
+					create_unit = {
+						division = "division_template =\"Mixed Militia\" start_experience_factor = 0.2 start_equipment_factor	= 1.0"
+						owner = SAU
+						count = 5
+					}
+				}
+				custom_effect_tooltip = HOL_militia_tt2
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_ideas = ideological_loyalty_spirit
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+			}ELSE = {
+				custom_effect_tooltip = SAU_get_units_in_civil_war_tt				
+			}
+			# to do add add_ideas = SAU_peoples_guard
+			remove_idea = SAU_shia_minorities
+		}
+	}
+	
+	focus = {
+		id = SAU_underground_workshops
+
+		icon = GFX_goal_generic_construct_mil_factory
+		x = -1
+		y = 1
+		cost = 7
+		relative_position_id = SAU_soviet_assistance
+		prerequisite = {focus = SAU_soviet_assistance}
+		available = {
+			communism > 0.1
+
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+			add_war_support = 0.05
+			custom_effect_tooltip = generic_skip_one_line_tt
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}	
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			swap_ideas = {
+				remove_idea = SAU_meddling_arms
+				add_idea = SAU_widespread_rifle_production
+			}
+
+		}
+	}
+	focus = {
+		id = SAU_an_attempt_at_a_coup
+
+		icon = GFX_focus_IRQ_attempted_assasination_of_sidqi
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_soviet_assistance
+		prerequisite = {focus = SAU_soviet_assistance focus = SAU_off_the_back_of_a_truck}
+		available = {
+			communism > 0.3
+
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			kill_ideology_leader = neutrality
+			add_stability = -0.1
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			IF = {
+				LIMIT = {
+					communism > party_popularity@neutrality
+				}
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+					last_election = "1935.12.17"
+					election_frequency = 48
+					long_name = "Al-Hizb ash-Shuyu'i fi as-Sa'udiyah"
+					name = "CPSA"
+				}
+			}ELSE = {
+				custom_effect_tooltip = SAU_more_commie_than_neutral_will_coup_succeed_otherwise_civilwar_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
+				start_civil_war = {
+					ruling_party = communism
+					# Original country's ideology changes to communism
+					ideology = ROOT
+					# Breakaway gets old ideology of ROOT
+					size = 0.4
+					capital = 679
+					states = {
+						679 856
+					}
+					keep_political_leader = yes
+					keep_political_party_members = yes
+				}				
+			
+
+				if = {
+					limit = {
+						has_completed_focus = SAU_organize_mixed_militias
+					}
+					division_template = {
+						name = "Mixed Militia"		
+						priority = 0
+						template_counter = 4
+						division_cap = 12
+						force_allow_recruiting = yes
+						regiments = {
+							militia = { x = 0 y = 0 }
+							militia = { x = 0 y = 1 }
+							militia = { x = 0 y = 2 }
+							militia = { x = 1 y = 0 }
+							militia = { x = 1 y = 1 }
+							
+							irregular_infantry = { x = 1 y = 2 }
+							irregular_infantry = { x = 2 y = 0 }
+							irregular_infantry = { x = 2 y = 1 }
+							irregular_infantry = { x = 2 y = 2 }
+
+						}
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					custom_effect_tooltip = SAU_militia_tt
+
+
+					capital_scope = {
+						create_unit = {
+							division = "division_template =\"Mixed Militia\" start_experience_factor = 0.2 start_equipment_factor	= 1.0"
+							owner = SAU
+							count = 5
+						}
+					}
+					custom_effect_tooltip = HOL_militia_tt2
+					custom_effect_tooltip = generic_skip_one_line_tt
+				}
+			}
+			IF = {
+				LIMIT = {
+					has_completed_focus = SAU_soviet_assistance
+				}
+				IF = {
+					LIMIT = {
+						NOT = {SOV = { has_war = yes }}
+						NOT = {SOV = {has_capitulated = yes}}
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 2200
+							producer = SOV
+					}
+				}
+				IF = {
+					LIMIT = {
+						NOT = {MON = { has_war = yes }}
+						NOT = {MON = {has_capitulated = yes}}
+						MON = {has_government = communism}
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 1130
+							producer = MON
+					}
+				}
+				IF = {
+					LIMIT = {
+						NOT = {TAN = { has_war = yes }}
+						NOT = {TAN = {has_capitulated = yes}}
+					}
+					add_equipment_to_stockpile ={
+						    type = motorized_equipment_0
+							amount = 225
+							producer = TAN
+					}
+				}
+				IF = {
+					LIMIT = {
+						NOT = {SIK = { has_war = yes }}
+						NOT = {SIK = {has_capitulated = yes}}
+					}
+					add_equipment_to_stockpile ={
+						    type = support_equipment
+							amount = 313
+							producer = SIK
+					}
+				}			
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hidden_effect = {
+				set_global_flag = SAU_fate_of_sauds_negative
+			}
+			custom_effect_tooltip = SAU_you_will_lose_the_royal_family_tt
+		}
+	}
+	focus = {
+		id = SAU_squash_counter_coups
+
+		icon = GFX_focus_generic_communism_anti_fascism
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = SAU_an_attempt_at_a_coup
+		prerequisite = {focus = SAU_an_attempt_at_a_coup}
+		available = {
+			has_civil_war = no
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			add_stability = 0.1
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+			custom_effect_tooltip = MON_recruit_advisor_tt
+			show_ideas_tooltip = SAU_soviet_council
+
+		}
+	}
+
+	focus = {
+		id = SAU_international_brigades
+
+		icon = GFX_focus_GER_proletarian_solidarity
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = SAU_squash_counter_coups
+		prerequisite = {focus = SAU_squash_counter_coups}
+		available = {
+			any_country = {
+				LIMIT = {
+					has_government = communism
+				}
+				has_opinion = {
+					target = SAU
+					value > 50
+				}
+			}
+
+		}
+		continue_if_invalid = yes
+
+		completion_reward = {
+			add_ideas = SAU_international_brigades_spirit
+		}
+	}
+	#bftb_turkey.102 
+
+	focus = {
+		id = SAU_the_topic_of_religion_and_education
+
+		icon = GFX_focus_AFG_state_atheism
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = SAU_an_attempt_at_a_coup
+		prerequisite = {focus = SAU_an_attempt_at_a_coup}
+		available = {
+			has_civil_war = no
+		}
+		search_filters = {FOCUS_FILTER_POLITICAL}
+		search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			add_research_slot = 1
+			#event
+			country_event = SAU_commies_event.7
+		}
+	}
+
+	focus = {
+		id = SAU_state_media
+		#Tareeq al-Kadiḥeen, newspaper
+
+		icon = GFX_focus_SWE_radiotjanst
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = SAU_an_attempt_at_a_coup
+		prerequisite = {focus = SAU_an_attempt_at_a_coup}
+		available = {
+			has_civil_war = no
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			custom_effect_tooltip = PER_communist_propaganda_tt
+		}
+	}
+	focus = {
+		id = SAU_ally_the_kurds
+		icon = GFX_focus_generic_befriend_kurdistan
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = SAU_state_media
+		prerequisite = {focus = SAU_state_media}
+		available = {
+			IRQ = {
+				NOT = {
+					has_government = communism
+				}
+			}
+		}
+		completion_reward = {
+			ENG = {
+				diplomatic_relation = {
+					country = IRQ
+					relation = guarantee
+					active = no
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = embargoed_us
+				}	
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+			}
+			IF = {
+				LIMIT = {
+					IRQ = {is_ai = yes}
+				}
+				IRQ={add_ideas = SAU_meddling_arms}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					unlock_decision_tooltip = SAU_ally_the_kurdish_irq
+					unlock_decision_tooltip = SAU_liberate_kurdish_in_persia
+					unlock_decision_tooltip = SAU_strengthen_kurdish_resistance_in_turkey
+				}
+			
+
+		}
+	}
+	focus = {
+		id = SAU_bolster_local_and_regional_movements
+		#national liberation front, bahrain, FSA
+
+		icon = GFX_focus_GER_align_middle_east
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = SAU_the_topic_of_religion_and_education
+		prerequisite = {focus = SAU_state_media}
+		prerequisite = {focus = SAU_squash_counter_coups}
+		prerequisite = {focus = SAU_the_topic_of_religion_and_education}
+
+		search_filters = FOCUS_FILTER_WAR_SUPPORT
+
+		completion_reward = {
+			add_war_support = 0.1
+			set_rule = {
+				can_create_factions = yes
+			}
+			create_faction = "Arabian Liberation League"
+			generic_skip_one_line_tt
+			unlock_decision_category_tooltip = SAU_international_liberation_front
+			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					has_idea = SAU_aid_others
+				}
+				swap_ideas = {
+					remove_idea = SAU_aid_others
+					add_idea = SAU_aid_others2
+				}		
+			}ELSE  = {
+				add_ideas = SAU_aid_others
+			}
+		}
+	}
+	focus = {
+		id = SAU_toe_the_party_line
+		icon = GFX_focus_SOV_stalins_cult_of_personality
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_bolster_local_and_regional_movements
+		prerequisite = {focus = SAU_bolster_local_and_regional_movements}
+		mutually_exclusive = { focus = SAU_the_anti_stalinist_purge }
+
+
+		search_filters = FOCUS_FILTER_STABILITY
+
+		completion_reward = {
+			add_stability = 0.1
+			SOV = {
+				give_guarantee = SAU
+				add_opinion_modifier = {
+					target = SAU
+					modifier = backed_our_cause
+				}
+			}
+			SAU = {give_guarantee = SOV}
+			diplomatic_relation = {
+				country = SOV
+				relation = non_aggression_pact
+				active = yes			
+			}
+			add_country_leader_trait = stalin_architect_of_communism
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = SAU_arabian_stalinism
+		}
+	}
+	focus = {
+		id = SAU_soviet_industry
+		icon = GFX_focus_generic_communist_industry
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_toe_the_party_line
+		prerequisite = {focus = SAU_toe_the_party_line}
+
+		search_filters = FOCUS_FILTER_INDUSTRY
+
+
+		completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}	
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			swap_ideas = {
+				remove_idea = SAU_arabian_stalinism
+				add_idea = SAU_arabian_stalinism2
+			}
+		}
+	}
+	focus = {
+		id = SAU_soviet_tank_tech
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_soviet_industry
+		prerequisite = {focus = SAU_soviet_industry}
+		continue_if_invalid = yes
+		available = {
+			SOV = {
+				has_opinion = {
+					target = SAU
+					value > 50
+				}	
+			}
+		}
+
+		completion_reward = {
+			
+			IF = {
+				limit = {NOT = {has_tech = basic_light_tank_chassis}}
+				set_technology = {
+					basic_light_tank_chassis = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = armor
+				}			
+			}
+			IF = {
+				limit = {NOT = {has_tech = motorised_infantry}}
+				set_technology = {
+					motorised_infantry = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = motorized_equipment
+				}			
+			}
+			add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 800 producer = SOV  variant_name = "T-26"} 
+			hidden_effect = {
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = SAU_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+						light_armor = { x = 0 y = 2 }
+						light_armor = { x = 0 y = 3 }
+
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						light_tank_recon = { x = 0 y = 0 }
+					}
+				}
+
+			}
+			
+					capital_scope = {
+						create_unit = {
+							division = "name = \"200. Mechanised Division\" division_template = \"Experimental Mechanised Division\" start_experience_factor = 1.0 force_equipment_variants = { light_tank_chassis_1 = { creator = \"SAU\" version_name = \"T-26\"} }" 
+							owner = SAU
+							count = 2
+						}
+					}
+		}
+	}
+	focus = {
+		id = SAU_union_democratic_youth
+		icon = GFX_focus_generic_communist
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_soviet_industry
+		prerequisite = {focus = SAU_soviet_industry}
+		continue_if_invalid = yes
+
+		available = {
+		    has_war_support > 0.5	
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SAU_arabian_stalinism2
+				add_idea = SAU_arabian_stalinism_final
+			}
+		}
+	}
+	focus = {
+		id = SAU_global_liberation
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_soviet_tank_tech
+		prerequisite = {focus = SAU_union_democratic_youth}
+		prerequisite = {focus = SAU_soviet_tank_tech}
+
+		available = {
+		    has_war_support > 0.5	
+		}
+
+		completion_reward = {
+			every_country = { 
+				LIMIT = {
+					AND = {
+					is_major = yes
+					NOT = {has_government = ROOT}
+					}
+				}
+					ROOT = {
+						create_wargoal = {
+							target = PREV
+							type = puppet_wargoal_focus
+							expire = 0
+						}
+					}
+			}	
+		}
+	}
+	focus = {
+		id = SAU_the_anti_stalinist_purge
+		icon = GFX_focus_SOV_the_path_of_marxism_leninism
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_bolster_local_and_regional_movements
+		prerequisite = {focus = SAU_bolster_local_and_regional_movements}
+		mutually_exclusive = { focus = SAU_toe_the_party_line }
+		search_filters = FOCUS_FILTER_WAR_SUPPORT
+
+		completion_reward = {
+			add_war_support = 0.1
+			kill_ideology_leader = communism
+			SOV = {
+				add_opinion_modifier = {
+					target = SAU
+					modifier = HUN_refused_alliance
+				}
+			}
+			add_country_leader_trait = hero_of_the_peasantry
+			add_ideas = SAU_arabian_marxism
+
+		}
+	}
+	focus = {
+		id = SAU_female_liberation
+		icon = GFX_focus_ARG_women_in_industry
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_the_anti_stalinist_purge
+		prerequisite = {focus = SAU_the_anti_stalinist_purge}
+
+		search_filters = FOCUS_FILTER_STABILITY
+
+
+		completion_reward = {
+			add_stability = 0.1
+			add_manpower = 100000
+			swap_ideas = {
+				remove_idea = SAU_arabian_marxism
+				add_idea = SAU_arabian_marxism2
+			}			
+		}
+	}
+	focus = {
+		id = SAU_communal_construction
+		icon = GFX_SOV_architect_of_communism_ccp_2d_sov_compatibility
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_female_liberation
+		prerequisite = {focus = SAU_female_liberation}
+
+
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = SAU_land_reform
+		icon = GFX_SOV_architect_of_communism_ccp_2d_sov_compatibility
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_female_liberation
+		prerequisite = {focus = SAU_female_liberation}
+
+
+
+		completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}	
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			every_core_state = {
+					LIMIT = {
+						is_owned_by = SAU
+					}
+					add_extra_state_shared_building_slots = 1
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			swap_ideas = {
+				remove_idea = SAU_arabian_marxism
+				add_idea = SAU_arabian_marxism_final
+			}
+		}
+	}
+	focus = {
+		id = SAU_collaborate_with_allies
+		icon = GFX_focus_AUS_union_of_danubian_socialist_republics
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_female_liberation
+		prerequisite = {focus = SAU_female_liberation}
+
+		available = {
+			is_in_faction = yes
+		}
+
+		completion_reward = {
+			#spirit for you and people in your faction
+			add_ideas = SAU_faction_collaboration_red
+			every_allied_country = {add_ideas=SAU_faction_collaboration_red}
+		}
+	}
+	focus = {
+		id = SAU_cast_down_the_russian_perversion
+		icon = GFX_focus_attack_soviet
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_collaborate_with_allies
+		prerequisite = {focus = SAU_collaborate_with_allies}
+		prerequisite = {focus = SAU_land_reform}
+
+		available = {
+			AND = {
+				OR = {
+					is_in_faction = yes
+					SOV = {
+						has_war_with_major = yes
+					}
+				}
+				OR = {
+					PER = {
+						is_puppet_of = SAU
+						is_in_faction_with = SAU
+						
+					}
+					any_neighbor_country = {
+						original_tag = SOV
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				target = SOV
+				type = annex_everything
+			}
+			add_collaboration = {
+				target = SOV
+				value = 0.4
+			}
+		}
+	}
+	#add: youth organisations, spread them? - Union of Democratic Youth
+	#women, less pro western
+	#national liberation front - Bahrain, unify to get bahrain for free
+	#marxist-leninist vs stalinism
+	#GFX_focus_generic_low_cost_housing housing
+	focus = {
+		id = SAU_secure_security_from_the_med
+		icon = GFX_focus_generic_the_suez
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SAU_toe_the_party_line
+		prerequisite = {focus = SAU_toe_the_party_line focus = SAU_the_anti_stalinist_purge}
+
+
+		search_filters = FOCUS_FILTER_WAR_SUPPORT
+		completion_reward = {
+			add_war_support = 0.1
+			446 = {	
+				controller = { 
+					ROOT = {
+						create_wargoal = {
+							target = PREV
+							type = take_state_focus
+							generator = { 446 }
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					SYR = {
+						is_subject = yes
+					}
+				}
+				SYR = {
+					overlord = {
+						ROOT = {
+							create_wargoal = {
+								target = PREV
+								type = take_state_focus
+								generator = { 554 677 680 553 }
+							}
+						}					
+					}
+				}
+			}ELSE = {
+				create_wargoal = {
+					target = SYR
+					type = annex_everything
+				}
+				create_wargoal = {
+					target = LEB
+					type = annex_everything
+				}
+			}
+						
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = SAU_you_will_be_able_to_peaceout_and_keep_cores_secure_tt
+
+		}
+	}
+	focus = {
+		id = SAU_monument_to_our_accomplishments
+		icon = GFX_focus_ARG_the_buenos_aires_conference
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = SAU_secure_security_from_the_med
+		prerequisite = {focus = SAU_secure_security_from_the_med}
+
+		available = {
+			446 = {	
+				owner = { 
+					original_tag = SAU
+				}
+			}
+		}
+		search_filters = FOCUS_FILTER_STABILITY
+		completion_reward = {
+			add_stability = 0.1
+			set_cosmetic_tag = SAU_end_game_tag_cosmetictag
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 3
+						instant_build = yes
+					}	
+				}
+
+
 		}
 	}
 #end commie
@@ -198,6 +1223,241 @@ focus_tree = {
 				target = PAL
 				autonomous_state = autonomy_satellite
 			}
+		}
+	}
+	focus = {
+		id = SAU_strengthen_shura_council
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		prerequisite = { focus = SAU_negotiating_the_end }
+		relative_position_id = SAU_negotiating_the_end		
+
+		x = -1
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.1
+			custom_effect_tooltip = MON_recruit_advisor_tt
+			show_ideas_tooltip = SAU_shura_council_democratic
+			add_timed_idea = { idea = SAU_bolstered_shura_council_demo days = 365 }
+
+		}
+	}
+	focus = {
+		id = SAU_invite_western_pressure
+		icon = GFX_focus_generic_democratic_europe
+		prerequisite = { focus = SAU_negotiating_the_end }
+		relative_position_id = SAU_negotiating_the_end		
+		continue_if_invalid = yes
+		x = 1
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			OR = {
+				FRA = {
+					has_opinion = {
+						target = SAU
+						value > 49
+					}			
+				}
+				USA = {
+					has_opinion = {
+						target = SAU
+						value > 49
+					}			
+				}
+				ENG = {
+					has_opinion = {
+						target = SAU
+						value > 49
+					}			
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.05
+			add_timed_idea = { idea = democratic_influence days = 1095 }
+		}
+	}
+	focus = {
+		id = SAU_threaten_for_a_republic
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = SAU_invite_western_pressure }
+		relative_position_id = SAU_invite_western_pressure		
+		x = 1
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+		mutually_exclusive = { focus = SAU_constitutional_monarchy }
+		mutually_exclusive = { focus = SAU_governing_council }
+		available = {
+			democratic > 0.5
+		}
+
+		bypass = {
+
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+				last_election = "1935.12.17"
+				election_frequency = 48
+
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt 
+			set_cosmetic_tag = SAU_junta
+
+		}
+	}
+	focus = {
+		id = SAU_constitutional_monarchy
+		icon = GFX_focus_PER_emperor_for_people
+		prerequisite = { focus = SAU_strengthen_shura_council  focus = SAU_invite_western_pressure }
+
+		relative_position_id = SAU_strengthen_shura_council		
+		x = 1
+		y = 1
+
+		cost = 5
+		mutually_exclusive = { focus = SAU_threaten_for_a_republic }
+		mutually_exclusive = { focus = SAU_governing_council }
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			democratic > 0.3
+			has_stability > 0.5
+		}
+
+		bypass = {
+
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+				last_election = "1935.12.17"
+				election_frequency = 48
+				long_name = "House of Saud - Faisal"
+				name = "House of Saud"
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt 
+			set_cosmetic_tag = SAU_traditonal_cosmetictag
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_country_leader_role = {
+				character = SAU_faisal_ibn_saud
+				promote_leader = yes
+				country_leader = {
+					ideology = populism
+					traits = { constitutional_monarch }
+				}
+			}
+		}
+	}
+	focus = {
+		id = SAU_governing_council
+		icon = GFX_focus_POL_sanation_right
+		prerequisite = { focus = SAU_strengthen_shura_council}
+		relative_position_id = SAU_strengthen_shura_council		
+		mutually_exclusive = { focus = SAU_constitutional_monarchy }
+		mutually_exclusive = { focus = SAU_threaten_for_a_republic }
+		x = -1
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			democratic > 0.4
+			has_war_support > 0.3
+		}
+
+		bypass = {
+
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+				last_election = "1935.12.17"
+				election_frequency = 48
+				long_name = "Majlis al-Shura"
+				name = "Governing Council"
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt 
+			set_cosmetic_tag = SAU_imamate_democratic
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_country_leader_role = {
+				character = SAU_shura_council_democratic
+				promote_leader = yes
+				country_leader = {
+					ideology = populism
+					traits = { constitutional_monarch }
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					has_idea = SAU_bolstered_shura_council_demo
+				}
+				modify_timed_idea = {
+					idea = SAU_bolstered_shura_council_demo
+					years = 10
+				}
+			}ELSE = {
+				custom_effect_tooltip = SAU_if_bolstered_at_end_of_focus_completion_extend_it_by_ten_years_tt
+			}
+
 		}
 	}
 #end demo
@@ -278,7 +1538,7 @@ focus_tree = {
 		x = -2
 		y = 1
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			base = 1
@@ -292,11 +1552,23 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_MANPOWER }
+		
 
 		completion_reward = {
-			#stronger army
-			#unlocks decisions to get remove_ideas = SAU_shia_minorities
+			IF = {
+				limit = {
+					has_intelligence_agency = no
+				}
+					create_intelligence_agency = { 
+						name = "CPVPV"
+						icon = GFX_intelligence_agency_logo_ICE_logreglan
+					}
+				}
+			upgrade_intelligence_agency = upgrade_anti_partisan
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+
 			IF = {
 				limit = {
 					NOT = {
@@ -368,9 +1640,19 @@ focus_tree = {
 
 		completion_reward = {
 			1015 ={
-				add_resistance = 55
+				add_resistance = 100
 			}
-
+			IF = {
+				LIMIT = {
+					has_idea = SAU_aid_others
+				}
+				swap_ideas = {
+					remove_idea = SAU_aid_others
+					add_idea = SAU_aid_others2
+				}		
+			}ELSE  = {
+				add_ideas = SAU_aid_others
+			}
 			#add volunteering spirit
 			#add decision
 			unlock_decision_tooltip = SAU_broker_peace_between_the_imamate_and_the_west
@@ -431,6 +1713,12 @@ focus_tree = {
 					scope = SAU
 				}
 			}			
+			679 = {
+				add_dynamic_modifier = {
+					modifier = centre_of_mongol_belief
+					scope = SAU
+				}
+			}	
 			#allow decisions
 		}
 	}
@@ -457,8 +1745,11 @@ focus_tree = {
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
 			#improves spirit
 			swap_ideas = {
 				remove_idea = SAU_the_ulema
@@ -531,10 +1822,30 @@ focus_tree = {
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			#civs and mils
-
+			add_research_slot = 1
+			custom_effect_tooltip=generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					has_idea = SAU_aid_others
+				}
+				swap_ideas = {
+					remove_idea = SAU_aid_others
+					add_idea = SAU_aid_others2
+				}		
+			}ELSE  = {
+				add_ideas = SAU_aid_others
+			}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 3
+						instant_build = yes
+					}	
+				}
 		}
 	}
 	focus = {
@@ -570,6 +1881,12 @@ focus_tree = {
 					scope = SAU
 				}
 			}
+			679 = {
+				add_dynamic_modifier = {
+					modifier = centre_of_mongol_belief
+					scope = SAU
+				}
+			}	
 		}
 	}
 	focus = {
@@ -596,8 +1913,6 @@ focus_tree = {
 				is_ai = no
 			}
 		}
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
 			#event based; yemen gets FSa, becomes puppet maybe
@@ -630,11 +1945,58 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_MANPOWER }
+		
 
 		completion_reward = {
 			#improves spirit
-			#unlocks decisions to get replace idea = SAU_shia_minorities with equal muslim or just remove it
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = interwar_antiair
+					}
+				}
+				set_technology = { interwar_antiair = 1 }
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = cat_anti_air
+				}	
+			}
+			division_template = {
+				name = "King's Guards"		
+				division_names_group = SAU_INF_01
+				is_locked = no
+				force_allow_recruiting = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }				
+				}
+				support = {
+					anti_air = { x = 0 y = 0 }
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"King's Guards\" start_experience_factor = 0.05 start_equipment_factor = 1"
+					owner = SAU
+					count = 2
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"King's Guards\" start_experience_factor = 0.05 start_equipment_factor = 1"
+					owner = SAU
+					count = 2
+				}
+			}
 
 
 		}
@@ -677,13 +2039,126 @@ focus_tree = {
 			}
 		}
 	}
+
 	focus = {
-		id = SAU_reform_internal_policy
-		icon = GFX_focus_AFG_retire_the_uncles
-		prerequisite = { focus = SAU_a_religious_state focus = SAU_disband_the_shura_council }
-		relative_position_id = SAU_a_change_in_government		
+		id = SAU_a_religious_state
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = SAU_a_change_in_government }
+		relative_position_id = SAU_foster_fanaticism		
 		x = 0
 		y = 2
+		mutually_exclusive = { focus = SAU_disband_the_shura_council }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			fascism > 0.5
+			NOT = {
+				has_idea = SAU_secular_politics
+			}
+			has_government = fascism
+			communism < 0.1
+		}
+
+		bypass = {
+
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			#  focus gets the new guy in charge, Sets cosmetic tag to imamate or empirate
+			#if central and clergy: Emirate
+			#if religious and clergy: imamate
+			#if either and decision; junta 
+			IF={
+				LIMIT = {
+					AND = {
+						has_government = fascism
+						has_global_flag = SAU_junta_flag
+					}
+				}
+				set_cosmetic_tag = SAU_junta
+				custom_effect_tooltip = generic_skip_one_line_tt 
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+					last_election = "1935.12.17"
+					election_frequency = 48
+					long_name = "Senior Council of Generals"
+					name = "The Junta"
+				}
+				add_country_leader_trait = JUNO_emergency_powers
+
+			}ELSE_IF = {
+				LIMIT = {
+					has_government = fascism
+					has_completed_focus = SAU_foster_fanaticism
+				}
+				retire_ideology_leader = fascism
+				set_cosmetic_tag = SAU_imamate
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_ideas = SAU_muslim_state
+				custom_effect_tooltip = generic_skip_one_line_tt
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+					last_election = "1935.12.17"
+					election_frequency = 48
+					long_name = "Senior Council of Scholars"
+					name = "Ulema"
+				}
+				add_country_leader_trait = AFG_influential_spiritual_leader_trait
+
+			}ELSE_IF={
+				LIMIT = {
+					has_government = fascism
+					has_completed_focus = SAU_crack_down_on_tribalism
+				}
+				retire_ideology_leader = fascism
+				set_cosmetic_tag = SAU_traditonal_cosmetictag
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_ideas = SAU_muslim_state
+				custom_effect_tooltip = generic_skip_one_line_tt
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+					last_election = "1935.12.17"
+					election_frequency = 48
+					long_name = "Senior Council of Scholars"
+					name = "Ulema"
+				}
+				add_country_leader_trait = IRQ_emir_of_taif
+
+			}ELSE = {
+				custom_effect_tooltip = SAU_based_on_focuses_or_decision_government_forms
+			}
+			
+			
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			
+			IF = {
+				LIMIT = {
+					has_idea = SAU_shia_minorities
+				}
+				remove_ideas = SAU_shia_minorities
+			}
+
+
+		}
+	}
+	focus = {
+		id = SAU_rearm_ikhwan_remnants
+		icon = GFX_focus_AFG_against_kabul
+		prerequisite = { focus = SAU_a_religious_state }
+		relative_position_id = SAU_a_religious_state		
+		x = 0
+		y = 1
 
 		cost = 5
 
@@ -699,14 +2174,449 @@ focus_tree = {
 
 		}
 
+		completion_reward = {
+			set_technology = { blackshirt_assault_battalion_tech = 1 popup = no }
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = artillery_equipment_1
+					}
+				}
+				set_technology = { artillery_equipment_1 = 1 }
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = artillery
+				}	
+			}
+			add_stability = -0.05
+			division_template = {
+				name = "Religious Militants"		
+				division_names_group = SAU_INF_01
+				is_locked = no
+				force_allow_recruiting = yes
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 0 y = 2 }
+					irregular_infantry = { x = 1 y = 0 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Religious Militants\" start_experience_factor = 0.05 start_equipment_factor = 1"
+					owner = SAU
+					count = 2
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Religious Militants\" start_experience_factor = 0.05 start_equipment_factor = 1"
+					owner = SAU
+					count = 1
+				}
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_global_flag = SAU_abd_died_flag
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = SAU_abd_al_saud_will_retire
+				hidden_effect = {
+					set_global_flag = SAU_abd_died_flag
+				}
+			}
+		}
+	}
+	focus = {
+		id = SAU_security_and_faith
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = SAU_rearm_ikhwan_remnants }
+		relative_position_id = SAU_rearm_ikhwan_remnants		
+		x = 1
+		y = 1
+
+		cost = 7
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			IF = {
+				limit = {NOT = {has_tech = interwar_antiair } can_research = interwar_antiair }
+				set_technology = {
+					interwar_antiair  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = cat_anti_air
+				}			
+			}
+			856 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 12758
+				}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+			}			
+			679 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 5037
+				}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}				
+			}
+			292 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 12727
+				}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+			}
+
+		}		
+	}
+	focus = {
+		id = SAU_align_our_puppet_governments
+		icon = GFX_focus_CZE_german_puppet
+		prerequisite = { focus = SAU_rearm_ikhwan_remnants }
+		relative_position_id = SAU_rearm_ikhwan_remnants		
+		x = -1
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			OR = {
+				OMA = {
+					is_puppet_of = ROOT
+				}
+				YEM = {
+					is_puppet_of = ROOT
+				}
+				IMO = {
+					is_puppet_of = ROOT
+				}
+				KUW = {
+					is_puppet_of = ROOT
+				}
+				JOR = {
+					is_puppet_of = ROOT
+				}
+				PAL = {
+					is_puppet_of = ROOT
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = SAU_request_JOR_guidance
+			unlock_decision_tooltip = SAU_collaborate_with_KUW
+			unlock_decision_tooltip = SAU_work_with_PAL
+			unlock_decision_tooltip = SAU_demand_YEM_blueprints
+			unlock_decision_tooltip = SAU_learn_from_OMA_airforce_findings
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}	
+				}
+		}		
+	}
+	focus = {
+		id = SAU_disband_the_shura_council
+		icon = GFX_focus_AFG_contact_amanullah_loyalists
+		prerequisite = { focus = SAU_a_change_in_government }
+		relative_position_id = SAU_crack_down_on_tribalism		
+		x = 0
+		y = 2
+		mutually_exclusive = { focus = SAU_a_religious_state }
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			fascism > 0.5
+			has_government = fascism
+		}
+
+		bypass = {
+
+		}
+
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			# decision based.next focus gets the new guy in charge, Sets cosmetic tag to imamate or empirate
-			#check out the OPPOSITE - below is TEMP
-			
+			# focus gets the new guy in charge, Sets cosmetic tag to imamate or empirate
+ 			#if central and king: Sultanate
+			#if religious and king: Sharifate
+			#if either and decision; junta - puppet king
+			IF={
+				LIMIT = {
+					AND = {
+						has_government = fascism
+						has_global_flag = SAU_junta_flag
+					}				
+				}
+				set_cosmetic_tag = SAU_junta
+				custom_effect_tooltip = generic_skip_one_line_tt 
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+					last_election = "1935.12.17"
+					election_frequency = 48
+					long_name = "The Army of Arabia"
+					name = "Arab Junta"
+				}
+				add_country_leader_trait = JUNO_emergency_powers
+
+			}ELSE_IF = {
+				LIMIT = {
+					has_government = fascism
+					has_completed_focus = SAU_foster_fanaticism
+				}
+				promote_character = SAU_khalid_ibn_saud
+
+				retire_ideology_leader = fascism
+				hidden_effect = {
+					retire_ideology_leader = fascism
+				}
+				set_cosmetic_tag = SAU_unmodern
+				custom_effect_tooltip = generic_skip_one_line_tt
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+					last_election = "1935.12.17"
+					election_frequency = 48
+					long_name = "House of Saud - Khalid Branch"
+					name = "House of Saud"
+				}
+				add_country_leader_trait = the_sacred_king
+			}ELSE_IF={
+				LIMIT = {
+					has_government = fascism
+					has_completed_focus = SAU_crack_down_on_tribalism
+				}
+				retire_ideology_leader = fascism
+				hidden_effect = {
+					retire_ideology_leader = fascism
+				}
+				set_cosmetic_tag = SAU_modern_saud
+				custom_effect_tooltip = generic_skip_one_line_tt
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+					last_election = "1935.12.17"
+					election_frequency = 48
+					long_name = "House of Saud - Khalid Branch"
+					name = "House of Saud"
+				}
+			}ELSE = {
+				custom_effect_tooltip = SAU_based_on_focuses_or_decision_government_forms
+			}
+			add_political_power = 200
+
 
 		}
+	}
+	focus = {
+		id = SAU_absorb_ikhwan_remnants
+		icon = GFX_focus_IRQ_royal_iraqi_army_alt
+		prerequisite = { focus = SAU_disband_the_shura_council }
+		relative_position_id = SAU_disband_the_shura_council		
+		x = 0
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			set_technology = { blackshirt_assault_battalion_tech = 1 popup = no }
+			add_manpower = 55000
+			add_war_support = 0.1
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_global_flag = SAU_abd_died_flag
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = SAU_abd_al_saud_will_retire
+				hidden_effect = {
+					set_global_flag = SAU_abd_died_flag
+				}
+			}
+
+		}
+	}
+	focus = {
+		id = SAU_ruler_led_religious_creed
+		icon = GFX_focus_PER_ally_bazaari
+		prerequisite = { focus = SAU_absorb_ikhwan_remnants }
+		relative_position_id = SAU_absorb_ikhwan_remnants		
+		x = 1
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			has_idea = SAU_secular_politics
+		}
+
+
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_completed_focus = SAU_crack_down_on_tribalism
+				}
+				swap_ideas = {
+					remove_idea = SAU_shia_minorities
+					add_idea = SAU_legalised_muslim_equality
+				}
+			}ELSE_IF={
+				LIMIT = {
+					has_completed_focus = SAU_foster_fanaticism
+				}
+				swap_ideas = {
+					remove_idea = SAU_shia_minorities
+					add_idea = SAU_muslim_state
+				}
+			}ELSE_IF={
+				LIMIT = {
+					has_idea = SAU_secular_politics
+				}
+				remove_idea = SAU_shia_minorities
+				swap_ideas = {
+					remove_idea = SAU_hajj_pilgrims
+					add_idea = SAU_taxed_pilgrims
+				}
+				
+			}ELSE={
+				custom_effect_tooltip = SAU_depends_on_earlier_choice_shia_treatment_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			IF = {
+				LIMIT = {
+					has_intelligence_agency = no
+				}
+					create_intelligence_agency = { 
+						name = "Mabahith"
+						icon = GFX_intelligence_agency_logo_ICE_logreglan
+					}
+				}
+			upgrade_intelligence_agency = upgrade_plastic_explosives
+
+
+		}
+
+		
+	}
+	focus = {
+		id = SAU_foreign_fascist_support
+		icon = GFX_focus_chi_mission_to_germany
+		prerequisite = { focus = SAU_absorb_ikhwan_remnants }
+		relative_position_id = SAU_absorb_ikhwan_remnants		
+		x = -1
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			OR = {
+				GER = {
+					has_government = ROOT
+				}
+				ITA = {
+					has_government = ROOT
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = SAU_establish_imperial_bonds_with_ITA
+			unlock_decision_tooltip = SAU_seek_GER_assistance
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}		
 	}
 	focus = {
 		id = SAU_the_arabian_unification_agenda
@@ -803,85 +2713,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SAU_a_religious_state
-		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
-		prerequisite = { focus = SAU_a_change_in_government }
-		relative_position_id = SAU_foster_fanaticism		
-		x = 0
-		y = 2
-		mutually_exclusive = { focus = SAU_disband_the_shura_council }
-
-		cost = 5
-
-		ai_will_do = {
-			base = 1
-		}
-
-		available = {
-			fascism > 0.5
-			NOT = {
-				has_idea = SAU_secular_politics
-			}
-			has_government = fascism
-			communism < 0.1
-		}
-
-		bypass = {
-
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			#  focus gets the new guy in charge, Sets cosmetic tag to imamate or empirate
-			#if central and clergy: Emirate
-			#if religious and clergy: imamate
-			#if either and decision; junta 
-			IF={
-				LIMIT = {
-					AND = {
-						has_government = fascism
-						has_global_flag = SAU_junta_flag
-					}
-				}
-				set_cosmetic_tag = SAU_junta
-				custom_effect_tooltip = generic_skip_one_line_tt 
-			}ELSE_IF = {
-				LIMIT = {
-					has_government = fascism
-					has_completed_focus = SAU_foster_fanaticism
-				}
-				retire_ideology_leader = fascism
-				set_cosmetic_tag = SAU_imamate
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}ELSE_IF={
-				LIMIT = {
-					has_government = fascism
-					has_completed_focus = SAU_crack_down_on_tribalism
-				}
-				retire_ideology_leader = fascism
-				set_cosmetic_tag = SAU_traditonal_cosmetictag
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			
-			add_ideas = SAU_muslim_state
-			custom_effect_tooltip = generic_skip_one_line_tt
-			set_politics = {
-				ruling_party = fascism
-				elections_allowed = no
-				last_election = "1935.12.17"
-				election_frequency = 48
-				long_name = "Senior Council of Scholars"
-    			name = "Ulema"
-			}
-		}
-	}
-	focus = {
-		id = SAU_rearm_ikhwan_remnants
-		icon = GFX_focus_AFG_against_kabul
-		prerequisite = { focus = SAU_a_religious_state }
-		relative_position_id = SAU_a_religious_state		
-		x = 0
+		id = SAU_seize_competing_oil_fields
+		icon = GFX_focus_PER_fight_for_iran
+		prerequisite = { focus = SAU_our_northern_foe }
+		relative_position_id = SAU_our_northern_foe		
+		x = 2
 		y = 1
 
 		cost = 5
@@ -895,78 +2731,27 @@ focus_tree = {
 		}
 
 		bypass = {
-
+			has_country_flag = SAU_working_with_iran_flag
 		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 
 		completion_reward = {
-			set_technology = { blackshirt_assault_battalion_tech = 1 popup = no }
-			IF = {
-				limit = {
-					NOT = {
-						has_tech = artillery_equipment_1
-					}
-				}
-				set_technology = { artillery_equipment_1 = 1 }
-			}ELSE = {
-				add_tech_bonus = {
-					bonus = 1
-					uses = 1
-					category = artillery
-				}	
+			add_war_support = 0.1
+			create_wargoal = {
+				target = PER
+				type = take_state_focus
+				generator = { 413 412 411 }
 			}
-			add_stability = -0.05
-			division_template = {
-				name = "Religious Militants"		
-				division_names_group = SAU_INF_01
-				is_locked = no
-				force_allow_recruiting = yes
-				regiments = {
-					irregular_infantry = { x = 0 y = 0 }
-					irregular_infantry = { x = 0 y = 1 }
-					irregular_infantry = { x = 0 y = 2 }
-					irregular_infantry = { x = 1 y = 0 }
-				}
-				support = {
-					artillery = { x = 0 y = 0 }
-				}
-			}
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "division_template = \"Religious Militants\" start_experience_factor = 0.05 start_equipment_factor = 1"
-					owner = SAU
-					count = 2
-				}
-			}
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "division_template = \"Religious Militants\" start_experience_factor = 0.05 start_equipment_factor = 1"
-					owner = SAU
-					count = 1
-				}
-			}
-			IF = {
-				LIMIT = {
-					NOT = {
-						has_global_flag = SAU_abd_died_flag
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = SAU_abd_al_saud_will_retire
-				hidden_effect = {
-					set_global_flag = SAU_abd_died_flag
-				}
-			}
+
 		}
 	}
-
 	focus = {
-		id = SAU_disband_the_shura_council
-		icon = GFX_focus_AFG_contact_amanullah_loyalists
-		prerequisite = { focus = SAU_a_change_in_government }
-		relative_position_id = SAU_crack_down_on_tribalism		
+		id = SAU_their_place_in_the_empire
+		icon = GFX_focus_PER_our_place_in_empire
+		prerequisite = { focus = SAU_seize_competing_oil_fields }
+		relative_position_id = SAU_seize_competing_oil_fields		
 		x = 0
-		y = 2
-		mutually_exclusive = { focus = SAU_a_religious_state }
+		y = 1
 
 		cost = 5
 
@@ -975,71 +2760,26 @@ focus_tree = {
 		}
 
 		available = {
-			fascism > 0.5
-			has_government = fascism
+			PER = {
+				has_capitulated = yes
+			}
 		}
 
 		bypass = {
-
+			has_country_flag = SAU_working_with_iran_flag
 		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 
 		completion_reward = {
-			# focus gets the new guy in charge, Sets cosmetic tag to imamate or empirate
- 			#if central and king: Sultanate
-			#if religious and king: Sharifate
-			#if either and decision; junta - puppet king
-			IF={
-				LIMIT = {
-					AND = {
-						has_government = fascism
-						has_global_flag = SAU_junta_flag
-					}				
-				}
-				set_cosmetic_tag = SAU_junta
-				custom_effect_tooltip = generic_skip_one_line_tt 
-			}ELSE_IF = {
-				LIMIT = {
-					has_government = fascism
-					has_completed_focus = SAU_foster_fanaticism
-				}
-				promote_character = SAU_khalid_ibn_saud
-
-				retire_ideology_leader = fascism
-				hidden_effect = {
-					retire_ideology_leader = fascism
-				}
-				set_cosmetic_tag = SAU_unmodern
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}ELSE_IF={
-				LIMIT = {
-					has_government = fascism
-					has_completed_focus = SAU_crack_down_on_tribalism
-				}
-				retire_ideology_leader = fascism
-				hidden_effect = {
-					retire_ideology_leader = fascism
-				}
-				set_cosmetic_tag = SAU_modern_saud
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			set_politics = {
-				ruling_party = fascism
-				elections_allowed = no
-				last_election = "1935.12.17"
-				election_frequency = 48
-    			long_name = "House of Saud - Khalid Branch"
-    			name = "House of Saud"
-			}
+			add_war_support = 0.1
 		}
 	}
 	focus = {
-		id = SAU_absorb_ikhwan_remnants
-		icon = GFX_focus_IRQ_royal_iraqi_army_alt
-		prerequisite = { focus = SAU_disband_the_shura_council }
-		relative_position_id = SAU_disband_the_shura_council		
-		x = 0
+		id = SAU_the_fate_of_the_levantine_states
+		icon = GFX_focus_generic_attack_syria
+		prerequisite = { focus = SAU_our_northern_foe }
+		relative_position_id = SAU_our_northern_foe		
+		x = -2
 		y = 1
 
 		cost = 5
@@ -1053,29 +2793,251 @@ focus_tree = {
 		}
 
 		bypass = {
-
+			OR = {
+				AND = {
+					SYR = {
+						is_puppet_of = SAU
+					}
+					LEB = {
+						is_puppet_of = SAU
+					}
+				}
+				has_country_flag = SAU_working_with_turkey_flag
+			}
 		}
 
-		search_filters = { FOCUS_FILTER_MANPOWER }
-		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 
 		completion_reward = {
-			set_technology = { blackshirt_assault_battalion_tech = 1 popup = no }
-			add_manpower = 55000
 			add_war_support = 0.1
 			IF = {
 				LIMIT = {
-					NOT = {
-						has_global_flag = SAU_abd_died_flag
+					SYR = {
+						is_subject = yes
 					}
 				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = SAU_abd_al_saud_will_retire
-				hidden_effect = {
-					set_global_flag = SAU_abd_died_flag
+				SYR = {
+					overlord = {
+						ROOT = {
+							create_wargoal = {
+								target = PREV
+								type = take_state_focus
+								generator = { 554 677 680 553 }
+							}
+						}					
+					}
+				}
+			}ELSE = {
+				create_wargoal = {
+					target = SYR
+					type = annex_everything
+				}
+				create_wargoal = {
+					target = LEB
+					type = annex_everything
 				}
 			}
+			
+		}
+	}
+	focus = {
+		id = SAU_ensure_their_loyalty_or_death
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = SAU_the_fate_of_the_levantine_states }
+		relative_position_id = SAU_the_fate_of_the_levantine_states
+		x = 0
+		y = 1
 
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			has_country_flag = SAU_working_with_turkey_flag
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				target = TUR
+				type = annex_everything
+			}				
+		}
+	}
+	focus = {
+		id = SAU_secure_the_horn
+		icon = GFX_focus_generic_attack_ethiopia
+		prerequisite = { focus = SAU_our_northern_foe }
+		relative_position_id = SAU_our_northern_foe		
+		x = 0
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		completion_reward = {
+			add_war_support = 0.1
+			IF = {LIMIT = {ETH = {has_capitulated = no}}
+				create_wargoal = {
+					target = ETH
+					type = take_state_focus
+					generator = { 835 837 838 839 840 843 841 842 }
+				}
+			}ELSE = {
+				create_wargoal = {
+					target = ITA
+					type = take_state_focus
+					generator = { 835 837 838 839 840 843 841 842 550 844 559}
+				}				
+			}
+			IF = {LIMIT = {AFA = {has_capitulated = no}}
+				create_wargoal = {
+					target = afa
+					type = annex_everything
+				}	
+			}
+		}
+	}
+
+	focus = {
+		id = SAU_strike_west
+		icon = GFX_focus_PER_march_to_nile
+		prerequisite = { focus = SAU_our_northern_foe }
+		relative_position_id = SAU_our_northern_foe		
+		x = 0
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		completion_reward = {
+			add_war_support = 0.1
+			446 = {	
+				controller = { 
+					ROOT = {
+						create_wargoal = {
+							target = PREV
+							type = take_state_focus
+							generator = { 446 }
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = SAU_you_will_be_able_to_peaceout_and_keep_cores_secure_egypt_tt
+		}
+	}
+	focus = {
+		id = SAU_secure_the_horn
+		icon = GFX_focus_generic_attack_ethiopia
+		prerequisite = { focus = SAU_strike_west }
+		relative_position_id = SAU_strike_west		
+		x = 0
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			has_country_flag = SAU_working_with_turkey_flag
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		completion_reward = {
+			add_war_support = 0.1
+			IF = {LIMIT = {ETH = {has_capitulated = no}}
+				create_wargoal = {
+					target = ETH
+					type = take_state_focus
+					generator = { 835 837 838 839 840 843 841 842 }
+				}
+			}ELSE = {
+				create_wargoal = {
+					target = ITA
+					type = take_state_focus
+					generator = { 835 837 838 839 840 843 841 842 550 844 559}
+				}				
+			}
+			IF = {LIMIT = {AFA = {has_capitulated = no}}
+				create_wargoal = {
+					target = afa
+					type = annex_everything
+				}	
+			}
+		}
+	}
+	focus = {
+		id = SAU_the_empire_from_arabia
+		icon = GFX_focus_PER_middle_east_protectorate
+		prerequisite = { focus = SAU_secure_the_horn }
+		prerequisite = { focus = SAU_ensure_their_loyalty_or_death }
+		prerequisite = { focus = SAU_their_place_in_the_empire }
+
+		relative_position_id = SAU_secure_the_horn		
+		x = 0
+		y = 2
+
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			OR = {
+				NOT = {
+					country_exists = IRQ
+					country_exists = PER
+
+				}
+			}
+		}
+
+		bypass = {
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		completion_reward = {
+			add_war_support = 0.1
+			#event like austria; either the fifth arabian empire,  or the empire of the red sea
+			#the Caliphate [SAU_caliphate] - can core turkey - can only if not secular (so no junta) - gets trait caliph
+			# fifth arabian empire coring decisions for middle east [IRAN, TURKESTAN, AFGHANISTAN] - gets trait AFG_liberator_of_persia
+			#the empire of the red sea - can core ethiopia/horn
+			#  TO DO make decisions for this
 		}
 	}
 #end fascism
@@ -1110,7 +3072,7 @@ focus_tree = {
 		859 = {
 				add_resource = {
 					type = oil
-					amount = 12
+					amount = 32
 				}	
 			}
 				859 = {
@@ -1160,6 +3122,11 @@ focus_tree = {
 					basic_train = 1
 					popup = no
 				}
+			}
+			add_equipment_to_stockpile = { 
+				type = train_equipment_1
+				amount = 35 
+				producer = SAU
 			}
 			build_railway = {
 				level = 2
@@ -1333,7 +3300,7 @@ focus_tree = {
 		prerequisite = { focus = SAU_riyadhi_rail focus = SAU_arabian_radio}
 		relative_position_id = SAU_riyadhi_rail
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			base = 1
@@ -1359,6 +3326,27 @@ focus_tree = {
 					uses = 3
 					category = industry
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					has_government = neutrality
+				}
+				add_ideas = SAU_neutrality_graduates
+			}ELSE_IF = {
+				LIMIT = {
+					has_government = communism
+				}
+				add_ideas = SAU_communist_graduates
+			}ELSE_IF = {
+				LIMIT = {
+					has_government = fascism 
+				}
+				add_ideas = SAU_fascist_graduates
+
+			}ELSE = {
+				add_ideas = SAU_democratic_graduates
+
+			}		
 		}
 	}
 	focus = {
@@ -1383,8 +3371,6 @@ focus_tree = {
 		bypass = {
 
 		}
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
 
 
 		completion_reward = {
@@ -1742,7 +3728,7 @@ focus_tree = {
 			859 = {
 				add_resource = {
 					type = oil
-					amount = 10
+					amount = 15
 				}	
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1819,7 +3805,7 @@ focus_tree = {
 			859 = {
 				add_resource = {
 					type = oil
-					amount = 8
+					amount = 12
 				}	
 			}
 			859 = {
@@ -1834,7 +3820,7 @@ focus_tree = {
 			857 = {
 				add_resource = {
 					type = oil
-					amount = 6
+					amount = 7
 				}	
 			}
 
@@ -1975,7 +3961,7 @@ focus_tree = {
 				prioritize = { 291 }
 				add_resource = {
 					type = oil
-					amount = 10
+					amount = 11
 				}	
 			}	
 
@@ -1987,7 +3973,7 @@ focus_tree = {
 				prioritize = { 676 }
 				add_resource = {
 					type = oil
-					amount = 10
+					amount = 9
 				}	
 			}	
 			
@@ -2487,7 +4473,8 @@ focus_tree = {
 
 
 		completion_reward = {
-			unlock_decision_category_tooltip = SAU_command_economic_direction
+			unlock_decision_tooltip = SAU_command_direction
+			add_ideas = SAU_commanded_civ_direction
 				random_owned_controlled_state = {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
@@ -2812,7 +4799,7 @@ focus_tree = {
 		icon = GFX_focus_ICE_hrafninn_flygur
 		x = 9
 		y = 0
-		cost = 10
+		cost = 5
 
 
 		relative_position_id = SAU_arabian_land_forces
@@ -2823,8 +4810,63 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_AIR_XP}
 
 		completion_reward = {
-
+			add_ideas = SAU_arabian_airforce
 		}
+	}
+	#GFX_focus_SMB_purchase_aircraft
+	focus = {
+        id = SAU_obtain_planes
+        icon = GFX_focus_generic_air_partners
+        prerequisite = {focus = SAU_arabian_air_force  }
+        relative_position_id = SAU_arabian_air_force
+        x = -1
+        y = 1
+
+        cost = 5
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+
+        }
+
+        bypass = {
+            
+        }
+
+        completion_reward = {
+
+
+        }
+	}
+	focus = {
+        id = SAU_improve_airfield_infrastructure
+        icon = GFX_focus_generic_air_bases
+        prerequisite = {focus = SAU_arabian_air_force  }
+        relative_position_id = SAU_arabian_air_force
+        x = 1
+        y = 1
+
+        cost = 5
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+
+        }
+
+        bypass = {
+            
+        }
+
+        completion_reward = {
+
+
+        }
 	}
 #end airforce
 #navy - put in some effort

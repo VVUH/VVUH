@@ -1,10 +1,10 @@
 SAU_formables_cat = {
 
 }
+
 SAU_decs_cat = {
 	# Collectivization of Society
 	SAU_collectivize_society  = {
-
 		priority = 50
 
 		icon = GFX_decision_SOV_place_hq
@@ -20,7 +20,6 @@ SAU_decs_cat = {
 		available = {
 
 			has_government = communism
-
 
 		}
 
@@ -102,11 +101,96 @@ SAU_decs_cat = {
 		}
 
 	}
+	SAU_traditionalize_arabia  = {
+		fire_only_once = yes
+		priority = 0
+
+		icon = GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
+
+		ai_will_do = {
+			base = 0
+		}
+
+		allowed = {  
+			original_tag = SAU
+		}
+
+		available = {
+
+		}
+
+		visible = { 
+			tag = SAU
+			NOT = {
+				has_completed_focus = SAU_negotiating_the_end
+			}
+		} 
+
+		days_remove = 105 
+
+		cost = 25
+
+		complete_effect = {
+			add_stability = 0.1
+		}
+
+		modifier = {
+		}
+
+		remove_effect = {
+			add_stability = 0.05
+			set_cosmetic_tag = SAU_traditonal_cosmetictag			
+
+		}
+
+	}
+	SAU_wean_the_king_off_of_power  = {
+		fire_only_once = yes
+		priority = 0
+
+		icon = GFX_decision_generic_political_address
+
+		ai_will_do = {
+			base = 0
+		}
+
+		allowed = {  
+			original_tag = SAU
+		}
+
+		available = {
+
+		}
+
+		visible = { 
+			tag = SAU
+			NOT = {
+				has_country_flag = SAU_king_still_relevant_flag
+			}
+		} 
+
+		days_remove = 105 
+
+		cost = 45
+
+		complete_effect = {
+			add_stability = 0.1
+		}
+
+		modifier = {
+		}
+
+		remove_effect = {
+			add_country_leader_trait = AFG_royal_figurehead_trait
+		}
+
+	}
 	SAU_broker_peace_between_the_imamate_and_the_west = {
 		icon = GFX_decision_generic_assassination
 		allowed = {
 			original_tag =  SAU
 		}
+		cost = 25
 
 		available = {
 			AND = {
@@ -148,17 +232,26 @@ SAU_decs_cat = {
 		}
 
 	}
-	SAU_integrate_yemen= {
+	SAU_incorporate_yemen = {
 		icon = GFX_decision_generic_confiscation
 		allowed = {
 			original_tag =  SAU
 		}
 
 		available = {
-			YEM = {
+			IMO = {
 				is_puppet_of = ROOT
 				is_ai = yes
 			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}			
 		}
 		
 		visible = {
@@ -166,15 +259,21 @@ SAU_decs_cat = {
 				is_puppet_of = ROOT
 			}
 		}
-
+		days_remove = 30
+		cost = 35
 		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
 			annex_country = {
 				target = YEM
 				transfer_troops = yes
 			}
 		}
-	}
-	SAU_integrate_imo= {
+	}	
+	SAU_assimilate_the_imo = {
 		icon = GFX_decision_generic_confiscation
 		allowed = {
 			original_tag =  SAU
@@ -185,6 +284,15 @@ SAU_decs_cat = {
 				is_puppet_of = ROOT
 				is_ai = yes
 			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
 		}
 		
 		visible = {
@@ -192,15 +300,21 @@ SAU_decs_cat = {
 				is_puppet_of = ROOT
 			}
 		}
-
+		days_remove = 30
+		cost = 35
 		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
 			annex_country = {
 				target = IMO
 				transfer_troops = yes
 			}
 		}
 	}
-	SAU_integrate_oman= {
+	SAU_reorganize_the_omani_country = {
 		icon = GFX_decision_generic_confiscation
 		allowed = {
 			original_tag =  SAU
@@ -210,7 +324,15 @@ SAU_decs_cat = {
 			OMA = {
 				is_puppet_of = ROOT
 				is_ai = yes
-
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
 			}
 		}
 		
@@ -219,25 +341,38 @@ SAU_decs_cat = {
 				is_puppet_of = ROOT
 			}
 		}
-
+		days_remove = 30
+		cost = 35
 		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
 			annex_country = {
 				target = OMA
 				transfer_troops = yes
 			}
 		}
 	}
-	SAU_integrate_kuwait = {
+	SAU_make_the_kuwaiti_port_one_of_ours = {
 		icon = GFX_decision_generic_confiscation
 		allowed = {
 			original_tag =  SAU
 		}
-
 		available = {
 			KUW = {
 				is_puppet_of = ROOT
 				is_ai = yes
-
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
 			}
 		}
 		
@@ -246,14 +381,525 @@ SAU_decs_cat = {
 				is_puppet_of = ROOT
 			}
 		}
-
+		days_remove = 30
+		cost = 35
 		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
 			annex_country = {
 				target = KUW
 				transfer_troops = yes
 			}
 		}
 	}
+	SAU_integrate_BHR = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			BHR = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			BHR = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			annex_country = {
+				target = BHR
+				transfer_troops = yes
+			}
+		}
+	}	
+	SAU_integrate_QAT = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			QAT = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			QAT = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			annex_country = {
+				target = QAT
+				transfer_troops = yes
+			}
+		}
+	}
+	SAU_incorporate_south_arabia = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			FSA = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			FSA = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			annex_country = {
+				target = FSA
+				transfer_troops = yes
+			}
+		}
+	}
+	SAU_merge_iraqi_lands_with_our_administrative_provinces = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+		available = {
+			IRQ = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			IRQ = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			annex_country = {
+				target = IRQ
+				transfer_troops = yes
+			}
+			IF = {
+				LIMIT = {
+					OR={
+						has_government = fascism
+						has_government = neutrality
+					}
+				}
+				add_country_leader_trait = AFG_lord_of_baghdad
+			}
+		}
+	}
+	SAU_incorporate_LEB = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			LEB = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			LEB = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			annex_country = {
+				target = LEB
+				transfer_troops = yes
+			}
+		}
+	}	
+	SAU_incorporate_KUR = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			KUR = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			KUR = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			KUR = {
+				every_core_state = {
+					add_core_of = SAU
+				}	
+			}
+			annex_country = {
+				target = KUR
+				transfer_troops = yes
+			}
+		}
+	}
+	SAU_assimilate_jordan = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			JOR = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			JOR = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			annex_country = {
+				target = JOR
+				transfer_troops = yes
+			}
+		}
+	}
+	SAU_liberate_the_palestinian_people = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+
+		available = {
+			PAL = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			PAL = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			annex_country = {
+				target = PAL
+				transfer_troops = yes
+			}
+			IF = {
+				LIMIT = {
+					OR={
+						has_government = fascism
+						has_government = neutrality
+					}
+				}
+				add_country_leader_trait = AFG_savior_of_the_holy_lands_trait
+			}			
+		}
+	}
+	SAU_integrate_syria= {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+		available = {
+			SYR = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			SYR = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			annex_country = {
+				target = SYR
+				transfer_troops = yes
+			}
+		}
+	}
+	SAU_reorganize_the_trucial_states = {
+		icon = GFX_decision_generic_confiscation
+		allowed = {
+			original_tag =  SAU
+		}
+		available = {
+			UAE = {
+				is_puppet_of = ROOT
+				is_ai = yes
+			}
+			NOT ={
+				has_country_flag = SAU_integration_flag
+			}
+			IF = {
+				LIMIT = {
+					has_government = democratic
+				}
+				has_country_flag = SAU_integrating_republics
+			}
+		}
+		
+		visible = {
+			UAE = {
+				is_puppet_of = ROOT
+			}
+		}
+		days_remove = 30
+		cost = 35
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_integration_flag
+			}
+		}
+		remove_effect = {
+			annex_country = {
+				target = UAE
+				transfer_troops = yes
+			}
+		}
+	}
+	SAU_purge_corruption= {
+		icon = GFX_decision_SWI_no_elected_president
+		allowed = {
+			original_tag =  SAU
+		}
+		cost = 75
+
+		available = {
+			has_idea = SAU_corruption
+			OR = {
+				has_completed_focus = SAU_religious_policing
+				has_completed_focus = SAU_strengthen_royal_guard
+				has_completed_focus = SAU_toe_the_party_line
+				has_completed_focus = SAU_the_anti_stalinist_purge
+			}
+		}
+		
+		visible = {
+			has_idea = SAU_corruption
+		}
+
+		complete_effect = {
+			remove_ideas = SAU_corruption
+		}
+	}
+	
+	SAU_negotiate_with_imperialists = { 
+        icon = GFX_decision_eng_propaganda_campaigns
+        priority = 50
+        targets = {ENG FRA}
+		targets_dynamic = no
+        target_trigger = {
+            FROM = {
+                has_war_with = ROOT
+            }
+			is_major = yes
+        }
+        available = {
+            surrender_progress < 0.2
+            war_length_with = {
+                tag = FROM
+                months > 3
+            }
+        }
+		visible = {
+			OR = {
+				has_completed_focus = SAU_strike_west
+				has_completed_focus = SAU_secure_security_from_the_med
+			}
+		}
+        cost = 10
+
+        fire_only_once = yes
+        targets_dynamic = yes
+        complete_effect = { 
+			custom_effect_tooltip = TIB_negotiate_with_imperialists_tt
+			any_controlled_state = {
+				LIMIT = {
+					is_core_of = SAU
+					OR = {
+						is_owned_by = ENG
+						is_owned_by = FRA
+						is_owned_by = SYR
+						is_owned_by = LEB
+
+					}
+				}
+				transfer_state_to = SAU
+			}
+            start_peace_conference = {
+                tag = FROM
+                score_factor = 0.0
+            }
+        }
+    }
 }
 
 SAU_border_wars = { #works, still got it baby
@@ -291,6 +937,7 @@ SAU_border_wars = { #works, still got it baby
 				original_tag = SAU
 				has_completed_focus = SAU_intervene_in_the_levant
 			}
+			cost = 25
 
 			days_remove = 5
 			455 = {
@@ -357,6 +1004,7 @@ SAU_border_wars = { #works, still got it baby
 				original_tag = SAU
 				has_completed_focus = SAU_intervene_in_the_levant
 			}
+			cost = 25
 
 			days_remove = 5
 			454 = {
@@ -407,6 +1055,8 @@ SAU_border_wars = { #works, still got it baby
 					}
 				}
 			}
+			cost = 25
+
 			available = {
 				656 = {
 					any_neighbor_state = {
@@ -473,6 +1123,7 @@ SAU_border_wars = { #works, still got it baby
 					}
 				}
 			}
+			cost = 25
 			available = {
 				765 = {
 					any_neighbor_state = {
@@ -531,6 +1182,7 @@ SAU_border_wars = { #works, still got it baby
 				highlight_state_targets = { 			
 				state = 658 }
 			}
+			cost = 25
 			allowed = {
 				original_tag = SAU
 				NOT = {
@@ -597,6 +1249,7 @@ SAU_border_wars = { #works, still got it baby
 				highlight_state_targets = { 			
 				state = 1015 }
 			}
+			cost = 25
 			allowed = {
 				original_tag = SAU
 				NOT = {
@@ -662,6 +1315,7 @@ SAU_border_wars = { #works, still got it baby
 				highlight_state_targets = { 			
 				state = 1016 }
 			}
+			cost = 25
 			allowed = {
 				original_tag = SAU
 				NOT = {
@@ -727,6 +1381,7 @@ SAU_border_wars = { #works, still got it baby
 				highlight_state_targets = { 			
 				state = 294 }
 			}
+			cost = 25
 			allowed = {
 				original_tag = SAU
 				NOT = {
@@ -740,7 +1395,7 @@ SAU_border_wars = { #works, still got it baby
 					1015 = {
 						is_fully_controlled_by = SAU
 					}
-				}
+				
 				has_border_war = no
 				NOT = {
 					controls_state = 294
@@ -787,14 +1442,11 @@ SAU_border_wars = { #works, still got it baby
 	}				
 }
 
-SAU_extremist_action = { #doesnt work
+SAU_extremist_action = { 
 	SAU_religious_placation_decision_of_FROM = {
 		state_target = yes
 		target_root_trigger = {
-			OR = {
-				has_completed_focus = TIB_fund_monastaries
-				has_completed_focus = TIB_monastaries_for_the_people
-			}
+			has_completed_focus = SAU_religious_placation
 		}
 		target_trigger = {
 			FROM = {
@@ -813,13 +1465,66 @@ SAU_extremist_action = { #doesnt work
 			}
 		}
 		on_map_mode = map_and_decisions_view
-		icon = GFX_decision_SOV_place_hq
+		icon = GFX_decision_hol_attract_foreign_investors
 		days_remove = 25
 		cost = 20
 		complete_effect = {
 			hidden_effect = {
 				set_country_flag = SAU_investing_in_regional_placation
 			}
+
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.01
+				}
+
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = SAU_investing_in_regional_placation
+			}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.03
+				}
+
+			from = {			
+				add_dynamic_modifier = { modifier = islamists_placated}
+			}
+		}
+	}
+	SAU_religious_suppression_decision_of_FROM = {
+		state_target = yes
+		target_root_trigger = {
+			has_country_flag = SAU_muslim_commie_state
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = SAU
+				is_core_of = SAU
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = islamists_placated
+					}
+				}
+			}
+		}
+		available = {
+			NOT = {
+				has_country_flag = SAU_investing_in_regional_suppression
+			}
+		has_completed_focus = SAU_squash_counter_coups
+
+		}
+		on_map_mode = map_and_decisions_view
+		icon = GFX_decision_generic_police_action
+		days_remove = 25
+		cost = 20
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = SAU_investing_in_regional_suppression
+			}
+
 			add_popularity = {
 				ideology = fascism
 				popularity = -0.01
@@ -827,22 +1532,22 @@ SAU_extremist_action = { #doesnt work
 		}
 		remove_effect = {
 			hidden_effect = {
-				clr_country_flag = SAU_investing_in_regional_placation
+				clr_country_flag = SAU_investing_in_regional_suppression
 			}
 			add_popularity = {
 				ideology = fascism
-				popularity = -0.03
+				popularity = -0.04
 			}
+			
 			from = {			
 				add_dynamic_modifier = { modifier = islamists_placated}
 			}
 		}
 	}
-	
 	SAU_religious_alignment_decision_of_FROM = {
 		state_target = yes
 		target_root_trigger = {
-			has_completed_focus = SAU_foster_fanaticism
+			has_completed_focus = SAU_ensure_religious_alignment
 		}
 		target_trigger = {
 			FROM = {
@@ -861,7 +1566,7 @@ SAU_extremist_action = { #doesnt work
 			}
 		}
 		on_map_mode = map_and_decisions_view
-		icon = GFX_decision_SOV_place_hq
+		icon = GFX_decision_faction_tur_traditionalist
 		days_remove = 30
 		cost = 35
 		complete_effect = {
@@ -886,7 +1591,46 @@ SAU_extremist_action = { #doesnt work
 			}
 		}
 	}
+	SAU_set_junta ={
+		icon = GFX_decision_SWE_set_army_budget
+		allowed = {
+			original_tag =  SAU
+		}
+		cost = 55
+		fire_only_once = yes
+
+		available = {
+			has_war_support > 0.5
+			divisions_in_state = {
+				type = infantry
+				size > 1
+				state = 292
+			}
+		}
+		
+		visible = {
+			has_completed_focus = SAU_a_change_in_government
+			NOT = {
+				OR = {
+					has_completed_focus = SAU_a_religious_state
+					has_completed_focus = SAU_disband_the_shura_council
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				set_global_flag = SAU_junta_flag
+			}
+			custom_effect_tooltip = SAU_you_will_keep_this_leader_and_become_a_military_junta_tt
+			swap_ideas = {
+				remove_idea = SAU_shia_minorities
+				add_idea = SAU_secular_politics
+			}			
+		}
+	}
 }
+
 #works:
 SAU_laissez_faire_cat = {
 	SAU_land_owners_finding_funding  = {
@@ -1144,7 +1888,198 @@ SAU_laissez_faire_cat = {
 		}
 	}
 }
+#doesnt work
+SAU_mine_the_arabian_shield = {
+	SAU_intensify_gold_mining = { 
 
+		icon = GFX_decision_generic_fundraising
+
+		allowed = {
+
+		}
+		fire_only_once = yes
+
+		available = {
+			has_ideas = SAU_gold
+			num_of_civilian_factories_available_for_projects > 1
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 859
+			}
+		}
+
+		visible = {
+			has_completed_focus = SAU_mine_the_arabian_shield
+
+		}
+
+		cost = 25
+		days_remove = 30
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+
+
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = SAU_gold
+				add_idea = SAU_gold2
+			}	
+		}
+
+	}
+	SAU_develop_arabian_smelting = { #855
+
+		icon = GFX_decision_steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			owns_state = 855
+			controls_state = 855
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 855
+			}
+		}
+
+		visible = {
+			has_completed_focus = SAU_mine_the_arabian_shield
+			owns_state = 855
+			controls_state = 855
+			855 = {
+				NOT = {
+					has_state_flag = {
+						flag = tabuk_steel_developed
+						value = 4
+					}
+				}
+			}
+		}
+
+		cost = 25
+		days_remove =30
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+
+		remove_effect = {
+			855 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = tabuk_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = tabuk_steel_developed
+						value = 2
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = tabuk_steel_developed
+						value = 2
+					}
+				}
+			}
+			855 = {
+				add_resource = {
+					type = steel
+					amount = 10
+				}
+			}
+		}
+
+		complete_effect = {
+
+		}
+	}	
+	SAU_explore_the_bounty_of_jawf = { #854
+
+		icon = GFX_decision_tungsten
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation1
+			owns_state = 854
+			controls_state = 854
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 854
+			}
+		}
+
+		visible = {
+			has_completed_focus = SAU_mine_the_arabian_shield
+			owns_state = 854
+			controls_state = 854
+			854 = {
+				NOT = {
+					has_state_flag = {
+						flag = jawf_tungsten_dev
+						value = 4
+					}
+				}
+			}
+		}
+
+		cost = 25
+		days_remove =30
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+
+		remove_effect = {
+			854 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = jawf_tungsten_dev
+						}
+					}
+					set_state_flag = {
+						flag = jawf_tungsten_dev
+						value = 2
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = jawf_tungsten_dev
+						value = 2
+					}
+				}
+			}
+			854 = {
+				add_resource = {
+					type = tungsten
+					amount = 6
+				}
+			}
+		}
+
+		complete_effect = {
+
+		}
+	}	
+}
 #dont work:
 SAU_promote_immigration_cat = {
 
@@ -1651,205 +2586,962 @@ SAU_promote_immigration_cat = {
 		}
 	}
 }
-#dont work:
-SAU_collab_foreign_ally = {
-   SAU_collab_with_foreign_ally = {
+#works
+SAU_command_economic_direction = {
 
-		icon = GFX_decision_foreign_ally_conquer_china
-		fire_only_once = yes
-		allowed = {
-			original_tag = SAU
-		}
-		highlight_states = {
-   
+	SAU_command_direction = {
+		icon = GFX_decision_generic_human_torpedo
+		fire_only_once = no
+		visible = {
+			OR = {
+				has_idea = SAU_commanded_civ_direction
+				has_idea = SAU_commanded_mil_direction
+			}
 		}
 		available = {
-			any_country = {
-				has_war_together_with = SAU
-			
-				has_opinion = {
-					target = SAU
-					value > 39
+			OR = {
+				has_idea = SAU_commanded_civ_direction
+				has_idea = SAU_commanded_mil_direction
+			}
+		}
+		days_remove = 5
+
+		cost = 50
+
+
+		complete_effect = {
+
+		}
+
+		remove_effect = {
+			IF = {
+				LIMIT = {
+					has_idea = SAU_commanded_civ_direction
 				}
-			}
-			NOT = {
-				has_global_flag = SAU_working_with_foreign_ally_flag
-			}
-		}
-
-		visible = {
-			original_tag = SAU
-
-		}
-
-		days_remove = 30
-
-
-		
-		complete_effect = {
-			set_global_flag = SAU_working_with_foreign_ally_flag
-		}
-
-		remove_effect = {
-			hidden_effect = {
-				clr_global_flag = SAU_working_with_foreign_ally_flag
-			}
-			add_command_power = 100
-			add_war_support = 0.1
-			add_stability = 0.1
-			add_political_power = 100
-
-        }
-
-	}
-   SAU_foreign_allyanese_fund_raise = {
-
-		icon = GFX_decision_generic_fundraising
-		fire_only_once = yes
-		allowed = {
-			original_tag = SAU
-		}
-		highlight_states = {
-   
-		}
-		available = {
-			any_country = {
-				has_war_together_with = SAU
-			
-				has_opinion = {
-					target = SAU
-					value > 39
+				swap_ideas = {
+					remove_idea = SAU_commanded_civ_direction
+					add_idea = SAU_commanded_mil_direction
 				}
-			}
-			NOT = {
-				has_global_flag = SAU_working_with_foreign_ally_flag
-			}
-		}
-
-		visible = {
-			original_tag = SAU
-	
-		}
-
-		days_remove = 60
-
-
-		
-		complete_effect = {
-			set_global_flag = SAU_working_with_foreign_ally_flag
-		}
-
-		remove_effect = {
-			hidden_effect = {
-				clr_global_flag = SAU_working_with_foreign_ally_flag
-			}
-			add_offsite_building = { type = arms_factory level = 2}
-			add_offsite_building = { type = industrial_complex level = 2 }
-
-
-
-        }
-
-	}
-   SAU_foreign_ally_immigration = {
-
-		icon = GFX_decision_hol_radio_oranje
-		fire_only_once = yes
-		allowed = {
-			original_tag = SAU
-		}
-		highlight_states = {
-   
-		}
-		available = {
-			any_country = {
-				has_war_together_with = SAU
-			
-			has_opinion = {
-				target = SAU
-				value > 39
-			}
-			}
-			NOT = {
-				has_global_flag = SAU_working_with_foreign_ally_flag
-			}
-		}
-
-		visible = {
-			original_tag = SAU
-	
-		}
-
-		days_remove = 120
-
-
-		
-		complete_effect = {
-			set_global_flag = SAU_working_with_foreign_ally_flag
-		}
-
-		remove_effect = {
-			hidden_effect = {
-				clr_global_flag = SAU_working_with_foreign_ally_flag
-			}
-			add_manpower = 30000
-			every_core_state = {
-				add_manpower = 50000
-			}
-
-        }
-
-	}
-   SAU_work_with_foreign_ally_orgs = {
-
-		icon = GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
-		fire_only_once = yes
-		allowed = {
-			original_tag = SAU
-		}
-		highlight_states = {
-   
-		}
-		available = {
-			any_country = {
-				has_war_together_with = SAU
-			
-			has_opinion = {
-				target = SAU
-				value > 39
-			}
-			}
-			NOT = {
-				has_global_flag = SAU_working_with_foreign_ally_flag
-			}
-		}
-
-		visible = {
-			original_tag = SAU
-	
-		}
-
-		days_remove = 60
-
-		complete_effect = {
-			set_global_flag = SAU_working_with_foreign_ally_flag
-		}
-
-		remove_effect = {
-			hidden_effect = {
-				clr_global_flag = SAU_working_with_foreign_ally_flag
-				SAU = { 
-					set_country_flag = SAU_working_with_foreign_ally_org_flag
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = SAU_commanded_mil_direction
 				}
+				swap_ideas = {
+					remove_idea = SAU_commanded_mil_direction
+					add_idea = SAU_commanded_civ_direction
+				}	
 			}
-			army_experience = 45
-			navy_experience = 35
-			air_experience = 35
-        }
-
-	}
+		}
+	}	
 }
 
+SAU_international_liberation_front = {
+	SAU_demand_autonomy_and_alignment = {
+		target_root_trigger = {
+			has_completed_focus = SAU_bolster_local_and_regional_movements
+		}
+		targets = { BHR QAT FSA OMA YEM IRQ SYR LEB JOR PAL UAE KUW}
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = {
+				has_idea = SAU_meddling_arms
+				NOT = {
+					has_country_flag = SAU_tried_demand_things
+					is_puppet_of = SAU
+				}
+			}
+		}
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 20
+		available = {
+			FROM = {
+				has_idea = SAU_meddling_arms
+				IF = {
+					LIMIT = {
+						has_government = democratic
+					}
+					communism > party_popularity@democratic
+
+				}ELSE_IF = {
+					LIMIT = {
+						has_government = fascism
+					}
+					communism > party_popularity@fascism
+
+				}ELSE_IF = {
+					LIMIT = {
+						has_government = neutrality
+					}
+					communism > party_popularity@neutrality
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = SAU_bolster_local_and_regional_movements
+		}
+		complete_effect = {
+			FROM = {
+				hidden_effect = {
+					set_country_flag = SAU_tried_demand_things
+				}
+				if = {
+					limit = {
+						is_subject = yes
+					}
+					overlord = {
+						country_event = SAU_commies_event.4
+						
+					}
+				}ELSE = {
+					country_event = generic.20
+				}
+			}
+		}
+	}
+	SAU_bolster_south_yemeni_independence_fighters = {
+			icon = GFX_decision_generic_welfare
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				country_exists = FSA
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 25
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 499 }
+			}
+			custom_cost_text = decision_cost_ie_500
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+				
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -500
+					}
+				}
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				FSA = {
+					add_ideas = SAU_meddling_arms
+				
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.05
+				}
+				}
+			}
+	}
+	SAU_bolster_trucial_tribal_fighters = {
+			icon = GFX_decision_generic_reorganize_irregulars
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				country_exists = UAE
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 25
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 499 }
+			}
+			custom_cost_text = decision_cost_ie_500
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+				
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -500
+					}
+				}
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				UAE = {
+					add_ideas = SAU_meddling_arms
+				
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.05
+				}
+				}
+			}
+	}
+	SAU_bolster_qatari_anti-western_fighters = {
+			icon = GFX_decision_hol_exchange_intelligence_data
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				country_exists = QAT
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 25
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 499 }
+			}
+			custom_cost_text = decision_cost_ie_500
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+				
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -500
+					}
+				}
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				QAT = {
+					add_ideas = SAU_meddling_arms
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.05
+				}
+				}
+			}
+	}		
+	SAU_enable_bahrain_communists = {
+			icon = GFX_decision_generic_motorized
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				country_exists = BHR
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 25
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 499 }
+			}
+			custom_cost_text = decision_cost_ie_500
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+				
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -500
+					}
+				}
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				ENG = {
+					end_puppet = BHR
+				}
+				BHR = {
+					set_politics = {
+						ruling_party = communism
+						elections_allowed = no
+						last_election = "1935.12.17"
+						long_name = "National Liberation Party - Bahrain"
+						name = "NLP-B"
+					}
+					add_popularity = {
+						ideology = ROOT
+						popularity = 0.15
+					}
+				}
+			}
+	}	
+	SAU_strengthen_omani_liberation_movement = {
+			icon = GFX_decision_generic_prepare_civil_war
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				country_exists = OMA
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 25
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 499 }
+			}
+			custom_cost_text = decision_cost_ie_500
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+				
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -500
+					}
+				}
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				OMA = {
+					add_ideas = SAU_meddling_arms
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.05
+				}
+				}
+			}
+	}
+	SAU_strengthen_kuw_anti_monarchists = {
+			icon = GFX_decision_eng_support_imperialist_coup
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				country_exists = KUW
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 25
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 499 }
+			}
+			custom_cost_text = decision_cost_ie_500
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+				
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -500
+					}
+				}
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				KUW = {
+					add_ideas = SAU_meddling_arms
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.05
+				}
+				}
+			}
+	}	
+	SAU_support_yemeni_coup = {
+			icon = GFX_decision_generic_scorched_earth
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				country_exists = YEM
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 25
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 999 }
+			}
+			custom_cost_text = decision_cost_ie_1000
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+				
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -1000
+					}
+				}
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				YEM = {
+					kill_ideology_leader = neutrality
+					add_ideas = SAU_recent_coup
+				}
+				
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = YEM
+				}
+			}
+	}	
+	SAU_demand_arabian_autonomy = {
+			icon = GFX_decision_generic_independence
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 75
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 999 }
+			}
+			custom_cost_text = decision_cost_ie_1000
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+				
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -1000
+					}
+				}
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				ENG = {
+					country_event = SAU_commies_event.1
+				}
+			}
+	}		
+	SAU_ally_the_kurdish_irq = {
+			icon = GFX_decision_faction_tur_kurdish
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+			}
+			war_with_target_on_complete = yes
+
+			available = {
+				country_exists = IRQ
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+				has_completed_focus = SAU_ally_the_kurds
+				IRQ = {
+					is_ai = yes
+					communism > 0.3
+				}
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_ally_the_kurds
+
+			}
+			days_remove = 50
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 999 }
+			}
+			custom_cost_text = decision_cost_ie_1000
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_picked_kurdish_side_flag
+					set_country_flag = SAU_arming_communist_rebels_flag
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -1000
+					}
+				}
+				unlock_decision_tooltip = SAU_liberate_kurdish_in_persia
+				unlock_decision_tooltip = SAU_strengthen_kurdish_resistance_in_turkey
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				IRQ = {
+					kill_ideology_leader = neutrality
+					release = KUR
+				}
+				puppet = KUR
+				IF = {
+					LIMIT={
+						NOT = {
+							IRQ = {
+								is_puppet_of = SAU
+							}
+						}
+					}
+					IRQ = {
+						declare_war_on = {
+							target = KUR
+							type = annex_everything
+						}
+					}
+				}
+			}
+	}	
+
+	SAU_liberate_kurdish_in_persia = {
+			icon = GFX_decision_faction_tur_kurdish
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+			}
+			war_with_target_on_complete = yes
+
+			available = {
+				country_exists = PER
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+				has_completed_focus = SAU_ally_the_kurds
+				PER = {
+					is_ai = yes
+					communism < 0.4
+					has_stability < 0.7
+					IF = {
+						LIMIT = {
+							NOT={country_exists = KUR}
+						}
+						has_ideas = PER_kurdistan_resistance_idea
+					}
+				}
+
+			}
+			visible = {
+				original_tag = SAU
+				has_country_flag = SAU_picked_kurdish_side_flag
+					
+			}
+
+			days_remove = 50
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 999 }
+			}
+			custom_cost_text = decision_cost_ie_1000
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -1000
+					}
+				}
+
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				IF = {
+					LIMIT = {
+						country_exists = KUR
+					}
+						419 = {
+							transfer_state_to = KUR
+						}
+						1000 = {
+							transfer_state_to = KUR
+						}
+						1001 = {
+							transfer_state_to = KUR
+						}
+						421 = {
+							transfer_state_to = KUR
+						}
+						PER = {
+							declare_war_on = {
+								target = KUR
+								type = annex_everything
+							}
+						}
+				}ELSE = {
+					PER = {
+						release = KUR
+					}
+					puppet = KUR
+					PER = {					
+						declare_war_on = {
+							target = KUR
+							type = annex_everything
+						}
+					}
+				}
+			}
+	}		
+	SAU_strengthen_kurdish_resistance_in_turkey  = {
+			icon = GFX_decision_faction_tur_kurdish
+			allowed = {
+				original_tag = SAU
+			}
+			war_with_target_on_complete = yes
+
+			available = {
+				country_exists = PER
+				NOT = {
+					has_country_flag = SAU_arming_communist_rebels_flag
+				}
+				has_completed_focus = SAU_ally_the_kurds
+				TUR = {
+					communism < 0.4
+
+						any_owned_state = {
+							OR = {
+								has_dynamic_modifier = {
+									modifier = kurdish_agitation
+								}
+								has_dynamic_modifier = {
+									modifier = kurdish_separatism
+								}				
+								has_dynamic_modifier = {
+									modifier = separatist_fatigue
+								}			
+								has_dynamic_modifier = {
+									modifier = kurdish_rebellion
+								}		
+							}	
+						}
+					
+				}
+
+			}
+			visible = {
+				original_tag = SAU
+				has_country_flag = SAU_picked_kurdish_side_flag
+					
+			}
+
+			days_remove = 50
+			custom_cost_trigger = {
+				has_equipment = { infantry_equipment > 499 }
+			}
+			custom_cost_text = decision_cost_ie_500
+			complete_effect = {
+				hidden_effect = {
+					set_country_flag = SAU_arming_communist_rebels_flag
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -500
+					}
+				}
+
+			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				TUR = {
+					every_owned_state = {
+						LIMIT = {
+							has_dynamic_modifier = {
+								modifier = kurdish_agitation
+							}							
+						}
+						add_resistance = 25
+					}
+					every_owned_state = {
+						LIMIT = {
+							has_dynamic_modifier = {
+								modifier = kurdish_separatism
+							}							
+						}
+						add_resistance = 25
+					}
+					every_owned_state = {
+						LIMIT = {
+							has_dynamic_modifier = {
+								modifier = kurdish_rebellion
+							}							
+						}
+						add_resistance = 40
+					}
+					every_owned_state = {
+						LIMIT = {
+							has_dynamic_modifier = {
+								modifier = separatist_fatigue
+							}							
+						}
+						add_resistance = 30
+					}
+					add_stability = -0.05
+				}
+
+			}
+	}
+	SAU_unify_the_kurd_movement  = {
+		fire_only_once = yes
+		icon = GFX_decision_faction_tur_kurdish
+		allowed = {
+			original_tag = SAU
+		}
+		available = {
+			has_completed_focus = SAU_ally_the_kurds
+			AND = {
+				any_country_with_original_tag	={
+					original_tag_to_check = KUR
+					NOT = {
+						is_puppet_of = SAU
+					}
+				}
+				any_country_with_original_tag	={
+					original_tag_to_check = KUR
+					is_puppet_of = SAU				
+				}
+			}
+		}
+		visible = {
+			original_tag = SAU
+			has_completed_focus = SAU_ally_the_kurds
+			has_country_flag = SAU_picked_kurdish_side_flag
+		}
+
+		cost = 25
+		complete_effect = {
+			352 = {
+				owner = {
+					ROOT={
+						add_to_war = {
+							targeted_alliance = PREV
+							enemy = TUR
+						}
+					}
+				}
+			}
+			352 = {
+				owner = {
+					KUR = {
+						annex_country = {
+							target = PREV
+							transfer_troops = yes
+						}
+						add_to_war = {
+							targeted_alliance = ROOT
+							enemy = TUR
+						}
+					}
+
+				}
+			}
+		}
+	}
+	SAU_demand_autonomy_and_alignment = {
+		target_root_trigger = {
+			has_completed_focus = SAU_bolster_local_and_regional_movements
+		}
+		targets = { BHR QAT FSA OMA YEM IRQ SYR LEB JOR PAL UAE}
+		targets_dynamic = yes
+		target_trigger = {
+			FROM = {
+				has_idea = SAU_meddling_arms
+				NOT = {
+					has_country_flag = SAU_tried_demand_things
+				}
+			}
+		}
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 20
+		available = {
+			FROM = {
+				has_idea = SAU_meddling_arms
+				IF = {
+					LIMIT = {
+						has_government = democratic
+					}
+					communism > party_popularity@democratic
+
+				}ELSE_IF = {
+					LIMIT = {
+						has_government = fascism
+					}
+					communism > party_popularity@fascism
+
+				}ELSE_IF = {
+					LIMIT = {
+						has_government = neutrality
+					}
+					communism > party_popularity@neutrality
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = SAU_bolster_local_and_regional_movements
+		}
+		complete_effect = {
+			FROM = {
+				hidden_effect = {
+					set_country_flag = SAU_tried_demand_things
+				}
+				if = {
+					limit = {
+						is_subject = yes
+					}
+					overlord = {
+						country_event = SAU_commies_event.4
+						
+					}
+				}ELSE = {
+					country_event = generic.20
+				}
+			}
+		}
+	}
+}		
+SAU_national_state_radio = {
+	SAU_boost_war_support = {
+		icon = GFX_decision_generic_military
+	
+		allowed = {
+			original_tag = SAU
+		}
+	
+		available = {
+			NOT = { has_country_flag = SAU_radio_boost_active }
+		}
+		
+		visible = {
+			has_completed_focus = SAU_state_media
+			has_government = communism
+		}
+	    #on_map_mode = map_and_decisions_view 
+		cost = 30
+		
+		fire_only_once = no
+		days_remove = 30
+		complete_effect = {
+			set_country_flag = SAU_radio_boost_active
+		}
+		remove_effect = {
+			clr_country_flag = SAU_radio_boost_active
+			add_war_support = 0.07
+			add_manpower = 700
+		}
+	}
+
+	SAU_promote_government_policy = {
+		icon = GFX_decision_hol_radio_oranje
+	
+		allowed = {
+			original_tag = SAU
+
+		}
+	
+		available = {
+			NOT = { has_country_flag = SAU_radio_boost_active  }
+		}
+		
+		visible = {
+			has_completed_focus = SAU_state_media
+			has_government = communism
+		}
+	    #on_map_mode = map_and_decisions_view 
+		cost = 30
+		
+		fire_only_once = no
+		days_remove = 30
+		complete_effect = {
+			set_country_flag = SAU_radio_boost_active
+		}
+		remove_effect = {
+			clr_country_flag = SAU_radio_boost_active
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05	
+			}
+		}
+	}
+
+	SAU_boost_stability = {
+		icon = GFX_decision_generic_political_address
+	
+		allowed = {
+			original_tag = SAU
+
+		}
+	
+		available = {
+			NOT = { has_country_flag = SAU_radio_boost_active  }
+		}
+		
+		visible = {
+			has_completed_focus = SAU_state_media
+			has_government = communism
+		}
+	    #on_map_mode = map_and_decisions_view 
+		cost = 30
+		
+		fire_only_once = no
+		days_remove = 30
+		complete_effect = {
+			set_country_flag = SAU_radio_boost_active
+		}
+		remove_effect = {
+			clr_country_flag = SAU_radio_boost_active
+			add_stability = 0.07
+		}
+	}
+}
+#works
 SAU_naval_decisions = {
 	SAU_purchase_dreadnoughts_usa = {
 		cost = 50
@@ -2586,7 +4278,7 @@ SAU_naval_decisions = {
 			}
 			IF = {
 				LIMIT = {
-					has_global_flag = SAU_granted_iranian_support
+					has_global_flag = SAU_working_with_iran_flag
 				}
 				ships_in_area = {
 					area = 203
@@ -2623,9 +4315,1594 @@ SAU_naval_decisions = {
 						modifier = embargoed_us
 					}	
 				}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = SAU_if_iranian_support_less_cost_in_ships_tt
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_global_flag = SAU_working_with_iran_flag
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = SAU_if_iranian_support_less_cost_in_ships_tt
+			}
+
 		}
 	}
+
+}
+
+#works
+SAU_working_together = {
+	SAU_collab_with_allies = {
+		COST = 50
+
+		icon = GFX_decision_CHL_grant_full_rights_to_the_mapuche
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+   
+		}
+		available = {
+            any_allied_country = {
+                OR = {    
+                    is_ai = NO
+                    has_government = ROOT
+                }            }
+			NOT = {
+				has_global_flag = SAU_working_with_an_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_global_flag = SAU_arabian_team_collaboration
+
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_an_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_an_ally_flag
+			}
+			add_command_power = 100
+			add_war_support = 0.1
+			add_stability = 0.1
+			add_political_power = 100
+			all_allied_country	{
+                PREV = {give_military_access = SAU}
+            } 
+			every_allied_country = {
+				random_select_amount = 2
+				add_war_support = 0.1
+				add_stability = 0.1
+			}
+			every_allied_country = {
+				random_select_amount = 2
+				add_command_power = 100
+				add_war_support = 0.1
+			}
+				every_allied_country = {
+				random_select_amount = 2
+				add_political_power = 100
+			}
+        }
+
+	}
+    SAU_allied_fund_raise = {
+		COST = 50
+
+		icon = GFX_decision_generic_fundraising
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+   
+		}
+		available = {
+            any_allied_country = {
+                OR = {    
+                    is_ai = NO
+                    has_government = ROOT
+                }
+            
+            }
+			NOT = {
+				has_global_flag = SAU_working_with_an_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_global_flag = SAU_arabian_team_collaboration
+
+		}
+
+		days_remove = 60
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_an_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_an_ally_flag
+			}
+			add_offsite_building = { type = arms_factory level = 2}
+			add_offsite_building = { type = industrial_complex level = 2 }
+			every_allied_country = {
+				random_select_amount = 2
+				add_offsite_building = { type = arms_factory level = 1}
+
+			}
+        }
+
+	}
+    SAU_allied_immigration = {
+		icon = GFX_decision_hol_radio_oranje
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+   
+		}
+		available = {
+            any_allied_country = {
+                OR = {    
+                    is_ai = NO
+                    has_government = ROOT
+                }
+            }
+			NOT = {
+				has_global_flag = SAU_working_with_an_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+				has_global_flag = SAU_arabian_team_collaboration
+		}
+
+		days_remove = 120
+
+
+				COST = 50
+
+		complete_effect = {
+			set_global_flag = SAU_working_with_an_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_an_ally_flag
+			}
+			add_manpower = 35200
+			every_core_state = {
+					LIMIT = {
+						is_owned_by = SAU
+					}
+				add_manpower = 65000
+			}
+			every_allied_country = {
+				random_select_amount = 2
+				every_core_state = {
+					LIMIT = {
+						is_owned_by = SAU
+					}
+					add_manpower = 25000
+				}
+			}
+        }
+
+	}
+    SAU_work_with_allied_orgs = {
+		COST = 50
+		icon = GFX_decision_eng_install_government
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		COST = 50
+
+		available = {
+            any_allied_country = {
+                OR = {    
+                    is_ai = NO
+                    has_government = ROOT
+                }
+            }
+			NOT = {
+				has_global_flag = SAU_working_with_an_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_global_flag = SAU_arabian_team_collaboration
+
+		}
+
+		days_remove = 60
+
+		complete_effect = {
+			set_global_flag = SAU_working_with_an_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_an_ally_flag
+				SAU = { 
+					set_country_flag = SAU_working_with_allied_org_flag
+				}
+			}
+			army_experience = 55
+			navy_experience = 55
+			air_experience = 55
+			every_allied_country = {
+				random_select_amount = 2
+				army_experience = 35
+				navy_experience = 25
+				air_experience = 25
+			}
+        }
+
+	}
+	SAU_experimental_research = {
+		icon = GFX_decision_generic_research
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		COST = 50
+
+		available = {
+			num_faction_members > 2
+            any_allied_country = {
+                OR = {    
+                    is_ai = NO
+                    has_government = ROOT
+                }
+            }
+			NOT = {
+				has_global_flag = SAU_working_with_an_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_global_flag = SAU_arabian_team_collaboration
+
+		}
+
+		days_remove = 60
+
+		complete_effect = {
+			set_global_flag = SAU_working_with_an_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_an_ally_flag
+				SAU = { 
+					set_country_flag = SAU_experimental_research_stations_buily_flag
+				}
+			}
+			random_controlled_state = {
+    			prioritize = { 292 679 } #optional
+				construct_building_in_random_province = {
+					land_facility = 1
+				}
+			}
+			every_allied_country = {
+				random_select_amount = 2
+				random_controlled_state = {
+					construct_building_in_random_province = {
+						land_facility = 1
+					}
+				}
+			}
+        }
+
+	}
+	SAU_working_contracts = {
+		icon = GFX_decision_hol_attract_foreign_investors
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		COST = 50
+
+		available = {
+			num_faction_members > 3
+            any_allied_country = {
+                OR = {    
+                    is_ai = NO
+                    has_government = ROOT
+                }
+            }
+			NOT = {
+				has_global_flag = SAU_working_with_an_ally_flag
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_global_flag = SAU_arabian_team_collaboration
+
+		}
+
+		days_remove = 60
+
+		complete_effect = {
+			set_global_flag = SAU_working_with_an_ally_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_an_ally_flag
+				SAU = { 
+					set_country_flag = SAU_working_contracts
+				}
+			}
+			every_core_state = {
+					LIMIT = {
+						is_owned_by = SAU
+					}
+				add_dynamic_modifier = {
+					modifier = RAJ_industrialized_personnel
+					scope = SAU
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}		
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}	
+			}
+			every_allied_country = {
+				random_select_amount = 2
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = PREV
+						is_fully_controlled_by = PREV
+						free_building_slots = {
+							building = industrial_complex
+							size > 2
+							include_locked = yes
+						}		
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}	
+				}
+			}
+        }
+	}
+
+
+	#commie
+	SAU_seek_SOV_assistance = {
+
+		icon = GFX_decision_onmap_recruit_operative
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			SOV = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}			
+			}
+			NOT = {
+				has_completed_focus = SAU_the_anti_stalinist_purge
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_completed_focus = SAU_soviet_assistance
+		}
+
+		days_remove = 90
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			add_resource = {
+				type = steel
+				amount = 10
+				state = 855
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = motorised_infantry  } can_research = motorised_infantry  }
+				set_technology = {
+					motorised_infantry   = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = motorized_equipment
+				}			
+			}
+        }
+
+	}
+
+	#regional
+	SAU_reach_out_to_IRQ = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			IRQ = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			OR = {
+				has_completed_focus = SAU_work_with_our_neighbours
+				has_global_flag = SAU_arabian_team_collaboration
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = interwar_artillery } can_research = interwar_artillery }
+				set_technology = {
+					interwar_artillery  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = artillery
+				}			
+			}
+        }
+
+	}
+	SAU_persian_pact = {
+
+		icon = GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			PER = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}			
+			}
+		}
+
+		visible = {
+			AND = {
+				has_completed_focus = SAU_our_northern_foe
+				has_global_flag = SAU_anti_colonial_raids_flag
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			PER = {
+				country_event = SAU_fascism.11
+			}
+        }
+
+	}
+
+	SAU_PER_joint_operations = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			PER = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}			
+			}
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SAU_work_with_our_neighbours
+				has_global_flag = SAU_working_with_iran_flag
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = fuel_refining2 } can_research = fuel_refining2 }
+				set_technology = {
+					fuel_refining2  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = synth_resources
+				}			
+			}
+        }
+
+	}
+
+	SAU_obtain_TUR_resources = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			TUR = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			OR = {
+				has_completed_focus = SAU_work_with_our_neighbours
+				has_global_flag = SAU_working_with_turkey_flag
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = excavation1} can_research = excavation1}
+				set_technology = {
+					excavation1 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = excavation_tech
+				}			
+			}
+        }
+
+	}	
+
+	SAU_request_JOR_guidance = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			JOR = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+					if = {
+						limit = {
+							has_completed_focus = SAU_align_our_puppet_governments
+						}
+						is_puppet_of = ROOT
+					}ELSE= {
+						is_free_or_subject_of_root = yes
+					}
+				NOT = {
+					has_war_with = SAU 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			OR = {
+				has_completed_focus = SAU_align_our_puppet_governments
+				has_completed_focus = SAU_work_with_our_neighbours
+			}
+
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {AND = {has_tech = dispersed_industry has_tech = concentrated_industry}}}
+				set_technology = {
+					dispersed_industry = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = dispersed_industry_category
+				}			
+			}
+        }
+
+	}	
+
+	SAU_collaborate_with_KUW = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			OR = {
+				has_completed_focus = SAU_foreign_fascist_support
+				has_completed_focus = SAU_business_with_warlords
+			}
+			KUW = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+					if = {
+						limit = {
+							has_completed_focus = SAU_align_our_puppet_governments
+						}
+						is_puppet_of = ROOT
+					}ELSE= {
+						is_free_or_subject_of_root = yes
+					}
+				NOT = {
+					has_war_with = SAU 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			OR = {
+				has_completed_focus = SAU_align_our_puppet_governments
+				has_completed_focus = SAU_work_with_our_neighbours
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = landing_craft}}
+				set_technology = {
+					landing_craft = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = tp_tech
+				}			
+			}
+        }
+
+	}
+
+	SAU_work_with_PAL = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			OR = {
+				has_completed_focus = SAU_foreign_fascist_support
+				has_completed_focus = SAU_business_with_warlords
+			}
+			PAL = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+
+					if = {
+						limit = {
+							has_completed_focus = SAU_align_our_puppet_governments
+						}
+						is_puppet_of = ROOT
+					}ELSE= {
+						is_free_or_subject_of_root = yes
+					}
+				NOT = {
+					has_war_with = SAU 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			OR = {
+				has_completed_focus = SAU_align_our_puppet_governments
+				has_completed_focus = SAU_work_with_our_neighbours
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = tech_recon}}
+				set_technology = {
+					tech_recon = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = support_tech
+				}			
+			}
+        }
+
+	}
+
+	SAU_demand_YEM_blueprints = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			YEM = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				exists = yes
+					if = {
+						limit = {
+							has_completed_focus = SAU_align_our_puppet_governments
+						}
+						is_puppet_of = ROOT
+					}ELSE= {
+						is_free_or_subject_of_root = yes
+					}
+				NOT = {
+					has_war_with = SAU 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			OR = {			
+				has_completed_focus = SAU_align_our_puppet_governments
+				has_completed_focus = SAU_work_with_our_neighbours
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = infantry_weapons2 } can_research = infantry_weapons2 }
+				set_technology = {
+					infantry_weapons2  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = infantry_weapons
+				}			
+			}
+        }
+
+	}
+
+	SAU_request_AFG_training = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			AFG = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				exists = yes
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_completed_focus = SAU_work_with_our_neighbours
+			
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = tech_mountaineers2} can_research = tech_mountaineers2}
+				set_technology = {
+					tech_mountaineers2 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = mountaineers_tech
+				}			
+			}
+
+        }
+
+	}
+	
+	SAU_learn_from_OMA_airforce_findings = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			OR = {
+				OMA = {
+					has_opinion = {
+						target = SAU
+						value > 69
+					}
+					exists = yes
+					if = {
+						limit = {
+							has_completed_focus = SAU_align_our_puppet_governments
+						}
+						is_puppet_of = ROOT
+					}ELSE= {
+						is_free_or_subject_of_root = yes
+					}
+					NOT = {
+						has_war_with = SAU 
+					}
+				}
+				IMO = {
+					has_opinion = {
+						target = SAU
+						value > 69
+					}
+					exists = yes
+					if = {
+						limit = {
+							has_completed_focus = SAU_align_our_puppet_governments
+						}
+						is_puppet_of = ROOT
+					}ELSE= {
+						is_free_or_subject_of_root = yes
+					}
+					NOT = {
+						has_war_with = SAU 
+					}
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			OR = {			
+				has_completed_focus = SAU_work_with_our_neighbours
+				has_completed_focus = SAU_align_our_puppet_governments
+			}
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = basic_small_airframe} can_research = basic_small_airframe}
+				set_technology = {
+					basic_small_airframe = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = light_air
+				}			
+			}
+        }
+
+	}
+	#democratic
+	SAU_request_FRA_blueprints = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			FRA = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				exists = yes
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_completed_focus = SAU_agreements_with_fra
+			
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = construction1} can_research = construction1}
+				set_technology = {
+					construction1 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = construction_tech
+				}			
+			}
+        }
+
+	}
+	SAU_make_a_deal_with_RAJ = {
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			RAJ = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				NOT = {
+					has_war_with = SAU 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_completed_focus = SAU_collaborate_with_british
+			
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = improved_machine_tools} can_research = improved_machine_tools}
+				set_technology = {
+					improved_machine_tools = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = cat_production
+				}			
+			}
+        }
+
+	}
+
+	SAU_deepen_bonds_with_ENG = {
+
+		icon = GFX_decision_generic_political_discourse
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			ENG = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			OR = {
+				has_completed_focus = SAU_collaborate_with_british
+				has_completed_focus = SAU_british_weapons
+			}
+		}
+
+		days_remove = 90
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = infantry_weapons2 } can_research = infantry_weapons2 }
+				set_technology = {
+					infantry_weapons2  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = infantry_weapons
+				}			
+			}
+			IF = {
+				limit = {NOT = {has_tech = armored_car2 } can_research = armored_car2 }
+				set_technology = {
+					armored_car2  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = cat_armored_cars
+				}			
+			}
+        }
+
+	}	
+
+	#fascist
+	SAU_establish_imperial_bonds_with_ITA = {
+
+		icon = GFX_decision_generic_political_address
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			ITA = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_completed_focus = SAU_foreign_fascist_support
+		}
+
+		days_remove = 90
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}					
+			}
+			IF = {
+				limit = {NOT = {has_tech = excavation1} can_research = excavation1}
+				set_technology = {
+					excavation1 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = excavation_tech
+				}			
+			}
+			IF = {
+				limit = {NOT = {OR = {has_tech = dispersed_industry has_tech = concentrated_industry}}}
+				set_technology = {
+					dispersed_industry = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = dispersed_industry_category
+				}			
+			}
+        }
+
+	}
+
+	SAU_seek_GER_assistance = {
+
+		icon = GFX_decision_generic_speech
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			GER = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				has_government = ROOT
+				NOT = {
+					has_war_with = SAU 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_completed_focus = SAU_foreign_fascist_support
+		}
+
+		days_remove = 90
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			add_resource = {
+				type = oil
+				amount = 15
+				state = 859
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = synth_oil_experiments}}
+				set_technology = {
+					synth_oil_experiments = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = synth_resources
+				}			
+			}
+			IF = {
+				limit = {NOT = {has_tech = mechanised_infantry  } can_research = mechanised_infantry  }
+				set_technology = {
+					mechanised_infantry = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = motorized_equipment
+				}			
+			}
+        }
+
+	}
+
 
 }
