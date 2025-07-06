@@ -27,6 +27,7 @@ bookmarks = {
 				CAN_burn_the_royal_portraits
 			}
 		}
+		
 		"AST"={
 			minor = yes
 			history = "AST_GATHERING_STORM_DESC"
@@ -51,6 +52,22 @@ bookmarks = {
 				NZL_path_of_anti_imperialism
 				NZL_the_1938_election
 				NZL_the_peoples_revolution
+			}
+		}
+		"MAL"={
+			history = "MAL_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				MAL_divided_nation
+				MAL_colonial_government
+				MAL_chinese_immigrants
+				MAL_british_companies
+				MAL_communist_movements
+			}
+			focuses = {
+				MAL_east_asian_unity
+				MAL_a_great_malaysia
+				MAL_form_greater_indoneasia
 			}
 		}
 		"SAF"={

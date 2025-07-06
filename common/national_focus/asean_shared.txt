@@ -1,0 +1,515 @@
+joint_focus = {
+	id = ASE_shared
+	
+	dynamic = yes 
+	
+	icon =  GFX_focus_GER_south_east_asian_natural_wealth
+		
+	
+	
+	x = 0
+	y = 0
+
+	#Malaya
+	offset = {
+		x = 61
+		y = 0
+		trigger = {
+			has_focus_tree = malayan_focus
+		}
+	}
+
+	#all other
+	offset = {
+		x = 37
+		y = 0
+		trigger = {
+			has_focus_tree = generic_focus
+			OR = {
+				tag = PHI
+				tag = SIA
+				tag = INS
+				tag = VIN
+				tag = BRM
+				tag = CAM
+				tag = LAO
+			}
+		}
+	}
+
+
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		any_allied_country = {
+			AND = {
+				OR = {
+					tag = MAL
+					tag = PHI
+					tag = SIA
+					tag = INS
+					tag = VIN
+					tag = BRM
+					tag = CAM
+					tag = LAO
+				}
+				OR = {
+					is_faction_leader = yes
+					ROOT = {
+						is_faction_leader = yes
+					}
+				}
+			}
+		}
+	}
+	bypass = {
+		any_other_country = {
+			is_in_faction_with = ROOT
+			has_completed_focus = ASE_shared
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			factor = 0
+			is_historical_focus_on = yes 
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	joint_trigger = {
+		always = no
+	}
+
+	completion_reward_joint_originator = {
+		every_country = {
+			limit = {
+				is_in_faction_with = ROOT
+				is_faction_leader = yes
+			}
+			add_ideas = MAL_leader_of_asean_idea
+			unlock_decision_tooltip = MAL_expand_asean
+			set_faction_name = "ASEAN"
+
+		}
+		every_country = {
+			limit = {
+				is_in_faction_with = ROOT
+				OR = {
+					tag = MAL
+					tag = PHI
+					tag = SIA
+					tag = INS
+					tag = VIN
+					tag = BRM
+					tag = CAM
+					tag = LAO
+				}
+			}
+			add_stability = 0.05
+		}
+	}
+
+}
+
+joint_focus = {
+	id = ASE_unity
+	
+	icon = GFX_goal_generic_national_unity
+	
+	prerequisite = { focus = ASE_shared }
+	
+	x = -2
+	y = 1
+	relative_position_id = ASE_shared
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		any_allied_country = {
+			OR = {
+				tag = MAL
+				tag = PHI
+				tag = SIA
+				tag = INS
+				tag = VIN
+				tag = BRM
+				tag = CAM
+				tag = LAO
+			}
+			OR = {
+				is_faction_leader = yes
+				ROOT = {
+					is_faction_leader = yes
+				}
+			}
+		}
+	}
+	bypass = {
+		any_other_country = {
+			is_in_faction_with = ROOT
+			has_completed_focus = ASE_shared
+		}
+	}
+	
+	joint_trigger = {
+		always = no
+	}
+	completion_reward_joint_originator = {
+		add_stability = 0.05
+		every_country = {
+			limit = {
+				is_in_faction_with = ROOT
+				OR = {
+					tag = MAL
+					tag = PHI
+					tag = SIA
+					tag = INS
+					tag = VIN
+					tag = BRM
+					tag = CAM
+					tag = LAO
+				}
+			}
+			add_political_power = 100
+			add_stability = 0.05
+		}
+	}
+
+}
+
+joint_focus = {
+	id = ASE_industrial_advancements
+	
+	icon = GFX_focus_CHL_enlarge_the_textile_industries
+	
+	prerequisite = { focus = ASE_shared }
+	
+	x = 2
+	y = 1
+	relative_position_id = ASE_shared
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		any_allied_country = {
+			OR = {
+				tag = MAL
+				tag = PHI
+				tag = SIA
+				tag = INS
+				tag = VIN
+				tag = BRM
+				tag = CAM
+				tag = LAO
+			}
+			OR = {
+				is_faction_leader = yes
+				ROOT = {
+					is_faction_leader = yes
+				}
+			}
+		}
+	}
+	bypass = {
+		any_other_country = {
+			is_in_faction_with = ROOT
+			has_completed_focus = ASE_shared
+		}
+	}
+	
+	joint_trigger = {
+		always = no
+	}
+	completion_reward_joint_originator = {
+		add_offsite_building = { type = industrial_complex level = 1 }
+		every_country = {
+			limit = {
+				is_in_faction_with = ROOT
+				OR = {
+					tag = MAL
+					tag = PHI
+					tag = SIA
+					tag = INS
+					tag = VIN
+					tag = BRM
+					tag = CAM
+					tag = LAO
+				}
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+}
+joint_focus = {
+	id = ASE_economic_exchange
+	
+	icon = GFX_focus_POL_develop_polish_shipbuilding
+	
+	prerequisite = { focus = ASE_shared }
+	
+	x = 0
+	y = 1
+	relative_position_id = ASE_shared
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		any_allied_country = {
+			OR = {
+				tag = MAL
+				tag = PHI
+				tag = SIA
+				tag = INS
+				tag = VIN
+				tag = BRM
+				tag = CAM
+				tag = LAO
+			}
+			OR = {
+				is_faction_leader = yes
+				ROOT = {
+					is_faction_leader = yes
+				}
+			}
+		}
+	}
+	bypass = {
+		any_other_country = {
+			is_in_faction_with = ROOT
+			has_completed_focus = ASE_shared
+		}
+	}
+	
+	joint_trigger = {
+		always = no
+	}
+
+	completion_reward_joint_originator = {
+		add_offsite_building = { type = industrial_complex level = 1 }
+		every_country = {
+			limit = {
+				is_in_faction_with = ROOT
+				OR = {
+					tag = MAL
+					tag = PHI
+					tag = SIA
+					tag = INS
+					tag = VIN
+					tag = BRM
+					tag = CAM
+					tag = LAO
+				}
+			}
+			random_core_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+}
+
+joint_focus = {
+	id = ASE_peacekeeping
+	
+	icon = GFX_focus_ETH_peacekeeping_forces
+	
+	prerequisite = { focus = ASE_industrial_advancements }
+	
+	x = 1
+	y = 2
+	relative_position_id = ASE_shared
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		has_war = no
+		any_allied_country = {
+			OR = {
+				tag = MAL
+				tag = PHI
+				tag = SIA
+				tag = INS
+				tag = VIN
+				tag = BRM
+				tag = CAM
+				tag = LAO
+			}
+			OR = {
+				is_faction_leader = yes
+				ROOT = {
+					is_faction_leader = yes
+				}
+			}
+		}
+	}
+	bypass = {
+		any_other_country = {
+			is_in_faction_with = ROOT
+			has_completed_focus = ASE_shared
+		}
+	}
+	
+	joint_trigger = {
+		always = no
+	}	
+	completion_reward_joint_originator = {
+		add_war_support = 0.05
+		every_country = {
+			limit = {
+				is_in_faction_with = ROOT
+				OR = {
+					tag = MAL
+					tag = PHI
+					tag = SIA
+					tag = INS
+					tag = VIN
+					tag = BRM
+					tag = CAM
+					tag = LAO
+				}
+			}
+			add_stability = 0.05
+			add_ideas = MAL_asean_peacekeeping_idea
+		}
+	}
+
+}
+joint_focus = {
+	id = ASE_demand_independence
+	
+	icon = GFX_goal_continuous_boost_freedom
+	
+	prerequisite = { focus = ASE_unity }
+	
+	x = -1
+	y = 2
+	relative_position_id = ASE_shared
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		any_allied_country = {
+			OR = {
+				tag = MAL
+				tag = PHI
+				tag = SIA
+				tag = INS
+				tag = VIN
+				tag = BRM
+				tag = CAM
+				tag = LAO
+			}
+			OR = {
+				is_faction_leader = yes
+				ROOT = {
+					is_faction_leader = yes
+				}
+			}
+		}
+	}
+	bypass = {
+		any_other_country = {
+			is_in_faction_with = ROOT
+			has_completed_focus = ASE_shared
+		}
+	}
+	
+	joint_trigger = {
+		always = no
+	}
+
+	completion_reward_joint_originator = {
+		every_country = {
+			limit = {
+				is_in_faction_with = ROOT
+				is_faction_leader = yes
+			}
+			unlock_decision_tooltip = MAL_demand_independence_for_FROM
+			custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+		}
+		custom_effect_tooltip = "This will unlock a decision for the faction leader of ASEAN to demand the liberation of east asian countries that are subject states"
+	}
+
+}
+joint_focus = {
+	id = ASE_asean_we_are_bonded_as_one
+	
+	icon = GFX_goal_generic_improve_relations
+	
+	prerequisite = { focus = ASE_demand_independence }
+	prerequisite = { focus = ASE_economic_exchange }
+	prerequisite = { focus = ASE_peacekeeping }
+	
+	x = 0
+	y = 3
+	relative_position_id = ASE_shared
+	cost = 15
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_faction_leader = yes
+		any_allied_country = {
+			OR = {
+				tag = MAL
+				tag = PHI
+				tag = SIA
+				tag = INS
+				tag = VIN
+				tag = BRM
+				tag = CAM
+				tag = LAO
+			}
+		}
+	}
+	bypass = {
+		any_other_country = {
+			is_in_faction_with = ROOT
+			has_completed_focus = ASE_shared
+		}
+	} 
+	
+	joint_trigger = {
+		always = no
+	}
+
+
+	completion_reward_joint_originator = {
+		every_country = {
+			limit = {
+				is_in_faction_with = ROOT
+				is_faction_leader = yes
+			}
+			unlock_decision_tooltip = MAL_unify_asean
+			custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
+		}
+		custom_effect_tooltip = "This will unlock a decision for the faction leader of ASEAN to annex the other ASEAN members. The members can still decline this without consequences"
+	}
+}
+
+

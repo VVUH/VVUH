@@ -1,0 +1,27 @@
+state={
+	id=1019
+	name="STATE_1019"
+	provinces={
+		4367 4424 7427 10313 
+	}
+	state_category = rural
+	history = {
+
+		owner = MAL
+		add_core_of = MAL
+
+		buildings = {
+			infrastructure = 2
+		}
+		
+	}
+	resources = {
+		rubber = 10
+		steel = 2
+		tungsten = 5
+		aluminium = 2
+	}
+	manpower=305020
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
