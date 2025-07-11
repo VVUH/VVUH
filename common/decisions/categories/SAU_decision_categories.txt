@@ -13,6 +13,13 @@ SAU_decs_cat = { #general decisions
     priority = 5
     icon = GFX_decision_category_generic_political_actions
 }
+SAU_OPEC_decs = { #OPEC decisions
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_power_struggle
+}
 SAU_extremist_action = { #general decisions
     allowed = {
         tag = SAU
@@ -67,13 +74,10 @@ SAU_mine_the_arabian_shield = { #check
    allowed = {
         tag = SAU
     }
-    visible = {
-        has_completed_focus = SAU_mining_the_shield
-    }
     priority = 10
     icon = GFX_decision_category_generic_prospect_for_resources  
 }
-SAU_command_economic_direction = { #not yet worked on, swap civillian direction and military direction
+SAU_command_economic_direction = {
     allowed = {
         tag = SAU
     }
@@ -83,7 +87,7 @@ SAU_command_economic_direction = { #not yet worked on, swap civillian direction 
     priority = 10
     icon = GFX_decision_category_SOV_merge_designers  
 }
-SAU_attract_migrant_workers = { #doesnt work
+SAU_promote_immigration_cat = { #works
     allowed = {
         tag = SAU
     }
@@ -91,20 +95,11 @@ SAU_attract_migrant_workers = { #doesnt work
     priority = 10
     icon = GFX_decision_category_generic_foreign_policy  
 }
-SAU_naval_decisions = { #works - except blockades
+SAU_naval_decisions = { 
     allowed = {
         tag = SAU
     }
 
     priority = 10
     icon = GFX_decision_category_generic_naval  
-}
-SAU_collab_foreign_ally = {    # doesnt work
-
-    allowed = {
-        tag = TIB
-    }
-
-    priority = 5
-    icon = GFX_decision_category_GER_war_planning
 }

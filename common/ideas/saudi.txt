@@ -458,6 +458,29 @@ ideas = {
 
 			}
 		}
+		SAU_faction_collaboration_red_leader = {
+
+			picture = AUS_austromarxism
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					is_in_faction_with = SAU
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				weekly_manpower = 700
+				consumer_goods_factor = -0.1
+				country_resource_oil = 10
+			}
+		}			
 		SAU_faction_collaboration_red = {
 
 			picture = AUS_austromarxism
@@ -477,8 +500,8 @@ ideas = {
 				
 			modifier = {  
 				weekly_manpower = 300
-				consumer_goods_factor = -0.05
-				country_resource_oil = 5
+				consumer_goods_factor = -0.1
+				country_resource_oil = 10
 			}
 		}		
 		SAU_international_brigades_spirit = {
@@ -537,6 +560,28 @@ ideas = {
 				army_core_attack_factor = 0.05
 				army_core_defence_factor = 0.1
 				conscription = 0.02
+			}
+		}
+		SAU_purged_airforce = {
+
+			picture = generic_purge
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				mobilization_speed = -0.1
+				local_intel_to_enemies = 0.15
+				experience_gain_air = -0.1
+				stability_factor = -0.1
+
 			}
 		}
 		SAU_strengthened_monarchy = {
@@ -620,7 +665,163 @@ ideas = {
 				industrial_capacity_factory = 0.1
 			}
 		}
+		SAU_intelligence_network = {
 
+			picture = generic_spy_coup
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					is_faction_leader = yes
+					is_in_faction = yes
+				}
+			}
+			modifier = {
+				agency_upgrade_time = -0.5
+				decryption_factor = 0.3
+				operation_cost = -0.5
+				operative_slot = 2
+				new_operative_slot_bonus = 1
+
+			}
+		}		
+	#reforms neutrality path
+		SAU_local_government_reform_spirit = {
+
+			picture = HUN_treaty_of_triannon
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				max_surrender_limit_offset = 0.05
+				monthly_population = 0.05
+			}
+		}			
+		SAU_modernising_light_industry = {
+
+			picture = ARG_construction_guilds
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				production_speed_arms_factory_factor = 0.03
+				repair_speed_arms_factory_factor = 0.03
+				conversion_cost_civ_to_mil_factor = -0.05
+			}
+		}			
+		SAU_modernising_heavy_industry = {
+
+			picture = ARG_economic_reactivation
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				production_speed_arms_factory_factor = 0.03
+				repair_speed_arms_factory_factor = 0.03
+				conversion_cost_civ_to_mil_factor = -0.05
+			}
+		}		
+		SAU_women_of_arabia = {
+
+			picture = AUS_women_in_academia
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				research_speed_factor = 0.03
+				neutrality_drift = 0.03
+			}
+		}		
+		#first merge
+		
+		SAU_modernising_arabia = {
+
+			picture = AFG_parliament_building
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				production_speed_industrial_complex_factor = 0.05
+				repair_speed_industrial_complex_factor = 0.05
+				production_speed_rail_way_factor = 0.05
+				production_speed_supply_node_factor = 0.05
+				conversion_cost_mil_to_civ_factor = -0.07
+				max_surrender_limit_offset = 0.1
+				monthly_population = 0.1
+			}
+		}
+		#second merge
+		SAU_modernised_arabia = {
+
+			picture = AFG_parliament_building
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				production_speed_industrial_complex_factor = 0.05
+				repair_speed_industrial_complex_factor = 0.05
+				production_speed_rail_way_factor = 0.05
+				production_speed_supply_node_factor = 0.05
+				conversion_cost_mil_to_civ_factor = -0.07
+				max_surrender_limit_offset = 0.1
+				monthly_population = 0.1
+				
+				production_speed_arms_factory_factor = 0.05
+				repair_speed_arms_factory_factor = 0.05
+				conversion_cost_civ_to_mil_factor = -0.07
+				research_speed_factor = 0.03
+				neutrality_drift = 0.03
+			}
+		}		
 		SAU_communist_graduates = {
 			allowed = {
 				tag = SAU
@@ -793,6 +994,27 @@ ideas = {
 
 
 #economy
+		SAU_OPEC_development_fund = {
+
+			picture = BRA_dasp
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					is_in_faction_with = SAU
+				}
+			}
+			removal_cost = -1
+				
+			modifier = { #buff 
+				consumer_goods_factor = -0.1
+			}
+		}
 		SAU_gold = {
 
 			picture = SPR_seize_the_gold_reserves
@@ -1045,7 +1267,6 @@ ideas = {
 				civilian_factory_use = 1
 				production_speed_arms_factory_factor = 0.15
 				repair_speed_arms_factory_factor = 0.3
-				production_speed_anti_air_factor = 0.2 
 				production_speed_bunker_factor = 0.2 
 				production_speed_coastal_bunker_factor = 0.2 
 				conversion_cost_civ_to_mil_factor = -0.4

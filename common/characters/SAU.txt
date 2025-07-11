@@ -71,10 +71,10 @@ characters={
 			idea_token = SAU_ibra_al_suwayel
 			cost = 150
 			visible = {
-				#commie path chosen
+				has_completed_focus = SAU_arming_the_revolt
 			}
 			available = {
-				#commie focus done
+				has_completed_focus = SAU_arming_the_revolt
 			}
 			allowed = {
 				original_tag = SAU
@@ -84,7 +84,7 @@ characters={
 			}
 		}
 		country_leader = {
-			traits  = { #stalinist leader
+			traits  = { #non stalinist leader
 				leftist_intellectual 
 			}
 			ideology=marxism
@@ -153,7 +153,7 @@ characters={
 		}
 		advisor={
 			slot = political_advisor
-			idea_token = SAU_yusuf_yasin
+			idea_token = SAU_muhammad_sheikh
 			cost = 150
 			visible = {
 				has_government = neutrality
@@ -176,7 +176,7 @@ characters={
 		}
 	}
 	SAU_khalid_ibn_saud={
-		name="Khalid bin Abdulaziz Al Saud"
+		name="Saud bin Abdulaziz Al Saud"
 		portraits={
 			civilian={
 				large = GFX_portrait_AFG_amanullah_khan
@@ -196,38 +196,10 @@ characters={
 			}
 			ideology=fascism_ideology
 		}		
-		advisor={
-			slot = political_advisor
-			idea_token = SAU_khalid_ibn_saud
-			cost = 150
-			visible = {
-				AND = {
-					NOT = {
-						OR = {
-							has_country_leader_with_trait = PER_fascist_dynasty
-							has_country_leader_with_trait = hedonist
-							has_country_leader_with_trait = PER_rightful_king_trait
-						}
-					}
-					has_government = neutrality
-					NOT = {
-						has_global_flag = SAU_fate_of_sauds_negative
-					}
-				}
-			}
-			available = {
 
-			}
-			allowed = {
-				original_tag = SAU
-			}
-			traits = {
-				PER_disinherited_heir_trait
-			}
-		}
 	}
 
-	#demo leader - united kingdom of arabia
+	#also demo leader - united kingdom of arabia
 	SAU_faisal_ibn_saud={
 		name="Faisal bin Abdulaziz Al Saud "
 			portraits = {
@@ -240,12 +212,7 @@ characters={
 					small = GFX_portrait_PER_mohammed_reza_pahlavi_small			
 				}
 			}
-		country_leader = {
-			traits  = {
-				RAJ_GOE_scholar_king
-			}
-			ideology=despotism
-		}
+
 		advisor={
 			visible = {
 				AND = {
@@ -298,9 +265,7 @@ characters={
 			idea_token = SAU_al_ateeqi
 			cost = 150
 			visible = {
-				NOT = {
-					has_country_leader = SAU_al_ateeqi
-				}
+				is_country_leader = no
 			}
 			available = {
 
@@ -316,7 +281,7 @@ characters={
 			traits  = {
 				backed_by_political_coalition 
 			}
-			ideology=conservatism
+			ideology=liberalism
 		}
 		corps_commander = {
 			visible = {has_government = democratic}
@@ -424,7 +389,7 @@ characters={
 		}
 		advisor={
 			slot = political_advisor
-			idea_token = SAU_nasser_saud
+			idea_token = SAU_sara_saud
 			cost = 150
 
 			available = {
@@ -501,7 +466,7 @@ characters={
 		}
 		advisor={
 			slot = political_advisor
-			idea_token = SAU_said_bin_taimur
+			idea_token = SAU_mishaal_al_saud
 			cost = 150
 			visible = {
 				NOT = {
@@ -554,25 +519,6 @@ characters={
 #end foreigner
 	SAU_youssef_al_bishi={
 		advisor={
-			on_add = {
-				custom_effect_tooltip = SAU_while_youssef_is_employed_you_will_gain_the_following:
-				custom_effect_tooltip = GER_heavy_armored_car_recon_company_tt
-				custom_effect_tooltip = generic_skip_one_line_tt
-				hidden_effect = {
-					set_technology = {
-						GER_heavy_armored_car = 1
-						popup = no
-					}
-				}
-			}
-			on_remove = {
-				hidden_effect = {
-					set_technology = {
-						GER_heavy_armored_car = 0
-						popup = no
-					}
-				}
-			}
 			slot = high_command
 			idea_token = SAU_youssef_al_bishi
 			ledger  = army 
@@ -903,7 +849,7 @@ characters={
 		}
 		advisor={
 			slot = political_advisor
-			idea_token = SAU_abdullah_ash_sheikh
+			idea_token = SAU_muhammad_al_shanqiti
 			cost = 150
 			visible = {
 				has_completed_focus = SAU_strengthen_the_clergy
@@ -982,7 +928,7 @@ characters={
 		name= "Suliman S. Olayan"
 		portraits={
 			civilian = {#theres also a large one
-				small = GFX_portrait_PER_mohammad_mosaddegh_small 
+				small = GFX_idea_generic_political_advisor_arab_1 
 			}
 
 		}
@@ -1051,13 +997,12 @@ characters={
 		}
 		advisor={
 			slot = political_advisor
-			idea_token = SAU_hafiz_wahbe
+			idea_token = SAU_shura_council_democratic
 			cost = 150
 			visible = {
 				has_completed_focus = SAU_negotiating_the_end		
-				NOT = {
-					has_country_leader = SAU_shura_council_democratic
-				}
+				is_country_leader = no
+				
 			}
 			available = {
 				has_completed_focus = SAU_strengthen_shura_council		
@@ -1117,7 +1062,7 @@ characters={
 		}
 		advisor={
 			slot = political_advisor
-			idea_token = SAU_hafiz_wahbe
+			idea_token = SAU_ulema_council
 			cost = 150
 			visible = {
 				OR = {
@@ -1127,7 +1072,7 @@ characters={
 			}
 			available = {
 				NOT = {
-					has_ideas = SAU_secular_politics
+					has_idea = SAU_secular_politics
 				}
 			}
 
@@ -1283,7 +1228,7 @@ characters={
 		}
 		advisor={
 			slot = political_advisor
-			idea_token = SAU_hafiz_wahbe
+			idea_token = SAU_shura_council_neutrality
 			cost = 150
 			visible = {
 				has_completed_focus = SAU_funnel_foreign_funds		
@@ -1313,7 +1258,7 @@ characters={
 		}
 		advisor={
 			slot = political_advisor
-			idea_token = SAU_hafiz_wahbe
+			idea_token = SAU_soviet_council
 			cost = 150
 			visible = {
 				has_completed_focus = SAU_arming_the_revolt		
@@ -1385,7 +1330,6 @@ characters={
 			idea_token = SAU_ishaq_yaqub
 			cost = 150
 			visible = {
-				#commie path chosen
 				NOT = {
 					OR = {
 						has_completed_focus = SAU_intervene_in_the_levant
@@ -1395,7 +1339,7 @@ characters={
 				}
 			}
 			available = {
-				#commie focus done
+				has_completed_focus = SAU_arming_the_revolt
 			}
 			allowed = {
 				original_tag = SAU
@@ -1436,7 +1380,7 @@ characters={
 				}
 			}
 			available = {
-				#commie focus done
+				has_completed_focus = SAU_arming_the_revolt
 			}
 			allowed = {
 				original_tag = SAU

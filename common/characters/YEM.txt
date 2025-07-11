@@ -40,15 +40,6 @@ characters={
 			}
 		}
 		country_leader={
-			on_add = {
-				owner = {
-					add_timed_idea = {
-						idea = SAU_recent_coup
-						days = 180
-					}
-					set_global_flag = SAU_al_waziri_coup_happened_flag
-				}
-			}
 			traits = {old_coup_maker}
 			ideology=despotism
 			id=-1

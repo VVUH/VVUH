@@ -1,9 +1,39 @@
 add_namespace = SAU_political_events
 add_namespace = SAU_fascism
-add_namespace = SAU_ref
 add_namespace = SAU_border_conflict
 add_namespace = SAU_commies_event
+add_namespace = SAU_demo_refs
+	country_event = {
+		id = SAU_political_events.1
+		title = SAU_political_events.1.t
+		desc = SAU_political_events.1.desc
+		picture = GFX_report_event_ITA_grand_council
 
+		is_triggered_only = yes
+
+		
+		option = {
+			name = SAU_political_events.1.a
+			add_political_power = 50
+			add_ideas = SAU_muslim_state
+		}
+		option = {
+			name = SAU_political_events.1.b
+			add_political_power = -50
+			add_ideas = SAU_muslim_state
+			add_ideas = SAU_strengthened_ulema
+
+		}
+		option = {
+			name = SAU_political_events.1.c
+			add_stability = -0.5
+			add_ideas = SAU_secular_politics
+			hidden_effect = {
+				set_country_flag = SAU_muslim_commie_state
+			}
+			unlock_decision_tooltip = SAU_religious_suppression_decision_of_FROM
+		}				
+	}
 	country_event = {
 		id = SAU_border_conflict.1
 		title = SAU_border_conflict.1.t
@@ -446,7 +476,7 @@ add_namespace = SAU_commies_event
 				}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = SAU_obtain_TUR_resources
-			TUR = {
+			- {
 				country_event = generic.5
 				IF = {
 					limit = {
@@ -459,7 +489,7 @@ add_namespace = SAU_commies_event
 					677 = {
 						controller = {
 							country_event = { 
-								id = bftb_turkey.102 
+								id = SAU_demo_refs.1 
 								hours = 2
 							}
 						}
@@ -471,7 +501,7 @@ add_namespace = SAU_commies_event
 							has_subject = 677.controller
 						}
 						country_event = { 
-							id = bftb_turkey.102 
+							id = SAU_demo_refs.1 
 							hours = 2
 						}
 					}
@@ -791,12 +821,21 @@ add_namespace = SAU_commies_event
 		#YES
 		option = {
 			ai_chance = {
-				base = 9
+				base = 99
+				    modifier = {
+						factor = 20    
+						tag = OMA
+					}
+				    modifier = {
+						factor = 20    
+						is_subject = yes
+					}					
 			}
 			name = SAU_commies_event.4.a
 			hidden_effect = {
-   				save_event_target_as = FROM
+   				save_event_target_as = SAU_commie_event_target
 			}
+		
 			SAU = {country_event = SAU_commies_event.5}
 		}
 		#NO
@@ -821,30 +860,14 @@ add_namespace = SAU_commies_event
 		mean_time_to_happen = {
 			days = 5
 		}
-		#YES
+		#Yipee state!
 		option = {
 			ai_chance = {
-				base = 9
+				base = 1
 			}
 			name = SAU_commies_event.5.a
-			TAG = {country_event = generic.20}
-			#make a var or something		
-		}
-		#NO just invite 
-		option = {
-			ai_chance = {
-				base = 1
-			}
-			name = SAU_commies_event.5.b
-			TAG = {country_event = generic.5}
-		}
-		#buffer state!
-		option = {
-			ai_chance = {
-				base = 1
-			}
-			name = SAU_commies_event.5.c
-
+			custom_effect_tooltip = SAU_you_gain_a_puppet_tt
+			puppet = FROM
 		}
 	}
 
@@ -908,6 +931,10 @@ add_namespace = SAU_commies_event
 					remove_idea = SAU_hajj_pilgrims
 					add_idea = SAU_taxed_pilgrims
 				}
+			hidden_effect = {
+				set_country_flag = SAU_muslim_commie_state
+			}
+			unlock_decision_tooltip = SAU_religious_suppression_decision_of_FROM				
 		}
 		#yipee islamism or something
 		option = {
@@ -922,3 +949,191 @@ add_namespace = SAU_commies_event
 			custom_effect_tooltip = SAU_placate_the_religious_folks_decisions_if_done_focus_SAU_squash_counter_coups_tt
 		}
 	}
+
+country_event = {
+	id = SAU_demo_refs.1
+	title = SAU_demo_refs.1.t
+	desc = SAU_demo_refs.1.desc
+	picture = GFX_report_event_tur_military_affair
+
+	is_triggered_only = yes
+	
+	option = {
+		name = SAU_demo_refs.1.a #the territories are yours
+
+		SAU = {
+			country_event = { id = SAU_demo_refs.3 hours = 6 }
+		}
+
+		if = {
+			limit = {
+				ROOT = { controls_state = 677 }
+			}
+			SAU = { transfer_state = 677 }
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					is_subject_of = ROOT
+					controls_state = 677
+				}
+			}
+			SAU = { transfer_state = 677 }
+		}
+
+		if = {
+			limit = {
+				ROOT = { controls_state = 554 }
+			}
+			SAU = { transfer_state = 554 }
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					is_subject_of = ROOT
+					controls_state = 554
+				}
+			}
+			SAU = { transfer_state = 554 }
+		}
+
+		if = {
+			limit = {
+				ROOT = { controls_state = 553 }
+			}
+			SAU = { transfer_state = 553 }
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					is_subject_of = ROOT
+					controls_state = 553
+				}
+			}
+			SAU = { transfer_state = 553 }
+		}
+
+		if = {
+			limit = {
+				ROOT = { controls_state = 680 }
+			}
+			SAU = { transfer_state = 680 }
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					is_subject_of = ROOT
+					controls_state = 680
+				}
+			}
+			SAU = { transfer_state = 680 }
+		}
+
+		if = {
+			limit = {
+				ROOT = { controls_state = 799 }
+			}
+			SAU = { transfer_state = 799 }
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					is_subject_of = ROOT
+					controls_state = 799
+				}
+			}
+			SAU = { transfer_state = 799 }
+		}
+
+	}
+
+	option = {
+		name = SAU_demo_refs.1.b #it is time to dismantle the Ottomans permanently this time...
+		SAU = { country_event = { id = SAU_demo_refs.2 hours = 8 } }
+	}
+}
+
+#The Damascus Diktat - ROOT denies us!
+country_event = {
+	id = SAU_demo_refs.2
+	title = SAU_demo_refs.2.t
+	desc = SAU_demo_refs.2.desc
+	picture = GFX_report_event_tur_military_affair
+
+	is_triggered_only = yes
+	
+	option = {
+		name = SAU_demo_refs.2.a
+		add_state_claim = 677
+		add_state_claim = 554
+		add_state_claim = 553
+		add_state_claim = 680
+		if = {
+			limit = {
+				ROOT = { NOT = { controls_state = 799 } }
+			}
+			add_state_claim = 799
+		}
+		create_wargoal = {
+			target = FROM
+			type = take_state_focus
+		}
+	}
+}
+
+#The Damascus Diktat - Our Territories are Ours!
+country_event = {
+	id = SAU_demo_refs.3
+	title = SAU_demo_refs.3.t
+	desc = SAU_demo_refs.3.desc
+	picture = GFX_report_event_tur_sultan_and_pashas
+
+	is_triggered_only = yes
+
+	option = {
+		name = SAU_demo_refs.3.a 
+		add_stability = -0.05
+		release_puppet = SYR
+		SYR = {
+			drop_cosmetic_tag = yes
+		}
+		if = {
+			limit = { controls_state = 677 }
+			SYR = {
+				transfer_state = 677
+			}
+		}
+		if ={
+			limit = { controls_state = 554 }
+			SYR = {
+				transfer_state = 554
+			}
+		}
+		if ={
+			limit = { controls_state = 553 }
+			SYR = {
+				transfer_state = 553
+				add_state_core = 553
+			}
+		}
+		if ={
+			limit = { controls_state = 680 }
+			SYR = {
+				transfer_state = 680
+			}
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = SYR
+				autonomy_state = autonomy_colony
+			}
+		}
+	}
+	option = {
+		name = SAU_demo_refs.3.b #welcome back to the Empire!
+		add_war_support = 0.05
+	}
+}	
