@@ -525,7 +525,7 @@ ideas = {
 		}
 		SAU_taxed_pilgrims = {
 
-			picture = NOR_printing_money
+			picture = tur_varlik_vergisi
 			
 			allowed = {
 				always = no
@@ -665,9 +665,10 @@ ideas = {
 				industrial_capacity_factory = 0.1
 			}
 		}
+	#league
 		SAU_intelligence_network = {
 
-			picture = generic_spy_coup
+			picture = RAJ_a_policy_of_silence
 			
 			allowed = {
 				always = no
@@ -679,7 +680,6 @@ ideas = {
 			removal_cost = -1
 			cancel = {
 				NOT = {
-					is_faction_leader = yes
 					is_in_faction = yes
 				}
 			}
@@ -691,7 +691,56 @@ ideas = {
 				new_operative_slot_bonus = 1
 
 			}
-		}		
+		}	
+		SAU_league_economic_integration = {
+
+			picture = PER_fund_state_intelligence_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					is_in_faction = yes
+				}
+			}
+			modifier = {
+				consumer_goods_factor = -0.1
+				production_speed_industrial_complex_factor = 0.1
+				supply_node_range = 0.1
+				supply_factor = 0.1
+				army_fuel_consumption_factor = -0.1
+			}
+		}
+		SAU_league_military_integration = {
+
+			picture = eng_imperial_conscription
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					is_in_faction = yes
+				}
+			}
+			modifier = {
+				army_org_factor = 0.05
+				max_planning_factor = 0.1
+				special_forces_cap = 0.1
+				org_loss_at_low_org_factor = -0.15
+			}
+		}			
 	#reforms neutrality path
 		SAU_local_government_reform_spirit = {
 
@@ -994,6 +1043,40 @@ ideas = {
 
 
 #economy
+	SAU_produced_oil_import = {
+		picture = generic_fuel_reserves
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			country_resource_oil = 10
+			civilian_factory_use = 1 
+		}
+		cancel = {
+			ROOT = {
+				has_war_with = SAU
+			}			
+		}
+	}
+	SAU_produced_oil_exporter = {
+		picture = ARG_resource_extration_focus
+
+		allowed = {
+			original_tag = SAU
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		modifier = {
+			country_resource_oil = -10
+			civilian_factory_use = -2
+		}
+
+	}
 		SAU_OPEC_development_fund = {
 
 			picture = BRA_dasp
@@ -1324,6 +1407,67 @@ ideas = {
 				
 			}
 		}
+		SAU_army_organisation = {
+
+			picture = CHL_carabineros_de_chile_fascist 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				army_org_factor = 0.05
+				army_org_regain = 0.1
+			}
+		}
+		SAU_army_rations = {
+
+			picture = CHL_carabineros_de_chile_fascist 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				supply_node_range = 0.1
+				supply_factor = 0.1
+				supply_consumption_factor = -0.05
+
+				
+			}
+		}				
+		SAU_arabian_army2 = {
+
+			picture = CHL_carabineros_de_chile_neutrality 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_army = 0.05
+				army_org_factor = 0.05
+				army_org_regain = 0.1
+				supply_node_range = 0.1
+				supply_factor = 0.1
+				supply_consumption_factor = -0.05	
+			}
+		}		
 #end of army
 #arabian airforce
 		SAU_arabian_airforce = {
@@ -1341,10 +1485,28 @@ ideas = {
 				
 			modifier = {  
 				experience_gain_air = 0.05
-
-				
 			}
 		}
+		SAU_arabian_airforce2 = {
+			#improves into generic_air_bonus or air_support_focus - specialises into combined_bomber_offensive <- bomber | generic_aircraft_support into SWE_land_air_warfare <- cas
+			picture = AUS_airforce
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+
+			}
+		}		
 #end of airforce
 #navy of arabia 
 		SAU_arabian_navy = {

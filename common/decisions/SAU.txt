@@ -1,5 +1,430 @@
 SAU_formables_cat = {
 
+	SAU_ambitions_red_sea_empire_fulfilled = {
+
+		icon = GFX_decision_CHL_mapuche_reorganize_the_bolivian_government
+
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+				state = 842
+				state = 843
+				state = 841
+				state = 840
+				state = 839
+				state = 838
+				state = 837
+				state = 836
+				state = 271
+				state = 835
+				state = 908
+	
+            }
+		}
+		available = {
+			controls_state = 842
+			controls_state = 843
+			controls_state = 841
+			controls_state = 840
+			controls_state = 839
+			controls_state = 838
+			controls_state = 837
+			controls_state = 836
+			controls_state = 271
+			controls_state = 835
+			controls_state = 908	
+		}
+
+		visible = {
+			original_tag = SAU
+			has_country_flag = SAU_ambitions_red_sea_empire
+			NOT = {
+				has_global_flag = SAU_ambitions_red_sea_empire_fulfilled_flag
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			add_country_leader_trait = GER_sword_of_islam_trait
+			set_cosmetic_tag = SAU_kuwaitconquered
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = SAU_ambitions_red_sea_empire_fulfilled_flag
+				842= { add_core_of = ROOT }
+				843= { add_core_of = ROOT }
+				841= { add_core_of = ROOT }
+				840= { add_core_of = ROOT }
+				839= { add_core_of = ROOT }
+				838= { add_core_of = ROOT }
+				837= { add_core_of = ROOT }
+				836= { add_core_of = ROOT }
+				271= { add_core_of = ROOT }
+				835= { add_core_of = ROOT }
+				908= { add_core_of = ROOT }
+
+
+			}
+			268= { add_core_of = ROOT }
+			269= { add_core_of = ROOT }
+			550= { add_core_of = ROOT }
+			559= { add_core_of = ROOT }
+			844= { add_core_of = ROOT }
+        }
+
+	}
+	SAU_ambitions_caliphate_fulfilled = {
+
+		icon = GFX_decision_CHL_mapuche_reorganize_the_bolivian_government
+
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+				state = 352
+				state = 800
+				state = 350
+				state = 354
+				state = 353
+				state = 344 
+				state = 348
+				state = 349 
+				state = 355
+				state = 798
+				state = 356
+				state = 346
+				state = 345
+				state = 49
+				state = 347 
+				state = 342 
+				state = 339		
+				state = 341		
+				state = 340		
+				state = 797
+				state = 454		
+				state = 455		
+				state = 343		
+            }
+		}
+		available = {
+			controls_state = 352
+			controls_state = 800
+			controls_state = 350
+			controls_state = 354
+			controls_state = 454		
+			controls_state = 455				
+			controls_state = 353
+			controls_state = 344 
+			controls_state = 349 
+			controls_state = 348
+			controls_state = 355
+			controls_state = 798
+			controls_state = 356
+			controls_state = 346
+			controls_state = 345
+			controls_state = 49
+			controls_state = 347 
+			controls_state = 342 
+			controls_state = 339		
+			controls_state = 341		
+			controls_state = 340		
+			controls_state = 343
+			controls_state = 797		
+		}
+
+		visible = {
+			original_tag = SAU
+			has_country_flag = SAU_ambitions_caliphate
+			NOT = {
+				has_global_flag = SAU_ambitions_caliphate_fulfilled_flag
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			set_cosmetic_tag = SAU_caliphate
+			add_country_leader_trait = caliph
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = SAU_ambitions_caliphate_fulfilled_flag
+				352= { add_core_of = ROOT }
+				800= { add_core_of = ROOT }
+				350= { add_core_of = ROOT }
+				354= { add_core_of = ROOT }
+				797= { add_core_of = ROOT }
+				353= { add_core_of = ROOT }
+				344= { add_core_of = ROOT }
+				349= { add_core_of = ROOT }
+				355= { add_core_of = ROOT }
+				348= { add_core_of = ROOT }
+				798= { add_core_of = ROOT }
+				356= { add_core_of = ROOT }
+				346= { add_core_of = ROOT }
+				455= { add_core_of = ROOT }
+				454= { add_core_of = ROOT }				
+				345= { add_core_of = ROOT }
+				49= { add_core_of = ROOT }
+				347= { add_core_of = ROOT } 
+				342= { add_core_of = ROOT } 
+				339= { add_core_of = ROOT }	
+				341= { add_core_of = ROOT }
+				340= { add_core_of = ROOT }
+				343= { add_core_of = ROOT }
+
+			}
+
+        }
+
+	}
+	SAU_ambitions_fifth_arabian_empire_fulfilled = {
+
+		icon = GFX_decision_CHL_mapuche_reorganize_the_bolivian_government
+
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+				state =419
+				state =1000
+				state =420
+				state =417
+				state =421
+				state =1001
+				state =266
+				state =1004
+				state =416
+				state =418
+				state =1003
+				state =414
+				state =413
+				state =411
+				state =1002
+				state =412
+				state =410
+
+
+	
+            }
+		}
+		available = {
+			controls_state =419
+			controls_state =1000
+			controls_state =420
+			controls_state =417
+			controls_state =421
+			controls_state =1001
+			controls_state =266
+			controls_state =1004
+			controls_state =416
+			controls_state =418
+			controls_state =1003
+			controls_state =414
+			controls_state =413
+			controls_state =411
+			controls_state =1002
+			controls_state =412
+			controls_state =410	
+		}
+
+		visible = {
+			original_tag = SAU
+			has_country_flag = SAU_ambitions_fifth
+			NOT = {
+				has_global_flag = SAU_ambitions_fifth_arabian_empire_fulfilled_flag
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+            add_war_support = 0.1
+			set_cosmetic_tag =  SAU_end_game_tag_cosmetictag
+			add_country_leader_trait = AFG_liberator_of_persia
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = SAU_ambitions_fifth_arabian_empire_fulfilled_flag
+				#iran
+				419= { add_core_of = ROOT }
+				1000= { add_core_of = ROOT }
+				420= { add_core_of = ROOT }
+				417= { add_core_of = ROOT }
+				421= { add_core_of = ROOT }
+				1001= { add_core_of = ROOT }
+				266= { add_core_of = ROOT }
+				1004= { add_core_of = ROOT }
+				416= { add_core_of = ROOT }
+				418= { add_core_of = ROOT }
+				1003= { add_core_of = ROOT }
+				414= { add_core_of = ROOT }
+				413= { add_core_of = ROOT }
+				411= { add_core_of = ROOT }
+				1002= { add_core_of = ROOT }
+				412= { add_core_of = ROOT }
+				410= { add_core_of = ROOT }
+				#afgh
+				415= { add_core_of = ROOT }
+				1009= { add_core_of = ROOT }
+				1008= { add_core_of = ROOT }
+				1007= { add_core_of = ROOT }
+				267= { add_core_of = ROOT }
+				1006= { add_core_of = ROOT }
+				1005= { add_core_of = ROOT }
+				#turkestan
+
+
+
+			}
+			custom_effect_tooltip = SAU_you_will_also_core_afg_tt
+
+
+        }
+
+	}
+	SAU_ambitions_liberate_turkestan_from_the_soviets = {
+
+		icon = GFX_decision_CHL_mapuche_reorganize_the_bolivian_government
+
+		allowed = {
+			original_tag = SAU
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+				state = 402
+				state = 404
+				state = 406
+				state = 407
+				state = 583
+				state = 586
+				state = 587
+				state = 588
+				state = 589
+				state = 590
+				state = 881
+				state = 882
+				state = 405
+				state = 585
+				state = 830
+				state = 823
+				state = 831
+				state = 732 
+				state = 742 
+				state = 584 
+				state = 832 
+            }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = form_country_kazakhstan_required_states
+				controls_state = 402
+				controls_state = 404
+				controls_state = 406
+				controls_state = 407
+				controls_state = 583
+				controls_state = 586
+				controls_state = 587
+				controls_state = 588
+				controls_state = 589
+				controls_state = 590
+				controls_state = 881
+				controls_state = 882
+			}
+			custom_trigger_tooltip = {
+				tooltip = form_country_uzbekistan_required_states
+				controls_state = 405
+				controls_state = 585
+				controls_state = 830
+				controls_state = 823
+				controls_state = 831
+			}
+			controls_state = 732 # Kyrgyzstan
+			controls_state = 742 # Tajikistan
+			controls_state = 584 # Turkmenistan
+			controls_state = 832 # Tashauz
+		}
+
+		visible = {
+			original_tag = SAU
+			has_country_flag = SAU_ambitions_fifth
+			NOT = {
+				has_global_flag = SAU_ambitions_fifth_arabian_empire_fulfilled_flag
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+			add_war_support = 0.1
+
+			# Kazakhstan
+			custom_effect_tooltip = form_country_kazakhstan_coring_states_tt
+			hidden_effect = {
+				402 = { add_core_of = ROOT }
+				404 = { add_core_of = ROOT }
+				406 = { add_core_of = ROOT }
+				407 = { add_core_of = ROOT }
+				583 = { add_core_of = ROOT }
+				586 = { add_core_of = ROOT }
+				587 = { add_core_of = ROOT }
+				588 = { add_core_of = ROOT }
+				589 = { add_core_of = ROOT }
+				590 = { add_core_of = ROOT }
+				881 = { add_core_of = ROOT }
+				882 = { add_core_of = ROOT }
+			}
+			
+			# Turkmenistan
+			584 = { add_core_of = ROOT }
+			
+			# Tashauz
+			832 = { add_core_of = ROOT }
+			
+			# Uzbekistan
+			custom_effect_tooltip = form_country_uzbekistan_coring_states_tt
+			hidden_effect = {
+				405 = { add_core_of = ROOT }
+				585 = { add_core_of = ROOT }
+				830 = { add_core_of = ROOT }
+				823 = { add_core_of = ROOT }
+				831 = { add_core_of = ROOT }
+			}
+			
+			# Kyrgyzstan
+			732 = { add_core_of = ROOT }
+			
+			# Tajikistan
+			742 = { add_core_of = ROOT }
+			
+			# Tuva
+			329 = { add_core_of = ROOT }
+			
+			# Altai
+			654 = { add_core_of = ROOT }
+			40 = { add_core_of = ROOT }
+			
+			# Sinkiang
+			custom_effect_tooltip = form_country_sinkiang_coring_states_tt
+			hidden_effect = {
+				287 = { add_core_of = ROOT }
+				617 = { add_core_of = ROOT }
+				618 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				759 = { add_core_of = ROOT }
+				760 = { add_core_of = ROOT }
+			}
+			IF = {
+				LIMIT = {
+					NOT  ={ has_idea = soldiers_of_the_steppe}
+				}
+				add_ideas = soldiers_of_the_steppe
+			}
+			
+
+        }
+
+	}	
 }
 
 SAU_decs_cat = {
@@ -1229,13 +1654,13 @@ SAU_border_wars = {
 			cost = 25
 
 			days_remove = 5
-			455 = {
-				controller = {
-					war_with_on_remove = PREV
-				}
-			}
+
 			remove_effect = {
-				
+				455 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}	
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -1292,13 +1717,13 @@ SAU_border_wars = {
 			cost = 25
 
 			days_remove = 5
-			454 = {
-				controller = {
-					war_with_on_remove = PREV
-				}
-			}
+
 			remove_effect = {
-				
+				454 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}		
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -1322,9 +1747,7 @@ SAU_border_wars = {
 			}
 
 	}
-	#656 - kuwait 2v2; attacker: 859
-	#658 - trucial 2v2; attacker: 678
-	#765 - qatar 1v1; attack: 859
+
 	SAU_coup_kuwait = {
 			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
@@ -1359,13 +1782,13 @@ SAU_border_wars = {
 			}
 
 			days_remove = 5
-			656 = {
-				controller = {
-					war_with_on_remove = PREV
-				}
-			}
+
 			remove_effect = {
-				
+				656 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -1422,13 +1845,13 @@ SAU_border_wars = {
 			}		
 
 			days_remove = 5
-			765 = {
-				controller = {
-					war_with_on_remove = PREV
-				}
-			}
+
 			remove_effect = {
-				
+				765 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -1484,13 +1907,13 @@ SAU_border_wars = {
 			}		
 
 			days_remove = 5
-			658 = {
-				controller = {
-					war_with_on_remove = PREV
-				}
-			}
+
 			remove_effect = {
-				
+				658 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -1547,13 +1970,13 @@ SAU_border_wars = {
 			}		
 
 			days_remove = 5
-			1015 = {
-				controller = {
-					war_with_on_remove = PREV
-				}
-			}
+
 			remove_effect = {
-				
+				1015 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -1609,13 +2032,13 @@ SAU_border_wars = {
 			}		
 
 			days_remove = 5
-			1016 = {
-				controller = {
-					war_with_on_remove = PREV
-				}
-			}
+
 			remove_effect = {
-				
+				1016 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}	
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -1671,13 +2094,13 @@ SAU_border_wars = {
 			}		
 
 			days_remove = 5
-			294 = {
-				controller = {
-					war_with_on_remove = PREV
-				}
-			}
+
 			remove_effect = {
-				
+				294 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}	
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
@@ -2361,7 +2784,6 @@ SAU_promote_immigration_cat = {
 	
 		cost = 40
 		fire_only_once = yes
-		add_manpower = 15000
 
 		allowed = {
 			original_tag = SAU
@@ -2426,6 +2848,8 @@ SAU_promote_immigration_cat = {
 		}
 	
 		remove_effect = {
+			add_manpower = 15000
+
 			clr_country_flag = SAU_promote_immigration_ongoing
 
 			FROM = {
@@ -2449,7 +2873,6 @@ SAU_promote_immigration_cat = {
 				has_political_power > 300
 			}
 		}
-		add_manpower = 20000
 
 		cost = 40
 		fire_only_once = yes
@@ -2513,6 +2936,8 @@ SAU_promote_immigration_cat = {
 		}
 	
 		remove_effect = {
+					add_manpower = 20000
+
 			clr_country_flag = SAU_promote_immigration_ongoing
 
 			FROM = {
@@ -3647,7 +4072,11 @@ SAU_international_liberation_front = {
 			visible = {
 				original_tag = SAU
 				has_country_flag = SAU_picked_kurdish_side_flag
-					
+				NOT = {
+					352 = {
+						is_owned_by = KUR
+					}
+				}
 			}
 
 			days_remove = 50
@@ -4092,7 +4521,6 @@ SAU_naval_decisions = {
 		}
 	}
 
-	#above works, below doesnt work
 	SAU_purchase_ships_eng = {
 		cost = 50
 		icon = GFX_decision_generic_naval
@@ -5709,8 +6137,7 @@ SAU_working_together = {
 
 		visible = {
 			original_tag = SAU
-			
-			
+			has_global_flag = SAU_arabian_team_collaboration
 		}
 
 		days_remove = 30

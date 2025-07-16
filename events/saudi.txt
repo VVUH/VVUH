@@ -690,7 +690,65 @@ add_namespace = SAU_demo_refs
 			}
 		}
 	}
+	country_event = {
+		id = SAU_fascism.14
+		title = SAU_fascism.14.t
+		desc = SAU_fascism.14.desc
+		picture = GFX_report_event_tur_sultan_and_pashas
 
+		
+		is_triggered_only = yes
+
+		mean_time_to_happen = {
+			days = 5
+		}
+		#1st
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_fascism.14.a
+			hidden_effect = {
+				set_country_flag = SAU_ambitions_red_sea_empire
+			}
+			add_war_support = 0.2
+			unlock_decision_tooltip = SAU_ambitions_red_sea_empire_fulfilled
+			custom_effect_tooltip = SAU_horn_of_africa_coring_tt
+
+		}
+		#2d
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			name = SAU_fascism.14.b
+			hidden_effect = {
+				set_country_flag = SAU_ambitions_fifth
+			}
+			add_war_support = 0.2
+			unlock_decision_tooltip = SAU_ambitions_fifth_arabian_empire_fulfilled
+			custom_effect_tooltip = SAU_iran_afg_turkestan_coring_tt
+
+		}
+		#3rd
+		option = {
+			ai_chance = {
+				base = 1
+			}
+			trigger = {
+				NOT = {
+					has_idea = SAU_secular_politics
+				}
+			}
+			name = SAU_fascism.14.c
+			hidden_effect = {
+				set_country_flag = SAU_ambitions_caliphate
+			}
+			add_war_support = 0.2
+			unlock_decision_tooltip = SAU_ambitions_caliphate_fulfilled
+			custom_effect_tooltip = SAU_anatolia_coring_tt
+		}		
+	}
 	country_event = {
 		id = SAU_commies_event.1
 		title = SAU_commies_event.1.t

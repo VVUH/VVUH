@@ -3030,7 +3030,7 @@
  SAU_imamate_fascism:0 "Imamate of Arabia"  
  SAU_imamate_fascism_DEF:0 "the Imamate of Arabia"  
  SAU_imamate_democratic:0 "Federation of Arabia"  
- SAU_imamate_democraticDEF:0 "the Federation of Arabia"  
+ SAU_imamate_democratic_DEF:0 "the Federation of Arabia"  
 
  SAU_unmodern_fascism:0 "Arabian Sharifate"  
  SAU_unmodern_neutrality:0 "Najdi Sultanate"  
@@ -3042,7 +3042,7 @@
 
  SAU_kuwaitconquered_neutrality_DEF:0 "the Kingdom of the Arabian Gulf" 
  SAU_kuwaitconquered_communism_DEF:0 "the Arabian Gulf Commune"  
- SAU_kuwaitconquered_fascism_DEF:0 "the Empire of the Arabian Gulf"  
+ SAU_kuwaitconquered_fascism_DEF:0 "the Empire of the Red Sea"  
  SAU_kuwaitconquered_democratic_DEF:0 "the Republic of the Arabian Gulf" 
 
  SAU_modern_saud_fascism_DEF:0 "the Najdi Sultanate"  
@@ -3058,7 +3058,7 @@
  SAU_unmodern_fascism_DEF:0 "the Arabian Sharifate"  
  SAU_unmodern_neutrality_DEF:0 "the Najdi Sultanate"  
 
- SAU_caliphate:0 "United Asia"
+ SAU_caliphate:0 "United Middle East"
  SAU_caliphate_democratic:0 "United Ummah Federation"
  SAU_caliphate_democratic_DEF:0 "the United Ummah Federation"
  SAU_caliphate_communism:0 "United Muslim People's Republic"

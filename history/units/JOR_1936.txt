@@ -44,18 +44,6 @@ units = {
         start_experience_factor = 0.2
 
 	}
-	division = {
-		#name = "Alfurqat Ar Riyad"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 1
-		}
-		location = 7151
-		division_template = "Alfurqat Alfursan"	
-		start_equipment_factor = 1
-        start_experience_factor = 0.5
-
-	}
 
 	division = {
 		#name = "Alfurqat Jiddah"

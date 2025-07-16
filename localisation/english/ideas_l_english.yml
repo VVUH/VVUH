@@ -3783,6 +3783,8 @@
  SAU_women_of_arabia:0 "Women of Arabia"
  SAU_intelligence_network:0 "League Intelligence Network"
  SAU_hajj_pilgrims:0 "Hajj Pilgrims"
+ SAU_league_military_integration: "League Military Integration"
+ SAU_league_economic_integration: "League Economic Integration"
  SAU_limited_agri:0 "Limited Agriculture"
  SAU_agri_collapse:0 "Agricultural Collapse"
  SAU_poor_country:0 "Poor Country"

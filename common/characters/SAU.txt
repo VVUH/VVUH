@@ -1488,7 +1488,13 @@ characters={
 				}
 			}
 			available = {
-				#xyz or museum
+				OR = {
+					has_completed_focus = SAU_promise_non_interference_to_the_british
+					Has_completed_focus = SAU_two_kingdoms_one_imam
+				}
+			}
+			visible = {
+				has_completed_focus = SAU_invite_western_pressure
 			}
 			allowed = {
 				original_tag = SAU

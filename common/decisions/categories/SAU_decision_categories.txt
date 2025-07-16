@@ -1,9 +1,9 @@
-SAU_formables_cat ={ #formable general always doable, this is more for specifics like iran
+SAU_formables_cat ={
     allowed = {
         tag = SAU
     }
     priority = 5
-    icon = GFX_decision_category_generic
+    icon = GFX_decision_category_spr_the_seeds_of_revolution
 }
 
 SAU_decs_cat = { #general decisions
