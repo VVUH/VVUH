@@ -86,6 +86,8 @@ set_popularities = {
 	fascism = 5
 	communism = 3
 }
+store_core_states_on_game_start = yes
+
 	create_equipment_variant = {
 		name = "Vickers 6 ton A"
 		type = light_tank_chassis_0

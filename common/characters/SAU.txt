@@ -12,12 +12,7 @@ characters={
 				PER_rightful_king_trait 
 			}
 			ideology=despotism
-			on_remove = { 
-				add_popularity = {
-					ideology = neutrality
-					popularity = -0.1
-				}
-			}
+
 		}
 	}
 	
@@ -183,12 +178,7 @@ characters={
 				small = GFX_portrait_AFG_amanullah_khan_small
 			}
 		}
-		country_leader = {
-			traits  = {
-				hedonist 
-			}  
-			ideology=despotism
-		}
+
 		country_leader = {
 			traits  = {
 				PER_fascist_dynasty 
@@ -223,6 +213,7 @@ characters={
 				}
 			}
 			slot = army_chief
+			cost = 100
 			idea_token = SAU_faisal_ibn_saud
 			allowed  = {
 					original_tag  = SAU
@@ -493,6 +484,7 @@ characters={
 	SAU_philip_gordon_lee={
 		advisor={
 			slot = navy_chief
+			cost = 100
 			idea_token = SAU_philip_gordon_lee
 			allowed  = {
 				original_tag  = SAU
@@ -521,6 +513,7 @@ characters={
 		advisor={
 			slot = high_command
 			idea_token = SAU_youssef_al_bishi
+			cost = 50
 			ledger  = army 
 				allowed  = {
 					original_tag  = SAU
@@ -541,6 +534,7 @@ characters={
 	}
 	SAU_hamadan_al_odha={
 		advisor={
+			cost = 100
 			slot = navy_chief
 			idea_token = SAU_hamadan_al_odha
 			allowed  = {
@@ -565,6 +559,7 @@ characters={
 			slot = theorist
 			idea_token = SAU_sa_ad_shaddad_al_outaibi
 			ledger  = army 
+			cost = 150
 				allowed  = {
 					original_tag  = SAU
 				}
@@ -584,6 +579,7 @@ characters={
 			slot = high_command
 			idea_token = SAU_karim_nassar
 			ledger  = army 
+			cost = 100
 				allowed  = {
 					original_tag  = SAU
 				}
@@ -606,6 +602,7 @@ characters={
 			slot = theorist
 			idea_token = SAU_hamed_al_sabani
 			ledger  = navy 
+			cost = 150
 				allowed  = {
 					original_tag  = SAU
 				}
@@ -625,6 +622,7 @@ characters={
 			slot = high_command
 			idea_token = SAU_saud_al_saud
 			ledger  = army 
+			cost = 200
 				allowed  = {
 					original_tag  = SAU
 				}
@@ -651,6 +649,7 @@ characters={
 	SAU_ismail_ali_al_salhi={
 		advisor={
 			slot = army_chief
+			cost = 100
 			idea_token = SAU_ismail_ali_al_salhi
 			allowed  = {
 					original_tag  = SAU
@@ -672,6 +671,7 @@ characters={
 	SAU_ali_muhammed_khan={
 		advisor={
 			slot = air_chief
+			cost = 100
 			idea_token = SAU_ali_muhammed_khan
 			allowed  = {
 					original_tag  = SAU
@@ -693,6 +693,7 @@ characters={
 
 	SAU_gholam_wali={
 		advisor={
+			cost = 100
 			slot = air_chief
 			idea_token = SAU_gholam_wali
 			allowed  = {

@@ -16,7 +16,8 @@ focus_tree = {
 				original_tag = QAT
 				original_tag = BHR
 				original_tag = FSA 
-				original_tag = OMA				
+				original_tag = OMA		
+				original_tag = IMO		
 			}
 			
 		}
@@ -33,6 +34,7 @@ focus_tree = {
 
 		available = {
 			threat > 0.1
+			is_subject = yes
 		}
 		icon = {
 			trigger = { original_tag = LEB}
@@ -45,12 +47,24 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_focus_AUS_frontmiliz_focus
-		}					
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_SOV_cohesion_first_ccp_2d_sov_compatibility
+		}	
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_chi_army_reform
+		}
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_SOV_barrier_troops_ccp_2d_sov_compatibility
+		}											
 		icon = {
 			value = GFX_focus_focus_fra_maquis
 		}
 		available_if_capitulated = no
-	
+
 		completion_reward = {
 			capital_scope = {
 				add_extra_state_shared_building_slots = 1
@@ -97,7 +111,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_raf_station_bases
-		icon = GFX_focus_generic_air_bases	
 		prerequisite = { focus = ASJ_request_a_home_guard}							
 		x = 0
 		y = 1
@@ -106,7 +119,17 @@ focus_tree = {
 			factor = 10
 		}
 		cost = 10
-
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_HUN_establish_the_mavag_aircraft_factory
+		}	
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_goal_generic_air_production
+		}			
+		icon = {
+			value = GFX_focus_generic_air_bases
+		}
 		available = {
 	
 		}
@@ -185,7 +208,31 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = SYR}
 			value = GFX_focus_AFG_quami
+		}
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_CHL_departemento_de_las_tropas_nacistas_de_asalto
+		}	
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_POL_beck_ribbentrop
+		}			
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_ETH_freedom_at_gunpoint
 		}		
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_ETH_expand_the_levy
+		}	
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_ETH_sway_the_warlords
+		}		
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_IRQ_arab_legion
+		}			
 		icon = {
 			value = GFX_focus_PER_recruit_bakhtiari
 		}	
@@ -224,8 +271,12 @@ focus_tree = {
 			value = GFX_focus_GER_support_the_proletarian_uprising
 		}			
 		icon = {
-			trigger = { original_tag = PAL}
+			trigger = { original_tag = BHR}
 			value = GFX_focus_AFG_against_kabul
+		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_AUS_raid_military_storages
 		}		
 		icon = {
 			trigger = { original_tag = SYR}
@@ -233,10 +284,26 @@ focus_tree = {
 		}		
 		icon = {
 			trigger = { original_tag = FSA}
-			value = GFX_focus_AFG_scavenging
+			value = GFX_focus_PER_university_of_isfahan
 		}		
 		icon = {
-			value = GFX_SOV_rehabilitated_military_ccp_2d_sov_compatibility
+			trigger = { original_tag = UAE}
+			value = GFX_focus_EST_republican_defence_league
+		}
+		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_TUR_loosen_the_laws_on_secularism
+		}				
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_ITA_comandante_diavolo
+		}		
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_ETH_freedom_at_gunpoint
+		}			
+		icon = {
+			value = GFX_focus_ITA_topple_amhara_rulers
 		}
 		available_if_capitulated = no
 	
@@ -282,7 +349,6 @@ focus_tree = {
 			}
 			add_stability = 0.1
 			army_experience = 100
-			# automatically researches military police, adds 10% stab and gives army xp
 			
 		}
 
@@ -290,7 +356,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_follow_the_master_doctrine
-		icon = GFX_focus_generic_commonwealth_build_infantry	
 		prerequisite = {focus = ASJ_prioritize_internal_affairs }
 		prerequisite = {focus = ASJ_conscription_centres}
 		mutually_exclusive = {focus = ASJ_the_new_age_of_warfare}							
@@ -305,10 +370,27 @@ focus_tree = {
 		available = {
 	
 		}
-
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_GER_expand_ss_security_duties
+		}
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_goal_generic_allies_build_infantry
+		}			
+		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_TUR_turanist_ambition
+		}				
+		icon = {
+			value = GFX_focus_generic_commonwealth_build_infantry
+		}
 		available_if_capitulated = no
-	
+
+
 		completion_reward = {
+			add_ideas = HOA_our_finest_idea
+			custom_effect_tooltip = generic_skip_one_line_tt			
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.75
 				uses = 2
@@ -318,7 +400,14 @@ focus_tree = {
 				cost_reduction = 0.75
 				uses = 2
 				category = cat_superior_firepower
+			}	
+
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
 			}			
+								
 			IF = {
 				limit = {NOT = {has_tech = infantry_weapons2 } can_research = infantry_weapons2 }
 				set_technology = {
@@ -326,20 +415,17 @@ focus_tree = {
 				}
 			}ELSE = {
 				add_tech_bonus = {
-					bonus = 1
+					bonus = 0.75
 					uses = 1
 					category = infantry_weapons
 				}			
 			}			
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = HOA_our_finest_idea
 		}
 
 	}
 
 	focus = {
 		id = ASJ_the_new_age_of_warfare
-		icon = GFX_focus_SWE_lynx_armored_car	
 		prerequisite = {focus = ASJ_prioritize_internal_affairs }
 		prerequisite = {focus = ASJ_conscription_centres}
 		mutually_exclusive = {focus = ASJ_follow_the_master_doctrine}							
@@ -354,10 +440,50 @@ focus_tree = {
 		available = {
 	
 		}
-
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		}
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		}	
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_generic_purchase_mechanized_equipment
+		}	
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_generic_naval_invasion_tank
+		}
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_tank_assault
+		}
+		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_FIN_salvaged_and_retooled
+		}					
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_NOR_rikstanken
+		}			
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_NZL_bob_semple_tank
+		}			
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_generic_tank_assembly
+		}										
+		icon = {
+			value = GFX_focus_SWE_lynx_armored_car
+		}
 		available_if_capitulated = no
 	
 		completion_reward = {
+			add_ideas = ASJ_modern_fighting_force
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.5
 				uses = 2
@@ -375,7 +501,7 @@ focus_tree = {
 				}
 			}ELSE = {
 				add_tech_bonus = {
-					bonus = 1
+					bonus = 0.9
 					uses = 1
 					category = cat_armored_cars
 				}			
@@ -387,7 +513,7 @@ focus_tree = {
 				}
 			}ELSE = {
 				add_tech_bonus = {
-					bonus = 1
+					bonus = 0.75
 					uses = 1
 					category = cat_light_armor
 				}			
@@ -398,7 +524,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_land_arm_of_the_middle_east
-		icon = GFX_focus_NORDIC_dem_army	
 		prerequisite = {focus = ASJ_the_new_age_of_warfare focus = ASJ_follow_the_master_doctrine}
 		x = -1
 		y = 2
@@ -407,8 +532,22 @@ focus_tree = {
 			factor = 100
 		}
 		cost = 10
-
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_NORDIC_dem_materiel
+		}	
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_NORDIC_dem_capstone_navy
+		}					
+		icon = {
+			value = GFX_focus_NORDIC_dem_army
+		}
 		available = {
+			OR = {
+				is_in_faction = yes
+				is_subject = yes
+			}
 			any_country = {
 				AND = {
 					NOT = {
@@ -449,7 +588,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_home_grown_pilots
-		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er	
 		prerequisite = {focus = ASJ_raf_station_bases}							
 		x = 1
 		y = 2
@@ -460,14 +598,33 @@ focus_tree = {
 		cost = 10
 
 		available = {
-	
 		}
-
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_SOV_expand_aviation_institutes_ccp_2d_sov_compatibility
+		}		
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_ICE_hrafninn_flygur
+		}		
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_SOV_women_in_aviation
+		}		
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_goal_generic_build_airforce
+		}		
+		icon = {
+			value = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		}
 		available_if_capitulated = no
 	
 		completion_reward = {
 			# Doctrine for air 
 			# Gives spirit which adds +10% ace generation chance and +10& agility and +10% range
+			add_ideas = ASJ_trained_pilots
+			custom_effect_tooltip = generic_skip_one_line_tt			
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.5
 				uses = 2
@@ -479,7 +636,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_aquire_planes
-		icon = GFX_focus_generic_air_partners	
 		prerequisite = {focus = ASJ_raf_station_bases}								
 		x = -1
 		y = 2
@@ -497,7 +653,29 @@ focus_tree = {
 				}
 			}
 		}
-
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_copy_plane_designs
+		}	
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_generic_air_research_boost
+		}			
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_air_partners
+		}	
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_goal_generic_air_fighter
+		}		
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_goal_generic_air_fighter2
+		}			
+		icon = {
+			value = GFX_focus_SMB_purchase_aircraft
+		}
 		available_if_capitulated = no
 	
 		completion_reward = {
@@ -578,7 +756,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_aeronautical_arm_of_the_middle_east
-		icon = GFX_focus_NORDIC_dem_airforce	
 		prerequisite = {focus = ASJ_aquire_planes}
 		prerequisite = {focus = ASJ_home_grown_pilots }							
 		x = 0
@@ -588,8 +765,22 @@ focus_tree = {
 			factor = 30
 		}
 		cost = 10
-
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_NORDIC_dem_selector_airforce
+		}	
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_NORDIC_dem_capstone_airforce
+		}					
+		icon = {
+			value = GFX_focus_NORDIC_dem_airforce
+		}
 		available = {
+			OR = {
+				is_in_faction = yes
+				is_subject = yes
+			}
 			any_country = {
 				AND = {
 					NOT = {
@@ -629,7 +820,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_a_port_with_a_country
-		icon = GFX_focus_BEL_koningshooikt_wavre_line	
 		prerequisite = {focus = ASJ_request_a_home_guard }						
 		x = 5
 		y = 1
@@ -642,7 +832,25 @@ focus_tree = {
 		available = {
 	
 		}
-
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_BEL_koningshooikt_wavre_line
+		}	
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_ARG_navy
+		}				
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_generic_refit_civilian_ships
+		}	
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_goal_generic_navy_cruiser
+		}				
+		icon = {
+			value = GFX_focus_ICE_modernizing_the_coast_guard
+		}
 		available_if_capitulated = no
 	
 
@@ -652,6 +860,7 @@ focus_tree = {
 					is_controlled_by = ROOT
 					is_core_of = ROOT
 				}
+
 				add_building_construction = {
 					type = coastal_bunker
 					province = {
@@ -702,9 +911,13 @@ focus_tree = {
 		}
 
 		available_if_capitulated = no
-			icon = {
+		icon = {
 			trigger = { original_tag = OMA}
 			value = GFX_focus_AFG_promote_the_counter_elite
+		}		
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_ARG_universidad_de_buenos_aires
 		}		
 		icon = {
 			value = GFX_focus_AFG_education_reform
@@ -766,7 +979,6 @@ focus_tree = {
 	}
 	focus = {
 		id = ASJ_sailor_clubs
-		icon = GFX_focus_generic_naval_discipline	
 		prerequisite = {focus = ASJ_a_port_with_a_country }						
 		x = -2
 		y = 1
@@ -779,7 +991,14 @@ focus_tree = {
 		available = {
 	
 		}
-
+	
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_PER_wether_the_storm
+		}			
+		icon = {
+			value = GFX_focus_generic_naval_discipline
+		}
 		available_if_capitulated = no
 	
 		completion_reward = {
@@ -802,7 +1021,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_develop_trade_routes
-		icon = GFX_focus_generic_merchant_fleet	
 		prerequisite = {focus = ASJ_a_port_with_a_country }
 		mutually_exclusive = { focus = ASJ_a_fleet_to_protect_our_interests}						
 		x = 0
@@ -812,14 +1030,30 @@ focus_tree = {
 			factor = 50
 		}
 		cost = 10
-
 		available = {
 	
 		}
-
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_POL_develop_polish_shipbuilding
+		}		
+		icon = {
+			value = GFX_focus_generic_merchant_fleet
+		}
 		available_if_capitulated = no
 	
 		completion_reward = {
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+			}
 			IF = {
 				limit = {NOT = {has_tech = mtg_transport } can_research = mtg_transport }
 				set_technology = {
@@ -858,8 +1092,20 @@ focus_tree = {
 			value = GFX_focus_RAJ_tea_exports
 		}			
 		icon = {
-			trigger = { original_tag = FSA}
+			trigger = { original_tag = OMA}
 			value = GFX_focus_AFG_sugar_factory
+		}	
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_generic_coffee
+		}			
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_IRQ_strengthen_the_iraqi_dinar
+		}			
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_IRQ_decouple_from_the_pound
 		}		
 		icon = {
 			value = GFX_focus_generic_agricultural_subsidies
@@ -878,7 +1124,6 @@ focus_tree = {
 				}
 				overlord = {
 					add_offsite_building = { type = industrial_complex level = 1 }
-
 				}
 			}
 			add_autonomy_score = {
@@ -889,7 +1134,6 @@ focus_tree = {
 	}
 	focus = {
 		id = ASJ_a_fleet_to_protect_our_interests
-		icon = GFX_focus_SWE_coastal_support	
 		prerequisite = {focus = ASJ_a_port_with_a_country }
 		mutually_exclusive = { focus = ASJ_develop_trade_routes}						
 		x = 2
@@ -898,16 +1142,58 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		cost = 10
+		cost = 12
 
 		available = {
 	
 		}
-
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_PER_persian_gulf_fleet
+		}
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_PER_persian_gulf_fleet
+		}		
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_PER_persian_gulf_fleet
+		}		
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_PER_persian_gulf_fleet
+		}		
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_generic_the_suez
+		}
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_generic_mediterranean_sea_focus
+		}	
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_generic_mediterranean_sea_focus
+		}								
+		icon = {
+			value = GFX_focus_SWE_coastal_support
+		}
 		available_if_capitulated = no
 	
 		completion_reward = {
-
+			add_ideas = ASJ_naval_developments
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+			}
 			add_equipment_to_stockpile	= {
 				type = convoy
 				amount = 20
@@ -937,7 +1223,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_naval_arm_of_the_middle_east
-		icon = GFX_focus_NORDIC_dem_navy	
 		prerequisite = {focus = ASJ_sailor_clubs }
 		prerequisite = {focus = ASJ_develop_trade_routes focus = ASJ_a_fleet_to_protect_our_interests }		
 		x = 1
@@ -947,9 +1232,24 @@ focus_tree = {
 			factor = 20
 		}
 		cost = 10
-
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_NORDIC_dem_capstone_navy
+		}		
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_NORDIC_dem_selector_navy
+		}			
+		icon = {
+			value = GFX_focus_NORDIC_dem_navy
+		}
 
 		available = {
+			OR = {
+				is_in_faction = yes
+				is_subject = yes
+			}
+			
 			any_country = {
 				AND = {
 					NOT = {
@@ -964,6 +1264,12 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
+			hidden_effect = {
+					add_ai_strategy = {
+						type = screen_ship
+						value = 200
+					}	
+			}
 			hidden_effect = {
 				set_global_flag = ASJ_naval_arm_claimed_flag
 			}	
@@ -1007,7 +1313,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_building_a_nation_from_nothing
-		icon = GFX_focus_generic_support_the_left_right		
 		x = 18
 		y = 0
 		ai_will_do = {
@@ -1016,12 +1321,48 @@ focus_tree = {
 		cost = 10
 
 		available = {
-	
+			IF = {
+				LIMIT = {
+					OR = {
+						original_tag = PAL
+						original_tag = JOR
+					}
+				}
+				has_global_flag = the_1936_PAL_revolt_has_happened
+			}
 		}
 		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_focus_AFG_parliamentary_democracy
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_AFG_shadows_of_the_king
+		}
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_GER_strengthen_the_proletarian_international
 		}		
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_goal_generic_major_alliance
+		}
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_ARG_defense_and_democracy
+		}
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_goal_generic_improve_relations
+		}								
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_goal_generic_military_deal
+		}	
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_goal_generic_dangerous_deal
+		}							
 		icon = {
 			value = GFX_focus_generic_support_the_left_right
 		}
@@ -1045,7 +1386,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_connecting_the_country
-		icon = GFX_focus_BEL_engine_of_the_economy	
 		prerequisite = {focus = ASJ_building_a_nation_from_nothing }
 		x = -3
 		y = 1
@@ -1056,8 +1396,19 @@ focus_tree = {
 		cost = 10
 
 		available = {
-	
 		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_railroad
+		}		
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_PER_feat_of_engineering
+		}			
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_IRQ_train
+		}		
 		icon = {
 			trigger = { original_tag = FSA}
 			value = GFX_focus_GER_kriegslokomotive
@@ -1134,7 +1485,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_promoting_industrialisation
-		icon = GFX_focus_AFG_a_modern_economy
 		prerequisite = {focus = ASJ_connecting_the_country }
 		x = -1
 		y = 1
@@ -1145,20 +1495,75 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			#at least 5 factories
+			num_of_factories > 4
 		}
-
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_goal_generic_oil_refinery
+		}
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_PER_national_bank
+		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_goal_generic_construct_civilian
+		}
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_generic_chromium
+		}						
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_industrialists
+		}					
+		icon = {
+			value = GFX_focus_AFG_a_modern_economy
+		}
 		available_if_capitulated = no
 	
 		completion_reward = {
+			add_ideas = ASJ_industrialising_country
+			custom_effect_tooltip = generic_skip_one_line_tt
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build = yes
-				}	
+				}					
+			}
+			IF = {
+				LIMIT = {
+					OR={
+						original_tag = KUW
+						original_tag = UAE
+						original_tag = QAT
+						original_tag = FSA
+						original_tag = BHR
+						original_tag = OMA
+					}
+				}
+				capital_scope = {
+					add_resource = {
+						type = oil
+						amount = 3
+					}
+				}
+			}
+			IF = {
+				LIMIT = {
+					original_tag = JOR
+				}
+				capital_scope = {
+					add_resource = {
+						type = chromium
+						amount = 9	
+					}
+				}
 			}			
+
+
 			# remove negeative construction speed from eco
 		}
 
@@ -1166,7 +1571,6 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_seek_master_investments
-		icon = GFX_focus_generic_welfare	
 		prerequisite = {focus = ASJ_connecting_the_country }
 		x = 1
 		y = 1
@@ -1178,11 +1582,15 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = LEB}
 			value = GFX_focus_GER_integration_of_puppet_economies
-		}		
+		}
 		icon = {
-			trigger = { original_tag = LEB}
+			trigger = { original_tag = FSA}
 			value = GFX_focus_GER_integrated_economies
-		}			
+		}
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_RAJ_special_economic_zones
+		}						
 		icon = {
 			trigger = { original_tag = SYR}
 			value = GFX_focus_GER_customs_union
@@ -1190,7 +1598,11 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = OMA}
 			value = GFX_focus_GER_expand_gestapo
-		}		
+		}
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_PER_ally_bazaari
+		}				
 		icon = {
 			value = GFX_focus_generic_welfare
 		}
@@ -1232,7 +1644,27 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = OMA}
 			value = GFX_focus_RAJ_special_economic_zones
-		}			
+		}
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_generic_economic_recovery
+		}
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_PER_embrace_opulence
+		}	
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_devaluation
+		}		
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_POL_complete_april_constitution
+		}							
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_generic_currency_reforms
+		}				
 		icon = {
 			trigger = { original_tag = SYR}
 			value = GFX_focus_RAJ_institutional_money_laundering
@@ -1240,7 +1672,8 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = JOR}
 			value = GFX_focus_AFG_afghan_bank
-		}		
+		}	
+		
 		icon = {
 			value = GFX_focus_generic_monetary_union
 		}
@@ -1270,7 +1703,27 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = QAT}
 			value = GFX_focus_CONGO_copper_cartridges
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_AFG_against_kabul
 		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_AFG_scavenging
+		}		
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_FIN_weapon_caches
+		}				
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		}
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
+		}				
 		icon = {
 			value = GFX_goal_generic_construct_mil_factory
 		}
@@ -1285,14 +1738,25 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			# Reduces half of the military factory contruction penalty of the eco
+			IF = {
+				LIMIT = {
+					original_tag = OMA
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}			
+			}
 		}
 
 	}
 
 	focus = {
 		id = ASJ_preparing_for_the_worst
-		icon = GFX_goal_generic_construct_civ_factory	
 		prerequisite = {focus = ASJ_general_rearmament }
 		x = 0
 		y = 1
@@ -1306,7 +1770,27 @@ focus_tree = {
 			#15% world tention
 			threat > 0.15
 		}
-
+		icon = {
+			trigger = { 
+				OR = {
+						original_tag = SYR
+						original_tag = LEB
+						original_tag = JOR
+				}
+			}
+			value = GFX_focus_generic_air_defense
+		}
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_goal_generic_construction
+		}
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_goal_generic_construction2
+		}									
+		icon = {
+			value = GFX_goal_generic_construct_civ_factory
+		}
 		available_if_capitulated = no
 	
 		completion_reward = {
@@ -1323,18 +1807,38 @@ focus_tree = {
 					instant_build = yes
 				}				
 			}	
+		
 			IF = {
 				LIMIT = {
 					any_controlled_state = {
 						is_coastal = yes
+					}
 				}
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes
-				}					
+				random_owned_controlled_state = {
+						limit={is_coastal = yes}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
 				}
-			}		
+			}	
+			IF = {
+				LIMIT = {
+					OR = {
+						original_tag = SYR
+						original_tag = LEB
+						original_tag = JOR
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}					
+				}
+			}	
 			# + 2 mills
 			# Removes the military factory contruction penalty of the eco
 		}
@@ -1383,7 +1887,7 @@ focus_tree = {
 
 	focus = {
 		id = ASJ_two_sea_program
-		icon = GFX_focus_generic_treaty	
+		icon = GFX_goal_generic_construct_naval_dockyard	
 		prerequisite = {focus = ASJ_preparing_for_the_worst }
 		x = -1
 		y = 1
@@ -1473,7 +1977,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = oil
-					amount = 10
+					amount = 7
 				}
 				IF = {
 					LIMIT = {
@@ -1489,7 +1993,6 @@ focus_tree = {
 	}
 	focus = {
 		id = ASJ_reinvigorate_civillian_industry
-		icon = GFX_focus_generic_sheep	
 		prerequisite = {focus = ASJ_boring_projects }
 		x = -1
 		y = 1
@@ -1584,6 +2087,7 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = yes
 			num_of_factories > 10
 			if = {
 				limit = {
@@ -1654,7 +2158,31 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_focus_PER_demand_iraqi_territory
+		}	
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_IRQ_demand_palestine
+		}	
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_generic_attack_iraq
+		}	
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_goal_generic_territory_or_war
+		}			
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_generic_attack_lebanon
+		}	
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_PER_communist_afghanistan_intervention
 		}				
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_IRQ_demand_palestine
+		}								
 		icon = {
 			value = GFX_focus_generic_annex_country_2
 		}
@@ -1745,7 +2273,6 @@ focus_tree = {
 	}	
 	focus = {
 		id = ASJ_the_communist_agitation
-		icon = GFX_focus_prc_agrarian_socialism	
 		prerequisite = {focus = ASJ_boring_projects }
 		x = 1
 		y = 1

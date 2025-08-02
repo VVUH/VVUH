@@ -2,7 +2,138 @@ add_namespace = SAU_political_events
 add_namespace = SAU_fascism
 add_namespace = SAU_border_conflict
 add_namespace = SAU_commies_event
-add_namespace = SAU_demo_refs
+add_namespace = SAU_submission
+
+country_event = {
+	id = SAU_submission.20
+	title = SAU_submission.20.t
+	desc = SAU_submission.20.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	option = {
+		name = SAU_submission.20.a
+
+		ai_chance = {
+			factor = 80
+			modifier = {
+				threat > 20
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+			modifier = {
+				is_in_faction_with = FROM
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = yes
+				NOT = { is_in_faction_with = FROM }
+				factor = 0.5
+			}
+		}
+		effect_tooltip = { 
+			FROM = { puppet = ROOT }
+			if = {
+				limit = {
+					FROM = { is_in_faction = yes }
+				}
+				random_country = {
+					limit = { 
+						is_in_faction_with = FROM 
+						is_faction_leader = yes
+					}
+					add_to_faction = ROOT
+				}
+			}
+		}
+		hidden_effect = {
+			FROM = { country_event = { id = SAU_submission.21 hours = 6 } }
+		}
+	}
+
+	option = {
+		name = SAU_submission.20.c
+		ai_chance = {
+			factor = 10
+			modifier = {
+				threat < 20
+				factor = 2
+			}
+		}
+		effect_tooltip = { 
+			FROM = { 
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = ROOT
+				}
+			}
+		}
+		hidden_effect = {
+			FROM = { country_event = { id = SAU_submission.22 hours = 6 } }
+		}
+	}
+
+}
+
+#Became puppet
+country_event = {
+	id = SAU_submission.21
+	title = SAU_submission.21.t
+	desc = SAU_submission.21.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	option = {
+		name = SAU_submission.21.a
+		ai_chance = {
+			factor = 1
+		}
+		ROOT = { puppet = FROM }
+		if = {
+			limit = {
+				ROOT = { is_in_faction = yes }
+			}
+			random_country = {
+				limit = { 
+					is_in_faction_with = ROOT 
+					is_faction_leader = yes
+				}
+				add_to_faction = FROM
+			}
+		}
+	}
+
+}
+
+#Denied puppet
+country_event = {
+	id = SAU_submission.22
+	title = SAU_submission.22.t
+	desc = SAU_submission.22.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	option = {
+		name = SAU_submission.22.a
+		ai_chance = {
+			factor = 1
+		}
+		ROOT = { 
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FROM
+			}
+		}
+	}
+
+}
+
 	country_event = {
 		id = SAU_political_events.1
 		title = SAU_political_events.1.t
@@ -893,7 +1024,7 @@ add_namespace = SAU_demo_refs
 			hidden_effect = {
    				save_event_target_as = SAU_commie_event_target
 			}
-		
+			drop_cosmetic_tag = yes
 			SAU = {country_event = SAU_commies_event.5}
 		}
 		#NO

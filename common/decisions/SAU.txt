@@ -550,6 +550,7 @@ SAU_decs_cat = {
 				OR = {
 					has_completed_focus = SAU_negotiating_the_end
 					has_completed_focus = SAU_faisals_coup
+					has_completed_focus = SAU_intervene_in_the_levant
 				}
 			}
 		} 
@@ -733,7 +734,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}			
@@ -747,6 +751,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -777,7 +790,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -791,6 +807,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -821,7 +846,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -835,6 +863,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -864,7 +901,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -878,6 +918,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -914,7 +963,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -928,6 +980,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -958,7 +1019,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -972,6 +1036,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -1002,7 +1075,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -1016,6 +1092,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -1045,7 +1130,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -1059,6 +1147,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -1098,7 +1195,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -1112,6 +1212,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -1142,9 +1251,18 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+					}
 				}
 				has_country_flag = SAU_integrating_republics
+			}
+			IF = {
+				LIMIT = {
+					has_government = communism
+				}
+					has_country_flag = SAU_integrating_republics
+					has_completed_focus = SAU_incorporate_kurd
 			}
 		}
 		
@@ -1156,6 +1274,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -1191,7 +1318,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -1205,6 +1335,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -1235,7 +1374,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -1249,6 +1391,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -1287,7 +1438,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -1301,6 +1455,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -1331,7 +1494,10 @@ SAU_decs_cat = {
 			}
 			IF = {
 				LIMIT = {
-					has_government = democratic
+					OR = {
+						has_government = democratic
+						has_government = communism
+					}
 				}
 				has_country_flag = SAU_integrating_republics
 			}
@@ -1345,6 +1511,15 @@ SAU_decs_cat = {
 		days_remove = 30
 		cost = 35
 		complete_effect = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_stability = -0.05
+			}
 			hidden_effect = {
 				set_country_flag = SAU_integration_flag
 			}
@@ -1581,7 +1756,7 @@ SAU_OPEC_decs = {
 		war_with_target_on_complete = yes
 		complete_effect = {
 			FROM = {
-				every_allied_country = {
+				every_country = {LIMIT = {OR = {is_in_faction_with = SAU is_subject_of = SAU}}
 					send_embargo = PREV
 				}
 			}
@@ -1615,7 +1790,7 @@ SAU_OPEC_decs = {
 		}
 		complete_effect = {
 			FROM = {
-				country_event = generic.20
+				country_event = SAU_submission.20
 			}
 		}
 	}			
@@ -2135,17 +2310,8 @@ SAU_extremist_action = {
 				has_completed_focus = SAU_a_careful_balance
 			}
 		}
-		target_trigger = {
-			FROM = {
-				is_owned_by = SAU
-				is_core_of = SAU
-				NOT = {
-					has_dynamic_modifier = {
-						modifier = islamists_placated
-					}
-				}
-			}
-		}
+		target_array = core_states_at_game_start
+
 		available = {
 			NOT = {
 				has_country_flag = SAU_investing_in_regional_placation
@@ -2161,7 +2327,7 @@ SAU_extremist_action = {
 			}
 
 				add_popularity = {
-					ideology = fascism
+					ideology = ROOT
 					popularity = 0.01
 				}
 
@@ -2171,7 +2337,7 @@ SAU_extremist_action = {
 				clr_country_flag = SAU_investing_in_regional_placation
 			}
 				add_popularity = {
-					ideology = fascism
+					ideology = ROOT
 					popularity = 0.03
 				}
 
@@ -2185,17 +2351,7 @@ SAU_extremist_action = {
 		target_root_trigger = {
 			has_country_flag = SAU_muslim_commie_state
 		}
-		target_trigger = {
-			FROM = {
-				is_owned_by = SAU
-				is_core_of = SAU
-				NOT = {
-					has_dynamic_modifier = {
-						modifier = islamists_placated
-					}
-				}
-			}
-		}
+		target_array = core_states_at_game_start
 		available = {
 			NOT = {
 				has_country_flag = SAU_investing_in_regional_suppression
@@ -2238,17 +2394,8 @@ SAU_extremist_action = {
 				has_completed_focus = SAU_ensure_religious_alignment
 			}
 		}
-		target_trigger = {
-			FROM = {
-				is_owned_by = SAU
-				is_core_of = SAU
-				NOT = {
-					has_dynamic_modifier = {
-						modifier = devout_islamists
-					}
-				}
-			}
-		}
+		target_array = core_states_at_game_start
+
 		available = {
 			NOT = {
 				has_country_flag = SAU_investing_in_region_alignment
@@ -2263,13 +2410,13 @@ SAU_extremist_action = {
 				set_country_flag = SAU_investing_in_region_alignment
 			}
 			add_popularity = {
-				ideology = fascism
+				ideology = ROOT
 				popularity = 0.03
 			}
 		}
 		remove_effect = {
 			add_popularity = {
-				ideology = fascism
+				ideology = ROOT
 				popularity = 0.05
 			}
 			hidden_effect = {
@@ -2815,22 +2962,8 @@ SAU_promote_immigration_cat = {
 		on_map_mode = decision_view_only
 
 		state_target = yes
+		target_array = core_states_at_game_start
 
-
-
-		target_trigger = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
-				is_core_of = ROOT
-
-				NOT = {
-					has_state_flag = SAU_promote_immigration_complete
-				}
-
-
-
-			}
-		}
 
 		days_remove = 20
 
@@ -2910,16 +3043,8 @@ SAU_promote_immigration_cat = {
 
 		state_target = yes
 
-		target_trigger = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
-				is_core_of = ROOT
-				NOT = {
-					has_state_flag = SAU_promote_immigration_complete
-				}
+		target_array = core_states_at_game_start
 
-			}
-		}
 
 		days_remove = 20
 
@@ -2997,20 +3122,8 @@ SAU_promote_immigration_cat = {
 
 		state_target = yes
 
-
-
-		target_trigger = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
-				is_core_of = ROOT
-				NOT = {
-					has_state_flag = SAU_promote_immigration_complete
-				}
-
-			}
-		}
+		target_array = core_states_at_game_start
 		
-
 		days_remove = 20
 
 		complete_effect = {
@@ -3077,17 +3190,8 @@ SAU_promote_immigration_cat = {
 		on_map_mode = decision_view_only
 
 		state_target = yes
+		target_array = core_states_at_game_start
 
-		target_trigger = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
-				is_core_of = ROOT
-				NOT = {
-					has_state_flag = SAU_promote_immigration_complete
-				}
-
-			}
-		}
 
 		days_remove = 20
 
@@ -3154,16 +3258,8 @@ SAU_promote_immigration_cat = {
 
 		state_target = yes
 
+		target_array = core_states_at_game_start
 
-		target_trigger = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
-				is_core_of = ROOT
-				NOT = {
-					has_state_flag = SAU_promote_immigration_complete
-				}
-			}
-		}
 
 		days_remove = 20
 
@@ -3238,15 +3334,8 @@ SAU_promote_immigration_cat = {
 
 		state_target = yes
 
-		target_trigger = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
-				is_core_of = ROOT
-				NOT = {
-					has_state_flag = SAU_promote_immigration_complete
-				}
-			}
-		}
+		target_array = core_states_at_game_start
+
 
 		days_remove = 20
 
@@ -3323,15 +3412,8 @@ SAU_promote_immigration_cat = {
 
 		state_target = yes
 
-		target_trigger = {
-			FROM = {
-				is_owned_and_controlled_by = ROOT
-				is_core_of = ROOT
-				NOT = {
-					has_state_flag = SAU_promote_immigration_complete
-				}
-			}
-		}
+
+		target_array = core_states_at_game_start
 
 		days_remove = 20
 
@@ -3454,9 +3536,10 @@ SAU_international_liberation_front = {
 			}
 		}
 		visible = {
-			has_completed_focus = SAU_bolster_local_and_regional_movements
+			has_completed_focus = SAU_align_regional_communists
 		}
-		complete_effect = {
+		days_remove = 20
+		remove_effect = {
 			FROM = {
 				hidden_effect = {
 					set_country_flag = SAU_tried_demand_things
@@ -3469,7 +3552,7 @@ SAU_international_liberation_front = {
 						
 					
 				}ELSE = {
-					country_event = generic.20
+					country_event = SAU_submission.20
 				}
 			}
 		}
@@ -3486,8 +3569,12 @@ SAU_international_liberation_front = {
 				NOT = {
 					has_country_flag = SAU_arming_communist_rebels_flag
 				}
+				FSA = {
+					is_ai = yes
+				}
 			}
 			visible = {
+				country_exists = FSA
 				original_tag = SAU
 				has_completed_focus = SAU_bolster_local_and_regional_movements
 			}
@@ -3514,10 +3601,10 @@ SAU_international_liberation_front = {
 				FSA = {
 					add_ideas = SAU_meddling_arms
 				
-				add_popularity = {
-					ideology = ROOT
-					popularity = 0.05
-				}
+					add_popularity = {
+						ideology = ROOT
+						popularity = 0.05
+					}
 				}
 			}
 	}
@@ -3530,11 +3617,15 @@ SAU_international_liberation_front = {
 			}
 			available = {
 				country_exists = UAE
+				UAE = {
+					is_ai = yes
+				}
 				NOT = {
 					has_country_flag = SAU_arming_communist_rebels_flag
 				}
 			}
 			visible = {
+				country_exists = UAE
 				original_tag = SAU
 				has_completed_focus = SAU_bolster_local_and_regional_movements
 			}
@@ -3577,11 +3668,15 @@ SAU_international_liberation_front = {
 			}
 			available = {
 				country_exists = QAT
+				QAT = {
+					is_ai = yes
+				}				
 				NOT = {
 					has_country_flag = SAU_arming_communist_rebels_flag
 				}
 			}
 			visible = {
+				country_exists = QAT
 				original_tag = SAU
 				has_completed_focus = SAU_bolster_local_and_regional_movements
 			}
@@ -3623,11 +3718,15 @@ SAU_international_liberation_front = {
 			}
 			available = {
 				country_exists = BHR
+				BHR = {
+					is_ai = yes
+				}				
 				NOT = {
 					has_country_flag = SAU_arming_communist_rebels_flag
 				}
 			}
 			visible = {
+				country_exists = BHR
 				original_tag = SAU
 				has_completed_focus = SAU_bolster_local_and_regional_movements
 			}
@@ -3678,6 +3777,9 @@ SAU_international_liberation_front = {
 
 			}
 			available = {
+				OMA = {
+					is_ai = yes
+				}				
 				country_exists = OMA
 				NOT = {
 					has_country_flag = SAU_arming_communist_rebels_flag
@@ -3724,6 +3826,9 @@ SAU_international_liberation_front = {
 
 			}
 			available = {
+				KUW = {
+					is_ai = yes
+				}				
 				country_exists = KUW
 				NOT = {
 					has_country_flag = SAU_arming_communist_rebels_flag
@@ -3770,6 +3875,9 @@ SAU_international_liberation_front = {
 
 			}
 			available = {
+				YEM = {
+					is_ai = yes
+				}				
 				country_exists = YEM
 				NOT = {
 					has_country_flag = SAU_arming_communist_rebels_flag
@@ -3782,7 +3890,7 @@ SAU_international_liberation_front = {
 
 			days_remove = 25
 			custom_cost_trigger = {
-				has_equipment = { infantry_equipment > 999 }
+				has_equipment = { infantry_equipment > 1999 }
 			}
 			custom_cost_text = decision_cost_ie_1000
 			complete_effect = {
@@ -3791,7 +3899,7 @@ SAU_international_liberation_front = {
 				
 					add_equipment_to_stockpile = {
 						type = infantry_equipment
-						amount = -1000
+						amount = -2000
 					}
 				}
 			}
@@ -3809,9 +3917,70 @@ SAU_international_liberation_front = {
 					target = YEM
 				}
 			}
+	}
+	SAU_contact_arabian_liberation_groups = {
+			icon = GFX_decision_hol_exchange_intelligence_data
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 55
+			cost = 50
+			remove_effect = {
+				set_country_flag = SAU_initial_prep_done_flag
+				unlock_decision_tooltip = SAU_guide_arabian_liberation_groups
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = SAU_done_all_three_demand_more_autonomy_for_qat_uae_bhr_so_you_can_influence_them_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+			}
 	}	
-	SAU_demand_arabian_autonomy = {
-			icon = GFX_decision_generic_independence
+	SAU_guide_arabian_liberation_groups = {
+			icon = GFX_decision_SWI_support_humanitarian_efforts
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				has_country_flag = SAU_initial_prep_done_flag
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 55
+			custom_cost_trigger = {
+			    command_power > 24
+				has_political_power > 24
+			}
+			custom_cost_text =  decision_cost_CP_25_pp_25
+			complete_effect = {
+				hidden_effect = {
+					add_command_power = -25
+					add_political_power = -25
+				}	
+			}
+			remove_effect = {
+
+				set_country_flag = SAU_guidance_prep_done_flag
+				unlock_decision_tooltip = SAU_arm_arabian_liberation_groups
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = SAU_done_all_three_demand_more_autonomy_for_qat_uae_bhr_so_you_can_influence_them_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+			}
+	}	
+	SAU_arm_arabian_liberation_groups = {
+			icon = GFX_decision_ger_military_buildup
 			fire_only_once = yes
 			allowed = {
 				original_tag = SAU
@@ -3821,15 +3990,16 @@ SAU_international_liberation_front = {
 				NOT = {
 					has_country_flag = SAU_arming_communist_rebels_flag
 				}
+				has_country_flag = SAU_guidance_prep_done_flag
 			}
 			visible = {
 				original_tag = SAU
 				has_completed_focus = SAU_bolster_local_and_regional_movements
 			}
 
-			days_remove = 75
+			days_remove = 55
 			custom_cost_trigger = {
-				has_equipment = { infantry_equipment > 999 }
+				has_equipment = { infantry_equipment > 1999 }
 			}
 			custom_cost_text = decision_cost_ie_1000
 			complete_effect = {
@@ -3838,10 +4008,40 @@ SAU_international_liberation_front = {
 				
 					add_equipment_to_stockpile = {
 						type = infantry_equipment
-						amount = -1000
+						amount = -2000
 					}
 				}
 			}
+			remove_effect = {
+				hidden_effect = {
+					clr_country_flag = SAU_arming_communist_rebels_flag
+				}
+				set_country_flag = SAU_final_prep_done_flag
+				unlock_decision_tooltip = SAU_demand_arabian_autonomy
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = SAU_done_all_three_demand_more_autonomy_for_qat_uae_bhr_so_you_can_influence_them_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+			}
+	}		
+	SAU_demand_arabian_autonomy = {
+			icon = GFX_decision_generic_independence
+			fire_only_once = yes
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				has_country_flag = SAU_final_prep_done_flag
+			}
+			visible = {
+				original_tag = SAU
+				has_completed_focus = SAU_bolster_local_and_regional_movements
+			}
+
+			days_remove = 75
+			cost = 100
+
 			remove_effect = {
 				hidden_effect = {
 					clr_country_flag = SAU_arming_communist_rebels_flag
@@ -3944,7 +4144,6 @@ SAU_international_liberation_front = {
 				}
 			}
 	}	
-
 	SAU_liberate_kurdish_in_persia = {
 			icon = GFX_decision_faction_tur_kurdish
 			fire_only_once = yes
@@ -3996,6 +4195,8 @@ SAU_international_liberation_front = {
 			remove_effect = {
 				hidden_effect = {
 					clr_country_flag = SAU_arming_communist_rebels_flag
+					set_country_flag = SAU_azerb_states_flag
+					mark_focus_tree_layout_dirty = yes
 				}
 				IF = {
 					LIMIT = {
@@ -4041,14 +4242,14 @@ SAU_international_liberation_front = {
 			war_with_target_on_complete = yes
 
 			available = {
-				country_exists = PER
 				NOT = {
 					has_country_flag = SAU_arming_communist_rebels_flag
 				}
 				has_completed_focus = SAU_ally_the_kurds
+				
 				TUR = {
 					communism < 0.4
-
+					is_ai = yes
 						any_owned_state = {
 							OR = {
 								has_dynamic_modifier = {
@@ -5087,15 +5288,14 @@ SAU_working_together = {
 		allowed = {
 			original_tag = SAU
 		}
-		highlight_states = {
-   
-		}
+
 		available = {
-            any_allied_country = {
-                OR = {    
-                    is_ai = no
-                    has_government = ROOT
-                }            }
+			any_country = {
+				AND = {
+					OR = {is_in_faction_with = SAU is_subject_of = SAU}
+					NOT = {original_tag = SAU}
+				}
+			}
 			NOT = {
 				has_global_flag = SAU_working_with_an_ally_flag
 			}
@@ -5104,7 +5304,6 @@ SAU_working_together = {
 		visible = {
 			original_tag = SAU
 			has_global_flag = SAU_arabian_team_collaboration
-
 		}
 
 		days_remove = 30
@@ -5124,28 +5323,37 @@ SAU_working_together = {
 			add_stability = 0.1
 			add_political_power = 100
 			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					OR = {
+						num_subjects > 0
+						is_in_faction = yes
+					}
+				}
+				
+				every_country = {LIMIT = {AND = {OR = {is_in_faction_with = SAU is_subject_of = SAU}NOT={original_tag=SAU}}}
+					random_select_amount = 2
+					add_war_support = 0.1
+					add_stability = 0.1
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 
-			every_allied_country = {
-				random_select_amount = 2
-				add_war_support = 0.1
-				add_stability = 0.1
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
+				every_country = {LIMIT = {AND = {OR = {is_in_faction_with = SAU is_subject_of = SAU}NOT={original_tag=SAU}}}
+					random_select_amount = 2
+					add_command_power = 100
+					add_war_support = 0.1
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 
-			every_allied_country = {
-				random_select_amount = 2
-				add_command_power = 100
-				add_war_support = 0.1
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			every_allied_country = {
-				random_select_amount = 2
-				add_political_power = 100
+				every_country = {LIMIT = {AND = {OR = {is_in_faction_with = SAU is_subject_of = SAU}NOT={original_tag=SAU}}}
+					random_select_amount = 2
+					add_political_power = 100
+				}
 			}
         }
 
 	}
+
     SAU_allied_fund_raise = {
 		cost = 50
 
@@ -5154,17 +5362,14 @@ SAU_working_together = {
 		allowed = {
 			original_tag = SAU
 		}
-		highlight_states = {
-   
-		}
+
 		available = {
-            any_allied_country = {
-                OR = {    
-                    is_ai = no
-                    has_government = ROOT
-                }
-            
-            }
+			any_country = {
+				AND = {
+					OR = {is_in_faction_with = SAU is_subject_of = SAU}
+					NOT = {original_tag = SAU}
+				}
+			}
 			NOT = {
 				has_global_flag = SAU_working_with_an_ally_flag
 			}
@@ -5190,31 +5395,38 @@ SAU_working_together = {
 			}
 			add_offsite_building = { type = arms_factory level = 2}
 			add_offsite_building = { type = industrial_complex level = 2 }
-			custom_effect_tooltip = generic_skip_one_line_tt
-			every_allied_country = {
-				random_select_amount = 2
-				add_offsite_building = { type = arms_factory level = 1}
+			IF = {
+				LIMIT = {
+					OR = {
+						num_subjects > 0
+						is_in_faction = yes
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				every_country = {LIMIT = {AND = {OR = {is_in_faction_with = SAU is_subject_of = SAU}NOT={original_tag=SAU}}}
+					random_select_amount = 2
+					add_offsite_building = { type = arms_factory level = 1}
 
+				}
 			}
         }
 
 	}
+
     SAU_allied_immigration = {
 		icon = GFX_decision_hol_radio_oranje
 		fire_only_once = yes
 		allowed = {
 			original_tag = SAU
 		}
-		highlight_states = {
-   
-		}
+
 		available = {
-            any_allied_country = {
-                OR = {    
-                    is_ai = no
-                    has_government = ROOT
-                }
-            }
+			any_country = {
+				AND = {
+					OR = {is_in_faction_with = SAU is_subject_of = SAU}
+					NOT = {original_tag = SAU}
+				}
+			}
 			NOT = {
 				has_global_flag = SAU_working_with_an_ally_flag
 			}
@@ -5222,7 +5434,7 @@ SAU_working_together = {
 
 		visible = {
 			original_tag = SAU
-				has_global_flag = SAU_arabian_team_collaboration
+			has_global_flag = SAU_arabian_team_collaboration
 		}
 
 		days_remove = 120
@@ -5245,19 +5457,28 @@ SAU_working_together = {
 					}
 				add_manpower = 65000
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			every_allied_country = {
-				random_select_amount = 2
-				every_core_state = {
-					LIMIT = {
-						is_owned_by = PREV
+			IF = {
+				LIMIT = {
+					OR = {
+						num_subjects > 0
+						is_in_faction = yes
 					}
-					add_manpower = 25000
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				every_country = {LIMIT = {AND = {OR = {is_in_faction_with = SAU is_subject_of = SAU}NOT={original_tag=SAU}}}
+					random_select_amount = 2
+					every_core_state = {
+						LIMIT = {
+							is_owned_by = PREV
+						}
+						add_manpower = 25000
+					}
 				}
 			}
         }
 
 	}
+
     SAU_work_with_allied_orgs = {
 		COST = 50
 		icon = GFX_decision_eng_install_government
@@ -5268,12 +5489,12 @@ SAU_working_together = {
 		cost = 50
 
 		available = {
-            any_allied_country = {
-                OR = {    
-                    is_ai = no
-                    has_government = ROOT
-                }
-            }
+			any_country = {
+				AND = {
+					OR = {is_in_faction_with = SAU is_subject_of = SAU}
+					NOT = {original_tag = SAU}
+				}
+			}		
 			NOT = {
 				has_global_flag = SAU_working_with_an_ally_flag
 			}
@@ -5301,16 +5522,26 @@ SAU_working_together = {
 			army_experience = 55
 			navy_experience = 55
 			air_experience = 55
-			custom_effect_tooltip = generic_skip_one_line_tt
-			every_allied_country = {
-				random_select_amount = 2
-				army_experience = 35
-				navy_experience = 25
-				air_experience = 25
+			IF = {
+				LIMIT = {
+					OR = {
+						num_subjects > 0
+						is_in_faction = yes
+					}
+				}
+			
+				custom_effect_tooltip = generic_skip_one_line_tt
+				every_country = {LIMIT = {AND = {OR = {is_in_faction_with = SAU is_subject_of = SAU}NOT={original_tag=SAU}}}
+					random_select_amount = 2
+					army_experience = 35
+					navy_experience = 25
+					air_experience = 25
+				}
 			}
         }
 
 	}
+
 	SAU_experimental_research = {
 		icon = GFX_decision_generic_research
 		fire_only_once = yes
@@ -5321,12 +5552,12 @@ SAU_working_together = {
 
 		available = {
 			num_faction_members > 2
-            any_allied_country = {
-                OR = {    
-                    is_ai = no
-                    has_government = ROOT
-                }
-            }
+			any_country = {
+				AND = {
+					OR = {is_in_faction_with = SAU is_subject_of = SAU}
+					NOT = {original_tag = SAU}
+				}
+			}
 			NOT = {
 				has_global_flag = SAU_working_with_an_ally_flag
 			}
@@ -5357,7 +5588,14 @@ SAU_working_together = {
 					land_facility = 1
 				}
 			}
-			every_allied_country = {
+			IF = {
+				LIMIT = {
+					OR = {
+						num_subjects > 0
+						is_in_faction = yes
+					}
+				}
+				every_country = {LIMIT = {AND = {OR = {is_in_faction_with = SAU is_subject_of = SAU}NOT={original_tag=SAU}}}
 				random_select_amount = 2
 				random_controlled_state = {
 					construct_building_in_random_province = {
@@ -5365,9 +5603,11 @@ SAU_working_together = {
 					}
 				}
 			}
+			}
         }
 
 	}
+
 	SAU_working_contracts = {
 		icon = GFX_decision_hol_attract_foreign_investors
 		fire_only_once = yes
@@ -5378,12 +5618,12 @@ SAU_working_together = {
 
 		available = {
 			num_faction_members > 3
-            any_allied_country = {
-                OR = {    
-                    is_ai = no
-                    has_government = ROOT
-                }
-            }
+			any_country = {
+				AND = {
+					OR = {is_in_faction_with = SAU is_subject_of = SAU}
+					NOT = {original_tag = SAU}
+				}
+			}
 			NOT = {
 				has_global_flag = SAU_working_with_an_ally_flag
 			}
@@ -5434,29 +5674,103 @@ SAU_working_together = {
 					instant_build = yes
 				}	
 			}
-			every_allied_country = {
-				random_select_amount = 2
-				random_owned_controlled_state = {
-					limit = {
-						is_core_of = PREV
-						is_fully_controlled_by = PREV
-						free_building_slots = {
-							building = industrial_complex
-							size > 2
-							include_locked = yes
-						}		
+			IF = {
+				LIMIT = {
+					OR = {
+						num_subjects > 0
+						is_in_faction = yes
 					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}	
+				}
+				every_country = {LIMIT = {AND = {OR = {is_in_faction_with = SAU is_subject_of = SAU}NOT={original_tag=SAU}}}
+					random_select_amount = 2
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = PREV
+							is_fully_controlled_by = PREV
+							free_building_slots = {
+								building = industrial_complex
+								size > 2
+								include_locked = yes
+							}		
+						}
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}	
+					}
 				}
 			}
         }
 	}
 
+	#regional
+	SAU_reach_out_to_IRQ = {
+
+		icon = GFX_decision_generic_military
+		fire_only_once = yes
+		allowed = {
+			original_tag = SAU
+		}
+		cost = 50
+
+		available = {
+			NOT = {
+				has_global_flag = SAU_working_with_someone_flag
+			}
+			IRQ = {
+				has_opinion = {
+					target = SAU
+					value > 69
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_war_with = SAU 
+				}			
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_global_flag = SAU_arabian_team_collaboration
+		}
+
+		days_remove = 30
+
+
+		
+		complete_effect = {
+			set_global_flag = SAU_working_with_someone_flag
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				clr_global_flag = SAU_working_with_someone_flag
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}
+			IF = {
+				limit = {NOT = {has_tech = interwar_artillery } can_research = interwar_artillery }
+				set_technology = {
+					interwar_artillery  = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = artillery
+				}			
+			}
+        }
+
+	}
 
 	#commie
 	SAU_seek_SOV_assistance = {
@@ -5537,75 +5851,6 @@ SAU_working_together = {
 
 	}
 
-	#regional
-	SAU_reach_out_to_IRQ = {
-
-		icon = GFX_decision_generic_military
-		fire_only_once = yes
-		allowed = {
-			original_tag = SAU
-		}
-		cost = 50
-
-		available = {
-			NOT = {
-				has_global_flag = SAU_working_with_someone_flag
-			}
-			IRQ = {
-				has_opinion = {
-					target = SAU
-					value > 69
-				}
-				is_free_or_subject_of_root = yes
-				NOT = {
-					has_war_with = SAU 
-				}			
-			}
-		}
-
-		visible = {
-			original_tag = SAU
-			OR = {
-				
-				has_global_flag = SAU_arabian_team_collaboration
-			}
-		}
-
-		days_remove = 30
-
-
-		
-		complete_effect = {
-			set_global_flag = SAU_working_with_someone_flag
-		}
-
-		remove_effect = {
-			hidden_effect = {
-				clr_global_flag = SAU_working_with_someone_flag
-			}
-			random_owned_state	 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}				
-			}
-			IF = {
-				limit = {NOT = {has_tech = interwar_artillery } can_research = interwar_artillery }
-				set_technology = {
-					interwar_artillery  = 1
-				}
-			}ELSE = {
-				add_tech_bonus = {
-					bonus = 1
-					uses = 1
-					category = artillery
-				}			
-			}
-        }
-
-	}
 	SAU_persian_pact = {
 
 		icon = GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
@@ -6302,7 +6547,7 @@ SAU_working_together = {
 
 		visible = {
 			original_tag = SAU
-			has_completed_focus = SAU_agreements_with_fra
+			has_completed_focus = SAU_import_allied_technology
 			
 		}
 
@@ -6341,6 +6586,7 @@ SAU_working_together = {
         }
 
 	}
+
 	SAU_make_a_deal_with_RAJ = {
 
 		icon = GFX_decision_hol_exchange_intelligence_data
@@ -6367,7 +6613,7 @@ SAU_working_together = {
 
 		visible = {
 			original_tag = SAU
-			has_completed_focus = SAU_collaborate_with_british
+			has_completed_focus = SAU_import_allied_technology
 			
 		}
 
@@ -6435,8 +6681,8 @@ SAU_working_together = {
 		visible = {
 			original_tag = SAU
 			OR = {
-				has_completed_focus = SAU_collaborate_with_british
-				has_completed_focus = SAU_british_weapons
+				has_completed_focus = SAU_promise_non_interference_to_the_british
+				has_completed_focus = SAU_import_allied_technology
 			}
 		}
 
