@@ -3902,16 +3902,22 @@ focus_tree = {
 
 		completion_reward = {
 			IF = {
-				LIMIT = {is_free_or_subject_of_root = yes}
-				puppet = XSM
+				LIMIT = {XSM={is_free_or_subject_of_root = yes}}
+				XSM = {
+					country_event = SAU_submission.20
+				}
 			}
 			IF = {
-				LIMIT = {is_free_or_subject_of_root = yes}
-				puppet = SHX
-			}
+				LIMIT = {SHX={is_free_or_subject_of_root = yes}}
+				SHX = {
+					country_event = SAU_submission.20
+				}			
+				}
 			IF = {
-				LIMIT = {is_free_or_subject_of_root = yes}
-				puppet = TAN
+				LIMIT = {TAN={is_free_or_subject_of_root = yes}}
+				TAN = {
+					country_event = SAU_submission.20
+				}				
 			}			
 		}
 	}
