@@ -5345,7 +5345,7 @@ CHI_integrate_the_warlords = {
 		}
 
 		remove_effect = {
-			FROM = { set_country_flag = CHI_integrate_the_army }
+			FROM = { set_country_flag = CHI_integrate_the_army add_autonomy_score = { value = -250 }}
 
 			CHI_warlord_integration_up = yes
 			if = {
@@ -5554,6 +5554,9 @@ CHI_integrate_the_warlords = {
 		remove_effect = {
 			FROM = {
 				set_country_flag = CHI_integrate_the_administration
+				add_autonomy_score = {
+				    value = -250
+				}
 			}
 
 			FROM = {
@@ -7229,3 +7232,4 @@ CHI_occupation_actions = {
 	}
 	
 }
+
