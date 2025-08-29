@@ -1622,9 +1622,19 @@ focus_tree = {
 			factor = 100
 		}
 		available = {
-			SIK = {
-				has_civil_war = no
-			}
+			IF = {
+				LIMIT = {
+					has_completed_focus = MON_the_start_of_the_great_repression
+				}
+				SIK = {
+					has_civil_war = no
+					has_government = MON
+				}
+			}ELSE = {
+				SIK = {
+					has_civil_war = no
+					NOT={has_government = communism}
+				}
 		}
 				search_filters = {FOCUS_FILTER_STABILITY}
 
@@ -6132,8 +6142,10 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = MON_agricultural_culture
-			custom_effect_tooltip = generic_skip_one_line_tt
+			swap_ideas = {
+				remove_idea = MON_traditional_industry_3
+				add_idea = MON_agricultural_culture
+			}			custom_effect_tooltip = generic_skip_one_line_tt
 			add_stability = 0.15
 			add_popularity = {
 				ideology = ROOT
