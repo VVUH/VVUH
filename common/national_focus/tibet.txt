@@ -3898,9 +3898,19 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
-			SIK = {
-				has_government = ROOT
-				has_civil_war = no
+			IF = {
+				LIMIT = {
+					has_completed_focus = TIB_secure_border
+				}
+				SIK = {
+					has_civil_war = no
+					has_government = MON
+				}
+			}ELSE = {
+				SIK = {
+					has_civil_war = no
+					NOT={has_government = communism}
+				}
 			}
 			is_ai = no
 		}
