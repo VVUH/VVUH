@@ -1691,11 +1691,3 @@ ILL_fascism = {
         color = rgb { 179 9 9 }
 	color_ui = rgb { 179 9 9 }
 }
-TIB_restored_communism = {
-	color = rgb { 245 12 55 }
-	color_ui = rgb { 178 34 60 }
-}
-TIB_union_of_asia_tag_communism = {
-	color = rgb { 245 12 55 }
-	color_ui = rgb { 178 34 60 }
-}

@@ -543,7 +543,7 @@ MAL_the_malayan_emergency_categorie = {
 			OR = {
 				has_completed_focus = MAL_unify_with_the_communists
 				has_completed_focus = MAL_build_up_the_communists
-				communism < 0.1
+				communism < 0.01
 			}
     	}
 		fire_only_once = yes
@@ -566,11 +566,16 @@ MAL_the_malayan_emergency_categorie = {
 		timeout_effect = { 
 			start_civil_war = {
 				ideology = communism
-				size = 0.1
+				size = 0.2
 				states = { 1018 }
 				keep_political_leader = no
 				keep_political_party_members = no
 				add_ideas = MAL_guerilla_warfare
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 5000
+					producer = MAL
+				}
 				division_template = {
 					name = "Partisans"
 					is_locked = yes
@@ -578,6 +583,9 @@ MAL_the_malayan_emergency_categorie = {
 						infantry = { x = 0 y = 0 }
 						infantry = { x = 0 y = 1 }
 						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
 					}
 					support = {
 					}
@@ -587,7 +595,7 @@ MAL_the_malayan_emergency_categorie = {
 						division = "name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 1"
 						owner = PREV
 						prioritize_location = 7329
-						count = 1
+						count = 3
 					}
 				}
 				1018 = {
@@ -595,9 +603,52 @@ MAL_the_malayan_emergency_categorie = {
 						division = "name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 1"
 						owner = PREV
 						prioritize_location = 10227
-						count = 1
+						count = 3
 					}
 				}
+			}
+		}
+	}
+	MAL_communists_recruiting_members = { 
+		icon = GFX_decision_generic_political_discourse 
+		priority = 50
+		days_mission_timeout = 70
+		activation = { OR = { has_idea = MAL_communist_movement has_idea = MAL_communist_movement_2 } }
+		available = {
+			NOT = { has_idea = MAL_communist_movement has_idea = MAL_communist_movement_2 }
+    	}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = "Prevent Communist Activity"
+		}
+		timeout_effect = { 
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.015
+			}
+		}
+	}
+	MAL_communist_partisan_activity = { 
+		icon = GFX_decision_generic_civil_support 
+		priority = 50
+		days_mission_timeout = 70
+		activation = { OR = { has_idea = MAL_communist_movement has_idea = MAL_communist_movement_2 } has_country_flag = MAL_communist_opposition_start communism > 0.2 }
+		available = {
+			OR = {
+				NOT = { has_idea = MAL_communist_movement has_idea = MAL_communist_movement_2 }
+				communism < 0.19
+			}
+    	}
+		fire_only_once = no
+		complete_effect = {
+			custom_effect_tooltip = "Prevent Communist Activity"
+		}
+		timeout_effect = { 
+			add_stability = -0.01
+			add_days_mission_timeout = {
+				mission = MAL_communist_uprising
+				days = -70
 			}
 		}
 	}
@@ -605,11 +656,13 @@ MAL_the_malayan_emergency_categorie = {
 		icon = GFX_decision_oppression
 		priority = 50
 		cost = 35
+		days_re_enable = 70
 		ai_will_do = {
 			base = 10
 		}
-		days_remove = 35
+		days_remove = 70
 		visible = {
+			communism > 0.01
 			has_country_flag = MAL_communist_opposition_start
 			NOT = {
 				has_government = communism
@@ -674,7 +727,7 @@ MAL_the_malayan_emergency_categorie = {
 	MAL_soften_the_communist_agenda = { 
 		icon = GFX_decision_generic_political_discourse
 		priority = 98
-		cost = 25
+		cost = 35
 		ai_will_do = {
 			base = 100
 		}
@@ -703,7 +756,7 @@ MAL_the_malayan_emergency_categorie = {
 	MAL_urge_for_alliance_with_the_west_against_fascism = { 
 		icon = GFX_decision_generic_political_discourse
 		priority = 99
-		cost = 40
+		cost = 50
 		ai_will_do = {
 			base = 100
 		}
@@ -714,6 +767,10 @@ MAL_the_malayan_emergency_categorie = {
 			custom_trigger_tooltip = {
 				tooltip = "Has infiltrated the Communist Party"
 				has_country_flag = MAL_infiltrated_communist_party
+			}
+			OR = {
+				threat > 0.35
+				has_defensive_war = yes
 			}
     	}
 		fire_only_once = yes
@@ -733,7 +790,8 @@ MAL_the_malayan_emergency_categorie = {
 	MAL_steal_communist_assests = { 
 		icon = GFX_decision_generic_fundraising
 		priority = 97
-		cost = 15
+		cost = 40
+		days_re_enable = 365
 		ai_will_do = {
 			base = 100
 		}
@@ -746,7 +804,7 @@ MAL_the_malayan_emergency_categorie = {
 				has_country_flag = MAL_infiltrated_communist_party
 			}
     	}
-		fire_only_once = yes
+		fire_only_once = no
 		complete_effect = {
 			add_popularity = {
 				ideology = communism
@@ -754,11 +812,11 @@ MAL_the_malayan_emergency_categorie = {
 			}
 			add_days_mission_timeout = {
 				mission = MAL_communist_uprising
-				days = 70
+				days = 140
 			}
 			add_timed_idea = {
 				idea = MAL_stolen_assets
-				days = 70
+				days = 140
 			}
 		}
 	}
@@ -1235,12 +1293,18 @@ MAL_aquire_plane_secrets_categorie = {
 				}
 			}
 		}
-		cost = 50
+		cost = 25
 		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Not already negotiating with a country"
+				NOT = {
+					has_country_flag = MAL_plane_secrets_active
+				}
+			}
 			custom_trigger_tooltip = {
 				tooltip = "Can only be done 6 times"
 				check_variable = {
-					MAL_got_plane_secrets < 7
+					MAL_got_plane_secrets < 6
 				}
 			}
 			NOT = {
@@ -1250,12 +1314,14 @@ MAL_aquire_plane_secrets_categorie = {
 		fire_only_once = yes
 		targets_dynamic = yes
 		complete_effect = {
+			set_country_flag = MAL_plane_secrets_active
 			FROM = {
 				country_event = { id = mal.mod.21 days = 1 }
 			}
+			custom_effect_tooltip = MAL_custom_improve_relation_reminder_tt
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept_tt
-				custom_effect_tooltip = "We will be able to choose between buffs towards: Air Attack, Agility, Cost, Defense"
+				custom_effect_tooltip = "We will be able to choose between buffs towards: Air Attack, Agility, Cost, Defense. Every Option can only be choosen up to 3 times"
 			}
 		}
 	}
