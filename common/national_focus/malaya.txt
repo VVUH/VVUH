@@ -247,6 +247,9 @@ focus_tree = {
 			}
 			air_experience = 25
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -268,7 +271,7 @@ focus_tree = {
 	focus = {
 		id = MAL_aquire_licenses
 		icon = GFX_focus_generic_copy_plane_designs
-		x = 3
+		x = 1
 		y = 2
 		relative_position_id = MAL_learn_from_the_raf
 		prerequisite = { focus = MAL_learn_from_the_raf}
@@ -431,7 +434,7 @@ focus_tree = {
 				remove_idea = MAL_malaysian_airforce_idea_2
 				add_idea = MAL_malaysian_airforce_idea_2b
 			}
-			custom_effect_tooltip = MAL_focus_on_air_production_tt
+			custom_effect_tooltip = MAL_grant_royal_title_tt
 			hidden_effect = {
 				swap_ideas = {
 					remove_idea = MAL_hidden_cost_reduction_royal_title
@@ -443,7 +446,7 @@ focus_tree = {
 	focus = {
 		id = MAL_aquire_plane_secrets
 		icon = GFX_focus_SWI_embrace_rote_drei
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = MAL_learn_from_the_raf
 		prerequisite = { focus = MAL_learn_from_the_raf }
@@ -499,7 +502,7 @@ focus_tree = {
 	focus = {
 		id = MAL_local_development
 		icon = GFX_focus_generic_air_research_boost
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = MAL_learn_from_the_raf
 		prerequisite = { focus = MAL_learn_from_the_raf }
@@ -604,8 +607,9 @@ focus_tree = {
 	focus = {
 		id = MAL_modern_technology
 		icon = GFX_focus_generic_radio_communication
-		x = 31
+		x = -3
 		y = 0
+		relative_position_id = MAL_learn_from_the_raf
 
 		cost = 5
 
@@ -643,8 +647,9 @@ focus_tree = {
 		id = MAL_britsh_radar_tech
 		icon = GFX_goal_generic_radar
 		x = 0
-		y = 1
+		y = 2
 		prerequisite = { focus = MAL_modern_technology }
+		prerequisite = { focus = MAL_learn_from_the_raf }
 		relative_position_id = MAL_modern_technology
 
 		cost = 10
@@ -668,6 +673,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		
 		completion_reward = {
+			air_experience = 5
 			complete_special_project = {
 				project = sp:sp_air_radar
 			}
@@ -840,6 +846,18 @@ focus_tree = {
 					name = "Pirated Ship"
 				}
 			}
+			random_core_state = {
+				limit = {
+					is_coastal = yes
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -932,6 +950,7 @@ focus_tree = {
 			random_core_state = {
 				limit = {
 					is_coastal = yes
+					is_controlled_by = ROOT
 				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -971,6 +990,7 @@ focus_tree = {
 			random_core_state = {
 				limit = {
 					is_coastal = yes
+					is_controlled_by = MAL
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -1010,6 +1030,7 @@ focus_tree = {
 			random_core_state = {
 				limit = {
 					is_coastal = yes
+					is_controlled_by = MAL
 				}
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
@@ -1229,7 +1250,7 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = MAL_malaysian_military_idea_1
-			army_experience = 25
+			army_experience = 5
 		}
 	}
 	focus = {
@@ -1432,7 +1453,7 @@ focus_tree = {
 	focus = {
 		id = MAL_expand_the_malay_regiment_act
 		icon = GFX_focus_AUS_lawmaking_leniency
-		x = -1
+		x = 1
 		y = 1
 		relative_position_id = MAL_modernize_the_royal_regiment
 		prerequisite = { focus = MAL_modernize_the_royal_regiment}
@@ -1454,6 +1475,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		
 		completion_reward = {
+			add_war_support = 0.015
 			if = {
 				limit = {
 					has_idea = MAL_malaysian_military_idea_2b
@@ -1469,14 +1491,14 @@ focus_tree = {
 					add_idea = MAL_malaysian_military_idea_2a
 				}
 			}
-			army_experience = 20
+			army_experience = 50
 			add_manpower = 5000
 		}
 	}
 	focus = {
 		id = MAL_increase_military_spending
 		icon = GFX_focus_FIN_increase_military_budget
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = MAL_modernize_the_royal_regiment
 		prerequisite = { focus = MAL_modernize_the_royal_regiment}
@@ -1514,8 +1536,11 @@ focus_tree = {
 					add_idea = MAL_malaysian_military_idea_2b
 				}
 			}
-			army_experience = 10
+			army_experience = 5
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -1532,7 +1557,7 @@ focus_tree = {
 		relative_position_id = MAL_increase_military_spending
 		prerequisite = { focus = MAL_increase_military_spending }
 		prerequisite = { focus = MAL_expand_the_malay_regiment_act }
-		x = -1
+		x = 1
 		y = 1
 
 		cost = 5
@@ -1560,6 +1585,55 @@ focus_tree = {
 			}
 			add_manpower = 3000
 			show_unit_leaders_tooltip = MAL_john_dalley
+		}
+	}
+	focus = {
+		id = MAL_jungle_training
+		icon = GFX_focus_SMB_atacama_training
+		relative_position_id = MAL_increase_military_spending
+		prerequisite = { focus = MAL_expand_the_malay_regiment_act }
+		x = 3
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			base = 20
+		}
+		search_filters = { }
+		available = {
+			has_army_experience > 15
+			has_war_support > 0.35
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_war_support = 0.015
+			army_experience = -15
+			add_unit_bonus = {
+				infantry = {
+					jungle = {
+						attack = 0.1
+						defence = 0.1
+						movement = 0.15
+					}
+				}
+
+				cavalry = {
+					jungle = {
+						attack = 0.1
+						defence = 0.1
+						movement = 0.15
+					}
+				}
+			}
 		}
 	}
 
@@ -1898,29 +1972,21 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.02
 			add_political_power = 25
-			every_core_state = {
-				add_extra_state_shared_building_slots = 1
+			custom_effect_tooltip = "All Mainland jungle states get 1 level of infrastructure and change their Underdeveloped Jungle Modifier to Semi-Developed Jungle aswell as upgrade their state category:" 
+			every_state = {
+				limit = {
+					OR = {
+						state = 1017
+						state = 1018
+						state = 1019
+					}
+				}
+				increase_state_category = yes
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
 				}
-			}
-			1017 = {
-				increase_state_category = yes
-				add_extra_state_shared_building_slots = 1
-				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
-				add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
-			}
-			1018 = {
-				increase_state_category = yes
-				add_extra_state_shared_building_slots = 1
-				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
-				add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
-			}
-			1019 = {
-				increase_state_category = yes
-				add_extra_state_shared_building_slots = 1
 				remove_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
 				add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle_2 }
 			}
@@ -1974,7 +2040,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_develop_north_borneo
-		icon = GFX_focus_ARG_develop_the_electricity_sector
+		icon = GFX_focus_BRA_amazon_colonization
 		prerequisite = { focus = MAL_clear_lands_for_industry }
 		relative_position_id = MAL_clear_lands_for_industry
 		x = 2
@@ -2007,7 +2073,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_develop_north_borneo_2
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_focus_ARG_develop_the_electricity_sector
 		prerequisite = { focus = MAL_develop_north_borneo }
 		relative_position_id = MAL_develop_north_borneo
 		x = 0
@@ -2069,6 +2135,9 @@ focus_tree = {
 		
 		completion_reward = {
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -2104,6 +2173,9 @@ focus_tree = {
 		
 		completion_reward = {
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -2144,6 +2216,9 @@ focus_tree = {
 		
 		completion_reward = {
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
@@ -2181,6 +2256,9 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = MAL_economic_reforms_idea
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -2221,6 +2299,9 @@ focus_tree = {
 				add_idea = MAL_economic_reforms_idea_2
 			}
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -2355,6 +2436,9 @@ focus_tree = {
 		
 		completion_reward = {
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
@@ -2391,6 +2475,9 @@ focus_tree = {
 		
 		completion_reward = {
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
@@ -2793,6 +2880,16 @@ focus_tree = {
 				has_war_with = ROOT
 				is_major = yes
 			}
+			NOT = {
+				any_country = {
+					original_tag = MAL
+					NOT = {
+						tag = MAL
+					}
+					has_government = communism
+					has_war_with = MAL
+				}
+			}
 		}
 
 		bypass = {
@@ -2993,7 +3090,7 @@ focus_tree = {
 			add_stability = 0.05
 			add_popularity = {
 				ideology = communism
-				popularity = -0.05
+				popularity = -0.03
 			}
 		}
 	}
@@ -3027,6 +3124,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -3035,6 +3135,9 @@ focus_tree = {
 				}
 			}
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
@@ -3045,6 +3148,21 @@ focus_tree = {
 			add_stability = -0.05
 			add_political_power = 50
 			remove_ideas = MAL_chinese_immigrants_crackdown
+			if = {
+				limit = {
+					has_idea = MAL_chinese_unrest_idea
+				}
+				modify_timed_idea = {
+					idea = MAL_chinese_unrest_idea
+					days = 200
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = MAL_chinese_unrest_idea
+					days = 200
+				}
+			}
 		}
 	}
 	focus = {
@@ -3084,6 +3202,12 @@ focus_tree = {
 				idea = MAL_power_balance
 				days = 365
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_power_balance_value = {
+				id = MAL_rulers_power_bop
+				value = -0.05
+				tooltip_side = MAL_rulers_dominates
+			}
 		}
 	}
 	focus = {
@@ -3116,10 +3240,10 @@ focus_tree = {
 				value = 0.6
 			}
 			add_offsite_building = { type = industrial_complex level = 2 }
-			add_political_power = 100
+			add_political_power = 80
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.08
+				popularity = 0.05
 			}
 		}
 	}
@@ -3191,7 +3315,7 @@ focus_tree = {
 			add_stability = 0.05
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.05
+				popularity = 0.03
 			}
 			add_power_balance_value = {
 				id = MAL_rulers_power_bop
@@ -3303,6 +3427,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		
 		completion_reward = {
+			add_ideas = MAL_british_dominance
 			add_offsite_building = { type = industrial_complex level = 3 }
 			add_offsite_building = { type = arms_factory level = 2 }
 		}
@@ -3338,7 +3463,7 @@ focus_tree = {
 				value = 0.1
 				tooltip_side = MAL_rulers_weak
 			}
-			add_political_power = 150
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -3434,6 +3559,10 @@ focus_tree = {
 		}
 
 		available = {
+			power_balance_value = {
+				id = MAL_rulers_power_bop
+				value > 0.1
+			}
 			NOT = {
 				has_idea = MAL_power_balance
 			}
@@ -3448,10 +3577,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		
 		completion_reward = {
-			add_political_power = 120
+			add_political_power = 100
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.1
+				popularity = 0.05
 			}
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = MAL_advisor_parliament
@@ -3504,7 +3633,7 @@ focus_tree = {
 			}
 			add_popularity = {
 				ideology = democratic
-				popularity = 0.5
+				popularity = 0.1
 			}
 			add_popularity = {
 				ideology = neutrality
@@ -3839,9 +3968,9 @@ focus_tree = {
 	focus = {
 		id = MAL_annex_siam
 		icon = GFX_focus_generic_annex_country
-		prerequisite = { focus = MAL_the_malayan_federation focus = MAL_the_sixth_dominion }
+		prerequisite = { focus = MAL_the_malayan_federation }
 		mutually_exclusive = { focus = MAL_attack_siam focus = MAL_alliance_with_siam }
-		x = -5
+		x = -3
 		y = 1
 		relative_position_id = MAL_the_malayan_federation
 
@@ -3960,7 +4089,7 @@ focus_tree = {
 		icon = GFX_goal_generic_attack_allies
 		prerequisite = { focus = MAL_the_malayan_federation focus = MAL_the_sixth_dominion }
 		mutually_exclusive = { focus = MAL_annex_siam focus = MAL_alliance_with_siam }
-		x = -3
+		x = -5
 		y = 1
 		relative_position_id = MAL_the_malayan_federation
 
@@ -4164,7 +4293,7 @@ focus_tree = {
 		id = MAL_deal_with_resistance
 		icon = GFX_focus_RAJ_union_busting
 		prerequisite = { focus = MAL_annex_siam focus = MAL_attack_siam focus = MAL_alliance_with_siam }
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = MAL_annex_siam
 		cost = 10
@@ -4700,6 +4829,9 @@ focus_tree = {
 			add_political_power = 150
 			add_stability = 0.15
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -4750,6 +4882,9 @@ focus_tree = {
 				tooltip_side = MAL_rulers_weak
 			}
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -4758,6 +4893,9 @@ focus_tree = {
 				}
 			}
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -4869,12 +5007,14 @@ focus_tree = {
 			OR = {
 				AND = {
 					CHI = {
+						exists = yes
 						has_war = yes
 					}
 					has_government = democratic
 				}
 				AND = {
 					PRC = {
+						exists = yes
 						has_war = yes
 					}
 					has_government = communism
@@ -4918,6 +5058,7 @@ focus_tree = {
 						days = 835
 					}
 				}
+				custom_effect_tooltip = "If we are communist we will support Communist China instead"
 			}
 			else = {
 				add_opinion_modifier = {
@@ -5103,6 +5244,7 @@ focus_tree = {
 		id = MAL_decentralize
 		icon = GFX_focus_ITA_grande_rivolta_rurale
 		prerequisite = { focus = MAL_unite_the_kings }
+		prerequisite = { focus = MAL_crack_down_on_the_chinese }
 		x = 0
 		y = 1
 		relative_position_id = MAL_unite_the_kings
@@ -5138,6 +5280,21 @@ focus_tree = {
 			add_autonomy_score = {
 				value = 100
 			}
+			if = {
+				limit = {
+					has_idea = MAL_chinese_unrest_idea
+				}
+				modify_timed_idea = {
+					idea = MAL_chinese_unrest_idea
+					days = 200
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = MAL_chinese_unrest_idea
+					days = 200
+				}
+			}
 		}
 	}
 	focus = {
@@ -5167,6 +5324,9 @@ focus_tree = {
 		
 		completion_reward = {
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -5175,6 +5335,9 @@ focus_tree = {
 				}
 			}
 			random_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -5453,7 +5616,7 @@ focus_tree = {
 				tooltip_side = MAL_rulers_weak
 			}
 			add_stability = -0.1
-			add_offsite_building = { type = industrial_complex level = 3 }
+			add_offsite_building = { type = industrial_complex level = 1 }
 			if = {
 				limit = {
 					has_idea = MAL_divided_nation
@@ -5491,7 +5654,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = MAL_accept_the_malayan_union_proposal
 
-		cost = 10
+		cost = 12
 
 		ai_will_do = {
 			base = 10
@@ -5500,6 +5663,7 @@ focus_tree = {
 		will_lead_to_war_with = INS
 
 		available = {
+			democratic > 0.5
 			INS = {
 				is_ai = yes
 				OR = {
@@ -5596,7 +5760,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = MAL_the_united_indies
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			base = 10
@@ -5795,6 +5959,16 @@ focus_tree = {
 
 		available = {
 			has_war = yes
+			NOT = {
+				any_country = {
+					original_tag = MAL
+					NOT = {
+						tag = MAL
+					}
+					has_government = communism
+					has_war_with = MAL
+				}
+			}
 		}
 
 		bypass = {
@@ -6585,6 +6759,14 @@ focus_tree = {
 					}
 				}
 				add_ideas = MAL_expand_our_agency_idea_2
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = "If the Train Infiltrators Focus has been completed then the following will happen instead:"
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = MAL_expand_our_agency_idea
+						add_idea = MAL_expand_our_agency_idea_2
+					}
+				}
 			}
 			else = {
 				swap_ideas = {
@@ -6853,13 +7035,18 @@ focus_tree = {
 		}
 
 		bypass = {
-			every_state = {
-				is_core_of = INS
-				controller = {
-					OR = {
-						is_in_faction_with = MAL
-						tag = MAL
+			all_state = {
+				OR = {
+					AND = {
+						is_core_of = INS
+						controller = {
+							OR = {
+								is_in_faction_with = MAL
+								tag = MAL
+							}
+						}
 					}
+					NOT = { is_core_of = INS }
 				}
 			}
 		}
@@ -6872,6 +7059,14 @@ focus_tree = {
 			every_state = {
 				limit = {
 					is_core_of = INS
+					NOT = {
+						controller = {
+							OR = {
+								is_in_faction_with = MAL
+								tag = MAL
+							}
+						}
+					}
 				}
 				owner = {
 					MAL = {
@@ -7144,6 +7339,10 @@ focus_tree = {
 			annex_country = {
 				target = VIN
 				transfer_troops = yes
+			}
+			set_division_template_lock = {
+				division_template = "Partisans"
+				is_locked = no
 			}
 		}
 	}
@@ -7460,7 +7659,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = MAL_revolution
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			base = 100
@@ -8664,6 +8863,7 @@ focus_tree = {
 			random_core_state = {
 				limit = {
 					is_coastal = yes
+					is_controlled_by = ROOT
 				}
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
@@ -8814,6 +9014,7 @@ focus_tree = {
 			random_core_state = {
 				limit = {
 					is_coastal = yes
+					is_controlled_by = ROOT
 				}
 				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
@@ -8971,6 +9172,7 @@ focus_tree = {
 							672 669
 						}
 					}
+					add_ideas = MAL_faster_surrender
 				}
 			}
 			create_wargoal = {
@@ -9543,6 +9745,7 @@ focus_tree = {
 			random_core_state = {
 				limit = {
 					is_coastal = yes
+					is_controlled_by = ROOT
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
