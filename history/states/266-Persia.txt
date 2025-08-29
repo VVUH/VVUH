@@ -15,8 +15,8 @@ state={
 		buildings = {
 			infrastructure = 3
 			arms_factory = 1
-			industrial_complex = 4
-			air_base = 3
+			industrial_complex = 5
+			air_base = 5
 			
 			10837 = {
                 landmark_sadabad_complex = {
@@ -39,4 +39,5 @@ state={
 
 	local_supplies=5.0 
 }
+
 
