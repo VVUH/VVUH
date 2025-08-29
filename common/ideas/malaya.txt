@@ -1,5 +1,20 @@
 ideas = {
     country = {
+        MAL_faster_surrender = {
+            name = "Collapsing State"
+            removal_cost = -1
+            picture = BEL_the_kings_surrender
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                war_support_factor = -0.2
+                surrender_limit = -0.3
+            }
+        }
         MAL_failed_expansion = {
             name = "Weak Foreign Policy"
             removal_cost = -1
@@ -487,6 +502,7 @@ ideas = {
 
             modifier = {
                 stability_factor = -0.05
+                local_resources_factor = -0.1
                 war_support_factor = -0.1
                 political_power_factor = -0.1
                 army_attack_factor = -0.1
@@ -507,6 +523,7 @@ ideas = {
 
             modifier = {
                 war_support_factor = -0.05
+                local_resources_factor = -0.05
                 political_power_factor = -0.05
                 army_attack_factor = -0.05
                 autonomy_gain = 0.5
@@ -527,7 +544,7 @@ ideas = {
             modifier = {
                 stability_factor = -0.05
                 war_support_factor = -0.1
-                local_resources_factor = 0.1
+                local_resources_factor = 0.05
                 production_speed_buildings_factor = 0.05
             }
         }
@@ -544,15 +561,13 @@ ideas = {
             picture = chi_wargaming_division
 
             modifier = {
-                political_power_factor = -0.1
+                political_power_factor = -0.15
                 stability_factor = -0.05
                 war_support_factor = -0.05
-                local_resources_factor = 0.2
-                research_speed_factor = 0.1
-                consumer_goods_factor = -0.2
-                conscription_factor = 0.25
-                production_speed_buildings_factor = 0.15
-                autonomy_gain = -0.01
+                local_resources_factor = 0.1
+                research_speed_factor = 0.05
+                production_speed_buildings_factor = 0.07
+                autonomy_gain = -0.1
             }
         }
         MAL_divided_nation_malayan_federation = { 
@@ -569,7 +584,7 @@ ideas = {
 
             modifier = {
                 political_power_factor = 0.1
-                local_resources_factor = 0.1
+                local_resources_factor = -0.05
                 research_speed_factor = 0.05
                 consumer_goods_factor = -0.05
                 production_speed_buildings_factor = 0.05
@@ -591,8 +606,7 @@ ideas = {
             modifier = {
                 political_power_factor = 0.15
                 stability_factor = 0.05
-                local_resources_factor = 0.1
-                research_speed_factor = 0.1
+                research_speed_factor = 0.08
                 consumer_goods_factor = -0.1
                 production_speed_buildings_factor = 0.1
                 autonomy_gain = 1
@@ -763,8 +777,8 @@ ideas = {
                 war_support_factor = 0.05
                 research_speed_factor = 0.05
                 neutrality_drift = 0.02
-                army_core_defence_factor = 0.2
-                conscription_factor = 0.25
+                army_core_defence_factor = 0.1
+                conscription_factor = 0.15
                 autonomy_gain = 0.2
             }
         }
@@ -790,7 +804,31 @@ ideas = {
                 consumer_goods_factor = 0.05
                 production_speed_buildings_factor = 0.1
                 global_building_slots = 1
-                local_resources_factor = 0.1
+                local_resources_factor = 0.05
+            }
+        }
+        MAL_british_dominance = { 
+            name = "Private Investors dominating the Economy"
+            allowed = {
+                always = no
+            }
+            cancel = {
+                NOT = {
+                    is_in_faction_with = ENG
+                }
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            removal_cost = -1
+            picture = ARG_british_influences
+
+            modifier = {
+                political_power_factor = -0.05
+                consumer_goods_factor = 0.1
+                production_speed_buildings_factor = -0.05
+                custom_modifier_tooltip = "This will be removed once we leave the British Faction"
             }
         }
         MAL_british_companies_2 = { 
@@ -812,7 +850,7 @@ ideas = {
                 consumer_goods_factor = 0.1
                 production_speed_buildings_factor = 0.1
                 global_building_slots = 1
-                local_resources_factor = 0.1
+                local_resources_factor = 0.05
             }
         }
         MAL_seize_the_means_of_production_idea = { 
@@ -845,10 +883,10 @@ ideas = {
             picture = ARG_british_influences
 
             modifier = {
-                local_resources_factor = 0.1
+                local_resources_factor = 0.05
                 production_factory_max_efficiency_factor = 0.05
                 consumer_goods_factor = -0.1
-                research_speed_factor = 0.05
+                research_speed_factor = 0.02
                 min_export = 0.15
             }
         }
@@ -935,7 +973,7 @@ ideas = {
                 always = no
             }
             allowed_civil_war = {
-                always = yes
+                has_government = communism
             }
 
             removal_cost = -1
@@ -944,7 +982,7 @@ ideas = {
             modifier = {
                 war_support_factor = 0.05
                 conscription = 0.05
-                conscription_factor = 0.25
+                conscription_factor = 0.15
                 army_core_attack_factor = 0.05
                 army_core_defence_factor = 0.05
                 resistance_growth_on_our_occupied_states = 0.5
@@ -1367,12 +1405,13 @@ ideas = {
             picture = generic_army_war_college
 
             modifier = {
+                army_morale_factor = -0.05
                 army_leader_start_level = 2
                 army_leader_cost_factor = -0.5 
                 army_attack_factor = 0.05
                 army_defence_factor = 0.05
                 military_leader_cost_factor = -0.5
-                max_planning_factor = 0.5
+                max_planning_factor = 0.05
                 planning_speed = 0.2
             }
         }
@@ -1450,8 +1489,8 @@ ideas = {
             modifier = {
                 non_core_manpower = 0.2
                 political_power_gain = 0.5
-                local_resources_factor = 0.5
-                research_speed_factor = 0.1
+                local_resources_factor = 0.05
+                research_speed_factor = 0.05
                 industrial_capacity_factory = 0.1
                 industrial_capacity_dockyard = 0.1
                 consumer_goods_factor = -0.15
@@ -1550,7 +1589,7 @@ ideas = {
                 air_ace_generation_chance_factor = 0.1
                 air_agility_factor = 0.075
                 production_factory_max_efficiency_factor = 0.05
-                custom_modifier_tooltip = MAL_plane_cost_modifier_15_tt
+                custom_modifier_tooltip = MAL_plane_cost_modifier_10_tt
             }
         }
         MAL_malaysian_military_idea_1 = { 
@@ -1856,7 +1895,7 @@ ideas = {
                 always = no
             }
             allowed_civil_war = {
-                always = no
+                tag = MAL
             }
             cancel = {
                 OR = {
@@ -2152,9 +2191,10 @@ ideas = {
 
             modifier = {
                 surrender_limit = 0.1
-                stability_weekly = -0.003
+                stability_weekly = -0.005
                 war_support_factor = -0.3
-                political_power_factor = -0.2
+                political_power_factor = -0.25
+                army_attack_factor = -0.05
             }
         }
         MAL_expand_citizenship_idea = { 
@@ -2173,12 +2213,12 @@ ideas = {
             picture = prc_low_popular_support3
 
             modifier = {
-                stability_factor = -0.05
-                conscription = 0.03
-                monthly_population = 0.2
-                industrial_capacity_factory = 0.15
-                industrial_capacity_dockyard = 0.15
-                production_speed_buildings_factor = 0.15
+                stability_factor = -0.1
+                conscription = 0.02
+                monthly_population = 0.1
+                industrial_capacity_factory = 0.1
+                industrial_capacity_dockyard = 0.1
+                production_speed_buildings_factor = 0.1
             }
         }
         MAL_expand_citizenship_weak_idea = { 
@@ -2221,9 +2261,30 @@ ideas = {
             picture = chi_war_of_resistance
 
             modifier = {
-                stability_factor = -0.12
-                war_support_factor = -0.12
-                consumer_goods_factor = 0.25
+                stability_factor = -0.08
+                war_support_factor = -0.08
+                consumer_goods_factor = 0.15
+            }
+        }
+        MAL_chinese_unrest_idea = { 
+            name = "Chinese Unrest"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+            }
+
+            removal_cost = -1
+            picture = chi_war_of_resistance
+
+            modifier = {
+                political_power_factor = -0.1
+                industrial_capacity_factory = -0.1
+                consumer_goods_factor = 0.15
             }
         }
         MAL_counter_terror_idea = { 
@@ -2242,10 +2303,10 @@ ideas = {
             picture = SWE_marauder_bombers
 
             modifier = {
-                political_power_factor = -0.1
+                political_power_factor = -0.35
                 stability_weekly = 0.003
-                army_attack_factor = 0.2
-                army_breakthrough_against_minor_factor = 0.2
+                army_attack_factor = 0.1
+                army_breakthrough_against_minor_factor = 0.1
                 air_cas_efficiency = 0.5
                 air_cas_present_factor = 0.5
                 war_support_factor = -0.05
@@ -2318,7 +2379,6 @@ ideas = {
                 political_power_factor = 0.25
                 stability_factor = 0.1
                 war_support_factor = 0.1
-                army_core_defence_factor = 0.1
                 army_core_defence_factor = 0.1
                 communism_drift = 0.1
                 drift_defence_factor = 0.5
@@ -2481,51 +2541,51 @@ ideas = {
             equipment_bonus = {
                 small_plane_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				cv_small_plane_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				small_plane_cas_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				cv_small_plane_cas_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				small_plane_naval_bomber_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				cv_small_plane_naval_bomber_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				medium_plane_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				medium_plane_fighter_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				medium_plane_scout_plane_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				large_plane_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				large_plane_maritime_patrol_plane_airframe = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
 				transport_plane_equipment = {
 					instant = yes
-					build_cost_ic = -0.15
+					build_cost_ic = -0.1
 				}
             }
         }
