@@ -4,6 +4,19 @@ joint_focus = {
 	dynamic = yes 
 	
 	icon =  GFX_focus_GER_south_east_asian_natural_wealth
+
+	allow_branch = {
+		OR = {
+				tag = MAL
+				tag = PHI
+				tag = SIA
+				tag = INS
+				tag = VIN
+				tag = BRM
+				tag = CAM
+				tag = LAO
+			}
+	}
 		
 	
 	
