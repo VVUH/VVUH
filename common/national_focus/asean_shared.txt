@@ -4,6 +4,19 @@ joint_focus = {
 	dynamic = yes 
 	
 	icon =  GFX_focus_GER_south_east_asian_natural_wealth
+
+	allow_branch = {
+		OR = {
+				tag = MAL
+				tag = PHI
+				tag = SIA
+				tag = INS
+				tag = VIN
+				tag = BRM
+				tag = CAM
+				tag = LAO
+			}
+	}
 		
 	
 	
@@ -152,7 +165,7 @@ joint_focus = {
 	bypass = {
 		any_other_country = {
 			is_in_faction_with = ROOT
-			has_completed_focus = ASE_shared
+			has_completed_focus = ASE_unity
 		}
 	}
 	
@@ -219,7 +232,7 @@ joint_focus = {
 	bypass = {
 		any_other_country = {
 			is_in_faction_with = ROOT
-			has_completed_focus = ASE_shared
+			has_completed_focus = ASE_industrial_advancements
 		}
 	}
 	
@@ -294,7 +307,7 @@ joint_focus = {
 	bypass = {
 		any_other_country = {
 			is_in_faction_with = ROOT
-			has_completed_focus = ASE_shared
+			has_completed_focus = ASE_economic_exchange
 		}
 	}
 	
@@ -369,7 +382,7 @@ joint_focus = {
 	bypass = {
 		any_other_country = {
 			is_in_faction_with = ROOT
-			has_completed_focus = ASE_shared
+			has_completed_focus = ASE_peacekeeping
 		}
 	}
 	
@@ -435,7 +448,7 @@ joint_focus = {
 	bypass = {
 		any_other_country = {
 			is_in_faction_with = ROOT
-			has_completed_focus = ASE_shared
+			has_completed_focus = ASE_demand_independence
 		}
 	}
 	
@@ -490,7 +503,7 @@ joint_focus = {
 	bypass = {
 		any_other_country = {
 			is_in_faction_with = ROOT
-			has_completed_focus = ASE_shared
+			has_completed_focus = ASE_asean_we_are_bonded_as_one
 		}
 	} 
 	
