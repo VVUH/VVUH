@@ -1649,7 +1649,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = TIB_whispers_among_the_downtrodden
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			base = 1
 		}
