@@ -3,6 +3,7 @@ add_namespace = SAU_fascism
 add_namespace = SAU_border_conflict
 add_namespace = SAU_commies_event
 add_namespace = SAU_submission
+add_namespace = SAU_trade_deal
 
 country_event = {
 	id = SAU_submission.20
@@ -134,6 +135,7 @@ country_event = {
 
 }
 
+#pol event
 	country_event = {
 		id = SAU_political_events.1
 		title = SAU_political_events.1.t
@@ -502,14 +504,14 @@ country_event = {
 							has_government = ROOT
 							is_ai= no
 						}
-							IF = {
-								LIMIT = {
-									is_ai = no
-								}
-								is_major = no 
+						IF = {
+							LIMIT = {
+								is_ai = yes
 							}
-							is_in_faction = no
-							is_free_or_subject_of_root = yes
+							is_major = no 
+						}
+						is_in_faction = no
+						is_free_or_subject_of_root = yes
 					}
 				}
 				country_event = generic.5
@@ -880,6 +882,247 @@ country_event = {
 			custom_effect_tooltip = SAU_anatolia_coring_tt
 		}		
 	}
+country_event = {
+	id = SAU_fascism.15
+	title = SAU_fascism.15.t
+	desc = SAU_fascism.15.desc
+	picSAUe = GFX_report_event_SAU_cakmak_general_staff
+	
+	is_triggered_only = yes
+	
+	option = { # send some of our best
+		name = SAU_fascism.15.a
+		ai_chance = {
+			factor = 70
+		}
+		trigger = {
+			OR = {
+				has_tech = improved_light_tank
+				has_tech = improved_light_tank_chassis
+			}
+		}
+		IF = {
+			limit = {
+				NOT = { has_dlc = "No Step Back" }
+			}
+			send_equipment = {
+				target = SAU
+				type = light_tank_equipment_2
+				amount = 150
+			}
+		}
+		else = {
+			send_equipment = {
+				target = SAU
+				type = light_tank_chassis_2
+				amount = 150
+			}
+		}
+		add_offsite_building = { type = industrial_complex level = 3 }
+		SAU = { country_event = SAU_fascism.16 }
+	}	
+	option = { # send some regular light tanks
+		name = SAU_fascism.15.b
+		ai_chance = {
+			factor = 70
+		}
+		trigger = {
+			OR = {
+				has_tech = basic_light_tank
+				has_tech = basic_light_tank_chassis
+			}
+		}
+		IF = {
+			limit = {
+				NOT = { has_dlc = "No Step Back" }
+			}
+			send_equipment = {
+				target = SAU
+				type = light_tank_equipment_1
+				amount = 200
+			}
+		}
+		else = {
+			send_equipment = {
+				target = SAU
+				type = light_tank_chassis_1
+				amount = 200
+			}
+		}
+		add_offsite_building = { type = industrial_complex level = 2 }
+		SAU = { country_event = SAU_fascism.17 }
+	}
+
+	option = { # give them some of our old models
+		name = SAU_fascism.15.c
+		ai_chance = {
+			factor = 70
+		}	
+		trigger = {
+			OR = {
+				has_tech = gwtank
+				has_tech = gwtank_chassis
+			}
+		}
+		IF = {
+			limit = {
+				NOT = { has_dlc = "No Step Back" }
+			}
+			send_equipment = {
+				target = SAU
+				type = gw_tank_equipment
+				amount = 300
+			}
+		}
+		else = {
+			send_equipment = {
+				target = SAU
+				type = light_tank_chassis_0
+				amount = 300
+			}
+		}	
+		add_offsite_building = { type = industrial_complex level = 1 }
+		SAU = { country_event = SAU_fascism.18 }
+	}
+
+	option = { # give them nothing!
+		name = SAU_fascism.15.d
+		ai_chance = {
+			factor = 30
+		}
+		SAU = { country_event = SAU_fascism.19 }
+	}	
+}
+
+#SAUkey Desires Light Tanks - Improved Light Tanks
+country_event = {
+	id = SAU_fascism.16
+	title = SAU_fascism.16.t
+	desc = SAU_fascism.16.desc
+	picSAUe = GFX_report_event_tank_factory
+
+	is_triggered_only = yes
+	
+	option = {
+		name = SAU_fascism.16.a #generous!
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "No Step Back"
+				}
+			}
+			effect_tooltip = {
+				add_equipment_to_stockpile = { type = light_tank_equipment_2 amount = 50 producer = ITA } 
+			}
+		}
+		else = {
+			effect_tooltip = {
+				add_equipment_to_stockpile = { type = light_tank_chassis_2 amount = 50 producer = ITA } 
+			}
+		}
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			add_equipment_subsidy = {
+				cic = 500
+				equipment_type = light_tank_chassis
+				seller_tags = { ITA } 
+			}
+		}
+	}
+}
+
+#SAUkey Desires Light Tanks - Light Tanks
+country_event = {
+	id = SAU_fascism.17
+	title = SAU_fascism.17.t
+	desc = SAU_fascism.17.desc
+	picSAUe = GFX_report_event_tank_factory
+
+	is_triggered_only = yes
+	
+	option = {
+		name = SAU_fascism.17.a #generous!
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "No Step Back"
+				}
+			}
+			effect_tooltip = {
+				add_equipment_to_stockpile = { type = light_tank_equipment_1 amount = 75 producer = ITA } 
+			}
+		}
+		else = {
+			effect_tooltip = {
+				add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 75 producer = ITA } 
+			}
+		}
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			add_equipment_subsidy = {
+				cic = 500
+				equipment_type = light_tank_chassis
+				seller_tags = { ITA } 
+			}
+		}
+	}
+}
+
+#SAUkey Desires Light Tanks - Interwar Tanks
+country_event = {
+	id = SAU_fascism.18
+	title = SAU_fascism.18.t
+	desc = SAU_fascism.18.desc
+	picSAUe = GFX_report_event_tank_factory
+
+	is_triggered_only = yes
+	
+	option = {
+		name = SAU_fascism.18.a #generous!
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "No Step Back"
+				}
+			}
+			effect_tooltip = {
+				add_equipment_to_stockpile = { type = gw_tank_equipment amount = 75 producer = ITA } 
+			}
+		}
+		else = {
+			effect_tooltip = {
+				add_equipment_to_stockpile = { type = light_tank_chassis_0 amount = 75 producer = ITA } 
+			}
+		}
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			add_equipment_subsidy = {
+				cic = 500
+				equipment_type = light_tank_chassis
+				seller_tags = { ITA } 
+			}
+		}
+	}
+}	
+ country_event = {
+	id = SAU_fascism.19
+	title = SAU_fascism.19.t
+	desc = SAU_fascism.19.desc
+	picture = GFX_report_event_tur_military_affair
+
+	is_triggered_only = yes
+	
+	option = {
+		name = SAU_fascism.19.a #stingy bastards!
+	}
+}
+
 	country_event = {
 		id = SAU_commies_event.1
 		title = SAU_commies_event.1.t
@@ -991,7 +1234,7 @@ country_event = {
 			ai_chance = {
 				base = 99
 			}
-			name = SAU_fascism.3.c
+			name = SAU_commies_event.3.c
 
 		}	
 	}
@@ -1122,6 +1365,7 @@ country_event = {
 				}
 			hidden_effect = {
 				set_country_flag = SAU_muslim_commie_state
+				set_country_flag = SAU_investing_in_regional_suppression
 			}
 			unlock_decision_tooltip = SAU_religious_suppression_decision_of_FROM				
 		}
@@ -1135,7 +1379,14 @@ country_event = {
 					remove_idea = SAU_the_ulema
 					add_idea = SAU_legalised_muslim_equality
 				}
-			custom_effect_tooltip = SAU_placate_the_religious_folks_decisions_if_done_focus_SAU_squash_counter_coups_tt
+			IF = {
+				LIMIT = {
+					has_completed_focus = SAU_squash_counter_coups
+				}
+				unlock_decision_tooltip = SAU_religious_placation_decision_of_FROM			
+			}ELSE={
+				custom_effect_tooltip = SAU_placate_the_religious_folks_decisions_if_done_focus_SAU_squash_counter_coups_tt
+			}
 		}
 	}
 
@@ -1326,3 +1577,295 @@ country_event = {
 		add_war_support = 0.05
 	}
 }	
+
+#country gets an offer from SAU for a NATIONAL OIL trade deal
+	country_event = { 
+		id = SAU_trade_deal.1
+		title = SAU_trade_deal.1.t
+		desc = SAU_trade_deal.1.desc
+		picture = GFX_report_event_generic_stock_traders
+
+		is_triggered_only = yes
+
+		option = { #Accept
+			name = SAU_trade_deal.1.a
+			ai_chance = {
+				base = 5
+				modifier = {
+					factor = 5
+					has_government = FROM
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 5
+					}
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 70
+					} 
+				}
+				modifier = {
+					factor = 20
+					has_war = yes
+				}
+				modifier = {
+					factor = 40
+					has_non_aggression_pact_with = SAU
+				}								
+			}	
+			effect_tooltip = {
+				ROOT = {
+					add_ideas = SAU_oil_importing_national
+				}
+				FROM = {
+					add_offsite_building = { type = industrial_complex level = 1 }
+				}
+			}
+
+			FROM = { country_event = { id = SAU_trade_deal.2 days = 1 } }
+		}
+
+		option = { #Decline
+			name = SAU_trade_deal.1.b
+			ai_chance = {
+				base = 5
+			}
+			FROM = { country_event = { id = SAU_trade_deal.3 days = 1 } }
+			custom_effect_tooltip = SAU_not_ask_again_tt
+			set_country_flag = SAU_declined_trade
+		}
+	}
+
+#country has accepted our trade proposal!
+	country_event = { 
+		id = SAU_trade_deal.2
+		title = SAU_trade_deal.2.t
+		desc = SAU_trade_deal.2.desc
+		picture = GFX_report_event_generic_stock_traders
+
+		is_triggered_only = yes
+
+		option = { #Yipee
+			name = SAU_trade_deal.2.a
+			ROOT = {
+				random_core_state = {
+					LIMIT = {
+						is_owned_by = SAU
+					}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+				}
+				hidden_effect = {
+						add_to_variable = {
+							var = SAU_oil_var
+							value = 10
+						}	
+					}	
+				IF = {
+					LIMIT = {
+						has_idea = SAU_poor_country
+					}
+					swap_ideas = {
+						remove_idea = SAU_poor_country
+						add_idea = SAU_improving_economy
+					}
+				}ELSE_IF = {
+					LIMIT = {
+						has_idea = SAU_improving_economy
+					}
+					swap_ideas = {
+						remove_idea = SAU_improving_economy
+						add_idea = SAU_booming_economy
+					}
+				}ELSE_IF = {
+					LIMIT = {
+						has_idea = SAU_booming_economy
+					}
+					swap_ideas = {
+						remove_idea = SAU_booming_economy
+						add_idea = SAU_rich_country
+					}
+				}ELSE_IF = {
+					LIMIT = {
+						has_idea = SAU_rich_country
+					}
+					swap_ideas = {
+						remove_idea = SAU_rich_country
+						add_idea = SAU_oil_rich_country
+					}
+				}
+			}
+			FROM = {
+				add_ideas = SAU_oil_importing_national
+				hidden_effect = {
+					set_country_flag = SAU_oil_importing_national
+				}				
+			}
+			custom_effect_tooltip = war_will_cancel_deal_tt
+
+
+		}
+	}
+
+#targetCountry declined our trade proposal
+	country_event = { 
+		id = SAU_trade_deal.3
+		title = SAU_trade_deal.3.t
+		desc = SAU_trade_deal.3.desc
+		picture = GFX_report_event_journalists_speech
+
+		is_triggered_only = yes
+
+		option = { #Damnit!
+			name = SAU_trade_deal.3.a
+		}
+	}
+
+#country gets an offer from SAU for a ARAMCO trade deal
+	country_event = { 
+		id = SAU_trade_deal.4
+		title = SAU_trade_deal.4.t
+		desc = SAU_trade_deal.4.desc
+		picture = GFX_report_event_generic_stock_traders
+
+		is_triggered_only = yes
+
+		option = { #Accept
+			name = SAU_trade_deal.4.a
+			ai_chance = {
+				base = 5
+				modifier = {
+					factor = 5
+					has_government = FROM
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 5
+					}
+				}
+				modifier = {
+					factor = 2
+					has_opinion = {
+						target = FROM
+						value > 70
+					} 
+				}
+				modifier = {
+					factor = 20
+					has_war = yes
+				}
+				modifier = {
+					factor = 40
+					has_non_aggression_pact_with = SAU
+				}								
+			}
+			effect_tooltip = {
+				ROOT = {
+					add_ideas = SAU_oil_importing_aramco
+				}
+				FROM = {
+					add_offsite_building = { type = industrial_complex level = 2 }
+				
+				}
+			}
+			FROM = { country_event = { id = SAU_trade_deal.5 days = 1 } }
+		}
+
+		option = { #Decline
+			name = SAU_trade_deal.4.b
+			ai_chance = {
+				base = 5
+			}
+			FROM = { country_event = { id = SAU_trade_deal.3 days = 1 } }
+			custom_effect_tooltip = SAU_not_ask_again_tt
+			set_country_flag = SAU_declined_trade
+		}
+	}
+
+#country has accepted our trade proposal!
+	country_event = { 
+		id = SAU_trade_deal.5
+		title = SAU_trade_deal.5.t
+		desc = SAU_trade_deal.5.desc
+		picture = GFX_report_event_generic_stock_traders
+
+		is_triggered_only = yes
+
+		option = { #Yipee
+			name = SAU_trade_deal.5.a
+			ROOT = {
+				random_core_state = {
+					LIMIT = {
+						is_owned_by = SAU
+					}
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+				}
+					hidden_effect = {
+						add_to_variable = {
+							var = SAU_oil_var
+							value = 20
+						}	
+					}	
+				IF = {
+					LIMIT = {
+						has_idea = SAU_poor_country
+					}
+					swap_ideas = {
+						remove_idea = SAU_poor_country
+						add_idea = SAU_improving_economy
+					}
+				}ELSE_IF = {
+					LIMIT = {
+						has_idea = SAU_improving_economy
+					}
+					swap_ideas = {
+						remove_idea = SAU_improving_economy
+						add_idea = SAU_booming_economy
+					}
+				}ELSE_IF = {
+					LIMIT = {
+						has_idea = SAU_booming_economy
+					}
+					swap_ideas = {
+						remove_idea = SAU_booming_economy
+						add_idea = SAU_rich_country
+					}
+				}ELSE_IF = {
+					LIMIT = {
+						has_idea = SAU_rich_country
+					}
+					swap_ideas = {
+						remove_idea = SAU_rich_country
+						add_idea = SAU_oil_rich_country
+					}
+				}
+			}
+			FROM = {
+				add_ideas = SAU_oil_importing_aramco
+				hidden_effect = {
+					set_country_flag = SAU_oil_importing_aramco
+				}				
+			}
+			custom_effect_tooltip = war_will_cancel_deal_tt
+
+
+		}
+	}
+
+

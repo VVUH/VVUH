@@ -145,10 +145,10 @@ focus_tree = {
 				producer = ROOT
 			}
 			capital_scope = {
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 				if = {
@@ -197,6 +197,10 @@ focus_tree = {
 		}
 
 		available_if_capitulated = no
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_GER_proletarian_solidarity
+		}		
 		icon = {
 			trigger = { original_tag = OMA}
 			value = GFX_focus_RAJ_military_into_the_workforce
@@ -266,6 +270,10 @@ focus_tree = {
 		available = {
 	
 		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_SWE_socialist_reforms
+		}			
 		icon = {
 			trigger = { original_tag = JOR}
 			value = GFX_focus_GER_support_the_proletarian_uprising
@@ -371,6 +379,10 @@ focus_tree = {
 	
 		}
 		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_GER_the_peoples_victory
+		}		
+		icon = {
 			trigger = { original_tag = SYR}
 			value = GFX_focus_GER_expand_ss_security_duties
 		}
@@ -440,6 +452,10 @@ focus_tree = {
 		available = {
 	
 		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		}		
 		icon = {
 			trigger = { original_tag = OMA}
 			value = GFX_focus_SOV_the_glory_of_the_red_army_communism
@@ -531,7 +547,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 15
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_NORDIC_com_selector_army
+		}		
 		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_focus_NORDIC_dem_materiel
@@ -654,6 +674,10 @@ focus_tree = {
 			}
 		}
 		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PER_the_peoples_airforce
+		}	
+		icon = {
 			trigger = { original_tag = OMA}
 			value = GFX_focus_generic_copy_plane_designs
 		}	
@@ -764,7 +788,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 30
 		}
-		cost = 10
+		cost = 15
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_NORDIC_com_airforce
+		}			
 		icon = {
 			trigger = { original_tag = OMA}
 			value = GFX_focus_NORDIC_dem_selector_airforce
@@ -991,7 +1019,10 @@ focus_tree = {
 		available = {
 	
 		}
-	
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PER_the_peoples_navy
+		}
 		icon = {
 			trigger = { original_tag = OMA}
 			value = GFX_focus_PER_wether_the_storm
@@ -1012,7 +1043,24 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}	
-			}			
+			}
+			IF = {
+				LIMIT = {
+					original_tag = KUW
+				}
+				random_owned_controlled_state = {
+					LIMIT = {
+						is_coastal = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = dockyard
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}			
+			}						
 			# Naval doctrine
 			# Gives spirit with +15% naval xp gain and +10% naval org
 		}
@@ -1231,7 +1279,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 20
 		}
-		cost = 10
+		cost = 15
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_NORDIC_com_navy
+		}		
 		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_focus_NORDIC_dem_capstone_navy
@@ -1332,6 +1384,10 @@ focus_tree = {
 			}
 		}
 		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_social_democracy
+		}	
+		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_focus_AFG_parliamentary_democracy
 		}
@@ -1370,13 +1426,18 @@ focus_tree = {
 	
 		completion_reward = {
 			add_political_power = 200
-						custom_effect_tooltip=generic_skip_one_line_tt
+			custom_effect_tooltip=generic_skip_one_line_tt
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			custom_effect_tooltip=generic_skip_one_line_tt
 
 			capital_scope = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1498,6 +1559,10 @@ focus_tree = {
 			num_of_factories > 4
 		}
 		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_communist_industry
+		}			
+		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_goal_generic_oil_refinery
 		}
@@ -1526,10 +1591,10 @@ focus_tree = {
 			add_ideas = ASJ_industrialising_country
 			custom_effect_tooltip = generic_skip_one_line_tt
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 5
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}					
 			}
@@ -1579,6 +1644,10 @@ focus_tree = {
 			factor = 100
 		}
 		cost = 10
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_communist
+		}			
 		icon = {
 			trigger = { original_tag = LEB}
 			value = GFX_focus_GER_integration_of_puppet_economies
@@ -1639,7 +1708,7 @@ focus_tree = {
 		cost = 10
 
 		available = {
-	
+			has_stability > 0.6
 		}
 		icon = {
 			trigger = { original_tag = OMA}
@@ -1689,7 +1758,7 @@ focus_tree = {
 	focus = {
 		id = ASJ_general_rearmament
 		prerequisite = {focus = ASJ_building_a_nation_from_nothing }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = ASJ_building_a_nation_from_nothing
 		ai_will_do = {
@@ -1731,10 +1800,10 @@ focus_tree = {
 	
 		completion_reward = {
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1756,9 +1825,79 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ASJ_armament_investments
+		prerequisite = {focus = ASJ_building_a_nation_from_nothing }
+		x = 1
+		y = 1
+		relative_position_id = ASJ_building_a_nation_from_nothing
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			threat > 0.1
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_spur_communist_revolutions
+		}		
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_AFG_against_kabul
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_CONGO_copper_cartridges
+		}		
+		icon = {
+			trigger = { original_tag = PAL} 
+			value = GFX_focus_FIN_weapon_caches
+		}		
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_AFG_scavenging
+		}				
+		icon = {
+			trigger = { original_tag = UAE} 
+			value = GFX_goal_generic_construct_mil_factory
+		}			
+		icon = {
+			value = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			IF = {
+				LIMIT = {
+					original_tag = OMA
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}			
+			}
+		}
+
+	}
+	focus = {
 		id = ASJ_preparing_for_the_worst
 		prerequisite = {focus = ASJ_general_rearmament }
-		x = 0
+		prerequisite = {focus = ASJ_armament_investments }
+
+		x = 1
 		y = 1
 		relative_position_id = ASJ_general_rearmament
 		ai_will_do = {
@@ -1780,6 +1919,10 @@ focus_tree = {
 			}
 			value = GFX_focus_generic_air_defense
 		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_SOV_architect_of_communism_ccp_2d_sov_compatibility
+		}		
 		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_goal_generic_construction
@@ -1855,7 +1998,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 15
 
 		available = {
 			threat > 0.2
@@ -1873,10 +2016,10 @@ focus_tree = {
 	
 		completion_reward = {
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 6
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
-					level = 5
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -1895,7 +2038,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 15
 
 		available = {
 			threat > 0.2
@@ -1912,10 +2055,10 @@ focus_tree = {
 				LIMIT = {
 					is_coastal = yes
 				}
-				add_extra_state_shared_building_slots = 5
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = dockyard
-					level = 4
+					level = 3
 					instant_build = yes
 				}	
 			}
@@ -1935,7 +2078,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 15
 
 		icon = {
 			trigger = { original_tag = QAT}
@@ -1984,7 +2127,7 @@ focus_tree = {
 						ROOT={is_subject = yes }
 					}
 					overlord = {
-						ROOT = {give_resource_rights = { receiver = PREV state = PREV.PREV }}
+						ROOT = {give_resource_rights = { receiver = overlord state = PREV.PREV }}
 					}
 				}
 			}		
@@ -2001,6 +2144,10 @@ focus_tree = {
 			factor = 100
 		}
 		cost = 10
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_SOV_leader_of_the_party_and_the_people_ccp_2d_sov_compatibility
+		}			
 		icon = {
 			trigger = { original_tag = LEB}
 			value = GFX_focus_RAJ_tea_exports
@@ -2040,10 +2187,10 @@ focus_tree = {
 				LIMIT = {
 					is_owned_by = ROOT
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 
@@ -2060,7 +2207,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 5
+		cost = 10
 		icon = {
 			trigger = { AND = {is_subject = yes overlord = {original_tag = SAU}} }
 			value = GFX_focus_generic_befriend_saudi_arabia

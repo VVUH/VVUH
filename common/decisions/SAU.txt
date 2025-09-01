@@ -546,28 +546,21 @@ SAU_decs_cat = {
 
 		visible = { 
 			tag = SAU
-			NOT = {
 				OR = {
-					has_completed_focus = SAU_negotiating_the_end
-					has_completed_focus = SAU_faisals_coup
-					has_completed_focus = SAU_intervene_in_the_levant
+					has_completed_focus = SAU_centralize_to_the_capital
+					has_completed_focus = SAU_land_reform
 				}
-			}
+			
 		} 
 
 		days_remove = 105 
 
 		cost = 25
 
-		complete_effect = {
-			add_stability = 0.1
-		}
-
 		modifier = {
 		}
 
 		remove_effect = {
-			add_stability = 0.05
 			set_cosmetic_tag = SAU_traditonal_cosmetictag			
 
 		}
@@ -2140,7 +2133,7 @@ SAU_border_wars = {
 				NOT = {
 					controls_state = 1015
 				}
-				has_global_flag = SAU_anti_colonial_raids_flag
+				has_global_flag = SAU_oman_unify_fascist
 				original_tag = SAU
 			}		
 
@@ -2202,7 +2195,7 @@ SAU_border_wars = {
 				NOT = {
 					controls_state = 1016
 				}
-				has_global_flag = SAU_anti_colonial_raids_flag
+				has_global_flag = SAU_oman_unify_fascist
 				original_tag = SAU
 			}		
 
@@ -2236,7 +2229,7 @@ SAU_border_wars = {
 				}
 			}
 
-	}	
+	}
 	SAU_install_a_friendly_regime_in_muscat = {
 			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
@@ -2264,7 +2257,7 @@ SAU_border_wars = {
 				NOT = {
 					controls_state = 294
 				}
-				has_global_flag = SAU_anti_colonial_raids_flag
+				has_global_flag = SAU_oman_unify_fascist
 				original_tag = SAU
 			}		
 
@@ -2298,7 +2291,160 @@ SAU_border_wars = {
 				}
 			}
 
-	}				
+	}		
+	#unif agenda; yem
+	SAU_border_conflict_over_south_yemen = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 659 }
+			}
+			cost = 25
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				659 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 659
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 659
+				}
+				has_global_flag = SAU_greater_yemen_unify_fascist
+				original_tag = SAU
+			}		
+
+			days_remove = 5
+
+			remove_effect = {
+				659 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 858
+						num_provinces = 2
+						on_win = SAU_border_conflict.2
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 659
+						num_provinces = 2
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+	}
+	SAU_border_conflict_over_fsa = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 992 }
+			}
+			cost = 25
+			allowed = {
+				original_tag = SAU
+
+			}
+			available = {
+				992 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = SAU
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 992
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 992
+				}
+				has_global_flag = SAU_greater_yemen_unify_fascist
+				original_tag = SAU
+			}		
+
+			days_remove = 5
+
+			remove_effect = {
+				992 = {
+					controller = {
+						war_with_on_remove = PREV
+					}
+				}
+				IF = {
+					LIMIT = {
+						owns_state = 293 
+					}
+					start_border_war = {
+						change_state_after_war = no
+						attacker = {
+							state = 293
+							num_provinces = 2
+							on_win = SAU_border_conflict.2
+							on_lose = MON_border_conflict.3
+							on_cancel = MON_border_conflict.5
+							modifier = 0.1
+							dig_in_factor = 0
+							terrain_factor = 0
+						}	
+						defender = {
+							state = 992
+							num_provinces = 2
+							on_win = MON_border_conflict.2
+							on_lose = MON_border_conflict.4
+							on_cancel = MON_border_conflict.6
+						}
+					}					
+				}ELSE = {
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 659
+						num_provinces = 1
+						on_win = SAU_border_conflict.2
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 992
+						num_provinces = 1
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+				}	
+
+			}
+
+	}			
+			
 }
 
 SAU_extremist_action = { 
@@ -2311,7 +2457,15 @@ SAU_extremist_action = {
 			}
 		}
 		target_array = core_states_at_game_start
-
+		target_trigger = { 
+			FROM={
+				AND = {
+					NOT={has_dynamic_modifier = { modifier = islamists_placated}}
+					is_controlled_by = ROOT
+				}
+			}
+			
+		}
 		available = {
 			NOT = {
 				has_country_flag = SAU_investing_in_regional_placation
@@ -2326,20 +2480,40 @@ SAU_extremist_action = {
 				set_country_flag = SAU_investing_in_regional_placation
 			}
 
+			IF = {
+				LIMIT = {
+					has_completed_focus = SAU_intervene_in_the_levant
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.03
+				}				
+			}ELSE = {
 				add_popularity = {
 					ideology = ROOT
-					popularity = 0.01
+					popularity = 0.03
 				}
+			}
 
 		}
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = SAU_investing_in_regional_placation
 			}
+			IF = {
+				LIMIT = {
+					has_completed_focus = SAU_intervene_in_the_levant
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.03
+				}				
+			}ELSE = {
 				add_popularity = {
 					ideology = ROOT
 					popularity = 0.03
 				}
+			}
 
 			from = {			
 				add_dynamic_modifier = { modifier = islamists_placated}
@@ -2352,6 +2526,15 @@ SAU_extremist_action = {
 			has_country_flag = SAU_muslim_commie_state
 		}
 		target_array = core_states_at_game_start
+		target_trigger = { 
+			FROM={
+				AND = {
+					NOT={has_dynamic_modifier = { modifier = islamists_placated}}
+					is_controlled_by = ROOT
+				}
+			}
+			
+		}		
 		available = {
 			NOT = {
 				has_country_flag = SAU_investing_in_regional_suppression
@@ -2367,18 +2550,38 @@ SAU_extremist_action = {
 				set_country_flag = SAU_investing_in_regional_suppression
 			}
 
-			add_popularity = {
-				ideology = fascism
-				popularity = -0.01
+			IF = {
+				LIMIT = {
+					has_completed_focus = SAU_intervene_in_the_levant
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.03
+				}				
+			}ELSE = {
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.03
+				}
 			}
 		}
 		remove_effect = {
 			hidden_effect = {
 				clr_country_flag = SAU_investing_in_regional_suppression
 			}
-			add_popularity = {
-				ideology = fascism
-				popularity = -0.04
+			IF = {
+				LIMIT = {
+					has_completed_focus = SAU_intervene_in_the_levant
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.03
+				}				
+			}ELSE = {
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.03
+				}
 			}
 			
 			from = {			
@@ -2395,7 +2598,15 @@ SAU_extremist_action = {
 			}
 		}
 		target_array = core_states_at_game_start
-
+		target_trigger = { 
+			FROM={
+				AND = {
+					NOT={has_dynamic_modifier = { modifier = devout_islamists}}
+					is_controlled_by = ROOT
+				}
+			}
+			
+		}
 		available = {
 			NOT = {
 				has_country_flag = SAU_investing_in_region_alignment
@@ -2409,15 +2620,35 @@ SAU_extremist_action = {
 			hidden_effect = {
 				set_country_flag = SAU_investing_in_region_alignment
 			}
-			add_popularity = {
-				ideology = ROOT
-				popularity = 0.03
+			IF = {
+				LIMIT = {
+					has_completed_focus = SAU_intervene_in_the_levant
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.03
+				}				
+			}ELSE = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.03
+				}
 			}
 		}
 		remove_effect = {
-			add_popularity = {
-				ideology = ROOT
-				popularity = 0.05
+			IF = {
+				LIMIT = {
+					has_completed_focus = SAU_intervene_in_the_levant
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.05
+				}				
+			}ELSE = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.05
+				}
 			}
 			hidden_effect = {
 				clr_country_flag = SAU_investing_in_region_alignment
@@ -3493,6 +3724,7 @@ SAU_command_economic_direction = {
 		}
 	}	
 }
+#works
 
 SAU_international_liberation_front = {
 	SAU_demand_autonomy_and_alignment = {
@@ -4196,6 +4428,7 @@ SAU_international_liberation_front = {
 				hidden_effect = {
 					clr_country_flag = SAU_arming_communist_rebels_flag
 					set_country_flag = SAU_azerb_states_flag
+					set_country_flag = SAU_armed_kurds_in_persia_flag
 					mark_focus_tree_layout_dirty = yes
 				}
 				IF = {
@@ -4298,6 +4531,7 @@ SAU_international_liberation_front = {
 			remove_effect = {
 				hidden_effect = {
 					clr_country_flag = SAU_arming_communist_rebels_flag
+					set_country_flag = SAU_armed_kurds_in_turkey_flag
 				}
 				TUR = {
 					every_owned_state = {
@@ -4395,6 +4629,7 @@ SAU_international_liberation_front = {
 	}
 
 }
+#works
 
 SAU_national_state_radio = {
 	SAU_boost_war_support = {
@@ -6901,6 +7136,125 @@ SAU_working_together = {
         }
 
 	}
+
+
+}
+
+SAU_trade = {  
+
+	SAU_oil_export = { #SAU_oil_importing_national
+		cost = 50
+
+		icon = GFX_decision_oil
+		allowed = {
+			original_tag = SAU
+		}
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_major = yes
+					is_ai = no
+				}
+				NOT = { has_idea = SAU_oil_importing_national }
+				NOT = {has_country_flag = SAU_declined_trade}
+			}
+		}
+		
+		available = {
+			FROM = {
+				has_opinion = {
+					target = SAU
+					value > 39
+				}	
+			}
+			NOT = {
+				has_global_flag = SAU_exporting_currently_flag
+			}
+			has_resources_in_country = {
+				resource = oil
+				amount > 10
+				extracted = yes
+			}
+		}
+
+		visible = {
+			original_tag = SAUf
+			has_completed_focus = SAU_nationalize_the_american_oil_company
+		}
+
+		days_remove = 30
+
+		complete_effect = {
+			set_global_flag = SAU_exporting_currently_flag
+		}
+
+		remove_effect = { #can use around 7 times - 1 factory + 1 infra
+			FROM = { country_event = { id = SAU_trade_deal.1} }
+			clr_global_flag = SAU_exporting_currently_flag
+			#make this part of an event			
+			add_to_variable = {
+				var = SAU_oil_var
+				value = 10
+			}
+			custom_effect_tooltip = SAU_trading_effect_national_cost1civ_tt
+        }
+	}
+
+
+	SAU_oil_export_aramco = { # SAU_oil_importing_aramco
+		cost = 50
+
+		icon = GFX_decision_oil
+		allowed = {
+			original_tag = SAU
+		}
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_major = yes
+					is_ai = no
+				}
+				NOT = { has_idea = SAU_oil_importing_aramco }
+				NOT = {has_country_flag = SAU_declined_trade}
+			}
+		}
+		
+		available = {
+			FROM = {
+				has_opinion = {
+					target = SAU
+					value > 39
+				}	
+			}
+			NOT = {
+				has_global_flag = SAU_exporting_currently_flag
+			}
+			has_resources_in_country = {
+				resource = oil
+				amount > 20
+				extracted = yes
+			}
+		}
+
+		visible = {
+			original_tag = SAU
+			has_completed_focus = SAU_american_oil_expansion
+		}
+
+		days_remove = 30
+
+		complete_effect = {
+			set_global_flag = SAU_exporting_currently_flag
+		}
+
+		remove_effect = { #can use around 4 times - 2 factory + 2 infra
+			FROM = { country_event = { id = SAU_trade_deal.4} }
+			clr_global_flag = SAU_exporting_currently_flag
+			custom_effect_tooltip = SAU_trading_effect_aramco_cost2civ_tt
+
+        }
+	}
+
 
 
 }
