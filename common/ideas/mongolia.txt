@@ -1308,21 +1308,7 @@ ideas = {
 				}
 		}
 
-		MON_purposeful_arms = {
 
-			picture = generic_infantry_equipment_manufacturer_2
-
-			allowed = { original_tag = MON }
-
-			removal_cost = -1
-
-			equipment_bonus = {
-				infantry_equipment = {
-					build_cost_ic = -0.1
-					instant = yes
-				}
-			}
-		}
 		MON_modernize_arms = {
 
 			picture = ARG_rapid_militarization
@@ -2512,11 +2498,25 @@ ideas = {
 
 			equipment_bonus = {
 				infantry_equipment = {
+					build_cost_ic = -0.2
+					instant = yes
+				}
+			}
+		}
+		MON_purposeful_arms = {
+
+			picture = generic_infantry_equipment_manufacturer_2
+
+			allowed = { original_tag = MON }
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
 					build_cost_ic = -0.1
 					instant = yes
 				}
 			}
 		}
-
 	}
 }
