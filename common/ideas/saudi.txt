@@ -332,7 +332,7 @@ ideas = {
 				consumer_goods_factor = 0.15
 				stability_factor = -0.2
 				war_support_factor = -0.15
-				army_speed_factor = -0.5
+				army_speed_factor = -0.05
 			}
 		}
 		SAU_centralising_government = {
@@ -1527,9 +1527,9 @@ ideas = {
 			removal_cost = -1
 				
 			modifier = {  
-				supply_node_range = 0.1
-				supply_factor = 0.1
-				supply_consumption_factor = -0.05
+				supply_node_range = 0.04
+				supply_factor = 0.06
+				supply_consumption_factor = -0.03
 
 				
 			}
@@ -1551,15 +1551,334 @@ ideas = {
 				experience_gain_army = 0.05
 				army_org_factor = 0.05
 				army_org_regain = 0.1
-				supply_node_range = 0.1
-				supply_factor = 0.1
+				supply_node_range = 0.05
+				supply_factor = 0.08
 				supply_consumption_factor = -0.05	
 			}
+		}
+	#left side
+	SAU_arabian_army3_speed = {
+
+		picture = CHL_carabineros_de_chile_neutrality 
+		
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+			
+		modifier = {  
+			experience_gain_army = 0.05
+			army_org_factor = 0.05
+			army_org_regain = 0.1
+			supply_node_range = 0.05
+			supply_factor = 0.08
+			supply_consumption_factor = -0.05	
+			army_armor_speed_factor = 0.05
+			army_armor_attack_factor = 0.05
+			army_armor_defence_factor = 0.05
+		}
+	}
+
+	SAU_arabian_cheaper_tanks = {
+
+			picture = GER_aufrustung 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			equipment_bonus = {
+				infantry_equipment = {
+					soft_attack = 0.02
+						build_cost_ic = -0.07
+				}
+			}	
+		}
+		
+	
+	SAU_arabian_raider_inf = {
+
+			picture = ETH_chitet_law 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.05
+				army_attack_speed_factor = 0.05			
+			}	
+		}
+	SAU_arabian_army4_speed = { #supplied army
+
+		picture = generic_supply_depot 
+		
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+			
+		modifier = {  
+			experience_gain_army = 0.05
+			army_org_factor = 0.05
+			army_org_regain = 0.1
+			supply_node_range = 0.08
+			supply_factor = 0.1
+			supply_consumption_factor = -0.08	
+			army_armor_speed_factor = 0.05
+			army_armor_attack_factor = 0.05
+			army_armor_defence_factor = 0.05
+		}
+	}
+
+		
+	SAU_arabian_cav = {
+
+			picture = HABSBURG_cavalry 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				cavalry_attack_factor = 0.1
+				cavalry_defence_factor = 0.05		
+			}	
 		}		
+
+		SAU_arabian_army5_speed = {
+
+			picture = CHL_carabineros_de_chile_neutrality 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_army = 0.05
+				army_org_factor = 0.05
+				army_org_regain = 0.1
+				army_armor_speed_factor = 0.07
+				army_armor_attack_factor = 0.07
+				army_armor_defence_factor = 0.07
+				army_speed_factor = 0.1
+				army_attack_speed_factor = 0.1
+				cavalry_attack_factor = 0.15
+				cavalry_defence_factor = 0.1
+				supply_node_range = 0.1
+				supply_factor = 0.15
+				supply_consumption_factor = -0.1
+			}
+			equipment_bonus = {
+				armor  = {
+					soft_attack = 0.02
+					build_cost_ic = -0.07
+				}
+			}
+			
+		}
+
+	#right side		
+	SAU_arabian_army3_quality = {
+
+		picture = CHL_carabineros_de_chile_neutrality 
+		
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+			
+		modifier = {  
+			experience_gain_army = 0.05
+			army_org_factor = 0.05
+			army_org_regain = 0.1
+			supply_node_range = 0.05
+			supply_factor = 0.08
+			supply_consumption_factor = -0.05	
+            army_attack_factor = 0.03
+            army_armor_attack_factor = 0.07
+            army_armor_defence_factor = 0.05
+            breakthrough_factor = 0.03
+
+		}
+	}
+
+	SAU_arabian_less_army_oil = { #less oil
+
+			picture = generic_stockpile_preparation 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+            modifier = {
+                army_fuel_consumption_factor = -0.06
+                army_fuel_capacity_factor = 0.06                
+            }
+		}
+		
+	
+	SAU_arabian_army4_quality = { #better tanks
+
+		picture = generic_acquire_tanks 
+		
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+			
+		modifier = {  
+			experience_gain_army = 0.05
+			army_org_factor = 0.05
+			army_org_regain = 0.1
+			supply_node_range = 0.05
+			supply_factor = 0.08
+			supply_consumption_factor = -0.05	
+            army_attack_factor = 0.04
+            army_armor_attack_factor = 0.1
+            army_armor_defence_factor = 0.07
+            breakthrough_factor = 0.05
+        }
+		equipment_bonus = {
+			armor  = {
+				armor_value  = 0.02
+				hard_attack = 0.03
+			}
+		}
+	}
+
+		
+	SAU_arabian_armored_inf = { #mech motor
+
+		picture = ITA_bandits_war 
+			
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+            motorized_attack_factor = 0.05
+            motorized_defence_factor = 0.05
+            mechanized_attack_factor = 0.05
+            mechanized_defence_factor = 0.05
+	
+		}	
+	}		
+
+	SAU_arabian_army5_quality = {
+
+		picture = GER_wunderwaffen 
+			
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		removal_cost = -1
+				
+		modifier = {  
+            experience_gain_army = 0.05
+            army_org_factor = 0.05
+            army_org_regain = 0.1
+            supply_node_range = 0.05
+            supply_factor = 0.08
+			supply_consumption_factor = -0.05	
+            motorized_attack_factor = 0.1
+            motorized_defence_factor = 0.1
+            mechanized_attack_factor = 0.1
+            mechanized_defence_factor = 0.1
+            army_fuel_consumption_factor = -0.1
+            army_fuel_capacity_factor = 0.1          
+            army_attack_factor = 0.07
+            army_armor_attack_factor = 0.12
+            army_armor_defence_factor = 0.1
+            breakthrough_factor = 0.07
+		}
+		equipment_bonus = {
+			armor  = {
+				armor_value = 0.05
+				hard_attack  = 0.04
+			}
+		}
+			
+	}	
+	#bonus
+		SAU_crafty_gatherers = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ETH_scavenging_tactics
+
+			modifier = {
+				equipment_capture_factor = 0.35
+			}
+		}
+		SAU_interservice_coop_spirit = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = SWE_land_air_warfare
+
+			modifier = {
+				ground_attack_factor = 0.1	
+				army_bonus_air_superiority_factor = 0.05
+			}
+		}					
 #end of army
 #arabian airforce
 		SAU_arabian_airforce = {
-			#improves into generic_air_bonus or air_support_focus - specialises into combined_bomber_offensive <- bomber | generic_aircraft_support into SWE_land_air_warfare <- cas
 			picture = KAT_katangese_airforce
 			
 			allowed = {
@@ -1576,7 +1895,6 @@ ideas = {
 			}
 		}
 		SAU_arabian_airforce2 = {
-			#improves into generic_air_bonus or air_support_focus - specialises into combined_bomber_offensive <- bomber | generic_aircraft_support into SWE_land_air_warfare <- cas
 			picture = AUS_airforce
 			
 			allowed = {
@@ -1594,7 +1912,190 @@ ideas = {
 				air_ace_generation_chance_factor = 0.15
 
 			}
+		}	#fighter
+		SAU_arabian_airforce3_fighter = {
+			picture = generic_air_fighter
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_superiority_efficiency = 0.05
+				army_bonus_air_superiority_factor = 0.05
+
+			}
+		}
+		SAU_arabian_airforce4_fighter = {
+			picture = generic_air_interception
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_superiority_efficiency = 0.05
+				army_bonus_air_superiority_factor = 0.05
+
+				air_superiority_detect_factor = 0.05
+				air_power_projection_factor = 0.05
+			}
+		}
+		SAU_arabian_airresearch_fighter = {
+			picture = generic_radar
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				scientist_research_bonus_factor = 0.05
+				scientist_xp_gain_factor = 0.02
+			}
+		}
+		SAU_arabian_airforce5_fighter = {
+			picture = generic_air_interception
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.2
+				air_range_factor = 0.07
+				air_superiority_efficiency = 0.05
+				army_bonus_air_superiority_factor = 0.05
+				scientist_research_bonus_factor = 0.07
+				scientist_xp_gain_factor = 0.05
+				air_superiority_detect_factor = 0.05
+				air_power_projection_factor = 0.05
+				air_home_defence_factor = 0.07
+			}
 		}		
+		#bomber
+		SAU_arabian_airforce3_bomber = {
+			picture = generic_air_payment
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_strategic_bomber_bombing_factor = 0.05
+				air_intercept_efficiency = 0.1
+				air_bombing_targetting = 0.05
+
+			}
+		}
+		SAU_arabian_airforce4_bomber = {
+			picture = generic_air_payment
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_strategic_bomber_bombing_factor = 0.05
+				air_intercept_efficiency = 0.1
+				air_bombing_targetting = 0.05
+				mines_planting_by_air_factor = 0.1
+				air_nav_efficiency = 0.05
+			}
+		}		
+		SAU_arabian_airresearch_rocket = {
+			picture = generic_rocket_bonus
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				scientist_research_bonus_factor = 0.07
+				scientist_xp_gain_factor = 0.03
+				rocket_attack_factor = 0.05
+			}
+		}	
+		SAU_arabian_airforce5_bomber = {
+			picture = generic_air_bonus
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_strategic_bomber_bombing_factor = 0.05
+				air_intercept_efficiency = 0.1
+				air_bombing_targetting = 0.05
+				mines_planting_by_air_factor = 0.1
+				air_nav_efficiency = 0.05
+
+				scientist_research_bonus_factor = 0.1
+				scientist_xp_gain_factor = 0.05
+				rocket_attack_factor = 0.1
+			}
+		}						
 #end of airforce
 #navy of arabia 
 		SAU_arabian_navy = {

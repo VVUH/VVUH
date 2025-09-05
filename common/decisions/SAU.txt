@@ -2954,7 +2954,7 @@ SAU_laissez_faire_cat = {
 		}
 	}
 }
-#doesnt work
+#works
 SAU_mine_the_arabian_shield = {
 	SAU_intensify_gold_mining = { 
 
@@ -2977,7 +2977,7 @@ SAU_mine_the_arabian_shield = {
 		}
 
 		visible = {
-			has_completed_focus = SAU_mine_the_arabian_shield
+			has_completed_focus = SAU_mining_the_shield
 		}
 
 		cost = 25
@@ -2985,9 +2985,6 @@ SAU_mine_the_arabian_shield = {
 		modifier = {
 			civilian_factory_use = 2
 		}
-
-
-
 		remove_effect = {
 			swap_ideas = {
 				remove_idea = SAU_gold
@@ -3018,7 +3015,7 @@ SAU_mine_the_arabian_shield = {
 		}
 
 		visible = {
-			has_completed_focus = SAU_mine_the_arabian_shield
+			has_completed_focus = SAU_mining_the_shield
 			owns_state = 855
 			controls_state = 855
 			855 = {
@@ -3092,7 +3089,7 @@ SAU_mine_the_arabian_shield = {
 		}
 
 		visible = {
-			has_completed_focus = SAU_mine_the_arabian_shield
+			has_completed_focus = SAU_mining_the_shield
 			owns_state = 854
 			controls_state = 854
 			854 = {

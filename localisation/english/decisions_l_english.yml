@@ -622,7 +622,7 @@
  SAU_mine_the_arabian_shield:0 "Mine the Arabian shield"
  SAU_intensify_gold_mining:0 "Intensify Arabian gold mining" 
  SAU_develop_arabian_smelting:0 "Develop Arabian steel smelting"
- SAU_explore_the_bounty_of_jawf:0 "Further explore the bounty of jawf" 
+ SAU_explore_the_bounty_of_jawf:0 "Further explore the bounty of Jawf" 
  SAU_promote_immigration_cat:0 "Promote working immigration"
  SAU_promote_immigration_in_state_ITA:0 "Promote Italian immigration to [FROM.GetName]"
  SAU_promote_immigration_in_state_JAP:0 "Promote Japanese immigration to [FROM.GetName]"
@@ -711,3 +711,4 @@
  SAU_trading_effect_aramco_cost2civ_tt:0 "It will cost them 2 civilian factories"
  SAU_oil_export:0 "Exporting oil to [FROM.GetName]"
  SAU_oil_export_aramco:0 "Exporting ARAMCO oil to [FROM.GetName]"
+ TIB_strongarm_FROM:0 "Strongarm [FROM.GetName]"
