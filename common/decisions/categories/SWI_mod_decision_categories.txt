@@ -1,0 +1,13 @@
+SWI_socialist_economic_aid_categorie = {
+	
+	icon = GFX_decision_category_generic_economy
+
+	allowed = {
+		tag = SWI
+	}
+
+	visible = {
+		has_completed_focus = SWI_socialist_economic_aid
+	}
+
+}
