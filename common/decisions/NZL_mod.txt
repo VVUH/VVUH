@@ -1167,6 +1167,9 @@ BEL_king_bop_categorie = {
 				has_country_leader = {
 					character = BEL_hubert_pierlot
 				}
+				has_country_leader = {
+					character = BEL_emile_vanderveld
+				}
 			}
 			NOT = {
 				has_completed_focus = BEL_unfit_to_reign
@@ -1305,4 +1308,5 @@ BEL_king_bop_categorie = {
 			}
 		}
 	}
+
 }
