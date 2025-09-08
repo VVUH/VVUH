@@ -1155,6 +1155,7 @@ MON_mongolianDecisions = {
 
 		highlight_states = {
 			highlight_state_targets = {
+				state = 1000
 				state = 1001
 				state = 1002
 				state = 1003
@@ -1349,6 +1350,7 @@ MON_mongolianDecisions = {
 				state = 220
 				state = 240
 				state = 260
+				state = 1012 
 				state = 254
 				state = 257
 				state = 258
@@ -1603,6 +1605,7 @@ MON_mongolianDecisions = {
 						829 = { is_controlled_by = ROOT }
 						255 = { is_controlled_by = ROOT }
 						239 = { is_controlled_by = ROOT }
+						1000 = { is_controlled_by = ROOT }
 						236 = { is_controlled_by = ROOT }
 						237 = { is_controlled_by = ROOT }
 						238 = { is_controlled_by = ROOT }
@@ -1660,6 +1663,7 @@ MON_mongolianDecisions = {
 						225 = { is_controlled_by = ROOT }
 						196 = { is_controlled_by = ROOT }
 						200 = { is_controlled_by = ROOT }
+						1012 = {  add_core_of = ROOT }
 						227 = { is_controlled_by = ROOT }
 						221 = { is_controlled_by = ROOT }
 						228 = { is_controlled_by = ROOT }
@@ -1713,6 +1717,8 @@ MON_mongolianDecisions = {
 				746 = { add_core_of = ROOT }
 				622 = { add_core_of = ROOT }
 				283 = { add_core_of = ROOT }
+				1000 = {  add_core_of = ROOT }
+				1012 = {  add_core_of = ROOT }
 				604 = { add_core_of = ROOT }
 				616 = { add_core_of = ROOT }
 				756 = { add_core_of = ROOT }
