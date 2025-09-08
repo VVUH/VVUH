@@ -712,3 +712,4 @@
  SAU_oil_export:0 "Exporting oil to [FROM.GetName]"
  SAU_oil_export_aramco:0 "Exporting ARAMCO oil to [FROM.GetName]"
  TIB_strongarm_FROM:0 "Strongarm [FROM.GetName]"
+ SAU_trade:0 "Arabian Oil Trade"

@@ -508,8 +508,8 @@ focus_tree = {
 					states = {
 						679 856
 					}
-					keep_political_leader = no
-					keep_political_party_members = no
+					keep_political_leader = yes
+					keep_political_party_members = yes
 				}
 
 
@@ -530,7 +530,7 @@ focus_tree = {
 					states = {
 						679 856
 					}
-					keep_political_leader = no
+					keep_political_leader = yes
 					keep_political_party_members = yes
 				}				
 			}ELSE_IF = {
@@ -540,7 +540,7 @@ focus_tree = {
 						has_completed_focus = SAU_fund_the_national_guard
 					}
 				}
-				
+
 				start_civil_war = {
 					ruling_party = neutrality
 					# Original country's ideology changes to communism
@@ -551,18 +551,9 @@ focus_tree = {
 					states = {
 						679 856
 					}
-					keep_political_leader = no
+					keep_political_leader = yes
 					keep_political_party_members = yes
 				}				
-			}ELSE_IF = {
-				LIMIT = {
-					has_completed_focus = SAU_fund_the_national_guard
-					NOT ={
-						has_completed_focus = SAU_fund_the_royal_guard
-					}
-				}
-				retire_ideology_leader = neutrality
-			
 			}
 			IF = {
 				LIMIT = {
@@ -570,7 +561,9 @@ focus_tree = {
 				}
 				drop_cosmetic_tag = yes
 			}
-						
+			promote_character = SAU_faisal_ibn_saud
+			
+	
 		}
 	}
 	focus = {
@@ -745,7 +738,6 @@ focus_tree = {
 				remove_ideas = SAU_modernising_light_industry
 				remove_ideas = SAU_local_government_reform_spirit
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = SAU_spirits_gained_above_will_be_merged_into_the_one_below
 			add_ideas = SAU_modernising_arabia
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -816,7 +808,7 @@ focus_tree = {
 		icon = GFX_focus_AFG_education_reform
 		x = 2
 		y = 1
-		cost = 5
+		cost = 10
 		relative_position_id = SAU_initial_reforms_complete
 		prerequisite = {focus = SAU_initial_reforms_complete}
 		available = {
@@ -997,6 +989,8 @@ focus_tree = {
 			710 = {
 				transfer_state_to = ROOT
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			declare_war_on = {
 				target = GER
 				type = annex_everything
@@ -1259,7 +1253,7 @@ focus_tree = {
 				}
 				add_equipment_to_stockpile = { 
 					type = small_plane_cas_airframe_1
-					amount = 100
+					amount = 250
 					producer = GER
 					variant_name = "Ju 87"
 				}
@@ -1301,6 +1295,7 @@ focus_tree = {
 				specialization = specialization_land
 				value = 1
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {NOT = {has_tech = railway_gun}}
 					set_technology = {
@@ -1311,6 +1306,8 @@ focus_tree = {
 				equipment = railway_gun_equipment_1
 				name = "Arabian Hammer"
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			create_wargoal = {
 				target = ENG
 				type = annex_everything
@@ -1520,6 +1517,7 @@ focus_tree = {
 				popularity = 0.05
 			}
 			add_stability = -0.05
+				custom_effect_tooltip = generic_skip_one_line_tt
 
 			IF = {
 				LIMIT = {
@@ -1545,7 +1543,6 @@ focus_tree = {
 
 					}
 				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 
 				capital_scope = {
 					create_unit = {
@@ -1562,7 +1559,8 @@ focus_tree = {
 			}ELSE = {
 				custom_effect_tooltip = SAU_get_units_in_civil_war_tt				
 			}
-			# to do add add_ideas = SAU_peoples_guard
+							custom_effect_tooltip = generic_skip_one_line_tt
+
 			remove_ideas = SAU_shia_minorities
 		}
 	}
@@ -1877,7 +1875,7 @@ focus_tree = {
 		icon = GFX_focus_AFG_state_atheism
 		x = 0
 		y = 1
-		cost = 5
+		cost = 10
 		relative_position_id = SAU_an_attempt_at_a_coup
 		prerequisite = {focus = SAU_an_attempt_at_a_coup}
 		available = {
@@ -1889,6 +1887,8 @@ focus_tree = {
 		completion_reward = {
 			add_research_slot = 1
 			add_stability = -0.05
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			country_event = SAU_commies_event.7
 		}
 	}
@@ -2089,7 +2089,7 @@ focus_tree = {
 		icon = GFX_focus_generic_communist_industry
 		x = -1
 		y = 1
-		cost = 5
+		cost = 10
 		relative_position_id = SAU_toe_the_party_line
 		prerequisite = {focus = SAU_toe_the_party_line}
 
@@ -2286,6 +2286,7 @@ focus_tree = {
 					AND = {
 					is_major = yes
 					NOT = {has_government = ROOT}
+					NOT = {original_tag = SOV}
 					}
 				}
 					ROOT = {
@@ -2401,7 +2402,7 @@ focus_tree = {
 		icon = GFX_focus_AUS_union_of_danubian_socialist_republics
 		x = -1
 		y = 1
-		cost = 5
+		cost = 10
 		relative_position_id = SAU_female_liberation
 		prerequisite = {focus = SAU_female_liberation}
 
@@ -2412,8 +2413,9 @@ focus_tree = {
 		completion_reward = {
 			#spirit for you and people in your faction
 			add_ideas = SAU_faction_collaboration_red_leader
-			IF = {LIMIT = {			is_in_faction = yes}
-			every_allied_country = {add_ideas=SAU_faction_collaboration_red}}ELSE={
+			IF = {LIMIT = {	is_in_faction = yes}
+				every_allied_country = {add_ideas=SAU_faction_collaboration_red}
+			}ELSE={
 				custom_effect_tooltip = SAU_every_ally_will_recieve_the_same_tt
 			}
 		}
@@ -2661,7 +2663,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			base = 1
@@ -3213,7 +3215,7 @@ focus_tree = {
 				custom_effect_tooltip = SAU_if_bolstered_at_end_of_focus_completion_extend_it_by_ten_years_tt
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			hold_election = ROOT
+			hidden_effect={hold_election = ROOT}
 
 
 		}
@@ -3853,6 +3855,8 @@ focus_tree = {
 			1015 ={
 				add_resistance = 100
 			}
+						custom_effect_tooltip = generic_skip_one_line_tt
+
 			IF = {
 				LIMIT = {
 					has_idea = SAU_aid_others
@@ -3864,7 +3868,8 @@ focus_tree = {
 			}ELSE  = {
 				add_ideas = SAU_aid_others
 				set_rule = {can_send_volunteers	= yes}
-			}
+			}			custom_effect_tooltip = generic_skip_one_line_tt
+
 
 			unlock_decision_tooltip = SAU_broker_peace_between_the_imamate_and_the_west
 			hidden_effect = {
@@ -3941,7 +3946,7 @@ focus_tree = {
 		x = 0
 		y = 1
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			base = 1
@@ -4019,7 +4024,7 @@ focus_tree = {
 		x = 2
 		y = 1
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			base = 1
@@ -7290,6 +7295,8 @@ focus_tree = {
 					land_facility = 1
 				}
 			}	
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			add_breakthrough_points = {
 				specialization = specialization_land
 				value = 1
@@ -7642,6 +7649,8 @@ focus_tree = {
 				uses = 1
 				category = artillery
 			}	
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			every_core_state = {
 				add_building_construction = {
 					type = bunker
@@ -7681,6 +7690,8 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = SAU_arabian_armored_inf
+						custom_effect_tooltip = generic_skip_one_line_tt
+
 			IF = {
 				limit = {NOT = {has_tech = motorised_infantry}}
 				set_technology = {
@@ -8359,17 +8370,14 @@ focus_tree = {
 				remove_idea = SAU_arabian_airforce3_fighter
 				add_idea = SAU_arabian_airforce4_fighter
 			}
-		random_core_state = {
+			random_core_state = {
 				LIMIT = {
 					is_owned_by = SAU
 				}
 				construct_building_in_random_province = {
 					air_facility = 1
 				}
-				add_resource = {
-					type = aluminium
-					amount = 15
-				}				
+			
 			}			
 		}
 	}
@@ -8589,20 +8597,18 @@ focus_tree = {
             
         }
 
-		search_filters = {FOCUS_FILTER_NAVY_XP}
 		completion_reward = {
+
 			swap_ideas = {
 				remove_idea = SAU_arabian_navy	
 				add_idea = SAU_arabian_navy2
 
 			}
-			navy_experience = 50
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.65
 				uses = 2
 				category = naval_doctrine
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
 
         }
 	}
@@ -8631,8 +8637,19 @@ focus_tree = {
 		}
 
 		
+		search_filters = {FOCUS_FILTER_NAVY_XP}
 		completion_reward = {
-		
+			navy_experience = 50
+
+			swap_ideas = {
+				remove_idea = SAU_arabian_navy2
+				add_idea = SAU_coastal_defenders
+			}	
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = mio_cat_tech_all_screen_ship_and_modules
+			}			
 		}
 	}
 	focus = {
@@ -8659,6 +8676,16 @@ focus_tree = {
 
 		completion_reward = {
 			#buff spirit, tech
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 1
+				category = ss_tech
+			}			
+			swap_ideas = {
+				remove_idea = SAU_coastal_defenders
+				add_idea = SAU_coastal_defenders2
+			}
+           
 		}	
 	}
 	focus = {
@@ -8688,17 +8715,15 @@ focus_tree = {
 				limit = {
 					is_coastal = yes
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = dockyard
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}			
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			add_ideas = SAU_arabian_navy_construction
-			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {NOT = {has_tech = damage_control_1 } can_research = damage_control_1 }
 				set_technology = {
@@ -8718,7 +8743,8 @@ focus_tree = {
 	focus = {
         id = SAU_arabian_destroyers
         icon = GFX_focus_generic_destroyer
-        prerequisite = {focus = SAU_prowling_the_waters focus = SAU_trapping_the_seas}
+        prerequisite = {focus = SAU_prowling_the_waters } 
+		prerequisite = {focus = SAU_trapping_the_seas}
         relative_position_id = SAU_trapping_the_seas
         x = 1
         y = 1
@@ -8729,9 +8755,12 @@ focus_tree = {
             factor = 1
         }
 
-        available = {
-
-        }
+		available = {
+			if = {
+				limit = { has_dlc = "Man the Guns" }
+				has_tech = basic_ship_hull_light
+			}
+		}
 
         bypass = {
             
@@ -8739,7 +8768,89 @@ focus_tree = {
 
 		completion_reward = {
 			#buff spirit, tech
+			swap_ideas = {
+				remove_idea = SAU_coastal_defenders2
+				add_idea = SAU_coastal_defenders3
+			}
+		
+						
+			if = {
+                limit = {
+                    has_dlc = "Man the Guns"
+                }
 
+                create_equipment_variant = {
+                    name = "Persian Gulf Class"              
+                    type = ship_hull_light_2
+                    modules={
+                        fixed_ship_anti_air_slot=ship_anti_air_2
+                        fixed_ship_radar_slot=ship_sonar_1
+                        fixed_ship_engine_slot=light_ship_engine_2
+                        mid_1_custom_slot=ship_anti_air_1
+						fixed_ship_torpedo_slot = ship_torpedo_2
+                        fixed_ship_battery_slot=ship_light_battery_1
+                    }
+                }
+
+                create_ship = {
+                    type = ship_hull_light_2 
+                    equipment_variant = "Persian Gulf Class"
+                    creator = SAU
+                    exclude_refitting = no
+                }
+                create_ship = {
+                    type = ship_hull_light_2 
+                    equipment_variant = "Persian Gulf Class"
+                    creator = SAU
+                    exclude_refitting = no
+                }
+                create_ship = {
+                    type = ship_hull_light_2 
+                    equipment_variant = "Persian Gulf Class"
+                    creator = SAU
+                    exclude_refitting = no
+                }								
+            }else = {
+                create_equipment_variant = {
+                    name = "Persian Gulf Class"
+                    type = destroyer_2
+                    upgrades = {
+                        ship_reliability_upgrade = 0
+                        ship_engine_upgrade = 0
+                        ship_gun_upgrade = 0
+                        ship_anti_air_upgrade = 2
+                    }
+                    obsolete = yes
+                }
+                create_ship = {
+                    type = destroyer_2
+                    creator = SAU
+                    equipment_variant = "Persian Gulf Class"
+                     # optionalname = "ship_name"
+                     exclude_refitting = no
+                }
+                create_ship = {
+                    type = destroyer_2
+                    creator = SAU
+                    equipment_variant = "Persian Gulf Class"
+                     # optionalname = "ship_name"
+                     exclude_refitting = no
+                }
+                create_ship = {
+                    type = destroyer_2
+                    creator = SAU
+                    equipment_variant = "Persian Gulf Class"
+                     # optionalname = "ship_name"
+                     exclude_refitting = no
+                }
+                create_ship = {
+                    type = destroyer_2
+                    creator = SAU
+                    equipment_variant = "Persian Gulf Class"
+                     # optionalname = "ship_name"
+                     exclude_refitting = no
+                }												
+            }							
 		}	
 	}	
 	focus = {
@@ -8765,8 +8876,15 @@ focus_tree = {
         }
 
 		completion_reward = {
-			#merge spirits
-
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = naval_doctrine
+			}			
+			swap_ideas = {
+				remove_idea = SAU_coastal_defenders3
+				add_idea = SAU_coastal_defenders_final
+			}
 		}	
 	}	
 	focus = {
@@ -8777,7 +8895,7 @@ focus_tree = {
         x = -2
         y = 1
 
-        cost = 5
+        cost = 10
 
         ai_will_do = {
             factor = 1
@@ -8836,6 +8954,16 @@ focus_tree = {
 			}ELSE = {
 				custom_effect_tooltip = SAU_if_control_jordan_and_palestine_mine_eastern_med_sea_tt
 			}
+		
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = SAU_coastal_mines
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = dd_tech
+			}	
+
 		}
 	}	
 	focus = { # destroyers/cruisers - mine hunting
@@ -8863,21 +8991,25 @@ focus_tree = {
 		}
 
 		
+		search_filters = {FOCUS_FILTER_NAVY_XP}
 		completion_reward = {
-			IF = {
-				limit = {NOT = {has_tech = basic_naval_mines } can_research = basic_naval_mines }
-				set_technology = {
-					basic_naval_mines  = 1 popup = no
-				}
-			}ELSE = {
-				add_tech_bonus = {
-					bonus = 1
-					uses = 1
-					category = naval_minelaying
-				}			
+			navy_experience = 50
+	
+			swap_ideas = {
+				remove_idea = SAU_arabian_navy2
+				add_idea = SAU_arabian_raiders
 			}	
 
-
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 2
+				category = bb_tech
+			}
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 2
+				category = ca_tech 
+			}
 		}
 	}		
 	focus = {
@@ -8894,9 +9026,13 @@ focus_tree = {
             factor = 1
         }
 
-        available = {
 
-        }
+		available = {
+			if = {
+				limit = { has_dlc = "Man the Guns" }
+				has_tech = basic_ship_hull_light
+			}
+		}
 
         bypass = {
             
@@ -8904,7 +9040,60 @@ focus_tree = {
 
 		completion_reward = {
 			#buff spirit, tech
+			swap_ideas = {
+				remove_idea = SAU_arabian_raiders
+				add_idea = SAU_arabian_raiders2
+			}
+            add_tech_bonus = {
+                bonus = 0.5
+                uses = 2
+                category = cat_anti_air # optional 
+                # technology  = technology_id # optional
+            }
+            if = {
+                limit = {
+                    has_dlc = "Man the Guns"
+                }
 
+                create_equipment_variant = {
+                    name = "Red Sea Class"               
+                    type = ship_hull_light_2
+                    modules={
+                        fixed_ship_anti_air_slot=ship_anti_air_2
+                        fixed_ship_radar_slot=ship_sonar_1
+                        fixed_ship_engine_slot=light_ship_engine_2
+                        mid_1_custom_slot=ship_anti_air_1
+                        rear_1_custom_slot=ship_depth_charge_1
+                        fixed_ship_battery_slot=ship_light_battery_1
+                    }
+                }
+
+                create_ship = {
+                    type = ship_hull_light_2 
+                    equipment_variant = "Red Sea Class"
+                    creator = SAU
+                    exclude_refitting = no
+                }
+            }else = {
+                create_equipment_variant = {
+                    name = "Red Sea Class"
+                    type = destroyer_2
+                    upgrades = {
+                        ship_reliability_upgrade = 0
+                        ship_engine_upgrade = 0
+                        ship_gun_upgrade = 0
+                        ship_anti_air_upgrade = 2
+                    }
+                    obsolete = yes
+                }
+                create_ship = {
+                    type = destroyer_2
+                    creator = SAU
+                    equipment_variant = "Red Sea Class"
+                     # optionalname = "ship_name"
+                     exclude_refitting = no
+                }
+            }			
 		}	
 	}	
 	focus = {
@@ -8931,8 +9120,17 @@ focus_tree = {
         }
 
 		completion_reward = {
-			#buff spirit, tech
-
+			add_tech_bonus = {
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+			}
+			swap_ideas = {
+				remove_idea = SAU_arabian_raiders2
+				add_idea = SAU_arabian_raiders3
+			}
+			
 		}	
 	}		
 	focus = {
@@ -8964,8 +9162,15 @@ focus_tree = {
         }
 
 		completion_reward = {
-			#merge spirits
-
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = naval_doctrine
+			}			
+			swap_ideas = {
+				remove_idea = SAU_arabian_raiders3
+				add_idea = SAU_arabian_raiders_final
+			}
 		}	
 	}		
 	focus = {
@@ -8983,6 +9188,7 @@ focus_tree = {
         }
 
         available = {
+			has_navy_experience > 10
 
         }
 
@@ -9122,10 +9328,10 @@ focus_tree = {
 				limit = {
 					is_coastal = yes
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 			}			

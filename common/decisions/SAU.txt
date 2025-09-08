@@ -7175,7 +7175,7 @@ SAU_trade = {
 		}
 
 		visible = {
-			original_tag = SAUf
+			original_tag = SAU
 			has_completed_focus = SAU_nationalize_the_american_oil_company
 		}
 

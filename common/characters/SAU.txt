@@ -225,6 +225,13 @@ characters={
 					factor  = 5.000
 				}
 		}
+		country_leader = {
+			traits  = {
+				PER_rightful_king_trait 
+			}
+			ideology=despotism
+
+		}		
 		corps_commander = {
 			visible = {
 				has_government = neutrality
@@ -547,10 +554,18 @@ characters={
 					factor  = 1.000
 				}
 		}
+		navy_leader = {
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 4
+			coordination_skill = 3
+		}
 		name="Hamadan al-Odha"
 		portraits={
 			army={
-				small=GFX_portrait_IRQ_hamdi_al_pachachi_small
+				large = GFX_portrait_PER_gholamali_bayandor
+				small = GFX_portrait_PER_gholamali_bayandor_small
 			}
 		}
 	}

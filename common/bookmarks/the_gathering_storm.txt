@@ -291,6 +291,7 @@ bookmarks = {
 		}
 
 		"HOL"={
+			minor = yes
 			history = "NETHERLANDS_GATHERING_STORM_DESC"
 			ideology = democratic
 			ideas = {

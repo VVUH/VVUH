@@ -24,14 +24,15 @@
 #	}
 #
 #	can be added to countries, states, unit leaders or special projects
-#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect 
+#GFX_fuel_texticon
 
 
 
 
 SAU_oil_export_modifier = {
 	enable = { always = yes }
-	icon = MEX_oil_concessions
+	icon = GFX_decision_oil
 	country_resource_cost_oil = SAU_oil_var
 	custom_modifier_tooltip = SAU_oil_amount_tt
 }
