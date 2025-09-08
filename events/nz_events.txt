@@ -1632,8 +1632,14 @@ country_event = {
 	is_triggered_only = no
 	fire_only_once = yes
 	immediate = {
-		retire_character = BEL_joseph_jacquemotte
-		promote_character = BEL_julien-victor_lahaut
+		hidden_effect = {
+			retire_character = BEL_joseph_jacquemotte
+			if = {
+				limit = {
+					has_completed_focus = BEL_organize_the_strikes
+				}
+			promote_character = BEL_julien-victor_lahaut
+		}
 	}
 	trigger = { 
 		tag = BEL
@@ -4498,4 +4504,5 @@ country_event = {
 		}
 	 	add_political_power = 10
 	}
+
 }
