@@ -424,6 +424,44 @@ SAU_formables_cat = {
 
         }
 
+	}
+	ENG_being_nice_to_clarky  = {
+		fire_only_once = yes
+		priority = 0
+
+		icon = generic_form_nation
+
+		ai_will_do = {
+			base = 0
+		}
+
+		allowed = {  
+			original_tag = ENG
+		}
+
+		available = {
+
+		}
+
+		visible = { 
+			tag = ENG
+			
+		} 
+
+		days_remove = 105 
+
+		cost = 55
+
+
+		complete_effect = {
+			add_war_support = -0.05
+		}
+		remove_effect = {
+			add_stability = -0.1
+			set_cosmetic_tag = ENG_england			
+
+		}
+
 	}	
 }
 
@@ -1626,6 +1664,7 @@ SAU_decs_cat = {
                 has_war_with = ROOT
             }
 			is_major = yes
+			is_subject = no
         }
         available = {
             surrender_progress < 0.2
@@ -1633,6 +1672,10 @@ SAU_decs_cat = {
                 tag = FROM
                 months > 3
             }
+			FROM = {
+				is_major = yes
+				is_subject = no	
+			}
         }
 		visible = {
 			OR = {
@@ -1645,7 +1688,7 @@ SAU_decs_cat = {
         fire_only_once = yes
         targets_dynamic = yes
         complete_effect = { 
-			custom_effect_tooltip = TIB_negotiate_with_imperialists_tt
+			custom_effect_tooltip = SAU_negotiate_with_imperialists_tt
 			every_controlled_state = {
 				LIMIT = {
 					AND = {

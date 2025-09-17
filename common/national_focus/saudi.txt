@@ -1315,29 +1315,6 @@ focus_tree = {
 			}						
 		}
 	}	
-	#faisal; He promised a ten-point reform:
-	
-	#yemeni coup, help kill with yemen and get them as puppet afterwards
-	#dhofar liberation front uprising, help kill with oman get them as puppet afterwards
-	
-	#OAPEC,  first five: PER, Irq, Kuw, Sau, Ven - Get more civs from (oil) trade? Has development fund (spirit)
-
-	# axis and allies tegen elkaar opspelen, check 
-	
-	# allies path: embargo axis, send allies oil, in ruil voor airforce bolster (east arabia airbase + avionics building), 
-	#declare on japan and germany, 
-	#demand iraq submission, hulp van uk?
-	#help invade iran, 
-	#US guarantees SAU
-	#in war against axis? krijg socotora, 906 - maldives, 281 - seychelles, 709, diego garcia 710.
-	#access to referendums in 765, 658, 1014, 656
-
-	#axis path: embargo allies, send axis oil, in ruil voor tanks (ground warfare building)
-	#Declare on uk and fra 
-	#Faction with persia 
-	#demand iraq submission or into faction, hulp van GER?
-	#invite afg
-	#
 
 #commie
 	focus = {
@@ -5069,13 +5046,17 @@ focus_tree = {
 			set_rule = {
 				can_create_factions = yes
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = IRQ
+			IF = {
+				LIMIT = {
+					country_exists = IRQ
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = IRQ
+				}
+				country_event = SAU_fascism.7
+				custom_effect_tooltip = SAU_allies_approach_tt
 			}
-
-			country_event = SAU_fascism.7
-			custom_effect_tooltip = SAU_allies_approach_tt
 		}
 	}
 	focus = {
@@ -5470,12 +5451,13 @@ focus_tree = {
 					basic_train = 1
 					popup = no
 				}
-			}
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = train_tech
-			}			
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = train_tech
+				}	
+			}		
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_equipment_to_stockpile = { 
 				type = train_equipment_1
@@ -7383,6 +7365,21 @@ focus_tree = {
 
 		
 		completion_reward = {
+			IF = {
+				limit = {
+					NOT = { has_tech = basic_train }
+				}
+				set_technology = { 
+					basic_train = 1
+					popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = train_tech
+				}	
+			}			
 			swap_ideas = {
 				remove_idea = SAU_arabian_army3_speed
 				add_idea = SAU_arabian_army4_speed
@@ -7452,6 +7449,14 @@ focus_tree = {
 
 		
 		completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}	
+				}
 			add_ideas = SAU_crafty_gatherers
 		}
 	}	
@@ -7697,17 +7702,11 @@ focus_tree = {
 				set_technology = {
 					motorised_infantry = 1  popup = no
 				}
-			}ELSE_IF = {
-				limit = {NOT = {has_tech = mechanised_infantry}}
-				set_technology = {
-					mechanised_infantry = 1 popup = no
-				}
-	
 			}ELSE = {
 				add_tech_bonus = {
 					bonus = 0.65
 					uses = 1
-					category = cat_anti_air
+					category = cat_mechanized_equipment
 				}	
 			}			
 		}
@@ -7778,6 +7777,14 @@ focus_tree = {
 		
 		completion_reward = {
 			add_war_support = 0.1
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}	
+				}
 			add_ideas = SAU_interservice_coop_spirit
 		}
 	}	

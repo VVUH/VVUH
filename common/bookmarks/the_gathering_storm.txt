@@ -43,6 +43,7 @@ bookmarks = {
 			}
 		}
 		"NZL"={
+			minor = yes
 			history = "NZL_GATHERING_STORM_DESC"
 			ideology = democratic
 			ideas = {
@@ -306,6 +307,20 @@ bookmarks = {
 			}
 		}
 
+		"SAU"={
+			history = "SAUDI_ARABIA_GATHERING_STORM_DESC"
+			ideology = despotism
+			ideas = {
+				SAU_poor_country
+				SAU_shia_minorities
+				SAU_limited_agri
+			}
+			focuses = {
+				SAU_the_arab_league
+				SAU_align_regional_communists
+				SAU_a_change_in_government
+			}
+		}
 		"SPR"={
 			minor = yes
 			history = "SPAIN_GATHERING_STORM_DESC"

@@ -57,7 +57,7 @@ country_event = {
 	}
 
 	option = {
-		name = SAU_submission.20.c
+		name = SAU_submission.20.b
 		ai_chance = {
 			factor = 10
 			modifier = {
@@ -305,7 +305,7 @@ country_event = {
 			ai_chance = {
 				base = 99
 			}
-			name = SAU_fascism.2.a
+			name = SAU_fascism.2.b
 				annex_country = {
 					target = FSA
 					transfer_troops = yes
@@ -549,6 +549,7 @@ country_event = {
 				country_event = SAU_fascism.9
 			}
 
+
 			
 		}
 		
@@ -609,8 +610,8 @@ country_event = {
 				}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = SAU_obtain_TUR_resources
-			- {
-				country_event = generic.5
+				
+				TUR={country_event = generic.5}
 				IF = {
 					limit = {
 						677 = {
@@ -639,7 +640,7 @@ country_event = {
 						}
 					}
 				}
-			}
+			
 		}
 
 		
@@ -777,7 +778,7 @@ country_event = {
 			ai_chance = {
 				base = 1
 			}
-			name = SAU_fascism.12.b
+			name = SAU_fascism.12.c
 			hidden_effect = {
 				set_global_flag = SAU_working_with_iran_flag
 			}
@@ -799,7 +800,7 @@ country_event = {
 		mean_time_to_happen = {
 			days = 5
 		}
-		#yipee
+		#ok, weirdo
 		option = {
 			ai_chance = {
 				base = 99
@@ -820,6 +821,10 @@ country_event = {
 						damage = 1
 					}
 				}
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PER
 			}
 		}
 	}
@@ -1235,7 +1240,7 @@ country_event = {
 				base = 99
 			}
 			name = SAU_commies_event.3.c
-
+			add_stability = -0.05
 		}	
 	}
 	country_event = {
@@ -1266,8 +1271,8 @@ country_event = {
 			name = SAU_commies_event.4.a
 			hidden_effect = {
    				save_event_target_as = SAU_commie_event_target
+				drop_cosmetic_tag = yes
 			}
-			drop_cosmetic_tag = yes
 			SAU = {country_event = SAU_commies_event.5}
 		}
 		#NO
@@ -1488,7 +1493,7 @@ country_event = {
 	}
 
 	option = {
-		name = SAU_demo_refs.1.b #it is time to dismantle the Ottomans permanently this time...
+		name = SAU_demo_refs.1.b #it is time to dismantle the Arabs permanently this time...
 		SAU = { country_event = { id = SAU_demo_refs.2 hours = 8 } }
 	}
 }

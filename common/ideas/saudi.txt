@@ -545,9 +545,7 @@ ideas = {
 				always = yes
 			}
 			cancel = {
-				NOT = {
-					is_in_faction_with = SAU
-				}
+
 			}
 			removal_cost = -1
 				
@@ -757,8 +755,13 @@ ideas = {
 
 			removal_cost = -1
 			cancel = {
-				NOT = {
-					is_in_faction = yes
+				if = {
+					limit = {
+						NOT={original_tag = SAU}
+					}
+					NOT = {
+						is_in_faction_with = SAU
+					}					
 				}
 			}
 			modifier = {
@@ -783,8 +786,13 @@ ideas = {
 
 			removal_cost = -1
 			cancel = {
-				NOT = {
-					is_in_faction = yes
+				if = {
+					limit = {
+						NOT={original_tag = SAU}
+					}
+					NOT = {
+						is_in_faction_with = SAU
+					}					
 				}
 			}
 			modifier = {
@@ -808,8 +816,13 @@ ideas = {
 
 			removal_cost = -1
 			cancel = {
-				NOT = {
-					is_in_faction = yes
+				if = {
+					limit = {
+						NOT={original_tag = SAU}
+					}
+					NOT = {
+						is_in_faction_with = SAU
+					}					
 				}
 			}
 			modifier = {
@@ -1449,7 +1462,21 @@ ideas = {
 		SAU_aid_others = {
 			picture = ast_volunteer_defence_corps
 			allowed = {
-				original_tag = PER
+				OR = {
+					original_tag = SAU
+					is_in_faction_with = SAU
+				}
+			
+			}
+			cancel = {
+				if = {
+					limit = {
+						NOT={original_tag = SAU}
+					}
+					NOT = {
+						is_in_faction_with = SAU
+					}					
+				}
 			}
 			allowed_civil_war = {
 				always = yes
@@ -1463,7 +1490,7 @@ ideas = {
 		SAU_aid_others2 = {
 			picture = FRA_national_mobilization_focus
 			allowed = {
-				original_tag = PER
+				original_tag = SAU
 			}
 			allowed_civil_war = {
 				always = yes

@@ -3888,3 +3888,5 @@
  SAU_oil_amount_tt:0 "You are currently exporting [?SAU_oil_var] units of oil" 
  SAU_oil_importing_national:0 "Importing Arabian National Oil"
  SAU_oil_importing_aramco:0 "Importing Arabian ARAMCO Oil"
+ SAU_state_mining_company:0 "Arabian State Mining Company"
+ SAU_will_worsen_if_war_tt:0 "This spirit will downgrade to become even worse if you are at war while having this spirit."
