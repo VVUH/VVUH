@@ -425,6 +425,94 @@ SAU_formables_cat = {
         }
 
 	}
+	ASJ_unite_south_arabia = {
+
+		icon = GFX_decision_CHL_mapuche_reorganize_the_bolivian_government
+
+		on_map_mode = decision_view_only
+
+		allowed = {
+
+		}
+
+		visible = {
+			OR = {
+				# Yemen
+				original_tag = YEM
+				# Oman
+				original_tag = OMA
+				# United Arab Emirates
+				original_tag = UAE
+				# Qatar
+				original_tag = QAT
+				# Bahrain
+				original_tag = BHR
+				# South Arabia
+				original_tag = FSA
+				# Imamate of Oman
+				original_tag = IMO
+			}
+			NOT = { has_global_flag = form_south_arabia_flag }
+		}
+
+		highlight_states = { 
+			highlight_state_targets = {
+				#Yemen
+				state = 293
+				# Omani States
+				state = 1013 
+				state = 1015 
+				state = 1016 
+				state = 294 
+				state = 992
+				state = 659
+			}
+		}
+
+		available = {
+			
+			#Yemen
+			controls_state = 293
+			# Omani States
+			controls_state = 1013 
+			controls_state = 1015 
+			controls_state = 1016 
+			controls_state = 294 
+			controls_state = 992
+			controls_state = 659
+
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+			add_war_support = 0.1
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			set_cosmetic_tag = S_ARA_UNIFIED
+			custom_effect_tooltip = generic_skip_one_line_tt
+			#Yemen
+			293 = { add_core_of = ROOT }
+			# Omani States
+			1013  = { add_core_of = ROOT }
+			1015  = { add_core_of = ROOT }
+			1016  = { add_core_of = ROOT }
+			294  = { add_core_of = ROOT }
+			992 = { add_core_of = ROOT }
+			659 = { add_core_of = ROOT }
+			658 = { add_core_of = ROOT }
+
+			hidden_effect = {
+				set_global_flag = form_south_arabia_flag
+				set_country_flag = is_south_arabia_flag
+			}
+
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+
+	}
 	ENG_being_nice_to_clarky  = {
 		fire_only_once = yes
 		priority = 0

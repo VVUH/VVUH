@@ -558,9 +558,7 @@ country_event = {
 	#give RAJ ANdaman
 	option = {
 		name = GOE_RAJ.16.a
-		ai_chance = {
-			base = 1
-		}
+
 
 		if = {
 			limit = {
@@ -1441,6 +1439,9 @@ country_event = {
 	}
 
 	option = {
+		ai_chance = {
+			base = 1
+		}
 		trigger = {is_ai = no}
 		
 		name = GOE_RAJ.32.b

@@ -569,12 +569,7 @@ focus_tree = {
 				is_subject = yes
 			}
 			any_country = {
-				AND = {
-					NOT = {
-						has_global_flag = ASJ_land_arm_claimed_flag
-						has_capitulated = no
-					}
-				}
+				not = {has_global_flag = ASJ_land_arm_claimed_flag}
 			}
 			
 		}
@@ -627,6 +622,10 @@ focus_tree = {
 			trigger = { original_tag = QAT}
 			value = GFX_focus_ICE_hrafninn_flygur
 		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_goal_generic_CAS
+		}			
 		icon = {
 			trigger = { original_tag = BHR}
 			value = GFX_focus_SOV_women_in_aviation
@@ -690,6 +689,10 @@ focus_tree = {
 			value = GFX_focus_generic_air_partners
 		}	
 		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_generic_multi_role_aircraft
+		}		
+		icon = {
 			trigger = { original_tag = SYR}
 			value = GFX_goal_generic_air_fighter
 		}		
@@ -733,8 +736,7 @@ focus_tree = {
 					category = air_equipment
 				}			
 			}			
-			#add +5% consumer goods to eco
-			custom_effect_tooltip =generic_skip_one_line_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				LIMIT = {
 					country_exists = ENG
@@ -810,11 +812,9 @@ focus_tree = {
 				is_subject = yes
 			}
 			any_country = {
-				AND = {
 					NOT = {
 						has_global_flag = ASJ_air_arm_claimed_flag
-						has_capitulated = no
-					}
+					
 				}
 			}
 			
@@ -875,6 +875,10 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = QAT}
 			value = GFX_goal_generic_navy_cruiser
+		}		
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_coastal_fort
 		}				
 		icon = {
 			value = GFX_focus_ICE_modernizing_the_coast_guard
@@ -936,7 +940,7 @@ focus_tree = {
 
 		available = {
 			is_subject = yes
-		}
+		}#GFX_focus_generic_university_1  - 
 
 		available_if_capitulated = no
 		icon = {
@@ -944,9 +948,25 @@ focus_tree = {
 			value = GFX_focus_AFG_promote_the_counter_elite
 		}		
 		icon = {
-			trigger = { original_tag = SYR}
+			trigger = { original_tag = PAL}
+			value = GFX_focus_generic_university_2
+		}
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_university_3
+		}
+		icon = {
+			trigger = { original_tag = KUW}
 			value = GFX_focus_ARG_universidad_de_buenos_aires
-		}		
+		}					
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_generic_university_1
+		}	
+		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_ARG_universidad_de_buenos_aires
+		}				
 		icon = {
 			value = GFX_focus_AFG_education_reform
 		}
@@ -1188,7 +1208,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ASJ_a_port_with_a_country
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 		cost = 12
 
@@ -1303,11 +1323,9 @@ focus_tree = {
 			}
 			
 			any_country = {
-				AND = {
+
 					NOT = {
 						has_global_flag = ASJ_naval_arm_claimed_flag
-						has_capitulated = no
-					}
 				}
 			}
 			
@@ -1469,6 +1487,14 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = SYR}
 			value = GFX_focus_IRQ_train
+		}		
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_generic_supply_line
+		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_generic_public_works
 		}		
 		icon = {
 			trigger = { original_tag = FSA}
@@ -1668,6 +1694,10 @@ focus_tree = {
 			trigger = { original_tag = OMA}
 			value = GFX_focus_GER_expand_gestapo
 		}
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_concessions
+		}		
 		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_focus_PER_ally_bazaari
@@ -1914,7 +1944,6 @@ focus_tree = {
 				OR = {
 						original_tag = SYR
 						original_tag = LEB
-						original_tag = JOR
 				}
 			}
 			value = GFX_focus_generic_air_defense
@@ -1922,10 +1951,18 @@ focus_tree = {
 		icon = {
 			trigger = { has_government = communism}
 			value = GFX_SOV_architect_of_communism_ccp_2d_sov_compatibility
-		}		
+		}	
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_mass_production
+		}			
 		icon = {
 			trigger = { original_tag = KUW}
 			value = GFX_goal_generic_construction
+		}
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_generic_military_industry
 		}
 		icon = {
 			trigger = { original_tag = PAL}
@@ -2006,10 +2043,6 @@ focus_tree = {
 				has_completed_focus = ASJ_aeronautical_arm_of_the_middle_east
 				has_completed_focus = ASJ_land_arm_of_the_middle_east
 			}
-			OR ={
-				has_global_flag = ASJ_air_arm_claimed_flag
-				has_global_flag = ASJ_land_arm_claimed_flag
-			}
 		}
 
 		available_if_capitulated = no
@@ -2043,7 +2076,6 @@ focus_tree = {
 		available = {
 			threat > 0.2
 			has_completed_focus = ASJ_naval_arm_of_the_middle_east
-			has_global_flag = ASJ_naval_arm_claimed_flag
 		}
 
 		available_if_capitulated = no
@@ -2083,6 +2115,10 @@ focus_tree = {
 		icon = {
 			trigger = { original_tag = QAT}
 			value = GFX_focus_ARG_yacimientos_petroliferos_fiscales
+		}		
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_full_employment
 		}				
 		icon = {
 			value = GFX_goal_generic_oil_refinery

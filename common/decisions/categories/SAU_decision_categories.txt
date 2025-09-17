@@ -73,8 +73,15 @@ SAU_formables_cat ={
     allowed = {
         OR = {
             tag = SAU
-            TAG = ENG
-        }
+            tag = ENG
+			tag = YEM
+			tag = OMA
+			tag = UAE
+			tag = QAT
+			tag = BHR
+			tag = FSA
+			tag = IMO
+		}
     }
     priority = 5
     icon = GFX_decision_category_spr_the_seeds_of_revolution
