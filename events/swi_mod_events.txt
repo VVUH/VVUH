@@ -1,0 +1,181 @@
+add_namespace = swi.mod
+
+###################################################################################
+
+country_event = {
+	id = swi.mod.1
+	title = "[From.GetNameDef] wants to send us economic aid"
+	desc = "Swiss Diplomats have come to us recently offering us economic aid. How should we respond?"
+	picture = GFX_report_event_gre_allied_diplomacy
+	is_triggered_only = yes
+	option = {
+		name = "Sure"
+		ai_chance = {
+			base = 50
+			modifier = { SWI = { is_major = yes } factor = 2 }
+			modifier = { 
+				has_opinion = {
+    				target = SWI
+    				value > 0
+				}
+				add = 10
+			}
+			modifier = { 
+				has_opinion = {
+    				target = SWI
+    				value > 20
+				}
+				add = 20
+			}
+			modifier = { 
+				has_opinion = {
+    				target = SWI
+    				value > 40
+				}
+				add = 30
+			}
+			modifier = { 
+				has_opinion = {
+    				target = SWI
+    				value > 60
+				}
+				add = 40
+			}
+			modifier = { 
+				has_opinion = {
+    				target = SWI
+    				value > 80
+				}
+				add = 50
+			}
+			modifier = {
+				strength_ratio = {
+					tag = SWI
+					ratio < 1
+				}
+				factor = 2
+			}
+			modifier = {
+				is_in_faction = no
+				factor = 2
+			}
+		}
+		SWI = {
+			country_event = {
+				days = 1
+				id = SWI.mod.2
+			}
+		}
+		effect_tooltip = {
+			custom_effect_tooltip = if_they_accept_tt
+			capital_scope = { 
+				add_ideas = SWI_swiss_economic_aid
+			}
+		}
+	}
+	option = {
+		name = "No way"
+		ai_chance = {
+			base = 20
+		}
+		SWI = {
+			country_event = {
+				id = SWI.mod.3
+				days = 1
+			}
+		}
+	}
+}
+country_event = {
+	id = swi.mod.2
+	title = "[From.GetNameDef] accepts"
+	desc = "We have been asked what we wanted in return for the economic aid. What should we ask for?"
+	picture = GFX_report_event_gre_allied_diplomacy_military
+	is_triggered_only = yes
+	option = {
+		trigger = {
+		}
+		name = "We could use some volunteer soldiers"
+		ai_chance = {
+			base = 50
+		}
+		clr_country_flag = SWI_socialist_economic_aid_active
+		army_experience = 15
+		add_manpower = 15000
+		FROM = {
+			country_event = {
+				id = SWI.mod.4
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = "We could use some military aid"
+		ai_chance = {
+			base = 50
+		}
+		trigger = {
+		}
+		clr_country_flag = SWI_socialist_economic_aid_active
+		add_offsite_building = { type = arms_factory level = 1 }
+		FROM = {
+			country_event = {
+				id = SWI.mod.4
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = "We can use some research help"
+		ai_chance = {
+			base = 50
+		}
+		trigger = {
+		}
+		clr_country_flag = SWI_socialist_economic_aid_active
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 2
+			category = industry
+			category = electronics
+			category = artillery
+			category = infantry_weapons
+			category = motorized_equipment
+		}
+		FROM = {
+			country_event = {
+				id = SWI.mod.4
+				days = 1
+			}
+		}
+	}
+}
+country_event = {
+	id = SWI.mod.3
+	title = "[From.GetNameDef] declined"
+	desc = "[From.GetNameDef] has declined our recent offer to buy plane secrets from them. They told us that they don't want their technology leaked to other countries even tho we promised to keep them to ourselves."
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = "Well that's unfortunate"
+		ai_chance = {
+			base = 50
+		}
+		clr_country_flag = SWI_socialist_economic_aid_active
+		add_political_power = 15
+	}
+}
+country_event = {
+	id = SWI.mod.4
+	title = "Swiss economic aid arrives"
+	desc = "[From.GetNameDef] generously send economic aid that has now arrived"
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = "A masterful deal"
+		ai_chance = {
+			base = 50
+		}
+		add_ideas = SWI_swiss_economic_aid
+	}
+}

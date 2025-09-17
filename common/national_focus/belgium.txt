@@ -708,7 +708,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BEL_strengthen_european_unity
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 3
@@ -866,6 +866,10 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_state_core = 8
+			add_state_core = 36
+			add_state_core = 7
+			add_state_core = 29
 			LUX = {
 				country_event = bel.mod.13
 			}
@@ -5511,7 +5515,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		offset = {
-			x = -25
+			x = -23
 			y = 0
 			trigger = {
 				has_completed_focus = BEL_organize_the_strikes
@@ -5522,7 +5526,7 @@ focus_tree = {
 			}
 		}
 	
-		cost = 10
+		cost = 8
 
 		available = {
 		}
@@ -5602,7 +5606,6 @@ focus_tree = {
 			SOV = {
 				has_government = communism
 			}
-			has_government = communism
 		}
 		
 		bypass = {
@@ -5900,8 +5903,8 @@ focus_tree = {
 		x = 1
 		y = 1
 		offset = {
-			x = -25
-			y = 0
+			x = -23
+			y = -1
 			trigger = {
 				has_completed_focus = BEL_organize_the_strikes
 				has_game_rule = {
@@ -8218,6 +8221,8 @@ focus_tree = {
 			add_war_support = 0.05
 			add_state_core = 29
 			add_state_core = 8
+			add_state_core = 7
+			add_state_core = 36
 			add_state_core = 42
 			add_state_core = 51
 			add_state_core = 35
