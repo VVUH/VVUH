@@ -1441,9 +1441,6 @@ country_event = {
 	}
 
 	option = {
-		ai_chance = {
-			base = 1
-		}
 		trigger = {is_ai = no}
 		
 		name = GOE_RAJ.32.b

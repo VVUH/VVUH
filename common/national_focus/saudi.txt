@@ -641,7 +641,7 @@ focus_tree = {
 		icon = GFX_focus_generic_currency_reforms
 		x = 2
 		y = 1
-		cost = 5
+		cost = 10
 		relative_position_id = SAU_faisals_coup
 		prerequisite = {focus = SAU_faisals_coup}
 		available = {
@@ -753,7 +753,7 @@ focus_tree = {
 		icon = GFX_focus_generic_military_industry
 		x = -2
 		y = 1
-		cost = 5
+		cost = 10
 		relative_position_id = SAU_initial_reforms_complete
 		prerequisite = {focus = SAU_initial_reforms_complete}
 		available = {
@@ -6910,7 +6910,7 @@ focus_tree = {
 		}
 
 		available = {
-
+			num_of_factories > 10
 		}
 
 		bypass = {
@@ -6987,7 +6987,6 @@ focus_tree = {
 
 		
 		completion_reward = {
-			#add idea todo - organization
 			add_war_support = 0.05
 			add_ideas = SAU_army_organisation
 		}
@@ -7953,7 +7952,6 @@ focus_tree = {
         }
 
         completion_reward = {
-
 			every_country = {
 				limit = {
 					is_ai = no					
@@ -7965,7 +7963,6 @@ focus_tree = {
 					seller_tags = {PREV}
 				}
 			}
-
 			add_equipment_subsidy = {
 				cic = 2000
 				equipment_type = small_plane_airframe
@@ -8710,6 +8707,7 @@ focus_tree = {
         }
 
         available = {
+			num_of_naval_factories > 3
 
         }
 
@@ -8756,7 +8754,7 @@ focus_tree = {
         x = 1
         y = 1
 
-        cost = 5
+        cost = 10
 
         ai_will_do = {
             factor = 1
@@ -8769,17 +8767,12 @@ focus_tree = {
 			}
 		}
 
-        bypass = {
-            
-        }
-
 		completion_reward = {
 			#buff spirit, tech
 			swap_ideas = {
 				remove_idea = SAU_coastal_defenders2
 				add_idea = SAU_coastal_defenders3
 			}
-		
 						
 			if = {
                 limit = {
@@ -9027,7 +9020,7 @@ focus_tree = {
         x = 0
         y = 1
 
-        cost = 5
+        cost = 10
 
         ai_will_do = {
             factor = 1
@@ -9081,6 +9074,18 @@ focus_tree = {
                     creator = SAU
                     exclude_refitting = no
                 }
+                create_ship = {
+                    type = ship_hull_light_2 
+                    equipment_variant = "Red Sea Class"
+                    creator = SAU
+                    exclude_refitting = no
+                }
+                create_ship = {
+                    type = ship_hull_light_2 
+                    equipment_variant = "Red Sea Class"
+                    creator = SAU
+                    exclude_refitting = no
+                }								
             }else = {
                 create_equipment_variant = {
                     name = "Red Sea Class"
@@ -9100,6 +9105,20 @@ focus_tree = {
                      # optionalname = "ship_name"
                      exclude_refitting = no
                 }
+                create_ship = {
+                    type = destroyer_2
+                    creator = SAU
+                    equipment_variant = "Red Sea Class"
+                     # optionalname = "ship_name"
+                     exclude_refitting = no
+                }
+                create_ship = {
+                    type = destroyer_2
+                    creator = SAU
+                    equipment_variant = "Red Sea Class"
+                     # optionalname = "ship_name"
+                     exclude_refitting = no
+                }								
             }			
 		}	
 	}	
@@ -9188,7 +9207,7 @@ focus_tree = {
         x = 2
         y = 1
 
-        cost = 10
+        cost = 5
 
         ai_will_do = {
             factor = 1

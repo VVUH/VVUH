@@ -1,4 +1,4 @@
--SAU_decs_cat = { 
+SAU_decs_cat = { 
     allowed = {
         tag = SAU
     }
