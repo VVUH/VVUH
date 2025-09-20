@@ -408,6 +408,7 @@ MAL_invite_communist_nation_categorie = {
 		}
 		cost = 0
 		available = {
+			is_faction_leader = yes
     	}
 		fire_only_once = yes
 		targets_dynamic = yes
@@ -505,9 +506,24 @@ MAL_invite_communist_nation_categorie = {
 					}
 				}
 			}
-			start_peace_conference = {
-				tag = FROM
-				score_factor = 0.0
+			if = {
+				limit = {
+					FROM = {
+						is_in_faction = yes
+					}
+					faction_leader = {
+						start_peace_conference = {
+							tag = MAL
+							score_factor = 0.0
+						}
+					}
+				}
+			}
+			else = {
+				start_peace_conference = {
+					tag = FROM
+					score_factor = 0.0
+				}
 			}
 		}
 	}
@@ -1965,11 +1981,24 @@ MAL_muslim_categorie = {
 			NOT = { has_country_flag = MAL_use_islam_to_justify_claims_flag }
 		}
 		available = {
+			is_subject = no
     	}
 		fire_only_once = yes
 		complete_effect = {
 			add_stability = 0.05
-			create_faction = "Muslim Alliance"
+			if = {
+				limit = {
+					is_in_faction = yes
+					is_faction_leader = no
+				}
+				leave_faction = yes
+			}
+			if = {
+				limit = {
+					is_in_faction = no
+				}
+				create_faction = "Muslim Alliance"
+			}
 			set_country_flag = MAL_a_muslim_faction_flag
 			unlock_decision_tooltip = MAL_invite_muslim_country
 			custom_effect_tooltip = "This will lock you out from beeing able to claim muslim land"
@@ -1986,28 +2015,33 @@ MAL_muslim_categorie = {
 			has_country_flag = MAL_a_muslim_faction_flag
 		}
 		target_trigger = {
-			is_subject = no
-			is_in_faction = no
-			OR = {
-				tag = TUR
-				tag = IRQ
-				tag = SAU
-				tag = JOR
-				tag = PER
-				tag = AFG
-				tag = YEM
-				tag = OMA
-				tag = KUW
-				tag = PAL
-				tag = SYR
-				tag = LEB
+			FROM = {
+				OR = {
+					tag = TUR
+					tag = IRQ
+					tag = SAU
+					tag = JOR
+					tag = PER
+					tag = AFG
+					tag = YEM
+					tag = OMA
+					tag = KUW
+					tag = PAL
+					tag = SYR
+					tag = LEB
+				}
 			}
 		}
 		available = {
+			FROM = {
+				is_subject = no
+				is_in_faction = no
+			}
 			is_subject = no
 			is_faction_leader = yes
     	}
 		fire_only_once = yes
+		targets_dynamic = yes
 		complete_effect = {
 			FROM = {
 				country_event = { id = generic.5 }
