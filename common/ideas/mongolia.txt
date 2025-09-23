@@ -2519,4 +2519,133 @@ ideas = {
 			}
 		}
 	}
+	industrial_concern = {
+        designer = yes
+
+			MON_state_infrastructure = {
+					
+				picture = ARG_invest_in_roads
+			
+				allowed = {
+					original_tag = MON
+				}
+				available = { 
+					has_completed_focus = MON_reaching_places
+				}	
+
+				cost = 75			
+				
+				research_bonus = {
+					industry = 0.15
+				}
+				
+				traits = { linchpin_of_infrastructure }
+			}
+			MON_state_construction = {
+					
+				picture = GER_vereinigte_stahlwerke
+			
+				allowed = {
+					original_tag = MON
+				}
+				available = { 
+					has_completed_focus = MON_trade_tent_to_appartment
+				}	
+
+				cost = 75			
+				
+				
+				traits = { construction_company }
+			}
+			MON_gobi_farms = {
+					
+				picture = LIT_invested_in_farms
+			
+				allowed = {
+					original_tag = MON
+				}
+				available = { 
+					has_completed_focus = MON_irrigate_gobi
+				}	
+
+				cost = 75			
+				
+				
+				traits = { NOR_minister_of_agriculture }
+			}			
+			MON_petrol = {
+				
+				picture = generic_stockpile_fuel
+			
+				allowed = {
+					original_tag = MON
+				}
+
+				available = { 
+
+				}
+			
+
+				cost = 75
+				
+				research_bonus = {
+					synth_resources = 0.05
+				}
+				
+				traits = { refinery_concern }
+				
+				modifier = {
+					production_speed_synthetic_refinery_factor = 0.05
+				}
+			}
+
+			MON_USA_petrolium_company = {
+				
+				picture = gre_dep
+			
+				allowed = {
+					original_tag = MON
+				}
+
+				available = { 
+					has_completed_focus = MON_american_mongolian_agreements
+				}
+			
+
+				cost = 75
+				
+				research_bonus = {
+					synth_resources = 0.1
+					industry = 0.05
+				}
+				
+				traits = { oil_extraction_company_trait }
+				
+				modifier = {
+					production_speed_synthetic_refinery_factor = 0.1
+				}
+			}
+			MON_state_mining_company= {
+				
+				picture = NOR_norsk_Spraengstofindustri
+
+				available = { 
+					has_completed_focus = MON_create_a_mining_industry
+				}	
+				allowed = {
+					original_tag = MON
+				}
+
+			
+				research_bonus = {
+					industry = 0.1
+				}
+
+				cost = 100
+				
+				traits = { mining_company }
+			}
+	}
+
 }
+
