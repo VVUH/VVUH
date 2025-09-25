@@ -84,7 +84,7 @@ country_event = {
 country_event = {
 	id = SAU_submission.21
 	title = SAU_submission.21.t
-	desc = SAU_submission.21.d
+	desc = SAU_submission.21.desc
 	picture = GFX_report_event_generic_read_write
 	
 	is_triggered_only = yes
@@ -115,7 +115,7 @@ country_event = {
 country_event = {
 	id = SAU_submission.22
 	title = SAU_submission.22.t
-	desc = SAU_submission.22.d
+	desc = SAU_submission.22.desc
 	picture = GFX_report_event_generic_read_write
 	
 	is_triggered_only = yes
