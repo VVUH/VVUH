@@ -321,6 +321,11 @@ focus_tree = {
 					target = MON
 					value > 69
 				}
+				AND = {
+					controls_state = 564
+					controls_state = 563
+					controls_state = 566
+				}
 			}
 			has_idea = MON_spa_silver
 		}
