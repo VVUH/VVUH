@@ -674,7 +674,7 @@ focus_tree = {
 				LIMIT = {
 					SIK = {
 						AND = {
-							has_government = ROOT
+							has_government = neutrality
 							is_puppet = no
 						}
 					}
@@ -689,7 +689,7 @@ focus_tree = {
 				LIMIT = {
 					TIB = {
 						AND = {
-							has_government = ROOT
+							has_government = neutrality
 							is_puppet = no
 						}
 					}
