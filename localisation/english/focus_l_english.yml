@@ -4748,7 +4748,8 @@
  ASJ_old_grudges_desc:0 "While some nations have not been independent for long, territorial claims and other grudges are usually centuries old. The Sykes–Picot Agreement is only the most recent catalysts for these problems. Our people don't see eye to eye with it's neighbors and we claim their lands. It's a tale as old as time. Given the opportunity, we would take these lands for ourselves."
  ASJ_the_communist_agitation_desc:0 "Communist agitation isn't a suprise. We are a colony of a foreign power and it is understandable for our people to gravitate to a movement that disavows imperialism and colonialism. Our people are clamouring for freedom, liberation and land reform. The power of our ruler and the clergy doesn't help either."
  ASJ_strengthening_the_emirate_desc:0 "The Amirate of Trans-Jordan is currently a autonomous governing system within the British Mandate for Palestine. Strengthening it and becoming a true emirate will allow our ruler increased prestige and allow our people to rally behind him."
-
+ 
+ TAN_building_an_economy_from_nothing_desc:0 "Building a nation from nothing takes a great deal of work, we will have to establish our initial factories. This structure legitimise our efforts, popularise our movement and allow us to gather investment for civilian construction."
  TAN_request_military_training:0 "Request Military Training"
  TAN_armament_investments:0 "Armament Investments"
  TAN_faction_air_bases:0 "Faction Airbases"
