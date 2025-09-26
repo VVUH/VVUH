@@ -3084,6 +3084,37 @@
  S_ARA_UNIFIED: "South Arabia"
  S_ARA_UNIFIED_communism_DEF:0 "the United South Arab Socialist Republics"
 
+ TAN_advanced_tuva:0 "Tuvan State"
+ TAN_advanced_tuva_neutrality:0 "Bhuddist People's Union"
+ TAN_advanced_tuva_fascism:0 "Tuvan People's Empire"
+ TAN_advanced_tuva_communism:0 "Tuvan People's Republic"
+ TAN_advanced_tuva_democratic:0 "Tuvan Liberal Republic"
+
+ panMongol:0 "Pan-Mongol State"
+ panMongol_communism:0 "Mongol People's Union"
+ panMongol_fascism:0 "Mongol People's Empire"
+ panMongol_neutrality:0 "Mongol State"
+ panMongol_democratic:0 "Mongol Republic"
+ 
+ TAN_tuva_special_1_communism:0 "Tuvan People's Republic"
+ TAN_tuva_special_2_communism:0 "Buryat-Tuvan Union"
+
+ TAN_advanced_tuva_DEF:0"The Tuvan State"
+ TAN_advanced_tuva_neutrality_DEF:0 "The Bhuddist People's Union"
+ TAN_advanced_tuva_fascism_DEF:0 "The Tuvan People's Republic"
+ TAN_advanced_tuva_communism_DEF:0 "The Tuvan People's Republic"
+ TAN_advanced_tuva_democratic_DEF:0 "The Tuvan Liberal Republic"
+
+ panMongol_DEF:0  "The Pan-Mongol State"
+ panMongol_communism_DEF:0  "The Mongol People's Union"
+ panMongol_fascism_DEF:0  "The Mongol People's Empire"
+ panMongol_neutrality_DEF:0  "The Mongol State"
+ panMongol_democratic_DEF:0  "The Mongol Republic"
+ 
+ TAN_tuva_special_1_communism_DEF:0 "The Tuvan People's Republic"
+ TAN_tuva_special_2_communism_DEF:0 "The Buryat-Tuvan Union"
+
+
  MON_MPR:0 "Mongolia"
  MON_MPR_communism:0 "Mongolian People's Republic"
  MON_MPR_communism_DEF:0 "the Mongolian People's Republic"`

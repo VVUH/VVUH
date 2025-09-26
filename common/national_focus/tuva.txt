@@ -1,0 +1,2604 @@
+focus_tree = {
+	id = tuva_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			original_tag = TAN
+
+		}
+	}
+	focus = {
+		id = TAN_tuvan_political_recovery
+		x = 5
+		y = 0
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 10
+
+		available = {
+
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_soviet_politics
+		}	
+										
+		icon = {
+			value = GFX_goal_generic_major_alliance
+		}
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 200
+            add_stability = 0.1
+			custom_effect_tooltip=generic_skip_one_line_tt
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+		}
+
+	}
+	focus = {
+		id = TAN_a_secure_capital
+		x = -3
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+
+		available = {
+
+		}
+
+		relative_position_id = TAN_refuge_from_war
+		prerequisite = { focus = TAN_refuge_from_war}
+				
+		icon = {
+			value = GFX_goal_generic_fortify_city
+		}
+		available_if_capitulated = no
+
+		completion_reward = {
+				329 = { 
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 10627
+						instant_build = yes
+					}
+				}			
+
+			IF = {
+				limit = {NOT = {has_tech = basic_fortification_tech } can_research = basic_fortification_tech }
+				set_technology = {
+					basic_fortification_tech  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = cat_fortification
+				}			
+			}			
+		}
+
+	}
+	focus = {
+		id = TAN_train_in_the_tanna_ola
+		x = 3
+		y = 1
+		ai_will_do = {
+			factor = 5
+		}
+		cost = 15
+
+		available = {
+
+		}
+
+		relative_position_id = TAN_refuge_from_war
+		prerequisite = { focus = TAN_refuge_from_war}
+				
+		icon = {
+			value = GFX_focus_GRE_a_land_of_mountains
+		}
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = TAN_tuvan_mountaineers	
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_tech_bonus = {
+				name = "Mountain warfare training"
+				bonus = 0.5
+				uses = 2
+				category = mountaineers_tech
+			}
+
+			IF = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				add_doctrine_cost_reduction = {
+					name = "Mountain warfare training"
+					cost_reduction = 0.5
+					uses = 2
+					category = cat_mountaineers_doctrine
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hidden_effect = {set_technology = {mountain_warfare = 1 popup = no}}
+			custom_effect_tooltip = GRE_mountain_training_effect
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ROM_mountain_artillery_tech_tt
+			hidden_effect = { set_technology = { mountain_gun = 1 } }		
+		}
+
+	}	
+  	focus = {
+		id = TAN_refuge_from_war
+
+		icon = GFX_focus_SWE_refuge_from_war
+		x = 7
+		y = 0
+		cost = 3
+
+
+		available = {
+			TAN = {has_war = no}
+			any_country = {
+				has_war = yes
+				capital_scope = {is_on_continent = asia}
+			}
+		}
+
+
+		search_filters = {FOCUS_FILTER_MANPOWER}
+
+		
+		relative_position_id = TAN_tuvan_political_recovery
+
+
+		completion_reward = {
+			custom_effect_tooltip = MON_war_refuge_tt
+			every_country = {
+				LIMIT = {
+					capital_scope = {   
+						is_on_continent = asia
+					}
+					has_war = yes
+				}
+				PREV = {
+					add_opinion_modifier = {
+						target = TAN
+						modifier = JUNO_promoted_immigration
+					}
+				}
+				TAN = {
+					add_manpower = 5000
+					random_core_state = {
+						add_manpower = 50000
+					}
+				}
+			}
+
+		}
+	}  
+
+  	focus = {
+		id = TAN_connect_with_mongolia
+
+		icon = GFX_focus_POL_beck_ribbentrop
+		x = -1
+		y = 1
+		cost = 5
+
+
+		available = {
+			TAN = {has_war = no}
+			any_country = {
+				has_war = yes
+				capital_scope = {is_on_continent = asia}
+			}
+		}
+
+
+		search_filters = {FOCUS_FILTER_MANPOWER}
+
+		prerequisite = { focus = TAN_refuge_from_war}
+		
+		relative_position_id = TAN_refuge_from_war
+
+
+		completion_reward = {
+			custom_effect_tooltip = TAN_MON_war_refuge_tt
+			IF = {
+				LIMIT = {
+					MON = {
+						has_war = yes
+					}
+				}
+				MON = {
+					add_opinion_modifier = {
+						target = TAN
+						modifier = JUNO_promoted_immigration
+					}
+				}
+			}
+				TAN = {
+					add_manpower = 35000
+					random_core_state = {
+						add_manpower = 100000
+					}
+				}
+			
+		}
+	} 
+  	focus = {
+		id = TAN_our_moment_to_strike 
+
+		icon = GFX_focus_attack_soviet
+		x = -1
+		y = 1
+		cost = 5
+
+		icon = {
+			trigger = { has_government = fascism}
+			value = GFX_focus_eng_expose_the_belly_of_the_bear
+		}		
+			
+		icon = {
+			value = GFX_focus_attack_soviet
+		}
+		available = {
+			SOV = {has_war = yes}
+
+		}
+
+		prerequisite = { focus = TAN_connect_with_mongolia}
+		
+		relative_position_id = TAN_connect_with_mongolia
+
+
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SOV
+			}
+			add_collaboration = {
+				target = SOV
+				value = 0.4
+			}
+			
+		}
+	} 
+    focus = {
+		id = TAN_rescue_eastern_mongols
+
+		icon = GFX_focus_generic_concessions
+		x = 1
+		y = 1
+		cost = 5
+
+
+		available = {
+			TAN = {has_war = no}
+			MEN = {
+				has_war = yes
+				capital_scope = {is_on_continent = asia}
+			}
+		}
+
+
+		search_filters = {FOCUS_FILTER_MANPOWER}
+
+		prerequisite = { focus = TAN_refuge_from_war}
+		
+		relative_position_id = TAN_refuge_from_war
+
+
+		completion_reward = {
+			custom_effect_tooltip = TAN_MON_war_refuge_tt
+			IF = {
+				LIMIT = {
+					MEN = {
+						has_war = yes
+					}
+				}
+				MEN = {
+					add_opinion_modifier = {
+						target = TAN
+						modifier = JUNO_promoted_immigration
+					}
+				}
+			}
+				TAN = {
+					add_manpower = 35000
+					random_core_state = {
+						add_manpower = 100000
+					}
+				}
+			
+		}
+	} 
+    focus = {
+		id = TAN_liberate_the_east
+
+		icon = GFX_focus_attack_japan
+		x = 1
+		y = 1
+		cost = 5
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_communism_anti_fascism
+		}		
+			
+		icon = {
+			value = GFX_focus_attack_japan
+		}
+
+		available = {
+			JAP = {
+				has_war = yes
+			}
+		}
+
+		prerequisite = { focus = TAN_rescue_eastern_mongols}
+		
+		relative_position_id = TAN_rescue_eastern_mongols
+
+
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = JAP
+			}
+			add_collaboration = {
+				target = JAP
+				value = 0.4
+			}
+			
+		}
+	} 
+    focus = {
+		id = TAN_pan_mongolian_project
+
+		icon = GFX_goal_generic_national_unity
+		x = 1
+		y = 1
+		cost = 15
+
+
+		available = {
+
+		}
+
+		prerequisite = { focus = TAN_rescue_eastern_mongols}
+		prerequisite = { focus = TAN_connect_with_mongolia}
+
+		relative_position_id = TAN_connect_with_mongolia
+
+
+		completion_reward = {
+			unlock_decision_tooltip = TAN_strengthen_pan_mongol_movement
+			unlock_decision_tooltip = TAN_UNITE_pan_mongol_movement 
+			unlock_decision_tooltip = TAN_incorporate_mongolia
+			unlock_decision_tooltip = TAN_take_chahar
+			unlock_decision_tooltip = TAN_take_south_chahar
+			unlock_decision_tooltip = TAN_incorporate_buryats
+
+			
+		}
+	} 
+
+    focus = {
+		id = TAN_kuularist_movement
+		prerequisite = {focus = TAN_tuvan_political_recovery }
+		mutually_exclusive = {focus = TAN_enforcing_state_atheism}							
+
+		x = 2
+		y = 1
+		relative_position_id = TAN_tuvan_political_recovery
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 10
+
+		available = {
+            is_ai = no
+		}
+		
+		icon = {
+			value = GFX_goal_tfv_saf_anti_colonialist_crusade
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TAN_dissent
+				add_idea = TAN_pro_dissent
+			}								
+		
+		}
+
+	}
+    focus = {
+		id = TAN_anti_internationalism_protests
+		prerequisite = {focus = TAN_kuularist_movement }
+		x = 1
+		y = 1
+		relative_position_id = TAN_kuularist_movement
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+
+		}
+		
+		icon = {
+			value = GFX_focus_generic_workers
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.1
+			add_ideas = neutrality_idea							
+		}
+
+	}
+    focus = {
+		id = TAN_align_soldiers
+		prerequisite = {focus = TAN_kuularist_movement }
+		x = -1
+		y = 1
+		relative_position_id = TAN_kuularist_movement
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+
+		}
+		
+		icon = {
+			value = GFX_focus_generic_infiltration
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TAN_pro_dissent
+				add_idea = TAN_military_dissent
+			}									
+		
+		}
+
+	}
+    focus = {
+		id = TAN_invite_foreign_advisors
+		prerequisite = {focus = TAN_align_soldiers focus = TAN_found_the_TRYU }
+		x = -1
+		y = 1
+		relative_position_id = TAN_align_soldiers
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+
+		}
+		
+		icon = {
+			value = GFX_focus_generic_national_security
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_war_support = 0.1
+			army_experience = 25
+			custom_effect_tooltip = MON_recruit_advisor_tt
+			show_ideas_tooltip = TAN_advisor_foreign_military_advisors								
+		
+		}
+
+	}	
+    focus = {
+		id = TAN_mostly_bloodless_coup
+		prerequisite = {focus = TAN_align_soldiers }
+		prerequisite = {focus = TAN_anti_internationalism_protests }
+
+		x = 1
+		y = 1
+		relative_position_id = TAN_align_soldiers
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			communism < 0.60
+		}
+		
+		icon = {
+			value = GFX_focus_GER_end_european_communism
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}				
+			custom_effect_tooltip = generic_skip_one_line_tt	
+			remove_ideas = TAN_military_dissent
+			custom_effect_tooltip = generic_skip_one_line_tt
+			remove_ideas = neutrality_idea
+			hidden_effect = {set_province_name = { id = 10627 name = "Khem-Beldyr"}}
+		}
+	}	
+    focus = {
+		id = TAN_refuse_to_relinquish_control
+		prerequisite = {focus = TAN_mostly_bloodless_coup }
+		mutually_exclusive = {focus = TAN_relinquish_control_to_the_lamas focus = TAN_relinquish_control_to_the_people}							
+
+		x = 0
+		y = 1
+		relative_position_id = TAN_mostly_bloodless_coup
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			fascism > 0.4
+		}
+		
+		icon = {
+			value = GFX_focus_generic_military_mission
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TAN_junta	
+		}
+	}	
+	focus = {
+		id = TAN_infiltrate_manchuria
+		relative_position_id = TAN_refuse_to_relinquish_control
+		prerequisite = { focus = TAN_refuse_to_relinquish_control  }
+		icon = GFX_focus_prc_infiltration
+		x = 0
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = MAN
+			}
+			MAN = {
+				is_ai = no
+			}
+		}
+
+		available = {
+			
+			country_exists = MAN
+			is_ai = no
+		}
+		
+
+		completion_reward = {
+			# decisions to infiltrate manchuria, can fire a civil war. 
+			# rising up manchu state will be integrated in the next
+			custom_effect_tooltip = MON_unlocks_manchuria_influence_tt
+
+		}
+	}	
+    focus = {
+		id = TAN_relinquish_control_to_the_lamas
+		prerequisite = {focus = TAN_mostly_bloodless_coup }
+		mutually_exclusive = {focus = TAN_refuse_to_relinquish_control focus = TAN_relinquish_control_to_the_people}							
+
+		x = -2
+		y = 1
+		relative_position_id = TAN_mostly_bloodless_coup
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			neutrality > 0.4
+		}
+		
+		icon = {
+			value = GFX_focus_ITA_guardia_nazionale_repubblicana
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			retire_ideology_leader = neutrality
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TAN_theology	
+	
+
+		}
+	}
+    focus = {
+		id = TAN_unite_tibetan_bhuddist_countries
+		prerequisite = {focus = TAN_relinquish_control_to_the_lamas }
+
+		x = 0
+		y = 1
+		relative_position_id = TAN_relinquish_control_to_the_lamas
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 10
+
+		available = {
+			is_ai = no
+			MAN = {ai = yes}
+		}
+		
+		icon = {
+			value = GFX_goal_anschluss
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					SIK = {
+						AND = {
+							has_government = ROOT
+							is_puppet = no
+						}
+					}
+				}
+				SIK = {
+					country_event = SAU_submission.20
+				}
+			}ELSE = {
+				custom_effect_tooltip = TAN_need_SIK_not_commie_to_get_the_event_too_tt
+			}
+			IF = {
+				LIMIT = {
+					TIB = {
+						AND = {
+							has_government = ROOT
+							is_puppet = no
+						}
+					}
+				}
+				TIB = {
+					country_event = SAU_submission.20
+				}
+			}ELSE = {
+				custom_effect_tooltip = TAN_need_tib_unaligned_and_independent_to_get_the_event_too_tt
+			}	
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_cosmetic_tag = TAN_advanced_tuva
+		}
+	}	
+    focus = {
+		id = TAN_relinquish_control_to_the_people
+		prerequisite = {focus = TAN_mostly_bloodless_coup }
+		mutually_exclusive = {focus = TAN_refuse_to_relinquish_control focus = TAN_relinquish_control_to_the_lamas}							
+
+		x = 2
+		y = 1
+		relative_position_id = TAN_mostly_bloodless_coup
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			democratic > 0.4
+		}
+		
+		icon = {
+			value = GFX_focus_AFG_parliamentary_democracy
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {			
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TAN_demo
+		}
+	}	
+    focus = {
+		id = TAN_economy_of_the_people
+		prerequisite = {focus = TAN_relinquish_control_to_the_people }
+
+		x = 0
+		y = 1
+		relative_position_id = TAN_relinquish_control_to_the_people
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+
+		}
+		
+		icon = {
+			value = GFX_SOV_aristocratic_investments_ccp_2d_sov_compatibility
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {			
+			add_offsite_building = { type = industrial_complex level = 2}
+			custom_effect_tooltip = GUAY_laissez_faire_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TAN_sweeten_the_deal
+		}
+	}	
+	#commie	
+    focus = {
+		id = TAN_enforcing_state_atheism
+		prerequisite = {focus = TAN_tuvan_political_recovery }
+		mutually_exclusive = {focus = TAN_kuularist_movement}							
+
+		x = -2
+		y = 1
+		relative_position_id = TAN_tuvan_political_recovery
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+		}
+		
+		icon = {
+			value = GFX_focus_AFG_state_atheism
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_stability = -0.1
+			add_war_support = -0.05									
+		
+		}
+
+	}
+    focus = {
+		id = TAN_found_the_TRYU
+		prerequisite = {focus = TAN_enforcing_state_atheism }
+		x = 1
+		y = 1
+		relative_position_id = TAN_enforcing_state_atheism
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+		}
+		
+		icon = {
+			value = GFX_focus_SWE_refuge_for_revolutionaries
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			remove_ideas = TAN_dissent
+			add_ideas = TAN_youth_move_commie		
+		
+		}
+
+	}    
+ 	focus = { #volunteers
+		id = TAN_the_international_movement
+		prerequisite = {focus = TAN_enforcing_state_atheism }
+		x = -1
+		y = 1
+		relative_position_id = TAN_enforcing_state_atheism
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+		}
+		
+		icon = {
+			value = GFX_focus_SOV_builder_of_the_red_army
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = MON_foreign_entanglements_l
+		
+		}
+
+	}  
+ 	focus = { 
+		id = TAN_request_buryatia
+		prerequisite = {focus = TAN_the_international_movement }
+		x = -1
+		y = 1
+		relative_position_id = TAN_the_international_movement
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
+				has_government = TAN
+				has_civil_war = no
+				has_opinion = {
+					target = TAN
+					value > 69
+				}
+				AND = {
+					controls_state = 564
+					controls_state = 563
+					controls_state = 566
+				}
+			}
+		}
+
+		icon = {
+			value = GFX_goal_generic_intelligence_exchange
+		}
+		available_if_capitulated = no
+		completion_reward = { 
+			TAN = {
+				transfer_state = 564
+				transfer_state = 563
+				transfer_state = 566
+			}
+						custom_effect_tooltip = generic_skip_one_line_tt
+
+			set_cosmetic_tag = TAN_tuva_special_2
+			hidden_effect = {
+                    564 = { add_core_of = ROOT }
+                    563 = { add_core_of = ROOT }
+                    566 = { add_core_of = ROOT }				
+			}
+		}
+
+	}  	
+ 	focus = { #industry decision
+		id = TAN_request_allied_support
+		prerequisite = {focus = TAN_the_international_movement }
+		prerequisite = {focus = TAN_found_the_TRYU }
+
+		x = 1
+		y = 1
+		relative_position_id = TAN_the_international_movement
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+		}
+		
+		icon = {
+			value = GFX_SOV_leader_of_the_party_and_the_people_ccp_2d_sov_compatibility
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			unlock_decision_category_tooltip = TAN_cooperation_dec
+			hidden_effect = {
+				set_global_flag = TAN_team_collab
+			}
+			unlock_decision_tooltip = TAN_collectivize_society
+
+		}
+
+	}  
+
+ 	
+ 	focus = { 
+		id = TAN_examplary_communism
+		prerequisite = {focus = TAN_request_allied_support }
+
+		x = 0
+		y = 1
+		relative_position_id = TAN_request_allied_support
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+		}
+		
+		icon = {
+			value = GFX_goal_support_communism
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			set_cosmetic_tag = TAN_tuva_special_1_communism
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TAN_tuvan_communism
+		}
+
+	}  
+
+	focus = {
+		id = TAN_building_an_economy_from_nothing
+		x = 20
+		y = 0
+        relative_position_id = TAN_political_focus
+
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 5
+
+
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_social_democracy
+		}							
+		icon = {
+			value = GFX_focus_generic_support_the_left_right
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	focus = {
+		id = TAN_connecting_the_country
+		prerequisite = {focus = TAN_building_an_economy_from_nothing }
+		x = -3
+		y = 1
+		relative_position_id = TAN_building_an_economy_from_nothing
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+		}
+		
+		icon = {
+			value = GFX_focus_BEL_engine_of_the_economy
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			set_technology = { basic_train = 1 popup = no}
+			add_equipment_to_stockpile	= {
+				type = train_equipment_1
+				amount = 20
+				producer = ROOT
+			}
+			custom_effect_tooltip=generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+			}	
+			custom_effect_tooltip=generic_skip_one_line_tt
+
+
+				random_owned_controlled_state = {
+					limit = {
+						infrastructure < 4
+						is_controlled_by = ROOT 
+					}
+					add_building_construction = {
+						type = infrastructure 
+						level = 1
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+						infrastructure < 4
+						is_controlled_by = ROOT 
+					}
+					add_building_construction = {
+						type = infrastructure 
+						level = 1
+						instant_build = yes
+					}	
+				}												
+		
+		}
+
+	}
+
+
+
+	focus = {
+		id = TAN_seek_foreign_investments
+		prerequisite = {focus = TAN_connecting_the_country }
+		x = 1
+		y = 1
+		relative_position_id = TAN_connecting_the_country
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_communist
+		}			
+				
+		icon = {
+			value = GFX_focus_generic_welfare
+		}
+		available = {
+			OR = {
+                is_subject = yes
+                is_in_faction = yes
+                }
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			capital_scope = {
+				ETH_upgrade_state_category = yes 
+				add_manpower = 75000
+						add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	focus = {
+		id = TAN_generic_banking_focus
+		prerequisite = {focus = TAN_connecting_the_country }
+		x = 0
+		y = 2
+		relative_position_id = TAN_connecting_the_country
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			has_stability > 0.6
+		}
+	
+		
+		icon = {
+			value = GFX_focus_generic_monetary_union
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			# -30% consumer goods to eco
+			add_ideas = HOA_state_bank_idea
+		}
+
+	}
+
+	focus = {
+		id = TAN_general_rearmament
+		prerequisite = {focus = TAN_building_an_economy_from_nothing }
+		x = -1
+		y = 1
+		relative_position_id = TAN_building_an_economy_from_nothing
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			threat > 0.05
+		}
+			
+		icon = {
+			value = GFX_goal_generic_construct_mil_factory
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}			
+			
+		}
+
+	}
+
+	focus = {
+		id = TAN_armament_investments
+		prerequisite = {focus = TAN_building_an_economy_from_nothing }
+		x = 1
+		y = 1
+		relative_position_id = TAN_building_an_economy_from_nothing
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 5
+
+		available = {
+			threat > 0.1
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_spur_communist_revolutions
+		}		
+			
+		icon = {
+			value = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+	
+			add_ideas = TAN_armament_investment_effort			
+			
+		}
+
+	}
+	focus = {
+		id = TAN_preparing_for_the_worst
+		prerequisite = {focus = TAN_general_rearmament }
+		prerequisite = {focus = TAN_armament_investments }
+
+		x = 1
+		y = 1
+		relative_position_id = TAN_general_rearmament
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			#15% world tention
+			threat > 0.15
+		}
+
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_SOV_architect_of_communism_ccp_2d_sov_compatibility
+		}	
+									
+		icon = {
+			value = GFX_goal_generic_construct_civ_factory
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}	
+		
+			IF = {
+				LIMIT = {
+					any_controlled_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+						limit={is_coastal = yes}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+
+				capital_scope = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}					
+				}
+				
+			# + 2 mills
+			# Removes the military factory contruction penalty of the eco
+		}
+
+	}
+
+	focus = {
+		id = TAN_protectors_of_the_east
+		icon = GFX_goal_generic_military_sphere	
+		prerequisite = {focus = TAN_preparing_for_the_worst }
+		x = 1
+		y = 1
+		relative_position_id = TAN_preparing_for_the_worst
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 15
+
+		available = {
+			threat > 0.2
+			OR={
+				has_completed_focus = TAN_aeronautical_forces_for_asia
+				has_completed_focus = TAN_land_forces_for_asia
+			}
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			# adds military factory construction speed to eco 
+		}
+
+	}
+
+	focus = {
+		id = TAN_the_sea_program
+		icon = GFX_goal_generic_construct_naval_dockyard	
+		prerequisite = {focus = TAN_preparing_for_the_worst }
+		x = -1
+		y = 1
+		relative_position_id = TAN_preparing_for_the_worst
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 15
+
+		available = {
+			threat > 0.2
+			has_completed_focus = TAN_naval_forces_for_asia
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			# + 3 docs
+			# adds dockyard construction speed to eco 
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}	
+			}
+
+		}
+
+	}
+
+	focus = {
+		id = TAN_promoting_industrialisation
+		prerequisite = {focus = TAN_building_an_economy_from_nothing }
+		x = 2
+		y = 0
+		relative_position_id = TAN_armament_investments
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			num_of_factories > 2
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_communist_industry
+		}			
+					
+		icon = {
+			value = GFX_focus_AFG_a_modern_economy
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+
+
+				capital_scope = {
+					add_resource = {
+						type = chromium
+						amount = 3
+					}
+					add_resource = {
+						type = steel
+						amount = 6
+					}
+					add_resource = {
+						type = tungsten
+						amount = 2
+					}										
+				}
+			
+		}
+
+	}
+	focus = {
+		id = TAN_working_with_allies
+		prerequisite = {focus = TAN_promoting_industrialisation }
+		x = 1
+		y = 1
+		relative_position_id = TAN_promoting_industrialisation
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			num_of_factories > 6
+			is_in_faction = yes
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_AFG_integrate_tajik_and_uzbek_republics
+		}			
+					
+		icon = { 
+			value = GFX_focus_generic_mining_industry
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = excavation_tech
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = construction_tech
+			}		
+		}
+
+	}   
+	focus = {
+		id = TAN_boring_projects
+		icon = GFX_goal_generic_oil_refinery	
+		prerequisite = {focus = TAN_promoting_industrialisation }
+		x = -1
+		y = 1
+		relative_position_id = TAN_promoting_industrialisation
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+				
+		icon = {
+			value = GFX_goal_generic_oil_refinery
+		}
+		available = {
+			num_of_factories > 4
+		
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+
+			}			
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				add_resource = {
+					type = oil
+					amount = 7
+				}
+			}		
+		}
+
+	}
+	focus = {
+		id = TAN_finalise_industralisation_projects
+		prerequisite = {focus = TAN_boring_projects }
+		prerequisite = {focus = TAN_working_with_allies }
+
+		x = 1
+		y = 1
+		relative_position_id = TAN_boring_projects
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+		
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_AFG_helmand_river_authority
+		}			
+					
+		icon = {
+			value = GFX_focus_generic_modernize_industry
+		}				
+
+		available = {
+			num_of_factories > 8
+		
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = ASJ_industrialising_country
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}					
+			}			
+		}
+
+	}	
+	focus = {
+		id = TAN_reinvigorate_civillian_industry
+		prerequisite = {focus = TAN_connecting_the_country }
+		x = -1
+		y = 1
+		relative_position_id = TAN_connecting_the_country
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_SOV_leader_of_the_party_and_the_people_ccp_2d_sov_compatibility
+		}			
+		
+		icon = {
+			value = GFX_focus_RAJ_specialized_dietery_requirements
+		}
+
+
+		available = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+
+			}					
+		}
+
+	}	
+
+
+	focus = {
+		id = TAN_request_military_training
+		x = 12
+		y = 0
+        relative_position_id = TAN_building_an_economy_from_nothing
+
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			threat > 0.1
+			OR = {
+                is_in_faction = yes
+                is_subject = yes
+            }
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_SOV_coup_detat_ccp_2d_sov_compatibility
+		}	
+										
+		icon = {
+			value = GFX_SOV_depoliticize_the_military_ccp_2d_sov_compatibility
+		}
+		available_if_capitulated = no
+
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}		
+			}	
+						custom_effect_tooltip=generic_skip_one_line_tt
+
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = ROOT
+			}	
+			custom_effect_tooltip=generic_skip_one_line_tt
+		
+			#spawns a division in
+			division_template = {
+				name = "Local Force"		
+				division_names_group = TAN_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }					
+				}				
+
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template =\"Colonial Force\" start_experience_factor = 0.2 start_equipment_factor	= 1.0"
+					owner = ROOT
+					count = 2
+				}
+			}				
+			# allows the spawning of new divisions
+		}
+
+	}
+
+	focus = {
+		id = TAN_faction_air_bases
+		prerequisite = { focus = TAN_request_military_training}							
+		x = 0
+		y = 1
+		relative_position_id = TAN_request_military_training
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 10
+			
+		icon = {
+			value = GFX_focus_generic_air_bases
+		}
+		available = {
+	
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			# air bases and air xp
+			air_experience = 50
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment_1
+				amount = 100
+				producer = ROOT
+			}
+			capital_scope = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				if = {
+					limit = {
+						air_base < 9
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+				else = {
+					ROOT = {
+						random_owned_controlled_state = {
+							limit = {
+								air_base < 9
+							}
+							add_building_construction = {
+								type = air_base
+								level = 2
+								instant_build = yes
+							}
+						}
+					}
+				}
+			}			
+		}
+
+	}
+
+	
+	focus = {
+		id = TAN_conscription_centres
+		prerequisite = {focus = TAN_request_military_training}							
+		x = -2
+		y = 0
+		relative_position_id = TAN_prioritize_internal_affairs
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+	
+		}
+
+		available_if_capitulated = no
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_GER_proletarian_solidarity
+		}		
+			
+		icon = {
+			value = GFX_focus_PER_recruit_bakhtiari
+		}
+
+		completion_reward = {
+			add_war_support = 0.1
+			IF = {
+				limit = { 
+					NOT = { has_idea = extensive_conscription }
+					NOT = { has_idea = service_by_requirement }
+					NOT = { has_idea = all_adults_serve }
+					NOT = { has_idea = scraping_the_barrel }
+				}
+				add_ideas = extensive_conscription
+			}
+			add_manpower = 10000
+		}
+
+	}
+
+	focus = {
+		id = TAN_prioritize_internal_affairs
+		prerequisite = {focus = TAN_request_military_training}							
+		x = -3
+		y = 1
+		relative_position_id = TAN_request_military_training
+		ai_will_do = {
+			factor = 40
+		}
+		cost = 10
+
+		available = {
+	
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_SWE_socialist_reforms
+		}			
+		icon = {
+			value = GFX_goal_generic_propaganda
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = tech_military_police
+					}
+				}
+				set_technology = { tech_military_police = 1 popup = no}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = military_police_tech
+				}	
+			}			
+			custom_effect_tooltip=generic_skip_one_line_tt
+			division_template = {
+				name = "Border Guards"		
+				division_names_group = TAN_INF_01
+				is_locked = no
+				force_allow_recruiting = yes
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+				}
+				support = {
+					military_police = { x = 0 y = 0 }
+				}
+				override_model = AFG_infantry_alt_0_entity
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Border Guards\" start_experience_factor = 0.05 start_equipment_factor = 0.5"
+					owner = ROOT
+					count = 1
+				}
+			}
+			add_stability = 0.1
+			army_experience = 60
+			
+		}
+    }
+	
+
+	focus = {
+		id = TAN_a_shared_doctrine
+		prerequisite = {focus = TAN_prioritize_internal_affairs }
+		prerequisite = {focus = TAN_conscription_centres}
+		mutually_exclusive = {focus = TAN_the_new_age_of_warfare}							
+		x = 0
+		y = 1
+		relative_position_id = TAN_prioritize_internal_affairs
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 10
+
+		available = {
+			is_in_faction = yes
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_GER_the_peoples_victory
+		}		
+			
+		icon = {
+			value = GFX_focus_generic_commonwealth_build_infantry
+		}
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = HOA_our_finest_idea
+			custom_effect_tooltip = generic_skip_one_line_tt			
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.75
+				uses = 2
+				category = cat_grand_battle_plan
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.75
+				uses = 2
+				category = cat_superior_firepower
+			}	
+
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}			
+								
+			IF = {
+				limit = {NOT = {has_tech = infantry_weapons2 } can_research = infantry_weapons2 }
+				set_technology = {
+					infantry_weapons2 = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 1
+					category = infantry_weapons
+				}			
+			}			
+		}
+
+	}
+
+	focus = {
+		id = TAN_the_new_age_of_warfare
+		prerequisite = {focus = TAN_prioritize_internal_affairs }
+		prerequisite = {focus = TAN_conscription_centres}
+		mutually_exclusive = {focus = TAN_a_shared_doctrine}							
+		x = -2
+		y = 1
+		relative_position_id = TAN_prioritize_internal_affairs
+		ai_will_do = {
+			factor = 5
+		}
+		cost = 10
+
+		available = {
+	
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		}												
+		icon = {
+			value = GFX_focus_SWE_lynx_armored_car
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = ASJ_modern_fighting_force
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_mobile_warfare
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = motorized_equipment
+			}
+			IF = {
+				limit = {NOT = {has_tech = armored_car2 } can_research = armored_car2 }
+				set_technology = {
+					armored_car2  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.9
+					uses = 1
+					category = cat_armored_cars
+				}			
+			}
+			IF = {
+				limit = {NOT = {has_tech = gwtank_chassis } can_research = gwtank_chassis }
+				set_technology = {
+					gwtank_chassis  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 1
+					category = cat_light_armor
+				}			
+			}			
+		}
+
+	}
+
+	focus = {
+		id = TAN_land_forces_for_asia
+		prerequisite = {focus = TAN_the_new_age_of_warfare focus = TAN_a_shared_doctrine}
+		x = -1
+		y = 2
+		relative_position_id = TAN_prioritize_internal_affairs
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 15
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_NORDIC_com_selector_army
+		}						
+		icon = {
+			value = GFX_focus_NORDIC_dem_army
+		}
+		available = {
+			OR = {
+				is_in_faction = yes
+                is_subject = yes
+                }
+			}
+			
+		
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_manpower = 10000
+			army_experience = 100
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				construct_building_in_random_province = {
+					land_facility = 1
+				}
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = land_doctrine
+			}			
+		}
+	}
+
+
+
+	
+
+
+
+
+	focus = {
+		id = TAN_home_grown_pilots
+		prerequisite = {focus = TAN_faction_air_bases}							
+		x = 1
+		y = 2
+		relative_position_id = TAN_request_military_training
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+		}
+		
+		icon = {
+			value = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			# Doctrine for air 
+			# Gives spirit which adds +10% ace generation chance and +10& agility and +10% range
+			add_ideas = asj_trained_pilots
+			custom_effect_tooltip = generic_skip_one_line_tt			
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+
+	}
+
+	focus = {
+		id = TAN_aquire_planes
+		prerequisite = {focus = TAN_faction_air_bases}								
+		x = -1
+		y = 2
+		relative_position_id = TAN_request_military_training
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			SOV = {
+				has_opinion = {
+					target = ROOT
+					value > 69
+				}
+			}
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PER_the_peoples_airforce
+		}	
+			
+		icon = {
+			value = GFX_focus_SMB_purchase_aircraft
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			IF = {
+				limit = {NOT = {has_tech = basic_small_airframe } }
+				set_technology = {
+					basic_small_airframe  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = light_air
+				}			
+			}
+			IF = {
+				limit = {NOT = {has_tech = engines_1 } }
+				set_technology = {
+					engines_1  = 1 popup = no
+				}
+			}			
+			IF = {
+				limit = {NOT = {has_tech = engines_2 } }
+				set_technology = {
+					engines_2  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = air_equipment
+				}			
+			}			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					country_exists = SOV
+					NOT = { has_war_with = SOV }
+				}
+			add_equipment_to_stockpile = { 
+					type = small_plane_airframe
+					amount = 100
+					producer = SOV
+					variant_name = "I16"
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = cas_bomber
+					category = naval_bomber
+				}	
+			}
+			IF = {
+				LIMIT = {
+					country_exists = SOV
+					NOT = { has_war_with = SOV }
+				}
+				add_equipment_to_stockpile = { 
+					type = medium_plane_airframe_0
+					amount = 100
+					producer = SOV
+					variant_name = "DB-3"
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = cas_bomber
+				}	
+			}			
+
+		}
+
+	}
+
+	focus = {
+		id = TAN_aeronautical_forces_for_asia
+		prerequisite = {focus = TAN_aquire_planes}
+		prerequisite = {focus = TAN_home_grown_pilots }							
+		x = 0
+		y = 3
+		relative_position_id = TAN_request_military_training
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 15
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_NORDIC_com_airforce
+		}			
+					
+		icon = {
+			value = GFX_focus_NORDIC_dem_airforce
+		}
+		available = {
+			OR = {
+				is_in_faction = yes
+                is_subject = yes
+			}
+			
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_manpower = 10000
+			air_experience = 100
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				construct_building_in_random_province = {
+					air_facility = 1
+				}
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = air_doctrine
+			}
+			
+		}
+
+	}
+
+	focus = {
+		id = TAN_a_port_for_our_country
+		prerequisite = {focus = TAN_request_military_training }						
+		x = 5
+		y = 1
+		relative_position_id = TAN_request_military_training
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 10
+
+		available = {
+			any_controlled_state ={
+				is_coastal = yes
+			}
+		}
+	
+			
+		icon = {
+			value = GFX_focus_ICE_modernizing_the_coast_guard
+		}
+		available_if_capitulated = no
+	
+
+		completion_reward = {
+            IF = {
+                LIMIT = {
+                    any_controlled_state ={
+                        is_coastal = yes
+                    }                   
+                }
+            random_owned_state = {
+				limit = {
+					is_coastal = yes
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 2
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 1
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = naval_base
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 2
+					instant_build = yes
+				}				
+			}                
+            }ELSE = {
+                custom_effect_tooltip = TAN_get_base_bunker_dockyard_tt
+            }
+
+		}
+
+	}
+
+	focus = {
+		id = TAN_foreign_educators
+		prerequisite = {focus = TAN_request_military_training }						
+		x = 3
+		y = 1
+		relative_position_id = TAN_request_military_training
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 10
+
+		available = {
+			OR = {
+				is_in_faction = yes
+				is_subject = yes
+       		}
+		} 
+
+		available_if_capitulated = no
+			
+		icon = {
+			value = GFX_focus_AFG_promote_the_counter_elite
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+			add_stability = 0.05
+			IF = {
+				limit = { OR = {
+                    is_in_faction = yes
+                    } }
+				IF = {
+					limit = {
+						OVERLORD = {
+							has_government = neutrality
+						}
+					}
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						OVERLORD = {
+							has_government = communism
+						}
+					}
+					add_popularity = {
+						ideology = communism
+						popularity = 0.1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						OVERLORD = {
+							has_government = fascism
+						}
+					}
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						OVERLORD = {
+							has_government = democratic
+						}
+					}
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.1
+					}
+				}
+			}
+			add_ideas = HOA_education_idea			
+		}
+
+	}
+	focus = {
+		id = TAN_sailor_clubs
+		prerequisite = {focus = TAN_a_port_for_our_country }						
+		x = -2
+		y = 1
+		relative_position_id = TAN_a_port_for_our_country
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+	
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PER_the_peoples_navy
+		}
+		
+		icon = {
+			value = GFX_focus_generic_naval_discipline
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}	
+			}
+				random_owned_controlled_state = {
+					LIMIT = {
+						is_coastal = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = dockyard
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}			
+			}						
+		}
+
+	
+
+	focus = {
+		id = TAN_develop_trade_routes
+		prerequisite = {focus = TAN_a_port_for_our_country }
+		mutually_exclusive = { focus = TAN_a_fleet_to_protect_our_interests}						
+		x = 0
+		y = 1
+		relative_position_id = TAN_a_port_for_our_country
+		ai_will_do = {
+			factor = 50
+		}
+		cost = 10
+		available = {
+	
+		}
+		
+		icon = {
+			value = GFX_focus_generic_merchant_fleet
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+			}
+			IF = {
+				limit = {NOT = {has_tech = mtg_transport } can_research = mtg_transport }
+				set_technology = {
+					mtg_transport  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = tp_tech
+				}			
+			}
+			add_equipment_to_stockpile	= {
+				type = convoy
+				amount = 100
+				producer = ROOT
+			}			
+		}
+
+	}
+
+
+
+	focus = {
+		id = TAN_a_fleet_to_protect_our_interests
+		prerequisite = {focus = TAN_a_port_for_our_country }
+		mutually_exclusive = { focus = TAN_develop_trade_routes}						
+		x = 2
+		y = 1
+		relative_position_id = TAN_a_port_for_our_country
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 12
+
+		available = {
+			SOV = {
+				has_opinion = {
+					target = ROOT
+					value > 69
+				}
+			}
+		}							
+		icon = {
+			value = GFX_focus_SWE_coastal_support
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = asj_naval_developments
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+			}
+			add_equipment_to_stockpile	= {
+				type = convoy
+				amount = 20
+				producer = ROOT
+			}			
+			SOV = {
+				country_event = {
+					id = generic_purchase_ships_events.01
+					hours = 1
+				}
+				set_country_flag = negotiating_ship_purchase_flag@ROOT
+			}
+			SOV = {
+				create_production_license = {
+					target = ROOT
+					equipment = {
+						type = ship_hull_light_1
+						version = 0
+						new_prioritised = no
+					}
+					cost_factor = 0
+				}
+			}			
+		}
+
+	}
+
+	focus = {
+		id = TAN_naval_forces_for_asia
+		prerequisite = {focus = TAN_develop_trade_routes focus = TAN_a_fleet_to_protect_our_interests }		
+		x = 1
+		y = 1
+		relative_position_id = TAN_develop_trade_routes
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 15
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_NORDIC_com_navy
+		}		
+			
+		icon = {
+			value = GFX_focus_NORDIC_dem_navy
+		}
+
+		available = {
+			OR = {
+				is_in_faction = yes
+                is_subject = yes
+			}			
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_manpower = 10000
+			hidden_effect = {
+					add_ai_strategy = {
+						type = screen_ship
+						value = 200
+					}	
+			}
+
+			naval_experience = 100
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				construct_building_in_random_province = {
+					naval_facility = 1
+				}
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = naval_doctrine
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_idea = best_of_the_best_naval_academy_spirit
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				add_ideas = best_of_the_best_naval_academy_spirit
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_idea = naval_reform_spirit
+					}
+				}
+				add_ideas = naval_reform_spirit
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}			
+		}
+
+	}
+	
+	default = no
+}

@@ -1,0 +1,347 @@
+ideas = {
+    country = {
+        #start
+        TAN_dissent = {
+            picture = ARG_subdue_dissension
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                consumer_goods_factor = 0.1
+                stability_factor = -0.1
+                war_support_factor = -0.1
+                communism_drift = -0.05
+                army_org_factor = -0.05
+            }
+        }  
+        TAN_armament_investment_effort = {
+            picture = raj_rifle_factory_ishapore
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+            equipment_bonus = {
+				infantry_equipment = {
+					soft_attack = 0.02
+					build_cost_ic = -0.1
+				}
+			}
+            modifier = {  
+                production_lack_of_resource_penalty_factor = -0.2
+            }
+        }
+        #commie
+        TAN_youth_move_commie = {
+            picture = RAJ_military_into_the_workforce
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                weekly_manpower = 700
+                conscription = 0.02
+            }
+        }  
+        TAN_tuvan_communism = {
+            picture = HUN_resurgent_communist_party_idea
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                weekly_manpower = 1000
+                conscription = 0.03
+                org_loss_at_low_org_factor = -0.2
+   
+            }
+        } 
+        TAN_tuvan_mountaineers= {
+            picture = AFG_adopt_nufus
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                mountaineers_special_forces_contribution_factor = -0.3
+                special_forces_cap = 0.2
+                acclimatization_cold_climate_gain_factor = 0.1
+            }
+        }         
+        #anti-commie
+        TAN_pro_dissent = {
+            picture = generic_army_problems
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                consumer_goods_factor = 0.05
+                stability_factor = -0.1
+                war_support_factor = -0.1
+                communism_drift = -0.15
+                army_org_factor = -0.05
+            }
+        }  
+        TAN_military_dissent = {
+            picture = tur_disorganised_armed_forces
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                consumer_goods_factor = 0.07
+                stability_factor = -0.05
+                war_support_factor = -0.05
+                communism_drift = -0.2
+            }
+        } 
+
+        TAN_junta = {
+            picture = ARG_military_government
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                weekly_manpower = 700
+                conscription = 0.03
+                army_attack_speed_factor = 0.05
+            }
+        }  
+        
+        TAN_theology = {
+            picture = AFG_republic_idea
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                weekly_manpower = 500
+                conscription = 0.04
+                terrain_penalty_reduction = 0.1
+                drift_defence_factor = 0.3
+            }
+        }  
+        
+        TAN_demo = {
+            picture = AFG_parliament_building
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                weekly_manpower = 300
+                conscription = 0.02
+                max_dig_in_factor = 0.15
+                army_defence_against_major_factor = 0.1
+                democratic_drift = 0.1
+            }
+        }       
+        #pan mongol
+        TAN_growing_unification_support_c = {
+            picture = generic_disjointed_gov
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                consumer_goods_factor = 0.05
+                stability_factor = -0.1
+                war_support_factor = -0.1
+                communism_drift = 0.15
+                army_org_factor = -0.05
+                neutrality_drift = -0.1
+                democratic_drift = -0.1
+                fascism_drift = -0.1
+            }
+        }
+        TAN_growing_unification_support_n = {
+            picture = generic_disjointed_gov
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                consumer_goods_factor = 0.05
+                stability_factor = -0.1
+                war_support_factor = -0.1
+                neutrality_drift = 0.15
+                army_org_factor = -0.05
+                communism_drift = -0.1
+                democratic_drift = -0.1
+                fascism_drift = -0.1
+            }
+        }
+        TAN_growing_unification_support_d = {
+            picture = generic_disjointed_gov
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                consumer_goods_factor = 0.05
+                stability_factor = -0.1
+                war_support_factor = -0.1
+                democratic_drift = 0.15
+                army_org_factor = -0.05
+                neutrality_drift = -0.1
+                communism_drift = -0.1
+                fascism_drift = -0.1
+            }
+        }
+        TAN_growing_unification_support_f = {
+            picture = generic_disjointed_gov
+                    
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            removal_cost = -1
+                    
+            modifier = {  
+                consumer_goods_factor = 0.05
+                stability_factor = -0.1
+                war_support_factor = -0.1
+                fascism_drift = 0.15
+                army_org_factor = -0.05
+                neutrality_drift = -0.1
+                democratic_drift = -0.1
+                communism_drift = -0.1
+            }
+        }
+    }
+
+		TAN_partial_infiltration = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = MEX_politicised_army
+
+			modifier = {
+				fascism_drift = -0.05
+				neutrality_drift = 0.1
+			}
+		}
+		TAN_full_infiltration = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = MEX_politicised_army_2
+
+			modifier = {
+				fascism_drift = -0.1
+				neutrality_drift = 0.15
+			}
+		}
+	industrial_concern = {
+        designer = yes
+
+			TAN_resource_company = {
+					
+				picture = GER_vereinigte_stahlwerke
+			
+				allowed = {
+					original_tag = TAN
+				}
+				available = { 
+
+				}	
+
+				cost = 75			
+				
+				research_bonus = {
+					industry = 0.15
+				}
+				
+				traits = { resource_development_company }
+			}
+    }
+
+
+
+
+
+
+
+}
