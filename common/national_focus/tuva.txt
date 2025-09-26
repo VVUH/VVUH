@@ -17,7 +17,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -411,7 +411,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 0
 		}
-		cost = 10
+		cost = 5
 
 		available = {
             is_ai = no
@@ -438,9 +438,9 @@ focus_tree = {
 		y = 1
 		relative_position_id = TAN_kuularist_movement
 		ai_will_do = {
-			factor = 100
+			factor = 1
 		}
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -467,7 +467,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -527,7 +527,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 5
 
 		available = {
 			communism < 0.60
@@ -561,7 +561,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 5
 
 		available = {
 			fascism > 0.4
@@ -628,7 +628,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 5
 
 		available = {
 			neutrality > 0.4
@@ -715,7 +715,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 5
 
 		available = {
 			democratic > 0.4
@@ -775,7 +775,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 5
 
 		available = {
 		}
@@ -827,7 +827,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 100
 		}
-		cost = 10
+		cost = 5
 
 		available = {
 		}
