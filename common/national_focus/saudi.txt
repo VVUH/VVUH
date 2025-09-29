@@ -5688,8 +5688,7 @@ focus_tree = {
 		}
 
 		available = {
-
-
+			has_tech = excavation1
 		}
 
 		bypass = {
@@ -5742,7 +5741,7 @@ focus_tree = {
 		prerequisite = { focus = SAU_the_prosperity_well }
 		relative_position_id = SAU_the_prosperity_well
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			base = 1
@@ -5962,7 +5961,7 @@ focus_tree = {
 		}
 
 		available = {
-
+			has_tech = excavation1
 
 		}
 
@@ -6008,7 +6007,8 @@ focus_tree = {
 			is_ai = no
 			OR = {
 				has_war_with = USA
-				has_army_manpower = { size > 50000 }
+				has_army_manpower = { size > 80000 }
+				has_tech = oil_processing
 			}
 		}
 
@@ -6093,6 +6093,7 @@ focus_tree = {
 		}
 
 		available = {
+			has_tech = oil_processing
 			859 = {
 				is_owned_and_controlled_by = ROOT
 			}
@@ -6197,6 +6198,8 @@ focus_tree = {
 
 		available = {
 			is_subject = no #This however should be required
+			has_tech = oil_processing
+
 		}
 
 		bypass = {

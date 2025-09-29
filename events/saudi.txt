@@ -1370,7 +1370,6 @@ country_event = {
 				}
 			hidden_effect = {
 				set_country_flag = SAU_muslim_commie_state
-				set_country_flag = SAU_investing_in_regional_suppression
 			}
 			unlock_decision_tooltip = SAU_religious_suppression_decision_of_FROM				
 		}
