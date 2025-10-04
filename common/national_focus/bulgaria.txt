@@ -7489,7 +7489,7 @@ focus_tree = {
 			}
 			add_timed_idea = {
 				idea = BUL_toppling_giants
-				days = 730
+				days = 365
 			}
 			if = {
 				limit = {

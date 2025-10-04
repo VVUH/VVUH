@@ -635,9 +635,9 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				stability_weekly = 0.01
-				political_power_gain = 0.5
-				compliance_gain = 0.15
+				stability_factor = 0.1
+				political_power_gain = 0.25
+				compliance_gain = 0.02
 			}
 		}
 
@@ -877,7 +877,6 @@ ideas = {
 				army_leader_start_defense_level	= 1
 				navy_leader_start_attack_level = 1
 				navy_leader_start_defense_level = 1
-				army_morale_factor = 0.1
 				max_command_power = 25
 				justify_war_goal_time = -0.5
 			}
@@ -906,7 +905,6 @@ ideas = {
 				army_leader_start_defense_level	= 2
 				navy_leader_start_attack_level = 2
 				navy_leader_start_defense_level = 2
-				army_morale_factor = 0.1
 				max_command_power = 50
 				justify_war_goal_time = -0.5
 				army_org_factor = 0.05
@@ -936,7 +934,6 @@ ideas = {
 				army_leader_start_defense_level	= 2
 				navy_leader_start_attack_level = 2
 				navy_leader_start_defense_level = 2
-				army_morale_factor = 0.1
 				max_command_power = 75
 				justify_war_goal_time = -0.5
 				army_org_factor = 0.10
@@ -966,7 +963,6 @@ ideas = {
 				army_leader_start_defense_level	= 2
 				navy_leader_start_attack_level = 2
 				navy_leader_start_defense_level = 2
-				army_morale_factor = 0.1
 				max_command_power = 100
 				justify_war_goal_time = -0.5
 				army_org_factor = 0.10
@@ -998,7 +994,6 @@ ideas = {
 				army_leader_start_defense_level	= 1
 				navy_leader_start_attack_level = 1
 				navy_leader_start_defense_level = 1
-				army_morale_factor = 0.1
 				justify_war_goal_time = -0.5
 			}
 		}
@@ -1024,7 +1019,6 @@ ideas = {
 				experience_gain_army_factor = 0.05
 				army_leader_start_defense_level	= 1
 				navy_leader_start_defense_level = 1
-				army_morale_factor = 0.05
 				justify_war_goal_time = -0.5
 			}
 		}
@@ -1048,7 +1042,6 @@ ideas = {
 				non_core_manpower = 0.05
 				experience_gain_navy_factor = 0.05
 				experience_gain_army_factor = 0.05
-				army_morale_factor = 0.05
 				justify_war_goal_time = -0.25
 			}
 		}
@@ -1382,8 +1375,8 @@ ideas = {
 			}
 			
 			modifier = {
-				army_core_attack_factor = 0.15
-				army_core_defence_factor = 0.15
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
 				army_org_factor = 0.1
 			}
 		}
@@ -1447,7 +1440,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = -0.15
+				consumer_goods_factor = -0.10
 				trade_laws_cost_factor = -0.35
 				economy_cost_factor = -0.35
 			}
@@ -1541,8 +1534,8 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				army_attack_factor = 0.1
-				army_defence_factor = 0.1
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
 			}
 		}
 
@@ -1561,7 +1554,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				surrender_limit = -0.2
+				surrender_limit = -0.1
 			}
 		}
 
@@ -1697,8 +1690,8 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				army_core_attack_factor = 0.15
-				army_core_defence_factor = 0.15
+				army_core_attack_factor = 0.5
+				army_core_defence_factor = 0.10
 				production_speed_bunker_factor = 0.2
 				production_speed_coastal_bunker_factor = 0.2
 				production_speed_radar_station_factor = 0.2
@@ -1722,8 +1715,8 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				army_core_attack_factor = 0.1
-				army_core_defence_factor = 0.1
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
 				production_speed_bunker_factor = 0.1
 				production_speed_coastal_bunker_factor = 0.1
 				production_speed_radar_station_factor = 0.1
@@ -1746,7 +1739,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				war_support_weekly = 0.001
+				war_support_factor = 0.1
 				conscription = 0.01
 			}
 		}
@@ -1917,7 +1910,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				stability_weekly = 0.002
+				stability_factor = 0.2
 				research_speed_factor = 0.05
 			} 
 		}
@@ -1939,9 +1932,8 @@ ideas = {
 			modifier = {
 				fascism_drift = -0.15
 				army_morale_factor = 0.05
-				army_attack_factor = 0.05
-				army_defence_factor= 0.05
-				army_org_factor = 0.05
+				army_attack_factor = 0.075
+				army_defence_factor= 0.025
 			}
 		}
 
