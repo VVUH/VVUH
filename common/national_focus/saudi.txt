@@ -3096,7 +3096,6 @@ focus_tree = {
 				set_autonomy = {
 					target = OMA
 					autonomous_state = autonomy_free
-
 				}				
 			}
 			SAU={
@@ -3108,6 +3107,7 @@ focus_tree = {
 			}
 		
 			OMA = {
+				leave_faction = yes
 				country_event = SAU_submission.20
 			}
 		}
