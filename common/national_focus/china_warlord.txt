@@ -463,8 +463,10 @@
     			limit = { is_core_of = TAN }
     			add_core_of = SIK
 			}
-			annex_country = { target = MON transfer_troops = yes }
-			annex_country = { target = TAN transfer_troops = yes }
+		
+			IF = {LIMIT={MON={is_ai = yes}}annex_country = { target = MON transfer_troops = yes }}
+			IF = {LIMIT={TAN={is_ai = yes}}annex_country = { target = TAN transfer_troops = yes }}
+		
 		}
 	}
 
