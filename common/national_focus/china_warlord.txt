@@ -464,8 +464,8 @@
     			add_core_of = SIK
 			}
 		
-			IF = {LIMIT={MON={is_ai = yes}}annex_country = { target = MON transfer_troops = yes }}
-			IF = {LIMIT={TAN={is_ai = yes}}annex_country = { target = TAN transfer_troops = yes }}
+			IF = {LIMIT={MON={is_ai = yes}}annex_country = { target = MON transfer_troops = yes }}ELSE = {create_wargoal = { type = annex_everything target = MON }}
+			IF = {LIMIT={TAN={is_ai = yes}}annex_country = { target = TAN transfer_troops = yes }}ELSE = {create_wargoal = { type = annex_everything target = TAN }}
 		
 		}
 	}
