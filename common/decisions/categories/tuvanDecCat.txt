@@ -1,0 +1,75 @@
+TAN_unification_dec = {
+	icon = GFX_decision_category_border_conflicts
+	priority = 0
+	allowed = {
+		OR = {
+			original_tag = TAN
+		}
+	}	
+
+	visible = {
+        has_completed_focus = TAN_pan_mongolian_project
+        
+	}
+}
+TAN_industry_dec = {
+	icon = GFX_decision_category_generic_industry
+	priority = 0
+	allowed = {
+		OR = {
+			original_tag = TAN
+		}
+	}	
+
+	visible = {
+		OR = {
+        	has_completed_focus = TAN_finish_collectivising
+			has_completed_focus = TAN_modern_industry
+		}
+        
+	}
+}
+
+TAN_manchuria_cat ={
+	icon = GFX_decision_category_generic_propaganda
+	priority = 0
+	allowed = {
+		OR = {
+			original_tag = TAN
+		}
+	}	
+
+	visible = {
+    	has_completed_focus = TAN_infiltrate_manchuria
+	}	
+}
+
+TAN_laissez_faire_cat = {
+	icon = GFX_decision_category_gre_paying_ifc_debt
+		priority = 0
+		allowed = {
+			OR = {
+				original_tag = TAN
+			}
+		}	
+
+	visible = {
+    	has_completed_focus = TAN_economy_of_the_people
+	}
+}
+
+TAN_tuvan_decs = { 
+    allowed = {
+        tag = TAN
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_political_actions
+}	
+
+TAN_cooperation_dec = {
+    allowed = {
+        tag = TAN
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_foreign_policy 
+}

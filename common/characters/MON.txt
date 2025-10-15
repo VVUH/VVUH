@@ -1001,7 +1001,7 @@ MON_advisor_toka = {
 		idea_token = MON_advisor_toka
        	slot = political_advisor
        	traits = {
-           staunch_stalinist
+           GER_staunch_stalinist
        }
     }
  }

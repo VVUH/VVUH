@@ -1,0 +1,766 @@
+characters={
+	TAN_salchak_toka={
+		name="Salchak Toka"
+		portraits={
+			civilian={
+				large=GFX_portrait_Salchak_Toka
+			}
+		}
+		country_leader={
+			ideology=stalinism
+			expire="1965.1.1.1"
+			id=-1
+			traits = {
+				GER_staunch_stalinist
+			}
+		}
+		
+	} #later upgrade to GER_staunch_stalinist_leader
+	
+
+	TAN_communist_great_khural={
+		name="People's Great Khural"
+		portraits={
+			civilian={
+				large="GFX_portrait_SOV_supreme_soviet"
+			}
+		}
+		country_leader={
+			ideology = leninism
+			traits={strong_party_discipline communist_council_trait}
+		}
+	}
+	#junta/transitionary
+	TAN_oyun_mandan_ool={
+		country_leader={
+		ideology=despotism
+			traits={ SWI_militaristic_nationalist }
+		}		
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_oyun_mandan_ool
+			visible = {
+				has_completed_focus = TAN_kuularist_movement
+				NOT={
+					has_country_leader = {
+						character = TAN_oyun_mandan_ool
+						ruling_only = yes
+					}
+				}
+			}				
+				traits = {
+					revolutionary_general
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name="Oyun Mandan-ool"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_11"
+				large= "GFX_portrait_asia_generic_land_11"
+			}
+			civilian = {
+				small="GFX_idea_generic_army_asia_11"
+				large= "GFX_portrait_asia_generic_land_11"				
+			}
+		}
+		field_marshal = {
+			traits = { inflexible_strategist}
+			skill = 3
+			attack_skill = 1
+			defense_skill = 4
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = 0
+
+		}
+	}
+	#Generic auto-generated country leaders for Democratic, Fascism and Non-Aligned
+
+	TAN_rugalinskij={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = TAN_rugalinskij
+			ledger = air
+				allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					air_bomber_interception_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Rugalinskij"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_1"
+			}
+		}
+	}
+	TAN_v_i_kulikovskij={
+		advisor={
+			
+			
+			slot = navy_chief
+			idea_token = TAN_v_i_kulikovskij
+			allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					navy_chief_reform_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="V.I. Kulikovskij"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_2"
+			}
+		}
+	}
+	TAN_grinchik={
+		advisor={
+			
+			
+			slot = air_chief
+			idea_token = TAN_grinchik
+			allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					air_chief_night_operations_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Grinchik"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_3"
+			}
+		}
+	}
+	TAN_tulberdiev={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = TAN_tulberdiev
+			ledger = army
+				allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					army_commando_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Tulberdiev"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_5"
+			}
+		}
+	}
+	TAN_tanchak_shoma={
+		advisor={
+			
+			
+			slot = army_chief
+			idea_token = TAN_tanchak_shoma
+			allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Tanchak Shoma"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_2"
+			}
+		}
+	}
+	TAN_alaverdov={
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = TAN_alaverdov
+			ledger = army
+				allowed = {
+					original_tag = TAN
+				}
+				
+				traits = {
+					military_theorist
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Alaverdov"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_4"
+			}
+		}
+	}
+	TAN_homushku_churguj_ool={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = TAN_homushku_churguj_ool
+			ledger = army
+				allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					army_armored_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Homushku Churguj-ool"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_3"
+			}
+		}
+	}
+	TAN_i_p_rugalinskij={
+		advisor={
+			
+			
+			slot = air_chief
+			idea_token = TAN_i_p_rugalinskij
+			allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					air_chief_ground_support_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="I.P. Rugalinskij"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_1"
+			}
+		}
+	}
+	TAN_ruzhenko={
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = TAN_ruzhenko
+			ledger = air
+				allowed = {
+					original_tag = TAN
+				}
+				
+				traits = {
+					air_warfare_theorist
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ruzhenko"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_1"
+			}
+		}
+	}
+	TAN_konstantinov={
+		advisor={
+			
+			
+			slot = army_chief
+			idea_token = TAN_konstantinov
+			allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					army_chief_maneuver_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Konstantinov"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_1"
+			}
+		}
+	}
+	TAN_kechir_ool={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = TAN_kechir_ool
+			ledger = army
+				allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					army_cavalry_1
+				}
+				cost =  50
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Kechir-ool"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_1"
+			}
+		}
+	}
+	TAN_democratic_guy={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_democratic_guy
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					democratic_reformer 
+				}
+				do_effect  = {
+					not  = {
+						has_government  = democratic 
+					}
+				}
+				ai_will_do  = {
+					factor  = 0.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_asia_1"
+			}
+		}
+	}
+	TAN_communist_guy={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_communist_guy
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					communist_revolutionary 
+				}
+				do_effect  = {
+					not  = {
+						has_government  = communism 
+					}
+				}
+				ai_will_do  = {
+					factor  = 0.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_asia_3"
+			}
+		}
+	}
+	TAN_fascist_guy={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_fascist_guy
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					fascist_demagogue 
+				}
+				do_effect  = {
+					not  = {
+						has_government  = fascism 
+					}
+				}
+				ai_will_do  = {
+					factor  = 0.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_asia_2"
+			}
+		}
+	}
+	TAN_s_t_perilenko={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_s_t_perilenko
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					silent_workhorse 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="S.T. Perilenko"
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_1"
+			}
+		}
+	}
+	TAN_vladimir_sokoline={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_vladimir_sokoline
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					armaments_organizer 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Vladimir Sokoline"
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+	}
+	TAN_sodmon_balchor={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_sodmon_balchor
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					fortification_engineer 
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Sodmon Balchor"
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_2"
+			}
+		}
+	}
+
+
+	TAN_sedip_tanov={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_sedip_tanov
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					HUN_stalinist_agent 
+				}
+			available = {
+				AND = {
+					has_country_leader = {
+						character = TAN_salchak_toka
+						ruling_only = yes
+					}					
+					#has_completed_focus = MON_invite_tanna_tuva
+					has_government = communism
+				}
+			}
+			visible = {
+				has_government = communism
+			}		
+		}
+		name="Sedip-ool Tanov"
+		portraits={
+			civilian={
+				small="GFX_idea_asia_generic_land_1"
+			}
+		}
+	}
+	TAN_sat_dazhy={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_sat_dazhy
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					GEO_vengeful_stalinist 
+				}
+			available = {
+				AND = {
+					has_country_leader = {
+						character = TAN_salchak_toka
+						ruling_only = yes
+					}					
+					#has_completed_focus = MON_invite_tanna_tuva
+					has_government = communism
+				}
+			}
+			visible = {
+				has_government = communism
+			}						
+		}
+		name="Sat Churmit-Dazhy"
+		portraits={
+			civilian={
+				small="GFX_idea_asia_generic_land_10"
+			}
+		}
+	}
+	TAN_toka_two={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_toka_two
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					ARG_feminist_revolutionary 
+				}
+			available = {
+				AND = {
+					has_country_leader = {
+						character = TAN_salchak_toka
+						ruling_only = yes
+					}					
+					#has_completed_focus = MON_invite_tanna_tuva
+					has_government = communism
+				}
+			}
+			visible = {
+				has_government = communism
+			}									
+		}
+		name="Khertek Anchimaa-Toka"
+		portraits={
+			civilian={
+				small="GFX_idea_asia_generic_female_1"
+			}
+		}
+	}
+
+	TAN_ayg_hemchik={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_ayg_hemchik
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					marxist_philosopher 
+				}
+			available = {
+				AND = {
+					#has_completed_focus = MON_invite_tanna_tuva
+					has_government = communism
+				}
+			}
+			visible = {
+				has_government = communism
+			}									
+		}
+		name="Adyg-Tyulyush Hemchik-ool"
+		portraits={
+			civilian={
+				small="GFX_idea_asia_generic_land_8"
+			}
+		}
+	}
+	TAN_oyun_tanchai={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_oyun_tanchai
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					GER_staunch_stalinist 
+				}
+			available = {
+				AND = {
+					#has_completed_focus = MON_invite_tanna_tuva
+					has_government = communism
+				}
+			}
+			visible = {
+				has_government = communism
+			}					
+		}
+	
+		name="Oyun Tanchai"
+		portraits={
+			civilian={
+				small="GFX_idea_asia_generic_land_9"
+			}
+		}
+	}
+	TAN_advisor_noble_council = {
+		portraits={
+				civilian={
+					small="GFX_idea_pol_the_sejm"
+				}
+			}
+		name = "Council of Noyons"
+		advisor = {
+			idea_token = TAN_advisor_noble_council
+			visible = {
+				has_completed_focus = TAN_let_the_people_be_heard
+			}
+			available = {
+				has_completed_focus = TAN_reenshrine_the_noble_class
+			}
+			slot = political_advisor
+			traits = {
+			elected_regency_council
+		}
+		}
+	}
+	TAN_tyul_dagbaldai={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_tyul_dagbaldai
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					regional_traditionalist_leader 
+				}
+			visible = {
+				AND = {
+					#has_completed_focus = MON_invite_tanna_tuva
+					has_government = communism
+				}
+			}					
+		}
+		name="Tyulyush Dagbaldai"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_6"
+			}
+		}
+		corps_commander = {
+			visible = {
+				AND = {
+					#has_completed_focus = MON_invite_tanna_tuva
+					has_government = communism
+				}
+			}
+			traits = { cavalry_leader}
+			skill = 3
+			attack_skill = 1
+			defense_skill = 4
+			planning_skill = 1
+			logistics_skill = 1
+
+		}
+	}
+	TAN_tyul_dagbaldai_anti_commie={
+		advisor={
+			slot = political_advisor
+			idea_token = TAN_tyul_dagbaldai_anti_commie
+			allowed  = {
+					original_tag  = TAN
+				}
+				traits  = {
+					social_revolutionary 
+				}
+			visible = {
+				AND = {
+					#has_completed_focus = MON_invite_tanna_tuva
+					NOT={has_government = communism}
+				}
+			}					
+		}
+		name="Tyulyush Dagbaldai"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_7"
+			}
+			civilian = {
+				small="GFX_idea_generic_army_asia_7"
+			}
+		}
+		corps_commander = {
+			visible = {
+				AND = {
+					#has_completed_focus = MON_invite_tanna_tuva
+					NOT={has_government = communism}
+				}
+			}
+			traits = { cavalry_leader}
+			skill = 3
+			attack_skill = 1
+			defense_skill = 4
+			planning_skill = 1
+			logistics_skill = 1
+
+		}
+	}
+	TAN_advisor_foreign_military_advisors = {
+		name = "Foreign Advisors"
+		portraits={
+			civilian={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+
+		advisor = {
+			idea_token = TAN_advisor_foreign_military_advisors
+			available = {
+				has_completed_focus = TAN_invite_foreign_advisors
+			}
+			slot = theorist
+			traits = {
+			council_of_theorists
+		}
+		}
+	}
+		
+}
