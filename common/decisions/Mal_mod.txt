@@ -1551,7 +1551,7 @@ political_actions = {
 			is_subject = no
 			is_faction_leader = yes
     	}
-		fire_only_once = yes
+		fire_only_once = no
 		remove_effect = {
 		    FROM = {
 				custom_effect_tooltip = invite_to_faction_tt
@@ -1594,7 +1594,7 @@ political_actions = {
 			is_subject = no
 			is_faction_leader = yes
     	}
-		fire_only_once = yes
+		fire_only_once = no
 		complete_effect = {
 			set_country_flag = MAL_demanded_independence
 			set_variable = {
@@ -1639,7 +1639,7 @@ political_actions = {
 					}
 			}
     	}
-		fire_only_once = yes
+		fire_only_once = no
 		complete_effect = {
 			every_country = {
 				limit = {
