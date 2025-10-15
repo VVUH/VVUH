@@ -1986,21 +1986,23 @@ MAL_muslim_categorie = {
 			has_country_flag = MAL_a_muslim_faction_flag
 		}
 		target_trigger = {
-			is_subject = no
-			is_in_faction = no
-			OR = {
-				tag = TUR
-				tag = IRQ
-				tag = SAU
-				tag = JOR
-				tag = PER
-				tag = AFG
-				tag = YEM
-				tag = OMA
-				tag = KUW
-				tag = PAL
-				tag = SYR
-				tag = LEB
+			FROM = {
+				is_subject = no
+				is_in_faction = no
+				OR = {
+					tag = TUR
+					tag = IRQ
+					tag = SAU
+					tag = JOR
+					tag = PER
+					tag = AFG
+					tag = YEM
+					tag = OMA
+					tag = KUW
+					tag = PAL
+					tag = SYR
+					tag = LEB
+				}
 			}
 		}
 		available = {
