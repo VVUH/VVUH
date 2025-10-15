@@ -983,7 +983,6 @@ ideas = {
 				
 			modifier = {
 				army_org_factor = 0.1
-				land_reinforce_rate = -0.03
 				supply_consumption_factor = 0.03
 				political_power_gain = 0.15
 				war_support_factor = 0.1
@@ -1009,7 +1008,6 @@ ideas = {
 				command_power_gain = 0.1
 				experience_gain_army = 0.4
 				army_org_factor = 0.12
-				land_reinforce_rate = -0.03
 				supply_consumption_factor = 0.03
 				political_power_gain = 0.15
 				war_support_factor = 0.1

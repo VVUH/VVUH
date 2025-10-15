@@ -150,7 +150,7 @@ TIB_formables_cat = {
 		}
 
 		visible = {
-			original_tag = MON
+			original_tag = TIB
 			NOT = { has_global_flag = form_turkestan_flag }
 		}
 

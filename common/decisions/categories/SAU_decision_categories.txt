@@ -1,0 +1,114 @@
+SAU_decs_cat = { 
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_political_actions
+}
+SAU_OPEC_decs = {
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_power_struggle
+}
+SAU_extremist_action = {
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_eng_organize_the_blackshirts
+}
+SAU_working_together = {
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_foreign_policy 
+}
+SAU_international_liberation_front = {
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_spr_the_seeds_of_revolution 
+}
+SAU_trade = {  
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_gre_paying_ifc_debt
+}
+SAU_border_wars = { 
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_border_conflicts
+}
+SAU_laissez_faire_cat = { 
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_gre_investment_decisions
+}
+SAU_national_state_radio = { 
+    allowed = {
+        tag = SAU
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_propaganda
+    picture = GFX_decision_cat_picture_national_iranian_radio
+}
+SAU_mine_the_arabian_shield = { 
+   allowed = {
+        tag = SAU
+    }
+    priority = 10
+    icon = GFX_decision_category_generic_prospect_for_resources  
+}
+SAU_formables_cat ={
+    allowed = {
+        OR = {
+            tag = SAU
+            tag = ENG
+			tag = YEM
+			tag = OMA
+			tag = UAE
+			tag = QAT
+			tag = BHR
+			tag = FSA
+			tag = IMO
+		}
+    }
+    priority = 5
+    icon = GFX_decision_category_spr_the_seeds_of_revolution
+}
+SAU_command_economic_direction = {
+    allowed = {
+        tag = SAU
+    }
+    visible = {
+        has_completed_focus = SAU_central_development
+    }
+    priority = 10
+    icon = GFX_decision_category_SOV_merge_designers  
+}
+SAU_promote_immigration_cat = { #works
+    allowed = {
+        tag = SAU
+    }
+
+    priority = 10
+    icon = GFX_decision_category_generic_foreign_policy  
+}
+SAU_naval_decisions = { 
+    allowed = {
+        tag = SAU
+    }
+
+    priority = 10
+    icon = GFX_decision_category_generic_naval  
+}

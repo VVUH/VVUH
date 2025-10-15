@@ -17,7 +17,7 @@ Xary
 Deminer
 Dovel
 
-# EVERY GAME SAY HOST (Since Oct 2023)
+# EVERY GAME DAY HOST (Since Oct 2023)
 Jukebox
 C1ark3y
 Deminer
