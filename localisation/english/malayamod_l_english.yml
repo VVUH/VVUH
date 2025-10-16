@@ -2,6 +2,8 @@
  MAL_kmm_event_desc:0 "Kesatuan Melayu Muda (KMM) 'Young Malays Union' in Malay was the first leftist and national political establishment in British Malaya. Founded by Ibrahim Yaacob and Ishak Haji Muhammad, KMM grew into a prominent pre-war nationalist movement, notable for its leftist political stance and willingness to use violence, a sharp break with their contemporaries in the Malay nationalist movement."
  STATE_1019:0 "Johor"
  STATE_1020:0 "Batam"
+ MAL_communists_recruiting_members:0 "Communists recruiting members"
+ MAL_communist_partisan_activity:0 "Communist Partisan Activity"
  MAL_modify_aquired_plane_secrets_ns_intro:0 "Modify §Y$MAL_aquired_plane_secrets_idea$§! by"
  MAL_air_attack_bonus_tt:0 "$MAL_modify_aquired_plane_secrets_ns_intro$ \n$MODIFIER_AIR_ATTACK$: §G+5.00%§!\n"
  MAL_air_defense_bonus_tt:0 "$MAL_modify_aquired_plane_secrets_ns_intro$ \n$MODIFIER_AIR_DEFENCE$: §G+5.00%§!\n"

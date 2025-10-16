@@ -606,6 +606,7 @@ country_event = {
 	desc = "Munawir married Tunku Ampuan Durah in 1940 and had six children who are Tunku Munawirah, Tunku Mudziah, Tunku Muhriz, Tunku Anne Dakhlah, Tunku Deborah and Tunku Deannah. "
 	picture = GFX_report_event_royal_parade
 	fire_only_once = yes
+	is_triggered_only = no
 	trigger = {
 		tag = MAL
 		date > 1940.01.01
@@ -682,6 +683,7 @@ country_event = {
 	desc = "Discontent within our country keeps growing, especially the Malayan Communist Party has seen a rapid increase in support. If we want to avoid a civil war we must stop them"
 	picture = GFX_report_event_communists_cheer
 	fire_only_once = yes
+	is_triggered_only = no
 	trigger = {
 		tag = MAL
 		MAL = {
@@ -1748,7 +1750,8 @@ country_event = {
 		}
 		FROM = {
 			country_event = mal.mod.8
-			clear_variable = FROM.mod_mal_demand_independence_target
+			clr_country_flag = MAL_demanded_independence
+			clear_variable = mod_mal_demand_independence_target
 		}
 	}
 }
