@@ -1638,7 +1638,8 @@ country_event = {
 				limit = {
 					has_completed_focus = BEL_organize_the_strikes
 				}
-			promote_character = BEL_julien-victor_lahaut
+				promote_character = BEL_julien-victor_lahaut
+			}
 		}
 	}
 	trigger = { 
