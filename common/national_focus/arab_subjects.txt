@@ -1,0 +1,2533 @@
+focus_tree = {
+	id = arabian_subject_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			OR = {
+				original_tag = JOR
+				original_tag = KUW
+				original_tag = LEB
+				original_tag = SYR
+				original_tag = PAL
+				original_tag = UAE
+				original_tag = QAT
+				original_tag = BHR
+				original_tag = FSA 
+				original_tag = OMA		
+				original_tag = IMO		
+			}
+			
+		}
+	}
+
+	focus = {
+		id = ASJ_request_a_home_guard
+		x = 5
+		y = 0
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			threat > 0.1
+			is_subject = yes
+		}
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_AFG_adopt_nufus
+		}	
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_PER_desert_training
+		}	
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_AUS_frontmiliz_focus
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_SOV_cohesion_first_ccp_2d_sov_compatibility
+		}	
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_chi_army_reform
+		}
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_SOV_barrier_troops_ccp_2d_sov_compatibility
+		}											
+		icon = {
+			value = GFX_focus_focus_fra_maquis
+		}
+		available_if_capitulated = no
+
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}		
+			}	
+						custom_effect_tooltip=generic_skip_one_line_tt
+
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = ROOT
+			}	
+			custom_effect_tooltip=generic_skip_one_line_tt
+		
+			#spawns a division in
+			division_template = {
+				name = "Colonial Force"		
+				division_names_group = SAU_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }					
+				}				
+
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template =\"Colonial Force\" start_experience_factor = 0.2 start_equipment_factor	= 1.0"
+					owner = ROOT
+					count = 2
+				}
+			}				
+			# allows the spawning of new divisions
+		}
+
+	}
+
+	focus = {
+		id = ASJ_raf_station_bases
+		prerequisite = { focus = ASJ_request_a_home_guard}							
+		x = 0
+		y = 1
+		relative_position_id = ASJ_request_a_home_guard
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 10
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_HUN_establish_the_mavag_aircraft_factory
+		}	
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_goal_generic_air_production
+		}			
+		icon = {
+			value = GFX_focus_generic_air_bases
+		}
+		available = {
+	
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			# air bases and air xp
+			air_experience = 50
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment_1
+				amount = 100
+				producer = ROOT
+			}
+			capital_scope = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				if = {
+					limit = {
+						air_base < 9
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+				else = {
+					ROOT = {
+						random_owned_controlled_state = {
+							limit = {
+								air_base < 9
+							}
+							add_building_construction = {
+								type = air_base
+								level = 2
+								instant_build = yes
+							}
+						}
+					}
+				}
+			}			
+		}
+
+	}
+
+	
+	focus = {
+		id = ASJ_conscription_centres
+		prerequisite = {focus = ASJ_request_a_home_guard}							
+		x = -2
+		y = 0
+		relative_position_id = ASJ_prioritize_internal_affairs
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+	
+		}
+
+		available_if_capitulated = no
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_GER_proletarian_solidarity
+		}		
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_RAJ_military_into_the_workforce
+		}			
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_AFG_royal_guard
+		}		
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_AFG_quami
+		}
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_CHL_departemento_de_las_tropas_nacistas_de_asalto
+		}	
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_POL_beck_ribbentrop
+		}			
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_ETH_freedom_at_gunpoint
+		}		
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_ETH_expand_the_levy
+		}	
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_ETH_sway_the_warlords
+		}		
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_IRQ_arab_legion
+		}			
+		icon = {
+			value = GFX_focus_PER_recruit_bakhtiari
+		}	
+		completion_reward = {
+			add_war_support = 0.1
+			IF = {
+				limit = { 
+					NOT = { has_idea = extensive_conscription }
+					NOT = { has_idea = service_by_requirement }
+					NOT = { has_idea = all_adults_serve }
+					NOT = { has_idea = scraping_the_barrel }
+				}
+				add_ideas = extensive_conscription
+			}
+			add_manpower = 10000
+		}
+
+	}
+
+	focus = {
+		id = ASJ_prioritize_internal_affairs
+		prerequisite = {focus = ASJ_request_a_home_guard}							
+		x = -3
+		y = 1
+		relative_position_id = ASJ_request_a_home_guard
+		ai_will_do = {
+			factor = 40
+		}
+		cost = 10
+
+		available = {
+	
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_SWE_socialist_reforms
+		}			
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_GER_support_the_proletarian_uprising
+		}			
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_AFG_against_kabul
+		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_AUS_raid_military_storages
+		}		
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_PER_clamp_kurdish_dissidence
+		}		
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_PER_university_of_isfahan
+		}		
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_EST_republican_defence_league
+		}
+		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_TUR_loosen_the_laws_on_secularism
+		}				
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_ITA_comandante_diavolo
+		}		
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_ETH_freedom_at_gunpoint
+		}			
+		icon = {
+			value = GFX_focus_ITA_topple_amhara_rulers
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = tech_military_police
+					}
+				}
+				set_technology = { tech_military_police = 1 popup = no}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = military_police_tech
+				}	
+			}			
+			custom_effect_tooltip=generic_skip_one_line_tt
+			division_template = {
+				name = "Border Guards"		
+				division_names_group = SAU_INF_01
+				is_locked = no
+				force_allow_recruiting = yes
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+				}
+				support = {
+					military_police = { x = 0 y = 0 }
+				}
+				override_model = AFG_infantry_alt_0_entity
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Border Guards\" start_experience_factor = 0.05 start_equipment_factor = 0.5"
+					owner = ROOT
+					count = 1
+				}
+			}
+			add_stability = 0.1
+			army_experience = 100
+			
+		}
+
+	}
+
+	focus = {
+		id = ASJ_follow_the_master_doctrine
+		prerequisite = {focus = ASJ_prioritize_internal_affairs }
+		prerequisite = {focus = ASJ_conscription_centres}
+		mutually_exclusive = {focus = ASJ_the_new_age_of_warfare}							
+		x = 0
+		y = 1
+		relative_position_id = ASJ_prioritize_internal_affairs
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 10
+
+		available = {
+	
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_GER_the_peoples_victory
+		}		
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_GER_expand_ss_security_duties
+		}
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_goal_generic_allies_build_infantry
+		}			
+		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_TUR_turanist_ambition
+		}				
+		icon = {
+			value = GFX_focus_generic_commonwealth_build_infantry
+		}
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = HOA_our_finest_idea
+			custom_effect_tooltip = generic_skip_one_line_tt			
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.75
+				uses = 2
+				category = cat_grand_battle_plan
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.75
+				uses = 2
+				category = cat_superior_firepower
+			}	
+
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}			
+								
+			IF = {
+				limit = {NOT = {has_tech = infantry_weapons2 } can_research = infantry_weapons2 }
+				set_technology = {
+					infantry_weapons2 = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 1
+					category = infantry_weapons
+				}			
+			}			
+		}
+
+	}
+
+	focus = {
+		id = ASJ_the_new_age_of_warfare
+		prerequisite = {focus = ASJ_prioritize_internal_affairs }
+		prerequisite = {focus = ASJ_conscription_centres}
+		mutually_exclusive = {focus = ASJ_follow_the_master_doctrine}							
+		x = -2
+		y = 1
+		relative_position_id = ASJ_prioritize_internal_affairs
+		ai_will_do = {
+			factor = 5
+		}
+		cost = 10
+
+		available = {
+	
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		}		
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		}
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		}	
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_generic_purchase_mechanized_equipment
+		}	
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_generic_naval_invasion_tank
+		}
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_tank_assault
+		}
+		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_FIN_salvaged_and_retooled
+		}					
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_NOR_rikstanken
+		}			
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_NZL_bob_semple_tank
+		}			
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_generic_tank_assembly
+		}										
+		icon = {
+			value = GFX_focus_SWE_lynx_armored_car
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = ASJ_modern_fighting_force
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_mobile_warfare
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = motorized_equipment
+			}
+			IF = {
+				limit = {NOT = {has_tech = armored_car2 } can_research = armored_car2 }
+				set_technology = {
+					armored_car2  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.9
+					uses = 1
+					category = cat_armored_cars
+				}			
+			}
+			IF = {
+				limit = {NOT = {has_tech = gwtank_chassis } can_research = gwtank_chassis }
+				set_technology = {
+					gwtank_chassis  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 1
+					category = cat_light_armor
+				}			
+			}			
+		}
+
+	}
+
+	focus = {
+		id = ASJ_land_arm_of_the_middle_east
+		prerequisite = {focus = ASJ_the_new_age_of_warfare focus = ASJ_follow_the_master_doctrine}
+		x = -1
+		y = 2
+		relative_position_id = ASJ_prioritize_internal_affairs
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 15
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_NORDIC_com_selector_army
+		}		
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_NORDIC_dem_materiel
+		}	
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_NORDIC_dem_capstone_navy
+		}					
+		icon = {
+			value = GFX_focus_NORDIC_dem_army
+		}
+		available = {
+			OR = {
+				is_in_faction = yes
+				is_subject = yes
+			}
+			any_country = {
+				not = {has_global_flag = ASJ_land_arm_claimed_flag}
+			}
+			
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			hidden_effect = {
+				set_global_flag = ASJ_land_arm_claimed_flag
+			}
+			army_experience = 100
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				construct_building_in_random_province = {
+					land_facility = 1
+				}
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = land_doctrine
+			}			
+		}
+
+	}
+
+
+
+
+	focus = {
+		id = ASJ_home_grown_pilots
+		prerequisite = {focus = ASJ_raf_station_bases}							
+		x = 1
+		y = 2
+		relative_position_id = ASJ_request_a_home_guard
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_SOV_expand_aviation_institutes_ccp_2d_sov_compatibility
+		}		
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_ICE_hrafninn_flygur
+		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_goal_generic_CAS
+		}			
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_SOV_women_in_aviation
+		}		
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_goal_generic_build_airforce
+		}		
+		icon = {
+			value = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			# Doctrine for air 
+			# Gives spirit which adds +10% ace generation chance and +10& agility and +10% range
+			add_ideas = ASJ_trained_pilots
+			custom_effect_tooltip = generic_skip_one_line_tt			
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+
+	}
+
+	focus = {
+		id = ASJ_aquire_planes
+		prerequisite = {focus = ASJ_raf_station_bases}								
+		x = -1
+		y = 2
+		relative_position_id = ASJ_request_a_home_guard
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			ENG = {
+				has_opinion = {
+					target = ROOT
+					value > 29
+				}
+			}
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PER_the_peoples_airforce
+		}	
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_copy_plane_designs
+		}	
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_generic_air_research_boost
+		}			
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_air_partners
+		}	
+		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_generic_multi_role_aircraft
+		}		
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_goal_generic_air_fighter
+		}		
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_goal_generic_air_fighter2
+		}			
+		icon = {
+			value = GFX_focus_SMB_purchase_aircraft
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			IF = {
+				limit = {NOT = {has_tech = basic_small_airframe } }
+				set_technology = {
+					basic_small_airframe  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = light_air
+				}			
+			}
+			IF = {
+				limit = {NOT = {has_tech = engines_1 } }
+				set_technology = {
+					engines_1  = 1 popup = no
+				}
+			}			
+			IF = {
+				limit = {NOT = {has_tech = engines_2 } }
+				set_technology = {
+					engines_2  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = air_equipment
+				}			
+			}			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					country_exists = ENG
+					NOT = { has_war_with = ENG }
+				}
+			add_equipment_to_stockpile = { 
+					type = small_plane_airframe
+					amount = 100
+					producer = ENG
+					variant_name = "Gloster Gladiator Mk. I"
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = cas_bomber
+					category = naval_bomber
+				}	
+			}
+			IF = {
+				LIMIT = {
+					country_exists = ENG
+					NOT = { has_war_with = ENG }
+				}
+				add_equipment_to_stockpile = { 
+					type = small_plane_naval_bomber_airframe_0
+					amount = 100
+					producer = ENG
+					variant_name = "Vickers Vildebeest"
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = cas_bomber
+					category = naval_bomber
+				}	
+			}			
+
+		}
+
+	}
+
+	focus = {
+		id = ASJ_aeronautical_arm_of_the_middle_east
+		prerequisite = {focus = ASJ_aquire_planes}
+		prerequisite = {focus = ASJ_home_grown_pilots }							
+		x = 0
+		y = 3
+		relative_position_id = ASJ_request_a_home_guard
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 15
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_NORDIC_com_airforce
+		}			
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_NORDIC_dem_selector_airforce
+		}	
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_NORDIC_dem_capstone_airforce
+		}					
+		icon = {
+			value = GFX_focus_NORDIC_dem_airforce
+		}
+		available = {
+			OR = {
+				is_in_faction = yes
+				is_subject = yes
+			}
+			any_country = {
+					NOT = {
+						has_global_flag = ASJ_air_arm_claimed_flag
+					
+				}
+			}
+			
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			hidden_effect = {
+				set_global_flag = ASJ_air_arm_claimed_flag
+			}
+
+			air_experience = 100
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				construct_building_in_random_province = {
+					air_facility = 1
+				}
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = air_doctrine
+			}
+			
+		}
+
+	}
+
+	focus = {
+		id = ASJ_a_port_with_a_country
+		prerequisite = {focus = ASJ_request_a_home_guard }						
+		x = 5
+		y = 1
+		relative_position_id = ASJ_request_a_home_guard
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 10
+
+		available = {
+	
+		}
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_BEL_koningshooikt_wavre_line
+		}	
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_ARG_navy
+		}				
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_generic_refit_civilian_ships
+		}	
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_goal_generic_navy_cruiser
+		}		
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_coastal_fort
+		}				
+		icon = {
+			value = GFX_focus_ICE_modernizing_the_coast_guard
+		}
+		available_if_capitulated = no
+	
+
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+
+				add_building_construction = {
+					type = coastal_bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 2
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = bunker
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 1
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = naval_base
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+					level = 2
+					instant_build = yes
+				}				
+			}
+		}
+
+	}
+
+	focus = {
+		id = ASJ_foreign_educators
+		prerequisite = {focus = ASJ_request_a_home_guard }						
+		x = 3
+		y = 1
+		relative_position_id = ASJ_request_a_home_guard
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 10
+
+		available = {
+			is_subject = yes
+		}#GFX_focus_generic_university_1  - 
+
+		available_if_capitulated = no
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_AFG_promote_the_counter_elite
+		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_generic_university_2
+		}
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_university_3
+		}
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_ARG_universidad_de_buenos_aires
+		}					
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_generic_university_1
+		}	
+		icon = {
+			trigger = { original_tag = IMO}
+			value = GFX_focus_ARG_universidad_de_buenos_aires
+		}				
+		icon = {
+			value = GFX_focus_AFG_education_reform
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+			add_stability = 0.05
+			IF = {
+				limit = { is_subject = yes }
+				IF = {
+					limit = {
+						OVERLORD = {
+							has_government = neutrality
+						}
+					}
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						OVERLORD = {
+							has_government = communism
+						}
+					}
+					add_popularity = {
+						ideology = communism
+						popularity = 0.1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						OVERLORD = {
+							has_government = fascism
+						}
+					}
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.1
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						OVERLORD = {
+							has_government = democratic
+						}
+					}
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.1
+					}
+				}
+			}
+			add_ideas = HOA_education_idea			
+		}
+
+	}
+	focus = {
+		id = ASJ_sailor_clubs
+		prerequisite = {focus = ASJ_a_port_with_a_country }						
+		x = -2
+		y = 1
+		relative_position_id = ASJ_a_port_with_a_country
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+	
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PER_the_peoples_navy
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_PER_wether_the_storm
+		}			
+		icon = {
+			value = GFX_focus_generic_naval_discipline
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}	
+			}
+			IF = {
+				LIMIT = {
+					original_tag = KUW
+				}
+				random_owned_controlled_state = {
+					LIMIT = {
+						is_coastal = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = dockyard
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}			
+			}						
+			# Naval doctrine
+			# Gives spirit with +15% naval xp gain and +10% naval org
+		}
+
+	}
+
+	focus = {
+		id = ASJ_develop_trade_routes
+		prerequisite = {focus = ASJ_a_port_with_a_country }
+		mutually_exclusive = { focus = ASJ_a_fleet_to_protect_our_interests}						
+		x = 0
+		y = 1
+		relative_position_id = ASJ_a_port_with_a_country
+		ai_will_do = {
+			factor = 50
+		}
+		cost = 10
+		available = {
+	
+		}
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_POL_develop_polish_shipbuilding
+		}		
+		icon = {
+			value = GFX_focus_generic_merchant_fleet
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+			}
+			IF = {
+				limit = {NOT = {has_tech = mtg_transport } can_research = mtg_transport }
+				set_technology = {
+					mtg_transport  = 1 popup = no
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = tp_tech
+				}			
+			}
+			add_equipment_to_stockpile	= {
+				type = convoy
+				amount = 100
+				producer = ROOT
+			}			
+		}
+
+	}
+	focus = {
+		id = ASJ_overlord_trade
+		prerequisite = {focus = ASJ_sailor_clubs }
+		prerequisite = {focus = ASJ_develop_trade_routes }
+
+		mutually_exclusive = { focus = ASJ_a_fleet_to_protect_our_interests}						
+		x = 1
+		y = 1
+		relative_position_id = ASJ_sailor_clubs
+		ai_will_do = {
+			factor = 50
+		}
+		cost = 10
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_RAJ_tea_exports
+		}			
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_AFG_sugar_factory
+		}	
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_generic_coffee
+		}			
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_IRQ_strengthen_the_iraqi_dinar
+		}			
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_IRQ_decouple_from_the_pound
+		}		
+		icon = {
+			value = GFX_focus_generic_agricultural_subsidies
+		}
+		available = {
+			is_subject = yes
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = -1 }
+			IF = {
+				LIMIT = {
+					is_subject = yes
+				}
+				overlord = {
+					add_offsite_building = { type = industrial_complex level = 1 }
+				}
+			}
+			add_autonomy_score = {
+				value = 100
+			}
+		}
+
+	}
+	focus = {
+		id = ASJ_a_fleet_to_protect_our_interests
+		prerequisite = {focus = ASJ_a_port_with_a_country }
+		mutually_exclusive = { focus = ASJ_develop_trade_routes}						
+		x = 2
+		y = 1
+		relative_position_id = ASJ_a_port_with_a_country
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 12
+
+		available = {
+	
+		}
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_PER_persian_gulf_fleet
+		}
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_PER_persian_gulf_fleet
+		}		
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_PER_persian_gulf_fleet
+		}		
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_PER_persian_gulf_fleet
+		}		
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_generic_the_suez
+		}
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_generic_mediterranean_sea_focus
+		}	
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_generic_mediterranean_sea_focus
+		}								
+		icon = {
+			value = GFX_focus_SWE_coastal_support
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = ASJ_naval_developments
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}	
+			}
+			add_equipment_to_stockpile	= {
+				type = convoy
+				amount = 20
+				producer = ROOT
+			}			
+			ENG = {
+				country_event = {
+					id = generic_purchase_ships_events.01
+					hours = 1
+				}
+				set_country_flag = negotiating_ship_purchase_flag@ROOT
+			}
+			ENG = {
+				create_production_license = {
+					target = ROOT
+					equipment = {
+						type = ship_hull_light_1
+						version = 0
+						new_prioritised = no
+					}
+					cost_factor = 0
+				}
+			}			
+		}
+
+	}
+
+	focus = {
+		id = ASJ_naval_arm_of_the_middle_east
+		prerequisite = {focus = ASJ_sailor_clubs }
+		prerequisite = {focus = ASJ_develop_trade_routes focus = ASJ_a_fleet_to_protect_our_interests }		
+		x = 1
+		y = 1
+		relative_position_id = ASJ_develop_trade_routes
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 15
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_NORDIC_com_navy
+		}		
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_NORDIC_dem_capstone_navy
+		}		
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_NORDIC_dem_selector_navy
+		}			
+		icon = {
+			value = GFX_focus_NORDIC_dem_navy
+		}
+
+		available = {
+			OR = {
+				is_in_faction = yes
+				is_subject = yes
+			}
+			
+			any_country = {
+
+					NOT = {
+						has_global_flag = ASJ_naval_arm_claimed_flag
+				}
+			}
+			
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			hidden_effect = {
+					add_ai_strategy = {
+						type = screen_ship
+						value = 200
+					}	
+			}
+			hidden_effect = {
+				set_global_flag = ASJ_naval_arm_claimed_flag
+			}	
+			naval_experience = 100
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				construct_building_in_random_province = {
+					naval_facility = 1
+				}
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = naval_doctrine
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_idea = best_of_the_best_naval_academy_spirit
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				add_ideas = best_of_the_best_naval_academy_spirit
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_idea = naval_reform_spirit
+					}
+				}
+				add_ideas = naval_reform_spirit
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}			
+		}
+
+	}
+
+	focus = {
+		id = ASJ_building_a_nation_from_nothing
+		x = 18
+		y = 0
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			IF = {
+				LIMIT = {
+					OR = {
+						original_tag = PAL
+						original_tag = JOR
+					}
+				}
+				has_global_flag = the_1936_PAL_revolt_has_happened
+			}
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_social_democracy
+		}	
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_AFG_parliamentary_democracy
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_AFG_shadows_of_the_king
+		}
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_GER_strengthen_the_proletarian_international
+		}		
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_goal_generic_major_alliance
+		}
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_ARG_defense_and_democracy
+		}
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_goal_generic_improve_relations
+		}								
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_goal_generic_military_deal
+		}	
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_goal_generic_dangerous_deal
+		}							
+		icon = {
+			value = GFX_focus_generic_support_the_left_right
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_political_power = 200
+			custom_effect_tooltip=generic_skip_one_line_tt
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			custom_effect_tooltip=generic_skip_one_line_tt
+
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	focus = {
+		id = ASJ_connecting_the_country
+		prerequisite = {focus = ASJ_building_a_nation_from_nothing }
+		x = -3
+		y = 1
+		relative_position_id = ASJ_building_a_nation_from_nothing
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_railroad
+		}		
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_PER_feat_of_engineering
+		}			
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_IRQ_train
+		}		
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_generic_supply_line
+		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_generic_public_works
+		}		
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_GER_kriegslokomotive
+		}		
+		icon = {
+			value = GFX_focus_BEL_engine_of_the_economy
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			set_technology = { basic_train = 1 popup = no}
+			add_equipment_to_stockpile	= {
+				type = train_equipment_1
+				amount = 20
+				producer = ROOT
+			}
+			custom_effect_tooltip=generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}	
+			}	
+			custom_effect_tooltip=generic_skip_one_line_tt
+
+			IF = {
+				LIMIT = {
+					OR = {
+						original_tag = FSA 
+						original_tag = OMA 
+						original_tag = SYR
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						infrastructure < 4
+						is_controlled_by = ROOT 
+					}
+					add_building_construction = {
+						type = infrastructure 
+						level = 1
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+						infrastructure < 4
+						is_controlled_by = ROOT 
+					}
+					add_building_construction = {
+						type = infrastructure 
+						level = 1
+						instant_build = yes
+					}	
+				}												
+			}ELSE = {
+				capital_scope = {   
+					limit = {
+						infrastructure < 4
+						is_controlled_by = ROOT 
+					}
+					add_building_construction = {
+						type = infrastructure 
+						level = 2
+						instant_build = yes
+					}
+				}				
+			}		
+		}
+
+	}
+
+	focus = {
+		id = ASJ_promoting_industrialisation
+		prerequisite = {focus = ASJ_connecting_the_country }
+		x = -1
+		y = 1
+		relative_position_id = ASJ_connecting_the_country
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			num_of_factories > 4
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_communist_industry
+		}			
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_goal_generic_oil_refinery
+		}
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_PER_national_bank
+		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_goal_generic_construct_civilian
+		}
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_generic_chromium
+		}						
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_industrialists
+		}					
+		icon = {
+			value = GFX_focus_AFG_a_modern_economy
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = ASJ_industrialising_country
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}					
+			}
+			IF = {
+				LIMIT = {
+					OR={
+						original_tag = KUW
+						original_tag = UAE
+						original_tag = QAT
+						original_tag = FSA
+						original_tag = BHR
+						original_tag = OMA
+					}
+				}
+				capital_scope = {
+					add_resource = {
+						type = oil
+						amount = 3
+					}
+				}
+			}
+			IF = {
+				LIMIT = {
+					original_tag = JOR
+				}
+				capital_scope = {
+					add_resource = {
+						type = chromium
+						amount = 9	
+					}
+				}
+			}			
+
+
+			# remove negeative construction speed from eco
+		}
+
+	}
+
+	focus = {
+		id = ASJ_seek_master_investments
+		prerequisite = {focus = ASJ_connecting_the_country }
+		x = 1
+		y = 1
+		relative_position_id = ASJ_connecting_the_country
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_communist
+		}			
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_GER_integration_of_puppet_economies
+		}
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_GER_integrated_economies
+		}
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_RAJ_special_economic_zones
+		}						
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_GER_customs_union
+		}		
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_GER_expand_gestapo
+		}
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_concessions
+		}		
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_PER_ally_bazaari
+		}				
+		icon = {
+			value = GFX_focus_generic_welfare
+		}
+		available = {
+			is_subject = yes
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			capital_scope = {
+				ETH_upgrade_state_category = yes 
+				add_manpower = 75000
+						add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	focus = {
+		id = ASJ_generic_banking_focus
+		prerequisite = {focus = ASJ_connecting_the_country }
+		x = 0
+		y = 2
+		relative_position_id = ASJ_connecting_the_country
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			has_stability > 0.6
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_RAJ_special_economic_zones
+		}
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_generic_economic_recovery
+		}
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_PER_embrace_opulence
+		}	
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_generic_devaluation
+		}		
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_POL_complete_april_constitution
+		}							
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_generic_currency_reforms
+		}				
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_RAJ_institutional_money_laundering
+		}		
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_AFG_afghan_bank
+		}	
+		
+		icon = {
+			value = GFX_focus_generic_monetary_union
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			# -30% consumer goods to eco
+			add_ideas = HOA_state_bank_idea
+		}
+
+	}
+
+	focus = {
+		id = ASJ_general_rearmament
+		prerequisite = {focus = ASJ_building_a_nation_from_nothing }
+		x = -1
+		y = 1
+		relative_position_id = ASJ_building_a_nation_from_nothing
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			threat > 0.05
+		}
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_CONGO_copper_cartridges
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_AFG_against_kabul
+		}		
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_AFG_scavenging
+		}		
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_FIN_weapon_caches
+		}				
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		}
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
+		}				
+		icon = {
+			value = GFX_goal_generic_construct_mil_factory
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			IF = {
+				LIMIT = {
+					original_tag = OMA
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}			
+			}
+		}
+
+	}
+
+	focus = {
+		id = ASJ_armament_investments
+		prerequisite = {focus = ASJ_building_a_nation_from_nothing }
+		x = 1
+		y = 1
+		relative_position_id = ASJ_building_a_nation_from_nothing
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			threat > 0.1
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_generic_spur_communist_revolutions
+		}		
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_AFG_against_kabul
+		}
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_CONGO_copper_cartridges
+		}		
+		icon = {
+			trigger = { original_tag = PAL} 
+			value = GFX_focus_FIN_weapon_caches
+		}		
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_AFG_scavenging
+		}				
+		icon = {
+			trigger = { original_tag = UAE} 
+			value = GFX_goal_generic_construct_mil_factory
+		}			
+		icon = {
+			value = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			IF = {
+				LIMIT = {
+					original_tag = OMA
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}			
+			}
+		}
+
+	}
+	focus = {
+		id = ASJ_preparing_for_the_worst
+		prerequisite = {focus = ASJ_general_rearmament }
+		prerequisite = {focus = ASJ_armament_investments }
+
+		x = 1
+		y = 1
+		relative_position_id = ASJ_general_rearmament
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		available = {
+			#15% world tention
+			threat > 0.15
+		}
+		icon = {
+			trigger = { 
+				OR = {
+						original_tag = SYR
+						original_tag = LEB
+				}
+			}
+			value = GFX_focus_generic_air_defense
+		}
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_SOV_architect_of_communism_ccp_2d_sov_compatibility
+		}	
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_mass_production
+		}			
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_goal_generic_construction
+		}
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_generic_military_industry
+		}
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_goal_generic_construction2
+		}									
+		icon = {
+			value = GFX_goal_generic_construct_civ_factory
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}	
+		
+			IF = {
+				LIMIT = {
+					any_controlled_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+						limit={is_coastal = yes}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+			IF = {
+				LIMIT = {
+					OR = {
+						original_tag = SYR
+						original_tag = LEB
+						original_tag = JOR
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}					
+				}
+			}	
+			# + 2 mills
+			# Removes the military factory contruction penalty of the eco
+		}
+
+	}
+
+	focus = {
+		id = ASJ_protectors_of_the_levant
+		icon = GFX_goal_generic_military_sphere	
+		prerequisite = {focus = ASJ_preparing_for_the_worst }
+		x = 1
+		y = 1
+		relative_position_id = ASJ_preparing_for_the_worst
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 15
+
+		available = {
+			threat > 0.2
+			OR={
+				has_completed_focus = ASJ_aeronautical_arm_of_the_middle_east
+				has_completed_focus = ASJ_land_arm_of_the_middle_east
+			}
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			# adds military factory construction speed to eco 
+		}
+
+	}
+
+	focus = {
+		id = ASJ_two_sea_program
+		icon = GFX_goal_generic_construct_naval_dockyard	
+		prerequisite = {focus = ASJ_preparing_for_the_worst }
+		x = -1
+		y = 1
+		relative_position_id = ASJ_preparing_for_the_worst
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 15
+
+		available = {
+			threat > 0.2
+			has_completed_focus = ASJ_naval_arm_of_the_middle_east
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			# + 3 docs
+			# adds dockyard construction speed to eco 
+			random_owned_controlled_state = {
+				LIMIT = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}	
+			}
+
+		}
+
+	}
+
+
+	focus = {
+		id = ASJ_boring_projects
+		icon = GFX_goal_generic_oil_refinery	
+		prerequisite = {focus = ASJ_building_a_nation_from_nothing }
+		x = 3
+		y = 1
+		relative_position_id = ASJ_building_a_nation_from_nothing
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 15
+
+		icon = {
+			trigger = { original_tag = QAT}
+			value = GFX_focus_ARG_yacimientos_petroliferos_fiscales
+		}		
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_generic_full_employment
+		}				
+		icon = {
+			value = GFX_goal_generic_oil_refinery
+		}
+		available = {
+			num_of_factories > 2
+		
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+
+			}			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = construction_tech
+			}		
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				add_resource = {
+					type = oil
+					amount = 7
+				}
+				IF = {
+					LIMIT = {
+						ROOT={is_subject = yes }
+					}
+					overlord = {
+						ROOT = {give_resource_rights = { receiver = overlord state = PREV.PREV }}
+					}
+				}
+			}		
+		}
+
+	}
+	focus = {
+		id = ASJ_reinvigorate_civillian_industry
+		prerequisite = {focus = ASJ_boring_projects }
+		x = -1
+		y = 1
+		relative_position_id = ASJ_boring_projects
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_SOV_leader_of_the_party_and_the_people_ccp_2d_sov_compatibility
+		}			
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_RAJ_tea_exports
+		}
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_AFG_curtail_pashtunwali_primacy
+		}	
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_RAJ_war_taxes
+		}				
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_RAJ_khadi_movement
+		}						
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_ARG_capitalize_the_beef_industry
+		}				
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_focus_AFG_fruit_processing
+		}		
+		icon = {
+			value = GFX_focus_generic_sheep
+		}
+
+
+		available = {
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+
+			}					
+		}
+
+	}	
+	focus = {
+		id = ASJ_the_path_to_dominionship
+		prerequisite = {focus = ASJ_boring_projects }
+		x = 1
+		y = 1
+		relative_position_id = ASJ_boring_projects
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+		icon = {
+			trigger = { AND = {is_subject = yes overlord = {original_tag = SAU}} }
+			value = GFX_focus_generic_befriend_saudi_arabia
+		}
+		icon = {
+			trigger = { AND = {is_subject = yes overlord = {original_tag = ENG}} }
+			value = GFX_focus_generic_british_trade
+		}
+		icon = {
+			trigger = { AND = {is_subject = yes overlord = {original_tag = FRA}} }
+			value = GFX_focus_chi_reach_out_to_france
+		}				
+		icon = {
+			value = GFX_goal_generic_positive_trade_relations
+		}
+
+		allow_branch = {
+			NOT = {
+				original_tag = JOR
+				original_tag = OMA
+				original_tag = BHR
+				original_tag = FSA
+			}
+		}
+
+		available = {
+			is_subject = yes
+			num_of_factories > 10
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				overlord = {
+					has_opinion = {
+						target = ROOT
+						value > 49
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				overlord = {
+					is_ai = yes
+				}
+			}						
+			has_army_manpower = {
+				size > 30000
+			}			
+		}
+
+		bypass = {
+			is_subject = no
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.1
+			if = {
+				limit = {
+					is_subject = yes
+					
+					overlord = {
+						is_ai = yes
+					}
+				}
+				overlord = {
+					set_autonomy = {
+						target = ROOT
+						autonomous_state = autonomy_dominion
+						end_wars = no
+						end_civil_wars = no
+					}
+				}
+			}		
+		}
+
+	}
+	focus = {
+		id = ASJ_old_grudges
+		prerequisite = {focus = ASJ_the_path_to_dominionship focus = ASJ_the_communist_agitation focus = ASJ_strengthening_the_emirate}
+		prerequisite = {focus = ASJ_reinvigorate_civillian_industry }
+
+		x = 1
+		y = 1
+		relative_position_id = ASJ_reinvigorate_civillian_industry
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		icon = {
+			trigger = { original_tag = KUW}
+			value = GFX_focus_PER_demand_iraqi_territory
+		}	
+		icon = {
+			trigger = { original_tag = JOR}
+			value = GFX_focus_IRQ_demand_palestine
+		}	
+		icon = {
+			trigger = { original_tag = PAL}
+			value = GFX_focus_generic_attack_iraq
+		}	
+		icon = {
+			trigger = { original_tag = UAE}
+			value = GFX_goal_generic_territory_or_war
+		}			
+		icon = {
+			trigger = { original_tag = SYR}
+			value = GFX_focus_generic_attack_lebanon
+		}	
+		icon = {
+			trigger = { original_tag = OMA}
+			value = GFX_focus_PER_communist_afghanistan_intervention
+		}				
+		icon = {
+			trigger = { original_tag = LEB}
+			value = GFX_focus_IRQ_demand_palestine
+		}								
+		icon = {
+			value = GFX_focus_generic_annex_country_2
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					original_tag = KUW
+				}
+				1011 = {
+					add_claim_by = ROOT
+				}	
+				675 = {
+					add_claim_by = ROOT
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					original_tag = QAT
+				}
+				859 = {
+					add_claim_by = ROOT
+				}	
+			}ELSE_IF = {
+				LIMIT = {
+					original_tag = UAE
+				}
+				678 = {
+					add_claim_by = ROOT
+				}	
+			}ELSE_IF = {
+				LIMIT = {
+					original_tag = JOR
+				}
+				454 = {
+					add_claim_by = ROOT
+				}	
+			}ELSE_IF = {
+				LIMIT = {
+					original_tag = PAL
+				}
+				455 = {
+					add_claim_by = ROOT
+				}	
+			}ELSE_IF = {
+				LIMIT = {
+					original_tag = LEB
+				}
+				454 = {
+					add_claim_by = ROOT
+				}	
+			}ELSE_IF = {
+				LIMIT = {
+					original_tag = SYR
+				}
+				553 = {
+					add_claim_by = ROOT
+				}	
+			}ELSE_IF = {
+				LIMIT = {
+					original_tag = FSA
+				}
+				293 = {
+					add_claim_by = ROOT
+					add_core_of = ROOT
+				}	
+			}ELSE_IF = {
+				LIMIT = {
+					original_tag = OMA
+				}
+				658 = {
+					add_claim_by = ROOT
+				}	
+			}ELSE_IF = {
+				LIMIT = {
+					original_tag = BHR
+				}
+				765 = {
+					add_claim_by = ROOT
+				}	
+			}
+
+			
+
+		}
+
+	}	
+	focus = {
+		id = ASJ_the_communist_agitation
+		prerequisite = {focus = ASJ_boring_projects }
+		x = 1
+		y = 1
+		relative_position_id = ASJ_boring_projects
+		ai_will_do = {
+			factor = 70
+		}
+		cost = 10
+		icon = {
+			trigger = { original_tag = FSA}
+			value = GFX_focus_AFG_state_atheism
+		}		
+		icon = {
+			trigger = { original_tag = BHR}
+			value = GFX_focus_AFG_defender_of_central_asia
+		}			
+		icon = {
+			value = GFX_focus_PER_stage_mass_protests
+		}
+		allow_branch = {
+			OR ={
+				original_tag = BHR
+				original_tag = OMA
+				original_tag = FSA
+			}
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = communist_influence
+			#unlocks decisions to become a dominion, must require 7 factories, army of 30k and good relations
+		}
+
+	}
+
+	
+	focus = {
+		id = ASJ_strengthening_the_emirate
+		icon = GFX_focus_AFG_secure_dynasty
+		prerequisite = {focus = ASJ_boring_projects }
+		x = 1
+		y = 1
+		relative_position_id = ASJ_boring_projects
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 10
+
+		allow_branch = {
+			original_tag = JOR
+			# Jordan exclucive focus as they already start as a dominion
+		}
+
+		available = {
+			
+		}
+
+		available_if_capitulated = no
+	
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.1
+			add_stability = 0.15
+		}
+
+	}
+	
+	
+	default = no
+}
