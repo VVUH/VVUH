@@ -3,6 +3,7 @@
 #Category only allowed for CHI
 CHI_war_of_resistance_cat = {
 	CHI_bolster_spirits = {
+		fire_only_once = yes
 		icon = generic_prepare_civil_war
 		available = {
 			has_war_with = JAP
@@ -28,6 +29,7 @@ CHI_war_of_resistance_cat = {
 		}
 	}
 	CHI_call_for_more_resistance = {
+		fire_only_once = yes
 		icon = generic_prepare_civil_war
 		available = {
 			has_war_with = JAP
@@ -56,6 +58,7 @@ CHI_war_of_resistance_cat = {
 		}
 	}
 	CHI_every_man_will_fight = {
+		fire_only_once = yes
 		icon = generic_prepare_civil_war
 		available = {
 			has_war_with = JAP
