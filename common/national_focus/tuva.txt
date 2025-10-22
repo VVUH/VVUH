@@ -459,6 +459,34 @@ focus_tree = {
 
 	}
     focus = {
+		id = TAN_anti_communist_connections
+		prerequisite = {focus = TAN_anti_internationalism_protests }
+		x = 1
+		y = 1
+		relative_position_id = TAN_anti_internationalism_protests
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 5
+
+		available = {
+
+		}
+		
+		icon = {
+			value = GFX_goal_generic_dangerous_deal
+		}
+		available_if_capitulated = no
+	
+		completion_reward = {
+			unlock_decision_category_tooltip = TAN_cooperation_dec
+			hidden_effect = {
+				set_global_flag = TAN_team_collab
+			}						
+		}
+
+	}	
+    focus = {
 		id = TAN_align_soldiers
 		prerequisite = {focus = TAN_kuularist_movement }
 		x = -1
@@ -861,7 +889,7 @@ focus_tree = {
 				has_civil_war = no
 				has_opinion = {
 					target = TAN
-					value > 69
+					value > 0
 				}
 				AND = {
 					controls_state = 564
@@ -2055,6 +2083,11 @@ focus_tree = {
 					target = ROOT
 					value > 69
 				}
+			}
+		}
+		bypass = {
+			NOT = {
+				has_government = communism
 			}
 		}
 		icon = {
