@@ -7907,7 +7907,9 @@ focus_tree = {
         }
 
         bypass = {
-            
+            ENG = {
+				has_war_with = SAU
+			} 
         }
         completion_reward = {
 			IF = {
@@ -8227,7 +8229,9 @@ focus_tree = {
         }
 
         bypass = {
-            
+            ENG = {
+				has_war_with = SAU
+			}
         }
 		
         completion_reward = {

@@ -79,29 +79,7 @@
                         NOT = {
                             has_country_flag = TAN_tried_demand_things
                             is_puppet_of = TAN
-                        }  
-                        IF = {
-                            LIMIT = {
-                                has_idea = TAN_growing_unification_support_d
-                            }
-                            democratic > party_popularity@communism
-
-                        }ELSE_IF = {
-                            LIMIT = {
-                            has_idea = TAN_growing_unification_support_c
-                            }
-                            has_government = communism
-                        }ELSE_IF = {
-                            LIMIT = {
-                                has_idea = TAN_growing_unification_support_n
-                            }
-                            neutrality > party_popularity@communism
-                        }ELSE_IF = {
-                            LIMIT = {
-                                has_idea = TAN_growing_unification_support_f
-                            }
-                            fascism > party_popularity@communism
-                        }                                         
+                        }                                          
                     }				
                     country_exists = MON
 
@@ -221,6 +199,7 @@
                 annex_country = {
                     target = MON
                     transfer_troops = yes
+                    
                 }
                 hidden_effect = {
                     clr_country_flag = TAN_integration_flag
@@ -637,8 +616,7 @@
 
             visible = { 
                 tag = TAN
-                    has_completed_focus = TAN_finish_collectivising
-                    
+                has_completed_focus = TAN_finish_collectivising   
                 
             } 
 
@@ -1032,7 +1010,7 @@
             }
             visible = {
                 always = yes
-                has_completed_focus = TAN_privitisation
+                has_completed_focus = TAN_economy_of_the_people
             }
             is_good = yes
             available = { hidden_trigger = { always = no } }
