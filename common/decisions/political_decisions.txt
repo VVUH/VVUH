@@ -2034,7 +2034,11 @@ political_actions = {
 				limit = {
 					tag = BEL
 				}
-				has_completed_focus = BEL_ban_the_fascist_parties
+				OR = {
+					has_completed_focus = BEL_ban_the_fascist_parties
+					has_completed_focus = BEL_growing_threat_of_fascism
+					has_completed_focus = BEL_clamp_down_on_fascism
+				}
 			}
 			IF = {
 				limit = {
@@ -2210,12 +2214,20 @@ political_actions = {
 			communism < 0.2
 			IF = {
 				limit = {
+					tag = MAL
+				}
+				has_completed_focus = MAL_ban_the_communist_party
+			}
+
+			IF = {
+				limit = {
 					tag = SPR
 				}
 				NOT = {
 					has_idea = SPR_political_violence
 				}
 			}
+
 			IF = {
 				limit = {
 					# TODO JA, add the correct dlc requirements

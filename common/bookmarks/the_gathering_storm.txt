@@ -27,6 +27,7 @@ bookmarks = {
 				CAN_burn_the_royal_portraits
 			}
 		}
+		
 		"AST"={
 			minor = yes
 			history = "AST_GATHERING_STORM_DESC"
@@ -42,6 +43,7 @@ bookmarks = {
 			}
 		}
 		"NZL"={
+			minor = yes
 			history = "NZL_GATHERING_STORM_DESC"
 			ideology = democratic
 			ideas = {
@@ -51,6 +53,22 @@ bookmarks = {
 				NZL_path_of_anti_imperialism
 				NZL_the_1938_election
 				NZL_the_peoples_revolution
+			}
+		}
+		"MAL"={
+			history = "MAL_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				MAL_divided_nation
+				MAL_colonial_government
+				MAL_chinese_immigrants
+				MAL_british_companies
+				MAL_communist_movements
+			}
+			focuses = {
+				MAL_east_asian_unity
+				MAL_a_great_malaysia
+				MAL_form_greater_indoneasia
 			}
 		}
 		"SAF"={
@@ -69,6 +87,7 @@ bookmarks = {
 		}
 		"RAJ"={
 			history = "RAJ_GATHERING_STORM_DESC"
+			minor = yes
 			ideology = neutrality
 			ideas = {
 				RAJ_agrarian_society
@@ -78,6 +97,20 @@ bookmarks = {
 				RAJ_all_india_forward_bloc
 				RAJ_indian_gurkhas
 				RAJ_found_economic_union
+			}
+		}
+		"TIB"={
+			history = "TIB_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				TIB_young_dalai_lama
+				TIB_spiritual_society
+				TIB_tibet_class_system
+			}
+			focuses = {
+				TIB_the_regent
+				TIB_constitutional_theocracy
+				TIB_arm_chinese_communists
 			}
 		}
 		"CZE"={
@@ -259,6 +292,7 @@ bookmarks = {
 		}
 
 		"HOL"={
+			minor = yes
 			history = "NETHERLANDS_GATHERING_STORM_DESC"
 			ideology = democratic
 			ideas = {
@@ -273,6 +307,20 @@ bookmarks = {
 			}
 		}
 
+		"SAU"={
+			history = "SAUDI_ARABIA_GATHERING_STORM_DESC"
+			ideology = despotism
+			ideas = {
+				SAU_poor_country
+				SAU_shia_minorities
+				SAU_limited_agri
+			}
+			focuses = {
+				SAU_the_arab_league
+				SAU_align_regional_communists
+				SAU_a_change_in_government
+			}
+		}
 		"SPR"={
 			minor = yes
 			history = "SPAIN_GATHERING_STORM_DESC"

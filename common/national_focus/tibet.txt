@@ -1,0 +1,7226 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+focus_tree = {
+    id = Tibet_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			original_tag = TIB
+		}
+	}
+	
+	default = no
+
+	continuous_focus_position = { x = 50 y = 1500 }
+
+#historical 
+	focus = {
+		id = TIB_the_ratification_of_the_thirteenth
+		icon = GFX_focus_BRA_tribunal
+		x = 2
+		y = 0
+		cost = 5
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		mutually_exclusive = { focus = TIB_outside_influences}
+		available = { # change decision; china NAP ofz
+
+		}
+		
+
+		completion_reward = {
+            add_political_power = 150 
+            swap_ideas = {
+                remove_idea = TIB_young_dalai_lama
+                add_idea = TIB_young_dalai_lama_n
+            } 
+		}
+	}
+	focus = {
+		id = TIB_advisors_to_the_dalai_lama
+		icon = GFX_focus_BUL_form_a_regency_council
+		x = 0
+		y = 1
+		cost = 10
+        relative_position_id = TIB_the_ratification_of_the_thirteenth
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_the_ratification_of_the_thirteenth}
+
+		available = {
+
+		}
+		ai_will_do = {
+			base = 2
+		}
+		completion_reward = {
+			add_popularity = {
+                ideology = neutrality
+                popularity = 0.1
+            } 
+			add_political_power = 150
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisors_tt
+			show_ideas_tooltip = TIB_gyalo_thondup	
+			show_ideas_tooltip = TIB_thubten_norbu	
+			show_ideas_tooltip = TIB_gyurme_topgyal	
+			show_ideas_tooltip = TIB_tenzin_chodrag
+
+		}
+	}
+	focus = {
+		id = TIB_truly_worthy_successor
+		icon = GFX_focus_RAJ_peacock_throne_for_the_modern_age
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_advisors_to_the_dalai_lama
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_advisors_to_the_dalai_lama}
+        prerequisite ={ focus = TIB_chinese_border_raids}
+
+		available = {
+			has_global_flag = GTIB_unified
+		}
+		
+		completion_reward = {
+			add_popularity = {
+                ideology = neutrality
+                popularity = 0.1
+            } 
+			swap_ideas = {
+				remove_idea = TIB_tibet_class_system
+				add_idea = TIB_tibet_class_system_pos
+			}
+			set_rule = {
+				can_create_factions = yes
+			}
+		}
+	}
+	focus = {
+		id = TIB_the_regent
+		icon = GFX_focus_generic_conspiracy
+		x = -2
+		y = 1
+		cost = 5
+        relative_position_id = TIB_the_ratification_of_the_thirteenth
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_the_ratification_of_the_thirteenth}
+
+		available = {
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = 0.1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_unlocks_decisions_regent_tt
+			unlock_decision_tooltip	 = TIB_replace_the_regent
+			unlock_decision_tooltip = TIB_the_coup
+			unlock_decision_tooltip = TIB_securing_army_loyalty
+		}
+	}
+	focus = {
+		id = TIB_effective_government
+		icon = GFX_focus_AFG_retire_the_uncles
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_advisors_to_the_dalai_lama
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_the_regent}
+        prerequisite ={ focus = TIB_advisors_to_the_dalai_lama}
+
+		available = {
+			NOT = {
+				has_idea = TIB_tibetan_army1
+			}			
+		}
+
+		completion_reward = {
+			add_popularity = {
+                ideology = neutrality
+                popularity = 0.1
+            } 
+			custom_effect_tooltip = MON_recruit_advisor_tt
+			show_ideas_tooltip = TIB_tsepon_shakabpa1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					has_country_leader_with_trait = old_coup_maker
+				}
+				add_ideas = TIB_the_junta
+			}ELSE = {
+				add_ideas = TIB_a_modern_theocracy
+			}
+		}
+	}	
+	focus = {
+		id = TIB_improve_tibet
+		icon = GFX_SOV_heavy_industry_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		cost = 10
+        relative_position_id = TIB_effective_government
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_effective_government}
+
+		available = {
+			
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy
+				}
+				swap_ideas = {
+					remove_idea = TIB_bureaucracy
+					add_idea = TIB_bureaucracy1
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy1
+				}
+				remove_ideas = TIB_bureaucracy1
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+			custom_effect_tooltip = TIB_every_core_state_tt
+			every_core_state = {
+				LIMIT = {
+					is_controlled_by = TIB
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+		}
+	}	
+	focus = {
+		id = TIB_secure_tibet
+		icon = GFX_goal_generic_defence
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_improve_tibet
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_improve_tibet}
+
+		available = {
+			
+		}
+
+		completion_reward = {
+			IF = {
+				limit = {NOT = {has_tech = interwar_antiair}}
+				set_technology = {
+					interwar_antiair = 1
+				}
+			}
+			custom_effect_tooltip = TIB_every_core_state_tt
+			every_core_state = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			
+		}
+	}	
+	focus = {
+		id = TIB_influence_bhuddists_nearby
+		icon = GFX_focus_generic_welfare
+		x = 0
+		y = 1
+		cost = 5
+        relative_position_id = TIB_truly_worthy_successor
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_truly_worthy_successor}
+
+		available = {
+			
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = TIB_make_a_deal_with_RAJ
+			unlock_decision_tooltip = TIB_request_NEP_blueprints
+			unlock_decision_tooltip = TIB_demand_BHU_secrets
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+
+		}
+	}	
+
+	focus = {
+		id = TIB_religious_tensions
+		icon = GFX_focus_COG_force_publique_mutiny
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_influence_bhuddists_nearby
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_influence_bhuddists_nearby}
+        prerequisite ={ focus = TIB_improve_tibet}
+
+		available = {
+			is_ai = no
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = TIB_req_nep_bhu_puppets_plus_NAP_tt
+			RAJ = {
+				country_event = TIB_political_events.42
+			}
+		}
+	}	
+
+	focus = {
+		id = TIB_intervene_idealogically
+		icon = GFX_focus_smiling_buddha
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_influence_bhuddists_nearby
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_influence_bhuddists_nearby}
+
+		available = {
+			
+		}
+
+		completion_reward = {
+				set_rule = {can_send_volunteers = yes}
+			
+			IF = {
+				LIMIT = {
+					has_idea = TIB_volunteer1
+				}
+				swap_ideas = {
+					remove_idea = TIB_volunteer1
+					add_idea = TIB_volunteer2
+				}
+			}ELSE = {
+					add_ideas = TIB_volunteer1
+			}
+			
+		}
+	}
+	focus = {
+		id = TIB_liberate_bhuddist_people
+		icon = GFX_goal_generic_major_war
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_religious_tensions
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_intervene_idealogically}
+        prerequisite ={ focus = TIB_religious_tensions}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		available = {
+			
+		}
+
+		completion_reward = {
+			add_war_support = 0.1
+			every_other_country	 = {
+				LIMIT = {
+					capital_scope = {
+						is_on_continent = asia
+					}
+				}
+				ROOT = {
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = PREV
+					}
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = TIB_fund_monastaries
+		icon = GFX_focus_RAJ_protest_against_the_howell_monument
+		x = 4
+		y = 1
+		cost = 5
+        relative_position_id = TIB_the_ratification_of_the_thirteenth
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_the_ratification_of_the_thirteenth}
+
+		available = {
+
+		}
+		
+
+		completion_reward = {
+			custom_effect_tooltip = TIB_every_core_state_tt
+			every_core_state = {
+				LIMIT = {
+					is_controlled_by = TIB
+				}
+				add_dynamic_modifier = { modifier = devout_believers}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TIB_religious_alignment_decision_of_FROM
+			custom_effect_tooltip = TIB_religious_alignment_tt
+			capital_scope = {
+				add_dynamic_modifier = { modifier = centre_of_mongol_belief}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_chinese_border_raids
+		icon = GFX_focus_generic_provoke_border_clashes
+		x = 2
+		y = 1
+		cost = 5
+        relative_position_id = TIB_the_ratification_of_the_thirteenth
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_the_ratification_of_the_thirteenth}
+
+		available = {
+			is_ai = no
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+
+		completion_reward = {
+			add_war_support = 0.1
+			unlock_decision_category_tooltip = TIB_border_wars
+			custom_effect_tooltip = TIB_scope_border_raids_GTIB_tt
+		}
+	}	
+	focus = {
+		id = TIB_british_weapons
+		icon = GFX_focus_GER_support_the_proletarian_uprising
+		x = 1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_chinese_border_raids
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_chinese_border_raids}
+
+		available = {
+
+		}
+		
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = ENG
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 700
+				producer = ENG
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_0
+				amount = 500
+				producer = ENG
+			}		
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = cat_fortification
+			}
+			add_tech_bonus = {
+				bonus = 0.7
+				uses = 1
+				category = cat_anti_air
+			}			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			ENG = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = IRQ_purchased_our_equipment
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			unlock_decision_tooltip = TIB_deepen_bonds_with_ENG
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+		}
+	}
+	focus = {
+		id = TIB_foreign_research
+		icon = GFX_focus_generic_university_3
+		x = 0
+		y = 1
+		cost = 10
+        relative_position_id = TIB_british_weapons
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_british_weapons}
+
+		
+
+		completion_reward = {
+			add_research_slot = 1
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cat_synth_oil
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_research_decisions_tt
+			unlock_decision_tooltip = TIB_open_up_to_intellectuals
+			unlock_decision_tooltip = TIB_clamp_down_on_national_narrative
+			unlock_decision_tooltip = TIB_overhaul_school_curriculum
+
+		}
+	}	
+
+	
+
+#historical - ahistorical
+	focus = {
+		id = TIB_large_tibetan_army
+		icon = GFX_focus_RAJ_headhunt_army_personell
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_mobilize_paramilitaries_for_offence
+		ai_will_do = {
+			factor = 1
+		}
+		prerequisite ={ focus = TIB_mobilize_paramilitaries_for_offence focus = TIB_foreign_research}
+
+		available = {
+			NOT = {
+				has_idea = TIB_bureaucracy
+				has_idea = TIB_bureaucracy1				
+			}
+		}
+
+		search_filters = {FOCUS_FILTER_MANPOWER}
+
+		completion_reward = {     
+			IF = {
+				limit = { has_idea = disarmed_nation }
+				add_ideas = volunteer_only
+			}ELSE_IF = {
+				limit = { has_idea = volunteer_only }
+				add_ideas = limited_conscription
+			}ELSE_IF = { 
+				limit = { has_idea = limited_conscription }
+				add_ideas = extensive_conscription
+			}ELSE_IF = { 
+				limit = { has_idea = extensive_conscription }
+				add_ideas = service_by_requirement
+			}ELSE_IF = {
+				limit = { has_idea = service_by_requirement }
+				add_ideas = all_adults_serve
+			}	
+		}
+	}
+
+#ahistorical split
+	focus = {
+		id = TIB_outside_influences
+		icon = GFX_focus_AFG_against_kabul
+		x = 16
+		y = 0
+		cost = 5
+        relative_position_id = TIB_the_ratification_of_the_thirteenth
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				is_historical_focus_on = no
+			}
+		}
+		mutually_exclusive = {focus = TIB_the_ratification_of_the_thirteenth}
+		available = {
+
+		}
+		
+
+		completion_reward = {
+			swap_ruler_traits = { remove = ICE_the_strict_regent add = HUN_the_regent_undermined }
+			custom_effect_tooltip = generic_skip_one_line_tt
+            swap_ideas = {
+                remove_idea = TIB_tibet_class_system
+                add_idea = TIB_tibet_class_system2
+            } 
+		}
+	}
+#fascist
+	focus = {
+		id = TIB_young_leader_tutor
+		icon = GFX_focus_BRA_rio_protocol
+		x = -9
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 3
+		}
+        prerequisite ={ focus = TIB_outside_influences}
+        relative_position_id = TIB_outside_influences
+		mutually_exclusive = { focus = TIB_whispers_among_the_downtrodden focus = TIB_legalize_the_tra}
+		available = {
+            fascism > 0.05
+		}
+		
+
+		completion_reward = {
+			set_party_name = {
+				ideology = fascism
+				long_name = "National Tibet Movement"
+				name = "NTM"
+			}
+            add_political_power = 150 
+            swap_ideas = {
+                remove_idea = TIB_young_dalai_lama
+                add_idea = TIB_young_dalai_lama_f
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisors_tt
+            show_ideas_tooltip = TIB_heinrich_harrer
+            show_ideas_tooltip = TIB_peter_aufschnaiter
+            show_ideas_tooltip = TIB_ernst_krause
+		}
+	}
+	focus = {
+		id = TIB_lessons_of_the_empires
+		icon = GFX_focus_RAJ_forge_the_kshatriya_army
+		x = 2
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_young_leader_tutor}
+        relative_position_id = TIB_young_leader_tutor
+		available = {
+
+		}
+		
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = TIB_crackdown_on_communists
+				days = 200
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					has_intelligence_agency = no
+				}
+					create_intelligence_agency = { 
+						name = "Tibetan Internal Security Force"
+						icon = GFX_intelligence_agency_logo_ICE_logreglan
+					}
+				}
+			upgrade_intelligence_agency = upgrade_training_centers
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = tech_military_police
+					}
+				}
+				set_technology = { tech_military_police = 1 }
+			}
+			division_template = {
+				name = "Border Guards"		
+				is_locked = no
+				force_allow_recruiting = yes
+				regiments = {
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 0 y = 2 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+					militia = { x = 1 y = 2 }
+				}
+				support = {
+					military_police = { x = 0 y = 0 }
+				}
+				override_model = AFG_infantry_alt_0_entity
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "division_template = \"Border Guards\" start_experience_factor = 0.05 start_equipment_factor = 1"
+					owner = TIB
+					count = 4
+				}
+			}
+		}
+	} 
+	focus = {
+		id = TIB_populist_maneuvering
+		icon = GFX_focus_generic_subjugation
+		x = 0
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_lessons_of_the_empires}
+        relative_position_id = TIB_lessons_of_the_empires
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			add_stability = 0.05
+			remove_ideas = TIB_tibet_class_system2
+		}
+	}	
+	focus = {
+		id = TIB_align_nobility
+		icon = GFX_focus_RAJ_trickle_down_economics
+		x = 0
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_young_leader_tutor}
+        relative_position_id = TIB_young_leader_tutor
+		available = {
+            fascism > 0.15
+		}
+
+		completion_reward = {
+			add_popularity = {
+                ideology = fascism
+                popularity = 0.1
+            } 
+			custom_effect_tooltip = MON_recruit_advisor_tt
+			show_ideas_tooltip = TIB_tsepon_shakabpa1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy
+				}
+				swap_ideas = {
+					remove_idea = TIB_bureaucracy
+					add_idea = TIB_bureaucracy1
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy1
+				}
+				remove_ideas = TIB_bureaucracy1
+			}
+		}
+	}
+	focus = {
+		id = TIB_mobilize_paramilitaries_for_offence
+		icon = GFX_focus_SWE_revoke_militia_law
+		x = 0
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_western_ideas}
+        relative_position_id = TIB_western_ideas
+		available = {
+            fascism > 0.1
+		}
+		search_filters = {FOCUS_FILTER_MANPOWER}
+
+
+		completion_reward = {
+			add_manpower = 75000
+		}
+	}
+
+	focus = {
+		id = TIB_intervene_north
+		icon = GFX_focus_AFG_sinkang_intervention
+		x = 0
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_align_nobility}
+
+        relative_position_id = TIB_align_nobility
+		available = {
+            fascism > 0.3
+		}
+		bypass = {
+			SIK = {
+				exists = no
+			}
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_war_support = 0.1
+			create_wargoal = {
+				type = annex_everything
+				target = SIK
+			}
+		}
+	}
+	focus = {
+		id = TIB_puppet_dalai_lama
+		icon = GFX_focus_CZE_german_puppet
+		x = 2
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_intervene_north}
+        relative_position_id = TIB_intervene_north
+		available = {
+            fascism > 0.4
+		}
+		bypass = {
+			NOT = {
+				has_idea = TIB_young_dalai_lama_f
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_young_dalai_lama_f
+				add_idea = TIB_young_dalai_lama_f_puppet
+			}
+		}
+	}
+	focus = {
+		id = TIB_fascist_support
+		icon = GFX_focus_PER_donate_oil_fields
+		x = -3
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_the_military_coup}
+        relative_position_id = TIB_the_military_coup
+		available = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = TIB_seek_GER_assistance
+			unlock_decision_tooltip = TIB_establish_pan_asian_bonds_with_JAP
+			unlock_decision_tooltip = TIB_collaborate_with_MAN
+			unlock_decision_tooltip = TIB_work_with_MEN
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+		}
+	}
+	focus = {
+		id = TIB_weaken_the_jewel_of_the_crown
+		icon = GFX_focus_RAJ_kingmaker
+		x = 0
+		y = 1
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_puppet_dalai_lama}
+        relative_position_id = TIB_puppet_dalai_lama
+		available = {
+            
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_war_support = 0.1
+			add_stability = -0.05
+			add_collaboration = {
+				target = RAJ
+				value = 0.4
+			}
+			RAJ = {
+				add_stability = -0.1
+				add_war_support = -0.15
+			}
+
+		}
+	}	
+	focus = {
+		id = TIB_strengthen_the_professional_army
+		icon = GFX_focus_RAJ_military_into_the_workforce
+		x = 6
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_young_leader_tutor focus = TIB_legalize_the_tra}
+        relative_position_id = TIB_young_leader_tutor
+		available = {
+            has_war_support > 0.3
+		}
+
+		completion_reward = {
+			add_popularity = {
+                ideology = communism
+                popularity = -0.1
+            }
+			IF = {
+				LIMIT = {
+					has_idea = TIB_tibetan_army1
+				}
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army1
+					add_idea = TIB_tibetan_army2
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army2
+					add_idea = TIB_tibetan_army3
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_army_expeditions
+		icon = GFX_focus_generic_little_entente
+		x = -2
+		y = 0
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_young_leader_tutor focus = TIB_legalize_the_tra}
+        relative_position_id = TIB_strengthen_the_professional_army
+		available = {
+            has_war_support > 0.2
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_war_support = 0.05
+			set_rule = {can_send_volunteers = yes}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_volunteer1
+				}
+				swap_ideas = {
+					remove_idea = TIB_volunteer1
+					add_idea = TIB_volunteer2
+				}
+			}ELSE = {
+				add_ideas = TIB_volunteer1	
+			}
+		}
+	}
+	focus = {
+		id = TIB_nothing_is_free
+		icon = GFX_focus_RAJ_institutional_money_laundering
+		x = -1
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite = { focus = TIB_strengthen_the_professional_army}
+		prerequisite = { focus = TIB_army_expeditions}
+        relative_position_id = TIB_strengthen_the_professional_army
+		available = {
+			is_ai = no
+			any_country = {
+				has_opinion = {
+					target = TIB
+					value > 49
+				}
+				
+				has_volunteers_amount_from = {
+					tag = TIB
+					count > 3
+				}
+				surrender_progress < 0.2
+			}
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = TIB_reward_for_service
+				days = 200
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_exploit_conquest_for_economy
+		icon = GFX_focus_RAJ_war_taxes
+		x = -1
+		y = 1
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_intervene_north}
+
+        relative_position_id = TIB_intervene_north
+		available = {
+            fascism > 0.35
+			SIK = {
+				OR = {
+					exists = no
+					is_puppet_of = TIB
+				}
+			}
+		}
+
+		completion_reward = {
+			add_popularity = {
+                ideology = fascism
+                popularity = 0.1
+            } 
+			custom_effect_tooltip = TIB_unlocks_decisions_exploit_conq_tt
+			unlock_decision_tooltip	 = TIB_pillage_civilian_industry
+			unlock_decision_tooltip	 = TIB_pillage_arms_industry
+
+		}
+	}
+	focus = {
+		id = TIB_an_army_with_an_economy
+		icon = GFX_focus_RAJ_union_busting
+		x = -1
+		y = 1
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_exploit_conquest_for_economy}
+        prerequisite ={ focus = TIB_large_tibetan_army}
+
+        relative_position_id = TIB_exploit_conquest_for_economy
+		available = {
+            fascism > 0.4
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_idea = war_economy
+					}
+				}
+				add_ideas = war_economy
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}				
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}				
+			}
+		}
+	}
+	focus = {
+		id = TIB_the_military_coup
+		icon = GFX_focus_POL_sanation_right
+		x = 0
+		y = 2
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_intervene_north}
+
+        relative_position_id = TIB_intervene_north
+		available = {
+            fascism > 0.5
+			SIK = {
+				OR = {
+					exists = no
+					is_puppet_of = TIB
+				}
+			}
+		}		
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+				can_use_kamikaze_pilots = yes 
+			}
+			kill_ideology_leader = neutrality
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_restructure_the_army
+		icon = GFX_focus_chi_army_reform
+		x = -1
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_the_military_coup}
+
+        relative_position_id = TIB_the_military_coup
+		available = {
+
+		}		
+		completion_reward = {
+			add_ideas = TIB_army_of_the_tibetan_empire_0
+		}
+	}
+
+
+	focus = {
+		id = TIB_mountainous_blitzkrieg
+		icon = GFX_focus_generic_tank_assault
+		x = -1
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_restructure_the_army}
+
+		mutually_exclusive = {focus = TIB_heerify_army}
+        relative_position_id = TIB_restructure_the_army
+		available = {
+
+		}		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_army_of_the_tibetan_empire_0
+				add_idea = TIB_army_of_the_tibetan_empire_1a
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {NOT = {has_tech = basic_light_tank_chassis}}
+				set_technology = {
+					basic_light_tank_chassis = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = armor
+				}			
+			}
+			add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 300 producer = GER  variant_name = "Panzer I Ausf. A"} 
+			hidden_effect = {
+				IF = {
+					limit = {NOT = {has_tech = gwtank_chassis}}
+				set_technology = {
+					gwtank_chassis = 1
+				}
+
+				division_template = {
+					name = "Experimental Mechanised Division"
+					division_names_group = TIB_MEC_01
+					priority = 2
+					regiments = {
+						light_armor = { x = 0 y = 0 }
+						light_armor = { x = 0 y = 1 }
+						light_armor = { x = 0 y = 2 }
+						light_armor = { x = 0 y = 3 }
+
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+					}
+					support = {
+						
+					}
+				}
+
+			}
+			}
+					capital_scope = {
+						create_unit = {
+							division = "name = \"200. Mechanised Division\" division_template = \"Experimental Mechanised Division\" start_experience_factor = 1.0 force_equipment_variants = { light_tank_chassis_1 = { creator = \"GER\" version_name = \"Panzer I Ausf. A\"} }" 
+							owner = TIB
+							count = 2
+						}
+					}
+		}
+	}
+	focus = {
+		id = TIB_fuel_storage
+		icon = GFX_focus_ARG_yacimientos_petroliferos_fiscales
+		x = 0
+		y = 2
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_mountainous_blitzkrieg}
+
+        relative_position_id = TIB_fascist_support
+		available = {
+
+		}		
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = fuel_silo
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_further_training_improvements
+		icon = GFX_focus_GER_all_for_the_front
+		x = 1
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_heerify_army}
+
+        relative_position_id = TIB_heerify_army
+		available = {
+
+		}		
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_army_of_the_tibetan_empire_1b
+				}
+				swap_ideas = {
+					remove_idea = TIB_army_of_the_tibetan_empire_1b
+					add_idea = TIB_army_of_the_tibetan_empire_2b
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_army_of_the_tibetan_empire_2b
+					add_idea = TIB_army_of_the_tibetan_empire_3
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_workers_for_industry
+		icon = GFX_focus_ITA_generic_fascist_workers
+		x = -1
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_heerify_army  focus = TIB_mountainous_blitzkrieg}
+
+        relative_position_id = TIB_heerify_army
+		available = {
+
+		}		
+		completion_reward = { #gives idea which gives less non core but more prod and like 2 arms factories
+			IF = {
+				LIMIT = {
+					has_idea = TIB_army_of_the_tibetan_empire_1b
+				}
+				swap_ideas = {
+					remove_idea = TIB_army_of_the_tibetan_empire_1b
+					add_idea = TIB_army_of_the_tibetan_empire_2b
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_army_of_the_tibetan_empire_2b	
+				}
+				swap_ideas = {
+					remove_idea = TIB_army_of_the_tibetan_empire_2b
+					add_idea = TIB_army_of_the_tibetan_empire_3
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_army_of_the_tibetan_empire_1a
+					add_idea = TIB_army_of_the_tibetan_empire_2a
+				}
+			}				
+
+		}
+	}
+	focus = {
+		id = TIB_heerify_army
+		icon = GFX_focus_GER_army
+		x = 1
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_restructure_the_army}
+		mutually_exclusive = {focus = TIB_mountainous_blitzkrieg}
+
+        relative_position_id = TIB_restructure_the_army
+		available = {
+
+		}		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_army_of_the_tibetan_empire_0
+				add_idea = TIB_army_of_the_tibetan_empire_1b
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {NOT = {has_tech = artillery1}}
+				set_technology = {
+					artillery1 = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = artillery
+				}			
+			}
+			hidden_effect = {
+				division_template = {
+					name = "Tibetan Elite Divison"
+					division_names_group = TIB_INF_01
+					role = infantry
+					is_locked = no
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+						artillery_brigade = { x = 2 y = 0 }
+					}
+					support = {
+						engineer = { x = 0 y = 0}
+						artillery = { x = 0 y = 1 }
+					}
+				}
+			}
+				random_state = {
+					limit = {
+						is_fully_controlled_by = ROOT
+						is_owned_by = ROOT
+						is_core_of = ROOT
+					}
+					create_unit = {
+					    division = "name = \"Experimental Infantry Division\" division_template = \"Tibetan Elite Divison\" start_experience_factor = 0.6 start_equipment_factor = 1"
+					    owner = ROOT
+						count = 3
+					}
+				}
+		}
+	}
+	focus = {
+		id = TIB_reclaim_the_empire
+		icon = GFX_focus_ETH_boots_on_the_shore
+		x = 1 
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_the_military_coup}
+
+        relative_position_id = TIB_the_military_coup
+		available = {
+
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = XSM
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = CHI
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = YUN
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			325= {
+				add_core_of = TIB
+			}
+			747= {
+				add_core_of = TIB
+			}
+
+		}
+	}
+	focus = {
+		id = TIB_cross_the_mountains
+		icon = GFX_focus_RAJ_akhand_bharat
+		x = 1 
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_the_military_coup}
+        prerequisite ={ focus = TIB_weaken_the_jewel_of_the_crown}
+
+        relative_position_id = TIB_weaken_the_jewel_of_the_crown
+		available = {
+
+		}
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					country_exists = BHU
+					NOT = {
+						BHU = {is_subject_of = TIB}
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = BHU
+				}
+			}
+			IF = {
+				LIMIT = {
+					country_exists = NEP
+					NOT = {
+						NEP = {is_subject_of = TIB}
+					}
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = NEP
+				}
+			}
+
+			create_wargoal = {
+				type = annex_everything
+				target = RAJ
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			unlock_decision_tooltip	 = TIB_integrate_south_tibetan_empire
+			custom_effect_tooltip = TIB_bengal_w_and_e_core_tt
+		}
+	}
+	focus = {
+		id = TIB_south_east_asian_expansion
+		icon = GFX_focus_GER_expand_pacific_holdings
+		x = -1 
+		y = 1
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_cross_the_mountains}
+        prerequisite ={ focus = TIB_reclaim_the_empire}
+
+
+        relative_position_id = TIB_cross_the_mountains
+		available = {
+
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = BRM
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SIA
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = MAL
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = INS
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_western_ideas
+		icon = GFX_SOV_leningrad_polytechnical_institute_ccp_2d_sov_compatibility
+		x = -2
+		y = 1
+		cost = 10
+        relative_position_id = TIB_young_leader_tutor
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite ={ focus = TIB_young_leader_tutor}
+
+		mutually_exclusive = {focus = TIB_the_ratification_of_the_thirteenth}
+		available = {
+
+		}
+		
+
+		completion_reward = {
+			add_research_slot = 1
+           custom_effect_tooltip = MON_recruit_advisor_tt
+            show_ideas_tooltip = TIB_rolf_magener
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_research_decisions_tt
+			unlock_decision_tooltip = TIB_open_up_to_intellectuals
+			unlock_decision_tooltip = TIB_clamp_down_on_national_narrative
+			unlock_decision_tooltip = TIB_overhaul_school_curriculum
+
+		}
+	}
+#communist
+	focus = {
+		id = TIB_whispers_among_the_downtrodden
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		x = 10
+		y = 1
+		cost = 5
+        relative_position_id = TIB_outside_influences
+        prerequisite ={ focus = TIB_outside_influences }
+
+		ai_will_do = {
+			factor = 3
+		}
+		mutually_exclusive = { focus = TIB_young_leader_tutor focus = TIB_legalize_the_tra}
+		available = {
+            communism > 0.1
+		}
+
+		completion_reward = {
+			set_party_name = {
+				ideology = communism
+				long_name = "Tibetan Communist Party"
+				name = "TCP"
+			}
+            add_political_power = 150 
+            swap_ideas = {
+                remove_idea = TIB_tibet_class_system2
+                add_idea = TIB_tibet_class_system_c
+            }
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisor_tt
+            show_ideas_tooltip = TIB_phuntsok_wangyal 
+			show_ideas_tooltip = TIB_ngawang_kesang
+		}
+	}
+	focus = {
+		id = TIB_invite_intellectuals
+		icon = GFX_focus_generic_university_1
+		prerequisite = { focus = TIB_whispers_among_the_downtrodden focus = TIB_legalize_the_tra}
+		x = -2
+		y = 0
+		relative_position_id = TIB_secure_border
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+	
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_research_decisions_tt
+			unlock_decision_tooltip = TIB_open_up_to_intellectuals
+			unlock_decision_tooltip = TIB_clamp_down_on_national_narrative
+			unlock_decision_tooltip = TIB_overhaul_school_curriculum
+
+		}
+	}
+
+	focus = {
+		id = TIB_secure_border
+		icon = GFX_SOV_the_means_to_wage_war_ccp_2d_sov_compatibility
+		prerequisite = { focus = TIB_whispers_among_the_downtrodden }
+		x = -3
+		y = 1
+		relative_position_id = TIB_whispers_among_the_downtrodden
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			SIK = {
+				has_civil_war = yes
+			}
+		}
+
+		completion_reward = {
+			SIK = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = AST_commitment_to_the_cause
+				}
+			}
+			every_other_country = {
+					limit = {
+						has_war_with = SIK
+					}
+					TIB = {
+						add_to_war = {
+							targeted_alliance = SIK
+							enemy = PREV
+							hostility_reason = asked_to_join
+						}
+					}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TIB_send_support
+			custom_effect_tooltip = TIB_sending_support_tt
+		}
+	}
+	focus = {
+		id = TIB_request_support
+		icon = GFX_focus_AFG_defender_of_central_asia
+		prerequisite = { focus = TIB_whispers_among_the_downtrodden }
+		x = -1
+		y = 1
+		relative_position_id = TIB_whispers_among_the_downtrodden
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+		bypass = {
+			has_government = communism
+		}
+		available = {
+			NOT = {
+				has_government = communism
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+                ideology = communism
+                popularity = 0.1
+            } 
+
+			hidden_effect = {
+				if = { 
+					limit = { 
+						country_exists = SOV
+						SOV = {
+							has_government = communism
+						}
+						SOV = { has_opinion = { target = MON value > 49 } } 
+					}
+					set_global_flag = TIB_communist_support_SOV
+					
+				}
+				if = { 
+					limit = { 
+						country_exists = MON
+						MON = {
+							has_government = communism
+						}
+						MON = { has_opinion = { target = MON value > 49 } } 
+					}
+						set_global_flag = TIB_communist_support_MON
+					
+				}
+				if = { 
+					limit = { 
+						country_exists = TAN
+						TAN = {
+							has_government = communism
+						}
+						TAN = { has_opinion = { target = MON value > 49 } } 
+					}
+						set_global_flag = TIB_communist_support_TAN
+					
+				}
+				if = { 
+					limit = { 
+						country_exists = PRC
+						PRC = {
+							has_government = communism
+						}
+						PRC = { has_opinion = { target = MON value > 49 } } 
+					}
+						set_global_flag = TIB_communist_support_PRC
+					
+				}	
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_arm_chinese_communists
+		icon = GFX_focus_GER_support_the_proletarian_uprising
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_whispers_among_the_downtrodden
+        mutually_exclusive = { focus = TIB_religious_equality}
+
+        prerequisite ={ focus = TIB_whispers_among_the_downtrodden }
+        prerequisite = {focus = TIB_welcome_refugee_flow}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_MANPOWER}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+            add_popularity = {
+                ideology = communism
+                popularity = 0.1
+            } 
+			IF = {
+				LIMIT = {
+					country_exists = PRC
+					NOT = {
+						PRC = {
+							has_war_with = TIB 
+						}
+					}
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = TIB
+						modifier = NZL_strengthen_ties
+					}
+				}
+			}
+			hidden_effect = {
+				division_template = {
+					name = "Chinese Communist Group"		
+					is_locked = no
+					force_allow_recruiting = yes
+					priority = 0
+					template_counter = 14
+					regiments = {
+						infantry  = { x = 0 y = 0 }
+						infantry  = { x = 0 y = 1 }
+						infantry  = { x = 0 y = 2 }
+
+						infantry  = { x = 1 y = 0 }
+						infantry  = { x = 1 y = 1 }
+						infantry  = { x = 1 y = 2 }
+
+						infantry  = { x = 2 y = 0 }
+						infantry  = { x = 2 y = 1 }
+						infantry  = { x = 2 y = 2 }
+
+					}
+				}
+			}
+            IF = {
+                LIMIT = {
+                    has_government = communism
+                }
+				add_manpower = 85000
+				add_war_support = 0.15
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Chinese Volunteers\" division_template = \"Chinese Communist Group\" start_experience_factor = 0.5 start_equipment_factor	= 1.0"
+						owner = TIB 
+						count = 2
+					}
+				}
+                #idk add manpower?
+            }ELSE = {
+				add_manpower = 65000
+				add_war_support = 0.1
+				
+                custom_effect_tooltip = TIB_armed_chinese_commies_tt
+            }
+		}
+	}
+
+	focus = {
+		id = TIB_merge_with_the_chinese
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_arm_chinese_communists
+
+        prerequisite ={ focus = TIB_arm_chinese_communists }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			PRC = {
+				AND = {
+					is_neighbor_of = TIB
+					is_ai = yes
+					has_war_together_with = TIB
+					has_war_with_major = yes
+					has_government = ROOT
+				}
+			}
+			is_ai = no
+			has_government = communism
+		}
+		
+		completion_reward = {
+			annex_country = {
+				target = PRC
+				transfer_troops = yes
+			}
+			set_cosmetic_tag = TIB_restored
+			every_state = {
+				LIMIT = {
+					is_core_of = PRC
+				}
+				add_core_of = TIB
+			}
+		}
+	}
+	focus = {
+		id = TIB_spring_the_revolt
+		icon = GFX_focus_GER_the_peoples_victory
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_request_support
+
+        prerequisite ={ focus = TIB_request_support focus = TIB_arm_chinese_communists}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            communism > 0.4
+		}
+				search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = -0.1
+
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hidden_effect = {
+				retire_character = TIB_tsepon_shakabpa1
+				retire_character = TIB_trimon_shap
+				#retire non-commies
+
+
+			}
+			kill_ideology_leader = neutrality
+			start_civil_war = {
+				ruling_party = communism
+				ideology = neutrality
+				size = 0.45
+				capital = 758
+				states = {
+					758
+					322
+				}
+				keep_political_leader = yes
+				keep_political_party_members = yes
+			}
+
+
+
+			IF = {
+				LIMIT = {
+					has_completed_focus = TIB_request_support
+				}
+				division_template = {
+					name = "Communist Volunteers"		
+					priority = 0
+					template_counter = 14
+					regiments = {
+						infantry  = { x = 0 y = 0 }
+						infantry  = { x = 0 y = 1 }
+						infantry  = { x = 1 y = 0 }
+						infantry  = { x = 1 y = 1 }
+						infantry  = { x = 0 y = 2 }
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
+				hidden_effect = {
+					IF = {
+						LIMIT = {
+							has_global_flag = TIB_communist_support_SOV
+							
+						}
+					
+						capital_scope = {
+							create_unit = {
+								division = "division_template =\"Communist Volunteers\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+								owner = TIB
+								count = 2
+							}
+						}
+					}
+					IF = {
+						LIMIT = {
+							has_global_flag = TIB_communist_support_MON
+						}
+					
+						capital_scope = {
+							create_unit = {
+								division = "division_template =\"Communist Volunteers\" start_experience_factor = 0.6 start_equipment_factor = 1.0"
+								owner = TIB
+								count = 2
+							}
+						}
+					}
+					IF = {
+						LIMIT = {
+							has_global_flag = TIB_communist_support_TAN
+						}
+					
+						capital_scope = {
+							create_unit = {
+								division = "division_template =\"Communist Volunteers\" start_experience_factor = 0.6 start_equipment_factor = 1.0"
+								owner = TIB
+								count = 2
+							}
+						}
+					}
+					IF = {
+						LIMIT = {
+							has_global_flag = TIB_communist_support_PRC
+						}
+					
+						capital_scope = {
+							create_unit = {
+								division = "division_template =\"Communist Volunteers\" start_experience_factor = 0.6 start_equipment_factor = 1.0"
+								owner = TIB
+								count = 2
+							}
+						}
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+		
+				IF = {
+					LIMIT = {
+						has_global_flag = TIB_communist_support_MON
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 1000
+							producer = MON
+					}
+				}
+				IF = {
+					LIMIT = {
+						has_global_flag = TIB_communist_support_SOV		
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 1000
+							producer = SOV
+					}
+				}
+				IF = {
+					LIMIT = {
+						has_global_flag = TIB_communist_support_PRC						
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 1000
+							producer = PRC
+					}
+				}
+				IF = {
+					LIMIT = {
+						has_global_flag = TIB_communist_support_SIK
+					}
+					add_equipment_to_stockpile ={
+						    type = infantry_equipment
+							amount = 1000
+							producer = SIK
+					}
+				}			
+		}
+	}
+	
+	focus = {
+		id = TIB_the_fight_against_imperialism
+		icon = GFX_focus_GER_strike_at_the_rising_sun
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_request_support
+
+        prerequisite ={ focus = TIB_request_support}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            communism > 0.3
+			PRC = {
+				has_war = yes
+			}
+		}
+		
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					PRC = {is_in_faction = yes}
+					}
+				PRC = { add_to_faction = TIB }
+
+			}
+			
+			IF = {
+				LIMIT = {
+					PRC = {
+						has_war = yes
+					}	
+				}
+					every_other_country = {
+							LIMIT = {
+								has_war_with = PRC
+							}
+							TIB = {
+								add_to_war = {
+									targeted_alliance = PRC
+									enemy = PREV
+									hostility_reason = asked_to_join
+								}
+							}
+					}
+			}ELSE={
+				custom_effect_tooltip = TIB_join_prc_war_tt
+			}
+			PRC = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = AST_commitment_to_the_cause
+				}
+			}
+
+		}
+	}
+
+	focus = {
+		id = TIB_the_right_fight
+		icon = GFX_focus_generic_supply_line
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_the_fight_against_imperialism
+
+        prerequisite ={ focus = TIB_the_fight_against_imperialism}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            communism > 0.5
+			has_war_together_with = PRC
+		}
+				search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			all_country = {
+				LIMIT = {has_war_together_with = ROOT}
+					give_military_access = ROOT
+
+			}
+			IF = {
+				LIMIT = {
+					PRC = {
+						has_war = no
+					}
+				}
+				custom_effect_tooltip = TIB_rail_to_capital_tt
+			}ELSE = {
+				build_railway = {
+					level = 2
+					build_only_on_allied = yes
+					start_province = 8049
+					target_province = 5033
+				}
+			}
+
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}				
+			}	
+
+		}
+	}
+	focus = {
+		id = TIB_cultural_revolution
+		icon = GFX_focus_NOR_moscows_education_centers
+		x = 1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_spring_the_revolt
+
+        prerequisite ={ focus = TIB_spring_the_revolt }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_civil_war = no
+			NOT = {
+				has_completed_focus = TIB_religious_equality
+			}
+		}
+		
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_spiritual_society
+				}
+				remove_ideas = TIB_spiritual_society
+			}
+			
+			IF = {
+				LIMIT = {
+					has_idea = TIB_religious_minorities
+				}
+				remove_idea = TIB_religious_minorities
+			}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_equal_beliefs
+				}
+				remove_ideas = TIB_equal_beliefs
+				set_global_flag = TIB_you_fucked_up_tt
+				mark_focus_tree_layout_dirty = yes
+				complete_national_focus	= TIB_the_uprising
+			}
+			swap_ideas = {
+				remove_idea = TIB_tibet_class_system_c
+				add_idea = TIB_tibet_empowered_class_system_c
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_idea = TIB_spiritual_society_fanatic
+					}
+				}
+				set_cosmetic_tag = TIB_unmonastic_commune			
+			}
+  
+		}
+	}
+		
+		#Turn Drapchi into a prison
+	focus = {
+		id = TIB_monastaries_into_prisons
+		icon = GFX_focus_RAJ_seven_shackles
+		x = 0
+		y = 1
+		cost = 10
+        relative_position_id = TIB_cultural_revolution
+
+        prerequisite ={ focus = TIB_cultural_revolution  }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy
+				}
+				remove_ideas = TIB_bureaucracy
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy1
+				}
+				remove_ideas = TIB_bureaucracy1
+			}				
+			add_stability = -0.1
+            add_popularity = {
+                ideology = communism
+                popularity = 0.1
+            } 		
+
+		}
+	}
+	focus = {
+		id = TIB_state_sponsored_meals
+		icon = GFX_focus_HUN_goulash_communism
+		x = 1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_monastaries_into_prisons
+
+        prerequisite ={ focus = TIB_monastaries_into_prisons  }
+		prerequisite ={ focus = TIB_asian_communist_alignment}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR = {
+				has_completed_focus = TIB_subsidize_on_crops
+				has_completed_focus = TIB_support_animal_herds
+			}
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			add_stability = 0.1
+			add_ideas = TIB_state_food_program
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					is_in_faction = yes
+				}
+				all_allied_country	= {
+					LIMIT = {
+						has_government = ROOT
+					}
+					add_stability = 0.1
+					add_ideas = TIB_state_food_program
+				}
+			}ELSE = {
+				custom_effect_tooltip = TIB_if_faction_they_gain_same_benefit_tt
+			}
+
+
+		}
+	}
+	focus = {
+		id = TIB_prisoner_conscription
+		icon = GFX_focus_FIN_parmis_devils
+		x = -1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_monastaries_into_prisons
+
+        prerequisite ={ focus = TIB_monastaries_into_prisons  }
+        prerequisite ={ focus = TIB_cast_down_our_neighbours  }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_MANPOWER}
+
+		completion_reward = {
+			add_manpower = 50000
+			add_stability = -0.1
+            add_popularity = {
+                ideology = communism
+                popularity = 0.1
+            } 		
+
+		}
+	}
+	focus = {
+		id = TIB_asian_workers_union
+		icon = GFX_focus_por_workers_of_iberia
+		x = -1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_prisoner_conscription
+
+        prerequisite = { focus = TIB_prisoner_conscription }
+		prerequisite = { focus = TIB_himalayan_peoples_union }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+
+		completion_reward = {
+			add_stability = 0.1
+			set_cosmetic_tag = TIB_union_of_asia_tag
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_core_asia_tt
+		}
+	}
+	focus = {
+		id = TIB_regional_cooperation
+		icon = GFX_focus_CHL_union_of_hispanic_republics
+		x = 3
+		y = 1
+		cost = 5
+        relative_position_id = TIB_spring_the_revolt
+
+        prerequisite ={ focus = TIB_spring_the_revolt  }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR = {
+				country_exists = PRC
+				country_exists = SOV
+				country_exists = SIK
+				country_exists = MON
+				country_exists = TAN
+			}
+		}
+		bypass = {
+			NOT = {
+					country_exists = PRC
+					country_exists = SOV
+					country_exists = SIK
+					country_exists = MON
+					country_exists = TAN	
+					
+			}
+		}
+		
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+			unlock_decision_tooltip = TIB_cooperate_PRC
+			unlock_decision_tooltip = TIB_seek_SOV_assistance
+			unlock_decision_tooltip = TIB_concessions_SIK
+			unlock_decision_tooltip = TIB_influence_MON
+			unlock_decision_tooltip = TIB_exploit_TAN
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+
+		}
+	}
+	focus = {
+		id = TIB_asian_communist_alignment
+		icon = GFX_focus_generic_communism_anti_fascism
+		x = 0
+		y = 1
+		cost = 5
+        relative_position_id = TIB_regional_cooperation
+
+        prerequisite ={ focus = TIB_regional_cooperation  }
+
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			is_in_faction = yes
+		}
+		available = {
+			OR = {
+				country_exists = PRC
+				country_exists = SOV
+				country_exists = SIK
+				country_exists = MON
+				country_exists = TAN
+			}
+		}
+		
+		completion_reward = {
+			create_faction = "Eastern People's Front"
+			every_country = {
+				LIMIT = {
+					NOT = {
+						has_war_with = TIB
+						is_major = yes
+					}
+					has_government = ROOT
+					capital_scope = {   
+						is_on_continent = asia
+					}
+				}
+					country_event = generic.5
+			}
+		}
+	}
+	focus = {
+		id = TIB_radical_immigrants
+		icon = GFX_focus_generic_communist
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_asian_communist_alignment
+
+        prerequisite ={ focus = TIB_asian_communist_alignment  }
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		completion_reward = {
+			add_political_power = 150
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisors_tt
+			show_ideas_tooltip = TIB_ishikawa_sanshiro	
+			show_ideas_tooltip = TIB_jiang_kanghu	
+			show_ideas_tooltip = TIB_liu_shifu	
+			show_ideas_tooltip = TIB_anarchist_council
+		
+		}
+	}
+	focus = {
+		id = TIB_establish_red_snow_brigades
+		icon = GFX_focus_AFG_royal_guard
+		x = -1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_spring_the_revolt
+
+        prerequisite ={ focus = TIB_spring_the_revolt }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_civil_war = no
+			NOT = {
+				has_idea = TIB_bureaucracy
+				has_idea = TIB_bureaucracy1
+
+			}
+		}
+		
+		completion_reward = {
+			IF = {
+				limit = {
+					has_intelligence_agency = no
+				}
+					create_intelligence_agency = { 
+						name = "The Red"
+						icon = GFX_intelligence_agency_logo_BRA_communist
+					}
+				}
+			upgrade_intelligence_agency = upgrade_passive_defense
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					has_idea = TIB_tibetan_army1
+				}
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army1
+					add_idea = TIB_tibetan_army2
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army2
+					add_idea = TIB_tibetan_army3
+				}				
+			}			
+		}
+	}
+	focus = {
+		id = TIB_infiltrate_red_snow_brigades
+		icon = GFX_focus_generic_infiltration
+		x = -2
+		y = 1
+		cost = 5
+        relative_position_id = TIB_establish_red_snow_brigades
+
+        prerequisite ={ focus = TIB_establish_red_snow_brigades }
+		mutually_exclusive = {focus = TIB_cast_down_our_neighbours}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_civil_war = no
+			is_ai = no
+		}
+		
+		completion_reward = {
+			add_ideas = TIB_lhasa_doctrine
+			custom_effect_tooltip =generic_skip_one_line_tt
+			NEP = {
+				add_timed_idea = { idea = communist_influence days = 730 }
+			}
+			BHU = {
+				add_timed_idea = { idea = communist_influence days = 730 }
+			}
+			XSM = {
+				add_timed_idea = { idea = communist_influence days = 730 }
+			}
+			AFG = {
+				add_timed_idea = { idea = communist_influence days = 730 }
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_unlock_decisions_to_turn_others_commie_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_odds_increase_commie_tt
+		}
+	}
+
+	focus = {
+		id = TIB_secure_the_wakhan_corridor
+
+		icon = GFX_focus_SWE_refuge_from_war
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_infiltrate_red_snow_brigades
+
+        prerequisite ={ focus = TIB_infiltrate_red_snow_brigades} 
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		bypass = {
+			619 = {
+				is_owned_and_controlled_by = TIB
+			}
+		}
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					TIB = {
+						controls_state = 287
+					}
+				}
+				619 = {
+					controller = {
+						country_event = TIB_ref.16
+					}
+				}
+			}ELSE = {
+				619 = {
+					controller = {
+						ROOT = {
+							create_wargoal = {
+								type = annex_everything
+								target = PREV
+							}			
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = TIB_if_control_taklamakan_you_can_event_get_yarkand_tt
+
+
+		}
+	}
+
+	focus = {
+		id = TIB_liberate_central_asia
+
+		icon = GFX_focus_AFG_integrate_tajik_and_uzbek_republics
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_secure_the_wakhan_corridor
+
+        prerequisite ={ focus = TIB_secure_the_wakhan_corridor} 
+        prerequisite ={ focus = TIB_himalayan_peoples_union} 
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			SOV = {
+				is_neighbor_of = TIB
+			}
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SOV
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SIK
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = TAN
+			}
+			add_war_support = 0.1
+			add_stability = -0.05
+			add_collaboration = {
+				target = SOV
+				value = 0.3
+			}
+			
+			SOV = {
+				add_stability = -0.05
+				add_war_support = -0.05
+			}
+			unlock_decision_tooltip = TIB_central_asian_union
+			custom_effect_tooltip = TIB_central_asian_union_tt
+
+		}
+	}
+	focus = {
+		id = TIB_himalayan_peoples_union
+		icon = GFX_SOV_socialist_realism_ccp_2d_sov_compatibility
+		x = 1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_infiltrate_red_snow_brigades
+        prerequisite ={ focus = TIB_infiltrate_red_snow_brigades focus = TIB_cast_down_our_neighbours}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR = {
+				BHU = {
+					is_puppet_of = TIB
+				}
+				324 = {
+					is_owned_by = TIB
+				}
+			}
+			OR = {
+				NEP = {
+					is_puppet_of = TIB
+				}
+				323 = { 
+					is_owned_by = TIB
+				}
+			}
+		}
+		
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					BHU = {
+						is_puppet_of = TIB
+					}
+				}
+				unlock_decision_tooltip = TIB_demand_BHU_secrets
+			
+			}
+			324 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				start_province = 4987
+				target_province = 5033
+			}
+			IF = {
+				LIMIT = {
+					NEP = {
+						is_puppet_of = TIB
+					}
+				}
+				unlock_decision_tooltip = TIB_request_NEP_blueprints
+		
+			}
+			323 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				start_province = 8010
+				target_province = 5033
+			}			
+			323 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						id = 12892
+					}
+				}
+			}
+			324 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						id = 8010
+						id = 12860
+					}
+				}
+			}
+			757 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						id = 2014
+						id = 4900
+					}
+				}
+			}
+		}
+	}
+
+		focus = {
+		id = TIB_cast_down_our_neighbours
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		x = 0
+		y = 1
+		cost = 5
+        relative_position_id = TIB_establish_red_snow_brigades
+
+        prerequisite ={ focus = TIB_establish_red_snow_brigades }
+		mutually_exclusive = {focus = TIB_infiltrate_red_snow_brigades}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_civil_war = no
+		}
+		
+		completion_reward = {
+			add_ideas = TIB_himalayan_red_tide
+			custom_effect_tooltip = generic_skip_one_line_tt
+			create_wargoal = {
+				type = annex_everything
+				target = NEP
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = RAJ
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = BHU
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = XSM
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SIK
+			}
+		}
+	}
+
+#democratic
+    # The Chinese name (Chinese: 西藏革命黨; pinyin: Xīzàng Gémìngdǎng) means "Tibet Revolutionary Party".[2] In English, it is known as the Tibet Improvement Party or alternatively the Tibetan Progressive Party.[3][4] The Tibetan name (Tibetan: ནུབ་བོད་ལེགས་བཅོས་སྐྱིད་སྡུག, Wylie: nub-bod-legs-bcos-skyid-sdug) translates as "West Tibet Reform Association".  
+	focus = {
+		id = TIB_legalize_the_tra
+		icon = GFX_focus_PER_subserviant_to_noone
+		x = 0
+		y = 1
+		cost = 5
+        relative_position_id = TIB_outside_influences
+        prerequisite ={ focus = TIB_outside_influences}
+
+		ai_will_do = {
+			factor = 5
+		}
+		mutually_exclusive = { focus = TIB_whispers_among_the_downtrodden focus = TIB_young_leader_tutor}
+		available = {
+            democratic > 0.1
+		}
+		
+
+		completion_reward = {
+			set_party_name = {
+				ideology = democratic
+				long_name = "Tibet Reform Association"
+				name =  "Tibet Reform Association"
+			}
+            add_political_power = 150 
+            swap_ideas = {
+                remove_idea = TIB_tibet_class_system2
+                add_idea = TIB_tibet_class_system_d
+            } 
+            custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = MON_recruit_advisors_tt
+            show_ideas_tooltip = TIB_gendun_chopel
+            show_ideas_tooltip = TIB_canlocen
+            show_ideas_tooltip = TIB_thubten_kunphela
+
+		}
+	}
+	focus = {
+		id = TIB_forward_guard_operations
+		prerequisite = { focus = TIB_legalize_the_tra}
+		relative_position_id = TIB_legalize_the_tra
+
+		icon = GFX_SOV_the_last_break_southward_ccp_2d_sov_compatibility
+		x = 3
+		y = 1
+		cost = 3
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			SIK = {
+				has_civil_war = yes
+			}
+		}
+			search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_war_support = 0.05
+			set_rule = {can_send_volunteers = yes}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_volunteer1
+				}
+					swap_ideas = {
+						remove_idea = TIB_volunteer1
+						add_idea = TIB_volunteer2
+					}
+			}ELSE = {
+				add_ideas = TIB_volunteer1
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TIB_send_support
+			custom_effect_tooltip = TIB_sending_support_tt
+
+		}
+	}
+
+	focus = {
+		id = TIB_influence_dalai_lama_d
+		icon = GFX_focus_GER_expand_gestapo
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_legalize_the_tra
+        prerequisite ={ focus = TIB_legalize_the_tra}
+
+		ai_will_do = {
+			factor = 1
+		}
+		mutually_exclusive = { focus = TIB_agitate_for_republicanism}
+		available = {
+            democratic > 0.15
+		}
+		
+
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			remove_ideas = TIB_young_dalai_lama
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				LIMIT = {
+					amount_taken_ideas = {
+						amount < 3
+						slots = {
+							political_advisor
+						}
+					}
+				}
+				activate_advisor = TIB_dalai_lama_d
+			}ELSE = {
+				random_character = {
+					LIMIT = {
+						is_political_advisor = yes
+						is_character_slot = political_advisor
+						is_hired_as_advisor = yes
+
+					}
+					deactivate_advisor = yes #THIS DOES NOT WORK - to do
+					custom_effect_tooltip = TIB_character_gets_fired_tt
+				}
+				activate_advisor = TIB_dalai_lama_d
+			}
+
+		}
+	}
+	focus = {
+		id = TIB_divide_spheres_with_raj
+		icon = GFX_focus_RAJ_seek_allies_with_the_muslim_league
+		x = -1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_influence_dalai_lama_d
+        prerequisite ={ focus = TIB_influence_dalai_lama_d}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            democratic > 0.25
+		}
+		
+
+		completion_reward = {
+			custom_effect_tooltip = TIB_req_nep_bhu_puppets_plus_NAP_tt
+			RAJ = {
+				country_event = TIB_political_events.42
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TIB_make_a_deal_with_RAJ
+			IF = {
+				LIMIT = {
+					RAJ = {
+						is_puppet_of = ENG
+					}
+				}
+				unlock_decision_tooltip = TIB_deepen_bonds_with_ENG
+			}
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+
+		}
+	}
+	focus = {
+		id = TIB_align_territory
+		icon = GFX_focus_CZE_german_puppet
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_divide_spheres_with_raj
+        prerequisite ={ focus = TIB_divide_spheres_with_raj}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            democratic > 0.35
+			OR = {
+				BHU = {
+					is_puppet_of = TIB
+				}
+				324 = {
+					is_owned_by = TIB
+				}
+			}
+			OR = {
+				NEP = {
+					is_puppet_of = TIB
+				}
+				323 = { 
+					is_owned_by = TIB
+				}
+			}
+		}
+		
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					BHU = {
+						is_puppet_of = TIB
+					}
+				}
+				unlock_decision_tooltip = TIB_demand_BHU_secrets
+
+				BHU = {
+					set_politics = {
+						ruling_party = democratic
+						elections_allowed = no
+					}	
+				}			
+			}
+			324 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				start_province = 4987
+				target_province = 5033
+			}
+			IF = {
+				LIMIT = {
+					NEP = {
+						is_puppet_of = TIB
+					}
+				}
+				unlock_decision_tooltip = TIB_request_NEP_blueprints
+				custom_effect_tooltip = TIB_work_with_tooltip_tt
+				NEP = {
+					set_politics = {
+						ruling_party = democratic
+						elections_allowed = no
+					}		
+				}		
+			}
+			323 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				start_province = 8010
+				target_province = 5033
+			}			
+
+		}
+	}		
+	focus = {
+		id = TIB_agitate_for_republicanism
+		icon = GFX_focus_generic_election
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_legalize_the_tra
+        prerequisite ={ focus = TIB_legalize_the_tra}
+
+		ai_will_do = {
+			factor = 1
+		}
+		mutually_exclusive = { focus = TIB_influence_dalai_lama_d}
+		available = {
+            democratic > 0.15
+		}
+		
+
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+
+		}
+	}
+
+	focus = {
+		id = TIB_constitutional_theocracy
+		icon = GFX_focus_TUR_the_sun_language_theory
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_divide_spheres_with_raj
+
+        prerequisite ={ focus = TIB_influence_dalai_lama_d }
+		prerequisite ={ focus = TIB_divide_spheres_with_raj}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            democratic > 0.45
+		}
+		
+		completion_reward = {
+			set_cosmetic_tag = TIB_unmonastic_commune
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hold_election = TIB
+			set_rule = {
+				can_create_factions = yes
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_recruit_advisor_tt
+            show_ideas_tooltip = TIB_parliament_theocracy
+		}
+
+	}
+	focus = {
+		id = TIB_our_moment_to_strike
+		icon = GFX_focus_attack_china
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_constitutional_theocracy
+
+        prerequisite ={ focus = TIB_constitutional_theocracy }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			CHI = {
+				has_war = yes
+			}
+		}
+				search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = CHI
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = XSM
+			}			
+			add_war_support = 0.1
+			add_stability = -0.05
+			add_collaboration = {
+				target = CHI
+				value = 0.3
+			}
+			CHI = {
+				add_stability = -0.05
+				add_war_support = -0.05
+			}
+		
+
+		}
+	}
+
+
+	focus = {
+		id = TIB_monastaries_for_the_people
+		icon = GFX_focus_AFG_parliamentary_democracy
+		x = -3
+		y = 1
+		cost = 5
+        relative_position_id = TIB_constitutional_theocracy
+
+        prerequisite ={ focus = TIB_constitutional_theocracy }
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		
+		completion_reward = {
+			add_ideas = TIB_revamped_monastaries
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TIB_religious_alignment_decision_of_FROM
+			custom_effect_tooltip= TIB_religious_alignment_tt
+			capital_scope = {
+				add_dynamic_modifier = { modifier = centre_of_mongol_belief}
+			}
+		}
+	}
+	focus = { #relocate
+		id = TIB_modernisation_drive
+		icon = GFX_focus_generic_university_2
+		x = 1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_influence_dalai_lama_d
+
+        prerequisite ={ focus = TIB_influence_dalai_lama_d focus = TIB_agitate_for_republicanism}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy
+				}
+				swap_ideas = {
+					remove_idea = TIB_bureaucracy
+					add_idea = TIB_bureaucracy1
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy1
+				}
+				remove_ideas = TIB_bureaucracy1
+			}		
+
+			remove_ideas = TIB_tibet_class_system_d
+
+
+		}
+	}
+
+	focus = {
+		id = TIB_the_fight_against_fascism
+		icon = GFX_focus_GER_ally_chiang_kai_shek
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_agitate_for_republicanism
+
+        prerequisite ={ focus = TIB_agitate_for_republicanism}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            democratic > 0.3
+			CHI = {
+				has_war = yes
+			}
+		}
+		
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					CHI = {is_in_faction = yes}
+					}
+				CHI = { add_to_faction = TIB }
+
+			}
+			IF = {
+				LIMIT = {
+					CHI = {
+						has_war = yes
+					}	
+				}
+				every_other_country = {
+						LIMIT = {
+							has_war_with = CHI
+						}
+						TIB = {
+							add_to_war = {
+								targeted_alliance = CHI
+								enemy = PREV
+								hostility_reason = asked_to_join
+							}
+						}
+				}
+			}ELSE={
+				custom_effect_tooltip = TIB_join_CHI_war_tt
+			}
+			CHI = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = AST_commitment_to_the_cause
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_reaching_the_front
+		icon = GFX_focus_generic_railroad
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_the_fight_against_fascism
+
+        prerequisite ={ focus = TIB_the_fight_against_fascism }        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war_together_with = CHI
+		}
+				search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			all_country = {
+				LIMIT = {has_war_together_with = ROOT}
+					give_military_access = ROOT
+
+			}
+			IF = {
+				LIMIT = {
+					CHI = {
+						has_war = no
+					}
+				}
+				custom_effect_tooltip = TIB_rail_to_capital_tt
+			}ELSE = {
+				build_railway = {
+					level = 2
+					build_only_on_allied = yes
+					start_province = 9934
+					target_province = 5033
+				}
+			}
+
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}				
+			}	
+		}
+	}
+
+	focus = {
+		id = TIB_republic_tibet
+		icon = GFX_focus_chi_legislative_yuan
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_modernisation_drive
+
+        prerequisite ={ focus = TIB_agitate_for_republicanism }        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            democratic > 0.4
+		}
+		bypass = {
+			has_government = democratic
+		}
+		
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_completed_focus = TIB_religious_equality
+				}
+				set_cosmetic_tag = TIB_unmonastic_commune
+			}
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+				election_frequency = 48
+				last_election = "1936.12.17"
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hold_election = TIB
+			set_rule = {
+				can_create_factions = yes
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_recruit_advisor_tt
+            show_ideas_tooltip = TIB_parliament_republic
+		
+		}
+	}
+
+	focus = {
+		id = TIB_further_alignment
+		icon = GFX_focus_chi_examination_yuan
+		x = 3
+		y = 1
+		cost = 10
+        relative_position_id = TIB_republic_tibet
+
+        prerequisite ={ focus = TIB_republic_tibet }        
+
+		ai_will_do = {
+			factor = 1
+		}
+		cancel_if_invalid = yes
+		available = {
+			NOT = {
+				has_war_with = CHI
+			}
+		}
+		#buffs china and tibet
+				search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			CHI = {
+				country_event = TIB_political_events.1
+				random_core_state = {
+					LIMIT = {
+						is_owned_by = CHI
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					LIMIT = {
+						is_owned_by = CHI
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			TIB = {
+				random_core_state = {
+					LIMIT = {
+						is_owned_by = TIB
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					LIMIT = {
+						is_owned_by = TIB
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}			
+
+		}
+	}
+	focus = {
+		id = TIB_business_with_warlords
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		x = 0
+		y = 1
+		cost = 5
+        relative_position_id = TIB_further_alignment
+
+        prerequisite ={ focus = TIB_further_alignment }        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR = {
+				country_exists = YUN
+				country_exists = XSM
+				country_exists = GXC
+				country_exists = SHX
+				country_exists = MEN
+				country_exists = MAN
+			}
+		}
+		
+		completion_reward = {
+			unlock_decision_tooltip = TIB_obtain_GXC_resources
+			unlock_decision_tooltip = TIB_XSM_joint_operations
+			unlock_decision_tooltip = TIB_reach_out_to_YUN
+			unlock_decision_tooltip = TIB_request_SHX_guidance
+			unlock_decision_tooltip = TIB_collaborate_with_MAN
+			unlock_decision_tooltip = TIB_work_with_MEN
+			custom_effect_tooltip = TIB_work_with_tooltip_tt
+
+		}
+	}
+
+	focus = {
+		id = TIB_responsible_expansionism
+		icon = GFX_focus_generic_annex_country_2
+		x = 1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_republic_tibet
+
+        prerequisite ={ focus = TIB_republic_tibet }        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_ai = no
+		}
+		#referendum
+		
+		completion_reward = {
+			unlock_decision_tooltip = TIB_referendum_in_yarkand
+			unlock_decision_tooltip = TIB_referendum_in_golog
+			unlock_decision_tooltip = TIB_referendum_in_gansu
+			unlock_decision_tooltip = TIB_referendum_in_gannan
+			unlock_decision_tooltip = TIB_referendum_in_ganzi
+			unlock_decision_tooltip = TIB_referendum_in_liangshan
+		}
+	}
+
+	focus = {
+		id = TIB_cast_down_the_thunder_dragon
+		icon = GFX_focus_generic_attack_bhutan
+		x = 1
+		y = 2
+		cost = 5
+        relative_position_id = TIB_responsible_expansionism
+
+        prerequisite ={ focus = TIB_responsible_expansionism }        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = BHU
+			}
+			add_war_support = 0.1
+			add_stability = -0.05
+			add_collaboration = {
+				target = BHU
+				value = 0.3
+			}
+			BHU = {
+				add_stability = -0.05
+				add_war_support = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_liberate_arunachal_pradesh
+		icon = GFX_focus_generic_attack_india
+		x = 0
+		y = 1
+		cost = 5
+        relative_position_id = TIB_responsible_expansionism
+
+        prerequisite ={ focus = TIB_responsible_expansionism }        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		
+		completion_reward = {
+			add_state_core = 434
+			create_wargoal = {
+				type = annex_everything
+				target = RAJ
+			}
+			add_war_support = 0.1
+			add_stability = -0.05
+			add_collaboration = {
+				target = RAJ
+				value = 0.3
+			}
+			
+			RAJ = {
+				add_stability = -0.05
+				add_war_support = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_liberate_himalayan_people
+		icon = GFX_focus_generic_attack_nepal
+		x = -1
+		y = 2
+		cost = 5
+        relative_position_id = TIB_responsible_expansionism
+
+        prerequisite ={ focus = TIB_responsible_expansionism }        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = NEP
+			}
+			add_war_support = 0.1
+			add_stability = -0.05
+			add_collaboration = {
+				target = NEP
+				value = 0.3
+			}
+			NEP = {
+				add_stability = -0.05
+				add_war_support = -0.05
+			}
+		}
+	}		
+
+	focus = {
+		id = TIB_collaborate_with_british
+		icon = GFX_focus_generic_british_trade
+		x = 0
+		y = 2
+		cost = 10
+        relative_position_id = TIB_constitutional_theocracy
+
+        prerequisite ={ focus = TIB_constitutional_theocracy }
+     
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			ENG = {
+				has_war = yes	
+			}	
+		}
+
+	
+		completion_reward = {
+			ENG = {
+				give_guarantee = TIB
+			}
+			IF = {
+				LIMIT = {
+					ENG = {
+						has_war = yes
+					}	
+				}
+				every_other_country = {
+						LIMIT = {
+							has_war_with = ENG
+						}
+						TIB = {
+							add_to_war = {
+								targeted_alliance = ENG
+								enemy = PREV
+								hostility_reason = asked_to_join
+							}
+						}
+				}
+			}ELSE={
+				custom_effect_tooltip = TIB_join_ENG_war_tt
+			}
+			ENG = {
+				add_opinion_modifier = {
+					target = TIB
+					modifier = AST_commitment_to_the_cause
+				}
+			}
+			IF = {
+				LIMIT = {
+					RAJ = {
+						is_puppet_of = ENG
+						432 = {
+							is_controlled_by = RAJ
+						}
+					}
+					TIB = {
+						owns_any_state_of = {
+							434
+							324
+						}
+					}
+				}
+				TIB = {
+					set_state_owner	= 432
+					set_state_controller = 432
+					add_state_core = 432
+				}
+			}
+			IF = {
+				LIMIT = {
+					BRM = {
+						is_puppet_of = ENG
+					}
+					TIB = {
+						owns_any_state_of = {
+							434
+							990
+						}
+					}
+				}
+				TIB = {
+					puppet = BRM
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_regional_pressure
+		icon = GFX_focus_generic_democratic_europe
+		x = -2
+		y = 2
+		cost = 10
+        relative_position_id = TIB_constitutional_theocracy
+
+        prerequisite ={ focus = TIB_constitutional_theocracy }
+     
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_ai = no
+		}
+
+		
+		completion_reward = {
+			unlock_decision_tooltip = TIB_referendum_in_sikkim
+			unlock_decision_tooltip = TIB_referendum_in_pradesh
+			unlock_decision_tooltip = TIB_referendum_in_kashmir
+			unlock_decision_tooltip = TIB_referendum_in_northkashmir
+			unlock_decision_tooltip = TIB_referendum_in_manipur
+		}
+	}
+
+	focus = {
+		id = TIB_tibetan_law
+		icon = GFX_focus_AUS_lawmaking_leniency
+		x = -1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_republic_tibet
+
+        prerequisite ={ focus = TIB_republic_tibet focus = TIB_constitutional_theocracy}        
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+				search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = TIB_democratic_law
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {
+					has_intelligence_agency = no
+				}
+					create_intelligence_agency = { 
+						name = "Tibetan Enforcement Agency"
+						icon = GFX_intelligence_agency_logo_COG_snip
+					}
+				}
+			upgrade_intelligence_agency = upgrade_training_centers
+		}
+	}
+
+# commie - demo
+	focus = {
+		id = TIB_request_compensation
+		icon = GFX_focus_generic_concessions
+		x = 3
+		y = 1
+		cost = 5
+        relative_position_id = TIB_the_fight_against_fascism
+
+        prerequisite ={ focus = TIB_the_fight_against_fascism focus = TIB_the_fight_against_imperialism} 
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_ai = no
+			NOT = {
+				CHI = {has_war_with = JAP}
+				CHI = {has_war_with = PRC}
+				PRC = {has_war_with = JAP}
+			}
+	
+		}
+		
+		completion_reward = {
+			601 = {
+				controller = {
+					country_event = TIB_political_events.68
+				}
+			}
+			604 = {
+				controller = {
+					country_event = TIB_political_events.69
+				}
+			}
+			755 = {
+				controller = {
+					country_event = TIB_political_events.70
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_a_safe_northern_border
+		icon = GFX_focus_SWE_refuge_from_war
+		x = -2
+		y = 1
+		cost = 5
+        relative_position_id = TIB_secure_border
+
+        prerequisite ={ focus = TIB_secure_border focus = TIB_forward_guard_operations} 
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			IF = {
+				LIMIT = {
+					has_completed_focus = TIB_secure_border
+				}
+				SIK = {
+					has_civil_war = no
+					has_government = MON
+				}
+			}ELSE = {
+				SIK = {
+					has_civil_war = no
+					NOT={has_government = communism}
+				}
+			}	
+
+			is_ai = no
+		}
+		bypass = {
+			759 = {
+				is_owned_and_controlled_by = TIB
+			}
+			287 = {
+				is_owned_and_controlled_by = TIB
+			}
+		}
+		completion_reward = {
+			759 = {
+				controller = {
+					country_event = TIB_political_events.66
+				}
+			}
+			287 = {
+				controller = {
+					country_event = TIB_political_events.67
+				}
+			}
+
+		}
+	}
+# other political path
+	focus = {
+		id = TIB_stem_refugee_flow
+		icon = GFX_goal_fortify_the_westwall
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_internal_matters}
+        relative_position_id = TIB_internal_matters
+        mutually_exclusive = {focus = TIB_welcome_refugee_flow}
+
+		ai_will_do = {
+			factor = 9
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+            add_stability = 0.15
+            every_core_state = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+						level < 3
+					}
+				}
+            }
+		}
+	}
+    
+    focus = {
+		id = TIB_internal_matters
+		icon = GFX_SOV_annex_tannu_tuva_ccp_2d_sov_compatibility
+		x = 3
+		y = -1
+		cost = 5
+        relative_position_id = TIB_whispers_among_the_downtrodden
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            has_stability > 0.5
+		}
+		bypass = {
+			NOT = {
+				OR = {
+				has_idea = TIB_bureaucracy
+				has_idea = TIB_bureaucracy1
+				}
+			}
+		}
+		completion_reward = {     
+			IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy
+				}
+				swap_ideas = {
+					remove_idea = TIB_bureaucracy
+					add_idea = TIB_bureaucracy1
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_bureaucracy1
+				}
+				remove_ideas = TIB_bureaucracy1
+			}
+
+		}
+	}
+
+	focus = {
+		id = TIB_welcome_refugee_flow
+		icon = GFX_focus_SWE_refuge_from_war
+		x = -2
+		y = 0
+		cost = 5
+        mutually_exclusive = {focus = TIB_stem_refugee_flow}
+        relative_position_id = TIB_stem_refugee_flow
+        prerequisite = {focus = TIB_internal_matters}
+		search_filters = {FOCUS_FILTER_MANPOWER}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			TIB = {has_war = no}
+			any_country = {
+				has_war = yes
+				capital_scope = {is_on_continent = asia}
+			}
+		}
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					OR = {
+						has_completed_focus = TIB_subsidize_on_crops
+						has_completed_focus = TIB_support_animal_herds
+					}
+				}
+				add_stability = 0.05
+			}ELSE = {
+				add_stability = -0.15
+				custom_effect_tooltip = TIB_no_stab_hit_if_crops_or_herds_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_war_refuge_tt
+			every_country = {
+				LIMIT = {
+					capital_scope = {   
+						is_on_continent = asia
+					}
+					has_war = yes
+				}
+				PREV = {
+					add_opinion_modifier = {
+						target = TIB
+						modifier = JUNO_promoted_immigration
+					}
+				}
+				TIB = {
+					add_manpower = 25000
+					random_core_state = {
+						LIMIT = {
+							is_owned_by = TIB
+						}
+						add_manpower = 100000
+					}
+				}
+			}
+
+		}
+	}
+
+	focus = {
+		id = TIB_religious_equality
+		icon = GFX_goal_generic_national_unity
+		x = 2
+		y = 0
+		cost = 5
+        mutually_exclusive = {focus = TIB_bhuddist_supremacy focus = TIB_arm_chinese_communists}
+        relative_position_id = TIB_arm_chinese_communists
+
+		ai_will_do = {
+			factor = 1
+		}
+        prerequisite = {focus = TIB_welcome_refugee_flow focus = TIB_stem_refugee_flow }
+
+		available = {
+			NOT = {
+				has_government = neutrality
+				has_completed_focus = TIB_influence_dalai_lama_d
+				has_completed_focus = TIB_cultural_revolution
+			}
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+            add_stability = 0.1
+            remove_ideas = TIB_religious_minorities
+            remove_ideas = TIB_spiritual_society
+            custom_effect_tooltip = generic_skip_one_line_tt
+            add_ideas = TIB_equal_beliefs
+            custom_effect_tooltip = TIB_communist_danger_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+            custom_effect_tooltip = TIB_integrate_religious_minorities
+		}
+	}
+
+	focus = {
+		id = TIB_bhuddist_supremacy
+		icon = GFX_focus_ITA_guardia_nazionale_repubblicana
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_stem_refugee_flow}
+        mutually_exclusive = {focus = TIB_religious_equality}
+        relative_position_id = TIB_stem_refugee_flow
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR = {
+				has_completed_focus = TIB_influence_dalai_lama_d
+				has_government = neutrality
+			}
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+            add_stability = 0.05
+
+            remove_ideas = TIB_religious_minorities
+
+			swap_ideas = {
+                remove_idea = TIB_spiritual_society
+                add_idea = TIB_spiritual_society_fanatic
+            }
+			custom_effect_tooltip = TIB_integrate_bhuddist_minorities
+		}
+	}
+
+
+# industry tree
+    
+    focus = {
+		id = TIB_a_feudal_industry
+		icon = GFX_SOV_respect_baltic_self_determination_ccp_2d_sov_compatibility
+		x = 8
+		y = 0
+		cost = 5
+        relative_position_id = TIB_internal_matters
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+            has_stability > 0.25
+		}
+		completion_reward = {     
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
+			}	
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}	
+		}
+	}
+	focus = {
+		id = TIB_arm_tibet
+		icon = GFX_goal_generic_construct_mil_factory
+		x = -3
+		y = 1
+		cost = 10
+        relative_position_id = TIB_a_feudal_industry
+        prerequisite = {focus = TIB_a_feudal_industry}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		ai_will_do = {
+			factor = 3
+		}
+		available = {
+			has_war_support > 0.2
+		}
+		completion_reward = {     
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+    focus = {
+		id = TIB_modern_state_academy
+		icon = GFX_SOV_national_academies_of_sciences_ccp_2d_sov_compatibility
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_reform_the_system
+        prerequisite = {focus = TIB_serfs_by_other_names focus = TIB_reform_the_system}
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_stability > 0.4
+		}
+		completion_reward = {     
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = TIB_oil_fuel
+		icon = GFX_focus_PER_invite_oil_nations
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_modern_state_academy
+        prerequisite = {focus = TIB_modern_state_academy}
+
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {    
+			add_resource = {
+				type = oil
+				amount = 8
+				state = 758
+			}
+			add_offsite_building = { type = arms_factory level = 1 } 
+		}
+	}
+
+	focus = {
+		id = TIB_refine_coal
+		icon = GFX_focus_PER_increase_oil_sales
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_oil_fuel
+        prerequisite = {focus = TIB_oil_fuel}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {     
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TIB_you_will_unlock_industrial_concern_tt
+			show_ideas_tooltip = TIB_petrol 
+		}
+	}
+	focus = {
+		id = TIB_resource_effort
+		icon = GFX_focus_GER_factories_for_resources
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_refine_coal
+        prerequisite = {focus = TIB_refine_coal}
+        prerequisite = {focus = TIB_electrify_country}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {   
+			  
+			add_tech_bonus = {
+				bonus = 0.7
+				uses = 2
+				category = excavation_tech
+			}
+		}
+	}
+	focus = {
+		id = TIB_resource_mining_alu
+		icon = GFX_focus_generic_aluminum
+		x = -3
+		y = 1
+		cost = 10
+        relative_position_id = TIB_resource_effort
+        prerequisite = {focus = TIB_resource_effort}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {     
+			add_resource = {
+				type = aluminium
+				amount = 10
+				state = 758
+			}		
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_resource_mining_steel_tungsten
+		icon = GFX_focus_generic_mining_industry
+		x = -1
+		y = 1
+		cost = 10
+        relative_position_id = TIB_resource_effort
+        prerequisite = {focus = TIB_resource_effort}
+
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {     
+			add_resource = {
+				type = steel
+				amount = 25
+				state = 322
+			}
+			add_resource = {
+				type = tungsten
+				amount = 10
+				state = 322
+			}
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_putting_it_to_use
+		icon = GFX_focus_generic_reorient_production
+		x = 1
+		y = 1
+		cost = 12
+        relative_position_id = TIB_resource_effort
+        prerequisite = {focus = TIB_resource_effort}
+		prerequisite = {focus = TIB_modern_construction}
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {     
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_dams_for_power
+		icon = GFX_focus_generic_hydroelectric_energy
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_modern_state_academy
+        prerequisite = {focus = TIB_modern_state_academy}
+
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {    
+			757 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 8121
+					}				
+			
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+			custom_effect_tooltip = after_completion_will_unlock_more_decisions_based_on_path_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			757 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_you_will_unlock_industrial_concern_tt
+			show_ideas_tooltip = TIB_rigzin_dorje_ringang 
+
+
+		}
+	}
+	focus = {
+		id = TIB_production_modernisation
+		icon = GFX_focus_generic_tank_assembly
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_dams_for_power
+        prerequisite = {focus = TIB_dams_for_power}
+
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {    
+			add_ideas =  TIB_factory_effort1
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_production_scaling
+		icon = GFX_focus_generic_modernize_industry
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_production_modernisation
+        prerequisite = {focus = TIB_production_modernisation}
+
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {     
+			IF = {
+				LIMIT = {
+					NOT = {
+						has_idea = war_economy
+					}
+				}
+				add_ideas = war_economy
+			}
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = TIB_modern_construction
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_production_modernisation
+        prerequisite = {focus = TIB_production_modernisation}
+
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {  
+			swap_ideas = {
+				remove_idea = TIB_factory_effort1
+				add_idea = TIB_factory_effort2
+			}   
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_villages_to_cities
+		icon = GFX_focus_generic_low_cost_housing
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_modern_construction
+        prerequisite = {focus = TIB_modern_construction}
+
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			add_stability = 0.1
+			if = {
+				limit = {
+					757 = { #capital
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				757 = { set_state_category = large_city 				
+				add_extra_state_shared_building_slots = 1
+}
+	
+			}
+			if = {
+				limit = {
+					323 = { #nepal
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				323 = { set_state_category = large_city 				
+				add_extra_state_shared_building_slots = 1
+}
+			}
+			if = {
+				limit = {
+					324 = { #bhutan
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				324 = { set_state_category = large_city 				
+				add_extra_state_shared_building_slots = 1
+}
+			}
+		}
+	}
+
+	
+	focus = {
+		id = TIB_electrify_country
+		icon = GFX_focus_generic_energy
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = TIB_oil_fuel
+        prerequisite = {focus = TIB_oil_fuel focus = TIB_dams_for_power}
+
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			unlock_decision_tooltip = TIB_electrify_FROM
+			custom_effect_tooltip = TIB_eleftrify_tt
+			757 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_reaching_places
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 3
+		y = 1
+		cost = 10
+        prerequisite = {focus = TIB_a_feudal_industry}
+        relative_position_id = TIB_a_feudal_industry
+
+		ai_will_do = {
+			factor = 6
+		}
+		available = {
+			num_of_civilian_factories > 5
+		}
+
+		completion_reward = {
+			#spirit for supply hubs and railways
+			IF = {
+				limit = {
+					NOT = { has_tech = basic_train }
+				}
+				set_technology = { 
+					basic_train = 1
+					popup = no
+				}
+			}
+			add_equipment_to_stockpile = { 
+				type = train_equipment_1
+				amount = 15 
+				producer = RAJ
+			}
+			758 = {
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = {
+						id = 1961
+					}
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = TIB
+						add = 2
+					}
+				}
+				start_province = 5033
+				target_province = 1961
+			}			
+			322 = {
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = {
+						id = 5011
+					}
+				}				
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = TIB
+						add = 2
+					}
+				}
+				start_province = 5033
+				target_province = 5011
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = TIB_you_will_unlock_industrial_concern_tt
+			show_ideas_tooltip = TIB_state_infrastructure
+		}
+	}
+
+	
+
+	focus = {
+		id = TIB_tibetan_plateau_agriculture
+		icon = GFX_focus_generic_farmland
+		x = 7
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_a_feudal_industry}
+        relative_position_id = TIB_a_feudal_industry
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_ideas = TIB_agri
+		}
+	}
+	focus = {
+		id = TIB_opium_trade
+		icon = GFX_focus_RAJ_legalize_the_opium_trade
+		x = -1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_tibetan_plateau_agriculture}
+        relative_position_id = TIB_tibetan_plateau_agriculture
+		mutually_exclusive = {focus = TIB_soldier_poppies}
+		ai_will_do = {
+			factor = 5
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		available = {
+		}
+
+		completion_reward = {
+			add_stability = 0.1
+			swap_ideas = {
+				remove_idea = TIB_agri
+				add_idea = TIB_agri_trade
+			}
+		}
+	}
+	focus = {
+		id = TIB_soldier_poppies
+		icon = GFX_focus_SWE_rations
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_tibetan_plateau_agriculture}
+        relative_position_id = TIB_tibetan_plateau_agriculture
+		mutually_exclusive = {focus = TIB_opium_trade}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_war_support = 0.1
+			swap_ideas = {
+				remove_idea = TIB_agri
+				add_idea = TIB_agri_soldier
+			}		
+		}
+	}
+	focus = {
+		id = TIB_centralize_farming
+		icon = GFX_goal_generic_major_alliance
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_soldier_poppies focus = TIB_opium_trade}
+        relative_position_id = TIB_opium_trade
+		mutually_exclusive = {focus = TIB_citizen_farmlands}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+
+		}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_agri_soldier
+					add_idea = TIB_central_agri_soldier
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_agri_trade
+				}
+				swap_ideas = {
+					remove_idea = TIB_agri_trade
+					add_idea = TIB_central_agri_trade
+				}
+			}ELSE = {
+				custom_effect_tooltip = TIB_centr_farms_effect_tt
+			}
+		}
+	}
+	focus = { 
+		id = TIB_citizen_farmlands
+		icon = GFX_focus_generic_public_works
+		x = 2
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_soldier_poppies focus = TIB_opium_trade}
+        relative_position_id = TIB_opium_trade
+		mutually_exclusive = {focus = TIB_centralize_farming}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_agri_soldier
+					add_idea = TIB_citz_agri_soldier
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_agri_trade
+				}
+				swap_ideas = {
+					remove_idea = TIB_agri_trade
+					add_idea = TIB_citz_agri_trade
+				}
+			}ELSE = {
+				custom_effect_tooltip = TIB_citizen_farms_effect_tt
+			}
+		}
+	}
+	focus = {
+		id = TIB_subsidize_on_crops
+		icon = GFX_focus_generic_agricultural_subsidies
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_citizen_farmlands focus = TIB_centralize_farming}
+        relative_position_id = TIB_centralize_farming
+		mutually_exclusive = {focus = TIB_support_animal_herds}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_central_agri_trade
+				}
+				swap_ideas = {
+					remove_idea = TIB_central_agri_trade
+					add_idea = TIB_sub_central_agri_trade
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_central_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_central_agri_soldier
+					add_idea = TIB_sub_central_agri_soldier
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_citz_agri_trade
+				}
+				swap_ideas = {
+					remove_idea = TIB_citz_agri_trade
+					add_idea = TIB_sub_citz_agri_trade
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_citz_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_citz_agri_soldier
+					add_idea = TIB_sub_citz_agri_soldier
+				}			
+			}ELSE = {
+				custom_effect_tooltip = TIB_sub_crops_effect_tt
+			}
+	
+		}
+	}
+
+	focus = {
+		id = TIB_support_animal_herds
+		icon = GFX_focus_generic_sheep
+		x = 2
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_citizen_farmlands focus = TIB_centralize_farming}
+        relative_position_id = TIB_centralize_farming
+		mutually_exclusive = {focus = TIB_subsidize_on_crops}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_idea = TIB_central_agri_trade
+				}
+					swap_ideas = {
+					remove_idea = TIB_central_agri_trade
+					add_idea = TIB_bal_central_agri_trade
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_central_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_central_agri_soldier
+					add_idea = TIB_bal_central_agri_soldier
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_citz_agri_trade
+				}
+				swap_ideas = {
+					remove_idea = TIB_citz_agri_trade
+					add_idea = TIB_bal_citz_agri_trade
+				}
+			}ELSE_IF = {
+				LIMIT = {
+					has_idea = TIB_citz_agri_soldier
+				}
+				swap_ideas = {
+					remove_idea = TIB_citz_agri_soldier
+					add_idea = TIB_bal_citz_agri_soldier
+				}			
+			}ELSE = {
+				custom_effect_tooltip = TIB_herd_effect_tt
+			}
+	
+		}
+	}
+	focus = {
+		id = TIB_state_carpet_factory
+		icon = GFX_focus_CHL_enlarge_the_textile_industries
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_support_animal_herds focus = TIB_subsidize_on_crops}
+        relative_position_id = TIB_subsidize_on_crops
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			random_owned_state	 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}				
+				}
+		}
+	}
+	focus = {
+		id = TIB_civ_economy
+		icon = GFX_SOV_planned_economy_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		cost = 10
+        prerequisite = {focus = TIB_state_carpet_factory }
+        relative_position_id = TIB_state_carpet_factory
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			add_stability = 0.1
+			IF = {
+				LIMIT = {
+					has_idea = free_trade
+				}
+				swap_ideas = {
+					remove_idea = free_trade
+					add_idea = export_focus
+				}
+			}
+			IF = {
+				LIMIT = {
+					has_idea = export_focus
+				}
+				swap_ideas = {
+					remove_idea = export_focus
+					add_idea = limited_exports
+				}
+			}
+			IF = {
+				LIMIT = {
+					has_idea = limited_exports
+				}
+				swap_ideas = {
+					remove_idea = limited_exports
+					add_idea = closed_economy
+				}
+			}
+		}
+	}		
+	focus = {
+		id = TIB_factory_serfs
+		icon = GFX_focus_GER_integrated_economies
+		x = -1
+		y = 1
+		cost = 10
+        prerequisite = {focus = TIB_serfs_by_other_names}
+        relative_position_id = TIB_serfs_by_other_names
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_cheap_labor
+		icon = GFX_SOV_the_trade_union_as_labor_organizer_ccp_2d_sov_compatibility
+		x = 1
+		y = 1
+		cost = 10
+        prerequisite = {focus = TIB_reform_the_system}
+        relative_position_id = TIB_reform_the_system
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}				
+			}
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_reform_the_system
+		icon = GFX_focus_DEN_no_regulations
+		x = 1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_a_feudal_industry}
+        mutually_exclusive = {focus = TIB_serfs_by_other_names}
+        relative_position_id = TIB_a_feudal_industry
+
+		ai_will_do = {
+			factor = 8
+		}
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = democratic
+				has_government = communism
+			}
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 } 
+			add_ideas = TIB_reform_0
+		}
+	}
+
+	focus = {
+		id = TIB_reduce_inequality
+		icon = GFX_focus_AUS_womens_education_initiative
+		x = 3
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_reform_the_system}
+        relative_position_id = TIB_reform_the_system
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = TIB_education_effort
+				days = 200
+			}
+			swap_ideas = {
+				remove_idea = TIB_reform_0
+				add_idea = TIB_reform_1
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_land_reform
+		icon = GFX_goal_generic_neutrality_focus
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_reduce_inequality}
+        relative_position_id = TIB_reduce_inequality
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		completion_reward = {
+			every_state = {
+				LIMIT = {
+					is_controlled_by = TIB
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			every_state = {
+				LIMIT = {
+					is_controlled_by = TIB
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {
+		id = TIB_finish_the_reformation
+		icon = GFX_SOV_reformalize_the_role_of_the_patriarchate_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_land_reform}
+        relative_position_id = TIB_land_reform
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+
+		}
+
+		completion_reward = {
+			IF = {
+				LIMIT = {
+					has_government = communism
+				}
+				add_popularity = {
+                	ideology = communism
+                	popularity = 0.25
+           		}
+			}ELSE_IF = {
+				LIMIT = {
+					has_government = fascism
+				}
+				add_popularity = {
+                	ideology = fascism
+                	popularity = 0.25
+           		}
+			}ELSE_IF={
+				LIMIT = {
+					has_government = neutrality
+				}		
+				add_popularity = {
+                	ideology = neutrality
+                	popularity = 0.25
+           		}	
+			}ELSE_IF ={
+				LIMIT = {
+					has_government = democratic
+				}
+				add_popularity = {
+                	ideology = democratic
+                	popularity = 0.25
+           		}
+			}
+			
+			swap_ideas = {
+				remove_idea = TIB_reform_1
+				add_idea = TIB_reform_2
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_serfs_by_other_names
+		icon = GFX_focus_DEN_heavy_regulations
+		x = -1
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_a_feudal_industry}
+        mutually_exclusive = {focus = TIB_reform_the_system}
+        relative_position_id = TIB_a_feudal_industry
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+				has_government = communism
+
+			}
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			add_ideas = TIB_feudalism_0
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+
+
+	focus = {
+		id = TIB_empower_specific_groups
+		icon = GFX_focus_BEL_belgian_gates
+		x = -2
+		y = 0
+		cost = 5
+        prerequisite = {focus = TIB_serfs_by_other_names}
+        relative_position_id = TIB_factory_serfs
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			random_owned_state	 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}				
+			}
+			swap_ideas = {
+				remove_idea = TIB_feudalism_0
+				add_idea = TIB_feudalism_1
+			}
+		}
+	}
+	focus = {
+		id = TIB_control_the_middle_division
+		icon = GFX_focus_BEL_government_resigns
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_empower_specific_groups}
+        relative_position_id = TIB_empower_specific_groups
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = TIB_reduce_resistance_to_ash
+				days = 150
+			}
+			swap_ideas = {
+				remove_idea = TIB_feudalism_1
+				add_idea = TIB_feudalism_2
+			}
+		}
+	}
+	focus = {
+		id = TIB_keep_the_lower_division_placated
+		icon = GFX_focus_BEL_la_dame_blanche
+		x = 0
+		y = 1
+		cost = 5
+        prerequisite = {focus = TIB_control_the_middle_division}
+        relative_position_id = TIB_control_the_middle_division
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			
+		}
+		search_filters = {FOCUS_FILTER_STABILITY}
+
+		completion_reward = {
+			add_stability = 0.1
+			swap_ideas = {
+				remove_idea = TIB_feudalism_2
+				add_idea = TIB_feudalism_3
+			}
+		}
+	}
+
+# army tree
+    focus = {
+		id = TIB_start_overhauling_army
+		icon = GFX_focus_generic_manpower
+		x = 11
+		y = -1
+		cost = 10
+        relative_position_id = TIB_tibetan_plateau_agriculture
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            has_war_support > 0.25
+		}
+		completion_reward = { 
+			set_rule = {can_send_volunteers = yes}
+			IF = {
+				LIMIT = {
+					has_idea = TIB_volunteer1
+				}
+				swap_ideas = {
+					remove_idea = TIB_volunteer1
+					add_idea = TIB_volunteer2
+				}
+			}ELSE = {
+					add_ideas = TIB_volunteer1
+			}    
+			IF = {
+				LIMIT = {
+					has_idea = TIB_tibetan_army1
+				}
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army1
+					add_idea = TIB_tibetan_army2
+				}
+			}ELSE = {
+				swap_ideas = {
+					remove_idea = TIB_tibetan_army2
+					add_idea = TIB_tibetan_army3
+				}				
+			}
+		}
+	}
+	focus = {
+		id = TIB_issue_promotions
+		icon = GFX_focus_PAR_put_estigarribia_on_a_pedestal
+		x = -3
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army }
+
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+		search_filters = {FOCUS_FILTER_ARMY_XP}
+
+		completion_reward = {     
+			army_experience = 75
+
+			add_ideas = TIB_modern_officer_corps
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = TIB_supply_improvements
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		x = 3
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army }
+
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			add_ideas = TIB_supplying_mountain_troops
+		}
+	}		
+    focus = {
+		id = TIB_engineer_corps
+		icon = GFX_SOV_pc_of_mechanical_engineering_ccp_2d_sov_compatibility
+		x = -5
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army}
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 4
+		}
+		available = {
+
+		}
+		completion_reward = {    
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = construction_tech
+			} 
+			add_ideas = elevated_engineering_corps_spirit
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = TIB_fortification_focus
+		icon = GFX_focus_generic_mountain_fortification
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_engineer_corps}
+        relative_position_id = TIB_engineer_corps
+
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			every_core_state = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_forward_engineering_operations
+		icon = GFX_focus_FIN_the_cold_front
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_fortification_focus}
+		prerequisite = {focus = TIB_modernize_cannons}
+
+        relative_position_id = TIB_modernize_cannons
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			hidden_effect = {
+				division_template = {
+					name = "Tibetan Engineer Corps"			 
+					template_counter = 12
+					priority = 2
+					division_names_group = TIB_MTN_01
+					regiments = {
+						mountaineers = { x = 0 y = 0 }
+						mountaineers = { x = 0 y = 1 }
+						mountaineers = { x = 0 y = 2 }
+						artillery_brigade  = { x = 1 y = 0 }
+						artillery_brigade  = { x = 1 y = 1 }
+						artillery_brigade  = { x = 1 y = 2 }
+					}
+					    support = {
+							engineer = { x = 0 y = 0 }
+							artillery = { x = 0 y = 1 }
+						}
+				}				
+			} 
+
+			capital_scope = {
+				create_unit = {
+					division = "division_template =\"Tibetan Engineer Corps\" start_experience_factor = 0.7 start_equipment_factor = 1.0"
+					owner = TIB
+					count = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = TIB_a_cannon_to_shake_the_heavens
+		icon = GFX_focus_generic_railway_gun
+		x = 0
+		y = 1
+		cost = 15
+		prerequisite = {focus = TIB_mountain_cannons}
+
+        relative_position_id = TIB_mountain_cannons
+	
+		available = {
+			is_ai = no
+		}
+		completion_reward = {     
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				construct_building_in_random_province = {
+					land_facility = 1
+				}
+			}
+			add_breakthrough_points = {
+				specialization = specialization_land
+				value = 1
+			}
+			set_technology = { railway_gun = 1 popup = no}
+			create_railway_gun = {
+				equipment = railway_gun_equipment_1
+				name = "Himalayan Hammer"
+			}
+		}
+	}	
+
+	focus = {
+		id = TIB_modernize_cannons
+		icon = GFX_focus_RAJ_mountain_guns
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_engineer_corps}
+        relative_position_id = TIB_engineer_corps
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = artillery
+			}
+		}
+	}	
+	focus = {
+		id = TIB_mountain_cannons
+		icon = GFX_focus_SMB_mountain_guns
+		x = -2
+		y = 0
+		cost = 5
+		prerequisite = {focus = TIB_modernize_cannons}
+        relative_position_id = TIB_forward_engineering_operations
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {
+			custom_effect_tooltip = mountain_guns_tt
+			hidden_effect = {
+				set_technology = {
+					mountain_gun = 1
+					popup = no
+				}
+			}
+		}
+	}
+    focus = {
+		id = TIB_himalayan_mountaineers
+		icon = GFX_focus_GER_gebirgsjager
+		x = 5
+		y = 1
+		cost = 10
+		prerequisite = {focus = TIB_start_overhauling_army}
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {    
+			hidden_effect = {
+				division_template = {
+					name = "Himalayan Mountaineers"			 
+					template_counter = 10
+					priority = 2
+					division_names_group = TIB_MTN_01
+					regiments = {
+						mountaineers = { x = 0 y = 0 }
+						mountaineers = { x = 0 y = 1 }
+						mountaineers = { x = 0 y = 2 }
+						mountaineers = { x = 1 y = 0 }
+						mountaineers = { x = 1 y = 1 }
+						mountaineers = { x = 1 y = 2 }
+					}
+				}				
+			} 
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = TIB_himalayan_mountaineers_spirit1
+
+			hidden_effect = {
+				set_technology = {
+					sami_pathfinders_tech = 1
+					popup = no
+				}
+			}
+		
+			capital_scope = {
+				create_unit = {
+					division = "division_template =\"Himalayan Mountaineers\" start_experience_factor = 0.7 start_equipment_factor = 1.0"
+					owner = TIB
+					count = 2
+				}
+			}			
+		}
+	}
+
+    focus = {
+		id = TIB_regular_patrols
+		icon = GFX_focus_generic_winter_warfare
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_himalayan_mountaineers}
+        relative_position_id = TIB_himalayan_mountaineers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {
+			custom_effect_tooltip = FIN_long_range_patrols_battalion_tt
+
+			hidden_effect = {
+				set_technology = {
+					long_range_patrol_support_tech = 1
+					popup = no
+				}
+			}
+		
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = recon_tech
+			}
+		}
+	}
+
+    focus = {
+		id = TIB_mountain_cold
+		icon = GFX_focus_PER_wether_the_storm
+		x = -1
+		y = 1
+		cost = 10
+		prerequisite = {focus = TIB_himalayan_mountaineers}
+        relative_position_id = TIB_himalayan_mountaineers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		search_filters = {FOCUS_FILTER_ARMY_XP}
+
+		completion_reward = {  
+			army_experience = 50
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = FIN_winter_warfare_battalion_tt   
+			hidden_effect = {
+				set_technology = {
+					winter_logistics_support_tech = 1
+					popup = no
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			swap_ideas = {
+				remove_idea = TIB_himalayan_mountaineers_spirit1
+				add_idea = TIB_himalayan_mountaineers_spirit2
+			}	
+
+
+		}
+	}
+    focus = {
+		id = TIB_finished_mountaineer_training
+		icon = GFX_focus_AUS_osterreichische_gebirgsjager
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_regular_patrols}
+		prerequisite = {focus = TIB_mountain_cold}
+        relative_position_id = TIB_regular_patrols
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_himalayan_mountaineers_spirit2
+				add_idea = TIB_himalayan_mountaineers_spirit3
+			}
+
+
+		}
+	}
+    focus = {
+		id = TIB_professionalize_soldiers
+		icon = GFX_focus_ITA_topple_amhara_rulers
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army}
+		mutually_exclusive = {focus = TIB_rely_on_village_militias}
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+            has_war_support > 0.3
+			has_army_experience > 10
+			has_idea = TIB_tibetan_army3
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_tibetan_army3
+				add_idea = TIB_tibetan_army4_pro
+			}
+			delete_unit_template_and_units = {
+				division_template = "Juntuan"
+				disband = yes #will refund equipment and manpower
+			}		
+
+		}
+	}
+    focus = {
+		id = TIB_former_militia_equipment
+		icon = GFX_focus_AUS_raid_military_storages
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_professionalize_soldiers}
+        relative_position_id = TIB_professionalize_soldiers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+		add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 4300
+				producer = CHI
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 300
+				producer = ENG
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 600
+				producer = RAJ
+			}
+		}
+	}	
+	focus = {
+		id = TIB_professional_officers
+		icon = GFX_focus_generic_military_mission
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_former_militia_equipment}
+        relative_position_id = TIB_former_militia_equipment
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = land_doctrine
+			}
+			swap_ideas = {
+				remove_idea = TIB_tibetan_army4_pro
+				add_idea = TIB_tibetan_army5_pro
+			}
+		}
+	}
+	focus = {
+		id = TIB_training_and_recruitment
+		icon = GFX_focus_generic_full_social_mobilization
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_former_militia_equipment}
+        relative_position_id = TIB_former_militia_equipment
+
+		ai_will_do = {
+			factor = 1
+		}
+		search_filters = {FOCUS_FILTER_MANPOWER}
+		search_filters = {FOCUS_FILTER_ARMY_XP}
+
+		available = {
+
+		}
+		completion_reward = {    
+			add_manpower = 30000
+			add_stability = -0.05
+			army_experience = 50
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TIB_forceful_recruitment
+			custom_effect_tooltip = TIB_ff_rec_benefit_tt
+			custom_effect_tooltip = TIB_need_core_or_25_comp_tt
+		}
+	}
+	focus = {
+		id = TIB_state_arm_factories
+		icon = GFX_focus_generic_military_industry
+		x = 1
+		y = 1
+		cost = 10
+		prerequisite = {focus = TIB_training_and_recruitment}
+        relative_position_id = TIB_training_and_recruitment
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+				search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {     
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_the_tibetan_soldier
+		icon = GFX_focus_AFG_adopt_nufus
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_training_and_recruitment}
+		prerequisite = {focus = TIB_professional_officers}
+
+        relative_position_id = TIB_training_and_recruitment
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {  
+			add_war_support = 0.1   
+			swap_ideas = {
+				remove_idea = TIB_tibetan_army5_pro
+				add_idea = TIB_tibetan_army6_pro
+			}
+		}
+	}
+	focus = {
+		id = TIB_a_pain_to_invade
+		icon = GFX_focus_SMB_a_land_of_mountains
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_local_command_autonomy focus = TIB_professional_officers}
+
+        relative_position_id = TIB_professional_officers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {  
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.7
+				uses = 2
+				category = land_doctrine
+			}   
+			swap_ideas = {
+				remove_idea = TIB_highest_region_on_earth1
+				add_idea = TIB_highest_region_on_earth2
+			}
+		}
+	}
+
+    focus = {
+		id = TIB_rely_on_village_militias
+		icon = GFX_focus_AFG_quami
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_start_overhauling_army}
+		mutually_exclusive = {focus = TIB_professionalize_soldiers}
+
+        relative_position_id = TIB_start_overhauling_army
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_idea = TIB_tibetan_army3
+		}
+		completion_reward = { 
+			add_ideas = TIB_village_militias    
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_division_template_lock = {
+				division_template = "Juntuan"
+				is_locked = no
+			}
+		}
+	}
+    focus = {
+		id = TIB_centralize_local_armament_production
+		icon = GFX_focus_DEN_heavy_regulations
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_rely_on_village_militias}
+
+        relative_position_id = TIB_rely_on_village_militias
+
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+
+		}
+				search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {     
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+    focus = {
+		id = TIB_local_command_autonomy
+		icon = GFX_focus_IRQ_approach_tribes_for_support
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_centralize_local_armament_production}
+
+        relative_position_id = TIB_centralize_local_armament_production
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.6
+				uses = 2
+				category = land_doctrine
+			}
+			swap_ideas = {
+				remove_idea = TIB_tibetan_army3
+				add_idea = TIB_tibetan_army4_militia
+			}
+		}
+	}
+    focus = {
+		id = TIB_irregular_groups
+		icon = GFX_focus_PER_recruit_bakhtiari
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_centralize_local_armament_production}
+
+        relative_position_id = TIB_centralize_local_armament_production
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_MANPOWER}
+		search_filters = {FOCUS_FILTER_ARMY_XP}
+
+		completion_reward = {     
+			army_experience = 50
+			add_manpower = 20000
+			hidden_effect = {
+				set_technology = { ETH_improved_irregular_infantry_tech = 1 popup = no}
+				division_template = {
+					name = "Dmag Mi"	
+					priority = 5 		 
+					division_names_group = TIB_CAV_01
+					is_locked = yes 
+					regiments = {
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 0 y = 3 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
+					}
+				}				
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_tooltip = TIB_integrate_village_militia
+			custom_effect_tooltip = TIB_militia_rec_benefit_tt
+
+			custom_effect_tooltip = TIB_need_core_or_25_comp_tt
+
+		}
+	}
+    focus = {
+		id = TIB_steady_supply_ammo
+		icon = GFX_focus_CONGO_copper_cartridges
+		x = -1
+		y = 1
+		cost = 10
+		prerequisite = {focus = TIB_irregular_groups}
+
+        relative_position_id = TIB_irregular_groups
+
+		ai_will_do = {
+			factor = 1
+		}
+				search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		available = {
+
+		}
+		completion_reward = {     
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}	
+    focus = {
+		id = TIB_a_prepared_state_militia
+		icon = GFX_focus_secret_rearmament
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_irregular_groups}
+		prerequisite = {focus = TIB_local_command_autonomy}
+
+        relative_position_id = TIB_local_command_autonomy
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+		completion_reward = {     
+			swap_ideas = {
+				remove_idea = TIB_village_militias
+				add_idea = TIB_state_militias
+			}
+		}
+	}
+	focus = {
+		id = TIB_increase_conscription
+		icon = GFX_SOV_barrier_troops_ccp_2d_sov_compatibility
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = TIB_professionalize_soldiers focus = TIB_rely_on_village_militias}
+
+        relative_position_id = TIB_professionalize_soldiers
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = {
+				has_idea = TIB_bureaucracy
+				has_idea = TIB_bureaucracy1				
+			}
+		}
+		search_filters = {FOCUS_FILTER_MANPOWER}
+
+		completion_reward = {     
+			IF = {
+				limit = { has_idea = disarmed_nation }
+				add_ideas = volunteer_only
+			}ELSE_IF = {
+				limit = { has_idea = volunteer_only }
+				add_ideas = limited_conscription
+			}ELSE_IF = { 
+				limit = { has_idea = limited_conscription }
+				add_ideas = extensive_conscription
+			}ELSE_IF = { 
+				limit = { has_idea = extensive_conscription }
+				add_ideas = service_by_requirement
+			}ELSE_IF = {
+				limit = { has_idea = service_by_requirement }
+				add_ideas = all_adults_serve
+			}
+		}
+	}
+### airforce tree
+	focus = {
+		id = TIB_the_air_corps
+
+		icon = GFX_focus_YUG_ikarus
+		x = 15
+		y = 0
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		relative_position_id = TIB_start_overhauling_army
+
+		search_filters = {FOCUS_FILTER_AIR_XP}
+
+		completion_reward = {
+			add_ideas = TIB_the_TIB_airforce_1
+			air_experience = 25
+		}
+	}
+
+	focus = {
+		id = TIB_guard_to_the_sky
+		icon = GFX_focus_PER_construct_air_defenses
+		prerequisite = { focus = TIB_the_air_corps  }
+		relative_position_id = TIB_the_air_corps
+
+		x = -5
+		y = 1
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.65
+				uses = 1
+				category = radar_tech
+			}			
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+				limit = {NOT = {has_tech = interwar_antiair}}
+				set_technology = {
+					interwar_antiair = 1
+				}
+			}ELSE = {
+				add_tech_bonus = {
+					bonus = 0.65
+					uses = 2
+					category = cat_anti_air
+				}		
+			}
+			capital_scope = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 5033
+				}
+			}
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = TIB_state_transport_planes
+
+		icon = GFX_focus_generic_copy_plane_designs
+		prerequisite = { focus = TIB_the_air_corps }
+		x = 3
+		y = 1
+		relative_position_id = TIB_the_air_corps
+		cost = 6
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		completion_reward = { #DLC broken to do
+		add_ideas = TIB_mountain_transport_planes
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment_1
+				amount = 100
+				producer = TIB
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = transport_planes_cat
+			}
+		}
+
+	}
+
+	focus = {
+		id = TIB_mountainous_paratroopers
+		mutually_exclusive = { focus = TIB_TIB_marines }
+
+		icon = GFX_focus_BRA_air_force
+		prerequisite = { focus = TIB_state_transport_planes }
+		x = 0
+		y = 1
+		relative_position_id = TIB_state_transport_planes
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_mountain_transport_planes
+				add_idea = TIB_TIB_special_forces_p
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = para_tech
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = special_forces_doctrine
+			}		
+		}
+	}
+
+
+	focus = {
+		id = TIB_expand_the_aircraft_infrastructure
+
+		icon = GFX_focus_HUN_establish_the_mavag_aircraft_factory
+		prerequisite = { focus = TIB_the_air_corps }
+		x = -1
+		y = 1
+		relative_position_id = TIB_the_air_corps
+		cost = 10
+
+		available = {
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = radar_tech
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				if = {
+					limit = {
+						air_base < 9
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+				else = {
+					TIB = {
+						random_owned_controlled_state = {
+							limit = {
+								air_base < 9
+							}
+							add_building_construction = {
+								type = air_base
+								level = 2
+								instant_build = yes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_modernize_aircraft_facilities
+
+		icon = GFX_focus_generic_air_bases
+		prerequisite = { focus = TIB_fund_flying_schools }
+		x = 0
+		y = 1
+		relative_position_id = TIB_fund_flying_schools
+		cost = 10
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		available = {
+
+		}
+		
+		search_filters = {}
+
+		completion_reward = {
+			IF = {
+				limit = {NOT = {has_tech = interwar_antiair}}
+				set_technology = {
+					interwar_antiair = 1
+				}
+			}
+
+			custom_effect_tooltip = TIB_every_core_state_tt
+			every_core_state = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	
+	focus = {
+		id = TIB_import_foreign_planes
+
+		icon = GFX_focus_SMB_purchase_aircraft
+		prerequisite = { focus = TIB_expand_the_aircraft_infrastructure }
+		x = 0
+		y = 1
+		relative_position_id = TIB_expand_the_aircraft_infrastructure
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_licensed_production focus = TIB_increase_domestic_aircraft_development}
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {			
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = small_plane_airframe
+				seller_tags = {jap}
+			}
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = small_plane_airframe
+				seller_tags = {raj}
+			}
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = small_plane_airframe
+				seller_tags = {chi}
+			}
+			add_equipment_subsidy = {
+				cic = 4000
+				equipment_type = small_plane_airframe
+				seller_tags = {eng}
+			}
+			IF = {
+				LIMIT = {USA = {has_government = ROOT}}
+				add_equipment_subsidy = {
+					cic = 2000
+					equipment_type = small_plane_airframe
+					seller_tags = {usa}
+				}
+			}
+			IF = {
+				LIMIT = {GER = {has_government = ROOT}}
+				add_equipment_subsidy = {
+					cic = 2000
+					equipment_type = small_plane_airframe
+					seller_tags = {ger}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_licensed_production
+		icon = GFX_focus_generic_air_partners
+		prerequisite = { focus = TIB_expand_the_aircraft_infrastructure }
+		x = -4
+		y = 1
+		relative_position_id = TIB_expand_the_aircraft_infrastructure
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_increase_domestic_aircraft_development focus = TIB_import_foreign_planes}
+
+
+		completion_reward = {			
+			add_ideas = TIB_license_foreign_designs
+		}
+	}
+
+
+	focus = {
+		id = TIB_increase_domestic_aircraft_development
+
+		icon = GFX_focus_generic_air_research_boost
+		prerequisite = { focus = TIB_expand_the_aircraft_infrastructure }
+		x = -2
+		y = 1
+		relative_position_id = TIB_expand_the_aircraft_infrastructure
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_licensed_production focus = TIB_import_foreign_planes}
+
+		
+
+		completion_reward = {			
+			add_tech_bonus = {
+				name = TIB_increase_aircraft_production
+				bonus = 1.0
+				uses = 2
+				category = light_air
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_fund_flying_schools
+
+		icon = GFX_focus_generic_air_research_boost
+		prerequisite = { focus = TIB_the_air_corps }
+		x = 1
+		y = 1
+		relative_position_id = TIB_the_air_corps
+		cost = 10
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_AIR_XP}
+
+		completion_reward = {
+			add_ideas = veteran_air_instructors_spirit
+			swap_ideas = {
+				remove_idea = TIB_the_TIB_airforce_1
+				add_idea = TIB_the_TIB_airforce_2
+			}
+			air_experience = 25
+		}
+	}
+
+
+	focus = {
+		id = TIB_intensify_pilot_training_program
+
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		prerequisite ={focus = TIB_modernize_aircraft_facilities}
+		x = 0
+		y = 1
+		relative_position_id = TIB_modernize_aircraft_facilities
+		cost = 10
+
+		
+		search_filters = {FOCUS_FILTER_AIR_XP}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TIB_the_TIB_airforce_2
+				add_idea = TIB_the_TIB_airforce_3
+			}
+			air_experience = 100
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = strategic_destruction_tree
+			}
+		}
+	}
+
+
+	focus = {
+		id = TIB_expand_aviation_institutes
+		icon = GFX_focus_SOV_women_in_aviation
+		prerequisite = { focus = TIB_the_air_corps }
+		x = -3
+		y = 1
+		relative_position_id = TIB_the_air_corps
+		cost = 5
+
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_MANPOWER}
+
+		completion_reward = {
+			add_ideas = veteran_air_instructors_spirit
+			set_rule = {can_generate_female_aces = yes}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.6
+				uses = 3
+				category = air_doctrine
+			}
+			add_manpower = 10000
+		}
+	}
+
+	focus = {
+		id = TIB_ground_support
+
+		icon = GFX_focus_generic_cas_aircraft
+		prerequisite = { focus = TIB_increase_domestic_aircraft_development }
+		x = -1
+		y = 1
+		relative_position_id = TIB_increase_domestic_aircraft_development
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_long_range_aircraft }
+
+		available = {
+
+		}
+		
+
+		completion_reward = {
+
+			add_tech_bonus = {
+				name = TIB_ground_support
+				bonus = 0.75
+				uses = 2
+				category = light_fighter
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_long_range_aircraft
+
+		icon = GFX_focus_generic_long_range_aircraft
+		prerequisite = { focus = TIB_increase_domestic_aircraft_development }
+		x = 1
+		y = 1
+		relative_position_id = TIB_increase_domestic_aircraft_development
+		cost = 5
+
+		mutually_exclusive = { focus = TIB_ground_support }
+
+		available = {
+
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Long range aircraft"
+				bonus = 0.75
+				uses = 2
+				category = cat_heavy_fighter
+				category = tactical_bomber
+				category = cat_strategic_bomber
+			}
+		}
+	}
+
+	
+	focus = {
+		id = TIB_experimental_planes
+
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = TIB_long_range_aircraft  focus = TIB_ground_support }
+
+		x = 1
+		y = 1
+		relative_position_id = TIB_ground_support
+		cost = 15
+
+
+		available = {
+
+		}
+
+		completion_reward = {
+			random_core_state = {
+				LIMIT = {
+					is_owned_by = TIB
+				}
+				construct_building_in_random_province = {
+					air_facility = 1
+				}
+			}
+			add_breakthrough_points = {
+				specialization = specialization_air
+				value = 2
+			}
+			custom_effect_tooltip = JAP_strengthen_the_divine_wind_effect_bba
+			hidden_effect = { set_technology = { suicide_charge = 1 popup = no} }
+			
+		}
+	}
+
+## A little navy tree
+	focus = {
+		id = TIB_research_modern_navies
+
+		icon = GFX_focus_BEL_antwerp_maritime_academy
+		x = 8
+		y = 0
+		cost = 5
+		relative_position_id = TIB_the_air_corps
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = naval_doctrine
+			}
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = naval_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_invest_in_dockyards
+
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = TIB_research_modern_navies }
+		x = 0
+		y = 1
+		relative_position_id = TIB_research_modern_navies
+		cost = 10
+
+		available = {
+			any_controlled_state = {
+				is_coastal = yes
+			}
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			IF = {
+				LIMIT = {
+					NOT = {
+						any_controlled_state = {
+							is_coastal = yes
+						}	
+					}
+				}
+				custom_effect_tooltip = TIB_you_get_dockyards_tt
+			}
+		}
+	}
+
+
+	focus = {
+		id = TIB_stockpile_fuel
+		prerequisite = { focus = TIB_research_modern_navies }
+		relative_position_id = TIB_research_modern_navies
+		icon = GFX_focus_generic_stockpile_fuel
+		x = 2
+		y = 1
+		cost = 6
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = fuel_silo
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_TIB_merchant_ships
+		prerequisite = { focus = TIB_research_modern_navies }
+		relative_position_id = TIB_research_modern_navies
+
+		icon = GFX_focus_generic_government_in_exile
+		x = -2
+		y = 1
+		cost = 5
+
+		available_if_capitulated = yes
+		available = {
+
+		}
+		completion_reward = {
+			add_ideas = TIB_the_TIB_merchant_navy
+			add_equipment_to_stockpile	= {
+				type = convoy
+				amount = 100
+				producer = TIB
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_TIB_marines
+		prerequisite = { focus = TIB_TIB_merchant_ships }
+		relative_position_id = TIB_TIB_merchant_ships
+		mutually_exclusive = { focus = TIB_mountainous_paratroopers }
+
+		available = {
+			any_controlled_state ={
+				is_coastal = yes
+			}
+		}
+		icon = GFX_focus_generic_naval_discipline
+		x = 0
+		y = 1
+		cost = 5
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = {TIB_TIB_special_forces_m}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = marine_tech
+				category = tp_tech
+			}
+
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_marines_doctrine
+			}
+		}
+	}
+
+	
+	focus = {
+		id = TIB_invest_in_modern_navy
+		icon = GFX_focus_ARG_navy
+	 	prerequisite = { focus = TIB_invest_in_dockyards }
+		x = 0
+		y = 1
+		relative_position_id = TIB_invest_in_dockyards
+		cost = 5
+			available = {			
+				any_controlled_state ={
+				is_coastal = yes
+				}
+			}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_ideas = TIB_the_young_school
+		}
+	}
+
+	focus = {
+		id = TIB_undersea_combat
+		icon = GFX_goal_generic_navy_submarine
+	 	prerequisite = { focus = TIB_invest_in_modern_navy }
+		x = -2
+		y = 1
+		relative_position_id = TIB_invest_in_modern_navy
+		cost = 10
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_NAVY_XP}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = TIB_undersea_combat
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+			navy_experience = 25
+			add_tech_bonus = {
+				name = TIB_undersea_combat
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_cruiser_submarines
+		icon = GFX_focus_generic_cruiser_submarines
+		prerequisite = { focus = TIB_undersea_combat }
+		mutually_exclusive = { focus = TIB_midget_submarines }
+		x = 1
+		y = 1
+		relative_position_id = TIB_undersea_combat
+		cost = 10
+		available = {
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			navy_experience = 15
+			add_doctrine_cost_reduction = {
+				name = TIB_cruiser_submarines
+				cost_reduction = 0.5
+				uses = 1
+				category = trade_interdiction_tree
+			}
+
+			add_tech_bonus = {
+				name = TIB_cruiser_submarines
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				set_technology = { cruiser_submarines = 1 popup = no}
+
+				create_equipment_variant = {
+					name =  "'Og tu Class"
+					type = ship_hull_cruiser_submarine
+					allow_without_tech = yes 
+					parent_version = 0
+					modules = {
+						fixed_ship_torpedo_slot = ship_torpedo_sub_1
+						fixed_ship_engine_slot = sub_ship_engine_2
+						front_1_custom_slot = ship_torpedo_sub_1
+						mid_1_custom_slot = empty
+						rear_1_custom_slot = ship_torpedo_sub_1
+					}
+				}
+				#Line Production
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_cruiser_submarine
+						creator = "TIB"
+						version_name = "'Og tu Class"
+					}
+					name =  "'Og tu Class"
+					requested_factories = 1
+					progress = 0.35
+					amount = 2
+				}
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_cruiser_submarine
+						creator = "TIB"
+						version_name =  "'Og tu Class"
+					}
+					name =  "'Og tu Class"
+					requested_factories = 1
+					progress = 0.35
+					amount = 2
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = TIB
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_midget_submarines
+		icon = GFX_focus_generic_midget_submarines
+		prerequisite = { focus = TIB_undersea_combat }
+		mutually_exclusive = { focus = TIB_cruiser_submarines }
+		x = -1
+		y = 1
+		relative_position_id = TIB_undersea_combat
+		cost = 10
+		available = {
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			navy_experience = 15
+			add_doctrine_cost_reduction = {
+				name = TIB_midget_submarines
+				cost_reduction = 0.5
+				uses = 1
+				category = trade_interdiction_tree
+			}
+
+			add_tech_bonus = {
+				name = TIB_midget_submarines
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+
+			###########
+			### MTG ###
+			###########
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				set_technology = { midget_submarines = 1 popup = no}
+
+				create_equipment_variant = {
+					name = "Gru 'og tu Class"
+					type = ship_hull_midget_submarine
+					allow_without_tech = yes 
+					parent_version = 0
+					modules = {
+						fixed_ship_torpedo_slot = ship_torpedo_sub_2
+						fixed_ship_engine_slot = sub_ship_engine_2
+					}
+				}
+
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_midget_submarine
+						creator = "TIB"
+						version_name = "Gru 'og tu Class"
+					}
+					name = "Gru 'og tu"
+					requested_factories = 1
+					progress = 0.35
+					amount = 2
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = TIB
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			
+		}
+	}
+
+
+	focus = {
+		id = TIB_surface_combat
+		icon = GFX_focus_generic_destroyer
+	 	prerequisite = { focus = TIB_invest_in_modern_navy }
+		x = 1
+		y = 1
+		relative_position_id = TIB_invest_in_modern_navy
+		cost = 10
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = TIB_surface_combat
+				bonus = 2.0
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TIB_improved_screen_ships
+		icon = GFX_focus_generic_navy_research_bonus
+	 	prerequisite = { focus = TIB_surface_combat }
+		x = 0
+		y = 1
+		relative_position_id = TIB_surface_combat
+		cost = 10
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			set_technology = { coastal_defense_ships = 1 }
+			navy_experience = 25
+			add_tech_bonus = {
+				name = TIB_improved_screen_ships
+				bonus = 2.0
+				uses = 1
+				category = cl_tech
+			}
+			add_ideas = TIB_coastal_defense_ships
+		}
+	}
+
+
+
+}

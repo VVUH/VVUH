@@ -708,7 +708,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BEL_strengthen_european_unity
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 3
@@ -866,6 +866,10 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_state_core = 8
+			add_state_core = 36
+			add_state_core = 7
+			add_state_core = 29
 			LUX = {
 				country_event = bel.mod.13
 			}
@@ -3682,7 +3686,7 @@ focus_tree = {
 		}
 
 		available = {
-			has_stability > 0.6
+			has_stability > 0.5
 		}
 		
 		bypass = {
@@ -5458,7 +5462,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INDUSTRY }
 
-		x = 1
+		x = 0
 		y = 2
 	
 		cost = 5
@@ -5511,7 +5515,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		offset = {
-			x = -25
+			x = -23
 			y = 0
 			trigger = {
 				has_completed_focus = BEL_organize_the_strikes
@@ -5522,7 +5526,7 @@ focus_tree = {
 			}
 		}
 	
-		cost = 10
+		cost = 8
 
 		available = {
 		}
@@ -5573,7 +5577,7 @@ focus_tree = {
 	focus = {
 		id = BEL_soviet_guarantee_2
 		icon = GFX_focus_chi_mission_to_the_soviet_union
-		x = 1
+		x = 2
 		y = 1
 		offset = {
 			x = -25
@@ -5602,7 +5606,6 @@ focus_tree = {
 			SOV = {
 				has_government = communism
 			}
-			has_government = communism
 		}
 		
 		bypass = {
@@ -5633,7 +5636,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY }
 
-		x = -1
+		x = -2
 		y = 2
 	
 		cost = 5
@@ -5661,13 +5664,13 @@ focus_tree = {
 		id = BEL_bring_communism_to_the_benelux
 		icon = GFX_focus_GER_support_the_proletarian_uprising
 	
-		prerequisite = { focus = BEL_move_to_communism }		
+		prerequisite = { focus = BEL_nkvd_cooperation }		
 		
-		relative_position_id = BEL_move_to_communism
+		relative_position_id = BEL_nkvd_cooperation
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY }
 
-		x = 0
+		x = 1
 		y = 1
 	
 		cost = 5
@@ -5900,8 +5903,8 @@ focus_tree = {
 		x = 1
 		y = 1
 		offset = {
-			x = -25
-			y = 0
+			x = -23
+			y = -1
 			trigger = {
 				has_completed_focus = BEL_organize_the_strikes
 				has_game_rule = {
@@ -5918,7 +5921,6 @@ focus_tree = {
 		}
 
 		available = {
-			has_war = yes
 			OR = {
 				has_idea = BEL_recovery_from_the_great_war_neutral
 				has_idea = BEL_recovery_from_the_great_war
@@ -6051,13 +6053,13 @@ focus_tree = {
 			country_event = bel.mod.32
 			set_variable = {
    			 	var = BEL_cw_support
-    			value = 0.1
-    			tooltip = bel_cw_support_set_var_to_10_tt
+    			value = 0.2
+    			tooltip = bel_cw_support_set_var_to_20_tt
 			}
 			set_variable = {
    			 	var = BEL_cw_army_support
-    			value = 0.1
-    			tooltip = bel_cw_army_support_set_var_to_10_tt
+    			value = 0.2
+    			tooltip = bel_cw_army_support_set_var_to_20_tt
 			}
 			add_popularity = {
 				ideology = communism
@@ -6065,11 +6067,6 @@ focus_tree = {
 			}
 			add_stability = -0.2
 			custom_effect_tooltip = BEL_will_lead_to_cw
-			COG = {
-				add_autonomy_score = {
-					value = 200
-				}
-			}
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
@@ -6491,14 +6488,14 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			add_political_power = 20
+			add_political_power = 50
 			add_popularity = {
 				ideology = fascism
-				popularity = -0.1
+				popularity = -0.2
 			}
 			add_popularity = {
 				ideology = communism
-				popularity = 0.1
+				popularity = 0.2
 			}
 			hidden_effect = {
 				set_temp_variable = {
@@ -6591,11 +6588,15 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			add_political_power = 25
-			add_stability = 0.03
+			add_stability = 0.07
 			COG = {
 				add_autonomy_score = {
 					value = -100
 				}
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
 			}
 		}
 	}
@@ -6691,7 +6692,7 @@ focus_tree = {
 		prerequisite = { focus = BEL_unite_the_left }
 		mutually_exclusive = { focus = BEL_the_independent_course focus = BEL_the_trotskyist_course }
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 10
@@ -6730,8 +6731,13 @@ focus_tree = {
    				modifier = large_increase
 				}
 			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
 			custom_effect_tooltip = remove_political_advisor
 			show_ideas_tooltip = BEL_ernest_brunelle
+			
 		}
 	}
 	focus = {
@@ -6743,7 +6749,7 @@ focus_tree = {
 		prerequisite = { focus = BEL_unite_the_left focus = BEL_the_unstable_alliance }
 		mutually_exclusive = { focus = BEL_the_pro_soviet_course focus = BEL_the_trotskyist_course }
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 10
@@ -6767,6 +6773,10 @@ focus_tree = {
 			add_timed_idea = {
 				idea = BEL_recovery_from_the_great_war
 				days = 210
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
 			}
 		}
 	}
@@ -6804,6 +6814,10 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.02
 			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
 		}
 	}
 	focus = {
@@ -7327,6 +7341,10 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
 			remove_ideas = BEL_rebelling_king
 			clr_country_flag = BEL_leopold_flag
 			IF = {
@@ -7369,6 +7387,14 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
 			swap_ideas = {
 				remove_idea = BEL_rebelling_king
 				add_idea = BEL_figurehead_king
@@ -7411,6 +7437,7 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_stability = 0.05
 			add_ideas = BEL_coalition_with_democrats_idea
 		}
 	}
@@ -7431,7 +7458,6 @@ focus_tree = {
 		available = {
 			has_completed_focus = BEL_the_independent_course
 			has_government = communism
-			communism < 0.6
 		}
 		
 		bypass = {
@@ -7444,6 +7470,7 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_war_support = 0.05
 			add_ideas = BEL_strenghend_anarchists_idea
 		}
 	}
@@ -7454,7 +7481,7 @@ focus_tree = {
 		y = 3
 		relative_position_id = BEL_the_independent_course
 		prerequisite = { focus = BEL_strengthen_the_anarchists}
-		cost = 8
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -7511,6 +7538,7 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_political_power = 50
 			add_popularity = {
 				ideology = democratic
 				popularity = 0.1
@@ -7543,7 +7571,6 @@ focus_tree = {
 
 		available = {
 			has_government = communism
-			communism > 0.5
 		}
 		
 		bypass = {
@@ -7628,6 +7655,8 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.04
 			random_owned_controlled_state = {
 				prioritize = { 6 34 }
 				add_extra_state_shared_building_slots = 2
@@ -7646,7 +7675,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BEL_soviet_aid
 		prerequisite = { focus = BEL_soviet_aid }
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 1
@@ -7723,6 +7752,54 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = BEL_nkvd_cooperation
+		icon = GFX_goal_generic_intelligence_exchange
+		x = -2
+		y = 2
+		offset = {
+			x = -11
+			y = 0
+			trigger = {
+				has_completed_focus = BEL_vandervelde_minority
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+			}
+		}
+		relative_position_id = BEL_soviet_military_theorists
+		prerequisite = { focus = BEL_soviet_guarantee_2 }
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = MAL_expand_our_agency_idea_2
+			create_intelligence_agency = {
+    			name = "Service Général du Renseignement et de la Sécurité"
+    			icon = GFX_intelligence_agency_logo_bel
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
 		id = BEL_clamp_down_on_fascism
 		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
 		x = -2
@@ -7730,7 +7807,7 @@ focus_tree = {
 		relative_position_id = BEL_strengthen_the_anarchists
 		prerequisite = { focus = BEL_reapproach_the_democrats focus = BEL_strengthen_the_anarchists focus = BEL_empower_the_trade_unions }
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 1
@@ -7756,7 +7833,7 @@ focus_tree = {
 			add_stability = 0.05
 			add_popularity = {
 				ideology = fascism
-				popularity = -0.15
+				popularity = -0.2
 			}
 		}
 	}
@@ -7784,7 +7861,15 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			OR = {
+				has_war_with = GER
+				GER = {
+					exists = no
+				}
+				GER = {
+					is_subject_of = BEL
+				}
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -7850,7 +7935,7 @@ focus_tree = {
 		relative_position_id = BEL_strengthen_the_anarchists
 		prerequisite = { focus = BEL_strengthen_the_anarchists focus = BEL_empower_the_trade_unions focus = BEL_reapproach_the_democrats }
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 1
@@ -7913,7 +7998,6 @@ focus_tree = {
 			every_country = {
 				limit = {
 					has_government = democratic
-					is_major = yes
 					NOT = {
 						tag = BEL
 					}
@@ -7969,7 +8053,7 @@ focus_tree = {
 		prerequisite = { focus = BEL_anti_capitalist_war }
 		mutually_exclusive = { focus = BEL_no_boundries focus = BEL_our_german_identity }
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 1
@@ -7989,6 +8073,8 @@ focus_tree = {
 	
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_war_support = 0.1
+			add_stability = 0.1
 			add_ideas = BEL_crush_the_weak_idea
 		}
 	}
@@ -8135,6 +8221,8 @@ focus_tree = {
 			add_war_support = 0.05
 			add_state_core = 29
 			add_state_core = 8
+			add_state_core = 7
+			add_state_core = 36
 			add_state_core = 42
 			add_state_core = 51
 			add_state_core = 35

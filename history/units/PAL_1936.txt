@@ -1,0 +1,78 @@
+﻿division_template = {
+	name = "Peacekeeping Force"		# 'Infantry Division' - Represents local tribal levies (militia)
+
+	division_names_group = SAU_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+	}
+
+}
+division_template = {
+	name = "Militia forces"	
+	priority = 0 		 
+	division_names_group = SAU_GAR_01
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 0 y = 3 }
+
+	}
+}
+
+division_template = {
+	name = "Mounted militia"		# Camel-mounted levies (militia)
+
+	division_names_group = SAU_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3}
+	}
+}
+
+division_template = {
+	name = "Light Armor Brigade"		# Camel-mounted levies (militia)
+
+	division_names_group = SAU_MEC_01
+
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		armored_car = { x = 1 y = 0 }
+		armored_car = { x = 1 y = 1}
+	}
+}
+
+units = {
+	division = {
+		#name = "Alfursan Almalika 'Medina'"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 4206
+		division_template = "Light Armor Brigade"		
+		start_equipment_factor = 0.4
+        start_experience_factor = 0.2
+
+	}
+
+	division = {
+		#name = "Alfurqat Jiddah"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1065
+		division_template = "Peacekeeping Force"	
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.1
+	}
+}

@@ -1,0 +1,1855 @@
+	TAN_unification_dec={
+        TAN_strengthen_pan_mongol_movement = {
+                icon = GFX_decision_eng_support_imperialist_coup
+                fire_only_once = yes
+                allowed = {
+                    original_tag = TAN
+
+                }
+                available = {
+                    MON = {
+                        is_ai = yes
+                    }				
+                    country_exists = MON
+                    NOT = {
+                        has_country_flag = TAN_strengthening_pan_mongolians
+                    }
+                }
+                visible = {
+                    original_tag = TAN
+                    has_completed_focus = TAN_pan_mongolian_project
+                }
+
+                days_remove = 25
+                custom_cost_trigger = {
+                    has_equipment = { infantry_equipment > 499 }
+                }
+                custom_cost_text = decision_cost_ie_500
+                complete_effect = {
+                        set_country_flag = TAN_strengthening_pan_mongolians
+                    
+                        add_equipment_to_stockpile = {
+                            type = infantry_equipment
+                            amount = -500
+                        }
+                    }
+                
+                remove_effect = {
+                    hidden_effect = {
+                        clr_country_flag = TAN_strengthening_pan_mongolians
+                    }
+                    MON = {
+                        IF = {
+                            LIMIT = {
+                                TAN={has_government = democratic}
+                            }
+                            add_ideas = TAN_growing_unification_support_d
+                        }ELSE_IF = {
+                             LIMIT = {
+                                TAN={has_government = fascism}
+                            }
+                            add_ideas = TAN_growing_unification_support_f                        
+                        }ELSE_IF = {
+                             LIMIT = {
+                                TAN={has_government = communism}
+                            }     
+                            add_ideas = TAN_growing_unification_support_c                   
+                        }ELSE_IF = {
+                             LIMIT = {
+                                TAN={has_government = neutrality}
+                            }        
+                            add_ideas = TAN_growing_unification_support_n
+                        }
+                        add_popularity = {
+                            ideology = ROOT
+                            popularity = 0.05
+                        }
+                    }
+                }
+        }
+        TAN_UNITE_pan_mongol_movement = {
+                icon = GFX_decision_eng_trade_unions_demand
+                fire_only_once = yes
+                allowed = {
+                    original_tag = TAN
+                }
+                available = {
+                    MON = {
+                        is_ai = yes
+                        NOT = {
+                            has_country_flag = TAN_tried_demand_things
+                            is_puppet_of = TAN
+                        }                                          
+                    }				
+                    country_exists = MON
+
+                }
+                visible = {
+                    original_tag = TAN
+                    has_completed_focus = TAN_pan_mongolian_project
+                    MON = {
+                        OR = {
+                            has_idea = TAN_growing_unification_support_n
+                            has_idea = TAN_growing_unification_support_d
+                            has_idea = TAN_growing_unification_support_c
+                            has_idea = TAN_growing_unification_support_f
+                        }                        
+                    }
+                }
+                cost = 100
+                days_remove = 25
+
+                complete_effect = {
+
+                }
+                
+                remove_effect = {
+
+                    MON = {
+                        country_event = SAU_submission.20
+                    }
+                }
+        }        	        
+        TAN_incorporate_buryats = {				
+
+            icon = generic_form_nation
+
+            allowed = {
+                original_tag = TAN
+            }
+            highlight_states = {
+                highlight_state_targets = { 			
+                    state = 564
+                    state = 563
+                    state = 566
+
+                }
+            }
+            visible = {
+                NOT = {
+                    has_global_flag = TAN_unified_bury
+                    has_completed_focus = TAN_request_buryatia
+                }         
+            }
+            available = {
+                controls_state = 564
+                controls_state = 563
+                controls_state = 566
+
+
+            }
+
+            visible = {
+                original_tag = TAN
+                NOT = {
+                    has_global_flag = TAN_unified_bury
+                }
+            }
+
+            complete_effect = {
+                add_war_support = 0.05
+                hidden_effect ={
+                    set_global_flag = TAN_unified_bury
+                }
+                    564 = { add_core_of = ROOT }
+                    563 = { add_core_of = ROOT }
+                    566 = { add_core_of = ROOT }
+                
+            }
+        } 
+        TAN_incorporate_mongolia= {
+            icon = GFX_decision_generic_confiscation
+            allowed = {
+                original_tag =  TAN
+            }
+
+            available = {
+                MON = {
+                    is_puppet_of = ROOT
+                    is_ai = yes
+                }
+                NOT ={
+                    has_country_flag = TAN_integration_flag
+                }
+                
+            }
+            
+            visible = {
+                MON = {
+                    is_puppet_of = ROOT
+                }
+            }
+            days_remove = 30
+            cost = 35
+            complete_effect = {
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            has_government = communism
+                            has_government = democratic
+                        }
+                    }
+                    add_stability = -0.05
+                }
+                hidden_effect = {
+                    set_country_flag = TAN_integration_flag
+                }
+            }
+            remove_effect = {
+                annex_country = {
+                    target = MON
+                    transfer_troops = yes
+                    
+                }
+                hidden_effect = {
+                    clr_country_flag = TAN_integration_flag
+                }
+            }
+        }            
+    	TAN_take_chahar = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 612 }
+			}		
+			allowed = {
+				original_tag = TAN
+			}
+			available = {
+				has_border_war = no
+				NOT = {
+					controls_state = 612
+				}
+				612 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TAN
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 612
+				}
+			}		
+			visible = {
+				original_tag = TAN
+				has_completed_focus = TAN_pan_mongolian_project
+			}
+
+
+			days_remove = 5
+			612 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 819
+						num_provinces = 3
+						on_win = MON_border_conflict.1
+						on_lose = mon_border_conflict.3
+						on_cancel = mon_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 612
+						num_provinces = 4
+						on_win = MON_border_conflict.2
+						on_lose = mon_border_conflict.4
+						on_cancel = mon_border_conflict.6
+					}
+				}
+			}
+
+		}	
+		TAN_take_south_chahar = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 611 }
+			}		
+			allowed = {
+				original_tag = TAN
+			}
+			available = {
+				has_border_war = no
+				611 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TAN
+					}
+				}
+				NOT = {
+					controls_state = 611
+				}
+			}
+			
+			visible = {
+				original_tag = TAN
+				has_completed_focus = TAN_pan_mongolian_project
+			}
+			visible = {
+				NOT = {
+					controls_state = 611
+				}
+			}
+
+			days_remove = 5
+			611 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				IF = {
+					LIMIT = {
+						612 = {
+							is_owned_by  = TAN
+						}
+					}
+					
+						start_border_war = {
+							change_state_after_war = no
+							attacker = {
+								state = 612
+								num_provinces = 3
+								on_win = MON_border_conflict.1
+								on_lose = mon_border_conflict.3
+								on_cancel = mon_border_conflict.5
+								modifier = 0.1
+								dig_in_factor = 0
+								terrain_factor = 0
+							}	
+							defender = {
+								state = 611
+								num_provinces = 4
+								on_win = MON_border_conflict.2
+								on_lose = mon_border_conflict.4
+								on_cancel = mon_border_conflict.6
+							}
+						}
+					
+				} else = {
+					
+					start_border_war = {
+						change_state_after_war = no
+						attacker = {
+							state = 621
+							num_provinces = 3
+							on_win = MON_border_conflict.1
+							on_lose = mon_border_conflict.3
+							on_cancel = mon_border_conflict.5
+							modifier = 0.1
+							dig_in_factor = 0
+							terrain_factor = 0
+						}	
+						defender = {
+							state = 611
+							num_provinces = 4
+							on_win = MON_border_conflict.2
+							on_lose = mon_border_conflict.4
+							on_cancel = mon_border_conflict.6
+						}
+					}				
+				}
+			}
+
+		}
+        TAN_form_unified_mongol_people_state = {
+
+            icon = generic_form_nation
+
+            allowed = {
+                original_tag = TAN
+            }
+            highlight_states = {
+                highlight_state_targets = { 			
+                    state = 819
+                    state = 817
+                    state = 330
+                    state = 818
+                    state = 820
+                    state = 329 
+                }
+            }
+            available = {
+                controls_state = 819
+                controls_state = 817
+                controls_state = 330
+                controls_state = 818
+                controls_state = 820
+                controls_state = 329 
+
+            }
+
+            visible = {
+                original_tag = TAN
+                NOT = {
+                    has_global_flag = GMON_unified_tib
+                }
+            }
+
+            complete_effect = {
+                add_stability = 0.1
+                add_war_support = 0.1
+                set_cosmetic_tag = panMongol
+                custom_effect_tooltip = MON_you_will_core_tt
+                hidden_effect ={
+                    set_global_flag = GMON_unified_tib
+                    819 = { add_core_of = ROOT }
+                    817 = { add_core_of = ROOT }
+                    330 = { add_core_of = ROOT }
+                    818 = { add_core_of = ROOT }
+                    820 = { add_core_of = ROOT }
+                }
+            }
+        }   
+        TAN_form_unified_mongol_people_state_meng = {
+
+            icon = generic_form_nation
+
+            allowed = {
+                original_tag = TAN
+            }
+            highlight_states = {
+                highlight_state_targets = { 			
+                    state = 612
+                    state = 611
+
+                }
+            }
+            available = {
+                controls_state = 612
+                controls_state = 611
+
+                has_global_flag = GMON_unified_tib
+            }
+
+            visible = {
+                original_tag = TAN
+                NOT = {
+                    has_global_flag = GMON_unified_tib_MENG
+                }
+            }
+
+            complete_effect = {
+                add_war_support = 0.05
+                hidden_effect ={
+                    set_global_flag = GMON_unified_tib_MENG
+                }
+                    612 = { add_core_of = ROOT }
+                    611 = { add_core_of = ROOT }
+                   
+                
+            }
+        } 
+        TAN_form_greater_mongolia = {
+
+            icon = generic_form_nation
+
+            allowed = {
+                original_tag = TAN
+            }
+            highlight_states = {
+                highlight_state_targets = { 			
+                state = 756
+                state = 621
+                state = 612
+                state = 611
+                state = 761 
+                state = 760
+                state = 618          
+                }
+            }
+            available = {
+                controls_state = 756
+                controls_state = 621
+                controls_state = 612
+                controls_state = 611
+                controls_state = 761
+                controls_state = 760
+                controls_state = 618  
+            }
+
+            visible = {
+                original_tag = TAN
+                NOT = {
+                    has_global_flag = GMON_unified
+                }
+            }
+
+            complete_effect = {
+                add_stability = 0.15
+                set_cosmetic_tag = GMON_unified
+                custom_effect_tooltip = MON_you_will_core_tt
+                hidden_effect ={
+                    set_global_flag = GMON_unified
+                    756 = { add_core_of = ROOT }
+                    621 = { add_core_of = ROOT }
+                    618 = { add_core_of = ROOT }
+                    760 = { add_core_of = ROOT }
+                    612 = { add_core_of = ROOT }
+                    611 = { add_core_of = ROOT }
+                    761 = { add_core_of = ROOT }
+                }
+            }
+
+        }
+
+    }
+    TAN_industry_dec = {
+	
+        TAN_collectivize_society  = {
+            priority = 50
+
+            icon = GFX_decision_SOV_place_hq
+
+            ai_will_do = {
+                base = 0
+            }
+
+            allowed = {  
+                original_tag = TAN
+            }
+
+            available = {
+
+                has_government = communism
+
+            }
+
+            visible = { 
+
+                tag = TAN
+
+                has_government = communism
+
+                NOT = {
+                    has_country_flag = TAN_collectivized_society_flag
+                }
+
+            } 
+
+            days_remove = 105 
+
+            cost = 70
+
+            complete_effect = {
+                add_stability = -0.05
+            }
+
+            modifier = {
+            }
+
+            remove_effect = {
+                
+                random_owned_controlled_state = {
+                    limit = {
+                        is_core_of = ROOT
+                        is_fully_controlled_by = ROOT
+                        free_building_slots = {
+                            building = industrial_complex
+                            size > 2
+                            include_locked = yes
+                        }		
+                    }
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 2
+                        instant_build = yes
+                    }	
+                }
+
+                custom_effect_tooltip = generic_skip_one_line_tt
+
+                random_owned_controlled_state = {
+                    limit = {
+                        is_core_of = ROOT
+                        is_fully_controlled_by = ROOT
+                        free_building_slots = {
+                            building = industrial_complex
+                            size > 1
+                            include_locked = yes
+                        }		
+	
+                    }
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }	
+
+                }
+
+                hidden_effect = {
+                    set_country_flag = TAN_collectivized_society_flag
+                }
+            }
+
+        }
+        TAN_adopt_cyrillic  = {
+            fire_only_once = yes
+            priority = 0
+
+            icon = GFX_decision_CHL_mapuche_liberate_isthmo_amerindia
+
+            ai_will_do = {
+                base = 0
+            }
+
+            allowed = {  
+                original_tag = TAN
+            }
+
+            available = {
+
+            }
+
+            visible = { 
+                tag = TAN
+                has_completed_focus = TAN_finish_collectivising   
+                
+            } 
+
+            days_remove = 105 
+
+            cost = 25
+
+            modifier = {
+            }
+
+            remove_effect = {
+                set_cosmetic_tag = TAN_advanced_tuva	
+
+            }
+
+        }
+
+        TAN_modern_industry_dec  = {
+            priority = 50
+
+            icon = GFX_decision_SOV_place_hq
+
+            ai_will_do = {
+                base = 0
+            }
+
+            allowed = {  
+                original_tag = TAN
+            }
+
+            available = {
+
+                has_government = communism
+
+            }
+
+            visible = { 
+
+                tag = TAN
+
+                NOT={has_government = communism}
+
+                NOT = {
+                    has_country_flag = TAN_modern_industry_flag
+                }
+
+            } 
+
+            days_remove = 80 
+
+            cost = 70
+
+            complete_effect = {
+                add_stability = -0.05
+            }
+
+            modifier = {
+            }
+
+            remove_effect = {
+                
+                random_owned_controlled_state = {
+                    limit = {
+                        is_core_of = ROOT
+                        is_fully_controlled_by = ROOT
+		
+                    }
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 2
+                        instant_build = yes
+                    }	
+                }
+
+                custom_effect_tooltip = generic_skip_one_line_tt
+
+                random_owned_controlled_state = {
+                    limit = {
+                        is_core_of = ROOT
+                        is_fully_controlled_by = ROOT	
+                    }
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 1
+                        instant_build = yes
+                    }	
+
+                }
+
+                hidden_effect = {
+                    set_country_flag = TAN_modern_industry_flag
+                }
+            }
+
+        }
+    }
+    TAN_manchuria_cat = {
+        TAN_infiltrate_state_FROM = {
+            icon = GFX_decision_onmap_recruit_operative
+            allowed = {
+                original_tag =  TAN
+            }
+            available = {
+                NOT = {
+                    has_country_flag = TAN_infiltrate_decision_active
+                }
+                NOT = {
+                    has_global_flag = TAN_attempted_uprising_man
+                }
+                has_completed_focus = TAN_infiltrate_manchuria
+                country_exists = MAN
+                FROM = {
+                    NOT = {
+                        is_core_of = TAN
+                    }
+                }
+            }
+            
+            visible = {
+                NOT = {
+                    has_global_flag = TAN_attempted_uprising_man
+                }
+                has_completed_focus = TAN_infiltrate_manchuria
+                country_exists = MAN
+                FROM = {
+                    NOT = {
+                        is_core_of = TAN
+                    }
+                }
+            }
+
+            state_target = yes
+            target_trigger = {
+                FROM = {
+                    is_core_of = MAN
+                    NOT = {
+                        is_fully_controlled_by = ROOT
+                        is_fully_controlled_by = JAP
+                    }
+                }
+            }
+            on_map_mode = map_and_decisions_view
+            cost = 35
+            ai_will_do = {
+                base = 50
+                modifier = {
+                    factor = 10
+                }
+            }
+            fire_only_once = no
+            days_remove = 30
+            complete_effect = {
+                set_country_flag = TAN_infiltrate_decision_active
+            }
+            remove_effect = {
+                clr_country_flag = TAN_infiltrate_decision_active
+                
+                FROM = {
+                    add_core_of = TAN
+                }
+
+                MAN = {
+                    add_popularity = {
+                        ideology = neutrality
+                        popularity = 0.02
+                    }
+                }
+                
+                IF = {
+                    LIMIT = {
+                        MAN = {
+                            has_idea = TAN_partial_infiltration
+                        }
+                    }
+                        MAN = {
+                                remove_ideas = TAN_partial_infiltration
+                                add_ideas = TAN_full_infiltration
+                        }	
+                    
+                }ELSE{
+                    MAN = { 
+                        add_ideas = TAN_partial_infiltration
+                    }
+                }
+
+            }
+        }
+        
+        
+        TAN_commence_uprising = {
+            icon = GFX_decision_eng_support_imperialist_coup
+            allowed = {
+                original_tag =  TAN
+            }
+            available = {
+                NOT = {
+                    has_global_flag = TAN_attempted_uprising_man
+                    has_country_flag = TAN_infiltrate_decision_active
+                }
+                has_completed_focus = TAN_infiltrate_manchuria
+                country_exists = MAN
+                MAN = {
+                    neutrality > 0.25
+                }
+            
+            }
+            
+            visible = {
+                has_completed_focus = TAN_infiltrate_manchuria
+                country_exists = MAN
+                NOT = {
+                    MAN = {
+                        neutrality > 0.4
+                    }
+                }
+            }
+            cost = 100
+
+            complete_effect = {
+                MAN = {
+                    start_civil_war = {
+                        ruling_party = fascism
+                        ideology = neutrality
+                        size = 0.55
+                        capital = 761	
+                    }
+                }
+                hidden_effect = {
+                    set_global_flag = TAN_attempted_uprising_man
+                }
+                }
+        }
+        
+
+        TAN_commence_full_uprising = {
+            icon = GFX_decision_eng_support_imperialist_coup
+            allowed = {
+                original_tag =  TAN
+            }
+            cost = 50
+            available = {
+                NOT = {
+                    has_global_flag = TAN_attempted_uprising_man
+                    has_country_flag = TAN_infiltrate_decision_active
+                }
+                has_completed_focus = TAN_infiltrate_manchuria
+                country_exists = MAN
+                MAN = {
+                    neutrality > 0.3
+                }
+            }
+            
+            visible = {
+                has_completed_focus = TAN_infiltrate_manchuria
+                country_exists = MAN
+                MAN = {
+                    neutrality > 0.25
+                }
+            }
+
+            complete_effect = {
+                MAN = {
+                    start_civil_war = {
+                        ruling_party = fascism
+                        ideology = neutrality
+                        size = 0.90
+                        capital = 761
+                    }
+                }
+                hidden_effect = {
+                    set_global_flag = TAN_attempted_uprising_man
+                }		
+            }
+        }
+
+        TAN_subjugate_manchu = {
+            icon = GFX_decision_generic_assassination
+            allowed = {
+                original_tag =  TAN
+            }
+
+            available = {
+                has_completed_focus = TAN_infiltrate_manchuria
+                any_country = {
+                    original_tag = MAN
+                    is_subject = no
+                    has_civil_war = no
+                    has_government = ROOT
+                }
+
+            }
+            
+            visible = {
+                any_country = {
+                    original_tag = MAN
+                    is_subject = no
+                    has_government = ROOT
+                }
+                NOT = {
+                    has_global_flag = TAN_manchu_puppet
+                }
+            }
+
+            complete_effect = {
+                hidden_effect = {
+                    set_global_flag = TAN_manchu_puppet
+                    
+                }
+                puppet = {
+                    target = MAN
+                    end_wars = yes
+                }
+                TAN = {
+                    set_autonomy = {
+                        target = MAN
+                        autonomy_state = autonomy_personal_union
+                        end_civil_wars = no
+                        end_wars = yes
+                    }
+                }
+            }
+
+        }
+        TAN_incorporate_manchuria = {
+            icon = GFX_decision_generic_confiscation
+            allowed = {
+                original_tag =  TAN
+            }
+
+            available = {
+                MAN = {
+                    is_puppet_of = ROOT
+                    is_ai = yes
+                }
+                NOT ={
+                    has_country_flag = TAN_integration_flag
+                }
+                
+            }
+            
+            visible = {
+                MAN = {
+                    is_puppet_of = ROOT
+                }
+            }
+            days_remove = 30
+            cost = 35
+            complete_effect = {
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            has_government = communism
+                            has_government = democratic
+                        }
+                    }
+                    add_stability = -0.05
+                }
+                hidden_effect = {
+                    set_country_flag = TAN_integration_flag
+                }
+            }
+            remove_effect = {
+                set_cosmetic_tag = TAN_advanced_tuva
+                annex_country = {
+                    target = MAN
+                    transfer_troops = yes
+                }
+
+                hidden_effect = {
+                    clr_country_flag = TAN_integration_flag
+                    761 = { add_core_of = ROOT }
+                    714 = { add_core_of = ROOT }
+                    717 = { add_core_of = ROOT }
+                    328 = { add_core_of = ROOT }
+                    716 = { add_core_of = ROOT }
+                    934 = { add_core_of = ROOT }
+                    715 = { add_core_of = ROOT }
+                }
+            }
+        }          
+    }    
+
+    TAN_laissez_faire_cat = {
+        TAN_land_owners_finding_funding  = {
+            icon = GFX_decision_gre_paying_ifc_debt
+            allowed = {
+                has_completed_focus = TAN_economy_of_the_people
+                original_tag = TAN
+            }
+            visible = {
+                always = yes
+                has_completed_focus = TAN_economy_of_the_people
+            }
+            is_good = yes
+            available = { hidden_trigger = { always = no } }
+
+            activation = {
+                has_completed_focus = TAN_economy_of_the_people
+            }
+            
+            days_mission_timeout = 50
+            timeout_effect = {
+                random_state = {
+                    limit = {
+                        is_controlled_by = ROOT
+                        impassable = no
+                    }
+                    random_list = {
+                        seed = random 
+                        2.5 = {
+                            modifier = {
+                                free_building_slots = {
+                                    building = industrial_complex
+                                    size < 1
+                                }
+                                factor = 0
+                            }
+                            modifier = {
+                                ROOT = {
+                                    has_global_flag = TAN_empowered_investors
+                                }
+                                factor = 2.5
+                            }
+                            modifier = {
+                                has_variable = ROOT.is_literally_not_a_factory
+                                add = var:ROOT.is_literally_not_a_factory
+                            }
+                            if = {
+                                limit = {
+                                    has_variable = ROOT.is_literally_not_a_factory
+                                }
+                                clear_variable = ROOT.is_literally_not_a_factory
+                            }
+                            add_building_construction = {
+                                type = industrial_complex
+                                level = 1
+                                instant_build = yes
+                            }
+
+                            ROOT = { add_to_variable = { built_a_civ = 1 } }
+                        }
+                        2.5 = {
+                            modifier = {
+                                free_building_slots = {
+                                    building = arms_factory
+                                    size < 1  
+                                }
+                                factor = 0
+                            }
+                            modifier = {
+                                ROOT = {
+                                    has_global_flag = TAN_empowered_investors
+                                }
+                                factor = 2.5
+                            }
+                            modifier = {
+                                has_variable = ROOT.is_literally_not_a_factory
+                                add = var:ROOT.is_literally_not_a_factory
+                            }
+                            if = {
+                                limit = {
+                                    has_variable = ROOT.is_literally_not_a_factory
+                                }
+                                clear_variable = ROOT.is_literally_not_a_factory
+                            }
+
+                            add_building_construction = {
+                                type = arms_factory
+                                level = 1
+                                instant_build = yes
+                            }
+
+                            ROOT = { add_to_variable = { built_a_mil = 1 } }
+                        }
+                        2 = {
+                            modifier = {
+                                free_building_slots = {
+                                    building = dockyard
+                                    size < 1 
+                                }
+                                factor = 0
+                            }
+                            modifier = {
+                                ROOT = {
+                                    any_core_state = {
+                                        is_coastal = no
+                                    }
+                                }
+                                factor = 0
+                            }
+                            add_building_construction = {
+                                type = dockyard
+                                level = 1
+                                instant_build = yes
+                            }
+                            modifier = {
+                                ROOT = {
+                                    has_global_flag = TAN_empowered_investors
+                                }
+                                factor = 2.5
+                            }
+                            add_to_variable = { ROOT.is_literally_not_a_factory = 0.1 }
+                            ROOT = { add_to_variable = { built_a_dockyard = 1 } }
+                        }
+                        3 = {
+                            modifier = {
+                                infrastructure > 4
+                                factor = 0
+                            }
+                            add_building_construction = {
+                                type = infrastructure
+                                level = 1
+                                instant_build = yes
+                            }
+                            add_to_variable = { ROOT.is_literally_not_a_factory = 0.15 }
+                            ROOT = { add_to_variable = { built_a_infra = 1 } }
+                        }
+                        2 = {
+                            modifier = {
+                                air_base > 9
+                                factor = 0
+                            }
+                            add_building_construction = {
+                                type = air_base
+                                level = 1
+                                instant_build = yes
+                            }
+                            add_to_variable = { ROOT.is_literally_not_a_factory = 0.25 }
+                            ROOT = { add_to_variable = { built_an_airbase = 1 } }
+                        }
+
+                        1 = {
+                            modifier = {
+                                anti_air_building > 4
+                                factor = 0
+                            }
+
+                            modifier = {
+                                ROOT = { NOT = {  has_tech = interwar_antiair } }
+                                factor = 0
+                            }
+                            add_building_construction = {
+                                type = anti_air_building
+                                level = 1
+                                instant_build = yes
+                            }
+                            add_to_variable = { ROOT.is_literally_not_a_factory = 0.2 }
+                            ROOT = { add_to_variable = { built_an_aa = 1 } }
+                        }
+
+                        1 = {
+                            modifier = {
+                                radar_station > 4
+                                factor = 0
+                            }
+
+                            modifier = { #level 1
+                                ROOT = { NOT = {  has_tech = radio_detection } }
+                                factor = 0
+                            }
+
+                            modifier = { #level 2
+                                radar_station > 0
+                                ROOT = { NOT = {  has_tech = decimetric_radar } }
+                                factor = 0
+                            }
+
+                            modifier = { #level 3
+                                radar_station > 2
+                                ROOT = { NOT = {  has_tech = improved_decimetric_radar } }
+                                factor = 0
+                            }
+
+                            modifier = { #level 4
+                                radar_station > 3
+                                ROOT = { NOT = {  has_tech = centimetric_radar } }
+                                factor = 0
+                            }
+                            modifier = { #level 5
+                                radar_station > 4
+                                ROOT = { NOT = {  has_tech = improved_centimetric_radar } }
+                                factor = 0
+                            }
+
+                            modifier = { #level 6
+                                radar_station > 4
+                                ROOT = { NOT = {  has_tech = advanced_centimetric_radar } }
+                                factor = 0
+                            }
+
+                            add_building_construction = {
+                                type = radar_station
+                                level = 1
+                                instant_build = yes
+                            }
+                            add_to_variable = { ROOT.is_literally_not_a_factory = 0.25 }
+                            ROOT = { add_to_variable = { built_a_radar = 1 } }
+                        }
+
+                        2 =	{
+                            add_building_construction = {
+                                type = supply_node
+                                province = {
+                                    all_provinces = yes
+                                }
+                                level = 1
+                                instant_build = yes
+                            }
+                            add_to_variable = { ROOT.is_literally_not_a_factory = 0.2 }
+                            ROOT = { add_to_variable = { built_a_hub = 1 } }
+                        }
+
+                        3 = {
+                            modifier = {
+                                free_building_slots = {
+                                    building = industrial_complex
+                                    size < 1 
+                                }
+                                factor = 2
+                            }
+                            modifier = {
+                                ROOT = {
+                                    has_global_flag = TAN_empowered_investors
+                                }
+                                factor = 2.5
+                            }
+                            add_extra_state_shared_building_slots = 1
+                            add_to_variable = { ROOT.is_literally_not_a_factory = 0.1 }
+                            ROOT = { add_to_variable = { added_slot = 1 } }
+
+                        }
+                    }
+                        
+                }
+                activate_mission = TAN_land_owners_finding_funding
+            }
+        }
+            TAN_sweeten_the_deal  = {
+                priority = 50
+
+                icon = GFX_decision_gre_investment_decisions
+
+                ai_will_do = {
+                    base = 0
+                }
+
+                allowed = {  
+                    original_tag = TAN
+                }
+
+                available = {
+
+                    has_government = democratic
+
+                }
+
+                visible = { 
+
+                    tag = TAN
+
+                    has_government = democratic
+
+                    NOT = {
+                        has_global_flag = TAN_empowered_investors
+                    }
+
+                } 
+
+                days_remove = 105 
+
+                cost = 100
+
+                complete_effect = {
+                    add_stability = -0.05
+                }
+
+                modifier = {
+                }
+
+                remove_effect = {
+                    set_cosmetic_tag = TAN_advanced_tuva
+                    add_offsite_building = { type = industrial_complex level = 2}
+                    custom_effect_tooltip = GUAY_empower_the_land_owners_desc_tt
+                    hidden_effect = {
+                        set_global_flag = TAN_empowered_investors
+                    }
+                }
+
+            }
+    }    
+
+    TAN_tuvan_decs = {
+        SAU_integrate_sik = {
+            icon = GFX_decision_generic_confiscation
+            allowed = {
+                original_tag =  TAN
+            }
+
+            available = {
+                SIK = {
+                    is_puppet_of = ROOT
+                    is_ai = yes
+                }
+                NOT ={
+                    has_country_flag = TAN_integration_flag
+                }	
+                618 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TAN
+					}
+				}          		
+            }
+            
+            visible = {
+                SIK = {
+                    is_puppet_of = ROOT
+                }
+            }
+            days_remove = 30
+            cost = 35
+            complete_effect = {
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            has_government = communism
+                            has_government = democratic
+                        }
+                    }
+                    add_stability = -0.05
+                }
+                hidden_effect = {
+                    set_country_flag = TAN_integration_flag
+                }
+            }
+            remove_effect = {
+                annex_country = {
+                    target = SIK
+                    transfer_troops = yes
+                }
+                    618 = { add_core_of = ROOT }
+                    760 = { add_core_of = ROOT }
+                    322 = { add_core_of = ROOT }
+                    759 = { add_core_of = ROOT }
+                    619 = { add_core_of = ROOT }
+                    287 = { add_core_of = ROOT }
+                hidden_effect = {
+                    clr_country_flag = TAN_integration_flag
+                }
+            }
+        }
+        SAU_integrate_tib = {
+            icon = GFX_decision_generic_confiscation
+            allowed = {
+                original_tag =  TAN
+            }
+
+            available = {
+				322 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TAN
+					}
+				}                
+                TIB = {
+                    is_puppet_of = ROOT
+                    is_ai = yes
+                }
+                NOT ={
+                    has_country_flag = TAN_integration_flag
+                }			
+            }
+            
+            visible = {
+                TIB = {
+                    is_puppet_of = ROOT
+                }
+            }
+            days_remove = 30
+            cost = 35
+            complete_effect = {
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            has_government = communism
+                            has_government = democratic
+                        }
+                    }
+                    add_stability = -0.05
+                }
+                hidden_effect = {
+                    set_country_flag = TAN_integration_flag
+                }
+            }
+            remove_effect = {
+                annex_country = {
+                    target = TIB
+                    transfer_troops = yes
+                }
+                    758 = { add_core_of = ROOT }
+                    757 = { add_core_of = ROOT }
+                    322 = { add_core_of = ROOT }
+                hidden_effect = {
+                    clr_country_flag = TAN_integration_flag
+                }
+            }
+        }	        	               
+    }
+
+
+    TAN_cooperation_dec = {
+        TAN_collab_with_allies = {
+            cost = 50
+
+            icon = GFX_decision_CHL_grant_full_rights_to_the_mapuche
+            fire_only_once = yes
+            allowed = {
+                original_tag = TAN
+            }
+
+            available = {
+                any_country = {
+                    AND = {
+                        OR = {is_in_faction_with = TAN is_subject_of = TAN}
+                        NOT = {original_tag = TAN}
+                    }
+                }
+                NOT = {
+                    has_global_flag = TAN_working_with_an_ally_flag
+                }
+            }
+
+            visible = {
+                original_tag = TAN
+                has_global_flag = TAN_team_collab
+            }
+
+            days_remove = 30
+
+
+            
+            complete_effect = {
+                set_global_flag = TAN_working_with_an_ally_flag
+            }
+
+            remove_effect = {
+                hidden_effect = {
+                    clr_global_flag = TAN_working_with_an_ally_flag
+                }
+                add_command_power = 100
+                add_war_support = 0.1
+                add_stability = 0.1
+                add_political_power = 100
+                custom_effect_tooltip = generic_skip_one_line_tt
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            num_subjects > 0
+                            is_in_faction = yes
+                        }
+                    }
+                    
+                    every_country = {LIMIT = {AND = {OR = {is_in_faction_with = TAN is_subject_of = TAN}NOT={original_tag=TAN}}}
+                        random_select_amount = 2
+                        add_war_support = 0.1
+                        add_stability = 0.1
+                    }
+                    custom_effect_tooltip = generic_skip_one_line_tt
+
+                    every_country = {LIMIT = {AND = {OR = {is_in_faction_with = TAN is_subject_of = TAN}NOT={original_tag=TAN}}}
+                        random_select_amount = 2
+                        add_command_power = 100
+                        add_war_support = 0.1
+                    }
+                    custom_effect_tooltip = generic_skip_one_line_tt
+
+                    every_country = {LIMIT = {AND = {OR = {is_in_faction_with = TAN is_subject_of = TAN}NOT={original_tag=TAN}}}
+                        random_select_amount = 2
+                        add_political_power = 100
+                    }
+                }
+            }
+
+        }
+
+        TAN_allied_fund_raise = {
+            cost = 50
+
+            icon = GFX_decision_generic_fundraising
+            fire_only_once = yes
+            allowed = {
+                original_tag = TAN
+            }
+
+            available = {
+                any_country = {
+                    AND = {
+                        OR = {is_in_faction_with = TAN is_subject_of = TAN}
+                        NOT = {original_tag = TAN}
+                    }
+                }
+                NOT = {
+                    has_global_flag = TAN_working_with_an_ally_flag
+                }
+            }
+
+            visible = {
+                original_tag = TAN
+                has_global_flag = TAN_team_collab
+
+            }
+
+            days_remove = 60
+
+
+            
+            complete_effect = {
+                set_global_flag = TAN_working_with_an_ally_flag
+            }
+
+            remove_effect = {
+                hidden_effect = {
+                    clr_global_flag = TAN_working_with_an_ally_flag
+                }
+                add_offsite_building = { type = arms_factory level = 2}
+                add_offsite_building = { type = industrial_complex level = 2 }
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            num_subjects > 0
+                            is_in_faction = yes
+                        }
+                    }
+                    custom_effect_tooltip = generic_skip_one_line_tt
+                    every_country = {LIMIT = {AND = {OR = {is_in_faction_with = TAN is_subject_of = TAN}NOT={original_tag=TAN}}}
+                        random_select_amount = 2
+                        add_offsite_building = { type = arms_factory level = 1}
+
+                    }
+                }
+            }
+
+        }
+
+        TAN_allied_immigration = {
+            icon = GFX_decision_hol_radio_oranje
+            fire_only_once = yes
+            allowed = {
+                original_tag = TAN
+            }
+
+            available = {
+                any_country = {
+                    AND = {
+                        OR = {is_in_faction_with = TAN is_subject_of = TAN}
+                        NOT = {original_tag = TAN}
+                    }
+                }
+                NOT = {
+                    has_global_flag = TAN_working_with_an_ally_flag
+                }
+            }
+
+            visible = {
+                original_tag = TAN
+                has_global_flag = TAN_team_collab
+            }
+
+            days_remove = 120
+
+
+            cost = 50
+
+            complete_effect = {
+                set_global_flag = TAN_working_with_an_ally_flag
+            }
+
+            remove_effect = {
+                hidden_effect = {
+                    clr_global_flag = TAN_working_with_an_ally_flag
+                }
+                add_manpower = 35200
+                every_core_state = {
+                        LIMIT = {
+                            is_owned_by = TAN
+                        }
+                    add_manpower = 65000
+                }
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            num_subjects > 0
+                            is_in_faction = yes
+                        }
+                    }
+                    custom_effect_tooltip = generic_skip_one_line_tt
+                    every_country = {LIMIT = {AND = {OR = {is_in_faction_with = TAN is_subject_of = TAN}NOT={original_tag=TAN}}}
+                        random_select_amount = 2
+                        every_core_state = {
+                            LIMIT = {
+                                is_owned_by = PREV
+                            }
+                            add_manpower = 25000
+                        }
+                    }
+                }
+            }
+
+        }
+
+        TAN_work_with_allied_orgs = {
+            COST = 50
+            icon = GFX_decision_eng_install_government
+            fire_only_once = yes
+            allowed = {
+                original_tag = TAN
+            }
+            cost = 50
+
+            available = {
+                any_country = {
+                    AND = {
+                        OR = {is_in_faction_with = TAN is_subject_of = TAN}
+                        NOT = {original_tag = TAN}
+                    }
+                }		
+                NOT = {
+                    has_global_flag = TAN_working_with_an_ally_flag
+                }
+            }
+
+            visible = {
+                original_tag = TAN
+                has_global_flag = TAN_team_collab
+
+            }
+
+            days_remove = 60
+
+            complete_effect = {
+                set_global_flag = TAN_working_with_an_ally_flag
+            }
+
+            remove_effect = {
+                hidden_effect = {
+                    clr_global_flag = TAN_working_with_an_ally_flag
+                    TAN = { 
+                        set_country_flag = TAN_working_with_allied_org_flag
+                    }
+                }
+                army_experience = 55
+                navy_experience = 55
+                air_experience = 55
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            num_subjects > 0
+                            is_in_faction = yes
+                        }
+                    }
+                
+                    custom_effect_tooltip = generic_skip_one_line_tt
+                    every_country = {LIMIT = {AND = {OR = {is_in_faction_with = TAN is_subject_of = TAN}NOT={original_tag=TAN}}}
+                        random_select_amount = 2
+                        army_experience = 35
+                        navy_experience = 25
+                        air_experience = 25
+                    }
+                }
+            }
+
+        }
+
+        TAN_experimental_research = {
+            icon = GFX_decision_generic_research
+            fire_only_once = yes
+            allowed = {
+                original_tag = TAN
+            }
+            cost = 50
+
+            available = {
+                num_faction_members > 2
+                any_country = {
+                    AND = {
+                        OR = {is_in_faction_with = TAN is_subject_of = TAN}
+                        NOT = {original_tag = TAN}
+                    }
+                }
+                NOT = {
+                    has_global_flag = TAN_working_with_an_ally_flag
+                }
+            }
+
+            visible = {
+                original_tag = TAN
+                has_global_flag = TAN_team_collab
+
+            }
+
+            days_remove = 60
+
+            complete_effect = {
+                set_global_flag = TAN_working_with_an_ally_flag
+            }
+
+            remove_effect = {
+                hidden_effect = {
+                    clr_global_flag = TAN_working_with_an_ally_flag
+                    TAN = { 
+                        set_country_flag = TAN_experimental_research_stations_buily_flag
+                    }
+                }
+                random_controlled_state = {
+                    prioritize = { 292 679 } #optional
+                    construct_building_in_random_province = {
+                        land_facility = 1
+                    }
+                }
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            num_subjects > 0
+                            is_in_faction = yes
+                        }
+                    }
+                    every_country = {LIMIT = {AND = {OR = {is_in_faction_with = TAN is_subject_of = TAN}NOT={original_tag=TAN}}}
+                    random_select_amount = 2
+                    random_controlled_state = {
+                        construct_building_in_random_province = {
+                            land_facility = 1
+                        }
+                    }
+                }
+                }
+            }
+
+        }
+
+        TAN_working_contracts = {
+            icon = GFX_decision_hol_attract_foreign_investors
+            fire_only_once = yes
+            allowed = {
+                original_tag = TAN
+            }
+            cost = 50
+
+            available = {
+                num_faction_members > 3
+                any_country = {
+                    AND = {
+                        OR = {is_in_faction_with = TAN is_subject_of = TAN}
+                        NOT = {original_tag = TAN}
+                    }
+                }
+                NOT = {
+                    has_global_flag = TAN_working_with_an_ally_flag
+                }
+            }
+
+            visible = {
+                original_tag = TAN
+                has_global_flag = TAN_team_collab
+
+            }
+
+            days_remove = 60
+
+            complete_effect = {
+                set_global_flag = TAN_working_with_an_ally_flag
+            }
+
+            remove_effect = {
+                hidden_effect = {
+                    clr_global_flag = TAN_working_with_an_ally_flag
+                    TAN = { 
+                        set_country_flag = TAN_working_contracts
+                    }
+                }
+                every_core_state = {
+                        LIMIT = {
+                            is_owned_by = TAN
+                        }
+                    add_dynamic_modifier = {
+                        modifier = RAJ_industrialized_personnel
+                        scope = TAN
+                    }
+                }
+                random_owned_controlled_state = {
+                    limit = {
+                        is_core_of = ROOT
+                        is_fully_controlled_by = ROOT
+                        free_building_slots = {
+                            building = industrial_complex
+                            size > 2
+                            include_locked = yes
+                        }		
+                    }
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 2
+                        instant_build = yes
+                    }	
+                }
+                IF = {
+                    LIMIT = {
+                        OR = {
+                            num_subjects > 0
+                            is_in_faction = yes
+                        }
+                    }
+                    every_country = {LIMIT = {AND = {OR = {is_in_faction_with = TAN is_subject_of = TAN}NOT={original_tag=TAN}}}
+                        random_select_amount = 2
+                        random_owned_controlled_state = {
+                            limit = {
+                                is_core_of = PREV
+                                is_fully_controlled_by = PREV
+                                free_building_slots = {
+                                    building = industrial_complex
+                                    size > 2
+                                    include_locked = yes
+                                }		
+                            }
+                            add_extra_state_shared_building_slots = 2
+                            add_building_construction = {
+                                type = industrial_complex
+                                level = 1
+                                instant_build = yes
+                            }	
+                        }
+                    }
+                }
+            }
+        }        
+    }

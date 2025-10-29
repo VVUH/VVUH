@@ -3,6 +3,7 @@
 #Category only allowed for CHI
 CHI_war_of_resistance_cat = {
 	CHI_bolster_spirits = {
+		fire_only_once = yes
 		icon = generic_prepare_civil_war
 		available = {
 			has_war_with = JAP
@@ -28,6 +29,7 @@ CHI_war_of_resistance_cat = {
 		}
 	}
 	CHI_call_for_more_resistance = {
+		fire_only_once = yes
 		icon = generic_prepare_civil_war
 		available = {
 			has_war_with = JAP
@@ -56,6 +58,7 @@ CHI_war_of_resistance_cat = {
 		}
 	}
 	CHI_every_man_will_fight = {
+		fire_only_once = yes
 		icon = generic_prepare_civil_war
 		available = {
 			has_war_with = JAP
@@ -5345,7 +5348,7 @@ CHI_integrate_the_warlords = {
 		}
 
 		remove_effect = {
-			FROM = { set_country_flag = CHI_integrate_the_army }
+			FROM = { set_country_flag = CHI_integrate_the_army add_autonomy_score = { value = -250 }}
 
 			CHI_warlord_integration_up = yes
 			if = {
@@ -5554,6 +5557,9 @@ CHI_integrate_the_warlords = {
 		remove_effect = {
 			FROM = {
 				set_country_flag = CHI_integrate_the_administration
+				add_autonomy_score = {
+				    value = -250
+				}
 			}
 
 			FROM = {
@@ -7229,3 +7235,4 @@ CHI_occupation_actions = {
 	}
 	
 }
+

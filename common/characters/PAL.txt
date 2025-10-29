@@ -1,0 +1,176 @@
+characters = {
+	PAL_harold_macmichael = {
+
+		name = PAL_harold_macmichael
+
+		portraits = {
+			civilian = {
+				large = GFX_portrait_PAL_harold_macmichael
+				small = GFX_portrait_PAL_harold_macmichael_small
+			}
+		}
+
+		country_leader = {
+			ideology = oligarchism
+			traits = { great_survivor }
+			expire = "1969.1.1.1"
+			id = -1
+		}
+
+	}
+
+	PAL_amin_al_husseini2 = {
+		name = PAL_amin_al_husseini
+		portraits = {
+			civilian = {
+				large = GFX_portrait_PAL_amin_al_husseini
+				small = GFX_portrait_PAL_amin_al_husseini_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = PAL_amin_al_husseini
+			traits = {
+				IRQ_the_grand_mufti
+			}
+			allowed = {
+				original_tag = PAL
+				
+			}
+			available = {
+
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { IRQ_the_grand_mufti }
+			expire = "1969.1.1.1"
+			id = -1
+		}
+	}
+
+	PAL_rahib_nasha = {
+		name = "Raghib al-Nashashibi"
+		portraits = {
+			civilian = {
+				large = GFX_portrait_PER_hasan_arfa
+				small = GFX_portrait_PER_hasan_arfa_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = PAL_rahib_nasha
+			traits = {
+				subservient_democrat_democratic
+			}
+			allowed = {
+				original_tag = PAL
+				
+			}
+			available = {
+
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			traits = { the_gentleman_president }
+			expire = "1969.1.1.1"
+			id = -1
+		}
+	}
+	
+	PAL_arthur_wauchope={
+		name= "Arthur Grenfell Wauchope"
+		portraits={
+			army={
+				large=GFX_portrait_ENG_richard_oconnor
+				small=GFX_portrait_ENG_richard_oconnor_small
+			}
+			civilian = {
+				large=GFX_portrait_ENG_richard_oconnor
+				small=GFX_portrait_ENG_richard_oconnor_small		
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PAL_arthur_wauchope
+			cost = 150
+			visible = {
+				original_tag = PAL
+
+			}
+			available = {
+				original_tag = PAL
+
+			}
+			allowed = {
+				original_tag = PAL
+			}
+			traits = {
+				staunch_imperialist_alt
+			}
+		}
+		field_marshal={
+			visible = {
+				original_tag = PAL
+			}
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=3
+		}
+	}
+
+	PAL_rob_hain={
+		name= "Robert Haininge"
+		portraits={
+			army={
+				large=GFX_portrait_ENG_henry_wilson
+				small=GFX_portrait_ENG_henry_wilson_small
+			}
+			civilian = {
+				large=GFX_portrait_ENG_henry_wilson
+				small=GFX_portrait_ENG_henry_wilson_small		
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PAL_rob_hain
+			cost = 150
+			visible = {
+				original_tag = PAL
+
+			}
+			available = {
+				original_tag = PAL
+
+			}
+			allowed = {
+				original_tag = PAL
+			}
+			traits = {
+				eager_commander
+			}
+		}
+		corps_commander={
+			visible = {
+				original_tag = PAL
+			}
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+
+}

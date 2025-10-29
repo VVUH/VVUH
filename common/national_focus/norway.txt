@@ -1977,10 +1977,13 @@ focus_tree = {
 		}
 
 		bypass = {
-			SWE = {
 			OR = {
-					exists = no
-					is_subject_of = ROOT
+				has_war_with = SWE
+				SWE = {
+					OR = {
+						exists = no
+						is_subject_of = ROOT
+					}
 				}
 			}
 		}
@@ -2026,10 +2029,13 @@ focus_tree = {
 		}
 
 		bypass = {
-			DEN = {
 			OR = {
-					exists = no
-					is_subject_of = ROOT
+				has_war_with = DEN
+				DEN = {
+					OR = {
+							exists = no
+							is_subject_of = ROOT
+					}
 				}
 			}
 		}
@@ -4263,70 +4269,70 @@ focus_tree = {
 		}
 	}
 
-#	focus = {
-#		id = NOR_fascist_invasion_of_norway
-#		icon = GFX_focus_generic_attack_norway
-#		prerequisite = { focus = NOR_continue_nygaardsvold_government }
-#
-#		x = 6
-#		y = 4
-#		relative_position_id = NOR_continue_nygaardsvold_government
-#		
-#		offset = {
-#			x = -1
-#			y = -3
-#			trigger = {
-#				has_hide_rule = yes
-#				has_completed_focus = NOR_arrest_quisling
-#				NOT = {
-#					has_global_flag = NOR_quislings_coup_happened
-#					has_country_flag = NOR_delayed_quislings_coup
-#				}
-#			}	
-#		}
-#
-#		cost = 10
-#		available = {
-#			custom_trigger_tooltip = {
-#				tooltip = NOR_invasion_focus_TT
-#				if = {
-#					limit = {
-#						any_other_country = {
-#							original_tag = GER 
-#							has_government = fascism 
-#							exists = yes 
-#							has_capitulated = no 
-#						}
-#					}
-#					GER = {
-#						has_offensive_war_with = ROOT 
-#					}
-#				}
-#				else = {
-#					any_other_country = {
-#						has_government = fascism 
-#						capital_scope = {
-#							is_on_continent = europe
-#						}
-#						has_offensive_war_with = ROOT
-#					}
-#				}
-#			}
-#		}
-#
-#		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
-#
-#		completion_reward = {
-#			add_stability = -0.25
-#			add_war_support = 0.25
-#			add_political_power = 100 	
-#			add_popularity = {
-#				ideology = fascism 
-#				popularity = -0.1
-#			}
-#			mark_focus_tree_layout_dirty = yes
-#		}
-#	}
+	focus = {
+		id = NOR_fascist_invasion_of_norway
+		icon = GFX_focus_generic_attack_norway
+		prerequisite = { focus = NOR_continue_nygaardsvold_government }
+
+		x = 6
+		y = 4
+		relative_position_id = NOR_continue_nygaardsvold_government
+		
+		offset = {
+			x = -1
+			y = -3
+			trigger = {
+				has_hide_rule = yes
+				has_completed_focus = NOR_arrest_quisling
+				NOT = {
+					has_global_flag = NOR_quislings_coup_happened
+					has_country_flag = NOR_delayed_quislings_coup
+				}
+			}	
+		}
+
+		cost = 10
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = NOR_invasion_focus_TT
+				if = {
+					limit = {
+						any_other_country = {
+							original_tag = GER 
+							has_government = fascism 
+							exists = yes 
+							has_capitulated = no 
+						}
+					}
+					GER = {
+						has_offensive_war_with = ROOT 
+					}
+				}
+				else = {
+					any_other_country = {
+						has_government = fascism 
+						capital_scope = {
+							is_on_continent = europe
+						}
+						has_offensive_war_with = ROOT
+					}
+				}
+		}
+		}
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+
+		completion_reward = {
+			add_stability = -0.25
+			add_war_support = 0.25
+		add_political_power = 100 	
+			add_popularity = {
+				ideology = fascism 
+				popularity = -0.1
+			}
+		mark_focus_tree_layout_dirty = yes
+		}
+	}
 
 	focus = {
 		id = NOR_ask_for_foreign_support
@@ -4577,7 +4583,7 @@ focus_tree = {
 	focus = {
 		id = NOR_quislings_coup
 		icon = GFX_focus_NOR_quislings_coup
-		prerequisite = { focus = NOR_nasjonal_samling #focus = NOR_fascist_invasion_of_norway 
+		prerequisite = { focus = NOR_nasjonal_samling focus = NOR_fascist_invasion_of_norway 
 		}
 
 		x = 0
@@ -6596,7 +6602,7 @@ focus_tree = {
 		relative_position_id = NOR_reviving_the_norgesveldet
 
 		offset = {
-			x = 0
+			x = -5
 			y = 0
 			trigger = {
 				has_hide_rule = yes

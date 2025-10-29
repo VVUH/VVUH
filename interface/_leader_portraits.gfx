@@ -1,4 +1,50 @@
 spriteTypes = {
+	##### MALAYA MOD PORTRAITS ####
+	spriteType = {
+		name = GFX_portrait_Onn_Jaafar
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_onn_jaafar.dds"
+	}
+
+	spriteType = {
+		name = GFX_portrait_Lai_Teck
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_lai_teck.dds"
+	}
+
+	spriteType = {
+		name = GFX_portrait_Ibrahim_Hj_Yaacob
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_ibrahim_hj_yaacob.dds"
+	}
+	spriteType = {
+		name = GFX_portrait_ruler_council
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_ruler_council.dds"
+	}
+	spriteType = {
+		name = GFX_portrait_abdul_rahman
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_abdul_rahman.dds"
+	}
+	spriteType = {
+		name = GFX_portrait_munawir
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_munawir.dds"
+	}
+	spriteType = {
+		name = GFX_portrait_abdul_aziz
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_abdul_aziz.dds"
+	}
+	spriteType = {
+		name = GFX_portrait_chin_peng
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_ching_peng.dds"
+	}
+	spriteType = {
+		name = GFX_portrait_munawir
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_munawir.dds"
+	}
+	spriteType = {
+		name = GFX_portrait_tkk
+		texturefile = "gfx/leaders/TIVER/MAL/Portrait_Malaya_tkk.dds"
+	}
+
+
+
 
 	spriteType = {
 		name = "GFX_NZL_john_a_lee"
@@ -4512,8 +4558,8 @@ spriteTypes = {
 		texturefile = "gfx/leaders/FRA/Portrait_France_Paul_Reynaud.dds"
 	}
 
-	spriteType = {
-		name = GFX_portrait_GER_adolf_hitler
+	SpriteType = {
+		name = "GFX_portrait_GER_adolf_hitler"
 		texturefile = "gfx/leaders/GER/portrait_GER_adolf_hitler.dds"
 	}
 
@@ -5580,21 +5626,6 @@ spriteTypes = {
 	spriteType = {
 		name = GFX_portrait_Pierre_Dupong
 		texturefile = "gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
-	}
-
-	spriteType = {
-		name = GFX_portrait_Onn_Jaafar
-		texturefile = "gfx/leaders/Asia/Portrait_Asia_Generic_democracy.dds"
-	}
-
-	spriteType = {
-		name = GFX_portrait_Lai_Teck
-		texturefile = "gfx/leaders/Asia/Portrait_Asia_Generic_1.dds"
-	}
-
-	spriteType = {
-		name = GFX_portrait_Ibrahim_Hj_Yaacob
-		texturefile = "gfx/leaders/Asia/Portrait_Asia_Generic_fascism.dds"
 	}
 
 	spriteType = {

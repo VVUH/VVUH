@@ -259,7 +259,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_request_payment
-		icon = GFX_focus_CHL_strengthen_the_central_bank
+		icon = GFX_focus_generic_currency_reforms
 
 		x = 0
 		y = 1
@@ -320,6 +320,11 @@ focus_tree = {
 				has_opinion = {
 					target = MON
 					value > 69
+				}
+				AND = {
+					controls_state = 564
+					controls_state = 563
+					controls_state = 566
 				}
 			}
 			has_idea = MON_spa_silver
@@ -939,9 +944,9 @@ focus_tree = {
 		}
 		available = {
  			JAP = {
-				NOT = {has_government = MON}
+				NOT = {has_government = ROOT}
 			}
-			
+			is_ai = no			
 		}
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
 
@@ -1622,8 +1627,19 @@ focus_tree = {
 			factor = 100
 		}
 		available = {
-			SIK = {
-				has_civil_war = no
+			IF = {
+				LIMIT = {
+					has_completed_focus = MON_the_start_of_the_great_repression
+				}
+				SIK = {
+					has_civil_war = no
+					has_government = MON
+				}
+			}ELSE = {
+				SIK = {
+					has_civil_war = no
+					NOT={has_government = communism}
+				}
 			}
 		}
 				search_filters = {FOCUS_FILTER_STABILITY}
@@ -1673,10 +1689,21 @@ focus_tree = {
 
 
 		available = {
-			SIK = {
-				has_civil_war = no
-				has_government = MON
+			IF = {
+				LIMIT = {
+					has_completed_focus = MON_the_start_of_the_great_repression
+				}
+				SIK = {
+					has_civil_war = no
+					has_government = MON
+				}
+			}ELSE = {
+				SIK = {
+					has_civil_war = no
+					NOT={has_government = communism}
+				}
 			}
+
 			NOT = {
 				has_idea = MON_soviet_supervision
 			}
@@ -3902,16 +3929,22 @@ focus_tree = {
 
 		completion_reward = {
 			IF = {
-				LIMIT = {is_free_or_subject_of_root = yes}
-				puppet = XSM
+				LIMIT = {XSM={is_free_or_subject_of_root = yes}}
+				XSM = {
+					country_event = SAU_submission.20
+				}
 			}
 			IF = {
-				LIMIT = {is_free_or_subject_of_root = yes}
-				puppet = SHX
-			}
+				LIMIT = {SHX={is_free_or_subject_of_root = yes}}
+				SHX = {
+					country_event = SAU_submission.20
+				}			
+				}
 			IF = {
-				LIMIT = {is_free_or_subject_of_root = yes}
-				puppet = TAN
+				LIMIT = {TAN={is_free_or_subject_of_root = yes}}
+				TAN = {
+					country_event = SAU_submission.20
+				}				
 			}			
 		}
 	}
@@ -4167,7 +4200,17 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			add_ideas = MON_purposeful_arms
+			IF = {
+				LIMIT = {
+					has_idea = MON_purposeful_arms
+				}
+				swap_ideas = {
+					remove_idea = MON_purposeful_arms
+					add_idea = MON_invest_in_hunting
+				}
+			}ELSE = {
+				add_ideas = MON_purposeful_arms
+			}
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
@@ -5698,7 +5741,19 @@ focus_tree = {
 				uses = 1
 				category = infantry_weapons
 			}
-			add_ideas = MON_invest_in_hunting
+			IF = {
+				LIMIT = {
+					has_idea = MON_purposeful_arms
+				}
+				swap_ideas = {
+					remove_idea = MON_purposeful_arms
+					add_idea = MON_invest_in_hunting
+				}
+			}ELSE = {
+				add_ideas = MON_purposeful_arms
+			}
+			
+		
 		}
 	}
 
@@ -6132,7 +6187,10 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = MON_agricultural_culture
+			swap_ideas = {
+				remove_idea = MON_traditional_industry_3
+				add_idea = MON_agricultural_culture
+			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_stability = 0.15
 			add_popularity = {
@@ -6829,7 +6887,7 @@ focus_tree = {
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 100
 		}
 
 		available = {
@@ -7137,7 +7195,6 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			#decisions to improve state 820, 330, 819. if owned en cored; 611, 610, 609, 608, 715, 716, 328, 717714, 761, 329, 618, 732, 405, 404, 831, 832, 584
 			add_resource = {
 				type = oil
 				amount = 10
@@ -7165,7 +7222,6 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			#decisions to improve state 820, 330, 819. if owned en cored; 611, 610, 609, 608, 715, 716, 328, 717714, 761, 329, 618, 732, 405, 404, 831, 832, 584
 			330= {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {

@@ -29,6 +29,12 @@ focus_tree = {
 		focus = industrial_effort
 	}
 
+
+
+	shared_focus = ASE_shared
+
+
+
 	##puppetstuff
 
 	focus = {

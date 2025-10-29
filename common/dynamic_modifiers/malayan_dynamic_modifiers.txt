@@ -1,0 +1,59 @@
+#	Example:
+# 
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#       attacker_modifier = no  # if yes this modifier will also be read in combat for 
+#                               # people engaging in the combat even if not in the state
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+#
+#	can be added to countries, states, unit leaders or special projects
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+
+
+MAL_underdeveloped_jungle = {
+	enable = { always = yes }
+	icon = GFX_modifiers_ETH_state_development
+	state_production_speed_buildings_factor = -0.2
+	compliance_growth = -0.5
+	enemy_army_speed_factor = -0.3
+	enemy_local_supplies = -0.1
+	recruitable_population_factor = -0.15
+	army_core_defence_factor = 0.1
+}
+MAL_underdeveloped_jungle_2 = {
+	enable = { always = yes }
+	icon = GFX_modifiers_ETH_state_development
+	state_production_speed_buildings_factor = -0.1
+	compliance_growth = -0.25
+	enemy_army_speed_factor = -0.15
+	enemy_local_supplies = -0.05
+	recruitable_population_factor = -0.05
+	army_core_defence_factor = 0.05
+}
+MAL_aquired_plane_secrets_idea = {
+	enable = { always = yes }
+	icon = GFX_idea_ETH_airforce
+	air_attack_factor = MAL_var_air_attack_bonus
+	air_agility_factor = MAL_var_air_agility_bonus
+	air_defence_factor = MAL_var_air_defense_bonus
+	consumer_goods_factor = MAL_consumer_goods_var
+	custom_modifier_tooltip = MAL_plane_cost_modifier_tt
+}

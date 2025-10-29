@@ -1,0 +1,141 @@
+﻿capital = 757
+
+oob = "TIB_1936"
+
+set_popularities = {
+	democratic = 8
+	neutrality = 77
+	fascism = 5
+	communism = 10
+}
+
+# Starting tech
+inherit_technology = BOL
+set_technology = {
+    tech_mountaineers = 1
+}
+
+add_ideas = {
+	TIB_highest_region_on_earth1
+	TIB_young_dalai_lama
+	TIB_spiritual_society
+	TIB_religious_minorities
+	TIB_bureaucracy
+	TIB_tibet_class_system
+	TIB_tibetan_army1
+}
+
+add_manpower = 55000
+
+recruit_character = TIB_jamphel_yeshe_gyaltsen
+recruit_character = TIB_penor_tashi
+recruit_character = TIB_tsepon_shatra
+recruit_character = TIB_gyato_wangdu
+recruit_character = TIB_lobsang_tenzin
+recruit_character = TIB_sampo_tsewang_rigzin
+recruit_character = TIB_chama_samphe
+recruit_character = TIB_chodak_karma
+recruit_character = TIB_tenpa_jamyang
+recruit_character = TIB_sogyal_rinpoche
+recruit_character = TIB_bapa_yeshe
+recruit_character = TIB_jampal_rabgye_rinpoche
+recruit_character = TIB_chaghoe_namgyal_dorje
+recruit_character = TIB_jamyang_rabten
+recruit_character = TIB_khemey_sonam_wangdi
+recruit_character = TIB_jigme_taring
+recruit_character = TIB_reting_rimpoche
+recruit_character = TIB_taktra_rinpoche
+
+recruit_character = TIB_heinrich_harrer
+recruit_character = TIB_ernst_krause
+recruit_character = TIB_peter_aufschnaiter
+recruit_character = TIB_ishikawa_sanshiro 
+recruit_character = TIB_jiang_kanghu
+recruit_character = TIB_liu_shifu 
+recruit_character = TIB_ngawang_kesang 
+recruit_character = TIB_anarchist_council
+recruit_character = TIB_charles_bell
+recruit_character = TIB_basil_gould
+recruit_character = TIB_tashi_namgyal
+recruit_character = TIB_tsepon_shakabpa1
+recruit_character = TIB_tsepon_shakabpa2
+recruit_character = TIB_gyalo_thondup
+recruit_character = TIB_thubten_norbu
+recruit_character = TIB_gyurme_topgyal
+recruit_character = TIB_canlocen
+recruit_character = TIB_gendun_chopel
+recruit_character = TIB_thubten_kunphela
+recruit_character = TIB_trimon_shap
+recruit_character = TIB_lhalu_dorje
+recruit_character = TIB_tsipon_lungshar
+recruit_character = TIB_wangdu_kyipup
+recruit_character = TIB_phuntsok_wangyal
+recruit_character = TIB_tian_guansan
+recruit_character = TIB_pandatsang_rapga
+recruit_character = TIB_dalai_lama_d
+recruit_character = TIB_jinzo_nomoto
+recruit_character = TIB_rolf_magener
+recruit_character = TIB_george_patterson
+recruit_character = TIB_geoffrey_bull
+recruit_character = TIB_parliament_republic
+recruit_character = TIB_parliament_theocracy
+recruit_character = TIB_brooke_dolan_two
+recruit_character = TIB_ilya_tolstoy
+recruit_character = TIB_giuseppe_tucci
+recruit_character = TIB_kalu_rinpoche
+recruit_character = TIB_tenzin_chodrag
+recruit_character = TIB_jigdral_dorje
+recruit_character = TIB_ngapoi_zhoigar
+recruit_character = TIB_huang_musong
+recruit_character = TIB_tsarong_dramdul
+recruit_character = TIB_ngapoi_jigme
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	add_command_power = 100
+	
+	#generic focuses
+	complete_national_focus = army_effort
+	complete_national_focus = equipment_effort
+	complete_national_focus = motorization_effort
+	complete_national_focus = aviation_effort
+	complete_national_focus = construction_effort_2
+	complete_national_focus = production_effort_2
+	complete_national_focus = infrastructure_effort
+	complete_national_focus = industrial_effort
+	complete_national_focus = construction_effort
+	complete_national_focus = production_effort
+	
+	oob = "TIB_1939"
+	set_technology = {
+		#doctrines
+		air_superiority = 1
+
+		mass_assault = 1
+		pocket_defence = 1
+		defence_in_depth = 1
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+	complete_special_project = {
+		project = sp:sp_air_radar
+	}
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}

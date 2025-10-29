@@ -1,0 +1,3439 @@
+MON_purgeTimer = {
+	MON_growing_stalinist_suspicion = {
+		icon = generic_civil_support
+
+		allowed = {
+			original_tag = MON
+		}
+
+		available = {
+			OR = {
+				has_global_flag = MON_failed_suspicion
+				has_completed_focus = MON_the_second_Khuvsgul_Uprising
+				has_completed_focus = MON_stability_through_blame
+			}
+		}
+		
+		days_mission_timeout = 365
+		#days_remove = 1
+		activation = {
+			AND = {
+				has_idea = MON_soviet_supervision
+				MON = {
+					is_ai = no
+				}
+				SOV = {
+					is_ai = yes
+				}
+			}
+
+		}
+		fixed_random_seed = no
+
+		fire_only_once = no
+
+		is_good = no	
+		
+		timeout_effect = {
+			SOV = {
+				hidden_effect = {
+					add_relation_modifier = {
+						target = MON 
+						modifier = sanctions_relations
+					}
+					add_relation_modifier = {
+						target = MON 
+						modifier = rejected_demands
+					}
+					add_relation_modifier = {
+						target = MON 
+						modifier = betrayed_alliance
+					}
+					add_relation_modifier = {
+						target = MON 
+						modifier = embargo
+					}
+				}
+				diplomatic_relation = {
+					country = MON
+					relation = guarantee
+					active = no
+				}
+				diplomatic_relation = {
+					country = MON
+					relation = non_aggression_pact
+					active = no
+				}
+				hidden_effect = {
+					set_global_flag = MON_failed_suspicion
+					remove_ideas = MON_soviet_supervision
+					set_rule = { can_not_declare_war = no }
+					set_rule = { can_send_volunteers = yes }
+					country_lock_all_division_template = no
+				}
+				declare_war_on = {
+					target = MON
+					type = puppet_wargoal_focus
+				}
+			}
+		
+		}
+	}
+}
+
+MON_mongolianDecisions = {
+
+	MON_form_greater_mongolia = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = MON
+		}
+		highlight_states = {
+    		highlight_state_targets = { 			
+			state = 329
+			state = 756
+			state = 621
+			state = 612
+			state = 611
+			state = 761 }
+		}
+		available = {
+			controls_state = 329
+			controls_state = 756
+			controls_state = 621
+			controls_state = 612
+			controls_state = 611
+			controls_state = 761
+
+		}
+
+		visible = {
+			original_tag = MON
+			NOT = {
+				has_global_flag = GMON_unified
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.15
+			set_cosmetic_tag = GMON_unified
+			custom_effect_tooltip = MON_you_will_core_tt
+		    hidden_effect ={
+                set_global_flag = GMON_unified
+				329 = { add_core_of = ROOT }
+				756 = { add_core_of = ROOT }
+				621 = { add_core_of = ROOT }
+				612 = { add_core_of = ROOT }
+				611 = { add_core_of = ROOT }
+				761 = { add_core_of = ROOT }
+			}
+        }
+
+	}
+
+
+	MON_integrate_buryat_lands = {
+
+		icon = GFX_decision_generic_decision
+
+		allowed = {
+			original_tag = MON
+		}
+		highlight_states = {
+    		highlight_state_targets = { state = 564 state = 563 state = 566}
+		}
+		available = {
+            NOT = {
+                has_global_flag = MON_purged_buryats
+            }
+            controls_state = 564
+			controls_state = 566
+			controls_state = 563
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = MON_the_second_Khuvsgul_Uprising
+				has_completed_focus = MON_stability_through_blame
+			}
+			NOT = {
+                has_global_flag = MON_purged_buryats
+				has_global_flag = MON_integrated_buryats_lands
+            }			
+			original_tag = MON
+		}
+
+		complete_effect = {
+			add_stability = 0.05
+			custom_effect_tooltip = MON_you_will_core_tt
+			set_global_flag = MON_integrated_buryats_lands
+			hidden_effect = {
+				564 = { add_core_of = ROOT }
+				563 = { add_core_of = ROOT }
+				566 = { add_core_of = ROOT }
+			}
+        }
+
+	}
+
+	MON_greater_turkic_union = {
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = MON
+		}
+
+		visible = {
+			has_completed_focus = MON_liberate_turkic_peoples
+		}
+
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = form_country_kazakhstan_required_states
+				controls_state = 402
+				controls_state = 404
+				controls_state = 406
+				controls_state = 407
+				controls_state = 583
+				controls_state = 586
+				controls_state = 587
+				controls_state = 588
+				controls_state = 589
+				controls_state = 590
+				controls_state = 881
+				controls_state = 882
+			}
+			custom_trigger_tooltip = {
+				tooltip = form_country_uzbekistan_required_states
+				controls_state = 405
+				controls_state = 585
+				controls_state = 830
+				controls_state = 823
+				controls_state = 831
+			}
+			controls_state = 732 # Kyrgyzstan
+			controls_state = 742 # Tajikistan
+			controls_state = 584 # Turkmenistan
+			controls_state = 832 # Tashauz
+		}
+
+		visible = {
+			original_tag = MON
+			NOT = { has_global_flag = form_turkestan_flag }
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = turkestan_united
+			add_stability = 0.05
+			add_war_support = 0.1
+
+			# Kazakhstan
+			custom_effect_tooltip = form_country_kazakhstan_coring_states_tt
+			hidden_effect = {
+				402 = { add_core_of = ROOT }
+				404 = { add_core_of = ROOT }
+				406 = { add_core_of = ROOT }
+				407 = { add_core_of = ROOT }
+				583 = { add_core_of = ROOT }
+				586 = { add_core_of = ROOT }
+				587 = { add_core_of = ROOT }
+				588 = { add_core_of = ROOT }
+				589 = { add_core_of = ROOT }
+				590 = { add_core_of = ROOT }
+				881 = { add_core_of = ROOT }
+				882 = { add_core_of = ROOT }
+			}
+			
+			# Turkmenistan
+			584 = { add_core_of = ROOT }
+			
+			# Tashauz
+			832 = { add_core_of = ROOT }
+			
+			# Uzbekistan
+			custom_effect_tooltip = form_country_uzbekistan_coring_states_tt
+			hidden_effect = {
+				405 = { add_core_of = ROOT }
+				585 = { add_core_of = ROOT }
+				830 = { add_core_of = ROOT }
+				823 = { add_core_of = ROOT }
+				831 = { add_core_of = ROOT }
+			}
+			
+			# Kyrgyzstan
+			732 = { add_core_of = ROOT }
+			
+			# Tajikistan
+			742 = { add_core_of = ROOT }
+			
+			# Tuva
+			329 = { add_core_of = ROOT }
+			
+			# Altai
+			654 = { add_core_of = ROOT }
+			40 = { add_core_of = ROOT }
+			
+			# Sinkiang
+			custom_effect_tooltip = form_country_sinkiang_coring_states_tt
+			hidden_effect = {
+				287 = { add_core_of = ROOT }
+				617 = { add_core_of = ROOT }
+				618 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				759 = { add_core_of = ROOT }
+				760 = { add_core_of = ROOT }
+			}
+			IF = {
+				LIMIT = {
+					NOT  ={ has_idea = soldiers_of_the_steppe}
+				}
+				add_ideas = soldiers_of_the_steppe
+			}
+			
+			hidden_effect = {
+				news_event = { id = nsb_news.3 hours = 6 }
+				set_global_flag = form_turkestan_flag
+			}
+		}
+
+	}
+
+	#Siberian
+		MON_form_siberian_republic = { 
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 564 
+				state = 563 
+				state = 574 
+				state = 516 
+				state = 644 
+				state = 876 
+				state = 877 }
+			}
+			icon = generic_form_nation
+
+			allowed = {
+					original_tag = MON
+			}
+
+			available = {
+				controls_state = 564 # Buryatia
+				controls_state = 563 # Chita
+				controls_state = 574 # Yakutsk
+				controls_state = 516 # Taymyria
+				controls_state = 644 # Kolyma
+				controls_state = 876 # Udachny
+				controls_state = 877 # Verkhoyansk
+			}
+
+			visible = {
+				original_tag = MON
+				NOT = { has_global_flag = form_siberian_republic_flag }
+				MON = {
+					has_completed_focus = MON_strike_north
+				}
+			}
+
+			complete_effect = {
+				set_cosmetic_tag = siberia_unified
+				
+				custom_effect_tooltip = form_siberia_russian_siberia_coring_states_tt
+				
+				custom_effect_tooltip = form_siberia_yakutia_coring_states_tt
+				
+				custom_effect_tooltip = form_siberia_altai_coring_states_tt
+				
+				custom_effect_tooltip = form_siberia_ostyak_coring_states_tt
+				
+				custom_effect_tooltip = form_siberia_yamalia_coring_states_tt
+				
+				# Taymyria
+				516 = { add_core_of = ROOT }
+				
+				# Buryatia
+				564 = { add_core_of = ROOT }
+				
+				# Tannu Tuva
+				329 = { add_core_of = ROOT }
+				
+				# Chita
+				563 = { add_core_of = ROOT }
+				
+				
+				#add_ideas = soldiers_of_the_steppe
+				
+				hidden_effect = { 
+					mark_focus_tree_layout_dirty = yes
+					# Yakutsk
+					574 = { add_core_of = ROOT }
+					
+					# Kolyma
+					644 = { add_core_of = ROOT }
+
+					# Udachny
+					876 = { add_core_of = ROOT }
+
+					# Verkhoyansk
+					877 = { add_core_of = ROOT }
+					
+					# Oyrot Region
+					654 = { add_core_of = ROOT }
+					
+					# Altai Krai
+					40 = { add_core_of = ROOT }
+					
+					# Surgut
+					577 = { add_core_of = ROOT }
+					
+					# Tobolsk
+					580 = { add_core_of = ROOT }
+					
+					# Yamalia
+					824 = { add_core_of = ROOT }
+					
+					# Salekhard
+					579 = { add_core_of = ROOT }
+					
+					# Tyumen
+					403 = { add_core_of = ROOT }
+					
+					# Omsk
+					571 = { add_core_of = ROOT }
+					
+					# Tomsk
+					578 = { add_core_of = ROOT }
+					
+					# Novosibirsk
+					570 = { add_core_of = ROOT }
+					
+					# Yeniseisk
+					576 = { add_core_of = ROOT }
+					
+					# Kemerovo
+					569 = { add_core_of = ROOT }
+					
+					# Krasnoyarsk
+					568 = { add_core_of = ROOT }
+					
+					# Bratsk
+					567 = { add_core_of = ROOT }
+					
+					# Irkutsk
+					566 = { add_core_of = ROOT }
+					
+					# Kirensk
+					575 = { add_core_of = ROOT }
+					
+					# Boyadbo
+					565 = { add_core_of = ROOT }
+
+					#Khatangsky
+					878 = { add_core_of = ROOT }
+					
+					news_event = { id = nsb_news.303 hours = 8 }
+					
+					set_global_flag = form_siberian_republic_flag
+					
+				}
+			}
+
+		}
+		
+		MON_conquer_the_fareast = { 
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 822 
+				state = 875 
+				state = 637 
+				state = 562
+				state = 874 
+				state = 560
+				state = 655
+				state = 561 
+				state = 657 
+				state = 409
+				state = 408
+				}
+			}
+			icon = generic_form_nation
+
+			allowed = {
+					original_tag = MON
+			}
+
+			available = {
+				controls_state = 822 # Chukotka
+				controls_state = 875 # Chukchi Peninsula
+				controls_state = 637 # Kamchatka
+				controls_state = 562 # Okhotsk
+				controls_state = 874 # Magadan
+				controls_state = 560 # Nikolayevsk
+				controls_state = 655 # North Sakhalin
+				controls_state = 561 # Amur
+				controls_state = 657 # Birobidzhan
+				controls_state = 409 # Khabravosk
+				controls_state = 408 # Vladivostok
+			}
+
+			visible = {
+				original_tag = MON
+				MON = {
+					has_government = fascism 
+					has_completed_focus = MON_strike_north
+				}
+				has_global_flag = form_siberian_republic_flag
+				NOT = { has_global_flag = far_east_integrated_flag }
+			}
+
+
+			
+
+			complete_effect = {
+				
+				custom_effect_tooltip = far_eastern_states_coring_states_tt
+				
+				#add_ideas = soldiers_of_the_steppe
+				
+				hidden_effect = { 
+				
+					# Chukotka
+					822 = { add_core_of = ROOT }
+					
+					# Chukchi Peninsula
+					875 = { add_core_of = ROOT }
+					
+					# Kamchatka
+					637 = { add_core_of = ROOT }
+					
+					# Okhotsk
+					562 = { add_core_of = ROOT }
+					
+					# Magadan
+					874 = { add_core_of = ROOT }
+					
+					# Amur
+					561 = { add_core_of = ROOT }
+					
+					# Birobidzhan
+					657 = { add_core_of = ROOT }
+					
+					# Nikolayevsk
+					560 = { add_core_of = ROOT }
+					
+					# North Sakhalin
+					655 = { add_core_of = ROOT }
+					
+					# Khabravosk
+					409 = { add_core_of = ROOT }
+					
+					# Vladivostok
+					408 = { add_core_of = ROOT }
+					
+					set_global_flag = far_east_integrated_flag
+					
+				}
+			}
+
+		}
+		
+		MON_push_to_the_urals = { 
+
+			icon = generic_form_nation
+
+			allowed = {
+				original_tag = MON
+				
+			}
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 653
+				state = 572
+				state = 582
+				state = 573 
+				state = 398
+				state = 581
+				}
+			}
+			available = {
+				controls_state = 653 # Sverdlovsk
+				controls_state = 572 # Chelyabinsk
+				controls_state = 582 # Magnitogorsk
+				controls_state = 573 # Zlatoust
+				controls_state = 398 # Perm
+				controls_state = 581 # Northern Urals
+			}
+
+			visible = {
+				original_tag = MON
+				MON = {
+					has_government = fascism 
+					has_completed_focus = MON_strike_north
+				}
+				has_global_flag = form_siberian_republic_flag
+				NOT = { has_global_flag = urals_integrated_flag }
+			}
+
+			complete_effect = {
+			
+					# Sverdlovsk
+					653 = { add_core_of = ROOT }
+					
+					# Chelyabinsk
+					572 = { add_core_of = ROOT }
+					
+					# Magnitogorsk
+					582 = { add_core_of = ROOT }
+					
+					# Zlatoust
+					573 = { add_core_of = ROOT }
+					
+					# Perm
+					398 = { add_core_of = ROOT }
+					
+					# Northern Urals
+					581 = { add_core_of = ROOT }
+				
+				
+				#add_ideas = soldiers_of_the_steppe
+				
+				hidden_effect = { 
+					
+					set_global_flag = urals_integrated_flag
+					
+				}
+			}
+
+		}
+		
+		MON_liberate_the_ainu = { 
+
+			icon = generic_form_nation
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 537
+				state = 555
+				state = 536
+				}
+			}
+			allowed = {
+				OR = {
+					original_tag = MON
+				}
+			}
+
+			available = {
+				controls_state = 537 # South Sakhalin
+				controls_state = 555 # Kuril Islands
+				controls_state = 536 # Hokkaido
+			}
+
+			visible = {
+				original_tag = MON
+				MON = {
+					has_government = fascism 
+					has_completed_focus = MON_strike_north
+				}
+				has_global_flag = form_siberian_republic_flag
+				NOT = { has_global_flag = ainu_integrated_flag }
+			}
+			
+			complete_effect = {
+			
+					# South Sakhalin
+					537 = { add_core_of = ROOT }
+					
+					# Kuril Islands
+					555 = { add_core_of = ROOT }
+					
+					# Hokkaido
+					536 = { add_core_of = ROOT }
+				
+				#add_ideas = soldiers_of_the_steppe
+				
+				hidden_effect = { 
+					
+					set_global_flag = ainu_integrated_flag
+					
+				}
+			}
+
+		}
+
+	# Yuan
+		form_north_yuan = { 
+			highlight_states = {
+				highlight_state_targets = { 			
+					state = 329 
+					state = 612 
+					state = 611 
+					state = 761
+					state = 714
+					state = 715
+					state = 717
+					state = 328
+					state = 716
+					state = 610
+					state = 760
+					state = 746
+					state = 615
+					state = 621
+					state = 622
+					state = 756
+					state = 755
+					state = 616
+					state = 604
+					state = 283
+					state = 753
+					state = 754
+				}
+			}
+			icon = generic_form_nation
+
+			allowed = {
+				original_tag = MON
+				MON = {has_government = neutrality}
+				has_completed_focus = MON_reclaim_yuan
+			}
+			visible = {
+				MON = {has_government = neutrality}
+				has_completed_focus = MON_reclaim_yuan
+			}
+
+			available = {
+					controls_state = 329 
+					controls_state = 612 
+					controls_state = 611 
+					controls_state = 761
+					controls_state = 714
+					controls_state = 715
+					controls_state = 717
+					controls_state = 328
+					controls_state = 716
+					controls_state = 610
+					controls_state = 760
+					controls_state = 746
+					controls_state = 615
+					controls_state = 621
+					controls_state = 622
+					controls_state = 756
+					controls_state = 755
+					controls_state = 616
+					controls_state = 604
+					controls_state = 283
+					controls_state = 753
+					controls_state = 754
+
+			}
+
+			visible = {
+				OR = {
+					original_tag = MON
+				}
+				NOT = { has_global_flag = MON_form_north_yuan }
+					has_dlc = "No Step Back"
+			}
+
+			complete_effect = {
+				set_cosmetic_tag = MON_north_yuan
+					add_war_support = 0.1
+					custom_effect_tooltip = MON_you_will_core_tt
+					hidden_effect = {
+						329 = { add_core_of = MON }
+						612 = { add_core_of = MON }
+						611 = { add_core_of = MON }
+						761 = { add_core_of = MON }
+						714 = { add_core_of = MON }
+						715 = { add_core_of = MON }
+						717 = { add_core_of = MON }
+						328 = { add_core_of = MON }
+						716 = { add_core_of = MON }
+						610 = { add_core_of = MON }
+						760 = { add_core_of = MON }
+						746 = { add_core_of = MON }
+						615 = { add_core_of = MON }
+						621 = { add_core_of = MON }
+						622 = { add_core_of = MON }
+						756 = { add_core_of = MON }
+						755 = { add_core_of = MON }
+						616 = { add_core_of = MON }
+						604 = { add_core_of = MON }
+						283 = { add_core_of = MON }
+						753 = { add_core_of = MON }
+						754 = { add_core_of = MON }
+					}
+
+					
+				#news_event = {  }
+				hidden_effect = {	
+					set_global_flag = MON_form_north_yuan
+					mark_focus_tree_layout_dirty = yes
+				}
+					
+				
+			}
+
+
+		}
+		
+		integrate_south_yuan = { 
+			highlight_states = {
+				highlight_state_targets = { 			
+					state = 747
+					state = 325
+					state = 594
+					state = 591
+					state = 592
+					state = 599
+					state = 593
+				}
+			}
+			icon = generic_form_nation
+
+
+			allowed = {
+				original_tag = MON
+				MON = {has_government = neutrality}
+				has_completed_focus = MON_reclaim_yuan
+			}
+			visible = {
+				MON = {has_government = neutrality}
+				has_completed_focus = MON_reclaim_yuan
+				has_global_flag = MON_form_north_yuan
+			}
+
+			available = {
+					controls_state = 747
+					controls_state = 325
+					controls_state = 594
+					controls_state = 591
+					controls_state = 592
+					controls_state = 599
+					controls_state = 593
+			}
+
+			visible = {
+				original_tag = MON
+				has_global_flag = MON_form_north_yuan
+				NOT = { has_global_flag = MON_south_yuan }
+
+					has_dlc = "No Step Back"
+			}
+
+			complete_effect = {
+				custom_effect_tooltip = MON_you_will_core_tt
+				hidden_effect = { 
+					747 = { add_core_of = ROOT }
+					325 = { add_core_of = ROOT }
+					594 = { add_core_of = ROOT }
+					591 = { add_core_of = ROOT }
+					592 = { add_core_of = ROOT }
+					599 = { add_core_of = ROOT }
+					593 = { add_core_of = ROOT }
+					set_global_flag = MON_south_yuan
+				}
+			}
+
+		}
+		
+		integrate_tibet = { 
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 322 
+				state = 757 
+				state = 758 
+
+				}
+			}
+			icon = generic_form_nation
+
+
+			allowed = {
+				original_tag = MON
+				MON = {has_government = neutrality}
+				has_completed_focus = MON_reclaim_yuan
+			}
+			visible = {
+				MON = {has_government = neutrality}
+				has_completed_focus = MON_reclaim_yuan
+				has_global_flag = MON_form_north_yuan
+			}
+
+			available = {
+				controls_state = 322
+				controls_state = 757
+				controls_state = 758
+			}
+
+			visible = {
+				OR = {
+					original_tag = MON
+				}
+				
+				has_global_flag = MON_form_north_yuan
+				NOT = { has_global_flag = MON_integrated_tibet }
+
+					has_dlc = "No Step Back"
+			}
+
+			complete_effect = {
+				custom_effect_tooltip = MON_you_will_core_tt
+
+		
+				hidden_effect = { 
+					322 = { add_core_of = ROOT }
+					757 = { add_core_of = ROOT }
+					758 = { add_core_of = ROOT }
+					set_global_flag = MON_integrated_tibet
+				}
+			}
+
+		}
+	
+		integrate_japanese_asia = { 
+
+			icon = generic_form_nation
+			highlight_states = {
+				highlight_state_targets = { 			
+					state = 609
+					state = 745
+				}
+			}
+
+			available = {
+				controls_state = 609
+				controls_state = 745
+				}
+
+
+			allowed = {
+				original_tag = MON
+				MON = {has_government = neutrality}
+				has_completed_focus = MON_reclaim_yuan
+				NOT = {
+					has_global_flag = MON_liberated_jap_chi
+				}
+			}
+
+			visible = {
+				MON = {has_government = neutrality}
+				has_completed_focus = MON_reclaim_yuan
+				has_global_flag = MON_form_north_yuan
+				NOT = {
+					has_global_flag = MON_liberated_jap_chi
+				}
+			}
+
+			complete_effect = {
+				609 = { add_core_of = MON }
+				745 = { add_core_of = MON }			
+				hidden_effect = { 
+					set_global_flag = MON_liberated_jap_chi
+				}
+			}
+
+		}
+
+	 liberate_china = { 
+		highlight_states = {
+			highlight_state_targets = { 			
+				state = 606
+				state = 608
+				state = 750
+				state = 595
+				state = 752
+				state = 603
+				state = 614
+				state = 607
+				state = 749
+				state = 620
+				state = 602
+				state = 598
+				state = 600
+				state = 751
+				state = 743
+				state = 597
+				state = 613
+				state = 605
+				state = 744
+				state = 601
+				state = 596
+				state = 748
+			}
+		}
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = MON
+			MON = {has_government = neutrality}
+        	has_completed_focus = MON_reclaim_yuan
+		}
+
+		visible = {
+        	MON = {has_government = neutrality}
+        	has_completed_focus = MON_reclaim_yuan
+			has_global_flag = MON_form_north_yuan
+    	}
+
+
+		available = {
+			controls_state = 606
+			controls_state = 608
+			controls_state = 750
+			controls_state = 595
+			controls_state = 752
+			controls_state = 603
+			controls_state = 614
+			controls_state = 607
+			controls_state = 749
+			controls_state = 620
+			controls_state = 602
+			controls_state = 598
+			controls_state = 600
+			controls_state = 751
+			controls_state = 597
+			controls_state = 613
+			controls_state = 605
+			controls_state = 744
+			controls_state = 601
+			controls_state = 596
+			controls_state = 748
+		}
+
+		visible = {
+			OR = {
+				original_tag = MON
+			}
+			has_global_flag = MON_form_north_yuan
+			NOT = { has_global_flag = MON_liberated_china }
+
+			has_dlc = "No Step Back"
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = MON_you_will_core_tt
+			hidden_effect = { 
+				606 = { add_core_of = ROOT }
+				608 = { add_core_of = ROOT }
+				750 = { add_core_of = ROOT }
+				595 = { add_core_of = ROOT }
+				752 = { add_core_of = ROOT }
+				603 = { add_core_of = ROOT }
+				614 = { add_core_of = ROOT }
+				607 = { add_core_of = ROOT }
+				749 = { add_core_of = ROOT }
+				620 = { add_core_of = ROOT }
+				602 = { add_core_of = ROOT }
+				598 = { add_core_of = ROOT }
+				600 = { add_core_of = ROOT }
+				751 = { add_core_of = ROOT }
+				743 = { add_core_of = ROOT }
+				597 = { add_core_of = ROOT }
+				613 = { add_core_of = ROOT }
+				605 = { add_core_of = ROOT }
+				744 = { add_core_of = ROOT }
+				601 = { add_core_of = ROOT }
+				596 = { add_core_of = ROOT }
+				748 = { add_core_of = ROOT }	
+				set_global_flag = MON_liberated_china
+				
+			}
+		}
+	}
+	
+	MON_send_support = {
+		priority = 114
+		icon = ger_military_buildup
+
+		allowed = {
+			original_tag = MON
+		}
+
+		visible = {		}
+
+		fire_only_once = yes
+
+		available = {
+			MON = { has_government = communism }
+		}
+
+		target_trigger = {
+			FROM = {
+				has_government = communism
+				is_subject = no
+				AND = {
+					has_war = yes
+					NOT = {
+						has_war_with = MON
+						MON = {
+							any_allied_country = {
+								has_war_with = FROM
+							}
+						}
+						FROM = { is_justifying_wargoal_against = ROOT }
+						MON = { is_justifying_wargoal_against = FROM }
+						FROM = { has_wargoal_against = ROOT }
+						MON = { has_wargoal_against = FROM }
+					}
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = MON
+			has_civil_war = no
+				has_completed_focus = MON_support_the_fight			
+		}
+
+		days_remove = 60
+
+		days_re_enable = 365
+
+		remove_effect = {
+			effect_tooltip = {
+				FROM = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2500
+						producer = MON
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment
+						amount = 50
+						producer = MON
+					}
+					add_opinion_modifier = {
+						target = MON
+						modifier = SOV_sent_us_weapons
+					}
+				}
+			}
+			hidden_effect = {
+				FROM = { country_event = { id = BBA_italy_sends_military_support.1 } }
+				#fix EVENT TO DO
+			}
+		}
+
+		ai_hint_pp_cost = 25
+		custom_cost_trigger = {
+			has_political_power > 24
+			command_power > 24
+		}
+		custom_cost_text = decision_cost_CP_25_pp_25
+
+		complete_effect = {
+			hidden_effect = {
+				add_political_power = -25
+				add_command_power = -25
+			}
+
+		}
+
+	
+	}
+
+	MON_mongol_empire_decision = {
+	
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+			}
+		}
+		
+		cost = 0 
+		
+		visible = {
+			NOT = { has_global_flag = MON_form_mongol_empire }
+			OR = {
+				has_completed_focus = MON_taizu_empire
+				has_completed_focus = MON_ambitions_achieved
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1001
+				state = 1002
+				state = 1003
+				state = 1004
+				state = 1005
+				state = 1006
+				state = 1007
+				state = 1008
+				state = 1009
+				state = 988							
+				state = 330
+				state = 817
+				state = 818
+				state = 819
+				state = 820
+				state = 322
+				state = 353
+				state = 757
+				state = 758
+				state = 615
+				state = 621
+				state = 746
+				state = 622
+				state = 283
+				state = 604
+				state = 616
+				state = 756
+				state = 755
+				state = 754
+				state = 753
+				state = 287
+				state = 617
+				state = 618
+				state = 619
+				state = 759
+				state = 760
+				state = 325
+				state = 591
+				state = 592
+				state = 593
+				state = 594
+				state = 598
+				state = 599
+				state = 611
+				state = 612
+				state = 328
+				state = 610
+				state = 714
+				state = 715
+				state = 716
+				state = 717
+				state = 745
+				state = 761
+				state = 609
+				state = 602
+				state = 603
+				state = 605
+				state = 601
+				state = 620
+				state = 600
+				state = 595
+				state = 620
+				state = 596
+				state = 606
+				state = 613
+				state = 607
+				state = 597
+				state = 614
+				state = 608
+				state = 752
+				state = 751
+				state = 744
+				state = 748
+				state = 750
+				state = 744
+				state = 749
+				state = 594
+				state = 599
+				state = 592
+				state = 593
+				state = 591
+				state = 325
+				state = 747
+				state = 442
+				state = 443
+				state = 444
+				state = 445
+				state = 441
+				state = 787
+				state = 267
+				state = 415
+				state = 406
+				state = 407
+				state = 402
+				state = 587
+				state = 823
+				state = 584
+				state = 832
+				state = 831
+				state = 585
+				state = 830
+				state = 404
+				state = 405
+				state = 742
+				state = 732
+				state = 586
+				state = 881
+				state = 589
+				state = 588
+				state = 590
+				state = 882
+				state = 583
+				state = 266
+				state = 410
+				state = 411
+				state = 412
+				state = 413
+				state = 414
+				state = 416
+				state = 417
+				state = 418
+				state = 419
+				state = 420
+				state = 421
+				state = 826
+				state = 231
+				state = 229
+				state = 230
+				state = 291
+				state = 676
+				state = 345
+				state = 346
+				state = 355
+				state = 798
+				state = 344
+				state = 348
+				state = 349
+				state = 352
+				state = 350
+				state = 354
+				state = 800
+				state = 342
+				state = 560
+				state = 657
+				state = 408
+				state = 409
+				state = 564
+				state = 563
+				state = 657
+				state = 569
+				state = 654
+				state = 329
+				state = 568
+				state = 569
+				state = 570
+				state = 571
+				state = 572
+				state = 582
+				state = 651
+				state = 249
+				state = 833
+				state = 252
+				state = 351
+				state = 216
+				state = 566
+				state = 567
+				state = 40
+				state = 569
+				state = 652
+				state = 251
+				state = 250
+				state = 256
+				state = 401
+				state = 829
+				state = 255
+				state = 239
+				state = 236
+				state = 237
+				state = 238
+				state = 234
+				state = 218
+				state = 137
+				state = 233
+				state = 827
+				state = 821
+				state = 828
+				state = 232
+				state = 235
+				state = 217
+				state = 245
+				state = 265
+				state = 220
+				state = 240
+				state = 260
+				state = 254
+				state = 257
+				state = 258
+				state = 247
+				state = 248
+				state = 253
+				state = 244
+				state = 263
+				state = 264
+				state = 246
+				state = 243
+				state = 242
+				state = 210
+				state = 205
+				state = 222
+				state = 224
+				state = 219
+				state = 223
+				state = 204
+				state = 206
+				state = 207
+				state = 194
+				state = 241
+				state = 94
+				state = 95
+				state = 96
+				state = 199
+				state = 201
+				state = 198
+				state = 202
+				state = 203
+				state = 226
+				state = 193
+				state = 259
+				state = 225
+				state = 196
+				state = 200
+				state = 227
+				state = 221
+				state = 228
+				state = 89
+				state = 91
+				state = 93
+				state = 80
+				state = 766
+				state = 192
+				state = 197
+				state = 834
+				state = 81
+				state = 46
+				state = 77
+				state = 766
+				state = 78
+				state = 79
+				state = 80
+				state = 525
+				state = 527
+
+				state = 971
+			}
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = MON_control_states_tt
+					AND = {
+						330 = { is_controlled_by = ROOT }
+						817 = { is_controlled_by = ROOT }
+						818 = { is_controlled_by = ROOT }
+						819 = { is_controlled_by = ROOT }
+						820 = { is_controlled_by = ROOT }
+						
+						322 = { is_controlled_by = ROOT }
+						757 = { is_controlled_by = ROOT }
+						758 = { is_controlled_by = ROOT }
+						
+						615 = { is_controlled_by = ROOT }
+						621 = { is_controlled_by = ROOT }
+						746 = { is_controlled_by = ROOT }
+
+						622 = { is_controlled_by = ROOT }
+
+						283 = { is_controlled_by = ROOT }
+						604 = { is_controlled_by = ROOT }
+						616 = { is_controlled_by = ROOT }
+						756 = { is_controlled_by = ROOT }
+						755 = { is_controlled_by = ROOT }
+						754 = { is_controlled_by = ROOT }
+						753 = { is_controlled_by = ROOT }
+
+						287 = { is_controlled_by = ROOT }
+						617 = { is_controlled_by = ROOT }
+						618 = { is_controlled_by = ROOT }
+						619 = { is_controlled_by = ROOT }
+						759 = { is_controlled_by = ROOT }
+						760 = { is_controlled_by = ROOT }
+
+						325 = { is_controlled_by = ROOT }
+						591 = { is_controlled_by = ROOT }
+						592 = { is_controlled_by = ROOT }
+						593 = { is_controlled_by = ROOT }
+						594 = { is_controlled_by = ROOT }
+						598 = { is_controlled_by = ROOT }
+						599 = { is_controlled_by = ROOT }
+
+						611 = { is_controlled_by = ROOT }
+						612 = { is_controlled_by = ROOT }
+
+						328 = { is_controlled_by = ROOT }
+						610 = { is_controlled_by = ROOT }
+						714 = { is_controlled_by = ROOT }
+						715 = { is_controlled_by = ROOT }
+						716 = { is_controlled_by = ROOT }
+						717 = { is_controlled_by = ROOT }
+						745 = { is_controlled_by = ROOT }
+						761 = { is_controlled_by = ROOT }
+
+						609 = { is_controlled_by = ROOT }
+						602 = { is_controlled_by = ROOT }
+						603 = { is_controlled_by = ROOT }
+						605 = { is_controlled_by = ROOT }
+						601 = { is_controlled_by = ROOT }
+						620 = { is_controlled_by = ROOT }
+						600 = { is_controlled_by = ROOT }
+						595 = { is_controlled_by = ROOT }
+						620 = { is_controlled_by = ROOT }
+						596 = { is_controlled_by = ROOT }
+						606 = { is_controlled_by = ROOT }
+						613 = { is_controlled_by = ROOT }
+						607 = { is_controlled_by = ROOT }
+						597 = { is_controlled_by = ROOT }
+						614 = { is_controlled_by = ROOT }
+						608 = { is_controlled_by = ROOT }
+						752 = { is_controlled_by = ROOT }
+						751 = { is_controlled_by = ROOT }
+						744 = { is_controlled_by = ROOT }
+						748 = { is_controlled_by = ROOT }
+						750 = { is_controlled_by = ROOT }
+						744 = { is_controlled_by = ROOT }
+						749 = { is_controlled_by = ROOT }
+						743 = { is_controlled_by = ROOT }
+
+						594 = { is_controlled_by = ROOT }
+						599 = { is_controlled_by = ROOT }
+						592 = { is_controlled_by = ROOT }
+						593 = { is_controlled_by = ROOT }
+						326 = { is_controlled_by = ROOT }
+						729 = { is_controlled_by = ROOT }
+						728 = { is_controlled_by = ROOT }
+						591 = { is_controlled_by = ROOT }
+
+						325 = { is_controlled_by = ROOT }
+						747 = { is_controlled_by = ROOT }
+						
+						442 = { is_controlled_by = ROOT }
+						443 = { is_controlled_by = ROOT }
+						444 = { is_controlled_by = ROOT }
+						445 = { is_controlled_by = ROOT }
+						
+						441 = { is_controlled_by = ROOT }
+						787 = { is_controlled_by = ROOT }
+						
+						267 = { is_controlled_by = ROOT }
+						415 = { is_controlled_by = ROOT }
+						406 = { is_controlled_by = ROOT }
+						407 = { is_controlled_by = ROOT }
+						402 = { is_controlled_by = ROOT }
+						587 = { is_controlled_by = ROOT }
+						823 = { is_controlled_by = ROOT }
+						584 = { is_controlled_by = ROOT }
+						832 = { is_controlled_by = ROOT }
+						831 = { is_controlled_by = ROOT }
+						585 = { is_controlled_by = ROOT }
+						830 = { is_controlled_by = ROOT }
+						404 = { is_controlled_by = ROOT }
+						405 = { is_controlled_by = ROOT }
+						742 = { is_controlled_by = ROOT }
+						732 = { is_controlled_by = ROOT }
+						586 = { is_controlled_by = ROOT }
+						881 = { is_controlled_by = ROOT }
+						589 = { is_controlled_by = ROOT }
+						588 = { is_controlled_by = ROOT }
+						590 = { is_controlled_by = ROOT }
+						882 = { is_controlled_by = ROOT }
+						583 = { is_controlled_by = ROOT }
+						
+						266 = { is_controlled_by = ROOT }
+						410 = { is_controlled_by = ROOT }
+						411 = { is_controlled_by = ROOT }
+						412 = { is_controlled_by = ROOT }
+						413 = { is_controlled_by = ROOT }
+						414 = { is_controlled_by = ROOT }
+						416 = { is_controlled_by = ROOT }
+						417 = { is_controlled_by = ROOT }
+						418 = { is_controlled_by = ROOT }
+						419 = { is_controlled_by = ROOT }
+						420 = { is_controlled_by = ROOT }
+						421 = { is_controlled_by = ROOT }
+						
+						826 = { is_controlled_by = ROOT }
+						231 = { is_controlled_by = ROOT }
+						229 = { is_controlled_by = ROOT }
+						230 = { is_controlled_by = ROOT }
+						
+						291 = { is_controlled_by = ROOT }
+						676 = { is_controlled_by = ROOT }
+						345 = { is_controlled_by = ROOT }
+						346 = { is_controlled_by = ROOT }
+						355 = { is_controlled_by = ROOT }
+						798 = { is_controlled_by = ROOT }
+						344 = { is_controlled_by = ROOT }
+						348 = { is_controlled_by = ROOT }
+						349 = { is_controlled_by = ROOT }
+						352 = { is_controlled_by = ROOT }
+						350 = { is_controlled_by = ROOT }
+						354 = { is_controlled_by = ROOT }
+						800 = { is_controlled_by = ROOT }
+						342 = { is_controlled_by = ROOT }
+						353 = { is_controlled_by = ROOT }
+						
+						560 = { is_controlled_by = ROOT }
+						657 = { is_controlled_by = ROOT }
+						408 = { is_controlled_by = ROOT }
+						409 = { is_controlled_by = ROOT }
+						564 = { is_controlled_by = ROOT }
+						563 = { is_controlled_by = ROOT }
+						657 = { is_controlled_by = ROOT }
+						569 = { is_controlled_by = ROOT }
+						654 = { is_controlled_by = ROOT }
+						329 = { is_controlled_by = ROOT }
+						568 = { is_controlled_by = ROOT }
+						569 = { is_controlled_by = ROOT }
+						570 = { is_controlled_by = ROOT }
+						571 = { is_controlled_by = ROOT }
+						572 = { is_controlled_by = ROOT }
+						582 = { is_controlled_by = ROOT }
+						651 = { is_controlled_by = ROOT }
+						249 = { is_controlled_by = ROOT }
+						833 = { is_controlled_by = ROOT }
+						252 = { is_controlled_by = ROOT }
+						351 = { is_controlled_by = ROOT }
+						216 = { is_controlled_by = ROOT }
+						566 = { is_controlled_by = ROOT }
+						567 = { is_controlled_by = ROOT }
+						40 = { is_controlled_by = ROOT }
+						569 = { is_controlled_by = ROOT }
+						652 = { is_controlled_by = ROOT }
+						251 = { is_controlled_by = ROOT }
+						250 = { is_controlled_by = ROOT }
+						256 = { is_controlled_by = ROOT }
+						401 = { is_controlled_by = ROOT }
+						829 = { is_controlled_by = ROOT }
+						255 = { is_controlled_by = ROOT }
+						239 = { is_controlled_by = ROOT }
+						236 = { is_controlled_by = ROOT }
+						237 = { is_controlled_by = ROOT }
+						238 = { is_controlled_by = ROOT }
+						234 = { is_controlled_by = ROOT }
+						218 = { is_controlled_by = ROOT }
+						137 = { is_controlled_by = ROOT }
+						233 = { is_controlled_by = ROOT }
+						827 = { is_controlled_by = ROOT }
+						821 = { is_controlled_by = ROOT }
+						828 = { is_controlled_by = ROOT }
+						232 = { is_controlled_by = ROOT }
+						235 = { is_controlled_by = ROOT }
+						217 = { is_controlled_by = ROOT }
+						245 = { is_controlled_by = ROOT }
+						265 = { is_controlled_by = ROOT }
+						220 = { is_controlled_by = ROOT }
+						240 = { is_controlled_by = ROOT }
+						260 = { is_controlled_by = ROOT }
+						254 = { is_controlled_by = ROOT }
+						257 = { is_controlled_by = ROOT }
+						258 = { is_controlled_by = ROOT }
+						247 = { is_controlled_by = ROOT }
+						248 = { is_controlled_by = ROOT }
+						253 = { is_controlled_by = ROOT }
+						244 = { is_controlled_by = ROOT }
+						263 = { is_controlled_by = ROOT }
+						264 = { is_controlled_by = ROOT }
+						246 = { is_controlled_by = ROOT }
+						243 = { is_controlled_by = ROOT }
+						242 = { is_controlled_by = ROOT }
+						210 = { is_controlled_by = ROOT }
+						205 = { is_controlled_by = ROOT }
+						222 = { is_controlled_by = ROOT }
+						224 = { is_controlled_by = ROOT }
+						219 = { is_controlled_by = ROOT }
+						223 = { is_controlled_by = ROOT }
+						
+						204 = { is_controlled_by = ROOT }
+						206 = { is_controlled_by = ROOT }
+						207 = { is_controlled_by = ROOT }
+						194 = { is_controlled_by = ROOT }
+						241 = { is_controlled_by = ROOT }
+						94 = { is_controlled_by = ROOT }
+						95 = { is_controlled_by = ROOT }
+						96 = { is_controlled_by = ROOT }
+						
+						199 = { is_controlled_by = ROOT }
+						201 = { is_controlled_by = ROOT }
+						198 = { is_controlled_by = ROOT }
+						202 = { is_controlled_by = ROOT }
+						203 = { is_controlled_by = ROOT }
+						226 = { is_controlled_by = ROOT }
+						193 = { is_controlled_by = ROOT }
+						259 = { is_controlled_by = ROOT }
+						225 = { is_controlled_by = ROOT }
+						196 = { is_controlled_by = ROOT }
+						200 = { is_controlled_by = ROOT }
+						227 = { is_controlled_by = ROOT }
+						221 = { is_controlled_by = ROOT }
+						228 = { is_controlled_by = ROOT }
+						89 = { is_controlled_by = ROOT }
+						91 = { is_controlled_by = ROOT }
+						93 = { is_controlled_by = ROOT }
+						80 = { is_controlled_by = ROOT }
+						766 = { is_controlled_by = ROOT }
+						192 = { is_controlled_by = ROOT }
+						197 = { is_controlled_by = ROOT }
+						834 = { is_controlled_by = ROOT }
+						
+						81 = { is_controlled_by = ROOT }
+						46 = { is_controlled_by = ROOT }
+						77 = { is_controlled_by = ROOT }
+						766 = { is_controlled_by = ROOT }
+						78 = { is_controlled_by = ROOT }
+						79 = { is_controlled_by = ROOT }
+						80 = { is_controlled_by = ROOT }
+						
+						525 = { is_controlled_by = ROOT }
+						527 = { is_controlled_by = ROOT }
+
+						971 = { is_controlled_by = ROOT }
+					}
+			}
+		}
+
+		icon = GFX_decision_generic_cavalry
+		complete_effect = { 
+			set_cosmetic_tag = MON_mongol_empire
+			add_stability = 0.15
+			IF = {
+				LIMIT = {
+					NOT  = has_idea = soldiers_of_the_steppe
+				}
+				add_ideas = soldiers_of_the_steppe
+			}
+			custom_effect_tooltip = MON_you_will_core_tt
+			hidden_effect = { 
+				330 = { add_core_of = ROOT }
+				817 = { add_core_of = ROOT }
+				818 = { add_core_of = ROOT }
+				819 = { add_core_of = ROOT }
+				820 = { add_core_of = ROOT }
+				322 = { add_core_of = ROOT }
+				757 = { add_core_of = ROOT }
+				758 = { add_core_of = ROOT }
+				615 = { add_core_of = ROOT }
+				621 = { add_core_of = ROOT }
+				746 = { add_core_of = ROOT }
+				622 = { add_core_of = ROOT }
+				283 = { add_core_of = ROOT }
+				604 = { add_core_of = ROOT }
+				616 = { add_core_of = ROOT }
+				756 = { add_core_of = ROOT }
+				755 = { add_core_of = ROOT }
+				754 = { add_core_of = ROOT }
+				753 = { add_core_of = ROOT }
+				287 = { add_core_of = ROOT }
+				617 = { add_core_of = ROOT }
+				618 = { add_core_of = ROOT }
+				619 = { add_core_of = ROOT }
+				759 = { add_core_of = ROOT }
+				760 = { add_core_of = ROOT }
+				325 = { add_core_of = ROOT }
+				591 = { add_core_of = ROOT }
+				592 = { add_core_of = ROOT }
+				593 = { add_core_of = ROOT }
+				594 = { add_core_of = ROOT }
+				598 = { add_core_of = ROOT }
+				599 = { add_core_of = ROOT }
+				611 = { add_core_of = ROOT }
+				612 = { add_core_of = ROOT }
+				353 = { add_core_of = ROOT }
+				328 = { add_core_of = ROOT }
+				610 = { add_core_of = ROOT }
+				714 = { add_core_of = ROOT }
+				715 = { add_core_of = ROOT }
+				716 = { add_core_of = ROOT }
+				717 = { add_core_of = ROOT }
+				745 = { add_core_of = ROOT }
+				761 = { add_core_of = ROOT }
+				609 = { add_core_of = ROOT }
+				657 = { add_core_of = ROOT }
+				560 = { add_core_of = ROOT }
+				561 = { add_core_of = ROOT }
+				655 = { add_core_of = ROOT }
+				89 = { add_core_of = ROOT }
+				91 = { add_core_of = ROOT }
+				93 = { add_core_of = ROOT }
+				408 = { add_core_of = ROOT }
+				409 = { add_core_of = ROOT }
+				602 = { add_core_of = ROOT }
+				603 = { add_core_of = ROOT }
+				605 = { add_core_of = ROOT }
+				601 = { add_core_of = ROOT }
+				620 = { add_core_of = ROOT }
+				600 = { add_core_of = ROOT }
+				595 = { add_core_of = ROOT }
+				620 = { add_core_of = ROOT }
+				596 = { add_core_of = ROOT }
+				606 = { add_core_of = ROOT }
+				613 = { add_core_of = ROOT }
+				607 = { add_core_of = ROOT }
+				597 = { add_core_of = ROOT }
+				614 = { add_core_of = ROOT }
+				608 = { add_core_of = ROOT }
+				752 = { add_core_of = ROOT }
+				751 = { add_core_of = ROOT }
+				744 = { add_core_of = ROOT }
+				748 = { add_core_of = ROOT }
+				750 = { add_core_of = ROOT }
+				744 = { add_core_of = ROOT }
+				749 = { add_core_of = ROOT }
+				743 = { add_core_of = ROOT }
+				594 = { add_core_of = ROOT }
+				599 = { add_core_of = ROOT }
+				592 = { add_core_of = ROOT }
+				593 = { add_core_of = ROOT }
+				591 = { add_core_of = ROOT }
+				325 = { add_core_of = ROOT }
+				747 = { add_core_of = ROOT }
+				442 = { add_core_of = ROOT }
+				443 = { add_core_of = ROOT }
+				444 = { add_core_of = ROOT }
+				445 = { add_core_of = ROOT }
+				441 = { add_core_of = ROOT }
+				787 = { add_core_of = ROOT }
+				267 = { add_core_of = ROOT }
+				415 = { add_core_of = ROOT }
+				406 = { add_core_of = ROOT }
+				407 = { add_core_of = ROOT }
+				402 = { add_core_of = ROOT }
+				587 = { add_core_of = ROOT }
+				823 = { add_core_of = ROOT }
+				584 = { add_core_of = ROOT }
+				832 = { add_core_of = ROOT }
+				831 = { add_core_of = ROOT }
+				585 = { add_core_of = ROOT }
+				830 = { add_core_of = ROOT }
+				404 = { add_core_of = ROOT }
+				405 = { add_core_of = ROOT }
+				742 = { add_core_of = ROOT }
+				732 = { add_core_of = ROOT }
+				586 = { add_core_of = ROOT }
+				881 = { add_core_of = ROOT }
+				589 = { add_core_of = ROOT }
+				588 = { add_core_of = ROOT }
+				590 = { add_core_of = ROOT }
+				882 = { add_core_of = ROOT }
+				583 = { add_core_of = ROOT }
+				266 = { add_core_of = ROOT }
+				410 = { add_core_of = ROOT }
+				411 = { add_core_of = ROOT }
+				412 = { add_core_of = ROOT }
+				413 = { add_core_of = ROOT }
+				414 = { add_core_of = ROOT }
+				416 = { add_core_of = ROOT }
+				417 = { add_core_of = ROOT }
+				418 = { add_core_of = ROOT }
+				419 = { add_core_of = ROOT }
+				420 = { add_core_of = ROOT }
+				421 = { add_core_of = ROOT }
+				826 = { add_core_of = ROOT }
+				231 = { add_core_of = ROOT }
+				229 = { add_core_of = ROOT }
+				1001 = { add_core_of = ROOT }
+				1002 = { add_core_of = ROOT }
+				1003 = { add_core_of = ROOT }
+				1004 = { add_core_of = ROOT }
+				1005 = { add_core_of = ROOT }
+				1006 = { add_core_of = ROOT }
+				1007 = { add_core_of = ROOT }
+				1008 = { add_core_of = ROOT }
+				1009 = { add_core_of = ROOT }
+				988	= { add_core_of = ROOT }
+				230 = { add_core_of = ROOT }
+				291 = { add_core_of = ROOT }
+				676 = { add_core_of = ROOT }
+				345 = { add_core_of = ROOT }
+				346 = { add_core_of = ROOT }
+				355 = { add_core_of = ROOT }
+				798 = { add_core_of = ROOT }
+				344 = { add_core_of = ROOT }
+				348 = { add_core_of = ROOT }
+				349 = { add_core_of = ROOT }
+				352 = { add_core_of = ROOT }
+				350 = { add_core_of = ROOT }
+				354 = { add_core_of = ROOT }
+				800 = { add_core_of = ROOT }
+				342 = { add_core_of = ROOT }
+				560 = { add_core_of = ROOT }
+				561 = { add_core_of = ROOT }
+				657 = { add_core_of = ROOT }
+				408 = { add_core_of = ROOT }
+				409 = { add_core_of = ROOT }
+				564 = { add_core_of = ROOT }
+				563 = { add_core_of = ROOT }
+				657 = { add_core_of = ROOT }
+				569 = { add_core_of = ROOT }
+				654 = { add_core_of = ROOT }
+				329 = { add_core_of = ROOT }
+				568 = { add_core_of = ROOT }
+				569 = { add_core_of = ROOT }
+				570 = { add_core_of = ROOT }
+				571 = { add_core_of = ROOT }
+				572 = { add_core_of = ROOT }
+				582 = { add_core_of = ROOT }
+				651 = { add_core_of = ROOT }
+				249 = { add_core_of = ROOT }
+				833 = { add_core_of = ROOT }
+				252 = { add_core_of = ROOT }
+				351 = { add_core_of = ROOT }
+				216 = { add_core_of = ROOT }
+				566 = { add_core_of = ROOT }
+				567 = { add_core_of = ROOT }
+				40 = { add_core_of = ROOT }
+				569 = { add_core_of = ROOT }
+				652 = { add_core_of = ROOT }
+				251 = { add_core_of = ROOT }
+				250 = { add_core_of = ROOT }
+				256 = { add_core_of = ROOT }
+				401 = { add_core_of = ROOT }
+				829 = { add_core_of = ROOT }
+				255 = { add_core_of = ROOT }
+				239 = { add_core_of = ROOT }
+				236 = { add_core_of = ROOT }
+				237 = { add_core_of = ROOT }
+				238 = { add_core_of = ROOT }
+				234 = { add_core_of = ROOT }
+				218 = { add_core_of = ROOT }
+				137 = { add_core_of = ROOT }
+				233 = { add_core_of = ROOT }
+				827 = { add_core_of = ROOT }
+				821 = { add_core_of = ROOT }
+				828 = { add_core_of = ROOT }
+				232 = { add_core_of = ROOT }
+				235 = { add_core_of = ROOT }
+				217 = { add_core_of = ROOT }
+				245 = { add_core_of = ROOT }
+				265 = { add_core_of = ROOT }
+				220 = { add_core_of = ROOT }
+				240 = { add_core_of = ROOT }
+				260 = { add_core_of = ROOT }
+				254 = { add_core_of = ROOT }
+				257 = { add_core_of = ROOT }
+				258 = { add_core_of = ROOT }
+				247 = { add_core_of = ROOT }
+				248 = { add_core_of = ROOT }
+				253 = { add_core_of = ROOT }
+				244 = { add_core_of = ROOT }
+				263 = { add_core_of = ROOT }
+				264 = { add_core_of = ROOT }
+				246 = { add_core_of = ROOT }
+				243 = { add_core_of = ROOT }
+				242 = { add_core_of = ROOT }
+				210 = { add_core_of = ROOT }
+				205 = { add_core_of = ROOT }
+				222 = { add_core_of = ROOT }
+				224 = { add_core_of = ROOT }
+				219 = { add_core_of = ROOT }
+				223 = { add_core_of = ROOT }
+				204 = { add_core_of = ROOT }
+				206 = { add_core_of = ROOT }
+				207 = { add_core_of = ROOT }
+				194 = { add_core_of = ROOT }
+				241 = { add_core_of = ROOT }
+				94 = { add_core_of = ROOT }
+				95 = { add_core_of = ROOT }
+				96 = { add_core_of = ROOT }
+				199 = { add_core_of = ROOT }
+				201 = { add_core_of = ROOT }
+				198 = { add_core_of = ROOT }
+				202 = { add_core_of = ROOT }
+				203 = { add_core_of = ROOT }
+				226 = { add_core_of = ROOT }
+				193 = { add_core_of = ROOT }
+				259 = { add_core_of = ROOT }
+				225 = { add_core_of = ROOT }
+				196 = { add_core_of = ROOT }
+				200 = { add_core_of = ROOT }
+				227 = { add_core_of = ROOT }
+				221 = { add_core_of = ROOT }
+				228 = { add_core_of = ROOT }
+				81 = { add_core_of = ROOT }
+				46 = { add_core_of = ROOT }
+				77 = { add_core_of = ROOT }
+				766 = { add_core_of = ROOT }
+				78 = { add_core_of = ROOT }
+				79 = { add_core_of = ROOT }
+				80 = { add_core_of = ROOT }
+				525 = { add_core_of = ROOT }
+				527 = { add_core_of = ROOT }
+				971 = { add_core_of = ROOT }
+			}
+		}
+	}
+
+
+}
+
+MON_border_raids = {
+		MON_take_dabancheng = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 760 }
+			}
+			allowed = {
+				original_tag = MON
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				760 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 760
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 760
+				}
+			}		
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_anti_communist_incursions
+			}
+
+			days_remove = 5
+			760 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 817
+						num_provinces = 3
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 760
+						num_provinces = 2
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+	
+		MON_take_tuva = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 329 }
+			}
+			allowed = {
+				original_tag = MON
+
+			}
+			available = {
+				761 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 329
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 329
+				}
+			}		
+			visible = {
+				original_tag = MON
+				OR = {
+					has_completed_focus = MON_regaining_mongolia
+					has_completed_focus = MON_anti_communist_incursions
+
+				}
+			}
+
+			days_remove = 5
+			329 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 818
+						num_provinces = 3
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 329
+						num_provinces = 4
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+		
+		MON_take_ulunbuir = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 761 }
+			}
+			allowed = {
+				original_tag = MON
+			}
+			available = {
+				has_border_war = no
+				NOT = {
+					controls_state = 761
+				}
+				761 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 761
+				}
+			}		
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_regaining_mongolia
+			}
+
+			days_remove = 5
+			761 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 819
+						num_provinces = 3
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 761
+						num_provinces = 4
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+		
+		MON_take_chahar = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 612 }
+			}		
+			allowed = {
+				original_tag = MON
+			}
+			available = {
+				has_border_war = no
+				NOT = {
+					controls_state = 612
+				}
+				612 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 612
+				}
+			}		
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_regaining_mongolia
+			}
+
+
+			days_remove = 5
+			612 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 819
+						num_provinces = 3
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 612
+						num_provinces = 4
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+		
+		MON_take_south_chahar = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 611 }
+			}		
+			allowed = {
+				original_tag = MON
+			}
+			available = {
+				has_border_war = no
+				611 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+				NOT = {
+					controls_state = 611
+				}
+			}
+			
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_regaining_mongolia
+			}
+			visible = {
+				NOT = {
+					controls_state = 611
+				}
+			}
+
+			days_remove = 5
+			611 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				IF = {
+					LIMIT = {
+						612 = {
+							is_owned_by  = MON
+						}
+					}
+					
+						start_border_war = {
+							change_state_after_war = no
+							attacker = {
+								state = 612
+								num_provinces = 3
+								on_win = MON_border_conflict.1
+								on_lose = MON_border_conflict.3
+								on_cancel = MON_border_conflict.5
+								modifier = 0.1
+								dig_in_factor = 0
+								terrain_factor = 0
+							}	
+							defender = {
+								state = 611
+								num_provinces = 4
+								on_win = MON_border_conflict.2
+								on_lose = MON_border_conflict.4
+								on_cancel = MON_border_conflict.6
+							}
+						}
+					
+				} else = {
+					
+					start_border_war = {
+						change_state_after_war = no
+						attacker = {
+							state = 621
+							num_provinces = 3
+							on_win = MON_border_conflict.1
+							on_lose = MON_border_conflict.3
+							on_cancel = MON_border_conflict.5
+							modifier = 0.1
+							dig_in_factor = 0
+							terrain_factor = 0
+						}	
+						defender = {
+							state = 611
+							num_provinces = 4
+							on_win = MON_border_conflict.2
+							on_lose = MON_border_conflict.4
+							on_cancel = MON_border_conflict.6
+						}
+					}				
+				}
+			}
+
+		}
+		
+		MON_take_suiyuan = {
+			war_with_target_on_complete = yes
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 621 }
+			}		
+			icon = GFX_decision_border_war
+			allowed = {
+
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+				original_tag = MON
+			}
+			available = {
+				621 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 621
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 621
+				}
+			}		
+			visible = {
+				original_tag = MON
+				OR = {
+					has_completed_focus = MON_regaining_mongolia
+					has_completed_focus = MON_suiyan_operation
+				}
+			}
+
+			days_remove = 5
+			621 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+						attacker = {
+							state = 817
+							num_provinces = 5
+							on_win = MON_border_conflict.1
+							on_lose = MON_border_conflict.3
+							on_cancel = MON_border_conflict.5
+							modifier = 0.1
+							dig_in_factor = 0
+							terrain_factor = 0
+						}	
+						defender = {
+							state = 621
+							num_provinces = 4
+							on_win = MON_border_conflict.2
+							on_lose = MON_border_conflict.4
+							on_cancel = MON_border_conflict.6
+						}
+				}
+			}
+
+		}
+
+		MON_take_ordos = {
+			war_with_target_on_complete = yes
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 746 }
+			}		
+			icon = GFX_decision_border_war
+			allowed = {
+				original_tag = MON
+			}
+			available = {
+				has_border_war = no
+				NOT = {
+					controls_state = 746
+				}
+				746 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 746
+				}
+			}		
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_suiyan_operation
+			}
+
+			days_remove = 5
+			746 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {#
+					change_state_after_war = no
+						attacker = {
+							state = 621
+							num_provinces = 4
+							on_win = MON_border_conflict.1
+							on_lose = MON_border_conflict.3
+							on_cancel = MON_border_conflict.5
+							modifier = 0.1
+							dig_in_factor = 0
+							terrain_factor = 0
+						}	
+						defender = {
+							state = 746
+							num_provinces = 3
+							on_win = MON_border_conflict.2
+							on_lose = MON_border_conflict.4
+							on_cancel = MON_border_conflict.6
+						}
+				}
+			}
+
+		}
+		
+		MON_take_jiuquan = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 756 }
+			}
+			allowed = {
+				original_tag = MON
+			}
+			available = {
+				has_border_war = no
+				NOT = {
+					controls_state = 756
+				}
+				756 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 756
+				}
+			}		
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_regaining_mongolia
+			}
+
+			days_remove = 5
+			756 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+						attacker = {
+							state = 817
+							num_provinces = 4
+							on_win = MON_border_conflict.1
+							on_lose = MON_border_conflict.3
+							on_cancel = MON_border_conflict.5
+							modifier = 0.1
+							dig_in_factor = 0
+							terrain_factor = 0
+						}	
+						defender = {
+							state = 756
+							num_provinces = 5
+							on_win = MON_border_conflict.2
+							on_lose = MON_border_conflict.4
+							on_cancel = MON_border_conflict.6
+						}
+				}
+			}
+
+		}
+}
+
+MON_bastion_of_democracy = {
+	MON_invite_state = {
+		icon = MON_democratic_meddling
+		allowed = { 
+			original_tag = MON
+		}
+		
+		available = {
+			has_capitulated = no
+			is_puppet = no
+			FROM = {
+				capital_scope = {
+					is_on_continent = asia
+				}
+				is_free_or_subject_of_root = yes
+				NOT = {
+					has_country_flag = MON_has_been_invited_to_faction
+					is_puppet_of = MON
+				}
+			}
+		}
+
+		visible = {
+			has_completed_focus = MON_asian_federation
+			FROM = {
+				is_major = no
+				NOT = {
+					is_in_faction_with = MON
+				}
+				AND = {
+					is_free_or_subject_of_root = yes
+					capital_scope = {
+						is_on_continent = asia
+					}
+					has_capitulated = no
+					NOT = { 
+						has_war_with = FROM
+						is_enemy_ideology = yes
+					}
+					OR = {
+						has_government = democratic
+						has_government = neutrality
+					}
+					NOT = {
+						has_country_flag = MON_has_been_invited_to_faction
+						is_puppet_of = ROOT
+					}
+
+				}	
+			}
+		}
+		
+		target_trigger = {
+			AND = {
+				is_free_or_subject_of_root = yes
+				capital_scope = {
+					is_on_continent = asia
+				}
+				has_capitulated = no
+				NOT = { 
+					has_war_with = FROM
+					is_enemy_ideology = yes
+				}
+				NOT = {
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		days_remove = 35
+		cost = 70
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 5
+		}
+		remove_effect = {
+			custom_effect_tooltip = MON_invite_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			FROM = {
+				country_event = {
+					id = MON_demo_invite.1
+					hours = 1
+				}
+				set_country_flag = MON_has_been_invited_to_faction
+			}
+		}
+	}
+	
+
+	MON_integration_invite = {
+		icon = MON_democratic_meddling
+		allowed = { 
+			original_tag = MON
+		}
+		
+		available = {
+			has_capitulated = no
+			is_puppet = no
+			FROM = {
+				capital_scope = {
+					is_on_continent = asia
+				}
+				OR = {
+					AND = {
+					is_in_faction_with = MON
+					is_puppet = no
+					}
+				is_puppet_of = MON
+				}
+				NOT = {
+					has_country_flag = MON_asked_integration_already
+				}
+			}
+		}
+
+		visible = {
+			has_completed_focus = MON_asian_federation
+			FROM = {
+				is_major = no
+				is_in_faction_with = MON
+				AND = {
+					is_free_or_subject_of_root = yes
+					capital_scope = {
+						is_on_continent = asia
+					}
+					has_capitulated = no
+					NOT = { 
+						has_war_with = FROM
+						is_enemy_ideology = yes
+					}
+				}
+				NOT = {
+					has_country_flag = MON_asked_integration_already
+				}	
+			}
+		}
+		
+		target_trigger = {
+			AND = {
+				is_free_or_subject_of_root = yes
+				capital_scope = {
+					is_on_continent = asia
+				}
+				has_capitulated = no
+				NOT = { 
+					has_war_with = FROM
+					is_enemy_ideology = yes
+				}
+			}
+		}
+		days_remove = 50
+		cost = 100
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 5
+		}
+		remove_effect = {
+			custom_effect_tooltip = MON_asian_fed_tt
+			FROM = {
+				country_event = {
+					id = MON_demo_invite.4
+					hours = 1
+				}
+				set_country_flag = MON_asked_integration_already
+			}
+		}
+	}
+
+
+}   
+
+MON_laissez_faire_cat = {
+	MON_land_owners_finding_funding  = {
+		icon = GFX_decision_gre_paying_ifc_debt
+		allowed = {
+			has_completed_focus = MON_privitisation
+			original_tag = MON
+		}
+		visible = {
+			always = yes
+			has_completed_focus = MON_privitisation
+		}
+		is_good = yes
+		available = { hidden_trigger = { always = no } }
+
+		activation = {
+			has_completed_focus = MON_privitisation
+		}
+		
+		days_mission_timeout = 50
+		timeout_effect = {
+			random_state = {
+				limit = {
+					is_controlled_by = ROOT
+					impassable = no
+				}
+				random_list = {
+					seed = random 
+					2.5 = {
+						modifier = {
+							free_building_slots = {
+								building = industrial_complex
+								size < 1
+							}
+							factor = 0
+						}
+						modifier = {
+							ROOT = {
+								has_completed_focus = MON_empower_land_owners
+							}
+							factor = 2.5
+						}
+						modifier = {
+							has_variable = ROOT.is_literally_not_a_factory
+							add = var:ROOT.is_literally_not_a_factory
+						}
+						if = {
+							limit = {
+								has_variable = ROOT.is_literally_not_a_factory
+							}
+							clear_variable = ROOT.is_literally_not_a_factory
+						}
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+
+						ROOT = { add_to_variable = { built_a_civ = 1 } }
+					}
+					2.5 = {
+						modifier = {
+							free_building_slots = {
+								building = arms_factory
+								size < 1  
+							}
+							factor = 0
+						}
+						modifier = {
+							ROOT = {
+								has_completed_focus = MON_empower_land_owners
+							}
+							factor = 2.5
+						}
+						modifier = {
+							has_variable = ROOT.is_literally_not_a_factory
+							add = var:ROOT.is_literally_not_a_factory
+						}
+						if = {
+							limit = {
+								has_variable = ROOT.is_literally_not_a_factory
+							}
+							clear_variable = ROOT.is_literally_not_a_factory
+						}
+
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+
+						ROOT = { add_to_variable = { built_a_mil = 1 } }
+					}
+					2 = {
+						modifier = {
+							free_building_slots = {
+								building = dockyard
+								size < 1 
+							}
+							factor = 0
+						}
+						modifier = {
+							ROOT = {
+								any_core_state = {
+									is_coastal = no
+								}
+							}
+							factor = 0
+						}
+						add_building_construction = {
+							type = dockyard
+							level = 1
+							instant_build = yes
+						}
+						modifier = {
+							ROOT = {
+								has_completed_focus = MON_empower_land_owners
+							}
+							factor = 2.5
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.1 }
+						ROOT = { add_to_variable = { built_a_dockyard = 1 } }
+					}
+					3 = {
+						modifier = {
+							infrastructure > 4
+							factor = 0
+						}
+						add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.15 }
+						ROOT = { add_to_variable = { built_a_infra = 1 } }
+					}
+					2 = {
+						modifier = {
+							air_base > 9
+							factor = 0
+						}
+						add_building_construction = {
+							type = air_base
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.25 }
+						ROOT = { add_to_variable = { built_an_airbase = 1 } }
+					}
+
+					1 = {
+						modifier = {
+							anti_air_building > 4
+							factor = 0
+						}
+
+						modifier = {
+							ROOT = { NOT = {  has_tech = interwar_antiair } }
+							factor = 0
+						}
+						add_building_construction = {
+							type = anti_air_building
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.2 }
+						ROOT = { add_to_variable = { built_an_aa = 1 } }
+					}
+
+					1 = {
+						modifier = {
+							radar_station > 4
+							factor = 0
+						}
+
+						modifier = { #level 1
+							ROOT = { NOT = {  has_tech = radio_detection } }
+							factor = 0
+						}
+
+						modifier = { #level 2
+							radar_station > 0
+							ROOT = { NOT = {  has_tech = decimetric_radar } }
+							factor = 0
+						}
+
+						modifier = { #level 3
+							radar_station > 2
+							ROOT = { NOT = {  has_tech = improved_decimetric_radar } }
+							factor = 0
+						}
+
+						modifier = { #level 4
+							radar_station > 3
+							ROOT = { NOT = {  has_tech = centimetric_radar } }
+							factor = 0
+						}
+						modifier = { #level 5
+							radar_station > 4
+							ROOT = { NOT = {  has_tech = improved_centimetric_radar } }
+							factor = 0
+						}
+
+						modifier = { #level 6
+							radar_station > 4
+							ROOT = { NOT = {  has_tech = advanced_centimetric_radar } }
+							factor = 0
+						}
+
+						add_building_construction = {
+							type = radar_station
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.25 }
+						ROOT = { add_to_variable = { built_a_radar = 1 } }
+					}
+
+					2 =	{
+						add_building_construction = {
+							type = supply_node
+							province = {
+								all_provinces = yes
+							}
+							level = 1
+							instant_build = yes
+						}
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.2 }
+						ROOT = { add_to_variable = { built_a_hub = 1 } }
+					}
+
+					3 = {
+						modifier = {
+							free_building_slots = {
+								building = industrial_complex
+								size < 1 
+							}
+							factor = 2
+						}
+						modifier = {
+							ROOT = {
+								has_completed_focus = MON_empower_land_owners
+							}
+							factor = 2.5
+						}
+						add_extra_state_shared_building_slots = 1
+						add_to_variable = { ROOT.is_literally_not_a_factory = 0.1 }
+						ROOT = { add_to_variable = { added_slot = 1 } }
+
+					}
+				}
+					
+			}
+			activate_mission = MON_land_owners_finding_funding
+		}
+	}
+}
+
+MON_union_asian_republics = {
+	MON_integrate_state_FROM = {
+		icon = GFX_decision_generic_operation
+		allowed = {
+			original_tag =  MON
+		}
+		available = {
+			OR = {
+				has_completed_focus = MON_regional_ambitions
+				has_completed_focus = MON_asian_federation
+			}
+		}
+		
+		visible = {
+			any_owned_state = {
+				is_on_continent = asia
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+		    	is_fully_controlled_by = ROOT
+		    	is_on_continent = asia
+		    	NOT = {
+		    		is_core_of = ROOT
+		    	}
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 25
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 10
+				any_owned_state = {
+					NOT = {
+						is_core_of = ROOT
+					}
+					is_on_continent = asia
+				}
+			}
+		}
+		fire_only_once = no
+		days_remove = 20
+
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+			}
+		}
+	}
+}
+
+MON_foreign_legion_cat = {
+	MON_recruit_foreign_legion = {
+		icon = GFX_decision_generic_prepare_civil_war
+
+		allowed = {
+			original_tag = MON
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = MON_communist_volunteers
+				has_completed_focus = MON_the_anti_communists_movement
+			}
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = MON_foreign_legion_recruitment_in_progress
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 24.9
+		}
+		custom_cost_text = BRA_decision_cost_cangaceiro
+
+		#cost = 100
+
+		fire_only_once = no
+		days_remove = 60
+		ai_will_do = {
+			base = 100
+		}
+
+		complete_effect = {
+			set_country_flag = MON_foreign_legion_recruitment_in_progress
+			add_command_power = -25
+		}
+
+		remove_effect = {
+			IF = {LIMIT = {has_completed_focus = MON_communist_volunteers}
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Foreign Volunteers\" division_template = \"Communist Volunteer Group\" start_experience_factor = 0.5 start_equipment_factor	= 1.0"
+						owner = MON 
+						count = 1
+					}
+				}
+			
+			}ELSE = {
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Traditionalist division\" division_template = \"Traditionalist Volunteers\" start_experience_factor = 0.5 start_equipment_factor	= 1.0"
+						owner = MON 
+						count = 1
+					}
+				}
+			}
+
+
+			hidden_effect = {
+				clr_country_flag = MON_foreign_legion_recruitment_in_progress
+			}
+		}
+	}
+}
+
+MON_export_cat = {
+	export_meat_to_FROM = {
+		icon = GFX_decision_generic_cavalry
+
+		allowed = { 
+			original_tag = MON
+		}
+
+		available = {
+			has_capitulated = no
+			is_puppet = no
+			has_completed_focus = MON_export_animal_products
+			FROM = {	
+				NOT = {
+					has_war_with = ROOT
+					is_puppet = yes
+				}
+			}
+		}
+
+		visible = {
+			FROM = {	
+				NOT = {
+					has_war_with = ROOT
+					is_puppet = yes
+				}
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					original_tag = CHI
+					original_tag = RAJ
+					is_major = yes
+					is_ai = no
+				}
+				NOT = { has_country_flag = has_mon_meat_flag }
+				NOT = {has_country_flag = MON_declined_trade_1}
+			}
+		}
+
+		days_remove = 40
+
+		cost = 50
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		visible = {
+			has_completed_focus = MON_export_animal_products	
+			NOT = {
+				has_country_flag = MON_investment_pursued
+			}
+			FROM = {
+				NOT = { has_country_flag = has_mon_meat_flag }
+			}
+		}
+
+		complete_effect = {
+			set_country_flag = MON_investment_pursued
+		}
+
+		remove_effect = {
+			FROM = { country_event = { id = mon_trade_deal.4} }
+			clr_country_flag = MON_investment_pursued
+		}
+	}
+
+	export_produce_to_FROM = {
+		icon = GFX_decision_generic_motorized
+
+		allowed = { 
+			original_tag = MON
+		}
+
+		available = {
+			has_capitulated = no
+			is_puppet = no
+			has_completed_focus = MON_export_crops
+			FROM = {	
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					original_tag = CHI
+					original_tag = RAJ
+					is_major = yes
+					is_ai = no
+				}
+				NOT = { has_country_flag = has_mon_produce_flag }
+			}
+		}
+
+
+		days_remove = 40
+
+		cost = 50
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		visible = {
+			has_completed_focus = MON_export_crops	
+			NOT = {
+				has_country_flag = MON_investment_pursued
+			}
+			FROM = {
+				NOT = { has_country_flag = has_mon_produce_flag }
+				NOT = {has_country_flag = MON_declined_trade_1}
+			}
+		}
+
+		complete_effect = {
+			set_country_flag = MON_investment_pursued
+		}
+
+		remove_effect = {
+			FROM = { country_event = { id = mon_trade_deal.1} }
+			clr_country_flag = MON_investment_pursued
+		}
+	}
+
+} 
+
+MON_manchuria_cat = {
+	MON_infiltrate_state_FROM = {
+		icon = GFX_decision_onmap_recruit_operative
+		allowed = {
+			original_tag =  MON
+		}
+		available = {
+			NOT = {
+				has_country_flag = MON_infiltrate_decision_active
+			}
+			NOT = {
+				has_global_flag = MON_attempted_uprising_man
+			}
+			has_completed_focus = MON_infiltrate_manchuria
+			country_exists = MAN
+			FROM = {
+				NOT = {
+					is_core_of = MON
+				}
+			}
+		}
+		
+		visible = {
+			NOT = {
+				has_global_flag = MON_attempted_uprising_man
+			}
+			has_completed_focus = MON_infiltrate_manchuria
+			country_exists = MAN
+			FROM = {
+				NOT = {
+					is_core_of = MON
+				}
+			}
+		}
+
+		state_target = yes
+		target_trigger = {
+		    FROM = {
+				is_core_of = MAN
+		    	NOT = {
+					is_fully_controlled_by = ROOT
+					is_fully_controlled_by = JAP
+		    	}
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 35
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 10
+			}
+		}
+		fire_only_once = no
+		days_remove = 30
+		complete_effect = {
+			set_country_flag = MON_infiltrate_decision_active
+		}
+		remove_effect = {
+			clr_country_flag = MON_infiltrate_decision_active
+			
+			FROM = {
+				add_core_of = MON
+			}
+
+			MAN = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.02
+				}
+			}
+			
+			IF = {
+				LIMIT = {
+					MAN = {
+						has_idea = MON_partial_infiltration
+					}
+				}
+					MAN = {
+							remove_ideas = MON_partial_infiltration
+							add_ideas = MON_full_infiltration
+					}	
+				
+			}ELSE{
+				MAN = { 
+					add_ideas = MON_partial_infiltration
+				}
+			}
+
+		}
+	}
+	
+	
+	MON_commence_uprising = {
+		icon = GFX_decision_eng_support_imperialist_coup
+		allowed = {
+			original_tag =  MON
+		}
+		available = {
+			NOT = {
+				has_global_flag = MON_attempted_uprising_man
+				has_country_flag = MON_infiltrate_decision_active
+			}
+			has_completed_focus = MON_infiltrate_manchuria
+			country_exists = MAN
+			MAN = {
+				neutrality > 0.25
+			}
+		
+		}
+		
+		visible = {
+			has_completed_focus = MON_infiltrate_manchuria
+			country_exists = MAN
+			NOT = {
+				MAN = {
+					neutrality > 0.4
+				}
+			}
+		}
+	    cost = 100
+
+		complete_effect = {
+			MAN = {
+				start_civil_war = {
+					ruling_party = fascism
+					ideology = neutrality
+					size = 0.55
+					capital = 761	
+				}
+			}
+			hidden_effect = {
+				set_global_flag = MON_attempted_uprising_man
+			}
+			}
+	}
+	
+
+	MON_commence_full_uprising = {
+		icon = GFX_decision_eng_support_imperialist_coup
+		allowed = {
+			original_tag =  MON
+		}
+		cost = 50
+		available = {
+			NOT = {
+				has_global_flag = MON_attempted_uprising_man
+				has_country_flag = MON_infiltrate_decision_active
+			}
+			has_completed_focus = MON_infiltrate_manchuria
+			country_exists = MAN
+			MAN = {
+				neutrality > 0.3
+			}
+		}
+		
+		visible = {
+			has_completed_focus = MON_infiltrate_manchuria
+			country_exists = MAN
+			MAN = {
+				neutrality > 0.25
+			}
+		}
+
+		complete_effect = {
+			MAN = {
+				start_civil_war = {
+					ruling_party = fascism
+					ideology = neutrality
+					size = 0.90
+					capital = 761
+				}
+			}
+			hidden_effect = {
+				set_global_flag = MON_attempted_uprising_man
+			}		
+		}
+	}
+
+	MON_subjugate_manchu = {
+		icon = GFX_decision_generic_assassination
+		allowed = {
+			original_tag =  MON
+		}
+
+		available = {
+			has_completed_focus = MON_infiltrate_manchuria
+			any_country = {
+				original_tag = MAN
+				is_subject = no
+				has_civil_war = no
+				has_government = ROOT
+			}
+
+		}
+		
+		visible = {
+			any_country = {
+				original_tag = MAN
+				is_subject = no
+				has_government = ROOT
+			}
+			NOT = {
+				has_global_flag = MON_manchu_puppet
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				set_global_flag = MON_manchu_puppet
+				
+			}
+			puppet = {
+				target = MAN
+				end_wars = yes
+			}
+			MON = {
+				set_autonomy = {
+					target = MAN
+					autonomy_state = autonomy_personal_union
+					end_civil_wars = no
+					end_wars = yes
+				}
+			}
+		}
+
+	}
+}

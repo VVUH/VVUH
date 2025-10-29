@@ -1,0 +1,115 @@
+TIB_formables_cat ={ #formable general always doable
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_generic
+
+}
+
+TIB_decs = { #general decisions
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_political_actions
+}
+
+TIB_support_for_tibet = { #general decisions
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_foreign_policy
+}
+TIB_border_wars = { #border wars with china xsm and sik 
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_border_war
+}
+
+TIB_collab_japan = {
+    # allow you to get NAP, military access with japan if both at war with china
+    allowed = {
+        tag = TIB
+    }
+     visible = {
+        NOT = {
+            has_government = communism
+        }
+        JAP = {
+            has_war_together_with = TIB
+        }
+
+
+    }
+    priority = 5
+    icon = GFX_decision_category_jap_southern_expansion
+}
+
+TIB_regent_political_dealings = {
+    #remove regent, stabilise army
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_spr_political_assassination
+}
+
+
+TIB_neighboring_communism_category = { #unite with xinjiang, maybe mongolia and tanna tuva?
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_SOV_permanent_revolution
+}
+TIB_faith = { # state modifiers
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_SWI_presidential_office
+}
+#needs fixing
+TIB_loot_conquest = {
+    allowed = {
+        tag = TIB
+    }
+    priority = 0
+    icon =  GFX_decision_category_SOV_merge_designers
+    visible = {
+        has_completed_focus = TIB_exploit_conquest_for_economy
+    }
+}
+
+TIB_democracies = { # decision GFX_decision_SWI_swiss_democratic_tradition_campaign
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_democracy
+}
+
+
+TIB_power = { #decisions on core to get +1 building slot up to 3 times per core province - decisions GFX_decision_generic_construction / GFX_decision_generic_electricity
+    allowed = {
+        tag = TIB
+    }
+    visible = {
+        has_completed_focus = TIB_dams_for_power
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_prospect_for_resources
+}
+
+TIB_recruitment = {
+    allowed = {
+        tag = TIB
+    }
+    priority = 5
+    icon = GFX_decision_category_generic_arms_trade
+}
+

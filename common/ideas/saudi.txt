@@ -1,0 +1,2730 @@
+ideas = {
+# initials;
+
+	country = {
+		SAU_shia_minorities = {
+
+			picture = raj_marginalized_muslim_community
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				war_support_factor = -0.1
+				conscription = -0.01
+				neutrality_drift = -0.05
+			}
+		}
+		SAU_the_ulema = {
+
+			picture = PER_adult_literacy_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				mobilization_speed = 0.3
+				local_intel_to_enemies = -0.1
+				army_core_defence_factor = 0.05
+			}
+		}	
+		SAU_hajj_pilgrims = {
+
+			picture = ITA_battaglie_per_la_nascite
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #buff 
+				weekly_manpower = 100
+				political_power_gain = 0.25
+				monthly_population = 0.15
+			}
+		}
+		SAU_limited_agri = {
+
+			picture = RAJ_state_of_famine_country
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				has_war = yes
+			}
+			on_remove = {
+				IF = {
+					LIMIT = {
+						NOT = {
+							OR = {
+								has_completed_focus = SAU_invest_foreign_farmland
+								has_completed_focus = SAU_irrigation_projects
+							}
+						}
+					}
+					add_ideas = SAU_agri_collapse
+				}
+			}
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				local_resources_factor = -0.1
+				stability_factor = -0.1
+				economy_cost_factor = 0.5
+				custom_modifier_tooltip = SAU_will_worsen_if_war_tt
+			}
+		}
+		SAU_agri_collapse = {
+
+			picture = raj_risk_of_famine
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				local_resources_factor = -0.2
+				stability_factor = -0.3
+				economy_cost_factor = 1
+				supply_factor = -0.1
+			}
+		}
+		SAU_poor_country = {
+
+			picture = chi_hyper_inflation
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = { #debuff 
+				consumer_goods_factor = 0.1
+				production_factory_efficiency_gain_factor = -0.05
+				production_factory_max_efficiency_factor = -0.1
+				industry_repair_factor = -0.1
+				drift_defence_factor = -0.3
+			}
+			rule = {
+				can_access_market = no
+			}
+
+		}
+
+#end initials
+#asj
+		ASJ_trained_pilots = {
+
+			picture = air_support_focus
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {  
+				air_ace_generation_chance_factor = 0.1
+				air_range_factor = 0.1
+				air_agility_factor = 0.05
+				war_support_factor = 0.1
+
+			}
+		}
+		ASJ_modern_fighting_force = {
+
+			picture = generic_acquire_tanks
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {  
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.05
+				army_fuel_consumption_factor = -0.1
+			}
+		}
+		ASJ_naval_developments = {
+
+			picture = generic_acquire_tanks
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {  
+				naval_morale_factor = 0.05
+				navy_org_factor = 0.05
+				naval_coordination = 0.05
+				navy_fuel_consumption_factor = -0.1
+			}
+		}		
+		 ASJ_industrialising_country = {
+
+			picture = man_five_year_plan_industry
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {  
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.05
+				production_speed_infrastructure_factor = 0.1
+			}
+		}				
+#politics
+		SAU_meddling_funds = {
+
+			picture = ARG_political_corruption_modifier
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {  
+				consumer_goods_factor = 0.05
+				stability_factor = -0.1
+				war_support_factor = -0.1
+				neutrality_drift = 0.1
+				army_org_factor = -0.05
+			}
+		}
+		SAU_meddling_arms = {
+
+			picture = raj_rifle_factory_ishapore
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+
+			modifier = {  
+				consumer_goods_factor = 0.05
+				drift_defence_factor = -0.2
+				stability_factor = -0.1
+				army_org_factor = -0.1
+				communism_drift = 0.25
+				fascism_drift = 0.1
+			}
+		}
+		SAU_widespread_rifle_production = {
+
+			picture = raj_rifle_factory_ishapore
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+
+			modifier = {  
+				consumer_goods_factor = -0.03
+				stability_factor = -0.05
+				communism_drift = 0.05
+				equipment_capture_factor = 0.1
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					soft_attack = 0.02
+					build_cost_ic = -0.1
+				}
+			}
+
+		}
+		SAU_recent_coup = {
+
+			picture = ARG_military_government
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			rule = {
+				can_join_factions = no
+			}
+
+			modifier = {  
+				consumer_goods_factor = 0.05
+				stability_factor = -0.1
+				war_support_factor = -0.1
+				army_org_factor = -0.02
+			}
+		}
+		SAU_religious_upheaval = {
+
+			picture = ITA_hardened_irregular_bands
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			rule = {
+				can_join_factions = no
+			}
+
+			modifier = {  
+				consumer_goods_factor = 0.15
+				stability_factor = -0.2
+				war_support_factor = -0.15
+				army_speed_factor = -0.05
+			}
+		}
+		SAU_centralising_government = {
+
+			picture = ARG_political_corruption_modifier
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = 0.15
+				war_support_weekly = -0.01
+				state_production_speed_buildings_factor = -0.05
+				fascism_drift = 0.03
+				neutrality_drift = -0.1
+				fascism_acceptance = 50
+				drift_defence_factor = -0.25
+			}
+		}
+		SAU_developing_fanaticism = {
+
+			picture = ARG_subdue_dissension
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = 0.15
+				stability_weekly = -0.01
+				required_garrison_factor = 0.1
+				fascism_drift = 0.07
+				fascism_acceptance = 50
+				drift_defence_factor = -0.25
+			}
+		}
+		SAU_arabian_marxism = {
+
+			picture = HUN_resurgent_communist_party_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = -0.05
+				stability_weekly = 0.01
+				required_garrison_factor = 0.1
+				communism_drift = 0.07
+				research_speed_factor = 0.02
+				army_attack_against_major_factor = 0.08
+				army_breakthrough_against_major_factor = 0.05
+				army_defence_against_major_factor = 0.1
+				party_popularity_stability_factor = 0.2
+			}
+		}
+		SAU_arabian_marxism2 = {
+
+			picture = HUN_resurgent_communist_party_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = -0.1
+				stability_weekly = 0.01
+				required_garrison_factor = 0.1
+				communism_drift = 0.07
+				research_speed_factor = 0.04
+				recruitable_population_factor = 0.1 #female lib
+				army_attack_against_major_factor = 0.08
+				army_breakthrough_against_major_factor = 0.05
+				army_defence_against_major_factor = 0.1
+				party_popularity_stability_factor = 0.2
+			}
+		}					
+		SAU_arabian_marxism_final = {
+
+			picture = HUN_resurgent_communist_party_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = -0.15
+				stability_weekly = 0.01
+				required_garrison_factor = 0.1
+				communism_drift = 0.07
+				global_building_slots_factor = 0.3 #landreform
+				local_resources_factor = 0.2
+				research_speed_factor = 0.04
+				recruitable_population_factor = 0.1 #female lib
+				army_attack_against_major_factor = 0.08
+				army_breakthrough_against_major_factor = 0.05
+				army_defence_against_major_factor = 0.1
+				party_popularity_stability_factor = 0.2
+			}
+		}
+		SAU_arabian_stalinism = {
+
+			picture = SOV_stakhanovite_movement
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = -0.1
+				war_support_weekly = 0.01
+				required_garrison_factor = 0.1
+				communism_drift = 0.05
+				research_speed_factor = 0.06
+				army_attack_against_major_factor = 0.1
+				army_breakthrough_against_major_factor = 0.04
+				army_defence_against_major_factor = 0.08
+				party_popularity_stability_factor = 0.2
+
+			}
+		}
+		SAU_arabian_stalinism2 = {
+
+			picture = SOV_stakhanovite_movement
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = -0.15
+				war_support_weekly = 0.01
+				required_garrison_factor = 0.1
+				communism_drift = 0.05
+				global_building_slots = 1 #soviet industry
+				production_lack_of_resource_penalty_factor = -0.2
+				research_speed_factor = 0.06
+				army_attack_against_major_factor = 0.1
+				army_breakthrough_against_major_factor = 0.04
+				army_defence_against_major_factor = 0.08
+				party_popularity_stability_factor = 0.2
+
+			}
+		}		
+		SAU_arabian_stalinism_final = {
+
+			picture = SOV_stakhanovite_movement
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				consumer_goods_factor = -0.2
+				war_support_weekly = 0.01
+				required_garrison_factor = 0.1
+				communism_drift = 0.05
+				global_building_slots = 1 #soviet industry
+				production_lack_of_resource_penalty_factor = -0.2
+				research_speed_factor = 0.06
+				recruitable_population_factor = 0.1 #union democratic youth
+				army_attack_against_major_factor = 0.1
+				army_breakthrough_against_major_factor = 0.04
+				army_defence_against_major_factor = 0.08
+				party_popularity_stability_factor = 0.2
+
+			}
+		}
+		SAU_faction_collaboration_red_leader = {
+
+			picture = AUS_austromarxism
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				weekly_manpower = 700
+				consumer_goods_factor = -0.1
+				country_resource_oil = 10
+			}
+		}			
+		SAU_faction_collaboration_red = {
+
+			picture = AUS_austromarxism
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					is_in_faction_with = SAU
+				}
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				weekly_manpower = 300
+				consumer_goods_factor = -0.1
+				country_resource_oil = 10
+			}
+		}		
+		SAU_international_brigades_spirit = {
+
+			picture = HUN_the_rakosi_battalion_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				weekly_manpower = 1000
+				defensive_war_stability_factor = 0.3
+				stability_factor = -0.1
+				justify_war_goal_time = -0.3
+			}
+		}
+		SAU_taxed_pilgrims = {
+
+			picture = tur_varlik_vergisi
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+				
+			modifier = { #buff 
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		SAU_strengthened_ulema = {
+
+			picture = AFG_pashtunwali
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = 0.25
+				mobilization_speed = 0.5
+				local_intel_to_enemies = -0.15
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.1
+				conscription = 0.02
+			}
+		}
+		SAU_purged_airforce = {
+
+			picture = generic_purge
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				political_power_gain = -0.25
+				mobilization_speed = -0.1
+				local_intel_to_enemies = 0.15
+				experience_gain_air = -0.1
+				stability_factor = -0.1
+
+			}
+		}
+		SAU_strengthened_monarchy = {
+
+			picture = PER_white_revolution_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				defensive_war_stability_factor = 0.35
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.05
+				conscription = 0.03
+			}
+		}
+		SAU_legalised_muslim_equality = {
+
+			picture = tur_funkplan
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				supply_factor = 0.05
+				supply_consumption_factor = -0.05
+				war_support_factor = 0.1
+				stability_factor = 0.1
+				conscription = 0.03
+			}
+		}
+		SAU_muslim_state = {
+
+			picture = PER_islamic_traditions_ns
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				justify_war_goal_time = -0.3			
+				army_morale_factor  = 0.1
+				war_support_factor = 0.1
+				conscription = 0.02
+				offensive_war_stability_factor = 0.2
+			}
+		}
+		SAU_secular_politics = {
+
+			picture = PER_forced_secularization
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				puppet_cost_factor = -0.15
+				stability_factor = 0.1
+				conscription = 0.01
+				defensive_war_stability_factor = 0.5
+				industrial_capacity_factory = 0.1
+			}
+		}
+	#league
+		SAU_intelligence_network = {
+
+			picture = RAJ_a_policy_of_silence
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			cancel = {
+				if = {
+					limit = {
+						NOT={original_tag = SAU}
+					}
+					NOT = {
+						is_in_faction_with = SAU
+					}					
+				}
+			}
+			modifier = {
+				agency_upgrade_time = -0.5
+				decryption_factor = 0.3
+				operation_cost = -0.5
+				operative_slot = 2
+				new_operative_slot_bonus = 1
+
+			}
+		}	
+		SAU_league_economic_integration = {
+
+			picture = PER_fund_state_intelligence_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			cancel = {
+				if = {
+					limit = {
+						NOT={original_tag = SAU}
+					}
+					NOT = {
+						is_in_faction_with = SAU
+					}					
+				}
+			}
+			modifier = {
+				consumer_goods_factor = -0.1
+				production_speed_industrial_complex_factor = 0.1
+				supply_node_range = 0.1
+				supply_factor = 0.1
+				army_fuel_consumption_factor = -0.1
+			}
+		}
+		SAU_league_military_integration = {
+
+			picture = eng_imperial_conscription
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			cancel = {
+				if = {
+					limit = {
+						NOT={original_tag = SAU}
+					}
+					NOT = {
+						is_in_faction_with = SAU
+					}					
+				}
+			}
+			modifier = {
+				army_org_factor = 0.05
+				max_planning_factor = 0.1
+				special_forces_cap = 0.1
+				org_loss_at_low_org_factor = -0.15
+			}
+		}			
+	#reforms neutrality path
+		SAU_local_government_reform_spirit = {
+
+			picture = HUN_treaty_of_triannon
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				max_surrender_limit_offset = 0.05
+				monthly_population = 0.05
+			}
+		}			
+		SAU_modernising_light_industry = {
+
+			picture = ARG_construction_guilds
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				production_speed_arms_factory_factor = 0.03
+				repair_speed_arms_factory_factor = 0.03
+				conversion_cost_civ_to_mil_factor = -0.05
+			}
+		}			
+		SAU_modernising_heavy_industry = {
+
+			picture = ARG_economic_reactivation
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				production_speed_arms_factory_factor = 0.03
+				repair_speed_arms_factory_factor = 0.03
+				conversion_cost_civ_to_mil_factor = -0.05
+			}
+		}		
+		SAU_women_of_arabia = {
+
+			picture = AUS_women_in_academia
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				research_speed_factor = 0.03
+				neutrality_drift = 0.03
+			}
+		}		
+		#first merge
+		
+		SAU_modernising_arabia = {
+
+			picture = AFG_parliament_building
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				production_speed_industrial_complex_factor = 0.05
+				repair_speed_industrial_complex_factor = 0.05
+				production_speed_rail_way_factor = 0.05
+				production_speed_supply_node_factor = 0.05
+				conversion_cost_mil_to_civ_factor = -0.07
+				max_surrender_limit_offset = 0.1
+				monthly_population = 0.1
+			}
+		}
+		#second merge
+		SAU_modernised_arabia = {
+
+			picture = AFG_parliament_building
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {
+				production_speed_industrial_complex_factor = 0.05
+				repair_speed_industrial_complex_factor = 0.05
+				production_speed_rail_way_factor = 0.05
+				production_speed_supply_node_factor = 0.05
+				conversion_cost_mil_to_civ_factor = -0.07
+				max_surrender_limit_offset = 0.1
+				monthly_population = 0.1
+				
+				production_speed_arms_factory_factor = 0.05
+				repair_speed_arms_factory_factor = 0.05
+				conversion_cost_civ_to_mil_factor = -0.07
+				research_speed_factor = 0.03
+				neutrality_drift = 0.03
+			}
+		}		
+		SAU_communist_graduates = {
+			allowed = {
+				tag = SAU
+			}
+			removal_cost = -1
+
+			picture = AFG_communist_graduates
+			cancel = {
+				NOT = {
+					has_government =  communism
+				}
+			}
+			on_remove = {
+				IF = {
+					LIMIT = {
+						has_government = democratic
+					}
+					add_ideas = SAU_democratic_graduates
+				}ELSE_IF = {
+					LIMIT = {
+						has_government = fascism
+					}
+					add_ideas = SAU_fascist_graduates
+				}ELSE = {
+					add_ideas = SAU_neutrality_graduates
+				}
+			}
+			modifier = {
+				command_power_gain = 0.2
+				stability_factor = 0.1
+				communism_drift = 0.03
+				weekly_manpower = 250
+				org_loss_when_moving = -0.1
+
+			}
+		}
+	#demo
+		SAU_democratic_graduates = {
+			allowed = {
+				tag = SAU
+			}
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					has_government =  democratic
+				}
+			}
+			on_remove = {
+				IF = {
+					LIMIT = {
+						has_government = communism
+					}
+					add_ideas = SAU_communist_graduates
+				}ELSE_IF = {
+					LIMIT = {
+						has_government = fascism
+					}
+					add_ideas = SAU_fascist_graduates
+				}ELSE = {
+					add_ideas = SAU_neutrality_graduates
+				}
+			}
+			picture = AFG_democratic_graduates
+
+			modifier = {
+				command_power_gain = 0.2
+				stability_factor = 0.1
+				democratic_drift = 0.03
+				max_dig_in_factor = 0.1
+			}
+		}
+		SAU_bolstered_shura_council_demo = {
+			allowed = {
+				tag = SAU
+			}
+			removal_cost = -1
+			cancel = {
+				has_government =  democratic
+				
+			}
+			on_remove = {
+				IF = {
+					LIMIT = {
+						has_government = democratic
+					}
+				add_stability = 0.1
+				}
+			}
+			picture = HUN_treaty_of_triannon
+
+			modifier = {
+				consumer_goods_factor = -0.1
+				command_power_gain = 0.1
+				stability_factor = 0.1
+				democratic_drift = 0.06
+			}
+		}
+		SAU_fascist_graduates = {
+			allowed = {
+				tag = SAU
+			}
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					has_government =  fascism
+				}
+			}
+			on_remove = {
+				IF = {
+					LIMIT = {
+						has_government = communism
+					}
+					add_ideas = SAU_communist_graduates
+				}ELSE_IF = {
+					LIMIT = {
+						has_government = democratic
+					}
+					add_ideas = SAU_democratic_graduates
+				}ELSE = {
+					add_ideas = SAU_neutrality_graduates
+				}
+			}
+			picture = AFG_fascist_graduates
+
+			modifier = {
+				command_power_gain = 0.2
+				stability_factor = 0.1
+				fascism_drift = 0.03
+				max_planning_factor = 0.05
+			}
+		}
+
+		SAU_neutrality_graduates = {
+			allowed = {
+				tag = SAU
+			}
+			removal_cost = -1
+			cancel = {
+				NOT = {
+					has_government =  neutrality
+				}
+			}
+			on_remove = {
+				IF = {
+					LIMIT = {
+						has_government = communism
+					}
+					add_ideas = SAU_communist_graduates
+				}ELSE_IF = {
+					LIMIT = {
+						has_government = fascism
+					}
+					add_ideas = SAU_fascist_graduates
+				}ELSE = {
+					add_ideas = SAU_democratic_graduates
+				}
+			}
+			picture = AFG_neutrality_graduates
+
+			modifier = {
+				command_power_gain = 0.2
+				stability_factor = 0.1
+				neutrality_drift = 0.03
+				org_loss_at_low_org_factor = -0.1
+				recon_factor = 0.1
+
+			}
+		}
+#end politics
+
+
+#economy
+
+		SAU_OPEC_development_fund = {
+
+			picture = BRA_dasp
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				NOT = {
+					is_in_faction_with = SAU
+				}
+			}
+			removal_cost = -1
+				
+			modifier = { #buff 
+				consumer_goods_factor = -0.1
+			}
+		}
+		SAU_gold = {
+
+			picture = SPR_seize_the_gold_reserves
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #buff 
+				consumer_goods_factor = -0.1
+			}
+		}
+		SAU_gold2 = {
+
+			picture = SPR_seize_the_gold_reserves
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #buff 
+				consumer_goods_factor = -0.15
+			}
+		}
+		SAU_investments_being_done = {
+
+			picture = SPR_relocate_the_gold_reserves
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				consumer_goods_factor = 0.15
+			}
+		}
+		SAU_oil_importing_national = {
+
+			picture = MEX_oil_concessions
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			cancel = {
+				has_war_with = SAU
+			}	
+			modifier = {  
+				civilian_factory_use = 1
+				country_resource_oil = 10
+				custom_effect_tooltip = SAU_will_cancel_if_war_with_SAU
+			}
+		}
+		SAU_oil_importing_aramco = {
+
+			picture = MEX_oil_concessions
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				has_war = yes
+			}
+			removal_cost = -1
+				
+			modifier = {  
+				civilian_factory_use = 2
+				country_resource_oil = 20
+				custom_effect_tooltip = SAU_will_cancel_if_war_with_SAU
+
+			}
+		}		
+		SAU_arabaian_foreign_investment = {
+
+			picture = SPR_relocate_the_gold_reserves
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				consumer_goods_factor = -0.1
+			}
+		}
+		SAU_water_tax = {
+
+			picture = RAJ_taxes
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				consumer_goods_factor = -0.1
+				drift_defence_factor = -0.05
+			}
+		}
+		SAU_corruption = {
+
+			picture = HABSBURG_economy
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				stability_factor = -0.1
+				encryption_factor = -0.5
+				consumer_goods_factor = 0.05
+				drift_defence_factor = -0.05
+			}
+		}
+		SAU_export_economy_idea = {
+			allowed = {
+				original_tag = IRQ
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = can_wartime_prices_and_trade_board
+			
+			removal_cost = -1
+			
+			modifier = {
+				local_resources_factor = 0.1
+				min_export = 0.1
+				trade_opinion_factor = 0.25
+				research_speed_factor = 0.03
+			}
+		}
+		SAU_improving_economy = {
+
+			picture = chi_hyper_inflation2
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				consumer_goods_factor = 0.05
+				production_factory_efficiency_gain_factor = -0.03
+				production_factory_max_efficiency_factor = -0.05
+				industry_repair_factor = -0.05
+				drift_defence_factor = -0.15
+			}
+		}
+
+		SAU_booming_economy = {
+
+			picture = chi_hyper_inflation3
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #debuff 
+				consumer_goods_factor = -0.05
+				production_factory_efficiency_gain_factor = 0.02
+				production_factory_max_efficiency_factor = 0.02
+				industry_repair_factor = 0.05
+				drift_defence_factor = 0.05
+			}
+		}
+
+		SAU_rich_country = {
+
+			picture = chi_hyper_inflation4
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			on_add = {
+				add_ideas = SAU_corruption
+			}
+			removal_cost = -1
+
+			modifier = { #buff 
+				consumer_goods_factor = -0.1
+				production_factory_efficiency_gain_factor = 0.08
+				production_factory_max_efficiency_factor = 0.1
+				industry_repair_factor = 0.1
+				drift_defence_factor = 0.1
+			}
+		}
+		
+		SAU_oil_rich_country = {
+			picture = chi_hyper_inflation5
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #buff 
+				consumer_goods_factor = -0.2
+				production_factory_efficiency_gain_factor = 0.13
+				production_factory_max_efficiency_factor = 0.15
+				industry_repair_factor = 0.15
+				drift_defence_factor = 0.2
+			}
+		}
+		SAU_commanded_civ_direction = {
+			picture = SOV_third_five_year_plan_civilian
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #buff 
+				civilian_factory_use = 1
+				production_speed_industrial_complex_factor = 0.2
+				repair_speed_industrial_complex_factor = 0.3
+				production_speed_rail_way_factor = 0.2
+				production_speed_supply_node_factor = 0.2
+				conversion_cost_mil_to_civ_factor = -0.4
+			}	
+		}
+
+		SAU_commanded_mil_direction = {
+			picture = SOV_third_five_year_plan_military
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = { #buff 
+				civilian_factory_use = 1
+				production_speed_arms_factory_factor = 0.15
+				repair_speed_arms_factory_factor = 0.3
+				production_speed_bunker_factor = 0.2 
+				production_speed_coastal_bunker_factor = 0.2 
+				conversion_cost_civ_to_mil_factor = -0.4
+			}	
+		}
+			
+#end economy
+#volunteers
+		SAU_aid_others = {
+			picture = ast_volunteer_defence_corps
+			allowed = {
+				OR = {
+					original_tag = SAU
+					is_in_faction_with = SAU
+				}
+			
+			}
+			cancel = {
+				if = {
+					limit = {
+						NOT={original_tag = SAU}
+					}
+					NOT = {
+						is_in_faction_with = SAU
+					}					
+				}
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				send_volunteer_size = 4
+				send_volunteer_divisions_required = -1
+				lend_lease_tension = -0.30
+			}
+		}
+		SAU_aid_others2 = {
+			picture = FRA_national_mobilization_focus
+			allowed = {
+				original_tag = SAU
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				send_volunteer_size = 6
+				send_volunteer_divisions_required = -1
+				lend_lease_tension = -0.45
+			}
+		}
+
+#army of arabia CHL_carabineros_de_chile_fascist as gfx initially, CHL_carabineros_de_chile_neutrality for traditional warfare (inf) other raj_heavy_vehicles_factory_avadi -> raj_ordnance_factory_medak
+		SAU_arabian_army = {
+
+			picture = CHL_carabineros_de_chile_fascist 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_army = 0.05
+
+				
+			}
+		}
+		SAU_army_organisation = {
+
+			picture = CHL_carabineros_de_chile_fascist 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				army_org_factor = 0.05
+				army_org_regain = 0.1
+			}
+		}
+		SAU_army_rations = {
+
+			picture = CHL_carabineros_de_chile_fascist 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				supply_node_range = 0.04
+				supply_factor = 0.06
+				supply_consumption_factor = -0.03
+
+				
+			}
+		}				
+		SAU_arabian_army2 = {
+
+			picture = CHL_carabineros_de_chile_neutrality 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_army = 0.05
+				army_org_factor = 0.05
+				army_org_regain = 0.1
+				supply_node_range = 0.05
+				supply_factor = 0.08
+				supply_consumption_factor = -0.05	
+			}
+		}
+	#left side
+	SAU_arabian_army3_speed = {
+
+		picture = CHL_carabineros_de_chile_neutrality 
+		
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+			
+		modifier = {  
+			experience_gain_army = 0.05
+			army_org_factor = 0.05
+			army_org_regain = 0.1
+			supply_node_range = 0.05
+			supply_factor = 0.08
+			supply_consumption_factor = -0.05	
+			army_armor_speed_factor = 0.05
+			army_armor_attack_factor = 0.05
+			army_armor_defence_factor = 0.05
+		}
+	}
+
+	SAU_arabian_cheaper_tanks = {
+
+			picture = GER_aufrustung 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			equipment_bonus = {
+				infantry_equipment = {
+					soft_attack = 0.02
+						build_cost_ic = -0.07
+				}
+			}	
+		}
+		
+	
+	SAU_arabian_raider_inf = {
+
+			picture = ETH_chitet_law 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.05
+				army_attack_speed_factor = 0.05			
+			}	
+		}
+	SAU_arabian_army4_speed = { #supplied army
+
+		picture = generic_supply_depot 
+		
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+			
+		modifier = {  
+			experience_gain_army = 0.05
+			army_org_factor = 0.05
+			army_org_regain = 0.1
+			supply_node_range = 0.08
+			supply_factor = 0.1
+			supply_consumption_factor = -0.08	
+			army_armor_speed_factor = 0.05
+			army_armor_attack_factor = 0.05
+			army_armor_defence_factor = 0.05
+		}
+	}
+
+		
+	SAU_arabian_cav = {
+
+			picture = HABSBURG_cavalry 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				cavalry_attack_factor = 0.1
+				cavalry_defence_factor = 0.05		
+			}	
+		}		
+
+		SAU_arabian_army5_speed = {
+
+			picture = CHL_carabineros_de_chile_neutrality 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_army = 0.05
+				army_org_factor = 0.05
+				army_org_regain = 0.1
+				army_armor_speed_factor = 0.07
+				army_armor_attack_factor = 0.07
+				army_armor_defence_factor = 0.07
+				army_speed_factor = 0.1
+				army_attack_speed_factor = 0.1
+				cavalry_attack_factor = 0.15
+				cavalry_defence_factor = 0.1
+				supply_node_range = 0.1
+				supply_factor = 0.15
+				supply_consumption_factor = -0.1
+			}
+			equipment_bonus = {
+				armor  = {
+					soft_attack = 0.02
+					build_cost_ic = -0.07
+				}
+			}
+			
+		}
+
+	#right side		
+	SAU_arabian_army3_quality = {
+
+		picture = CHL_carabineros_de_chile_neutrality 
+		
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+			
+		modifier = {  
+			experience_gain_army = 0.05
+			army_org_factor = 0.05
+			army_org_regain = 0.1
+			supply_node_range = 0.05
+			supply_factor = 0.08
+			supply_consumption_factor = -0.05	
+            army_attack_factor = 0.03
+            army_armor_attack_factor = 0.07
+            army_armor_defence_factor = 0.05
+            breakthrough_factor = 0.03
+
+		}
+	}
+
+	SAU_arabian_less_army_oil = { #less oil
+
+			picture = generic_stockpile_preparation 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+            modifier = {
+                army_fuel_consumption_factor = -0.06
+                army_fuel_capacity_factor = 0.06                
+            }
+		}
+		
+	
+	SAU_arabian_army4_quality = { #better tanks
+
+		picture = generic_acquire_tanks 
+		
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+			
+		modifier = {  
+			experience_gain_army = 0.05
+			army_org_factor = 0.05
+			army_org_regain = 0.1
+			supply_node_range = 0.05
+			supply_factor = 0.08
+			supply_consumption_factor = -0.05	
+            army_attack_factor = 0.04
+            army_armor_attack_factor = 0.1
+            army_armor_defence_factor = 0.07
+            breakthrough_factor = 0.05
+        }
+		equipment_bonus = {
+			armor  = {
+				armor_value  = 0.02
+				hard_attack = 0.03
+			}
+		}
+	}
+
+		
+	SAU_arabian_armored_inf = { #mech motor
+
+		picture = ITA_bandits_war 
+			
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+            motorized_attack_factor = 0.05
+            motorized_defence_factor = 0.05
+            mechanized_attack_factor = 0.05
+            mechanized_defence_factor = 0.05
+	
+		}	
+	}		
+
+	SAU_arabian_army5_quality = {
+
+		picture = GER_wunderwaffen 
+			
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+
+		removal_cost = -1
+				
+		modifier = {  
+            experience_gain_army = 0.05
+            army_org_factor = 0.05
+            army_org_regain = 0.1
+            supply_node_range = 0.05
+            supply_factor = 0.08
+			supply_consumption_factor = -0.05	
+            motorized_attack_factor = 0.1
+            motorized_defence_factor = 0.1
+            mechanized_attack_factor = 0.1
+            mechanized_defence_factor = 0.1
+            army_fuel_consumption_factor = -0.1
+            army_fuel_capacity_factor = 0.1          
+            army_attack_factor = 0.07
+            army_armor_attack_factor = 0.12
+            army_armor_defence_factor = 0.1
+            breakthrough_factor = 0.07
+		}
+		equipment_bonus = {
+			armor  = {
+				armor_value = 0.05
+				hard_attack  = 0.04
+			}
+		}
+			
+	}	
+	#bonus
+		SAU_crafty_gatherers = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = ETH_scavenging_tactics
+
+			modifier = {
+				equipment_capture_factor = 0.35
+			}
+		}
+		SAU_interservice_coop_spirit = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = SWE_land_air_warfare
+
+			modifier = {
+				ground_attack_factor = 0.1	
+				army_bonus_air_superiority_factor = 0.05
+			}
+		}					
+#end of army
+#arabian airforce
+		SAU_arabian_airforce = {
+			picture = KAT_katangese_airforce
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.05
+			}
+		}
+		SAU_arabian_airforce2 = {
+			picture = AUS_airforce
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+
+			}
+		}	#fighter
+		SAU_arabian_airforce3_fighter = {
+			picture = generic_air_fighter
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_superiority_efficiency = 0.05
+				army_bonus_air_superiority_factor = 0.05
+
+			}
+		}
+		SAU_arabian_airforce4_fighter = {
+			picture = generic_air_interception
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_superiority_efficiency = 0.05
+				army_bonus_air_superiority_factor = 0.05
+
+				air_superiority_detect_factor = 0.05
+				air_power_projection_factor = 0.05
+			}
+		}
+		SAU_arabian_airresearch_fighter = {
+			picture = generic_radar
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				scientist_research_bonus_factor = 0.05
+				scientist_xp_gain_factor = 0.02
+			}
+		}
+		SAU_arabian_airforce5_fighter = {
+			picture = generic_air_interception
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.2
+				air_range_factor = 0.07
+				air_superiority_efficiency = 0.05
+				army_bonus_air_superiority_factor = 0.05
+				scientist_research_bonus_factor = 0.07
+				scientist_xp_gain_factor = 0.05
+				air_superiority_detect_factor = 0.05
+				air_power_projection_factor = 0.05
+				air_home_defence_factor = 0.07
+			}
+		}		
+		#bomber
+		SAU_arabian_airforce3_bomber = {
+			picture = generic_air_payment
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_strategic_bomber_bombing_factor = 0.05
+				air_intercept_efficiency = 0.1
+				air_bombing_targetting = 0.05
+
+			}
+		}
+		SAU_arabian_airforce4_bomber = {
+			picture = generic_air_payment
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_strategic_bomber_bombing_factor = 0.05
+				air_intercept_efficiency = 0.1
+				air_bombing_targetting = 0.05
+				mines_planting_by_air_factor = 0.1
+				air_nav_efficiency = 0.05
+			}
+		}		
+		SAU_arabian_airresearch_rocket = {
+			picture = generic_rocket_bonus
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				scientist_research_bonus_factor = 0.07
+				scientist_xp_gain_factor = 0.03
+				rocket_attack_factor = 0.05
+			}
+		}	
+		SAU_arabian_airforce5_bomber = {
+			picture = generic_air_bonus
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_air = 0.1
+				air_accidents_factor = -0.1
+				air_ace_generation_chance_factor = 0.15
+				air_range_factor = 0.05
+				air_strategic_bomber_bombing_factor = 0.05
+				air_intercept_efficiency = 0.1
+				air_bombing_targetting = 0.05
+				mines_planting_by_air_factor = 0.1
+				air_nav_efficiency = 0.05
+
+				scientist_research_bonus_factor = 0.1
+				scientist_xp_gain_factor = 0.05
+				rocket_attack_factor = 0.1
+			}
+		}						
+#end of airforce
+#navy of arabia 
+		SAU_arabian_navy = {
+
+			picture = generic_coastal_defense_ships
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+			}
+		}
+		SAU_arabian_navy2 = {
+
+			picture = generic_coastal_defense_ships2
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15
+			}
+		}
+
+#specialising; generic_navy_cruiser_warfare - generic_navy_submarines - generic_navy_bonus - generic_navy_carrier_bonus
+
+	#generic_sea_focused_navy vs generic_coastal_navy - range and attack] vs [fuel use and defense] replaceavke with decision?
+		SAU_coastal_defenders = {
+
+			picture = generic_coastal_navy
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15			
+				navy_fuel_consumption_factor = -0.3
+				naval_defense_factor = 0.05
+				naval_coordination = 0.1
+
+			}
+		}
+		SAU_coastal_defenders2 = {
+
+			picture = generic_navy_submarines
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15			
+				navy_fuel_consumption_factor = -0.3
+				naval_defense_factor = 0.05
+				naval_coordination = 0.1
+				naval_torpedo_reveal_chance_factor = -0.05
+				navy_submarine_attack_factor = 0.05
+			}
+			equipment_bonus = {
+				ship_hull_submarine = {
+					build_cost_ic = -0.05 
+					instant = yes
+				}
+
+			}				
+		}	
+		SAU_coastal_defenders3 = {
+
+			picture = generic_navy_submarines
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15			
+				navy_fuel_consumption_factor = -0.3
+				naval_defense_factor = 0.05
+				naval_coordination = 0.1
+				naval_torpedo_reveal_chance_factor = -0.05
+				navy_submarine_attack_factor = 0.05
+				naval_torpedo_cooldown_factor = -0.1
+				naval_speed_factor = 0.03
+			}
+			equipment_bonus = {
+				ship_hull_submarine = {
+					build_cost_ic = -0.05 
+					instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.025 
+					instant = yes
+				}
+			}				
+		}
+		SAU_coastal_defenders_final = {
+
+			picture = generic_coastal_navy
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15			
+				navy_fuel_consumption_factor = -0.3
+				naval_defense_factor = 0.05
+				naval_coordination = 0.1
+				naval_torpedo_reveal_chance_factor = -0.07
+				navy_submarine_attack_factor = 0.1
+				naval_torpedo_cooldown_factor = -0.15
+				naval_speed_factor = 0.1
+				navy_org_factor = 0.1
+				industrial_capacity_dockyard = 0.1
+			}
+			equipment_bonus = {
+				ship_hull_submarine = {
+					build_cost_ic = -0.075
+					instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+			}				
+		}
+		SAU_coastal_mines = {
+
+			picture = SOV_mine_warfare
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				mines_planting_by_fleets_factor = 0.15
+				naval_mines_damage_factor = 0.1
+				mines_planting_by_air_factor = 0.1
+
+			}
+		}								
+		SAU_arabian_raiders = {
+
+			picture = generic_sea_focused_navy
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15			
+				navy_max_range_factor = 0.25
+				naval_damage_factor = 0.05
+				naval_coordination = 0.1
+
+			}
+		}
+		SAU_arabian_raiders2 = {
+
+			picture = generic_sea_focused_navy
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15			
+				navy_max_range_factor = 0.25
+				naval_damage_factor = 0.05
+				naval_coordination = 0.1
+				mines_sweeping_by_fleets_factor = 0.1
+				navy_submarine_detection_factor = 0.05
+			}
+			
+		}	
+		SAU_arabian_raiders3 = {
+
+			picture = generic_navy_cruiser_warfare
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15			
+				navy_max_range_factor = 0.25
+				naval_damage_factor = 0.05
+				naval_coordination = 0.1
+				mines_sweeping_by_fleets_factor = 0.1
+				navy_submarine_detection_factor = 0.05				
+				naval_defense_factor = 0.1
+				naval_critical_score_chance_factor = 0.1
+			}
+			equipment_bonus = {
+				ship_hull_cruiser = {
+					build_cost_ic = -0.025 
+					instant = yes
+				}
+				ship_hull_heavy = {
+					build_cost_ic = -0.025
+					instant = yes
+				}
+			}				
+		}
+		SAU_arabian_raiders_final = {
+
+			picture = AUS_naval_efficiency_idea
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			modifier = {  
+				experience_gain_navy = 0.05
+				experience_gain_navy_factor = 0.1
+				naval_doctrine_cost_factor = -0.15			
+				navy_max_range_factor = 0.25
+				naval_damage_factor = 0.05
+				naval_coordination = 0.1
+				mines_sweeping_by_fleets_factor = 0.15
+				navy_submarine_detection_factor = 0.1
+				naval_defense_factor = 0.1
+				naval_critical_score_chance_factor = 0.1	
+				naval_morale_factor = 0.1
+				industrial_capacity_dockyard = 0.15
+			}
+			equipment_bonus = {
+				ship_hull_cruiser = {
+					build_cost_ic = -0.025 
+					instant = yes
+				}
+				ship_hull_heavy = {
+					build_cost_ic = -0.025
+					instant = yes
+				}
+			}				
+		}	
+					
+#end of navy
+#fascism boosts
+		SAU_arab_infiltrations = {
+
+			picture = generic_spy_coup 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = ENG
+				breakthrough_bonus_against = 0.05
+				attack_bonus_against  = 0.05
+				defense_bonus_against = 0.03
+			}
+			modifier = {
+				operative_slot = 3
+				new_operative_slot_bonus = 1
+				enemy_operative_capture_chance_factor = 0.15
+				operation_risk = -0.25
+				operation_cost = -0.35
+
+			}
+		}
+		SAU_anti_levantine_fra = {
+
+			picture = FRA_political_violence 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = FRA
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.05
+			}
+		}
+		SAU_anti_levantine_free = {
+
+			picture = FRA_scw_intervention_nationalists_focus 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = SYR
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against_cores  = 0.1
+				defense_bonus_against = 0.05
+			}
+		}
+		SAU_anti_egy_free = {
+
+			picture = por_colonial_assimilation 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = EGY
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against_cores  = 0.1
+				defense_bonus_against = 0.05
+			}
+		}
+		SAU_anti_egy_eng = {
+
+			picture = ARG_anti_british_sentiment 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = ENG
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.05
+			}
+		}	
+		SAU_anti_eth_ita = {
+
+			picture = por_colonial_assimilation 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = ITA
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.05
+			}
+		}	
+		SAU_anti_eth_free= {
+
+			picture = por_colonial_assimilation 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = ETH
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against_cores  = 0.1
+				defense_bonus_against = 0.05
+			}
+		}
+		SAU_anti_per = {
+
+			picture = PER_kurdistan_resistance_idea 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = PER
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against_cores  = 0.1
+				defense_bonus_against = 0.05
+			}
+		}	
+		SAU_anti_TUR = {
+
+			picture = tur_mustafa_kemal_ataturk_hostile 
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+				
+			targeted_modifier = {
+				tag = TUR
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against_cores  = 0.1
+				defense_bonus_against = 0.05
+			}
+		}									
+#industrial concern
+}
+	industrial_concern = {
+        designer = yes
+
+			SAU_state_infrastructure = {
+					
+				picture = GER_vereinigte_stahlwerke
+			
+				allowed = {
+					original_tag = SAU
+				}
+				available = { 
+					has_completed_focus = SAU_reaching_places
+				}	
+
+				cost = 75			
+				
+				research_bonus = {
+					industry = 0.15
+				}
+				
+				traits = { linchpin_of_infrastructure }
+			}
+
+			SAU_petrol = {
+				
+				picture = generic_refining_concern_1
+			
+				allowed = {
+					original_tag = SAU
+				}
+
+				available = { 
+					has_completed_focus = SAU_nationalize_the_american_oil_company
+				}
+			
+
+				cost = 75
+				
+				research_bonus = {
+					synth_resources = 0.1
+					industry = 0.05
+				}
+				
+				traits = { oil_extraction_company_trait }
+				
+				modifier = {
+					production_speed_synthetic_refinery_factor = 0.05
+				}
+			}
+
+			SAU_USA_petrolium_company = {
+				
+				picture = gre_dep
+			
+				allowed = {
+					original_tag = SAU
+				}
+
+				available = { 
+					has_completed_focus = SAU_demand_greater_stake_in_the_company
+				}
+			
+
+				cost = 75
+				
+				research_bonus = {
+					synth_resources = 0.1
+					industry = 0.05
+				}
+				
+				traits = { refinery_concern }
+				
+				modifier = {
+					production_speed_synthetic_refinery_factor = 0.05
+				}
+			}
+			SAU_state_mining_company= {
+				
+				picture = NOR_norsk_Spraengstofindustri
+
+				
+				allowed = {
+					original_tag = SAU
+				}
+
+			
+				research_bonus = {
+					industry = 0.1
+				}
+
+				cost = 100
+				
+				traits = { mining_company }
+			}
+	}
+
+
+
+	
+}

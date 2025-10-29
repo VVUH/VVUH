@@ -1,0 +1,686 @@
+characters={
+	MAL_onn_jaafar={
+		name="Onn Jaafar"
+		portraits={
+			civilian={
+				large="GFX_portrait_Onn_Jaafar"
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			expire="1953.3.1.1"
+			id=-1
+		}
+	}
+	MAL_shenton_thomas={
+		name="Shenton Thomas"
+		portraits={
+			civilian={
+				large="GFX_portrait_malaya_shenton_thomas"
+			}
+		}
+		country_leader={
+			traits = {
+				governor_of_the_straits_settlements
+			}
+			ideology=conservatism
+			expire="1953.3.1.1"
+			id=-1
+		}
+	}
+	MAL_lai_teck={
+		name="Lai Teck"
+		portraits={
+			civilian={
+				large="GFX_portrait_Lai_Teck"
+			}
+		}
+		country_leader={
+			traits = {
+				foreign_spy
+			}
+			ideology=marxism
+			expire="1953.3.1.1"
+			id=-1
+		}
+	}
+	MAL_advisor_parliament = {
+		portraits={
+				civilian= {
+					small="GFX_idea_pol_the_sejm"
+				}
+			}
+		name = "The Parliament"
+		advisor = {
+			visible = {
+			}
+			available = {
+				has_completed_focus = MAL_embrace_democracy
+			}
+			idea_token = MAL_advisor_parliament
+			slot = political_advisor
+			traits = {
+				democratic_council_trait
+			}
+		}
+	}
+	MAL_ruler_council = {
+		portraits={
+				civilian={
+					large="GFX_portrait_ruler_council"
+					small="GFX_idea_pol_the_sejm"
+				}
+			}
+		name = "Council of Rulers"
+		advisor = {
+			cost = 100
+			visible = {
+			}
+			available = {
+				has_completed_focus = MAL_elective_monarchy
+				NOT = {
+					has_country_leader = {
+						character = MAL_ruler_council
+					}
+				}
+			}
+			idea_token = MAL_ruler_council
+			slot = political_advisor
+			traits = {
+				elected_council_of_rulers
+			}
+			
+		}
+		country_leader={
+			ideology=oligarchism
+			expire="1950.1.1.12"
+			id=-1
+			traits = {
+				elected_council_of_rulers
+			}
+		}
+	}
+
+
+	MAL_advisor_foreign_military_advisors = {
+		name = "Foreign Advisors"
+		portraits={
+			civilian={
+				small="GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor = {
+			idea_token = MAL_advisor_foreign_military_advisors
+			available = {
+			}
+			slot = theorist
+			traits = {
+				council_of_theorists
+			}
+		}
+	}
+
+	#philantropist and businessman who fucking hated the japanese
+		MAL_tkk={
+			name= "Tan Kah Kee"
+			portraits={
+				civilian={
+					small="GFX_idea_generic_political_advisor_asia_3"
+					large="GFX_portrait_tkk"
+				}
+			}
+			advisor = {
+				visible = {
+				}
+				available = {
+					NOT = {
+						has_country_leader = {
+							character = MAL_tkk
+						}
+					}
+					OR = {
+						has_completed_focus = MAL_support_the_chinese
+						has_completed_focus = MAL_expand_citizenship
+					}
+				}
+				slot = political_advisor
+				idea_token = MAL_tkk
+				traits = {
+					leader_of_the_chinese_community
+					rubber_king
+				}
+			}
+			country_leader={
+				ideology = socialism
+				traits = {
+					leader_of_the_chinese_community
+					rubber_king
+				}
+			}
+		}
+	# elective monarchy option or advisors?
+	#Abdul Rahman of Negeri Sembilan - rich_sultan -
+	#Munawir of Negeri Sembilan -  inexperienced_sultan2
+	#Abdul Aziz al-Muʽtasim Billah - inexperienced_sultan
+
+		MAL_abdul_rahman={
+			name= "Abdul Rahman"
+			portraits={
+				civilian={
+					#these people have pictures and I know you love your black and whites so imma leave that to you^
+					large="GFX_portrait_abdul_rahman"
+					small = "GFX_idea_CHI_h_h_kung"
+				}
+			}
+			advisor={
+				cost = 75
+				slot = political_advisor
+				idea_token = MAL_abdul_rahman
+				available = {
+					has_completed_focus = MAL_elective_monarchy
+					NOT = {
+						has_country_leader = {
+							character = MAL_abdul_rahman
+						}
+					}
+				}
+				allowed  = {
+					original_tag  = MAL
+				}
+				traits  = {
+					rich_sultan 
+				}
+			}
+
+			country_leader={
+				ideology = conservatism
+				traits = {
+					rich_sultan
+				}
+			}
+		}
+		MAL_munawir={
+			name= "Munawir"
+			portraits={
+				civilian={
+					#these people have pictures and I know you love your black and whites so imma leave that to you
+					large="GFX_portrait_munawir"
+				}
+			}
+			advisor={
+				cost = 75
+				slot = political_advisor
+				idea_token = MAL_munawir
+				available  = {
+					has_completed_focus = MAL_elective_monarchy
+					date > 1940.01.01
+					NOT = {
+						has_country_leader = {
+							character = MAL_munawir
+						}
+					}
+				}
+				allowed  = {
+					original_tag  = MAL
+				}
+				traits  = {
+					blessed_monarch_trait 
+					inexperienced_sultan
+				}
+			}
+
+			country_leader={
+				ideology = conservatism
+				traits = {
+					underage_monarch
+					inexperienced_sultan
+				}
+			}
+		}
+		MAL_abdul_aziz={
+			name= "Abdul Aziz"
+			portraits={
+				civilian={
+					#these people have pictures and I know you love your black and whites so imma leave that to you
+					large="GFX_portrait_abdul_aziz"
+					small="GFX_idea_TUR_refe_pasha"
+				}
+			}
+			advisor={
+				cost = 75
+				slot = political_advisor
+				idea_token = MAL_abdul_aziz
+				available  = { 
+					has_completed_focus = MAL_elective_monarchy
+					NOT = {
+						has_country_leader = {
+							character = MAL_abdul_aziz
+						}
+					}
+				}
+				allowed  = {
+					original_tag = MAL
+				}
+				traits  = {
+					inexperienced_sultan_2 
+				}
+			}
+
+			country_leader={
+				ideology = conservatism
+				traits = {
+					inexperienced_sultan_2
+				}
+			}
+		}
+
+
+	#COMMIES
+		# takes over anti japanese fighting force post japan spy
+		MAL_chin_peng={
+			name= "Chin Peng"
+			portraits={
+				civilian={
+					large="GFX_portrait_chin_peng"
+					small="GFX_idea_generic_army_asia_1"
+				}
+			}
+			advisor = {
+				cost = 75
+				visible = {
+				}
+				available = {
+					has_completed_focus = MAL_build_up_the_communists
+					NOT = {
+						has_country_leader = {
+							character = MAL_chin_peng
+						}
+					}
+				}
+				slot = political_advisor
+				idea_token = MAL_chin_peng
+				traits = {
+					BRA_militant_communist
+				}
+			}
+			country_leader={
+				traits = {
+					BRA_militant_communist
+				}
+				ideology=marxism
+				expire="1953.3.1.1"
+				id=-1
+			}
+		}
+
+		#Tan Malaka indonesian but was in malaya hiding 
+		MAL_tan_malaka={
+			name= "Tan Malaka"
+			portraits={
+				civilian={
+					small="GFX_idea_JAP_generic_land_5"
+				}
+			}
+			advisor = {
+				visible = {
+				}
+				available = {
+					has_completed_focus = MAL_build_up_the_communists
+				}
+				slot = political_advisor
+				idea_token = MAL_tan_malaka
+				traits = {
+					marxist_philosopher
+				}
+			}
+		}
+		MAL_lau_yew={
+			name= "Lau Yew"
+			portraits={
+				army={
+					large="GFX_portrait_JAP_kuniaki_koiso"
+					small="GFX_portrait_JAP_kuniaki_koiso_small"
+				}
+				civilian = {
+					small="GFX_portrait_JAP_kuniaki_koiso_small"
+				}
+			}
+			advisor = {
+				visible = {
+					
+				}
+				available = {
+					has_completed_focus = MAL_malayan_peoples_anti_japanese_army
+				}
+				slot = political_advisor
+				idea_token = MAL_lau_yew
+				traits = {
+					veteran_guerrilla_fighter
+				}
+			}
+			corps_commander = {
+				visible = {
+					has_completed_focus = MAL_malayan_peoples_anti_japanese_army
+				}
+				traits = { guerilla_fighter}
+				skill = 3
+				attack_skill = 4
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 3
+				legacy_id = 0
+			}
+		}
+	# end commies 
+
+
+	# Dalforce, look it up
+		MAL_john_dalley={
+			advisor = {
+				visible = {
+					
+				}
+				available = {
+					
+				}
+				slot = political_advisor
+				idea_token = MAL_john_dalley
+				traits = {
+					BRA_head_of_political_police
+				}
+			}
+			name="John Dalley"
+			portraits={
+				army={
+					small="GFX_idea_edward_ellington"
+				}
+				civilian = {
+					small="GFX_idea_edward_ellington"
+				}
+			}
+			corps_commander = {
+				visible = {
+					has_completed_focus = MAL_form_dalforce
+				}
+				traits = { inflexible_strategist guerilla_fighter}
+				skill = 2
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 3
+				legacy_id = 0
+			}
+		}
+		MAL_g_mcbruce={
+			name="G. McBruce"
+			portraits={
+				army={
+					small="GFX_idea_edward_ellington"
+				}
+				civilian = {
+					small="GFX_idea_edward_ellington"
+				}
+			}
+			corps_commander = {
+				traits = {}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+				legacy_id = 0
+			}
+		}
+		MAL_k_g_exham={
+			name="K. G. Exham"
+			portraits={
+				army={
+					small="GFX_idea_edward_ellington"
+				}
+				civilian = {
+					small="GFX_idea_edward_ellington"
+				}
+			}
+			corps_commander = {
+				traits = {}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+				legacy_id = 0
+			}
+		}
+		MAL_a_e_mccarthy={
+			name="A. E. McCarthy"
+			portraits={
+				army={
+					small="GFX_idea_edward_ellington"
+				}
+				civilian = {
+					small="GFX_idea_edward_ellington"
+				}
+			}
+			corps_commander = {
+				traits = {}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+				legacy_id = 0
+			}
+		}
+		MAL_cheng_seang_ho={
+			name="Cheng Seang Ho"
+			portraits={
+				army={
+					small="GFX_idea_edward_ellington"
+				}
+				civilian = {
+					small="GFX_idea_edward_ellington"
+				}
+			}
+			corps_commander = {
+				traits = {}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+				legacy_id = 0
+			}
+		}
+	# add Cheng Seang Ho? she seems sick (dalforce 60 y/o woman)
+
+
+	#greater indonesia
+	# Kesatuan Melayu Muda is a collaborator group, but also wants greater indonesia, good option for leading party for soc-dem? who knows
+	# 1956; PAS had a left-wing orientation under Burhanuddin's leadership: he supported trade unions and anti-colonialism.[5] He has been described as a "radical nationalist and Islamic thinker
+		MAL_al_helmy={
+			name= "Burhanuddin al-Helmy"
+			portraits={
+				civilian={
+					small="GFX_idea_asia_generic_communism"
+				}
+			}
+			
+			advisor = {
+				visible = {
+					
+				}
+				available = {
+					OR = {
+						has_completed_focus = MAL_social_democracy
+						has_completed_focus = MAL_form_the_umno
+					}
+				}
+				slot = political_advisor
+				idea_token = MAL_kes_muda
+				traits = {
+					COG_trade_unionist
+				}
+			}
+		}
+
+		#dude becomes the commander-in-chief with lieutenant-colonel rank of malayan volunteer army on japanese side but idk if you can code general stuff to be available at a specific point. 
+		#could do entire dude locked behind request help from japanese focus, get him + as general + manpower / divs and or equipment. That's up to you
+		MAL_ibrahim_yaacob={
+			name= "Ibrahim Yaacob"
+			portraits={
+				civilian={
+					small = "GFX_idea_CHI_h_h_kung"
+					large="GFX_portrait_Ibrahim_Hj_Yaacob"
+				}
+			}
+			country_leader={
+				ideology=nazism
+				expire="1953.3.1.1"
+				id=-1
+				traits = {
+					eager_collaborator
+					fascist_demagogue
+				}
+			}
+			advisor = {
+				cost = 75
+				visible = {
+					
+				}
+				available = {
+					has_completed_focus = MAL_reach_out_to_japan
+					NOT = {
+						has_country_leader = {
+							character = MAL_ibrahim_yaacob
+						}
+					}
+				}
+				slot = political_advisor
+				idea_token = MAL_ibrahim_yaacob
+				traits = {
+					eager_collaborator
+					fascist_demagogue
+				}
+			}
+			corps_commander = {
+				visible = {
+					has_completed_focus = MAL_reach_out_to_japan
+				}
+				traits = { }
+				skill = 2
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 2
+				legacy_id = 0
+			}
+		}
+
+		#one of the founding members
+		MAL_must_hussain={
+			name= "Mustapha Hussain"
+			portraits={
+				civilian={
+					small="GFX_idea_CHI_chen_guofu"
+				}
+			}
+			advisor = {
+				visible = {
+					
+				}
+				available = {
+					has_completed_focus = MAL_found_the_kmm
+				}
+				slot = political_advisor
+				idea_token = MAL_must_hussain
+				traits = {
+					irredentist_academic
+				}
+			}
+		}
+		MAL_donald_roberts={
+			name= "Donald Roberts"
+			portraits={
+				civilian={
+					small="GFX_idea_CHI_chiang_ching_kuo"
+				}
+			}
+			advisor = {
+				visible = {
+					
+				}
+				available = {
+					has_completed_focus = MAL_embrace_democracy					
+				}
+				slot = political_advisor
+				idea_token = MAL_donald_roberts
+				traits = {
+					democratic_reformer
+				}
+			}
+		}
+		MAL_francis_gough={
+			name= "Francis Gough"
+			portraits={
+				civilian={
+					small="GFX_idea_PRC_zhou_enlai"
+				}
+			}
+			advisor = {
+				visible = {
+					
+				}
+				available = {
+					has_completed_focus = MAL_build_up_the_communists					
+				}
+				slot = political_advisor
+				idea_token = MAL_francis_gough
+				traits = {
+					communist_revolutionary
+				}
+			}
+		}
+		MAL_douglas_plummer={
+			name= "Douglas Plummer"
+			portraits={
+				civilian={
+					small="GFX_idea_CHI_chen_yi"
+				}
+			}
+			advisor = {
+				visible = {
+					
+				}
+				available = {
+					
+				}
+				slot = political_advisor
+				idea_token = MAL_douglas_plummer
+				traits = {
+					monarchist_media_mogul
+				}
+			}
+		}
+		MAL_ernest_tipson={
+			name= "Ernest Tipson"
+			portraits={
+				civilian={
+					small="GFX_idea_generic_political_advisor_asia_2"
+				}
+			}
+			advisor = {
+				visible = {	
+				}
+				available = {
+					has_government = democratic
+					is_in_faction_with = ENG
+				}
+				slot = political_advisor
+				idea_token = MAL_ernest_tipson
+				traits = {
+					british_missionary
+				}
+			}
+		}
+	#end greater indonesians
+}

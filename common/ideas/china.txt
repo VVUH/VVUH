@@ -1,5 +1,106 @@
 ideas = {
 	country = {
+		chinese_resistance = {
+
+			picture = chi_chinese_support
+
+			name = "Chinese Resistance"
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				has_war = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				command_power_gain_mult = 0.1
+				resistance_target_on_our_occupied_states = 0.05
+				minimum_training_level = -0.1 
+				resistance_damage_to_garrison_on_our_occupied_states = 0.1
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				army_speed_factor = 0.05
+				breakthrough_factor = 0.05
+				max_dig_in_factor = 0.05
+			}
+
+		}
+		chinese_resistance_2 = {
+
+			picture = chi_chinese_support
+
+			name = "Chinese Resistance"
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				has_war = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				command_power_gain_mult = 0.1
+				conscription = 0.01
+				resistance_target_on_our_occupied_states = 0.1
+				minimum_training_level = -0.3
+				resistance_damage_to_garrison_on_our_occupied_states = 0.2
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+				army_speed_factor = 0.1
+				breakthrough_factor = 0.1
+				max_dig_in_factor = 0.1
+			}
+
+		}
+		chinese_resistance_3 = {
+
+			picture = chi_chinese_support
+
+			name = "Chinese Resistance"
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				has_war = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				command_power_gain_mult = 0.1
+				conscription = 0.02
+				resistance_target_on_our_occupied_states = 0.2
+				minimum_training_level = -0.5
+				resistance_damage_to_garrison_on_our_occupied_states = 0.3
+				army_attack_factor = 0.15
+				army_defence_factor = 0.15
+				army_speed_factor = 0.1
+				breakthrough_factor = 0.15
+				max_dig_in_factor = 0.15
+			}
+
+		}
 		german_advisors = {
 		
 			allowed = {
@@ -932,7 +1033,10 @@ ideas = {
 
 			cancel = {
 				NOT = {
+					has_government = communism
 					is_in_faction_with = PRC
+					has_government = communism
+					
 				}
 			}
 
@@ -1128,7 +1232,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = -0.25
+				political_power_gain = -0.1
 			}
 		}
 
@@ -1149,7 +1253,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = -0.5
+				political_power_gain = -0.2
 			}
 		}
 		
@@ -1170,7 +1274,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = -0.75
+				political_power_gain = -0.3
 			}
 		}
 
@@ -1191,7 +1295,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = -1.0
+				political_power_gain = -0.4
 			}
 		}
 
@@ -1212,7 +1316,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				political_power_gain = -1.25
+				political_power_gain = -0.5
 			}
 		}
 

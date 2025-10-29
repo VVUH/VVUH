@@ -784,3 +784,41 @@ option = {
 		273 = { transfer_state_to = ALB }
 	}
 }
+country_event = { 
+	id = albania_events.24
+	title = albania_events.24.t
+	desc = albania_events.24.desc
+	picture = GFX_report_event_soldiers_marching
+
+fire_only_once = yes
+
+is_triggered_only = yes
+
+option = { 
+		name = albania_events.24.a
+		ai_chance = {
+			base = 1
+		}	
+TUR = {
+add_ai_strategy  = {
+    type = conquer
+    id = ALB
+    value = 100
+}
+create_wargoal = {
+    type = annex_everything
+	target = ALB
+	}
+}
+add_manpower = -15
+	}
+option = { 
+		name = albania_events.24.b
+		ai_chance = {
+			base = 0
+		}
+		add_stability = 0.05
+		add_war_support = -0.05
+		add_manpower = -15
+	}
+}

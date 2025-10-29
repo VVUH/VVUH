@@ -3442,7 +3442,10 @@ SWI_absolute_neutrality_decisions_category = {
 		allowed = { original_tag = SWI }
 		
 		visible = {
-			has_completed_focus = SWI_abandon_neutrality
+			OR = { 
+				has_completed_focus = SWI_abandon_neutrality
+				has_completed_focus = SWI_nationalize_the_gold
+			}
 		}
 		target_trigger = {
 			FROM = {											
@@ -4692,6 +4695,42 @@ SWI_military_readiness_decisions_category = {
 				factor = 3
 				SWI_MR_full = yes
 				check_variable = { SWI_military_readiness > 150 }
+			}
+		}
+	}
+}
+SWI_socialist_economic_aid_categorie = {
+	SWI_send_aid_to_country  = { 
+		icon = GFX_decision_generic_welfare
+		priority = 50
+		target_trigger = {
+			FROM = {
+				has_government = communism
+			}
+		}
+		cost = 120
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Not already negotiating with a country"
+				NOT = {
+					has_country_flag = SWI_socialist_economic_aid_active
+				}
+			}
+			NOT = {
+				has_war_with = FROM
+			}
+    	}
+		fire_only_once = yes
+		targets_dynamic = yes
+		complete_effect = {
+			set_country_flag = SWI_socialist_economic_aid_active
+			FROM = {
+				country_event = { id = swi.mod.1 days = 1 }
+			}
+			custom_effect_tooltip = "Good Relations will increase their chance of acceptance"
+			effect_tooltip = {
+				custom_effect_tooltip = if_they_accept_tt
+				custom_effect_tooltip = "We will send economic aid to them and in return they will either send volunteer soldiers, send military aid or aid our research"
 			}
 		}
 	}
