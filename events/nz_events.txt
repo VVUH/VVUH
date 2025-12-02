@@ -642,7 +642,7 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		336 = {
+		1021 = {
 			transfer_state_to = NZL
 			add_compliance = 50
 		}
@@ -656,7 +656,7 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		336 = {
+		1021 = {
 			transfer_state_to = NZL
 			add_compliance = 80
 		}
