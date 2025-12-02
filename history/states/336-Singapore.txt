@@ -1,10 +1,13 @@
-
 state = {
 	id = 336
-	name = "STATE_336"
-	manpower = 1370300
+	name = "Johor Bahru"
+	manpower = "83200
 	
 	state_category = large_town
+	
+	resources = {
+		coal = 2
+	}
 
 	history = {
 
@@ -12,24 +15,23 @@ state = {
 		add_core_of = MAL
 
 		victory_points = {
-			12299 10
+			13376 1
+		}
+
+		victory_points = {
 		}
 
 		buildings = {
+
 			infrastructure = 2
 			industrial_complex = 1
-			arms_factory = 1
-			air_base = 6
-			12299 = {
-				naval_base = 8
-				coastal_bunker = 3
-			}
+
 		}
 		
 	}
 
 	provinces = {
-		12299 
+		13376 
 	}
 
 	local_supplies = 0.0 

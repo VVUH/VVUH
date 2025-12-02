@@ -32,6 +32,7 @@ MAL_underdeveloped_jungle = {
 	enable = { always = yes }
 	icon = GFX_modifiers_ETH_state_development
 	state_production_speed_buildings_factor = -0.2
+	local_building_slots_factor = -0.2
 	compliance_growth = -0.5
 	enemy_army_speed_factor = -0.3
 	enemy_local_supplies = -0.1
@@ -42,6 +43,7 @@ MAL_underdeveloped_jungle_2 = {
 	enable = { always = yes }
 	icon = GFX_modifiers_ETH_state_development
 	state_production_speed_buildings_factor = -0.1
+	local_building_slots_factor = -0.1
 	compliance_growth = -0.25
 	enemy_army_speed_factor = -0.15
 	enemy_local_supplies = -0.05
