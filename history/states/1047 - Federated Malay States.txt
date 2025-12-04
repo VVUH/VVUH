@@ -1,0 +1,40 @@
+state = {
+	id = 1047
+	name = "Federated Malay States"
+	manpower = 1022900
+	
+	state_category = rural
+
+	resources = {
+		rubber = 321
+		steel = 12
+		tungsten = 180
+		aluminium = 12
+	}
+
+	history = {
+
+		owner = MAL
+		add_core_of = MAL
+
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 1
+			air_base = 6
+			10297 = {
+				naval_base = 5
+			}
+		}
+		victory_points = {
+			10297 10
+		}
+		
+	}
+
+	provinces = {
+		1364 1376 1392 4310 4384 4412 7399 10297 12215 12255 12271 
+	}
+
+	local_supplies = 0.0 
+}

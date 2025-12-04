@@ -1,0 +1,39 @@
+state = {
+	id = 1048
+	name = "Unfederated Malay States"
+	manpower = 822900
+	
+	state_category = rural
+
+	resources = {
+		rubber = 21
+		steel = 2
+		tungsten = 45
+		aluminium = 7
+	}
+
+	history = {
+
+		owner = MAL
+		add_core_of = MAL
+
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			7329 = {
+				naval_base = 1
+			}
+		}
+
+		victory_points = {
+			7329 5
+		}
+		
+	}
+
+	provinces = {
+		7329 12144 1291 7342 12199 10227 1348 4355
+	}
+
+	local_supplies = 0.0 
+}

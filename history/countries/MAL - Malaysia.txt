@@ -1,4 +1,4 @@
-﻿capital = 1017 #Kuala Lumpur
+﻿capital = 1047 #Kuala Lumpur
 
 oob = "MAL_1936"
 
@@ -37,13 +37,19 @@ add_ideas = MAL_colonial_government
 add_ideas = MAL_chinese_immigrants
 add_ideas = MAL_british_companies
 add_ideas = MAL_communist_movement
-1017 = {
+1047 = {
 	add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
 }
-1018 = {
+1048 = {
 	add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
 }
-1019 = {
+1049 = {
+	add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
+}
+1023 = {
+	add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
+}
+1024 = {
 	add_dynamic_modifier = { modifier = MAL_underdeveloped_jungle }
 }
 333 = {
