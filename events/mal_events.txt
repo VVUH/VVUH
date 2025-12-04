@@ -1029,7 +1029,7 @@ country_event = {
 		add_resource = {
 			type = rubber
 			amount = -30
-			state = 1017
+			state = 1047
 		}
 		FROM = {
 			country_event = {
@@ -1058,7 +1058,7 @@ country_event = {
 		add_resource = {
 			type = rubber
 			amount = -30
-			state = 1017
+			state = 1047
 		}
 		FROM = {
 			country_event = {
@@ -1090,7 +1090,7 @@ country_event = {
 		add_resource = {
 			type = rubber
 			amount = -30
-			state = 1017
+			state = 1047
 		}
 		FROM = {
 			country_event = {
@@ -1119,7 +1119,7 @@ country_event = {
 		add_resource = {
 			type = rubber
 			amount = -30
-			state = 1017
+			state = 1047
 		}
 		FROM = {
 			country_event = {

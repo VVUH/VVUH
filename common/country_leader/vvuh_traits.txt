@@ -1,0 +1,127 @@
+leader_traits = {
+	british_missionary = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.1
+		party_popularity_stability_factor = 0.05
+		democratic_drift = 0.01
+	}
+	eager_collaborator = {
+		random = yes
+		send_volunteer_size = 2
+		improve_relations_maintain_cost_factor = -1
+		send_volunteer_divisions_required = -1
+		fascism_acceptance = 75
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	rubber_king = {
+		random = no
+		sprite = 10
+		local_resources_factor = 0.15
+		consumer_goods_factor = -0.1
+		resource_trade_cost_bonus_per_factory = 1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	leader_of_the_chinese_community = {
+		random = no
+		political_power_factor = 0.05
+		conscription_factor = 0.05
+		research_speed_factor = 0.08
+	}
+	father_of_nuclear_physics = {
+		random = no
+		production_speed_nuclear_reactor_factor = 0.15
+		research_speed_factor = 0.12
+		industrial_capacity_factory = 0.1
+	}
+	foreign_spy = {
+		random = no
+		stability_factor = -0.1
+		political_power_cost = 0.3
+		democratic_acceptance = 10
+		communism_acceptance = 10
+	}
+	elected_council_of_rulers = {
+		random = no
+		political_power_factor = 0.1
+		stability_factor = 0.1
+		political_advisor_cost_factor = -0.25
+	}
+	governor_of_the_straits_settlements = {
+		random = no
+		political_power_factor = 0.1
+		party_popularity_stability_factor = 0.1
+		democratic_acceptance = 15
+		improve_relations_maintain_cost_factor = -0.5
+		surrender_limit = -0.05
+	}
+	conservative_lawyer = {
+		random = no
+		sprite = 13
+
+		improve_relations_maintain_cost_factor = -0.5
+		political_power_factor = 0.05
+		stability_factor = 0.05
+		surrender_limit = 0.05
+	}
+	radical_socialist_lawyer = {
+		random = no
+		sprite = 13
+
+		improve_relations_maintain_cost_factor = -0.5
+		political_power_factor = 0.05
+		stability_factor = 0.05
+		communism_drift = 0.02
+	}
+	radical_socialist = {
+		random = no
+		# Boosts Communism
+		sprite = 13
+		communism_drift = 0.01
+		war_support_factor = 0.05
+		political_power_factor = 0.1
+		stability_factor = -0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	party_unifier = {
+		random = no
+		sprite = 13
+		democratic_drift = 0.01
+		political_power_factor = 0.2
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	polish_communist = {
+		random = no
+		sprite = 13
+		exiled_government_weekly_manpower = 1000
+		military_factory_donations = 1
+		army_core_defence_factor = 0.1
+	}
+	
+	master_of_global_questions = {
+		random = no
+		political_power_factor = 0.15
+		mobilization_laws_cost_factor = -0.25
+		trade_laws_cost_factor = -0.25
+		political_advisor_cost_factor = -0.25
+		economy_cost_factor = -0.25
+
+	}
+
+	corrupt_politician = {
+		random = no
+		sprite = 13
+		political_power_gain = -0.1
+		consumer_goods_factor = 0.25
+		political_advisor_cost_factor = 0.15
+	}
+}
