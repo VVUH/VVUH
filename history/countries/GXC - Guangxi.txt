@@ -76,6 +76,7 @@ if = {
 		PRC_government_corruption
 		CHI_ineffective_bureaucracy_warlord
 		CHI_warlord_state_idea
+		CHI_the_rich_south
 	}
 }
 
@@ -161,4 +162,5 @@ set_politics = {
 }
 set_popularities = {
 	neutrality = 100
+
 }
