@@ -1874,7 +1874,7 @@ focus_tree = {
 		id = SAU_state_media
 		#Tareeq al-Kadiḥeen, newspaper
 
-		icon = GFX_focus_SWE_radiotjanst
+		icon = GFX_focus_JAP_anti_militarist_speeches_in_the_diet
 		x = 2
 		y = 1
 		cost = 5

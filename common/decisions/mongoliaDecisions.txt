@@ -97,7 +97,15 @@ MON_mongolianDecisions = {
 			state = 621
 			state = 612
 			state = 611
-			state = 761 }
+			state = 761 
+			state = 820
+			state = 330
+			state = 818
+			state = 817
+			state = 819		
+			state = 1040
+			state = 1043
+			}
 		}
 		available = {
 			controls_state = 329
@@ -106,7 +114,13 @@ MON_mongolianDecisions = {
 			controls_state = 612
 			controls_state = 611
 			controls_state = 761
-
+			controls_state = 820
+			controls_state = 330
+			controls_state = 818
+			controls_state = 817
+			controls_state = 819
+			controls_state = 1040
+			controls_state = 1043
 		}
 
 		visible = {
@@ -128,6 +142,8 @@ MON_mongolianDecisions = {
 				612 = { add_core_of = ROOT }
 				611 = { add_core_of = ROOT }
 				761 = { add_core_of = ROOT }
+				1040 = { add_core_of = ROOT }
+				1043 =  { add_core_of = ROOT }
 			}
         }
 
@@ -2036,7 +2052,73 @@ MON_border_raids = {
 			}
 
 		}
-	
+		MON_take_alxa = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 1040 }
+			}
+			allowed = {
+				original_tag = MON
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				1040 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 1040
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 7610400
+				}
+			}		
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_regaining_mongolia
+			}
+
+			days_remove = 5
+			1040 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 817
+						num_provinces = 3
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 1040
+						num_provinces = 4
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}	
 		MON_take_tuva = {
 			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
@@ -2167,7 +2249,69 @@ MON_border_raids = {
 			}
 
 		}
-		
+		MON_take_pailingmiao = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 1043 }
+			}
+			allowed = {
+				original_tag = MON
+			}
+			available = {
+				has_border_war = no
+				NOT = {
+					controls_state = 1043
+				}
+				1043 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 1043
+				}
+			}		
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_regaining_mongolia
+			}
+
+			days_remove = 5
+			1043 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 817
+						num_provinces = 2
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 1043
+						num_provinces = 1
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+			
 		MON_take_chahar = {
 			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
@@ -2222,7 +2366,7 @@ MON_border_raids = {
 					}	
 					defender = {
 						state = 612
-						num_provinces = 4
+						num_provinces = 6
 						on_win = MON_border_conflict.2
 						on_lose = MON_border_conflict.4
 						on_cancel = MON_border_conflict.6
@@ -2378,7 +2522,7 @@ MON_border_raids = {
 					change_state_after_war = no
 						attacker = {
 							state = 817
-							num_provinces = 5
+							num_provinces = 4
 							on_win = MON_border_conflict.1
 							on_lose = MON_border_conflict.3
 							on_cancel = MON_border_conflict.5
@@ -2388,7 +2532,7 @@ MON_border_raids = {
 						}	
 						defender = {
 							state = 621
-							num_provinces = 4
+							num_provinces = 3
 							on_win = MON_border_conflict.2
 							on_lose = MON_border_conflict.4
 							on_cancel = MON_border_conflict.6
@@ -2499,26 +2643,75 @@ MON_border_raids = {
 				}
 			}
 			remove_effect = {
-				
-				start_border_war = {
-					change_state_after_war = no
-						attacker = {
-							state = 817
-							num_provinces = 4
-							on_win = MON_border_conflict.1
-							on_lose = MON_border_conflict.3
-							on_cancel = MON_border_conflict.5
-							modifier = 0.1
-							dig_in_factor = 0
-							terrain_factor = 0
-						}	
-						defender = {
-							state = 756
-							num_provinces = 5
-							on_win = MON_border_conflict.2
-							on_lose = MON_border_conflict.4
-							on_cancel = MON_border_conflict.6
-						}
+				IF = {
+					LIMIT = {
+						controls_state = 1040
+					}
+					start_border_war = {
+						change_state_after_war = no
+							attacker = {
+								state = 1040
+								num_provinces = 3
+								on_win = MON_border_conflict.1
+								on_lose = MON_border_conflict.3
+								on_cancel = MON_border_conflict.5
+								modifier = 0.1
+								dig_in_factor = 0
+								terrain_factor = 0
+							}	
+							defender = {
+								state = 756
+								num_provinces = 3
+								on_win = MON_border_conflict.2
+								on_lose = MON_border_conflict.4
+								on_cancel = MON_border_conflict.6
+							}
+					}
+				}ELSE_IF={
+					LIMIT = {
+						controls_state = 760
+					}	
+					start_border_war = {
+						change_state_after_war = no
+							attacker = {
+								state = 760
+								num_provinces = 2
+								on_win = MON_border_conflict.1
+								on_lose = MON_border_conflict.3
+								on_cancel = MON_border_conflict.5
+								modifier = 0.1
+								dig_in_factor = 0
+								terrain_factor = 0
+							}	
+							defender = {
+								state = 756
+								num_provinces = 2
+								on_win = MON_border_conflict.2
+								on_lose = MON_border_conflict.4
+								on_cancel = MON_border_conflict.6
+							}
+					}					
+				}ELSE = {
+					start_border_war = {
+						change_state_after_war = no
+							attacker = {
+								state = 817
+								num_provinces = 1
+								on_win = MON_border_conflict.1
+								on_lose = MON_border_conflict.3
+								on_cancel = MON_border_conflict.5
+								modifier = 0.1
+								dig_in_factor = 0
+								terrain_factor = 0
+							}	
+							defender = {
+								state = 756
+								num_provinces = 1
+								on_win = MON_border_conflict.2
+								on_lose = MON_border_conflict.4
+								on_cancel = MON_border_conflict.6
+							}
+					}
 				}
 			}
 

@@ -3377,6 +3377,7 @@
  FOCUS_SHORTCUT_TOOLTIP: "§GLeft-click§! to pan to the $PATH|H$ path."
 
 #Mongolia loc
+ MON_wargoals_against_chinese_tibet_jap_tt:0 "You will get §Ywargoals§! on Chinese nations, Tibet and Japan for land required for Yuan. You also get §Yclaims§!."
  MON_taizu_empire:0 "Taizu's Empire"
  MON_taizu_empire_desc:0 "We have conquered the lands of old might Yuan, our historic lands and ambitions now lies before us, helpless and ready for the taking."
  MON_the_start_of_the_great_repression:0 "The Start of the Great Repression"

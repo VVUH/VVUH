@@ -49,7 +49,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_advisors_to_the_dalai_lama
-		icon = GFX_focus_BUL_form_a_regency_council
+		icon = GFX_focus_CHI_reshuffle_green_gang
 		x = 0
 		y = 1
 		cost = 10
@@ -328,8 +328,8 @@ focus_tree = {
 	}	
 
 	focus = {
-		id = TIB_intervene_idealogically
-		icon = GFX_focus_smiling_buddha
+		id = TIB_intervene_idealogically 
+		icon = GFX_focus_JAP_incorporate_buddhist_socialism
 		x = 1
 		y = 1
 		cost = 5
@@ -362,7 +362,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_liberate_bhuddist_people
-		icon = GFX_goal_generic_major_war
+		icon = GFX_focus_smiling_buddha
 		x = 1
 		y = 1
 		cost = 5
@@ -1850,7 +1850,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_merge_with_the_chinese
-		icon = GFX_focus_chi_cooperation_with_the_communists
+		icon = GFX_focus_generic_befriend_the_chinese_soviet
 		x = 1
 		y = 1
 		cost = 5
@@ -3578,7 +3578,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_cast_down_the_thunder_dragon
-		icon = GFX_focus_generic_attack_bhutan
+		icon = GFX_focus_JAP_claim_the_raven_crown
 		x = 1
 		y = 2
 		cost = 5
@@ -3651,7 +3651,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_liberate_himalayan_people
-		icon = GFX_focus_generic_attack_nepal
+		icon = GFX_focus_JAP_claim_the_scripech
 		x = -1
 		y = 2
 		cost = 5
@@ -4753,7 +4753,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_tibetan_plateau_agriculture
-		icon = GFX_focus_generic_farmland
+		icon = GFX_focus_JAP_remove_the_weeds_from_the_crop
 		x = 7
 		y = 1
 		cost = 5
@@ -6056,7 +6056,7 @@ focus_tree = {
 
     focus = {
 		id = TIB_rely_on_village_militias
-		icon = GFX_focus_AFG_quami
+		icon = GFX_focus_JAP_the_modern_ashigaru
 		x = -1
 		y = 1
 		cost = 5

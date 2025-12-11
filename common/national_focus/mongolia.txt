@@ -617,7 +617,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_liberate_the_chinese
-		icon = GFX_focus_attack_china
+		icon = GFX_focus_PRC_towards_one_china
 		x = 3
 		y = 1
 		cost = 5
@@ -684,7 +684,7 @@ focus_tree = {
 	
 	focus = {
 		id = MON_divide_spheres
-		icon = GFX_focus_chi_cooperation_with_the_communists
+		icon = GFX_focus_generic_befriend_the_chinese_soviet
 		x = 1
 		y = 1
 		cost = 5
@@ -717,6 +717,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = MON_recruit_advisor_tt
 			show_ideas_tooltip = MON_advisor_ulanhu
+			custom_effect_tooltip = generic_skip_one_line_tt
 			CHI = {
 				add_opinion_modifier = {
 					target = MON
@@ -733,6 +734,8 @@ focus_tree = {
 					days = 365
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			every_state = {
 				limit = {is_core_of = MAN}
 					remove_core_of = PRC
@@ -770,6 +773,7 @@ focus_tree = {
 				remove_core_of = PRC
 				add_claim_by = MON
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			create_wargoal = {
 				type = annex_everything 
@@ -893,7 +897,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_lessons_soviet_army
-		icon = GFX_focus_SOV_builder_of_the_red_army
+		icon = GFX_focus_PRC_army_command
 		x = 0
 		y = 1
 		cost = 5
@@ -934,7 +938,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_fight_imperialism
-		icon = GFX_focus_GER_strike_at_the_rising_sun
+		icon = GFX_goal_tfv_burn_the_royal_portraits
 		x = 0
 		y = 1
 		cost = 5
@@ -1287,7 +1291,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_negdels_nokhorlols
-		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		icon = GFX_focus_PRC_land_revolution_expedited
 		x = 4
 		y = 1
 		cost = 5
@@ -2432,7 +2436,7 @@ focus_tree = {
 		id = MON_reestablish_monastaries
 		relative_position_id = MON_traditional_governance
 		prerequisite = { focus = MON_traditional_governance  focus = MON_the_military_stranglehold}
-		icon = GFX_focus_smiling_buddha
+		icon = GFX_focus_PRC_usurp_control_over_yanan
 		x = -3
 		y = 1
 		cost = 5
@@ -2590,6 +2594,10 @@ focus_tree = {
 			612={
 				add_core_of = MON
 				remove_core_of = MEN
+			}
+			1043={
+				add_core_of = MON
+				remove_core_of = MEN			
 			}
 			custom_effect_tooltip = MON_men_characters_join_mon_tt
 
@@ -2786,6 +2794,7 @@ focus_tree = {
 		completion_reward = {	
 			custom_effect_tooltip = MON_mongol_empire_tt
 			add_ideas = MON_heirs_of_the_huns_idea
+			add_country_leader_trait = spirit_of_genghis
 			hidden_effect = {
 				#don't look at me....
 				1001 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
@@ -2850,6 +2859,21 @@ focus_tree = {
 				91 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
 				93 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
 				408 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1046= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1045= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1044= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1043= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1042= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1041= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1040= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1039= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1038= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1037= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1036= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1035= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1034= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1033= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+				1032= {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}	
 				409 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
 				602 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
 				603 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
@@ -3102,7 +3126,7 @@ focus_tree = {
 		id = MON_reclaim_yuan
 		relative_position_id = MON_crown_prince_de
 		prerequisite = { focus = MON_crown_prince_de }
-		icon = GFX_focus_NOR_our_royal_claims
+		icon = GFX_focus_CHI_utmost_loyalty
 		x = 0
 		y = 1
 		cost = 5
@@ -3121,59 +3145,89 @@ focus_tree = {
 				add_idea = MON_reclaiming_yuan
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			create_wargoal = {
-				type = take_state_focus
-				target = jap
-				generator = { 609 745 }
-				expire = 0
-			}
-
-			create_wargoal = {
-				type = annex_everything
-				target = SHX
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = XSM
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = TAN
-
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = MAN
-			}
-			create_wargoal = {
-				type = take_state_focus
-				target = SIK
-				generator = { 				  
-				  760
-				}
-				expire = 0
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = PRC
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = TIB
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = CHI
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = YUN
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = GXC
-			}
+			custom_effect_tooltip = MON_wargoals_against_chinese_tibet_jap_tt
 			hidden_effect = {
+				create_wargoal = {
+					type = take_state_focus
+					target = jap
+					generator = { 609 745 }
+					expire = 0
+				}
+
+				create_wargoal = {
+					type = annex_everything
+					target = SHX
+				}
+					create_wargoal = {
+					type = annex_everything
+					target = HBC
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SND
+				}					
+				create_wargoal = {
+					type = annex_everything
+					target = XSM
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = TAN
+
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = MAN
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = NXM
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = GSM
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = XIC
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = KHM
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = GDC
+				}
+				create_wargoal = {
+					type = take_state_focus
+					target = SIK
+					generator = { 				  
+					760
+					}
+					expire = 0
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = PRC
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = TIB
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = CHI
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = YUN
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = GXC
+				}
+			
 				#TAN TUVA
 				add_state_claim = 329
             				
@@ -3215,6 +3269,23 @@ focus_tree = {
 				add_state_claim = 757
 				add_state_claim = 758
 
+				#new states
+				add_state_claim =1046
+				add_state_claim =1045
+				add_state_claim =1044
+				add_state_claim =1043
+				add_state_claim =1042 
+				add_state_claim =1041
+				add_state_claim =1040
+				add_state_claim =1039
+				add_state_claim =1038
+				add_state_claim =1037
+				add_state_claim =1036
+				add_state_claim =1035
+				add_state_claim =1034
+				add_state_claim =1033
+				add_state_claim =1032
+				
 				#CHI
 				add_state_claim = 601
 				add_state_claim = 752
@@ -5409,7 +5480,7 @@ focus_tree = {
 		id = MON_settle_mongolians_heroes
 		relative_position_id = MON_regaining_mongolia
 		prerequisite = { focus = MON_regaining_mongolia }
-		icon = 	GFX_focus_ETH_promote_the_war_heroes
+		icon = 	GFX_focus_generic_worker_expansion
 
 		x = 0
 		y = 1
@@ -5569,7 +5640,7 @@ focus_tree = {
 		id = MON_stick_to_our_strengths
 		mutually_exclusive = { focus = MON_modernize_industry }
 
-		icon = GFX_focus_generic_farmland
+		icon = GFX_focus_CHI_students_to_the_countryside
 		x = 30
 		y = 0
 		cost = 10
@@ -5611,7 +5682,7 @@ focus_tree = {
 		id = MON_farming_crops
 		relative_position_id = MON_stick_to_our_strengths
 		prerequisite = { focus = MON_stick_to_our_strengths }
-		icon = GFX_focus_generic_agricultural_subsidies
+		icon = GFX_focus_generic_modernize_agriculture_2
 		x = 3
 		y = 1
 		cost = 5
@@ -6204,7 +6275,7 @@ focus_tree = {
 	focus = {
 		id = MON_export_animal_products
 		relative_position_id = MON_nomadic_herding
-		icon = GFX_focus_ARG_capitalize_the_beef_industry
+		icon = GFX_focus_PRC_establish_shorter_market_plans
 		x = 0
 		y = 1
 		cost = 10
@@ -6932,7 +7003,7 @@ focus_tree = {
 	focus = {
 		id = MON_modernize_industry
 		mutually_exclusive = { focus = MON_stick_to_our_strengths }
-		icon = GFX_focus_generic_modernize_industry
+		icon = GFX_focus_CHI_planned_economy
 		x = 50
 		y = 0
 		cost = 5
@@ -7449,8 +7520,13 @@ focus_tree = {
 ### army tree
 	focus = {
 		id = MON_mongolian_army
-
-		icon = GFX_goal_generic_allies_build_infantry
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PRC_peoples_liberation_army
+		}		
+		icon = {
+			value = GFX_goal_generic_allies_build_infantry
+		}
 		x = 58
 		y = 0
 		cost = 5
@@ -8052,7 +8128,7 @@ focus_tree = {
 	focus = {
 		id = MON_traditional_warfare
 
-		icon = GFX_goal_generic_axis_build_infantry
+		icon = GFX_focus_PRC_reorganize_divisions
 		x = 3
 		y = 1
 		cost = 5
@@ -8510,8 +8586,13 @@ focus_tree = {
 ### airforce tree
 	focus = {
 		id = MON_the_air_corps
-
-		icon = GFX_focus_FIN_expand_air_force_academy
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PRC_establish_pla_air_force
+		}		
+		icon = {
+			value = GFX_focus_FIN_expand_air_force_academy
+		}
 		x = 70
 		y = 0
 		cost = 5
@@ -8873,7 +8954,7 @@ focus_tree = {
 	focus = {
 		id = MON_increase_domestic_aircraft_development
 
-		icon = GFX_goal_generic_air_production
+		icon = GFX_focus_PRC_establish_domestic_aircraft_production
 		prerequisite = { focus = MON_expand_the_aircraft_infrastructure }
 		x = -4
 		y = 2
@@ -9068,8 +9149,13 @@ focus_tree = {
 ## A little navy tree
 	focus = {
 		id = MON_research_modern_navies
-
-		icon = GFX_goal_generic_construct_naval_dockyard
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PRC_the_pla_naval_school
+		}		
+		icon = {
+			value = GFX_goal_generic_construct_naval_dockyard
+		}
 		x = 79
 		y = 0
 		cost = 5
@@ -9248,7 +9334,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_capital_ship_focus
-		icon = GFX_goal_generic_navy_battleship
+		icon = GFX_focus_JAP_naval_armaments_program
 	 	mutually_exclusive = { focus = MON_carrier_focus }
 	 	prerequisite = { focus = MON_the_old_school }
 		x = -1
@@ -9759,7 +9845,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_naval_doctrine
-		icon = GFX_goal_generic_navy_doctrines_tactics
+		icon = GFX_focus_PRC_naval_capstone
 	 	prerequisite = { 
 	 		focus = MON_prioritize_the_eagle_class
 	 		focus = MON_khan_class_ships

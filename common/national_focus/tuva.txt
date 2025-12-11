@@ -1469,7 +1469,7 @@ focus_tree = {
 	}   
 	focus = {
 		id = TAN_boring_projects
-		icon = GFX_goal_generic_oil_refinery	
+		icon = GFX_focus_JAP_expand_coal_islands	
 		prerequisite = {focus = TAN_promoting_industrialisation }
 		x = -1
 		y = 1
