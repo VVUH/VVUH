@@ -1656,7 +1656,7 @@ focus_tree = {
 
 		available = {
 			SIK = {
-				has_civil_war = yes
+				has_war_with = KHM
 			}
 		}
 
@@ -2893,7 +2893,7 @@ focus_tree = {
 		}
 		available = {
 			SIK = {
-				has_civil_war = yes
+				has_war_with = KHM
 			}
 		}
 			search_filters = {FOCUS_FILTER_WAR_SUPPORT}
@@ -3902,14 +3902,21 @@ focus_tree = {
 				LIMIT = {
 					has_completed_focus = TIB_secure_border
 				}
+				country_exists = SIK
+				NOT = {
+					country_exists = KHM
+				}
 				SIK = {
-					has_civil_war = no
-					has_government = MON
+					has_war = no
+					has_government = communism
 				}
 			}ELSE = {
-				SIK = {
-					has_civil_war = no
-					NOT={has_government = communism}
+				NOT = {
+					country_exists = SIK
+				}
+				country_exists = KHM
+				KHM = {
+					has_war = no
 				}
 			}	
 
@@ -3920,6 +3927,9 @@ focus_tree = {
 				is_owned_and_controlled_by = TIB
 			}
 			287 = {
+				is_owned_and_controlled_by = TIB
+			}
+			1042 = {
 				is_owned_and_controlled_by = TIB
 			}
 		}
@@ -3933,6 +3943,11 @@ focus_tree = {
 				controller = {
 					country_event = TIB_political_events.67
 				}
+			}
+			1042 = {
+				controller = {
+					country_event = TIB_political_events.81
+				}	
 			}
 
 		}

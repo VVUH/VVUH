@@ -8,40 +8,31 @@ TIB_formables_cat = {
 		}
 		highlight_states = {
     		highlight_state_targets = { 			
-			state = 757
-			state = 758
-			state = 322
+			state = 1042
+			state = 287
+			state = 759
 			state = 604
             state = 755
-            state = 601 
             state = 287 
             state = 759
+			state = 757 
+			state = 758
+			state = 322 
+			state = 601			
             }
 		}
 		available = {
-			controls_state = 757
+			controls_state = 1042
+			controls_state = 287
+			controls_state = 759
+			controls_state = 604
+            controls_state = 755
+            controls_state = 287 
+            controls_state = 759
+			controls_state = 757 
 			controls_state = 758
-			controls_state = 322
-			#CHI
-			controls_state = 601 
-			#XSM
-            OR = {
-                ROOT = {
-			        controls_state = 604
-		            controls_state = 755
-                }
-                604 = {OWNER = {is_puppet_of = ROOT}}
-                755 = {OWNER = {is_puppet_of = ROOT}}
-            }			
-			#sik
-            OR = {
-                ROOT = {
-			        controls_state = 287
-		            controls_state = 759
-                }
-                287 = {OWNER = {is_puppet_of = ROOT}}
-                759 = {OWNER = {is_puppet_of = ROOT}}
-            }
+			controls_state = 322 
+			controls_state = 601			
 		}
 
 		visible = {
@@ -58,49 +49,13 @@ TIB_formables_cat = {
 			custom_effect_tooltip = MON_you_will_core_tt
 		    hidden_effect ={
                 set_global_flag = GTIB_unified
-                757 = { add_core_of = ROOT }
-                758 = { add_core_of = ROOT } 
-                322 = { add_core_of = ROOT }
-
-                287 = { add_core_of = ROOT }
-                759 = { add_core_of = ROOT }
-				IF = {
-					 LIMIT = {
-					 	287 = {OWNER = {is_puppet_of = ROOT}}
-					 }
-					 TIB = {
-						transfer_state = 287
-					 }
-				}
-				IF = {
-					 LIMIT = {
-					 	759 = {OWNER = {is_puppet_of = ROOT}}
-					 }
-					 TIB = {
-						transfer_state = 759
-					 }
-				}
-                601 = { add_core_of = ROOT }
-
-                604 = { add_core_of = ROOT }
-                755 = { add_core_of = ROOT }
-				IF = {
-					 LIMIT = {
-					 	604 = {OWNER = {is_puppet_of = ROOT}}
-					 }
-					 TIB = {
-						transfer_state = 604
-					 }
-				}
-				IF = {
-					 LIMIT = {
-					 	755 = {OWNER = {is_puppet_of = ROOT}}
-					 }
-					 TIB = {
-						transfer_state = 755
-					 }
-				}	
-
+				1042= { add_core_of = ROOT }
+				287= { add_core_of = ROOT }
+				759= { add_core_of = ROOT }
+				604= { add_core_of = ROOT }
+				755= { add_core_of = ROOT }
+				287= { add_core_of = ROOT }
+				759= { add_core_of = ROOT }
 			}
 
         }

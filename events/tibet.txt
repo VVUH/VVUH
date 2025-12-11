@@ -339,6 +339,43 @@ country_event = {
 	}
 }
 country_event = {
+	id = TIB_political_events.81
+	title = TIB_political_events.81.t
+	desc = TIB_political_events.81.desc
+	picture = GFX_report_event_generic_read_write
+
+	
+	is_triggered_only = yes
+
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	# country agrees
+	option = {
+		ai_chance = {
+			base = 99
+		}
+		name = TIB_political_events.81.a
+		TIB = {
+			country_event = TIB_political_events.71
+			transfer_state = 1042
+		}
+	}
+	
+	#country declines
+	option = {
+	ai_chance = {
+		base = 1
+	}
+		name = TIB_political_events.81.b
+		TIB = {
+			country_event = TIB_political_events.72
+		}
+	}
+}
+country_event = {
 	id = TIB_political_events.68
 	title = TIB_political_events.68.t
 	desc = TIB_political_events.68.desc
