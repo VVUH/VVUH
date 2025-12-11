@@ -1512,7 +1512,7 @@ focus_tree = {
 
 		available = {
 			SIK = {
-				has_civil_war = yes
+				has_war_with = KHM
 			}
 		}
 
@@ -1555,7 +1555,7 @@ focus_tree = {
 
 		available = {
 			SIK = {
-				has_civil_war = no
+				has_war = no
 				has_government = MON
 			}
 		}
@@ -1600,8 +1600,8 @@ focus_tree = {
 			factor = 100
 		}
 		available = {
-			SIK = {
-				has_civil_war = yes
+			KHM = {
+				has_war_with = SIK
 			}
 		}
 		
@@ -1632,13 +1632,13 @@ focus_tree = {
 					has_completed_focus = MON_the_start_of_the_great_repression
 				}
 				SIK = {
-					has_civil_war = no
+					has_war = no
 					has_government = MON
 				}
 			}ELSE = {
-				SIK = {
-					has_civil_war = no
-					NOT={has_government = communism}
+				KHM = {
+					has_war = no
+					
 				}
 			}
 		}
@@ -1691,18 +1691,25 @@ focus_tree = {
 		available = {
 			IF = {
 				LIMIT = {
-					has_completed_focus = MON_the_start_of_the_great_repression
+					has_completed_focus = MON_the_muslim_rebellion
+				}
+				country_exists = SIK
+				NOT = {
+					country_exists = KHM
 				}
 				SIK = {
-					has_civil_war = no
-					has_government = MON
+					has_war = no
+					has_government = communism
 				}
 			}ELSE = {
-				SIK = {
-					has_civil_war = no
-					NOT={has_government = communism}
+				NOT = {
+					country_exists = SIK
 				}
-			}
+				country_exists = KHM
+				KHM = {
+					has_war = no
+				}
+			}	
 
 			NOT = {
 				has_idea = MON_soviet_supervision
@@ -1710,7 +1717,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			NOT = {country_exists = SIK}
+			
 		}
 
 		prerequisite = { focus = MON_the_muslim_rebellion focus = MON_turkic_anti_stalinism}
