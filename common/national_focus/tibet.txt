@@ -2579,7 +2579,7 @@ focus_tree = {
 	focus = {
 		id = TIB_secure_the_wakhan_corridor
 
-		icon = GFX_focus_SWE_refuge_from_war
+		icon = GFX_focus_generic_befriend_sinkiang
 		x = -1
 		y = 1
 		cost = 5
@@ -3780,7 +3780,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_regional_pressure
-		icon = GFX_focus_generic_democratic_europe
+		icon = GFX_focus_generic_democratic_asia
 		x = -2
 		y = 2
 		cost = 10
@@ -4031,7 +4031,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_welcome_refugee_flow
-		icon = GFX_focus_SWE_refuge_from_war
+		icon = GFX_focus_generic_immigration
 		x = -2
 		y = 0
 		cost = 5
@@ -4638,7 +4638,13 @@ focus_tree = {
 	
 	focus = {
 		id = TIB_electrify_country
-		icon = GFX_focus_generic_energy
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_AFG_helmand_river_authority
+		}			
+		icon = {
+			value = GFX_focus_generic_energy
+		}
 		x = 1
 		y = 1
 		cost = 5
@@ -4775,7 +4781,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_opium_trade
-		icon = GFX_focus_RAJ_legalize_the_opium_trade
+		icon = GFX_focus_PRC_allow_special_goods_trade
 		x = -1
 		y = 1
 		cost = 5
@@ -5399,7 +5405,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_keep_the_lower_division_placated
-		icon = GFX_focus_BEL_la_dame_blanche
+		icon = GFX_focus_generic_worker_administration
 		x = 0
 		y = 1
 		cost = 5

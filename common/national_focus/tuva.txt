@@ -147,7 +147,7 @@ focus_tree = {
   	focus = {
 		id = TAN_refuge_from_war
 
-		icon = GFX_focus_SWE_refuge_from_war
+		icon = GFX_focus_generic_immigration
 		x = 7
 		y = 0
 		cost = 3
@@ -197,7 +197,7 @@ focus_tree = {
   	focus = {
 		id = TAN_connect_with_mongolia
 
-		icon = GFX_focus_POL_beck_ribbentrop
+		icon = GFX_focus_generic_befriend_mongolia
 		x = -1
 		y = 1
 		cost = 5
@@ -284,7 +284,7 @@ focus_tree = {
     focus = {
 		id = TAN_rescue_eastern_mongols
 
-		icon = GFX_focus_generic_concessions
+		icon = GFX_focus_JAP_reorganize_the_united_autonomous_government
 		x = 1
 		y = 1
 		cost = 5

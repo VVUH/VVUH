@@ -151,7 +151,7 @@ focus_tree = {
 	
 	focus = {
 		id = MON_deepened_security
-		icon = GFX_focus_generic_whispers
+		icon = GFX_focus_JAP_learn_from_the_nkvd
 		x = 0
 		y = 1
 		cost = 10
@@ -476,7 +476,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_connect_the_infrastructure
-		icon = GFX_focus_SOV_the_road_of_life
+		icon = GFX_focus_generic_railroad
 		x = 0
 		y = 1
 		cost = 5
@@ -531,7 +531,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_support_the_fight
-		icon = GFX_goal_generic_build_tank
+		icon = GFX_focus_SOV_the_road_of_life
 		x = 0
 		y = 1
 		cost = 4
@@ -773,6 +773,14 @@ focus_tree = {
 				remove_core_of = PRC
 				add_claim_by = MON
 			}
+			1040 = {
+				remove_core_of = PRC
+				add_claim_by = MON
+			}		
+			1043 = {
+				remove_core_of = PRC
+				add_claim_by = MON
+			}				
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			create_wargoal = {
@@ -1457,7 +1465,7 @@ focus_tree = {
 	focus = {
 		id = MON_refuge_from_war
 
-		icon = GFX_focus_SWE_refuge_from_war
+		icon = GFX_focus_generic_immigration
 		x = 8
 		y = 1
 		cost = 3
@@ -3784,7 +3792,7 @@ focus_tree = {
 		relative_position_id = MON_democratic_meddling
 		prerequisite = { focus = MON_democratic_meddling }
 		prerequisite = { focus = MON_reach_out_to_democracy }
-		icon = GFX_goal_support_democracy
+		icon = GFX_focus_generic_democratic_asia
 		x = 0
 		y = 1
 		cost = 10
@@ -3956,7 +3964,7 @@ focus_tree = {
 		search_filters = FOCUS_FILTER_ANNEXATION
 		available = {
 			has_government = democratic
-			XSM = {
+			NXM = {
 				is_ai = yes
 				has_opinion = {
 					target = MON
@@ -3970,6 +3978,13 @@ focus_tree = {
 				}
 				is_ai = yes
 			}
+			GSM = {
+				has_opinion = {
+					target = MON
+					value > 49
+				}
+				is_ai = yes
+			}			
 			TAN = {
 				has_opinion = {
 					target = MON
@@ -3982,7 +3997,7 @@ focus_tree = {
 			OR = {
 				AND = {
 					NOT = {
-						country_exists = XSM
+						country_exists = NXM
 					}
 					NOT = {
 						country_exists = SHX
@@ -3990,9 +4005,12 @@ focus_tree = {
 					NOT = {
 						country_exists = TAN
 					}
+					NOT = {
+						country_exists = GSM
+					}					
 				}
 				OR = {
-				XSM = {
+				NXM = {
 					is_ai = no
 				}
 				SHX = {
@@ -4001,17 +4019,26 @@ focus_tree = {
 				TAN = {
 					is_ai = no
 				}
+				GSM = {
+					is_ai = no
+				}				
 				}
 			}
 		}
 
 		completion_reward = {
 			IF = {
-				LIMIT = {XSM={is_free_or_subject_of_root = yes}}
-				XSM = {
+				LIMIT = {NXM={is_free_or_subject_of_root = yes}}
+				NXM = {
 					country_event = SAU_submission.20
 				}
 			}
+			IF = {
+				LIMIT = {GSM={is_free_or_subject_of_root = yes}}
+				GSM = {
+					country_event = SAU_submission.20
+				}
+			}			
 			IF = {
 				LIMIT = {SHX={is_free_or_subject_of_root = yes}}
 				SHX = {
@@ -4497,7 +4524,7 @@ focus_tree = {
 		relative_position_id = MON_promote_ruthlesness
 		prerequisite = { focus = MON_promote_ruthlesness focus = MON_secure_interests }
 
-		icon = GFX_focus_ICE_thungur_hnifur
+		icon = GFX_focus_CHI_arrest_the_seven_gentlemen
 		x = 1
 		y = 1
 		cost = 5
@@ -6651,7 +6678,7 @@ focus_tree = {
 	focus = {
 		id = MON_central_infrastructure
 		relative_position_id = MON_trans_mongolian_railway
-		icon = GFX_focus_generic_railroad
+		icon = GFX_focus_JAP_taiheiyo_belt
 		x = 2
 		y = 1
 		cost = 10
@@ -7067,7 +7094,7 @@ focus_tree = {
 	focus = {
 		id = MON_invite_foreign_assistance
 		relative_position_id = MON_modernize_industry
-		icon = GFX_focus_SOV_merge_plants
+		icon = GFX_goal_generic_positive_trade_relations
 		x = -1
 		y = 1
 		cost = 5
@@ -7100,7 +7127,13 @@ focus_tree = {
 	focus = {
 		id = MON_electrify_the_country
 		relative_position_id = MON_dam_the_rivers
-		icon = GFX_focus_generic_energy
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_AFG_helmand_river_authority
+		}			
+		icon = {
+			value = GFX_focus_generic_energy
+		}		
 		x = 1
 		y = 1
 		cost = 10
@@ -7377,7 +7410,7 @@ focus_tree = {
 	focus = {
 		id = MON_putting_byproducts_to_work
 		relative_position_id = MON_making_fuel
-		icon = GFX_focus_CHL_high_quality_nitrate
+		icon = GFX_focus_CHI_found_fertiliser_plant
 		x = 0
 		y = 1
 		cost = 5
@@ -7490,7 +7523,7 @@ focus_tree = {
 	focus = {
 		id = MON_communities_that_scrape_the_sky
 		relative_position_id = MON_trade_tent_to_appartment
-		icon = GFX_focus_spa_the_spanish_miracle
+		icon = GFX_focus_JAP_further_urban_investments
 		x = 1
 		y = 1
 		cost = 5

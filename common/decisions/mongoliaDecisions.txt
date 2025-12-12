@@ -1187,6 +1187,21 @@ MON_mongolianDecisions = {
 				state = 818
 				state = 819
 				state = 820
+				state =1046
+				state =1045
+				state =1044
+				state =1043
+				state =1042
+				state =1041
+				state =1040
+				state =1039
+				state =1038
+				state =1037
+				state =1036
+				state =1035
+				state =1034
+				state =1033
+				state =1032
 				state = 322
 				state = 353
 				state = 757
@@ -1443,6 +1458,22 @@ MON_mongolianDecisions = {
 						757 = { is_controlled_by = ROOT }
 						758 = { is_controlled_by = ROOT }
 						
+						1046 = { is_controlled_by = ROOT }
+						1045 = { is_controlled_by = ROOT }
+						1044 = { is_controlled_by = ROOT }
+						1043 = { is_controlled_by = ROOT }
+						1042 = { is_controlled_by = ROOT }
+						1041 = { is_controlled_by = ROOT }
+						1040 = { is_controlled_by = ROOT }
+						1039 = { is_controlled_by = ROOT }
+						1038 = { is_controlled_by = ROOT }
+						1037 = { is_controlled_by = ROOT }
+						1036 = { is_controlled_by = ROOT }
+						1035 = { is_controlled_by = ROOT }
+						1034 = { is_controlled_by = ROOT }
+						1033 = { is_controlled_by = ROOT }
+						1032 = { is_controlled_by = ROOT }
+
 						615 = { is_controlled_by = ROOT }
 						621 = { is_controlled_by = ROOT }
 						746 = { is_controlled_by = ROOT }
@@ -1746,6 +1777,21 @@ MON_mongolianDecisions = {
 				618 = { add_core_of = ROOT }
 				619 = { add_core_of = ROOT }
 				759 = { add_core_of = ROOT }
+				1046 = { add_core_of = ROOT }
+				1045 = { add_core_of = ROOT }
+				1044 = { add_core_of = ROOT }
+				1043 = { add_core_of = ROOT }
+				1042 = { add_core_of = ROOT }
+				1041 = { add_core_of = ROOT }
+				1040 = { add_core_of = ROOT }
+				1039 = { add_core_of = ROOT }
+				1038 = { add_core_of = ROOT }
+				1037 = { add_core_of = ROOT }
+				1036 = { add_core_of = ROOT }
+				1035 = { add_core_of = ROOT }
+				1034 = { add_core_of = ROOT }
+				1033 = { add_core_of = ROOT }
+				1032 = { add_core_of = ROOT }
 				760 = { add_core_of = ROOT }
 				325 = { add_core_of = ROOT }
 				591 = { add_core_of = ROOT }
