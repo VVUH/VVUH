@@ -428,6 +428,11 @@ ideas = {
 				army_core_defence_factor = 0.15
 				subjects_autonomy_gain = -0.25
 				master_ideology_drift = 0.03
+				stability_weekly = 0.01
+				army_attack_factor = 0.15
+				army_org = 5
+				army_org_regain = 0.05
+				consumer_goods_factor = -0.2
 			}
 		}
 		ALB_dirt_for_gold = {
@@ -605,6 +610,28 @@ ideas = {
 				conscription = 0.03
 				non_core_manpower = -0.15
 				weekly_manpower = 25 
+				industrial_capacity_factory = -0.05
+			}
+		}
+		ALB_volunteers_of_the_service = {
+        	allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = prc_low_popular_support
+
+            modifier = {
+				civilian_factory_use = 2
+				political_power_gain = -0.5
+				conscription = 0.01
+				non_core_manpower = 0.15
+				weekly_manpower = 4500
 				industrial_capacity_factory = -0.05
 			}
 		}
@@ -1310,6 +1337,52 @@ ideas = {
 			army_intel_to_others = -5
 			stability_weekly = 0.01
 			}
+		}
+		ALB_instructors_for_revolutionaries = {
+        	allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = RAJ_red_in_the_shadows
+
+            modifier = {
+			send_volunteer_size = 8
+			air_volunteer_cap = 100
+			army_leader_start_level = 1 
+			special_forces_cap_flat = 10
+			special_forces_cap = 0.2
+			war_support_weekly = 0.1
+			}
+		}
+		ALB_instructors_for_revolutionaries_at_home = {
+        	allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = RAJ_red_in_the_shadows
+
+            modifier = {
+			license_purchase_cost = -0.3
+			license_production_speed = 0.4
+			license_tech_difference_speed = 0.1
+		    industrial_capacity_factory = 0.15
+			}
+			targeted_modifier = {
+    tag = SOV 
+    ai_license_acceptance = 50
+            }
 		}
     }
 }

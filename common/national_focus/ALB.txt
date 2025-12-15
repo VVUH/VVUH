@@ -908,7 +908,7 @@ add_resource = {
 	focus = {
 		id = ALB_italian_officers
 		icon = GFX_focus_ITA_bersaglieri
-		x = 50
+		x = 52
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -924,9 +924,11 @@ add_resource = {
 	focus = {
 		id = ALB_urbanization_plans
 		icon = GFX_goal_generic_construction
-		x = 56
-		y = 0
+		prerequisite = { focus = ALB_For_Zog focus = ALB_Challenge_Zog}
+		x = -18
+		y = 1
 		cost = 6
+		relative_position_id = ALB_Challenge_Zog
 		ai_will_do = {
 			factor = 12
 		}
@@ -1057,7 +1059,7 @@ add_resource = {
 		x = 1
 		y = 1
 		relative_position_id = ALB_expand_the_mining_industry
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 12
 		}
@@ -1078,7 +1080,7 @@ add_resource = {
 		x = -1
 		y = 1
 		relative_position_id = ALB_expand_the_mining_industry
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 12
 		}
@@ -1325,7 +1327,7 @@ add_resource = {
 		icon = GFX_focus_rom_handle_king
 		prerequisite = { focus = ALB_albania_questions }
 		mutually_exclusive = { focus = ALB_For_Zog }
-		x = 17
+		x = 19
 		y = 1
 	    cost = 5
 		ai_will_do = {
@@ -1364,7 +1366,7 @@ if = {
 		available = {
 		}
 		cancel_if_invalid = yes
-		x = -3
+		x = -6
 		y = 1
 		cost = 5
 		ai_will_do = {
@@ -1957,6 +1959,7 @@ if = {
 				id = albania_events.9
 				}
 			}
+
 		}
 	}
 	focus = {
@@ -2217,6 +2220,7 @@ if = {
 
 		completion_reward = {
 			add_war_support = 0.05
+			custom_effect_tooltip = ALB_there_treachery_everywhere_tt
 		}
 	}
 	focus = {
@@ -2722,6 +2726,7 @@ add_equipment_to_stockpile = {
 
 		completion_reward = {
 			add_stability = 0.075
+			custom_effect_tooltip = ALB_to_be_faithful_tt
 		}
 	}
 	focus = {
@@ -2745,8 +2750,8 @@ add_equipment_to_stockpile = {
 	focus = {
 		id = ALB_joint_research_effort
 		icon = GFX_focus_generic_socialist_science
-		prerequisite = { focus = ALB_schools_for_revolutionaries  focus = ALB_soviet_industrial_investments }
-		x = 1
+		prerequisite = { focus = ALB_allies_everywhere }
+		x = 0
 		y = 1
 		relative_position_id = ALB_schools_for_revolutionaries
 		cost = 5
@@ -2766,9 +2771,9 @@ add_equipment_to_stockpile = {
 	focus = {
 		id = ALB_allies_everywhere
 		icon = GFX_focus_YUG_pan_slavic_congress
-		prerequisite = { focus = ALB_joint_research_effort  focus = ALB_soviet_industrial_investments focus = ALB_provide_for_the_people }
+		prerequisite = { focus = ALB_no_i_need_to_be_faithful }
 		x = 2
-		y = 2
+		y = 0
 		relative_position_id = ALB_schools_for_revolutionaries
 		cost = 10
 		ai_will_do = {
@@ -2788,7 +2793,11 @@ add_equipment_to_stockpile = {
   icon = GFX_faction_logo_generic_2
 }
 			every_country = {
-				limit = { has_government = communism}
+				limit = { has_government = communism
+				NOT = {
+                tag = ALB
+	            }
+                }
 				country_event = {
 					id = albania_events.20
 					hours = 6
@@ -2812,88 +2821,12 @@ add_equipment_to_stockpile = {
 		}
 	}
 	focus = {
-		id = ALB_carry_the_revolution_north
-		icon = GFX_goal_generic_attack_allies
-		prerequisite = { focus = ALB_allies_everywhere}
-		x = 2
-		y = 3
-		relative_position_id = ALB_schools_for_revolutionaries
-		cost = 8
-		ai_will_do = {
-			factor = 9
-		}
-
-		available_if_capitulated = no
-
-		bypass = { YUG = {exists = no } }
-
-		completion_reward = {
-			create_wargoal = {
-    type = annex_everything
-	target = YUG
-	}
-		}
-	}
-	focus = {
-		id = ALB_carry_the_revolution_west
-		icon = GFX_focus_attack_italy
-		prerequisite = { focus = ALB_carry_the_revolution_north}
-		x = 1
-		y = 4
-		relative_position_id = ALB_schools_for_revolutionaries
-		will_lead_to_war_with = ITA
-		cost = 8
-		ai_will_do = {
-			factor = 9
-		}
-
-		available_if_capitulated = no
-
-		bypass = { ITA = {exists = no } }
-
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = ITA
-			}
-		}
-	}
-	focus = {
-		id = ALB_carry_the_revolution_east
-		icon = GFX_focus_generic_attack_romania
-		prerequisite = { focus = ALB_carry_the_revolution_north}
-		x = 3
-		y = 4
-		relative_position_id = ALB_schools_for_revolutionaries
-		will_lead_to_war_with = BUL
-		will_lead_to_war_with = ROM
-		cost = 8
-		ai_will_do = {
-			factor = 9
-		}
-
-		available_if_capitulated = no
-		bypass = { ROM = {exists = no } }
-
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = ROM
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = BUL
-			}
-		}
-	}
-	focus = {
 		id = ALB_long_name
 		icon = GFX_focus_generic_befriend_albania
-		prerequisite = { focus = ALB_carry_the_revolution_east}
-		prerequisite = { focus = ALB_carry_the_revolution_west}
-		x = 2
-		y = 5
-		relative_position_id = ALB_schools_for_revolutionaries
+		prerequisite = { focus = ALB_demand_for_montenegro_and_kosovo_people focus = ALB_the_engine_for_peace}
+		x = 1
+		y = 1
+		relative_position_id = ALB_demand_for_montenegro_and_kosovo_people
 		cost = 10
 		ai_will_do = {
 			factor = 9
@@ -2906,10 +2839,41 @@ add_equipment_to_stockpile = {
 		}
 	}
 	focus = {
+		id = ALB_reclaim_greece_for_the_people
+		icon = GFX_focus_generic_attack_greece
+		prerequisite = { focus = ALB_provide_work }
+		prerequisite = { focus = ALB_develop_albania }
+		will_lead_to_war_with = GRE
+		x = 1
+		y = 1
+		relative_position_id = ALB_develop_albania
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = GRE
+				}
+				ALB = {
+					add_core_of = ALB
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = GRE
+			}
+		}
+	}
+	focus = {
 		id = ALB_provide_for_the_people
 		icon = GFX_focus_generic_resource_extraction
-		prerequisite = { focus = ALB_invite_soviet_volunteers  focus = ALB_soviet_industrial_investments }
-		x = 3
+		prerequisite = { focus = ALB_allies_everywhere  }
+		x = 4
 		y = 1
 		relative_position_id = ALB_schools_for_revolutionaries
 		cost = 5
@@ -2925,16 +2889,16 @@ add_equipment_to_stockpile = {
                     is_fully_controlled_by = ROOT
                     is_core_of = ALB
                 }
-                add_extra_state_shared_building_slots = 2
+                add_extra_state_shared_building_slots = 3
             }
 		}
 	}
 	focus = {
 		id = ALB_soviet_industrial_investments
 		icon = GFX_goal_generic_soviet_construction
-		prerequisite = { focus = ALB_no_i_need_to_be_faithful }
+		prerequisite = { focus = ALB_allies_everywhere }
 		x = 2
-		y = 0
+		y = 1
 		relative_position_id = ALB_schools_for_revolutionaries
 		cost = 10
 		ai_will_do = {
@@ -2956,6 +2920,181 @@ add_equipment_to_stockpile = {
 			}
 			add_timed_idea = { idea = SPR_soviet_industrial_aid days = 730 }
 			}
+		}
+		focus = {
+		id = ALB_provide_work
+		icon = GFX_focus_AFG_integrate_tajik_and_uzbek_republics
+		prerequisite = { focus = ALB_soviet_industrial_investments }
+		prerequisite = { focus = ALB_provide_for_the_people }
+		x = 3
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_owned_state = {
+	add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+    }
+	add_manpower = 10000
+	}
+			}
+		}
+		focus = {
+		id = ALB_joint_instructors_for_revolutionaries
+		icon = GFX_focus_CHL_union_of_hispanic_republics
+		prerequisite = { focus = ALB_soviet_industrial_investments }
+		prerequisite = { focus = ALB_joint_research_effort }
+		x = 1
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_unit_bonus = {
+			mountaineers = { 
+			soft_attack = 0.15
+			supply_consumption_factor = -0.1
+			max_organisation = 10
+			}
+		}
+			every_country = {
+				limit = { has_government = communism
+				NOT = {
+                tag = ALB
+	            }
+                }
+				army_experience = 25
+			}
+			add_ideas = ALB_instructors_for_revolutionaries
+			army_experience = 75
+			}
+		}
+		focus = {
+		id = ALB_joint_instructors_for_revolutionaries_at_home
+		icon = GFX_SOV_military_engineering_university_ccp_2d_sov_compatibility
+		prerequisite = { focus = ALB_joint_research_effort }
+		x = -1
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = ALB_instructors_for_revolutionaries_at_home
+			}
+		}
+		focus = {
+		id = ALB_develop_albania
+		icon = GFX_focus_AFG_helmand_river_authority
+		prerequisite = { focus = ALB_provide_for_the_people }
+		x = 5
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			934 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			44 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			44 = {
+				if = {
+					limit = {
+					    44 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+			}
+		}
+		focus = {
+		id = ALB_the_engine_for_peace
+		icon = GFX_focus_GER_the_peoples_victory
+		prerequisite = { focus = ALB_provide_work }
+		x = 4
+		y = 3
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_owned_state = {
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+    }
+	}
+	add_extra_state_shared_building_slots = 2
+			}
+		}
+		focus = {
+		id = ALB_demand_for_montenegro_and_kosovo_people
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		prerequisite = { focus = ALB_provide_work }
+		prerequisite = { focus = ALB_joint_instructors_for_revolutionaries }
+		x = 2
+		y = 3
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			105 = { 
+				controller = {
+					country_event = { id = albania_events.9 }
+				}
+			}
+		}
 		}
 	focus = {
 		id = ALB_invite_soviet_volunteers
@@ -6863,9 +7002,10 @@ focus = {
 focus = {
 		id = ALB_military_air_project
 		icon = GFX_focus_generic_university_3
-		x = 3
+		prerequisite = { focus = ALB_For_Zog focus = ALB_Challenge_Zog}
+		x = -5
 		y = 1
-		relative_position_id = ALB_ridding_the_army_of_italian
+		relative_position_id = ALB_Challenge_Zog
 
 		cost = 5
 
