@@ -1,0 +1,7185 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = albania_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = AlB
+		}
+	}
+	continuous_focus_position = { x = 100 y = 1500 }
+	default = no
+
+	shared_focus = HABSBURG_part_of_something_bigger
+
+	initial_show_position = {
+		x = 5
+		y = 0
+	}
+
+	focus = {
+		id = ALB_albania_questions
+		icon = GFX_focus_generic_befriend_albania
+		x = 7
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_political_power = 100
+		}
+		
+	}
+	focus = {
+		id = ALB_industrial_investments
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ALB_For_Zog focus = ALB_Challenge_Zog}
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 7
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = train_equipment_1
+				amount = 3
+				producer = ITA
+			}
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 15
+				producer = ENG
+			}
+		44 = {
+				if = {
+					limit = {
+					    44 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		44 = {
+				if = {
+					limit = {
+					    44 = {
+							free_building_slots = {
+								building = arms_factory
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_1
+		icon = GFX_focus_CHL_silverworking
+		prerequisite = { focus = ALB_industrial_investments }
+		available = {
+			has_completed_focus = ALB_For_Zog
+			has_completed_focus = ALB_For_the_june_revolution
+		}
+		cancel_if_invalid = yes
+		x = 5
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 16
+				state = 44
+				}
+				add_resource = {
+				type = coal
+				amount = 6
+				state = 44
+				}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_30
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = ALB_industrial_investments }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 7
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_ideas = {CZE_fortification_focus}
+			army_experience = 25
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_13
+		icon = GFX_focus_CHL_enlarge_the_textile_industries
+		prerequisite = { focus = ALB_industrial_investments_1 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 5
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+		934 = {
+				if = {
+					limit = {
+					    934 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_19
+		icon = GFX_focus_generic_german_trade
+		prerequisite = { focus = ALB_industrial_investments_13 }
+		mutually_exclusive = { focus = ALB_industrial_investments_14 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 4
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_ideas = {BALTIC_axis_investments_idea}
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_20
+		icon = GFX_focus_GER_kdf_wagen
+		prerequisite = { focus = ALB_industrial_investments_19 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 4
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			set_technology = {
+				basic_train  = 1
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment_1
+				amount = 15
+				producer = GER
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_21
+		icon = GFX_focus_generic_mass_production
+		prerequisite = { focus = ALB_industrial_investments_20 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 4
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+		934 = {
+				if = {
+					limit = {
+					    934 = {
+							free_building_slots = {
+								building = arms_factory
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_22
+		icon = GFX_focus_generic_coal_mining
+		prerequisite = { focus = ALB_industrial_investments_21 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 4
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+				44 = {
+				if = {
+					limit = {
+					    44 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		44 = {
+				if = {
+					limit = {
+					    44 = {
+							free_building_slots = {
+								building = arms_factory
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_23
+		icon = GFX_focus_FIN_parmis_devils
+		prerequisite = { focus = ALB_industrial_investments_22 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 4
+		y = 9
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2500
+    producer = GER
+}
+			upgrade_economy_law = yes
+			add_war_support = 0.15
+				random_owned_state = {
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+    }
+	}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_14
+		icon = GFX_focus_generic_british_trade
+		prerequisite = { focus = ALB_industrial_investments_13 }
+		mutually_exclusive = { focus = ALB_industrial_investments_19 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 6
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_ideas = {BALTIC_allied_investments_idea}
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_15
+		icon = GFX_focus_generic_merchant_fleet
+		prerequisite = { focus = ALB_industrial_investments_14 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 6
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 35
+				producer = ENG
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_16
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = ALB_industrial_investments_15 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 6
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			any_state = {
+				is_controlled_by = ROOT
+				is_coastal = yes
+			}
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			navy_experience = 50
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = dockyard
+										size > 2
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_17
+		icon = GFX_focus_chi_british_cooperation
+		prerequisite = { focus = ALB_industrial_investments_16 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 6
+		y = 8
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			any_state = {
+				is_controlled_by = ROOT
+				is_coastal = yes
+			}
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			navy_experience = 50
+			44 = {
+				add_building_construction = { type = coastal_bunker province = 13255 level = 3 instant_build = yes }
+				add_building_construction = { type = coastal_bunker province = 11767 level = 3 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = dockyard
+										size > 2
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_18
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = ALB_industrial_investments_17 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 6
+		y = 9
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = bb_tech
+			}
+			add_doctrine_cost_reduction = {
+				name = naval_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_fleet_in_being
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_2
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = ALB_industrial_investments }
+		available = {
+			has_completed_focus = ALB_Makeing_the_worker_class
+		}
+		cancel_if_invalid = yes
+		x = 9
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			every_owned_state = {
+                limit = {
+                    is_fully_controlled_by = ROOT
+                    is_core_of = ALB
+                }
+                add_extra_state_shared_building_slots = 1
+            }
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_3
+		icon = GFX_SOV_respect_baltic_self_determination_ccp_2d_sov_compatibility
+		prerequisite = { focus = ALB_industrial_investments_2 focus = ALB_industrial_investments_4}
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 10
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_stability = 0.075
+			add_war_support = 0.05
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_4
+		icon = GFX_SOV_infrastructure_effort_nsb_ccp_2d_sov_compatibility
+		prerequisite = { focus = ALB_industrial_investments }
+		available = {
+			has_completed_focus = ALB_Makeing_the_worker_class
+			has_completed_focus = ALB_muslim_revolution
+		}
+		cancel_if_invalid = yes
+		x = 11
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 6
+				state = 44
+				}
+				add_resource = {
+				type = aluminium 
+				amount = 6
+				state = 44
+				}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_5
+		icon = GFX_focus_SWE_beneath_sticks_and_stone
+		prerequisite = { focus = ALB_industrial_investments_3 }
+		mutually_exclusive = { focus = ALB_industrial_investments_6 }
+		available = {
+			has_completed_focus = ALB_no_i_need_to_be_faithful
+			has_completed_focus = ALB_The_first_step
+		}
+		cancel_if_invalid = yes
+		x = 11
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_ideas = {ALB_collectivization_effort}
+			every_owned_state = {
+                limit = {
+                    is_fully_controlled_by = ROOT
+                    is_core_of = ALB
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_10
+		icon = GFX_focus_ARG_capitalize_the_beef_industry
+		prerequisite = { focus = ALB_industrial_investments_5 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 11
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = ALB_collectivization_effort
+    add_idea = ALB_collectivization_effort_1
+}
+random_owned_state = {
+
+	add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+    }
+	}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_11
+		icon = GFX_focus_generic_farmland
+		prerequisite = { focus = ALB_industrial_investments_10 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 11
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = ALB_collectivization_effort_1
+    add_idea = ALB_collectivization_effort_2
+}
+			add_research_slot = 1
+			44 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			805 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			934 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_12
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
+		prerequisite = { focus = ALB_industrial_investments_11 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 11
+		y = 8
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = ALB_collectivization_effort_2
+    add_idea = ALB_collectivization_effort_3
+}
+44 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			805 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			934 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_6
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = ALB_industrial_investments_3 }
+		mutually_exclusive = { focus = ALB_industrial_investments_5 }
+		available = {
+			has_completed_focus = ALB_there_treachery_everywhere
+		}
+		cancel_if_invalid = yes
+		x = 9
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_ideas = {ALB_underground_country}
+			add_resource = {
+				type = coal
+				amount = 8
+				state = 44
+				}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_7
+		icon = GFX_focus_SWE_let_fly_all_guns
+		prerequisite = { focus = ALB_industrial_investments_6 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 9
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_tech = interwar_antiair 
+			805 = { is_fully_controlled_by = ROOT }
+			934 = { is_fully_controlled_by = ROOT }
+			44 = { is_fully_controlled_by = ROOT }
+		}
+		
+		completion_reward = {
+		805 = {
+				add_building_construction = {
+					type = anti_air_building 
+					level = 3
+					instant_build = yes
+				}
+		}
+		934 = {
+				add_building_construction = {
+					type = anti_air_building 
+					level = 3
+					instant_build = yes
+				}
+		}
+		44 = {
+				add_building_construction = {
+					type = anti_air_building 
+					level = 3
+					instant_build = yes
+				}
+		}
+swap_ideas = {
+    remove_idea = ALB_underground_country
+    add_idea = ALB_underground_country_1
+}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_8
+		icon = GFX_focus_GER_integrated_economies
+		prerequisite = { focus = ALB_industrial_investments_7 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 9
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			random_owned_state = {
+
+	add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+    }
+	}
+			add_research_slot = 1
+			swap_ideas = {
+    remove_idea = ALB_underground_country_1
+    add_idea = ALB_underground_country_2
+}
+add_resource = {
+				type = coal
+				amount = 2
+				state = 44
+				}
+		}
+	}
+	focus = {
+		id = ALB_industrial_investments_9
+		icon = GFX_focus_AUS_osterreichische_gebirgsjager
+		prerequisite = { focus = ALB_industrial_investments_8 }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 9
+		y = 8
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+		random_owned_state = {
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+    }
+	}
+	swap_ideas = {
+    remove_idea = ALB_underground_country_2
+    add_idea = ALB_underground_country_3
+}
+		}
+	}
+	focus = {
+		id = ALB_italian_officers
+		icon = GFX_focus_ITA_bersaglieri
+		x = 52
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			army_experience = 15
+			navy_experience = 15
+			air_experience = 15
+		}
+	}
+	focus = {
+		id = ALB_urbanization_plans
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = ALB_For_Zog focus = ALB_Challenge_Zog}
+		x = -18
+		y = 1
+		cost = 6
+		relative_position_id = ALB_Challenge_Zog
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+			has_completed_focus = ALB_albania_questions
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+			44 = {
+				if = {
+					limit = {
+					    44 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		}
+	focus = {
+		id = ALB_infrastructure_investment
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = ALB_urbanization_plans }
+		x = 0
+		y = 1
+		relative_position_id = ALB_urbanization_plans
+		cost = 6
+		ai_will_do = {
+			factor = 12
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			44 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_infrastructure_investment_2
+		icon = GFX_focus_generic_road_investment
+		prerequisite = { focus = ALB_urbanization_plans }
+		x = 2
+		y = 1
+		relative_position_id = ALB_urbanization_plans
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			934 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_invest_in_the_north
+		icon = GFX_SOV_aristocratic_investments_ccp_2d_sov_compatibility
+		prerequisite = { focus = ALB_infrastructure_investment_2 }
+		x = 2
+		y = 2
+		relative_position_id = ALB_urbanization_plans
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			934 = {
+				add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+			}
+		}
+	}
+	focus = {
+		id = ALB_expand_the_mining_industry
+		icon = GFX_focus_generic_mining_industry
+		prerequisite = { focus = ALB_infrastructure_investment }
+		x = 0
+		y = 1
+		relative_position_id = ALB_infrastructure_investment
+		cost = 6
+		ai_will_do = {
+			factor = 12
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 10
+				state = 44
+				}
+		}
+	}
+	focus = {
+		id = ALB_develop_military_industry
+		icon = GFX_focus_SWE_let_fly_all_guns
+		prerequisite = { focus = ALB_expand_the_mining_industry }
+		x = 1
+		y = 1
+		relative_position_id = ALB_expand_the_mining_industry
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = ALB_develop_civilian_industry
+		icon = GFX_focus_SWE_hygienic_housing
+		prerequisite = { focus = ALB_expand_the_mining_industry }
+		x = -1
+		y = 1
+		relative_position_id = ALB_expand_the_mining_industry
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+				add_offsite_building = { type = industrial_complex level = 2 }
+				add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+	focus = {
+		id = ALB_urbanization_albania
+		icon = GFX_focus_SWE_urbanization
+		prerequisite = { focus = ALB_develop_civilian_industry focus = ALB_develop_military_industry }
+		x = 0
+		y = 2
+		relative_position_id = ALB_expand_the_mining_industry
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_research_slot = 1
+			44 = {set_state_category = large_city}
+			934 = {set_state_category = city }
+			805 = {set_state_category = town }
+		}
+	}
+	focus = {
+		id = ALB_bribe_to_officers
+		icon = GFX_focus_generic_italy_propaganda
+		prerequisite = { focus = ALB_italian_officers }
+		mutually_exclusive = { focus = ALB_invite_italian_advisors }
+		x = 1
+		y = 1
+		relative_position_id = ALB_italian_officers
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = -50
+		}
+	}
+	focus = {
+		id = ALB_utilizing_italian_knowledge
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = ALB_bribe_to_officers }
+		x = 1
+		y = 2
+		relative_position_id = ALB_italian_officers
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+				add_tech_bonus = {
+				name = special_bonus
+				bonus = 1.0
+				uses = 2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+			custom_effect_tooltip = GRE_mountain_training_effect
+			hidden_effect = { set_technology = { mountain_warfare = 1 } }
+		}
+		}
+	focus = {
+		id = ALB_promote_brilliant_officers
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = ALB_utilizing_italian_knowledge }
+		x = 1
+		y = 3
+		relative_position_id = ALB_italian_officers
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_ideas = ALB_promoting_brilliant_officers
+		}
+	}
+	focus = {
+		id = ALB_take_italian_arms
+		icon = GFX_focus_AUS_raid_military_storages
+		prerequisite = { focus = ALB_utilizing_italian_knowledge }
+		x = 3
+		y = 3
+		relative_position_id = ALB_italian_officers
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 4000
+    producer = ITA
+}
+		}
+	}
+	focus = {
+		id = ALB_ridding_the_army_of_italian
+		icon = GFX_focus_ITA_albanian_fascist_militia
+		prerequisite = { focus = ALB_promote_brilliant_officers }
+		available = {
+			NOT = {
+				has_completed_focus = ALB_italian_ties
+			}
+		}
+		x = 1
+		y = 4
+		relative_position_id = ALB_italian_officers
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			swap_ideas = {
+            remove_idea = ALB_italian_officers
+            add_idea = ALB_albanian_officers
+			}
+			diplomatic_relation = {
+        country = ITA
+        relation = guarantee
+        active = no
+            }
+		}
+	}
+	focus = {
+		id = ALB_invite_italian_advisors
+		icon = GFX_focus_ITA_italian_irredentism
+		prerequisite = { focus = ALB_italian_officers }
+		mutually_exclusive = { focus = ALB_bribe_to_officers }
+		x = -1
+		y = 1
+		relative_position_id = ALB_italian_officers
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = ALB_invite_italian_soldiers
+		icon = GFX_focus_ITA_strengthen_ascari_corps
+		prerequisite = { focus = ALB_invite_italian_advisors }
+		x = -1
+		y = 2
+		relative_position_id = ALB_italian_officers
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			swap_ideas = {
+            remove_idea = ALB_italian_officers
+            add_idea = ALB_italian_officers_1
+			}
+		}
+	}
+	focus = {
+		id = ALB_invite_italian_high_command
+		icon = GFX_focus_ITA_capo_supremo
+		prerequisite = { focus = ALB_invite_italian_soldiers }
+		x = -1
+		y = 3
+		relative_position_id = ALB_italian_officers
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ITA ={
+			ITA_carlo_vecchiarelli = {
+				    set_nationality = ALB
+			}
+		}
+	}
+	}
+	focus = {
+		id = ALB_prepare_for_war
+		icon = GFX_focus_ITA_albanian_irredentism
+		prerequisite = { focus = ALB_invite_italian_high_command }
+		x = -1
+		y = 4
+		relative_position_id = ALB_italian_officers
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2500
+    producer = ITA
+}
+			upgrade_economy_law = yes
+			add_war_support = 0.15
+				random_owned_state = {
+	add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+    }
+	}
+		}
+	}
+	focus = {
+		id = ALB_Challenge_Zog
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = ALB_albania_questions }
+		mutually_exclusive = { focus = ALB_For_Zog }
+		x = 19
+		y = 1
+	    cost = 5
+		ai_will_do = {
+		factor = 8
+		}
+                allow_branch = {
+if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+		NOT = { has_completed_focus = ALB_For_Zog }
+		}
+              }
+		completion_reward = {
+			hidden_effect = {
+		load_focus_tree = {
+  tree = albania_focus
+  keep_completed = yes
+}
+	}
+		add_popularity = {
+			    ideology = neutrality
+			    popularity = -0.15
+			}
+			add_political_power = -25
+	}			
+	}
+	focus = {
+		id = ALB_For_Zog
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = ALB_albania_questions }
+		mutually_exclusive = { focus = ALB_Challenge_Zog }
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 8
+		}
+
+               allow_branch = {
+if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+		NOT = { has_completed_focus = ALB_Challenge_Zog}
+		}
+              }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+		hidden_effect = {
+		load_focus_tree = {
+  tree = albania_focus
+  keep_completed = yes
+}
+			}
+		}
+	}
+	focus = {
+		id = ALB_italian_ties
+		icon = GFX_focus_befriend_italy
+		prerequisite = { focus = ALB_italian_workers_in_albania }
+		mutually_exclusive = { focus = ALB_independent_alb focus = ALB_romanian_alliance}
+		available = {
+			ITA = {
+				exists = yes
+			}
+		}
+		relative_position_id = ALB_italian_workers_in_albania
+		cancel_if_invalid = yes
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_political_power = 50
+			diplomatic_relation = {
+				country = ITA
+				relation = non_aggression_pact
+				active = yes
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = ALB_join_italy
+		icon = GFX_focus_ITA_albanian_irredentism
+		prerequisite = { focus = ALB_italian_ties }
+		mutually_exclusive = { focus = ALB_demand_montenegro_and_kosovo }
+		available = {
+			ITA = {
+				exists = yes
+			}
+		}
+		relative_position_id = ALB_italian_ties
+		cancel_if_invalid = yes
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_country_leader_role = {
+				character = ALB_king_zog
+				promote_leader = yes
+				country_leader = {
+					ideology = fascism_ideology
+					expire = "1965.1.1.1"
+					traits = { imperial_connections king_of_albania }
+				}
+			}
+			ITA = {
+				puppet = ALB
+				unlock_national_focus = ITA_albanian_occupation
+			}
+		}
+	}
+	focus = {
+		id = ALB_lead_the_charge
+		icon = GFX_focus_ITA_cavalry_charge
+		prerequisite = { focus = ALB_join_italy }
+		available = {
+		}
+		relative_position_id = ALB_join_italy
+		cancel_if_invalid = yes
+		will_lead_to_war_with = YUG
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = YUG
+			}
+			set_rule = {
+				can_not_declare_war = no
+			}
+			set_rule = {
+				can_decline_call_to_war = yes
+			}
+			ITA = {
+				set_autonomy = {
+					target = ALB
+					autonomous_state = autonomy_satellite
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_expand_our_claims
+		icon = GFX_SOV_claims_on_poland_ccp_2d_sov_compatibility
+		prerequisite = { focus = ALB_join_italy focus = ALB_demand_montenegro_and_kosovo }
+		available = {
+		}
+		relative_position_id = ALB_join_italy
+		cancel_if_invalid = yes
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_state_claim = 106
+			add_state_claim = 108
+			add_state_claim = 803
+			add_state_claim = 804
+			add_state_claim = 185
+		}
+	}
+	focus = {
+		id = ALB_independent_alb
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = ALB_italian_workers_in_albania focus = ALB_power_to_parliament }
+		mutually_exclusive = { focus = ALB_romanian_alliance focus = ALB_italian_ties }
+		relative_position_id = ALB_For_Zog
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 0
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = ALB_independent_alb_idea
+		}
+	}
+
+	focus = {
+		id = ALB_Absolute_power
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = ALB_For_Zog }
+		mutually_exclusive = { focus = ALB_Constitutional_power }
+		available = {
+		}
+		x = -1
+		y = 1
+		relative_position_id = ALB_For_Zog
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+		add_trait = {
+			character = ALB_king_zog
+			ideology = despotism
+			trait = imperial_connections 
+			}
+		}
+	}
+	focus = {
+		id = ALB_italian_aid
+		icon = GFX_focus_ETH_invite_italian_settlers
+		prerequisite = { focus = ALB_Absolute_power }
+		available = {
+		}
+		x = -1
+		y = 1
+		relative_position_id = ALB_Absolute_power
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	focus = {
+		id = ALB_mussolini_trains_in_albania
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = ALB_italian_aid }
+		available = {
+		}
+		x = 0
+		y = 1
+		relative_position_id = ALB_italian_aid
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			set_technology = {
+				basic_train  = 1
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment_1
+				amount = 15
+				producer = ITA
+			}
+		}
+	}
+	focus = {
+		id = ALB_italian_workers_in_albania
+		icon = GFX_focus_BRA_joint_italian_motor_development
+		prerequisite = { focus = ALB_mussolini_trains_in_albania }
+		available = {
+		}
+		x = 0
+		y = 1
+		relative_position_id = ALB_mussolini_trains_in_albania
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			random_owned_state = {
+    prioritize = { 44 }
+	add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+    }
+	}
+	}
+	}
+	focus = {
+		id = ALB_german_aid
+		icon = GFX_focus_BRA_acquire_german_tanks
+		prerequisite = { focus = ALB_mussolini_trains_in_albania }
+		available = {
+		}
+		x = -2
+		y = 1
+		relative_position_id = ALB_mussolini_trains_in_albania
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_ideas = {ALB_german_aid}
+		}
+	}
+	focus = {
+		id = ALB_the_king_army
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = ALB_Absolute_power focus = ALB_Constitutional_power }
+		available = {
+		}
+		x = 0
+		y = 2
+		relative_position_id = ALB_For_Zog
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_ideas = {ALB_the_king_army}
+		}
+	}
+	focus = {
+		id = ALB_Constitutional_power
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = ALB_For_Zog }
+		mutually_exclusive = { focus = ALB_Absolute_power }
+		x = 1
+		y = 1
+		relative_position_id = ALB_For_Zog
+		cost = 5
+		
+		ai_will_do = {
+			factor = 9
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_trait = {
+				character = ALB_king_zog
+				ideology = despotism
+				trait = constitutional_monarch  
+			}
+		}
+	}
+	focus = {
+		id = ALB_stick_to_the_constitution_of_1928
+		icon = GFX_focus_ARG_strengthening_the_concordancia
+		prerequisite = { focus = ALB_Constitutional_power }
+		x = 1
+		y = 1
+		relative_position_id = ALB_Constitutional_power
+		cost = 10
+		
+		ai_will_do = {
+			factor = 9
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = ALB_power_to_parliament
+		icon = GFX_focus_ARG_march_to_la_casa_rosada
+		prerequisite = { focus = ALB_stick_to_the_constitution_of_1928 }
+		x = 0
+		y = 1
+		relative_position_id = ALB_stick_to_the_constitution_of_1928
+		cost = 10
+		
+		ai_will_do = {
+			factor = 9
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_war_support = 0.2
+			add_manpower = 10000
+		}
+	}
+	focus = {
+		id = ALB_uk_naval_deal
+		icon = GFX_focus_SWE_italian_destroyers
+		prerequisite = { focus = ALB_power_to_parliament }
+		x = 0
+		y = 1
+		relative_position_id = ALB_power_to_parliament
+		cost = 10
+		
+		ai_will_do = {
+			factor = 9
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			ENG = { country_event = {
+				id = albania_events.8
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_party_with_king_carol
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = ALB_power_to_parliament }
+		x = 2
+		y = 1
+		relative_position_id = ALB_power_to_parliament
+		cost = 5
+		
+		ai_will_do = {
+			factor = 9
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	focus = {
+		id = ALB_romanian_alliance
+		icon = GFX_focus_invite_romania
+		prerequisite = { focus = ALB_party_with_king_carol }
+		mutually_exclusive = { focus = ALB_italian_ties focus = ALB_independent_alb }
+		relative_position_id = ALB_party_with_king_carol
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_trait = {
+				character = ALB_king_zog
+				ideology = despotism
+				trait = skillful_diplomat  
+			}
+			set_rule = {
+				can_create_factions = yes
+			}
+			create_faction_from_template = {
+  template = faction_template_balkan_pact  
+  name = "Albanian Alliance"
+  icon = GFX_faction_logo_generic_11
+}
+
+			ROM = {
+				country_event = {
+					id = generic.5
+					hours = 6
+				}
+				diplomatic_relation = {
+					country = ALB
+					relation = guarantee
+					active = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_strengthen_the_balkan_pact
+		icon = GFX_focus_generic_balkan_diplomacy
+		prerequisite = { focus = ALB_romanian_alliance }
+		mutually_exclusive = { focus = ALB_demand_montenegro_and_kosovo }
+		relative_position_id = ALB_romanian_alliance
+		available = {
+		}
+		cancel_if_invalid = yes
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_political_power = 25
+			set_faction_name = "Balkan Pact"
+			YUG = {
+				country_event = {
+					id = generic.5
+					hours = 6
+				}
+			}
+			GRE = {
+				country_event = {
+					id = generic.5
+					hours = 6
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_invite_turkey
+		icon = GFX_focus_generic_befriend_turkey
+		prerequisite = { focus = ALB_strengthen_the_balkan_pact }
+		relative_position_id = ALB_strengthen_the_balkan_pact
+		available = {
+			TUR = {
+				exists = yes
+			}
+		}
+		cancel_if_invalid = yes
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_political_power = 25
+			TUR = {
+				country_event = {
+					id = generic.5
+					hours = 6
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_strike_hungary
+		icon = GFX_focus_generic_attack_hungary
+		prerequisite = { focus = ALB_strengthen_the_balkan_pact focus = ALB_demand_montenegro_and_kosovo }
+		relative_position_id = ALB_strengthen_the_balkan_pact
+		will_lead_to_war_with = HUN
+		available = {
+			HUN = {
+				exists = yes
+				any_neighbor_country = {
+					OR = { 
+						tag = ALB
+						is_in_faction_with = ALB
+					}
+				}
+			}
+		}
+		cancel_if_invalid = yes
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		bypass = { HUN = {exists = no } }
+
+		completion_reward = {
+			add_political_power = 25
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HUN
+			}
+		}
+	}
+	focus = {
+		id = ALB_strike_bulgaria
+		icon = GFX_focus_generic_attack_bulgaria
+		prerequisite = { focus = ALB_romanian_alliance }
+		relative_position_id = ALB_romanian_alliance
+		will_lead_to_war_with = BUL
+		available = {
+			BUL = {
+				exists = yes
+			}
+		}
+		cancel_if_invalid = yes
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = { BUL = {exists = no } }
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BUL
+			}
+		}
+	}
+	focus = {
+		id = ALB_demand_montenegro_and_kosovo
+		icon = GFX_focus_YUG_dissolve_serbia
+		prerequisite = { focus = ALB_italian_ties focus = ALB_independent_alb focus = ALB_romanian_alliance }
+		mutually_exclusive = { focus = ALB_strengthen_the_balkan_pact focus = ALB_join_italy }
+		x = 3
+		y = 1
+		relative_position_id = ALB_italian_ties
+		will_lead_to_war_with = YUG
+		cost = 10
+		
+		ai_will_do = {
+			factor = 9
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			YUG = { country_event = {
+				id = albania_events.9
+				}
+			}
+
+		}
+	}
+	focus = {
+		id = ALB_coltivate_fanaticism
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ALB_demand_montenegro_and_kosovo }
+		x = 0
+		y = 1
+		relative_position_id = ALB_demand_montenegro_and_kosovo
+		cost = 10
+		
+		ai_will_do = {
+			factor = 9
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_ideas = {ALB_coltivare_fanaticism}
+			    set_rule = {can_create_factions = yes}
+				set_rule = {can_use_kamikaze_pilots = yes}
+		}
+	}
+	focus = {
+		id = ALB_tirana_royal_intitute_of_technology
+		icon = GFX_focus_ARG_universidad_de_buenos_aires
+		prerequisite = { focus = ALB_stick_to_the_constitution_of_1928  focus = ALB_italian_aid }
+		x = -2
+		y = 1
+		relative_position_id = ALB_stick_to_the_constitution_of_1928
+		cost = 10
+		
+		ai_will_do = {
+			factor = 9
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	focus = {
+		id = ALB_Makeing_the_worker_class
+		icon = GFX_focus_FIN_socialist_welfare
+		prerequisite = { focus = ALB_Challenge_Zog }
+		mutually_exclusive = { focus = ALB_For_the_june_revolution focus = ALB_muslim_revolution }
+		x = 0
+		y = 1
+		relative_position_id = ALB_Challenge_Zog
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.05
+			}
+			hidden_effect = {
+		set_technology = {
+    militia_tech = 1
+}
+}
+		}
+	}
+	focus = {
+		id = ALB_invite_soviet_advisors
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = ALB_Makeing_the_worker_class }
+		x = 3
+		y = 1
+		relative_position_id = ALB_Makeing_the_worker_class
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	focus = {
+		id = ALB_secure_the_farmers
+		icon = GFX_focus_generic_farmland
+		prerequisite = { focus = ALB_Makeing_the_worker_class }
+		x = 0
+		y = 1
+		relative_position_id = ALB_Makeing_the_worker_class
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+				add_popularity = {
+			    ideology = communism
+			    popularity = 0.025
+			}
+			add_political_power = 75
+		}
+	}
+	focus = {
+		id = ALB_use_spain_gold_c
+		icon = GFX_focus_CONGO_gold_and_diamonds
+		prerequisite = { focus = ALB_Makeing_the_worker_class }
+		x = -2
+		y = 1
+		relative_position_id = ALB_Makeing_the_worker_class
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+		has_idea = SPR_seized_spanish_gold_reserves  
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		add_offsite_building = { type = arms_factory level = 1 }
+		remove_ideas = SPR_seized_spanish_gold_reserves 
+	}
+	}
+	focus = {
+		id = ALB_send_military_advisors_to_spain
+		icon = GFX_focus_SOV_support_spanish_poum
+		prerequisite = { focus = ALB_Makeing_the_worker_class }
+		x = -1
+		y = 2
+		relative_position_id = ALB_Makeing_the_worker_class
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+		SPR_scw_in_progress = yes
+			is_subject = no
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_war_support = 0.02
+			add_timed_idea = { idea = SOV_military_advisors_in_spain days = 1095 }
+			every_country = {
+					limit = {
+						original_tag = SPR
+						OR = {
+							has_government = communism
+							has_government = democratic
+						}
+					}
+				add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1500
+				producer = ALB
+				}
+		}
+	}
+	}
+	focus = {
+		id = ALB_collectivization_the_farms
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = ALB_secure_the_farmers }
+		x = 0
+		y = 3
+		relative_position_id = ALB_Makeing_the_worker_class
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_state = {
+				limit = {
+					is_owned_and_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = 0.050
+			add_war_support = -0.05
+		}
+	}
+	focus = {
+		id = ALB_secure_the_administration
+		icon = GFX_focus_SWE_socialist_reforms
+		prerequisite = { focus = ALB_collectivization_the_farms }
+		x = 0
+		y = 1
+		relative_position_id = ALB_collectivization_the_farms
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = ALB_there_treachery_everywhere
+		icon = GFX_focus_SOV_military_purge
+		prerequisite = { focus = ALB_secure_the_administration }
+		mutually_exclusive = { focus = ALB_no_i_need_to_be_faithful }
+		x = -1
+		y = 1
+		relative_position_id = ALB_secure_the_administration
+		cost = 2
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_war_support = 0.05
+			custom_effect_tooltip = ALB_there_treachery_everywhere_tt
+		}
+	}
+	focus = {
+		id = ALB_officers_school_of_the_revolution
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = ALB_there_treachery_everywhere }
+		x = -2
+		y = 1
+		relative_position_id = ALB_there_treachery_everywhere
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_school_of_revolution}
+		}
+	}
+	focus = {
+		id = ALB_enemies_everywhere
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = ALB_steel_for_exceptions }
+		prerequisite = { focus = ALB_kill_the_king }
+		x = 0
+		y = 2
+		relative_position_id = ALB_officers_school_of_the_revolution
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		ALB ={add_manpower = -10000}
+			random_owned_state = {
+    prioritize = { 44 }
+	add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+    }
+	}
+	add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 8000
+    producer = ALB
+}
+add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 240
+    producer = ALB
+	}
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 450
+    producer = ALB
+	}
+		}
+	}
+	focus = {
+		id = ALB_kill_the_king
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = ALB_officers_school_of_the_revolution}
+		x = -1
+		y = 1
+		relative_position_id = ALB_officers_school_of_the_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			retire_character = ALB_king_zog
+			add_political_power = 125
+			add_stability = -0.05
+		}
+	}
+	focus = {
+		id = ALB_close_albania
+		icon = GFX_focus_generic_road_investment
+		prerequisite = { focus = ALB_enemies_everywhere }
+		x = 0
+		y = 1
+		relative_position_id = ALB_enemies_everywhere
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+			completion_reward = {
+		805 = { add_manpower = 35000 }	
+		934	= { add_manpower = 50000 }
+		44 = { add_manpower = 65000 }
+			if = {
+				limit = {	
+					has_war_support < 0.5
+				}
+				add_war_support = 0.1
+			}
+			else_if = {
+				limit = {
+					has_idea = closed_economy
+				}
+				add_political_power = 150
+			}
+			else = {
+				add_ideas = closed_economy
+			}
+		}
+	}
+	focus = {
+		id = ALB_every_house_a_fort
+		icon = GFX_goal_fortify_the_westwall
+		prerequisite = { focus = ALB_enemies_everywhere }
+		x = 2
+		y = 1
+		relative_position_id = ALB_enemies_everywhere
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			934 = { is_fully_controlled_by = ROOT }
+			805 = { is_fully_controlled_by = ROOT }
+			44 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_every_house_a_fort}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = cat_fortification
+			}
+			934 = {
+				add_building_construction = { type = bunker province = 9780 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 3896 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 11762 level = 3 instant_build = yes }
+			}
+			44 = {
+				add_building_construction = { type = bunker province = 9875 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 6900 level = 3 instant_build = yes }
+			}
+			805 = {
+				add_building_construction = { type = bunker province = 13234 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 13235 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 914 level = 3 instant_build = yes }
+			}
+		}
+	}
+	focus = {
+		id = ALB_plan_tirana
+		icon = GFX_focus_GER_proletarian_solidarity
+		prerequisite = { focus = ALB_close_albania }
+		prerequisite = { focus = ALB_behead_the_snakes }
+		prerequisite = { focus = ALB_every_house_a_fort }
+		prerequisite = { focus = ALB_make_the_commissars_army focus = ALB_barrier_troops}
+		x = 0
+		y = 1
+		relative_position_id = ALB_close_albania
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		
+         available = {
+		}
+
+		completion_reward = {
+	    every_neighbor_country = {
+			ROOT = {
+	        declare_war_on = {
+                target = PREV
+                    type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_the_biggest_house
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = ALB_every_house_a_fort }
+		x = 2
+		y = 1
+		relative_position_id = ALB_close_albania
+		cost = 20
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+         
+		 available = {
+			NOT = {has_tech = stronghold_network_tech}
+		 }
+
+		completion_reward = {
+			set_technology = { stronghold_network_tech = 1 popup = yes}
+		}
+	}
+	focus = {
+		id = ALB_brilliant_genius
+		icon = GFX_focus_SWE_refuge_for_revolutionaries
+		prerequisite = { focus = ALB_plan_tirana }
+		x = -1
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_country_leader_trait = stalin_inheritor_of_lenin_genius
+		}
+	}
+	focus = {
+		id = ALB_mass_protests_for_peace
+		icon = GFX_focus_PER_stage_mass_protests
+		prerequisite = { focus = ALB_plan_tirana }
+		x = -3
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_ideas = {ALB_protests_for_peace}
+		}
+	}
+	focus = {
+		id = ALB_underground_network
+		icon = GFX_focus_RAJ_go_into_hiding
+		prerequisite = { focus = ALB_plan_tirana }
+		x = -5
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_unit_bonus = {
+			Militia = { 
+			equipment_capture_factor = 0.02
+			supply_consumption_factor = -0.1
+			}
+		}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = ALB
+}
+add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 60
+    producer = ALB
+	}
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 125
+    producer = ALB
+	}
+			add_tech_bonus = {
+				name = ALB_underground_network
+				bonus = 1.0
+				uses = 2
+				category = support_tech
+			}
+		}
+	}
+	focus = {
+		id = ALB_more_room_for_factories
+		icon = GFX_focus_RAJ_bathe_in_hellfire
+		prerequisite = { focus = ALB_plan_tirana }
+		x = 3
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		every_owned_state = {
+                add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+    }
+	add_manpower = -10000
+            }
+		}
+	}
+	focus = {
+		id = ALB_the_war_engine_is_peace
+		icon = GFX_focus_generic_mass_production
+		prerequisite = { focus = ALB_plan_tirana }
+		x = 5
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_ideas = {ALB_the_war_is_peace}
+		random_owned_state = {
+	add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+    }
+	}
+		}
+	}
+	focus = {
+		id = ALB_great_commander
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = ALB_plan_tirana }
+		x = 1
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_country_leader_trait = stalin_great_commander
+		}
+	}
+	focus = {
+		id = ALB_barrier_troops
+		icon = GFX_focus_generic_limited_social_mobilization
+		prerequisite = { focus = ALB_enemies_everywhere }
+		x = -4
+		y = 1
+		relative_position_id = ALB_enemies_everywhere
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_ideas = {ALB_barrier_troops}
+		}
+	}
+	focus = {
+		id = ALB_they_have_it_out_for_me
+		icon = GFX_focus_RAJ_i_am_death
+		prerequisite = { focus = ALB_plan_tirana }
+		prerequisite = { focus = ALB_brilliant_genius }
+		prerequisite = { focus = ALB_great_commander }
+		prerequisite = { focus = ALB_underground_network }
+		prerequisite = { focus = ALB_mass_protests_for_peace }
+		prerequisite = { focus = ALB_more_room_for_factories }
+		prerequisite = { focus = ALB_the_war_engine_is_peace }
+		x = 0
+		y = 2
+		relative_position_id = ALB_plan_tirana
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_ideas = {ALB_where_are_they}
+		}
+	}
+	focus = {
+		id = ALB_make_the_commissars_army
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = ALB_enemies_everywhere }
+		x = 4
+		y = 1
+		relative_position_id = ALB_enemies_everywhere
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_commissars_army}
+		}
+	}
+	focus = {
+		id = ALB_behead_the_snakes
+		icon = GFX_focus_SOV_behead_the_snake
+		prerequisite = { focus = ALB_enemies_everywhere }
+		x = -2
+		y = 1
+		relative_position_id = ALB_enemies_everywhere
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ALB = {
+				country_event = {
+					id = albania_events.19
+					hours = 6
+				}
+		}
+	}
+	}
+	
+	focus = {
+		id = ALB_steel_for_exceptions
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = ALB_officers_school_of_the_revolution}
+		x = 1
+		y = 1
+		relative_position_id = ALB_officers_school_of_the_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 12
+				state = 44
+				}
+			add_stability = -0.05
+		}
+	}
+	focus = {
+		id = ALB_learn_from_NKVD
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = ALB_there_treachery_everywhere focus = ALB_no_i_need_to_be_faithful}
+		x = 1
+		y = 1
+		relative_position_id = ALB_there_treachery_everywhere
+		cost = 4
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_KPPB}
+		}
+	}
+	focus = {
+		id = ALB_no_i_need_to_be_faithful
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		prerequisite = { focus = ALB_secure_the_administration }
+		mutually_exclusive = { focus = ALB_there_treachery_everywhere }
+		x = 1
+		y = 1
+		relative_position_id = ALB_secure_the_administration
+		cost = 2
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.075
+			custom_effect_tooltip = ALB_to_be_faithful_tt
+		}
+	}
+	focus = {
+		id = ALB_schools_for_revolutionaries
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = ALB_no_i_need_to_be_faithful }
+		x = 1
+		y = 1
+		relative_position_id = ALB_no_i_need_to_be_faithful
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_school_of_revolution}
+		}
+	}
+	focus = {
+		id = ALB_joint_research_effort
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { focus = ALB_allies_everywhere }
+		x = 0
+		y = 1
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ROOT = {add_to_tech_sharing_group = ALB_comintern_research}
+		SOV = {
+				add_to_tech_sharing_group = ALB_comintern_research
+			}
+		}
+	}
+	focus = {
+		id = ALB_allies_everywhere
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = ALB_no_i_need_to_be_faithful }
+		x = 2
+		y = 0
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = -75
+			set_rule = {
+				can_create_factions = yes
+			}
+			create_faction_from_template = {
+  template = faction_template_fourth_international 
+  name = "Albanian comintern"
+  icon = GFX_faction_logo_generic_2
+}
+			every_country = {
+				limit = { has_government = communism
+				NOT = {
+                tag = ALB
+	            }
+                }
+				country_event = {
+					id = albania_events.20
+					hours = 6
+				}
+			}
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 12000
+    producer = SOV
+	}
+	add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 200
+    producer = SOV
+	}
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 350
+    producer = SOV
+	}
+		}
+	}
+	focus = {
+		id = ALB_long_name
+		icon = GFX_focus_generic_befriend_albania
+		prerequisite = { focus = ALB_demand_for_montenegro_and_kosovo_people focus = ALB_the_engine_for_peace}
+		x = 1
+		y = 1
+		relative_position_id = ALB_demand_for_montenegro_and_kosovo_people
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_for_albania}
+		}
+	}
+	focus = {
+		id = ALB_reclaim_greece_for_the_people
+		icon = GFX_focus_generic_attack_greece
+		prerequisite = { focus = ALB_provide_work }
+		prerequisite = { focus = ALB_develop_albania }
+		will_lead_to_war_with = GRE
+		x = 1
+		y = 1
+		relative_position_id = ALB_develop_albania
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = GRE
+				}
+				ALB = {
+					add_core_of = ALB
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = GRE
+			}
+		}
+	}
+	focus = {
+		id = ALB_provide_for_the_people
+		icon = GFX_focus_generic_resource_extraction
+		prerequisite = { focus = ALB_allies_everywhere  }
+		x = 4
+		y = 1
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_owned_state = {
+                limit = {
+                    is_fully_controlled_by = ROOT
+                    is_core_of = ALB
+                }
+                add_extra_state_shared_building_slots = 3
+            }
+		}
+	}
+	focus = {
+		id = ALB_soviet_industrial_investments
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = ALB_allies_everywhere }
+		x = 2
+		y = 1
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.05
+			}
+			add_tech_bonus = {
+				name = SPR_soviet_industrial_aid
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+			add_timed_idea = { idea = SPR_soviet_industrial_aid days = 730 }
+			}
+		}
+		focus = {
+		id = ALB_provide_work
+		icon = GFX_focus_AFG_integrate_tajik_and_uzbek_republics
+		prerequisite = { focus = ALB_soviet_industrial_investments }
+		prerequisite = { focus = ALB_provide_for_the_people }
+		x = 3
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_owned_state = {
+	add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+    }
+	add_manpower = 10000
+	}
+			}
+		}
+		focus = {
+		id = ALB_joint_instructors_for_revolutionaries
+		icon = GFX_focus_CHL_union_of_hispanic_republics
+		prerequisite = { focus = ALB_soviet_industrial_investments }
+		prerequisite = { focus = ALB_joint_research_effort }
+		x = 1
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_unit_bonus = {
+			mountaineers = { 
+			soft_attack = 0.15
+			supply_consumption_factor = -0.1
+			max_organisation = 10
+			}
+		}
+			every_country = {
+				limit = { has_government = communism
+				NOT = {
+                tag = ALB
+	            }
+                }
+				army_experience = 25
+			}
+			add_ideas = ALB_instructors_for_revolutionaries
+			army_experience = 75
+			}
+		}
+		focus = {
+		id = ALB_joint_instructors_for_revolutionaries_at_home
+		icon = GFX_SOV_military_engineering_university_ccp_2d_sov_compatibility
+		prerequisite = { focus = ALB_joint_research_effort }
+		x = -1
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = ALB_instructors_for_revolutionaries_at_home
+			}
+		}
+		focus = {
+		id = ALB_develop_albania
+		icon = GFX_focus_AFG_helmand_river_authority
+		prerequisite = { focus = ALB_provide_for_the_people }
+		x = 5
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			934 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			44 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			44 = {
+				if = {
+					limit = {
+					    44 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+			}
+		}
+		focus = {
+		id = ALB_the_engine_for_peace
+		icon = GFX_focus_GER_the_peoples_victory
+		prerequisite = { focus = ALB_provide_work }
+		x = 4
+		y = 3
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_owned_state = {
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+    }
+	}
+	add_extra_state_shared_building_slots = 2
+			}
+		}
+		focus = {
+		id = ALB_demand_for_montenegro_and_kosovo_people
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		prerequisite = { focus = ALB_provide_work }
+		prerequisite = { focus = ALB_joint_instructors_for_revolutionaries }
+		x = 2
+		y = 3
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			105 = { 
+				controller = {
+					country_event = { id = albania_events.9 }
+				}
+			}
+		}
+		}
+	focus = {
+		id = ALB_invite_soviet_volunteers
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = ALB_no_i_need_to_be_faithful }
+		x = 4
+		y = 0
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_soviet_volunteers}
+		}
+	}
+	focus = {
+		id = ALB_For_the_june_revolution
+		icon = GFX_focus_NOR_restore_public_trust_in_the_storting
+		prerequisite = { focus = ALB_Challenge_Zog }
+		mutually_exclusive = { focus = ALB_Makeing_the_worker_class focus = ALB_muslim_revolution }
+		x = 15
+		y = 1
+		relative_position_id = ALB_Challenge_Zog
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_popularity = {
+			    ideology = democratic 
+			    popularity = 0.15
+			}
+		}
+	}
+	focus = {
+		id = ALB_invite_white_russians_exiles
+		icon = GFX_focus_SOV_approach_semyonov
+		prerequisite = { focus = ALB_For_the_june_revolution }
+		x = -8
+		y = 1
+		relative_position_id = ALB_For_the_june_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	focus = {
+		id = ALB_send_military_aid_to_spain
+		icon = GFX_focus_generic_befriend_republican_spain_focus
+		prerequisite = { focus = ALB_For_the_june_revolution }
+		x = 4
+		y = 1
+		relative_position_id = ALB_For_the_june_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			SPR_scw_in_progress = yes
+			is_subject = no
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_timed_idea = { idea = SOV_military_advisors_in_spain days = 1095 }
+			SPR = {
+	add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1500
+    producer = ALB	
+	}
+		}
+	}
+	}
+	focus = {
+		id = ALB_use_spain_gold
+		icon = GFX_focus_CONGO_gold_and_diamonds
+		prerequisite = { focus = ALB_For_the_june_revolution }
+		x = 6
+		y = 1
+		relative_position_id = ALB_For_the_june_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+		has_idea = SPR_seized_spanish_gold_reserves  
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		add_offsite_building = { type = arms_factory level = 1 }
+		remove_ideas = SPR_seized_spanish_gold_reserves 
+	}
+	}
+	focus = {
+		id = ALB_steel_plant
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = ALB_For_the_june_revolution }
+		x = -4
+		y = 1
+		relative_position_id = ALB_For_the_june_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			44 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 6
+				state = 44
+				}
+				add_resource = {
+				type = coal
+				amount = 2
+				state = 44
+				}
+				44 = {
+				if = {
+					limit = {
+					    44 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_land_reform
+		icon = GFX_focus_generic_farmland
+		prerequisite = { focus = ALB_For_the_june_revolution }
+		x = -2
+		y = 1
+		relative_position_id = ALB_For_the_june_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_ideas = CHI_labor_reform
+		}
+	}
+	focus = {
+		id = ALB_public_works
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = ALB_establish_elections }
+		prerequisite = { focus = ALB_steel_plant  focus = ALB_land_reform}
+		x = -2
+		y = 2
+		relative_position_id = ALB_For_the_june_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = CHI_public_works
+			add_resource = {
+				type = coal
+				amount = 4
+				state = 44
+				}
+		}
+	}
+	focus = {
+		id = ALB_compromise_with_the_king
+		icon = GFX_focus_SWE_refuge_from_war
+		prerequisite = { focus = ALB_For_the_june_revolution }
+		x = 2
+		y = 1
+		relative_position_id = ALB_For_the_june_revolution
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_popularity = {
+			    ideology = democratic 
+			    popularity = 0.05
+			}
+			add_ideas = ALB_king_zog_idea
+		}
+	}
+	focus = {
+		id = ALB_establish_elections
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = ALB_For_the_june_revolution }
+		x = 0
+		y = 1
+		relative_position_id = ALB_For_the_june_revolution
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		set_politics = {
+    ruling_party = democratic
+    elections_allowed = yes
+    last_election = "1960.12.17"
+    election_frequency = 120
+	}
+	}
+	}
+	focus = {
+		id = ALB_found_the_patriarch_of_albania
+		icon = GFX_focus_BUL_free_balkan_states
+		prerequisite = { focus = ALB_compromise_with_the_king }
+		prerequisite = { focus = ALB_establish_elections }
+		x = 1
+		y = 1
+		relative_position_id = ALB_establish_elections
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			retire_character = ALB_Riza_Cerova
+				add_country_leader_role = {
+					character = "ALB_Fan_Noli"
+					country_leader = {
+					  ideology= conservatism
+					  traits = { priestly_prime_minister }
+					  expire="1965.1.1"
+					}
+					promote_leader = yes
+				}	
+		}
+	}
+	focus = {
+		id = ALB_gate_to_his_kingdom
+		icon = GFX_focus_generic_vatican_state
+		prerequisite = { focus = ALB_found_the_patriarch_of_albania }
+		x = 6
+		y = 1
+		relative_position_id = ALB_found_the_patriarch_of_albania
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+        available = {
+			158 = { is_fully_controlled_by = ROOT }
+			159 = { is_fully_controlled_by = ROOT }
+			39 = { is_fully_controlled_by = ROOT }
+			160 = { is_fully_controlled_by = ROOT }
+			736 = { is_fully_controlled_by = ROOT }
+			852 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			158 = {
+				add_building_construction = { type = bunker province = 6635 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 611 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 11721 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 9738 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 6780 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 11891 level = 3 instant_build = yes }
+			}
+			159 = {
+				add_building_construction = { type = bunker province = 607 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 9584 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 6661 level = 3 instant_build = yes }
+			}
+			39 = {
+				add_building_construction = { type = bunker province = 11615 level = 3 instant_build = yes }
+			}
+			160 = {
+				add_building_construction = { type = bunker province = 9613 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 3657 level = 3 instant_build = yes }
+			}
+			736 = {
+				add_building_construction = { type = bunker province = 11595 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 599 level = 3 instant_build = yes }
+			}
+			852 = {
+				add_building_construction = { type = bunker province = 11735 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 11564 level = 3 instant_build = yes }
+			}
+		}
+		}
+		focus = {
+		id = ALB_gods_sky
+		icon = GFX_focus_SWE_let_fly_all_guns
+		prerequisite = { focus = ALB_found_the_patriarch_of_albania }
+		x = 4
+		y = 1
+		relative_position_id = ALB_found_the_patriarch_of_albania
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		available = {
+			has_tech = interwar_antiair 
+			2 = { is_fully_controlled_by = ROOT }
+			162 = { is_fully_controlled_by = ROOT }
+			157 = { is_fully_controlled_by = ROOT }
+			117 = { is_fully_controlled_by = ROOT }
+			161 = { is_fully_controlled_by = ROOT }
+			44 = { is_fully_controlled_by = ROOT }
+		}
+
+		completion_reward = {
+			2 = {
+				add_building_construction = {
+					type = anti_air_building 
+					level = 3
+					instant_build = yes
+				}
+		}
+		162 = {
+				add_building_construction = {
+					type = anti_air_building 
+					level = 3
+					instant_build = yes
+				}
+		}
+		157 = {
+				add_building_construction = {
+					type = anti_air_building 
+					level = 3
+					instant_build = yes
+				}
+		}
+		117 = {
+				add_building_construction = {
+					type = anti_air_building 
+					level = 3
+					instant_build = yes
+				}
+		}
+		161 = {
+				add_building_construction = {
+					type = anti_air_building 
+					level = 3
+					instant_build = yes
+				}
+		}
+		44 = {
+				add_building_construction = {
+					type = anti_air_building 
+					level = 3
+					instant_build = yes
+				}
+		}
+		}
+		}
+		focus = {
+		id = ALB_gods_gate
+		icon = GFX_focus_SOV_rebuild_the_savior_cathedral
+		prerequisite = { focus = ALB_found_the_patriarch_of_albania }
+		x = 2
+		y = 1
+		relative_position_id = ALB_found_the_patriarch_of_albania
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			934 = { is_fully_controlled_by = ROOT }
+			805 = { is_fully_controlled_by = ROOT }
+			44 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			934 = {
+				add_building_construction = { type = bunker province = 9780 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 3896 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 11762 level = 3 instant_build = yes }
+			}
+			44 = {
+				add_building_construction = { type = bunker province = 9875 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 6900 level = 3 instant_build = yes }
+			}
+			805 = {
+				add_building_construction = { type = bunker province = 13234 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 13235 level = 3 instant_build = yes }
+				add_building_construction = { type = bunker province = 914 level = 3 instant_build = yes }
+			}
+		}
+		}
+	focus = {
+		id = ALB_romes_heirs
+		icon = GFX_focus_ITA_mare_nostrum
+		prerequisite = { focus = ALB_found_the_patriarch_of_albania }
+		mutually_exclusive = { focus = ALB_holy_land_are_ours }
+		x = -7
+		y = 1
+		relative_position_id = ALB_found_the_patriarch_of_albania
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 100
+			set_rule = {
+				can_create_factions = yes
+			}
+			create_faction_from_template = {
+  template = faction_template_generic_dominance    
+  name = "The Illyrian Senate"
+  icon = GFX_faction_logo_generic_7
+}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+    producer = TUR
+	}
+	add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 120
+    producer = TUR
+	}
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 500
+    producer = TUR
+	}
+	
+		}
+	}
+	focus = {
+		id = ALB_roman_legion
+		icon = GFX_focus_ITA_albanian_fascist_militia
+		prerequisite = { focus = ALB_romes_heirs }
+		x = 1
+		y = 1
+		relative_position_id = ALB_romes_heirs
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_Legio_Invicta}
+			division_template = {
+							name = "Legionary"			
+							division_names_group = ALB_INF_01
+							priority = 2
+                            template_counter = 35
+                            division_cap = 24
+							regiments = {
+								 mountaineers = { x = 0 y = 0 }
+								 mountaineers = { x = 0 y = 1 }
+								 mountaineers = { x = 0 y = 2 }
+								 mountaineers = { x = 0 y = 3 }
+								 mountaineers = { x = 1 y = 0 }
+								 mountaineers = { x = 1 y = 1 }
+								 mountaineers = { x = 1 y = 2 }
+								 mountaineers = { x = 2 y = 0 }
+								 mountaineers = { x = 2 y = 1 }
+								 mountaineers = { x = 2 y = 2 }
+							}
+							support = {
+								artillery = { x = 0 y = 0 }  
+								engineer = { x = 0 y = 1 }   
+								recon = { x = 0 y = 2 }      
+							}
+						}
+						capital_scope = {
+                create_unit = {
+                    division = "name = \"Legionary\"division_template = \"Legionary\" start_experience_factor = 0.2 start_equipment_factor = 1.0 start_manpower_factor = 1"
+                    owner = ROOT
+                    count = 6
+                }
+            }
+		}
+	}
+	focus = {
+		id = ALB_new_roman_people
+		icon = GFX_focus_ETH_invite_italian_settlers
+		prerequisite = { focus = ALB_romes_heirs }
+		x = -1
+		y = 1
+		relative_position_id = ALB_romes_heirs
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_The_New_Roman_People}
+		}
+	}
+	focus = {
+		id = ALB_dispute_with_italy
+		icon = GFX_focus_ETH_the_second_italo_ethiopian_war
+		prerequisite = { focus = ALB_romes_heirs }
+		x = -7
+		y = 3
+		relative_position_id = ALB_found_the_patriarch_of_albania
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			unlock_decision_category_tooltip = ALB_rome_reborn_category
+			set_cosmetic_tag = ILL_democratic
+			add_ideas = ALB_the_true_roman
+			add_tech_bonus = {
+				name = ALB_amphibious_focus
+				bonus = 1.0
+				uses = 1
+				category = tp_tech
+			}
+		}
+	}
+	focus = {
+		id = ALB_focus_on_the_east
+		icon = GFX_focus_GRE_byzantine_themata
+		prerequisite = { focus = ALB_dispute_with_italy }
+		x = 1
+		y = 1
+		relative_position_id = ALB_dispute_with_italy
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = YUG
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = YUG
+			}
+		}
+	}
+	focus = {
+		id = ALB_reclaim_greece
+		icon = GFX_focus_GRE_bedrock_of_balkan_stability
+		prerequisite = { focus = ALB_focus_on_the_east }
+		will_lead_to_war_with = GRE
+		x = 0
+		y = 1
+		relative_position_id = ALB_focus_on_the_east
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = GRE
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = GRE
+			}
+		}
+	}
+	focus = {
+		id = ALB_reclaim_anatolia
+		icon = GFX_focus_TUR_misak_i_milli
+		prerequisite = { focus = ALB_focus_on_the_east focus = ALB_pope_1 }
+		will_lead_to_war_with = TUR
+		x = 4
+		y = 1
+		relative_position_id = ALB_focus_on_the_east
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = TUR
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = TUR
+			}
+		}
+	}
+	focus = {
+		id = ALB_reclaim_bulgaria
+		icon = GFX_focus_BUL_bulgaria_on_the_three_seas
+		prerequisite = { focus = ALB_focus_on_the_east }
+		will_lead_to_war_with = BUL
+		x = 2
+		y = 1
+		relative_position_id = ALB_focus_on_the_east
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = BUL
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = BUL
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_war_with_italy
+		icon = GFX_focus_attack_italy
+		prerequisite = { focus = ALB_dispute_with_italy }
+		available = {
+			OR = {
+			NOT = {
+				has_completed_focus = ALB_focus_on_the_east
+			}
+			has_completed_focus = ALB_parliament_of_all_romans
+			}
+		}
+		bypass = {
+			has_war_with = ITA
+		}
+		x = -1
+		y = 1
+		relative_position_id = ALB_dispute_with_italy
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = ITA
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = ITA
+			}
+		}
+	}
+	focus = {
+		id = ALB_proclaim_the_new_rome
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = ALB_war_with_italy }
+		available = {
+			controls_province = 9904
+		}
+		x = -1
+		y = 2
+		relative_position_id = ALB_dispute_with_italy
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			44 = {
+				add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+			every_state = {
+				limit = {
+					is_core_of = ITA
+				}
+				ALB = {
+					add_state_core = PREV
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ALB_focus_on_the_east
+					}
+				}
+				complete_national_focus = ALB_focus_on_the_east
+			}
+			
+		}
+	}
+	focus = {
+		id = ALB_parliament_of_all_romans
+		icon = GFX_focus_ETH_re-convene_the_parliament
+		prerequisite = { focus = ALB_proclaim_the_new_rome focus = ALB_reclaim_bulgaria focus = ALB_reclaim_greece focus = ALB_reclaim_anatolia }
+		available = {
+			NOT = {
+			has_completed_focus = ALB_pope_1
+			}
+		}
+		x = 0
+		y = 3
+		relative_position_id = ALB_dispute_with_italy
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = ITA
+				}
+				ALB = {
+					add_state_core = PREV
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = ALB_holy_land_are_ours
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = ALB_found_the_patriarch_of_albania }
+		mutually_exclusive = { focus = ALB_romes_heirs }
+		x = 0
+		y = 1
+		relative_position_id = ALB_found_the_patriarch_of_albania
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+		completion_reward = {
+			add_political_power = 100
+			set_rule = {
+				can_create_factions = yes
+			}
+			create_faction_from_template = {
+  template = faction_template_generic_dominance    
+  name = "The Divine Coalition"
+  icon = GFX_faction_logo_generic_7
+}
+		}
+	}
+	focus = {
+		id = ALB_Knights_Hospitaller
+		icon = GFX_focus_generic_field_hostpital
+		prerequisite = { focus = ALB_pope }
+		x = -1
+		y = 2
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = ALB_Order_of_Saint_John
+		}
+	}
+	focus = {
+		id = ALB_pope_1
+		icon = GFX_focus_generic_pope
+		prerequisite = { focus = ALB_pope }
+		x = 0
+		y = 3
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 1
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+		ITA = {
+			OR = {is_subject_of = AlB
+			exists = no}
+			}
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ITA = {
+				every_unit_leader  = {
+					set_nationality = PAP
+				}
+				}
+				puppet = {
+    target = PAP
+    end_wars = yes
+}
+		}
+	}
+	focus = {
+		id = ALB_pope_2_alps
+		icon = GFX_focus_BUL_restore_the_bulgarian_patriarchate
+		prerequisite = { focus = ALB_pope_1 }
+		x = 0
+		y = 4
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+				#CLAIM IN CORSICA
+			if = {
+				limit = {
+					1 = { NOT = { is_claimed_by = ROOT } }
+				}
+				add_state_claim = 1 #CORSICA
+				if = {
+					limit = {
+						1 = {
+							controller = {
+								NOT = { has_war_with = ROOT }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_non_aggression_pact_with = ROOT }
+								NOT = { is_guaranteed_by = ROOT }
+							}
+						}
+					}
+					if = { #Same controller for Corsica and Tunisian states
+						limit = {
+							1 = {
+								controller = {
+									controls_state = 458
+									controls_state = 665
+								}
+							}
+						}
+						create_wargoal = {
+							type = take_state_focus
+							target = 1.controller
+							generator = { 1 458 }
+						}
+					}
+					else = { #Corsica and Tunisian states have different controllers
+						create_wargoal = {
+							type = take_state_focus
+							target = 1.controller
+							generator = { 1 }
+						}
+					}
+				}
+			}
+			#CLAIM IN ALPS
+			if = {
+				limit = {
+					735 = { NOT = { is_claimed_by = ROOT } }
+				}
+				add_state_claim = 735 #CORSICA
+				if = {
+					limit = {
+						735 = {
+							controller = {
+								NOT = { has_war_with = ROOT }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_non_aggression_pact_with = ROOT }
+								NOT = { is_guaranteed_by = ROOT }
+							}
+						}
+					}
+					if = { #Same controller for Corsica and Tunisian states
+						limit = {
+							735 = {
+								controller = {
+									controls_state = 1
+								}
+							}
+						}
+						create_wargoal = {
+							type = take_state_focus
+							target = 735.controller
+							generator = { 735 1 }
+						}
+					}
+					else = { #Corsica and Tunisian states have different controllers
+						create_wargoal = {
+							type = take_state_focus
+							target = 735.controller
+							generator = { 735 }
+						}
+					}
+				}
+			}
+
+			#CLAIMS IN TUNISIA
+			if = {
+				limit = {
+					458 = { NOT = { is_claimed_by = ROOT } }
+				}
+				add_state_claim = 458 #TUNISIA
+				if = {
+					limit = {
+						458 = {
+							controller = {
+								ROOT = { NOT = { has_wargoal_against = PREV } } #Didn't get wargoal from Corsica script above
+								NOT = { has_war_with = ROOT }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_non_aggression_pact_with = ROOT }
+								NOT = { is_guaranteed_by = ROOT }
+							}
+						}
+					}
+					if = { #Same controller for both Tunisian states
+						limit = {
+							458 = {
+								controller = {
+									controls_state = 665
+								}
+							}
+						}
+						create_wargoal = {
+							type = take_state_focus
+							target = 458.controller
+							generator = { 458 665 }
+						}
+					}
+					else = { #Each Tunisian states have different controllers
+						create_wargoal = {
+							type = take_state_focus
+							target = 458.controller
+							generator = { 458 }
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					665 = { NOT = { is_claimed_by = ROOT } }
+				}
+				add_state_claim = 665 #GABÈS
+				if = {
+					limit = {
+						665 = {
+							controller = {
+								ROOT = { NOT = { has_wargoal_against = PREV } } #Didn't get wargoal from Corsica script above
+								NOT = { controls_state = 458 } #Otherwise already received the wargoal above
+								NOT = { has_war_with = ROOT }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_non_aggression_pact_with = ROOT }
+								NOT = { is_guaranteed_by = ROOT }
+							}
+						}
+					}
+					create_wargoal = {
+						type = take_state_focus
+						target = 665.controller
+						generator = { 665 }
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_pope_4_big_italy
+		icon = GFX_focus_ITA_greater_italy
+		prerequisite = { focus = ALB_pope_2_alps }
+		x = 0
+		y = 5
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			#CLAIMS IN GIBRALTAR AND SUEZ CANAL
+			unlock_decision_category_tooltip = ALB_Adriatica_category
+			if = {
+				limit = {
+					118 = { NOT = { is_claimed_by = ROOT } }
+				}
+				add_state_claim = 118 #GIBRALTAR
+				if = {
+					limit = {
+						118 = {
+							controller = {
+								NOT = { has_war_with = ROOT }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_non_aggression_pact_with = ROOT }
+								NOT = { is_guaranteed_by = ROOT }
+							}
+						}
+					}
+					if = { #Same controller for both states
+						limit = {
+							118 = {
+								controller = {
+									controls_state = 446
+								}
+							}
+						}
+						create_wargoal = {
+							type = take_state_focus
+							target = 118.controller
+							generator = { 118 446 }
+						}
+					}
+					else = { #Each state have different controllers
+						create_wargoal = {
+							type = take_state_focus
+							target = 118.controller
+							generator = { 118 }
+						}
+					}
+					
+				}
+			}
+			if = {
+				limit = {
+					446 = { NOT = { is_claimed_by = ROOT } }
+				}
+				add_state_claim = 446 #CAIRO (Suez Canal)
+				if = {
+					limit = {
+						446 = {
+							controller = {
+								NOT = { controls_state = 118 } #Otherwise already received the wargoal above
+								NOT = { has_war_with = ROOT }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_non_aggression_pact_with = ROOT }
+								NOT = { is_guaranteed_by = ROOT }
+							}
+						}
+					}
+					create_wargoal = {
+						type = take_state_focus
+						target = 446.controller
+						generator = { 446 }
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_pope_5
+		icon = GFX_focus_generic_military_industry
+		prerequisite = { focus = ALB_pope_4_big_italy focus = ALB_parliament_of_all_romans}
+		x = 3
+		y = 1
+		relative_position_id = ALB_parliament_of_all_romans
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		available = {
+			OR = {
+				controls_state = 2
+				controls_state = 117
+				controls_state = 162
+				controls_state = 158
+			}
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			2 = { #ROME
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			117 = { #CAMPANIA
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			162 = { #TUSCANY
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			158 = { #PIEDMONT
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+				}
+				add_dynamic_modifier = {
+					modifier = ITA_italian_highways_modifier
+					scope = ITA
+					days = 365
+				}
+			}	
+		}	
+	}
+	focus = {
+		id = ALB_pope_6
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = ALB_pope_5}
+		x = 3
+		y = 2
+		relative_position_id = ALB_parliament_of_all_romans
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		available = {
+			controls_state = 2
+			controls_state = 161
+			controls_state = 162
+			controls_state = 117
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ITA_railway_innovations
+				ahead_reduction = 1.5
+				bonus = 0.5
+				uses = 1
+				category = train_tech
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			#Roma - La Spezia
+			build_railway = {
+				path = { 9904 11751 6862 6875 11833 6946 6973 }
+			}
+
+			#Roma - Bologna
+			build_railway = {
+				path = { 11751 6862 9750 9879 9907 1616 6985 6606 }
+			}
+
+			#Roma - Napoli
+			build_railway = {
+				path = { 9904 11846 923 9826 819 }
+			}
+		}
+	}
+	focus = {
+		id = ALB_pope_7
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = ALB_pope_5}
+		x = 5
+		y = 2
+		relative_position_id = ALB_parliament_of_all_romans
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		available = {
+			has_full_control_of_state = 159
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			if = {
+				limit = {
+					159 = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+				}
+				159 = { #LOMBARDY (Milano)
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_core_state = {
+					limit = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					prioritize = { 158 160 852 736 39 } #PIEMONTE as main fallback
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			add_tech_bonus = {
+				name = ITA_redirect_alfa_romeo_production
+				bonus = 0.50
+				uses = 2
+				category = motorized_equipment
+				category = light_air
+			}
+		}
+	}
+	focus = {
+		id = ALB_pope_8
+		icon = GFX_focus_SWE_landsverk
+		prerequisite = { focus = ALB_pope_5}
+		x = 1
+		y = 2
+		relative_position_id = ALB_parliament_of_all_romans
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		available = {
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+		add_timed_idea = { idea = ITA_foggia_farm_fields days = 730 }
+	}
+	}
+	focus = {
+		id = ALB_pope_3_yug
+		icon = GFX_focus_generic_attack_yugoslavia
+		prerequisite = { focus = ALB_pope_1 }
+		x = 2
+		y = 4
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = YUG
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = YUG
+			}
+		}
+	}
+	focus = {
+		id = ALB_his_will
+		icon = GFX_focus_generic_influence_middle_east
+		prerequisite = { focus = ALB_pope }
+		x = 5
+		y = 2
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = IRQ
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = IRQ
+			}
+			every_state = {
+				limit = {
+					is_core_of = SAU
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = SAU
+			}
+			every_state = {
+				limit = {
+					is_core_of = YEM
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = YEM
+			}
+			every_state = {
+				limit = {
+					is_core_of = OMA
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = OMA
+			}
+		}
+	}
+	focus = {
+		id = ALB_iran_fate
+		icon = GFX_focus_generic_attack_iran
+		prerequisite = { focus = ALB_his_will }
+		x = 5
+		y = 4
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = PER
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = PER
+			}
+		}
+	}
+	focus = {
+		id = ALB_new_b_1
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = ALB_pope }
+		x = 3
+		y = 2
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ENG = { country_event = {
+    id = albania_events.16
+	}
+	}
+		}
+	}
+	focus = {
+		id = ALB_new_b_2
+		icon = GFX_focus_eng_decolonization
+		prerequisite = { focus = ALB_new_b_1 }
+		mutually_exclusive = { focus = ALB_new_b_3 }
+		x = 2
+		y = 3
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = {
+				limit = {
+					765 = { NOT = { is_claimed_by = ROOT } }
+				}
+				add_state_claim = 765 #GIBRALTAR
+				if = {
+					limit = {
+						765 = {
+							controller = {
+								NOT = { has_war_with = ROOT }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_non_aggression_pact_with = ROOT }
+								NOT = { is_guaranteed_by = ROOT }
+							}
+						}
+					}
+					if = { #Same controller for both states
+						limit = {
+							765 = {
+								controller = {
+									controls_state = 656
+								}
+							}
+						}
+						create_wargoal = {
+							type = take_state_focus
+							target = 765.controller
+							generator = { 765 656 }
+						}
+					}
+					else = { #Each state have different controllers
+						create_wargoal = {
+							type = take_state_focus
+							target = 765.controller
+							generator = { 765 }
+						}
+					}
+					
+				}
+			}
+			if = {
+				limit = {
+					656 = { NOT = { is_claimed_by = ROOT } }
+				}
+				add_state_claim = 656 #CAIRO (Suez Canal)
+				if = {
+					limit = {
+						656 = {
+							controller = {
+								NOT = { controls_state = 118 } #Otherwise already received the wargoal above
+								NOT = { has_war_with = ROOT }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_non_aggression_pact_with = ROOT }
+								NOT = { is_guaranteed_by = ROOT }
+							}
+						}
+					}
+					create_wargoal = {
+						type = take_state_focus
+						target = 656.controller
+						generator = { 656 }
+					}
+				}
+			}
+		}
+		}
+	focus = {
+		id = ALB_new_b_3
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = ALB_new_b_1 }
+		mutually_exclusive = { focus = ALB_new_b_2 }
+		x = 4
+		y = 3
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			291 = { is_fully_controlled_by = ROOT }
+			676 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ENG = { country_event = {
+    id = albania_events.17
+	}
+	}
+		}
+	}
+	focus = {
+		id = ALB_new_f
+		icon = GFX_focus_chi_reach_out_to_france
+		prerequisite = { focus = ALB_pope }
+		x = 1
+		y = 2
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			FRA = { country_event = {
+    id = albania_events.15
+	}
+	}
+		}
+	}
+	focus = {
+		id = ALB_pope
+		icon = GFX_focus_GRE_an_orthodox_state
+		prerequisite = { focus = ALB_holy_land_are_ours }
+		x = 0
+		y = 1
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ITA = {
+					add_timed_idea = {
+						idea = ALB_Its_albania_who_cares
+						days = 180
+					}
+					add_timed_idea = {
+						idea = AlB_breakdown_of_order
+						days = 180
+					}
+					add_timed_idea = {
+						idea = AlB_will_of_the_people
+						days = 400
+					}
+				}
+				every_other_country = {
+					limit = {
+						any_owned_state = {
+							is_core_of = PAP
+						}
+					}
+				}
+				every_state = {
+				limit = {
+					is_core_of = ITA
+				}
+				PAP = {
+					add_state_core = PREV
+				}
+			}
+				PAP = { transfer_state = 157 }
+				PAP = { transfer_state = 2 }
+				PAP = { transfer_state = 161 }
+				PAP = { transfer_state = 159 }
+				PAP = { transfer_state = 158 }
+					PAP = {
+						declare_war_on = {
+							target = ITA
+							type = independence_wargoal
+						}
+					}
+					hidden_effect = {
+					2 = {
+						teleport_armies = { 
+							# just teleport everyone home
+						}
+					}
+					create_wargoal = {
+				type = take_claimed_state
+				target = ITA
+			}
+				PAP = {
+					division_template = {
+						name = "Workers' Militias"
+						is_locked = no
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }	
+							infantry = { x = 0 y = 3 }			
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }	
+							infantry = { x = 1 y = 3 }						
+						}
+						support = {
+						artillery = { x = 0 y = 0 }
+						}
+					}
+					2 = {
+						create_unit = {
+							division = "name = \"Workers' Militia\" division_template = \"Workers' Militias\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = PAP
+							allow_spawning_on_enemy_provs = yes 
+							count = 12
+						}
+					}
+					161 = {
+						create_unit = {
+							division = "name = \"Workers' Militia\" division_template = \"Workers' Militias\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = PAP
+							allow_spawning_on_enemy_provs = yes 
+							count = 7
+						}
+					}
+					158 = {
+						create_unit = {
+							division = "name = \"Workers' Militia\" division_template = \"Workers' Militias\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = PAP
+							allow_spawning_on_enemy_provs = yes 
+							count = 7
+						}
+					}
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.6
+					}
+					set_politics = {
+						ruling_party = democratic
+						elections_allowed = no
+					}
+					ALB = { 
+				    add_to_faction = PAP}
+					PAP = {add_manpower = 50000}
+					add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 10000
+                    producer = ITA
+					}
+					add_equipment_to_stockpile = {
+                    type = support_equipment
+                    amount = 200
+                    producer = ITA
+					}
+					add_equipment_to_stockpile = {
+                    type = artillery_equipment
+                    amount = 150
+                    producer = ITA
+					}
+					add_equipment_to_stockpile = {
+                    type = train_equipment_1
+                    amount = 25
+                    producer = ITA
+					}
+					add_offsite_building = { type = arms_factory level = 1 }
+				}
+				ALB = {
+					division_template = {
+						name = "Workers' Militias"
+						is_locked = no
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }	
+							infantry = { x = 0 y = 3 }			
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }	
+							infantry = { x = 1 y = 3 }					
+						}
+						support = {
+						artillery = { x = 0 y = 0 }
+						}
+					}
+					2 = {
+						create_unit = {
+							division = "name = \"Workers' Militia\" division_template = \"Workers' Militias\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = ALB
+							allow_spawning_on_enemy_provs = yes 
+							count = 12
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_Faith_and_Steel
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		prerequisite = { focus = ALB_pope }
+		x = -3
+		y = 2
+		relative_position_id = ALB_holy_land_are_ours
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = ALB_Knights_of_the_Cross
+				add_tech_bonus = {
+				name = ALB_amphibious_focus
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+			add_tech_bonus = {
+				name = ALB_amphibious_focus
+				bonus = 1.0
+				uses = 2
+				category = tp_tech
+			}
+		}
+	}
+	focus = {
+		id = ALB_educate_the_balkans
+		icon = GFX_focus_research2
+		prerequisite = { focus = ALB_reclaim_anatolia focus = ALB_reclaim_bulgaria }
+		x = 0
+		y = 1
+		relative_position_id = ALB_reclaim_anatolia
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	focus = {
+		id = ALB_russian_army
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = ALB_invite_white_russians_exiles focus = ALB_invite_soviet_advisors }
+		x = 2
+		y = 1
+		relative_position_id = ALB_invite_soviet_advisors
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_russian_army}
+		}
+	}
+	focus = {
+		id = ALB_cooperation_with_the_communists_of_china
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		prerequisite = { focus = ALB_invite_soviet_advisors }
+		x = 0
+		y = 1
+		relative_position_id = ALB_invite_soviet_advisors
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_socialism_with_chinese_characteristics}
+		}
+	}
+	focus = {
+		id = ALB_soviet_instructors
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = ALB_invite_soviet_advisors }
+		x = 1
+		y = 2
+		relative_position_id = ALB_invite_soviet_advisors
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_mastery_bonus = {
+				name = ALB_soviet_instructors
+				bonus = 0.1
+				days = 240
+				track = infantry
+				grand_doctrine = mass_assault 
+			}
+			add_doctrine_cost_reduction = {
+				name = ALB_soviet_instructors
+				cost_reduction = 0.35
+				uses = 2
+				category = land_doctrine
+			}
+			army_experience = 75
+		}
+	}
+	focus = {
+		id = ALB_the_iron_wall
+		icon = GFX_SOV_superior_war_machines_ccp_2d_sov_compatibility
+		prerequisite = { focus = ALB_invite_white_russians_exiles }
+		x = 4
+		y = 1
+		relative_position_id = ALB_invite_soviet_advisors
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 1
+			}
+			add_tech_bonus = {
+				name = ALB_the_iron_wall
+				ahead_reduction = 1 # was 2
+				bonus = 1
+				uses = 1
+				category = cat_heavy_armor
+			}
+			add_ideas = ALB_the_iron_wall
+		}
+	}
+	focus = {
+		id = ALB_white_russian_cavalry
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = ALB_invite_white_russians_exiles }
+		x = 3
+		y = 2
+		relative_position_id = ALB_invite_soviet_advisors
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+		
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_white_russian_cavalry_brigades}
+			
+			add_mastery = {
+				amount = 150
+				track = infantry
+			}
+
+			add_doctrine_cost_reduction = {
+				name = ALB_white_russian_cavalry_brigades
+				cost_reduction = 0.45
+				uses = 2
+				category = land_doctrine
+			}
+		
+			army_experience = 35
+		}
+	}
+	focus = {
+		id = ALB_muslim_revolution
+		icon = GFX_focus_TUR_pivot_to_the_past
+		prerequisite = { focus = ALB_Challenge_Zog }
+		mutually_exclusive = { focus = ALB_Makeing_the_worker_class focus = ALB_For_the_june_revolution }
+		x = 27
+		y = 1
+		relative_position_id = ALB_Challenge_Zog
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_popularity = {
+			    ideology = fascism  
+			    popularity = 0.15
+			}
+	}
+	}
+	focus = {
+		id = ALB_invite_egyption_exiles
+		icon = GFX_focus_ITA_topple_amhara_rulers
+		prerequisite = { focus = ALB_muslim_revolution }
+		mutually_exclusive = { focus = ALB_invite_ottoman_exiles }
+		x = -1
+		y = 1
+		relative_position_id = ALB_muslim_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			retire_character = ALB_tefik_mborja
+			add_popularity = { ideology = fascism popularity = 0.05 }
+				add_country_leader_role = {
+					character = "ALB_Mostafa_el_Nahas_Pasha"
+					country_leader = {
+					  ideology= gen_nazism
+					  traits = { modernizer_and_diplomat }
+					  expire="1965.1.1"
+					}
+					promote_leader = yes
+				}				
+			}
+		}
+	focus = {
+		id = ALB_invite_ottoman_exiles
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = ALB_muslim_revolution }
+		mutually_exclusive = { focus = ALB_invite_egyption_exiles }
+		x = 1
+		y = 1
+		relative_position_id = ALB_muslim_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			retire_character = ALB_tefik_mborja
+			promote_character = ALB_Celadet_Ali_Bedirxan
+			add_popularity = { ideology = fascism popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = ALB_Reorganize_the_government
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = ALB_invite_ottoman_exiles focus = ALB_invite_egyption_exiles }
+		mutually_exclusive = { focus = ALB_Reorganize_the_government_now }
+		x = 0
+		y = 1
+		relative_position_id = ALB_invite_egyption_exiles
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_popularity = {
+			    ideology = fascism  
+			    popularity = 0.10
+			}
+			add_political_power = 75
+		}
+	}
+	focus = {
+		id = ALB_Reorganize_the_government_now
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = ALB_invite_ottoman_exiles focus = ALB_invite_egyption_exiles }
+		mutually_exclusive = { focus = ALB_Reorganize_the_government }
+		x = 0
+		y = 1
+		relative_position_id = ALB_invite_ottoman_exiles
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		start_civil_war = {
+    ruling_party = fascism
+    ideology = ROOT
+    size = 0.3
+    capital = 44
+    states = {
+		805
+    }
+    keep_political_leader = no
+    keep_political_party_members = yes
+}
+		}
+	}
+	focus = {
+		id = ALB_Egyptanize_the_army
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = ALB_invite_egyption_exiles }
+		x = -2
+		y = 1
+		relative_position_id = ALB_invite_egyption_exiles
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			set_technology = {
+        camelry = 1
+        }
+			add_ideas = {ALB_egyptian_army}
+		}
+	}
+	focus = {
+		id = ALB_raiding_ships
+		icon = GFX_focus_generic_midget_submarines
+		prerequisite = { focus = ALB_Egyptanize_the_army }
+		x = 0
+		y = 1
+		relative_position_id = ALB_Egyptanize_the_army
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = CZE_naval_focus
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = dd_tech
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = cl_tech
+				category = ca_tech
+			}
+			navy_experience = 50
+						random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = dockyard
+										size > 2
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_Ottomise_the_army
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		prerequisite = { focus = ALB_invite_ottoman_exiles }
+		x = 2
+		y = 1
+		relative_position_id = ALB_invite_ottoman_exiles
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_ottoman_army}
+			add_unit_bonus = {
+			penal_battalion = { 
+			soft_attack = 0.1
+			}
+			}
+		}
+	}
+	focus = {
+		id = ALB_fleet_in_being
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = ALB_Ottomise_the_army }
+		x = 0
+		y = 1
+		relative_position_id = ALB_Ottomise_the_army
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = CZE_naval_focus
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = bb_tech
+			}
+			navy_experience = 50
+						random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = dockyard
+										size > 2
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_The_first_step
+		icon = GFX_focus_ETH_boots_on_the_shore
+		prerequisite = { focus = ALB_Reorganize_the_government focus = ALB_Reorganize_the_government_now }
+		x = 0
+		y = 3
+		relative_position_id = ALB_muslim_revolution
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+         available = {
+				has_government = fascism
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+			create_faction_from_template = {
+  template = faction_template_PER_islamic_faction    
+  name = "United Muslim Movement"
+  icon = GFX_faction_logo_generic_6
+}
+			division_template = {
+							name = "the first stepers"			
+							division_names_group = ALB_INF_01
+							is_locked = no
+
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }
+								infantry = { x = 2 y = 0 }
+								infantry = { x = 2 y = 1 }
+							}
+							support = {  
+								engineer = { x = 0 y = 0 }        
+							}
+						}
+					44 = {
+                create_unit = {
+                    division = "name = \"the first stepers\"division_template = \"the first stepers\" start_experience_factor = 0.2 start_equipment_factor = 1.0 start_manpower_factor = 1"
+                    owner = ALB
+                    count = 4
+                }
+            }
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 50
+				producer = ALB
+			}
+		}
+	}
+	focus = {
+		id = ALB_The_albania_shipyard
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = ALB_The_first_step focus = ALB_Reorganize_the_government_now }
+		x = 0
+		y = 1
+		relative_position_id = ALB_The_first_step
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+         available = {
+			any_state = {
+				is_controlled_by = ROOT
+				is_coastal = yes
+			}
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			navy_experience = 50
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = dockyard
+										size > 2
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_Restore_the_divan
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = ALB_invite_ottoman_exiles }
+		prerequisite = { focus = ALB_The_first_step }
+		x = 1
+		y = 3
+		relative_position_id = ALB_invite_ottoman_exiles
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			unlock_decision_category_tooltip = ALB_form_ottoman_empire_category
+			add_political_power = 75
+			add_stability = 0.15
+			division_template = {
+							name = "Janissaries"			
+							division_names_group = ALB_INF_01
+							priority = 2
+                            template_counter = 35
+                            division_cap = 24
+							regiments = {
+								 penal_battalion = { x = 0 y = 0 }
+								 penal_battalion = { x = 0 y = 1 }
+								 penal_battalion = { x = 0 y = 2 }
+								 penal_battalion = { x = 0 y = 3 }
+								 penal_battalion = { x = 1 y = 0 }
+								 penal_battalion = { x = 1 y = 1 }
+								 penal_battalion = { x = 1 y = 2 }
+								 penal_battalion = { x = 2 y = 0 }
+								 penal_battalion = { x = 2 y = 1 }
+								 penal_battalion = { x = 2 y = 2 }
+							}
+							support = {
+								artillery = { x = 0 y = 0 }  
+								engineer = { x = 0 y = 1 }   
+								recon = { x = 0 y = 2 }      
+							}
+						}
+						capital_scope = {
+                create_unit = {
+                    division = "name = \"Janissaries\"division_template = \"Janissaries\" start_experience_factor = 0.2 start_equipment_factor = 1.0 start_manpower_factor = 1"
+                    owner = ROOT
+                    count = 8
+                }
+            }
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 6000
+    producer = TUR
+	}
+	add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 150
+    producer = TUR
+	}
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 550
+    producer = TUR
+	}
+		}
+	}
+	focus = {
+		id = ALB_Funding_the_second_orabi_revolt
+		icon = GFX_focus_generic_the_suez
+		prerequisite = { focus = ALB_invite_egyption_exiles }
+		prerequisite = { focus = ALB_The_first_step }
+		x = -1
+		y = 3
+		relative_position_id = ALB_invite_egyption_exiles
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+	ENG = {
+					add_timed_idea = {
+						idea = ALB_Its_albania_who_cares
+						days = 60
+					}
+				}
+				every_other_country = {
+					limit = {
+						any_owned_state = {
+							is_core_of = EGY
+						}
+					}
+				}
+				EGY = { transfer_state = 447 }
+				EGY = { transfer_state = 452 }
+					EGY = {
+						declare_war_on = {
+							target = ENG
+							type = independence_wargoal
+						}
+					}
+					hidden_effect = {
+					447 = {
+						teleport_armies = { 
+							# just teleport everyone home
+						}
+					}
+				EGY = {
+					division_template = {
+						name = "Workers' Militias"
+						is_locked = no
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }							
+						}
+						support = {
+						artillery = { x = 0 y = 0 }
+						}
+					}
+					447 = {
+						create_unit = {
+							division = "name = \"Workers' Militia\" division_template = \"Workers' Militias\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = EGY
+							allow_spawning_on_enemy_provs = yes 
+							count = 8
+						}
+					}
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.6
+					}
+					set_politics = {
+						ruling_party = fascism
+						elections_allowed = no
+					}
+					ALB = { 
+				    add_to_faction = EGY}
+					EGY = {add_manpower = 40000}
+					add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 6000
+                    producer = ENG
+					}
+					add_equipment_to_stockpile = {
+                    type = support_equipment
+                    amount = 200
+                    producer = ENG
+					}
+					add_equipment_to_stockpile = {
+                    type = artillery_equipment
+                    amount = 150
+                    producer = ENG
+					}
+					add_equipment_to_stockpile = {
+                    type = train_equipment_1
+                    amount = 15
+                    producer = ENG
+					}
+					add_offsite_building = { type = arms_factory level = 1 }
+				}
+				ALB = {
+					division_template = {
+						name = "Workers' Militias"
+						is_locked = no
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }							
+						}
+						support = {
+						artillery = { x = 0 y = 0 }
+						}
+					}
+					447 = {
+						create_unit = {
+							division = "name = \"Workers' Militia\" division_template = \"Workers' Militias\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = ALB
+							allow_spawning_on_enemy_provs = yes 
+							count = 3 
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = ALB_Funding_the_Mesonjetorja
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = ALB_Funding_the_second_orabi_revolt focus = ALB_Restore_the_divan}
+		x = 2
+		y = 1
+		relative_position_id = ALB_Funding_the_second_orabi_revolt
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	focus = {
+		id = ALB_reclam_the_sanjak_of_dibra
+		icon = GFX_focus_BUL_bulgaria_on_the_three_seas
+		prerequisite = { focus = ALB_Restore_the_divan}
+		x = 0
+		y = 1
+		relative_position_id = ALB_Restore_the_divan
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ROOT = {
+		    add_state_claim = 185
+			add_state_claim = 731
+			add_state_claim = 47
+			add_state_claim = 106
+			add_state_claim = 802
+			add_state_claim = 105
+		}
+			create_wargoal = {
+    type = annex_everything
+	target = GRE
+	}
+		create_wargoal = {
+    type = annex_everything
+	target = YUG
+	}
+	add_unit_bonus = {
+			penal_battalion = { 
+			max_organisation = 15
+			}
+		}
+	}
+	}
+	focus = {
+		id = ALB_reclam_bulgaria
+		icon = GFX_focus_generic_attack_bulgaria
+		prerequisite = { focus = ALB_Restore_the_divan}
+		x = 2
+		y = 1
+		relative_position_id = ALB_Restore_the_divan
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			ROOT = {
+		    add_state_claim = 48
+			add_state_claim = 212
+		}
+			create_wargoal = {
+    type = annex_everything
+	target = BUL
+	}
+		}
+	}
+	focus = {
+		id = ALB_take_moldova
+		icon = GFX_focus_generic_attack_romania
+		prerequisite = { focus = ALB_Restore_the_divan}
+		prerequisite = { focus = ALB_reclam_the_sanjak_of_dibra}
+		x = 2
+		y = 2
+		relative_position_id = ALB_Restore_the_divan
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		bypass = { ROM = {exists = no } }
+
+		completion_reward = {
+			create_wargoal = {
+    type = annex_everything
+	target = ROM
+	}
+	add_unit_bonus = {
+			penal_battalion = { 
+			equipment_capture_factor = 0.05
+			}
+		}
+	}
+	}
+	focus = {
+		id = ALB_restore_the_janissaries
+		icon = GFX_focus_ARG_state_atheism
+		prerequisite = { focus = ALB_take_moldova}
+		prerequisite = { focus = ALB_Free_said-i_nursi}
+		x = 2
+		y = 3
+		relative_position_id = ALB_Restore_the_divan
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = {ALB_janissaries}
+			division_template = {
+							name = "Janissaries"			
+							division_names_group = ALB_INF_01
+							priority = 2
+                            template_counter = 35
+                            division_cap = 24
+							regiments = {
+								 penal_battalion = { x = 0 y = 0 }
+								 penal_battalion = { x = 0 y = 1 }
+								 penal_battalion = { x = 0 y = 2 }
+								 penal_battalion = { x = 0 y = 3 }
+								 penal_battalion = { x = 1 y = 0 }
+								 penal_battalion = { x = 1 y = 1 }
+								 penal_battalion = { x = 1 y = 2 }
+								 penal_battalion = { x = 2 y = 0 }
+								 penal_battalion = { x = 2 y = 1 }
+								 penal_battalion = { x = 2 y = 2 }
+							}
+							support = {
+								artillery = { x = 0 y = 0 }  
+								engineer = { x = 0 y = 1 }   
+								recon = { x = 0 y = 2 }      
+							}
+						}
+						capital_scope = {
+                create_unit = {
+                    division = "name = \"Janissaries\"division_template = \"Janissaries\" start_experience_factor = 0.2 start_equipment_factor = 1.0 start_manpower_factor = 1"
+                    owner = ROOT
+                    count = 12
+                }
+            }
+			add_unit_bonus = {
+			penal_battalion = { 
+			soft_attack = 0.15
+			default_morale = 0.1
+			}
+			}
+					}
+	}
+	focus = {
+		id = ALB_The_Damascus_Diktat
+		icon = GFX_focus_TUR_support_the_golden_square
+		prerequisite = { focus = ALB_Restore_the_divan}
+		x = 4
+		y = 1
+		relative_position_id = ALB_Restore_the_divan
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			677 = {
+				controller = {
+					country_event = { id = albania_events.4 }
+				}
+		}
+	}
+	}
+	focus = {
+		id = ALB_nationalise_french_syria
+		icon = GFX_focus_generic_agricultural_subsidies
+		prerequisite = { focus = ALB_The_Damascus_Diktat}
+		x = 4
+		y = 2
+		relative_position_id = ALB_Restore_the_divan
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			677 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = { 
+				limit = { 677 = { is_fully_controlled_by = ROOT } }
+				677 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			677 = {
+				if = {
+					limit = {
+					    677 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+}
+}
+	}
+	focus = {
+		id = ALB_take_baghdad
+		icon = GFX_focus_AFG_savior_of_the_holy_lands 
+		prerequisite = { focus = ALB_nationalise_french_syria}
+		x = 4
+		y = 3
+		relative_position_id = ALB_Restore_the_divan
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		every_state = {
+				limit = {
+					is_core_of = IRQ
+				}
+				ALB = {
+					add_state_claim = PREV
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = IRQ
+			}
+			add_unit_bonus = {
+			penal_battalion = { 
+			hard_attack = 0.15
+			max_organisation = 5
+			}
+			}
+		}
+	}
+	focus = {
+		id = ALB_nationalise_iraq_oil
+		icon = GFX_focus_BRA_repeale_national_security_law
+		prerequisite = { focus = ALB_take_baghdad}
+		x = 4
+		y = 4
+		relative_position_id = ALB_Restore_the_divan
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+available = {
+			291 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = { 
+				limit = { 291 = { is_fully_controlled_by = ROOT } }
+				291 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			291 = {
+				if = {
+					limit = {
+					    291 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+}
+}
+	}
+	focus = {
+		id = ALB_Free_said-i_nursi
+		icon = GFX_focus_TUR_the_montreux_convention
+		prerequisite = { focus = ALB_reclam_the_sanjak_of_dibra}
+		x = 0
+		y = 1
+		relative_position_id = ALB_reclam_the_sanjak_of_dibra
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			create_wargoal = {
+    type = annex_everything
+	target = TUR
+	}
+	ROOT = {
+		    add_state_claim = 341
+			add_state_claim = 340
+			add_state_claim = 347
+			add_state_claim = 797
+		}
+		}
+	}
+	focus = {
+		id = ALB_Convince_nursi_to_lead_country
+		icon = GFX_focus_POL_complete_april_constitution
+		prerequisite = { focus = ALB_Free_said-i_nursi}
+		x = 0
+		y = 1
+		relative_position_id = ALB_Free_said-i_nursi
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			retire_character = ALB_Celadet_Ali_Bedirxan
+			add_popularity = { ideology = fascism popularity = 0.05 }
+			promote_character = ALB_Said_Nursi
+		}
+	}
+	focus = {
+		id = ALB_unite_the_people_of_kurdistan
+		icon = GFX_focus_IRQ_kurdistan_united
+		prerequisite = { focus = ALB_Convince_nursi_to_lead_country}
+		x = 0
+		y = 1
+		relative_position_id = ALB_Convince_nursi_to_lead_country
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		ROOT = {
+	    add_state_core = 680
+		add_state_core = 676
+		add_state_core = 291
+		add_state_core = 350
+		add_state_core = 353
+		add_state_core = 352
+		add_state_core = 800
+		add_state_core = 419
+		}
+		custom_effect_tooltip = 
+        ALB_unite_the_people_of_kurdistan_tt
+
+		hidden_effect = {
+		680 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+		291 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+		676 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+		350 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+		353 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+		352 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+		800 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+		419 = {OWNER = {ROOT = {create_wargoal = {target = PREV type = annex_everything }}}}
+			remove_wargoal = {
+    			type = all
+    			target = ALB
+			}
+		}
+		add_unit_bonus = {
+			penal_battalion = { 
+			soft_attack = 0.1
+			max_organisation = 5
+			default_morale = 0.1
+			}
+		}
+	}
+	}
+	focus = {
+		id = ALB_to_the_pope
+		icon = GFX_focus_generic_pope
+		prerequisite = { focus = ALB_restore_the_janissaries}
+		x = 2
+		y = 1
+		relative_position_id = ALB_Convince_nursi_to_lead_country
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			create_wargoal = {
+    type = annex_everything
+	target = ITA
+	}
+	capital_scope = {
+                create_unit = {
+                    division = "name = \"janissaries\"division_template = \"janissaries\" start_experience_factor = 0.2 start_equipment_factor = 1.0 start_manpower_factor = 1"
+                    owner = ROOT
+                    count = 4
+                }
+            }
+		}
+	}
+	focus = {
+		id = ALB_resurrect_the_Mamluk_sultanate
+		icon = GFX_focus_ETH_keep_the_chitet
+		prerequisite = { focus = ALB_Funding_the_second_orabi_revolt }
+		x = 0
+		y = 1
+		relative_position_id = ALB_Funding_the_second_orabi_revolt
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		available = { 
+			has_completed_focus = ALB_Forced_to_back_down
+		}
+
+		completion_reward = {
+			unlock_decision_category_tooltip = ALB_resurrect_the_Mamluk_sultanate
+			annex_country = {
+    target = EGY
+    transfer_troops = yes
+}
+add_political_power = -50
+907 = { add_core_of = ROOT }
+447 = { add_core_of = ROOT }
+452 = { add_core_of = ROOT }
+446 = { add_core_of = ROOT }
+453 = { add_core_of = ROOT }
+457 = { add_core_of = ROOT }
+456 = { add_core_of = ROOT }
+	}
+	}
+	focus = {
+		id = ALB_Forced_to_back_down
+		icon = GFX_focus_ARG_cut_ties_with_britain
+		prerequisite = { focus = ALB_Funding_the_second_orabi_revolt }
+		x = -2
+		y = 1
+		relative_position_id = ALB_Funding_the_second_orabi_revolt
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+		available = { 
+			446 = {
+				is_fully_controlled_by = EGY
+			}
+		}
+
+		completion_reward = {
+		every_enemy_country = { white_peace = ROOT }
+		hidden_effect = {
+			EGY = { transfer_state = 446 }
+			EGY = { transfer_state = 453 }
+			EGY = { transfer_state = 907 }
+			EGY = { transfer_state = 457 }
+			EGY = { transfer_state = 456 }
+			EGY = { transfer_state = 552 }
+		}
+	}
+	}
+	focus = {
+		id = ALB_retaking_the_south
+		icon = GFX_focus_PER_march_to_nile
+		prerequisite = { focus = ALB_resurrect_the_Mamluk_sultanate }
+		x = 0
+		y = 1
+		relative_position_id = ALB_resurrect_the_Mamluk_sultanate
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		ENG = { country_event = {
+    id = albania_events.2
+	}
+		}
+		}
+	}
+	focus = {
+		id = ALB_retaking_the_west
+		icon = GFX_focus_IRQ_unite_maghreb
+		prerequisite = { focus = ALB_resurrect_the_Mamluk_sultanate }
+		x = -2
+		y = 1
+		relative_position_id = ALB_resurrect_the_Mamluk_sultanate
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+				create_wargoal = {
+    type = liberate_wargoal  
+	target = FRA
+	}
+	declare_war_on = {
+            target = ITA
+            type = annex_everything
+        }
+		}
+	}
+	focus = {
+		id = ALB_retaking_the_east
+		icon = GFX_focus_IRQ_unite_mashriq
+		prerequisite = { focus = ALB_resurrect_the_Mamluk_sultanate }
+		x = 2
+		y = 1
+		relative_position_id = ALB_resurrect_the_Mamluk_sultanate
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			every_other_country = {
+					limit = {
+						any_owned_state = {
+							is_core_of = ISR
+						}
+					}
+				}
+				ISR = { transfer_state = 454 }
+					hidden_effect = {
+					454 = {
+						teleport_armies = { 
+							# just teleport everyone home
+						}
+					}
+				ISR = {
+					division_template = {
+						name = "Workers' Militias"
+						is_locked = no
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }							
+						}
+						support = {
+						artillery = { x = 0 y = 0 }
+						}
+					}
+					454 = {
+						create_unit = {
+							division = "name = \"Workers' Militia\" division_template = \"Workers' Militias\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = ISR
+							allow_spawning_on_enemy_provs = yes 
+							count = 3
+						}
+					}
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.6
+					}
+					set_politics = {
+						ruling_party = fascism
+						elections_allowed = no
+					}
+	
+					ALB = { 
+				    add_to_faction = JOR}
+					ISR = {
+						declare_war_on = {
+							target = JOR
+							type = independence_wargoal
+						}
+					}
+					ISR = {add_manpower = 10000}
+					add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 3000
+                    producer = ENG
+					}
+					add_equipment_to_stockpile = {
+                    type = support_equipment
+                    amount = 100
+                    producer = ENG
+					}
+					add_equipment_to_stockpile = {
+                    type = artillery_equipment
+                    amount = 50
+                    producer = ENG
+					}
+					add_equipment_to_stockpile = {
+                    type = train_equipment_1
+                    amount = 10
+                    producer = ENG
+					}
+					add_offsite_building = { type = arms_factory level = 1 }
+				}
+				}
+	
+		ROOT = {
+		    add_state_claim = 854
+			add_state_claim = 855
+			add_state_claim = 679
+			add_state_claim = 856
+			add_state_claim = 857
+			add_state_claim = 292
+			add_state_claim = 859
+			add_state_claim = 858
+			add_state_claim = 678
+			add_state_claim = 294
+			add_state_claim = 293
+			add_state_claim = 675
+			add_state_claim = 291
+			add_state_claim = 676
+			add_state_claim = 656
+			add_state_claim = 765
+			add_state_claim = 658
+			add_state_claim = 659
+			add_state_claim = 553
+			add_state_claim = 554
+			add_state_claim = 677
+			add_state_claim = 680
+			add_state_claim = 799
+		}
+	
+	create_wargoal = {
+    type = annex_everything
+	target = IRQ
+	}
+	create_wargoal = {
+    type = annex_everything
+	target = SAU
+	}
+	create_wargoal = {
+    type = annex_everything
+	target = OMA
+	}
+	create_wargoal = {
+    type = annex_everything
+	target = YEM
+	}
+		}
+	}
+	focus = {
+		id = ALB_mamluk_class
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = ALB_retaking_the_south focus = ALB_retaking_the_west focus = ALB_retaking_the_east}
+		x = -1
+		y = 1
+		relative_position_id = ALB_retaking_the_south
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			set_technology = {
+        camelry  = 1
+        }
+			add_ideas = {ALB_mamluk_class}
+			hidden_effect = {
+			ALB = {
+			division_template = {
+							name = "Qaytbay"			
+							division_names_group = ALB_INF_01
+
+							regiments = {
+								Camelry = { x = 0 y = 0 }
+								Camelry = { x = 0 y = 1 }
+								Camelry = { x = 0 y = 2 }
+								Camelry = { x = 0 y = 3 }
+								Camelry = { x = 1 y = 0 }
+								Camelry = { x = 1 y = 1 }
+								Camelry = { x = 1 y = 2 }
+								Camelry = { x = 2 y = 0 }
+								Camelry = { x = 2 y = 1 }
+								Camelry = { x = 2 y = 2 }
+							}
+							support = {	
+								artillery = { x = 0 y = 0 }  				 
+								engineer = { x = 0 y = 1 }   
+								recon = { x = 0 y = 2}      
+							}
+						}
+						44 = {
+                create_unit = {
+                    division = "name = \"Qaytbay\"division_template = \"Qaytbay\" start_experience_factor = 0.2 start_equipment_factor = 1.0  start_manpower_factor = 1"
+                    owner = ALB
+					allow_spawning_on_enemy_provs = yes 
+                    count = 12
+                }
+            }
+		}
+	}
+	}
+	}
+	focus = {
+		id = ALB_use_the_suez_canal_against_the_imperials
+		icon = GFX_focus_ETH_the_one_true_heir_of_solomon
+		prerequisite = { focus = ALB_retaking_the_south focus = ALB_retaking_the_west focus = ALB_retaking_the_east}
+		x = 1
+		y = 1
+		relative_position_id = ALB_retaking_the_south
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+	FRA = { country_event = {
+    id = albania_events.3
+	}
+	}
+	ENG = { country_event = {
+    id = albania_events.3
+	}
+	}
+	GER = { country_event = {
+    id = albania_events.3
+	}
+	}
+	SOV = { country_event = {
+    id = albania_events.3
+	}
+	}
+	ITA = { country_event = {
+    id = albania_events.3
+	}
+	}
+    USA = { country_event = {
+    id = albania_events.3
+	}
+	}
+    JAP = { country_event = {
+    id = albania_events.3
+	}
+	}
+	}
+	}
+	focus = {
+		id = ALB_for_the_battle_of_ain_jalut
+		icon = GFX_focus_generic_attack_mongolia
+		prerequisite = { focus = ALB_retaking_the_east}
+		x = 2
+		y = 2
+		relative_position_id = ALB_retaking_the_south
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+		available = {
+		}
+
+		allow_branch = { 
+		MON = {is_ai = no}
+		ALB = {is_ai = no}
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			create_wargoal = {
+    type = annex_everything
+	target = MON
+	}
+	}
+	}
+	focus = {
+		id = ALB_develop_nubia_iron_mines
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = ALB_transformation_of_nature}
+		x = -3
+		y = 3
+		relative_position_id = ALB_retaking_the_south
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			886 = { is_fully_controlled_by = ROOT }
+			549 = { is_fully_controlled_by = ROOT }
+			has_tech = excavation2
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 12
+				state = 886
+				}
+				add_resource = {
+				type = steel
+				amount = 20
+				state = 549
+				}
+		}
+	}
+	focus = {
+		id = ALB_egyptian_gas
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = ALB_transformation_of_nature }
+		x = 1
+		y = 1
+		relative_position_id = ALB_develop_nubia_iron_mines
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_state = {
+    prioritize = { 452 }
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+    type = synthetic_refinery
+    level = 2
+    instant_build = yes
+    }
+	}
+}
+}
+focus = {
+		id = ALB_jordan_mines
+		icon = GFX_focus_generic_mining_industry
+		prerequisite = { focus = ALB_transformation_of_nature }
+		x = 2
+		y = 0
+		relative_position_id = ALB_develop_nubia_iron_mines
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			455 = { is_fully_controlled_by = ROOT }
+			has_tech = excavation2
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+				455 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_resource = {
+						type = steel
+						amount = 12
+					}
+					add_resource = {
+						type = chromium
+						amount = 6
+					}
+					add_resource = {
+						type = tungsten
+						amount = 6
+					}
+				}
+			}
+}
+focus = {
+		id = ALB_develop_arms_factory_in_jordan
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = ALB_jordan_mines }
+		x = 0
+		y = 2
+		relative_position_id = ALB_jordan_mines
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+		
+		available = {
+			455 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+				455 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			455 = {
+				if = {
+					limit = {
+					    455 = {
+							free_building_slots = {
+								building = arms_factory
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = arms_factory
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+}
+}
+focus = {
+		id = ALB_fez_factories
+		icon = GFX_focus_por_luso_tropicalism
+		prerequisite = { focus = ALB_transformation_of_nature }
+		x = -1
+		y = 1
+		relative_position_id = ALB_develop_nubia_iron_mines
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			907 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+				907 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			907 = {
+				if = {
+					limit = {
+					    907 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+}
+}
+focus = {
+		id = ALB_develop_libya
+		icon = GFX_focus_generic_develop_libya
+		prerequisite = { focus = ALB_fez_factories }
+		x = -1
+		y = 1
+		relative_position_id = ALB_fez_factories
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+			448 = { is_fully_controlled_by = ROOT }
+			450 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+				448 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			448 = {
+				if = {
+					limit = {
+					    448 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+}
+			    450 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			450 = {
+				if = {
+					limit = {
+					    450 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+}
+focus = {
+		id = ALB_develop_arms_factory_in_nubia
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = ALB_develop_nubia_iron_mines }
+		x = 0
+		y = 2
+		relative_position_id = ALB_develop_nubia_iron_mines
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		
+				886 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			886 = {
+				if = {
+					limit = {
+					    886 = {
+							free_building_slots = {
+								building = arms_factory
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = arms_factory
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+}
+}
+focus = {
+		id = ALB_develop_west_africa
+		icon = GFX_focus_generic_africa_factory
+		prerequisite = { focus = ALB_fez_factories }
+		x = -3
+		y = 1
+		relative_position_id = ALB_fez_factories
+		cost = 5
+		ai_will_do = {
+			factor = 9
+		}
+
+			available = {
+			461 = { is_fully_controlled_by = ROOT }
+			458 = { is_fully_controlled_by = ROOT }
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+				461 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			461 = {
+				if = {
+					limit = {
+					    461 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+}
+			    458 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			458 = {
+				if = {
+					limit = {
+					    458 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+}
+focus = {
+		id = ALB_transformation_of_nature
+		icon = GFX_focus_generic_africa_factory
+		prerequisite = { focus = ALB_reclaim_anatolia focus = ALB_retaking_the_south focus = ALB_retaking_the_west focus = ALB_retaking_the_east focus = ALB_new_b_2 focus = ALB_new_b_3}
+		x = -1
+		y = 1
+		relative_position_id = ALB_mamluk_class
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = ETH_transformation_of_nature
+		}
+}
+focus = {
+		id = ALB_restore_andalusia
+		icon = GFX_focus_TUR_treaty_of_saadabad
+		prerequisite = { focus = ALB_retaking_the_south }
+		x = 0
+		y = 2
+		relative_position_id = ALB_retaking_the_south
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			create_wargoal = {
+    type = liberate_wargoal  
+	target = SPR
+	}
+			create_wargoal = {
+    type = liberate_wargoal  
+	target = POR
+	}
+		}
+	}
+	focus = {
+		id = ALB_indonesia_cancelled
+		icon = GFX_focus_usa_focus_on_asia
+		prerequisite = { focus = ALB_restore_andalusia focus = ALB_unite_the_people_of_kurdistan}
+		x = 2
+		y = 1
+		relative_position_id = ALB_restore_andalusia
+		cost = 0
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+}
+}
+focus = {
+		id = ALB_burn_the_toast
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = ALB_indonesia_cancelled}
+		mutually_exclusive = { focus = ALB_stand_with_the_toast }
+		x = 1
+		y = 2
+		relative_position_id = ALB_restore_andalusia
+		cost = 0
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+}
+}
+focus = {
+		id = ALB_stand_with_the_toast
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = ALB_indonesia_cancelled}
+		mutually_exclusive = { focus = ALB_burn_the_toast }
+		x = 3
+		y = 2
+		relative_position_id = ALB_restore_andalusia
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = { 
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+}
+}
+
+focus = {
+		id = ALB_military_air_project
+		icon = GFX_focus_generic_university_3
+		prerequisite = { focus = ALB_For_Zog focus = ALB_Challenge_Zog}
+		x = -5
+		y = 1
+		relative_position_id = ALB_Challenge_Zog
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			air_experience = 100
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.25
+			}
+		}
+	}
+
+	focus = {
+		id = ALB_import_foreign_fighters
+		icon = GFX_focus_SMB_purchase_aircraft
+		prerequisite = { focus = ALB_military_air_project }
+		x = -1
+		y = 1
+		relative_position_id = ALB_military_air_project
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ALB_import_foreign_fighters 
+				bonus = 0.75
+				uses = 2
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = ALB_fighter_project
+		icon = GFX_focus_generic_air_research_boost
+		prerequisite = { focus = ALB_import_foreign_fighters }
+		x = 0
+		y = 1
+		relative_position_id = ALB_import_foreign_fighters
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ALB_light_fighter_focus 
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = ALB_import_foreign_bombers
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = ALB_military_air_project }
+		x = 1
+		y = 1
+		relative_position_id = ALB_military_air_project
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ALB_import_foreign_bombers 
+				bonus = 0.75
+				uses = 2
+				category = cas_bomber
+				category = tactical_bomber
+			}
+		}
+	}
+	focus = {
+		id = ALB_bomber_project
+		icon = GFX_focus_SWE_marauder_bombers
+		prerequisite = { focus = ALB_import_foreign_bombers }
+		x = 0
+		y = 1
+		relative_position_id = ALB_import_foreign_bombers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ALB_tac_focus 
+				bonus = 1.0
+				uses = 1
+				category = tactical_bomber
+			}
+		}
+	}
+}

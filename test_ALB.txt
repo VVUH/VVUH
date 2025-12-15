@@ -1,0 +1,798 @@
+
+add_namespace = albania_events
+
+country_event = { 
+	id = albania_events.1
+	title = albania_events.1.t
+	desc = albania_events.1.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = albania_events.1.a
+		ai_chance = {
+			base = 1
+		}	
+		hidden_effect = {
+			drop_cosmetic_tag = yes
+			news_event = { id = ALB_news.1 days = 3 }
+		}
+	}
+}
+country_event = { 
+	id = albania_events.2
+	title = albania_events.2.t
+	desc = albania_events.2.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = albania_events.2.a
+		ai_chance = {
+			base = 1
+		}	
+ENG = {
+	add_timed_idea = {
+    idea = ALB_dirt_for_gold
+    days = 200
+}
+}
+ALB = { 
+	add_timed_idea = {
+    idea = ALB_gold_for_dirt
+    days = 200
+}
+}
+		ALB = {
+				transfer_state = 551
+				transfer_state = 883
+				transfer_state = 886
+				transfer_state = 549
+				transfer_state = 884
+				transfer_state = 887
+				transfer_state = 885
+				transfer_state = 767
+				}
+	}
+}
+country_event = { 
+	id = albania_events.3
+	title = albania_events.3.t
+	desc = albania_events.3.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = albania_events.3.a
+		ai_chance = {
+			base = 1
+		}	
+		ALB = {
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+}
+#The Damascus Diktat - ROOT receives demand
+country_event = {
+	id = albania_events.4
+	title = albania_events.4.t
+	desc = albania_events.4.desc
+	picture = GFX_report_event_tur_military_affair
+
+	is_triggered_only = yes
+	
+	option = {
+		name =  albania_events.4.a #the territories are yours
+		ai_chance = {
+			base = 1
+		}	
+		ALB = {
+			country_event = { id = albania_events.6 hours = 6 }
+		}
+		if = {
+			limit = {
+				ROOT = { controls_state = 677 }
+			}
+			ALB = { transfer_state = 677 }
+		}
+		if = {
+			limit = {
+				ROOT = { controls_state = 554 }
+			}
+			ALB = { transfer_state = 554 }
+		}
+		if = {
+			limit = {
+				ROOT = { controls_state = 553 }
+			}
+			ALB = { transfer_state = 553 }
+		}
+		if = {
+			limit = {
+				ROOT = { controls_state = 680 }
+			}
+			ALB = { transfer_state = 680 }
+		}
+		if = {
+			limit = {
+				ROOT = { controls_state = 799 }
+			}
+			ALB = { transfer_state = 799 }
+		}
+	}
+	option = {
+		name = albania_events.4.b #it is time to dismantle the Ottomans permanently this time...
+		ALB = { country_event = { id = albania_events.5 hours = 8 } }
+	}
+}
+
+#The Damascus Diktat - ROOT denies us!
+country_event = {
+	id = albania_events.5
+	title = albania_events.5.t
+	desc = albania_events.5.desc
+	picture = GFX_report_event_tur_military_affair
+
+	is_triggered_only = yes
+	
+	option = {
+		name = albania_events.5.a
+		add_state_claim = 677
+		add_state_claim = 554
+		add_state_claim = 553
+		add_state_claim = 680
+		if = {
+			limit = {
+				ROOT = { NOT = { controls_state = 799 } }
+			}
+			add_state_claim = 799
+		}
+		create_wargoal = {
+			target = FROM
+			type = take_state_focus
+		}
+		add_war_support = 0.05
+	}
+}
+
+#The Damascus Diktat - Our Territories are Ours!
+country_event = {
+	id = albania_events.6
+	title = albania_events.6.t
+	desc = albania_events.6.desc
+	picture = GFX_report_event_tur_sultan_and_pashas
+
+	is_triggered_only = yes
+
+	option = {
+		name = albania_events.6.a #we shall merge the Eyalets of Damascus and Allepo!
+		release_puppet = SYR
+		if ={
+			limit = { controls_state = 677 }
+			SYR = {
+				transfer_state = 677
+			}
+		}
+		if ={
+			limit = { controls_state = 554 }
+			SYR = {
+				transfer_state = 554
+			}
+		}
+		if ={
+			limit = { controls_state = 553 }
+			SYR = {
+				transfer_state = 553
+				add_state_core = 553
+			}
+		}
+		if ={
+			limit = { controls_state = 680 }
+			SYR = {
+				transfer_state = 680
+			}
+		}
+		if = {
+			set_autonomy = {
+				target = SYR
+				autonomy_state = autonomy_colony
+			}
+		}
+	}
+	option = {
+		name =albania_events.6.b #welcome back to the Empire!
+		add_war_support = 0.1
+		add_political_power = -50
+	}
+}
+country_event = { 
+	id = albania_events.7
+	title = albania_events.7.t
+	desc = albania_events.7.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = albania_events.7.a
+		ai_chance = {
+			base = 1
+		}	
+677 = {
+	controller = {  
+	add_timed_idea = {
+    idea = ALB_dirt_for_gold
+    days = 100
+}
+}
+}
+ALB = { 
+	add_timed_idea = {
+    idea = ALB_gold_for_dirt
+    days = 100
+}
+}
+		ALB = {
+				transfer_state = 320
+				}
+	}
+	option = { 
+		name = albania_events.7.B
+		320 = {OWNER = {ALB = {create_wargoal = {target = PREV type = annex_everything }}}}
+		}
+}
+country_event = {
+	id =  albania_events.8
+	title =  albania_events.8.t
+	desc =  albania_events.8.desc
+	picture = GFX_report_event_merchant_ship_01
+
+	is_triggered_only = yes
+
+	option = {
+		name =  albania_events.8.a
+
+		ENG = {
+	add_timed_idea = {
+    idea = ALB_boats_for_gold
+    days = 100
+}
+}
+ALB = { 
+	add_timed_idea = {
+    idea = ALB_gold_for_boats
+    days = 100
+}
+}
+		transfer_ship = {
+        prefer_name = "HMS Fearless"
+        type = Destroyer
+        target = ALB
+		}
+		transfer_ship = {
+        prefer_name = "HMS Forester"
+        type = Destroyer
+        target = ALB
+		}
+		transfer_ship = {
+        prefer_name = "HMS Fame"
+        type = Destroyer
+        target = ALB
+		}
+		transfer_ship = {
+        prefer_name = "HMS Firedrake"
+        type = Destroyer
+        target = ALB
+		}
+		transfer_ship = {
+        prefer_name = "HMS Foresight"
+        type = Destroyer
+        target = ALB
+		}
+	}
+}
+country_event = { 
+	id = albania_events.9
+	title = albania_events.9.t
+	desc = albania_events.9.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = albania_events.9.a
+		ai_chance = {
+			base = 1
+		}	
+		ALB = {
+				transfer_state = 970
+				transfer_state = 802
+				transfer_state = 105
+				}
+	}
+	option = { 
+		name = albania_events.9.b
+		ai_chance = {
+			base = 0.5
+		}	
+	ALB = {
+	country_event = albania_events.10
+	}
+}
+}
+country_event = { 
+	id = albania_events.10
+	title = albania_events.10.t
+	desc = albania_events.10.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = albania_events.10.a
+		ai_chance = {
+			base = 1
+		}	
+		create_wargoal = {
+    type = annex_everything
+	target = YUG
+	}
+	}
+	option = { 
+		name = albania_events.10.b
+		ai_chance = {
+			base = 0.5
+		}	
+	add_political_power = 125
+}
+}
+country_event = { 
+	id = albania_events.11
+	title = "Albania demands our submission!"
+	desc = "What do we do"
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = "We will join Albania"
+		ai_chance = {
+			base = 1
+		}	
+		FROM = {
+			country_event = albania_events.12
+		}
+	}
+	option = { 
+		name = "No way"
+		ai_chance = {
+			base = 1
+		}	
+		FROM = {
+			country_event = albania_events.13
+		}
+	}
+}
+country_event = { 
+	id = albania_events.12
+	title = "[From.GetName] declined"
+	desc = "What do we do"
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = "Then we'll force them!"
+		ai_chance = {
+			base = 1
+		}	
+		add_stability = -0.05
+		declare_war_on = FROM
+	}
+	option = { 
+		name = "Alright but we will come back!"
+		ai_chance = {
+			base = 1
+		}
+		add_political_power = 50
+	}
+}
+country_event = { 
+	id = albania_events.13
+	title = "[From.GetName] accepted"
+	desc = "What do we do"
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = "Great"
+		ai_chance = {
+			base = 1
+		}	
+		annex_country = FROM
+	}
+}
+country_event = { 
+	id = albania_events.14
+	title = "[From.GetName] claims to be romes heir"
+	desc = "What do we do"
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = "Great"
+		ai_chance = {
+			base = 1
+		}	
+	}
+}
+country_event = { 
+	id = albania_events.15
+	title = albania_events.15.t
+	desc = albania_events.15.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = albania_events.15.a
+		ai_chance = {
+			base = 1
+		}	
+FRA = {
+	add_timed_idea = {
+    idea = ALB_french_foreign_legion_volunteers_fra
+    days = 180
+}
+}
+ALB = { 
+	add_timed_idea = {
+    idea = ALB_french_foreign_legion_volunteers
+    days = 180
+}
+}
+		ALB = {
+			limit = {
+				ROOT = { controls_state = 677 }
+			}
+			ALB = { transfer_state = 677 }
+		}
+		if = {
+			limit = {
+				ROOT = { controls_state = 554 }
+			}
+			ALB = { transfer_state = 554 }
+		}
+		if = {
+			limit = {
+				ROOT = { controls_state = 553 }
+			}
+			ALB = { transfer_state = 553 }
+		}
+		if = {
+			limit = {
+				ROOT = { controls_state = 680 }
+			}
+			ALB = { transfer_state = 680 }
+		}
+		if = {
+			limit = {
+				ROOT = { controls_state = 799 }
+			}
+			ALB = { transfer_state = 799 }
+		}
+	}
+}
+country_event = { 
+	id = albania_events.16
+	title = albania_events.16.t
+	desc = albania_events.16.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = albania_events.16.a
+		ai_chance = {
+			base = 1
+		}	
+ENG = {
+	add_timed_idea = {
+    idea = ALB_dirt_for_gold
+    days = 100
+}
+}
+ALB = { 
+	add_timed_idea = {
+    idea = ALB_gold_for_dirt
+    days = 100
+}
+}
+ALB = {
+				transfer_state = 454
+				transfer_state = 455
+				}
+	}
+}
+country_event = { 
+	id = albania_events.17
+	title = albania_events.17.t
+	desc = albania_events.17.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	immediate = {
+		
+	}
+
+	option = { 
+		name = albania_events.17.a
+		ai_chance = {
+			base = 1
+		}	
+ALB = {
+give_resource_rights = { receiver = ENG state = 291 }
+give_resource_rights = { receiver = ENG state = 676 }
+}
+ALB = {
+	transfer_state = 656
+	transfer_state = 765
+	transfer_state = 658
+	transfer_state = 659
+	}
+	}
+}
+country_event = { 
+	id = albania_events.18
+	title = albania_events.18.t
+	desc = albania_events.18.desc
+	picture = GFX_report_event_soldiers_marching
+
+fire_only_once = no
+
+is_triggered_only = yes
+
+option = { 
+		name = albania_events.18.a
+		ai_chance = {
+			base = 1
+		}	
+		add_political_power = -100
+		trigger = {
+        has_manpower < 1000000
+        }
+	}
+option = { 
+		name = albania_events.18.b
+		ai_chance = {
+			base = 1
+		}
+		remove_ideas = {ALB_mandatory_service}
+		add_ideas = {ALB_low_mandatory_service}
+		add_political_power = 50	
+	}
+option = { 
+		name = albania_events.18.c
+		ai_chance = {
+			base = 1
+		}	
+		remove_ideas = {ALB_mandatory_service}
+		add_political_power = 100
+	}
+option = { 
+		name = albania_events.18.d
+		ai_chance = {
+			base = 1
+		}	
+		remove_ideas = {ALB_mandatory_service}
+		add_ideas = {ALB_high_mandatory_service}
+		trigger = {
+            has_completed_focus = ALB_enemies_everywhere
+        }
+	}
+	option = { 
+		name = albania_events.18.e
+		ai_chance = {
+			base = 1
+		}	
+		remove_ideas = {ALB_mandatory_service}
+		add_ideas = {ALB_volunteers_of_the_service}
+		trigger = {
+            has_completed_focus = ALB_no_i_need_to_be_faithful
+        }
+		add_manpower = 35000
+	}
+}
+country_event = { 
+	id = albania_events.19
+	title = albania_events.19.t
+	desc = albania_events.19.desc
+	picture = GFX_report_event_soldiers_marching
+
+fire_only_once = yes
+
+is_triggered_only = yes
+
+option = { 
+		name = albania_events.19.a
+		ai_chance = {
+			base = 1
+		}	
+		retire_character = ALB_ymer_dishnica
+		retire_character = ALB_Omer_Nishani
+		retire_character = ALB_Mehmet_Shehu
+	}
+option = { 
+		name = albania_events.19.b
+		ai_chance = {
+			base = 1
+		}
+		retire_character = ALB_Mehmet_Shehu	
+		retire_character = ALB_ymer_dishnica
+		retire_character = ALB_Haxhi_Lleshi
+	}
+option = { 
+		name = albania_events.19.c
+		ai_chance = {
+			base = 1
+		}
+		retire_character = ALB_Omer_Nishani	
+		retire_character = ALB_Haxhi_Lleshi
+		retire_character = ALB_Nako_Spiru
+	}
+}
+country_event = { 
+	id = albania_events.20
+	title = albania_events.20.t
+	desc = albania_events.20.desc
+	picture = GFX_report_event_soldiers_marching
+
+fire_only_once = yes
+
+is_triggered_only = yes
+
+option = { 
+		name = albania_events.20.a
+		ai_chance = {
+			base = 1
+		}	
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 1500
+    target = ALB
+}
+send_equipment = {
+    equipment = support_equipment
+    amount = 75
+    target = ALB
+}
+	}
+option = { 
+		name = albania_events.20.b
+		ai_chance = {
+			base = 1
+		}
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 500
+    target = ALB
+}
+send_equipment = {
+    equipment = support_equipment
+    amount = 25
+    target = ALB
+}
+	}
+option = { 
+		name = albania_events.20.c
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+country_event = { 
+	id = albania_events.21
+	title = albania_events.21.t
+	desc = albania_events.21.desc
+	picture = GFX_report_event_soldiers_marching
+
+fire_only_once = yes
+
+is_triggered_only = yes
+
+option = { 
+		name = albania_events.21.a
+		ai_chance = {
+			base = 1
+		}	
+		ITA = { white_peace = ROOT }
+	}
+}
+country_event = { 
+	id = albania_events.22
+	title = albania_events.22.t
+	desc = albania_events.22.desc
+	picture = GFX_report_event_soldiers_marching
+
+fire_only_once = yes
+
+is_triggered_only = yes
+
+option = { 
+		name = albania_events.22.a
+		ai_chance = {
+			base = 1
+		}
+		ITA = { white_peace = ROOT }
+		451 = { transfer_state_to = ALB }
+		663 = { transfer_state_to = ALB } 
+		450 = { transfer_state_to = ALB }
+	}
+}
+country_event = { 
+	id = albania_events.23
+	title = albania_events.23.t
+	desc = albania_events.23.desc
+	picture = GFX_report_event_soldiers_marching
+
+fire_only_once = yes
+
+is_triggered_only = yes
+
+option = { 
+		name = albania_events.23.a
+		ai_chance = {
+			base = 1
+		}	
+		ITA = { white_peace = ROOT }
+	    451 = { transfer_state_to = ALB }
+		663 = { transfer_state_to = ALB } 
+		450 = { transfer_state_to = ALB }
+	    662 = { transfer_state_to = ALB }
+		449 = { transfer_state_to = ALB }
+		661 = { transfer_state_to = ALB }
+		448 = { transfer_state_to = ALB }
+		273 = { transfer_state_to = ALB }
+	}
+}
