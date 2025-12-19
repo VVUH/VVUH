@@ -8,40 +8,29 @@ TIB_formables_cat = {
 		}
 		highlight_states = {
     		highlight_state_targets = { 			
-			state = 757
-			state = 758
-			state = 322
+			state = 1042
+			state = 287
 			state = 604
             state = 755
-            state = 601 
             state = 287 
             state = 759
+			state = 757 
+			state = 758
+			state = 322 
+			state = 601			
             }
 		}
 		available = {
-			controls_state = 757
+			controls_state = 1042
+			controls_state = 287
+			controls_state = 604
+            controls_state = 755
+            controls_state = 287 
+            controls_state = 759
+			controls_state = 757 
 			controls_state = 758
-			controls_state = 322
-			#CHI
-			controls_state = 601 
-			#XSM
-            OR = {
-                ROOT = {
-			        controls_state = 604
-		            controls_state = 755
-                }
-                604 = {OWNER = {is_puppet_of = ROOT}}
-                755 = {OWNER = {is_puppet_of = ROOT}}
-            }			
-			#sik
-            OR = {
-                ROOT = {
-			        controls_state = 287
-		            controls_state = 759
-                }
-                287 = {OWNER = {is_puppet_of = ROOT}}
-                759 = {OWNER = {is_puppet_of = ROOT}}
-            }
+			controls_state = 322 
+			controls_state = 601			
 		}
 
 		visible = {
@@ -58,49 +47,12 @@ TIB_formables_cat = {
 			custom_effect_tooltip = MON_you_will_core_tt
 		    hidden_effect ={
                 set_global_flag = GTIB_unified
-                757 = { add_core_of = ROOT }
-                758 = { add_core_of = ROOT } 
-                322 = { add_core_of = ROOT }
-
-                287 = { add_core_of = ROOT }
-                759 = { add_core_of = ROOT }
-				IF = {
-					 LIMIT = {
-					 	287 = {OWNER = {is_puppet_of = ROOT}}
-					 }
-					 TIB = {
-						transfer_state = 287
-					 }
-				}
-				IF = {
-					 LIMIT = {
-					 	759 = {OWNER = {is_puppet_of = ROOT}}
-					 }
-					 TIB = {
-						transfer_state = 759
-					 }
-				}
-                601 = { add_core_of = ROOT }
-
-                604 = { add_core_of = ROOT }
-                755 = { add_core_of = ROOT }
-				IF = {
-					 LIMIT = {
-					 	604 = {OWNER = {is_puppet_of = ROOT}}
-					 }
-					 TIB = {
-						transfer_state = 604
-					 }
-				}
-				IF = {
-					 LIMIT = {
-					 	755 = {OWNER = {is_puppet_of = ROOT}}
-					 }
-					 TIB = {
-						transfer_state = 755
-					 }
-				}	
-
+				1042= { add_core_of = ROOT }
+				287= { add_core_of = ROOT }
+				759= { add_core_of = ROOT }
+				604= { add_core_of = ROOT }
+				755= { add_core_of = ROOT }
+				287= { add_core_of = ROOT }
 			}
 
         }
@@ -781,68 +733,7 @@ TIB_border_wars = {
 
 		}
 
-		TIB_take_xikang = {
-			war_with_target_on_complete = yes
-			icon = GFX_decision_border_war
-			highlight_states = {
-				highlight_state_targets = { 			
-				state = 601 }
-			}
-			allowed = {
-				original_tag = TIB
-			}
-			available = {
-				601 = {
-					any_neighbor_state = {
-						is_fully_controlled_by = TIB
-					}
-				}
-				has_border_war = no
-				NOT = {
-					controls_state = 601
-				}
-			}
-			visible = {
-				NOT = {
-					controls_state = 601
-				}
-			}		
-			visible = {
-				original_tag = TIB
-				has_completed_focus = TIB_chinese_border_raids
-			}
 
-			days_remove = 5
-			601 = {
-				controller = {
-					war_with_on_remove = PREV
-				}
-			}
-			remove_effect = {
-				
-				start_border_war = {
-					change_state_after_war = no
-					attacker = {
-						state = 757
-						num_provinces = 2
-						on_win = MON_border_conflict.1
-						on_lose = MON_border_conflict.3
-						on_cancel = MON_border_conflict.5
-						modifier = 0.1
-						dig_in_factor = 0
-						terrain_factor = 0
-					}	
-					defender = {
-						state = 601
-						num_provinces = 3
-						on_win = MON_border_conflict.2
-						on_lose = MON_border_conflict.4
-						on_cancel = MON_border_conflict.6
-					}
-				}
-			}
-
-		}
 		TIB_take_haixi = {
 			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
@@ -905,6 +796,135 @@ TIB_border_wars = {
 			}
 
 		}
+
+
+		TIB_take_xikang = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 601 }
+			}
+			allowed = {
+				original_tag = TIB
+			}
+			available = {
+				601 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TIB
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 601
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 601
+				}
+			}		
+			visible = {
+				original_tag = TIB
+				has_completed_focus = TIB_chinese_border_raids
+			}
+
+			days_remove = 5
+			601 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 757
+						num_provinces = 2
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 601
+						num_provinces = 3
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+
+		TIB_take_khotan = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 1042 }
+			}
+			allowed = {
+				original_tag = TIB
+
+			}
+			available = {
+				1042 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = TIB
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 1042
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 1042
+				}
+				original_tag = TIB
+				has_completed_focus = TIB_chinese_border_raids
+			}		
+
+
+			days_remove = 5
+			1042 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 322
+						num_provinces = 2
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 1042
+						num_provinces = 3
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+
+
 		TIB_take_kunlun_shan = {
 			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
@@ -947,7 +967,7 @@ TIB_border_wars = {
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
-						state = 322
+						state = 1042
 						num_provinces = 2
 						on_win = MON_border_conflict.1
 						on_lose = MON_border_conflict.3
@@ -958,7 +978,7 @@ TIB_border_wars = {
 					}	
 					defender = {
 						state = 759
-						num_provinces = 2
+						num_provinces = 1
 						on_win = MON_border_conflict.2
 						on_lose = MON_border_conflict.4
 						on_cancel = MON_border_conflict.6
@@ -1010,8 +1030,8 @@ TIB_border_wars = {
 				start_border_war = {
 					change_state_after_war = no
 					attacker = {
-						state = 322
-						num_provinces = 1
+						state = 1042
+						num_provinces = 5
 						on_win = MON_border_conflict.1
 						on_lose = MON_border_conflict.3
 						on_cancel = MON_border_conflict.5
@@ -1021,7 +1041,7 @@ TIB_border_wars = {
 					}	
 					defender = {
 						state = 287
-						num_provinces = 1
+						num_provinces = 5
 						on_win = MON_border_conflict.2
 						on_lose = MON_border_conflict.4
 						on_cancel = MON_border_conflict.6
@@ -3760,6 +3780,89 @@ TIB_democracies = {
 	}	
 
 	# chi aligned ones -chi aligned republic
+	TIB_referendum_in_qinghai  = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_responsible_expansionism
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_held_qinghai_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 604
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 604
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 604
+			}
+		}
+
+		available = {
+			604 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_responsible_expansionism
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.99
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_qinghai_ref_flag
+				}
+			}
+		}
+	}		
 	TIB_referendum_in_yarkand = {
 		priority = 75
 

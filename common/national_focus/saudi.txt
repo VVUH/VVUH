@@ -1874,7 +1874,7 @@ focus_tree = {
 		id = SAU_state_media
 		#Tareeq al-Kadiḥeen, newspaper
 
-		icon = GFX_focus_SWE_radiotjanst
+		icon = GFX_focus_JAP_anti_militarist_speeches_in_the_diet
 		x = 2
 		y = 1
 		cost = 5
@@ -1990,7 +1990,7 @@ focus_tree = {
 	focus = {
 		id = SAU_align_regional_communists
 
-		icon = GFX_focus_generic_communist
+		icon = GFX_focus_GER_proletarian_dictatorship
 		x = 0
 		y = 1
 		cost = 10
@@ -5704,18 +5704,30 @@ focus_tree = {
 					type = steel
 					amount = 20
 				}	
+				add_resource = {
+					type = coal
+					amount = 8
+				}	
 			}
 			856 = {
 				add_resource = {
 					type = steel
 					amount = 6
 				}	
+				add_resource = {
+					type = coal
+					amount = 4
+				}				
 			}
 			679 = {
 				add_resource = {
 					type = steel
 					amount = 8
 				}	
+				add_resource = {
+					type = coal
+					amount = 9
+				}				
 			}
 	
 			854 = {
@@ -5948,7 +5960,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SAU_state_gold_mines
-		icon = GFX_focus_usa_reestablish_the_gold_standard
+		icon = GFX_focus_generic_expand_gold_mining
 		x = 0
 		y = 1
 		prerequisite = { focus = SAU_investing_in_security}
@@ -6502,7 +6514,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SAU_empower_businessmen
-		icon = GFX_focus_RAJ_trickle_down_economics
+		icon = GFX_focus_JAP_launch_the_income_doubling_plan
 		prerequisite = {focus = SAU_liberal_economy }
 		x = 2
 		y = 1
@@ -6605,7 +6617,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SAU_invest_foreign_farmland
-		icon = GFX_focus_generic_monetary_union
+		icon = GFX_focus_generic_modernizing_agriculture
 		prerequisite = {focus = SAU_water_taxes }
 		x = 0
 		y = 1
@@ -9416,7 +9428,7 @@ focus_tree = {
 
 	focus = {
         id = SAU_protect_trade_ports
-        icon = GFX_focus_generic_coastal_fort
+        icon = GFX_focus_PHI_beach_defense_strategy
         prerequisite = {focus = SAU_red_sea_navy  }
         relative_position_id = SAU_red_sea_navy
         x = 4

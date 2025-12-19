@@ -97,7 +97,15 @@ MON_mongolianDecisions = {
 			state = 621
 			state = 612
 			state = 611
-			state = 761 }
+			state = 761 
+			state = 820
+			state = 330
+			state = 818
+			state = 817
+			state = 819		
+			state = 1040
+			state = 1043
+			}
 		}
 		available = {
 			controls_state = 329
@@ -106,7 +114,13 @@ MON_mongolianDecisions = {
 			controls_state = 612
 			controls_state = 611
 			controls_state = 761
-
+			controls_state = 820
+			controls_state = 330
+			controls_state = 818
+			controls_state = 817
+			controls_state = 819
+			controls_state = 1040
+			controls_state = 1043
 		}
 
 		visible = {
@@ -128,6 +142,8 @@ MON_mongolianDecisions = {
 				612 = { add_core_of = ROOT }
 				611 = { add_core_of = ROOT }
 				761 = { add_core_of = ROOT }
+				1040 = { add_core_of = ROOT }
+				1043 =  { add_core_of = ROOT }
 			}
         }
 
@@ -685,9 +701,23 @@ MON_mongolianDecisions = {
 					state = 755
 					state = 616
 					state = 604
-					state = 283
-					state = 753
 					state = 754
+					state = 759
+					#new
+					state = 1046
+					state = 1043
+					#maybe?
+					state = 1042
+					state = 1044
+					state = 1045
+					state = 1040
+					#main
+					state = 818
+					state = 820
+					state = 330
+					state = 817
+					state = 819
+
 				}
 			}
 			icon = generic_form_nation
@@ -722,9 +752,22 @@ MON_mongolianDecisions = {
 					controls_state = 755
 					controls_state = 616
 					controls_state = 604
-					controls_state = 283
-					controls_state = 753
 					controls_state = 754
+					controls_state = 759
+					#new
+					controls_state = 1046
+					controls_state = 1043
+					#maybe?
+					controls_state = 1042
+					controls_state = 1044
+					controls_state = 1045
+					controls_state = 1040
+					#main
+					controls_state = 818
+					controls_state = 820
+					controls_state = 330
+					controls_state = 817
+					controls_state = 819
 
 			}
 
@@ -741,28 +784,35 @@ MON_mongolianDecisions = {
 					add_war_support = 0.1
 					custom_effect_tooltip = MON_you_will_core_tt
 					hidden_effect = {
-						329 = { add_core_of = MON }
-						612 = { add_core_of = MON }
-						611 = { add_core_of = MON }
-						761 = { add_core_of = MON }
-						714 = { add_core_of = MON }
-						715 = { add_core_of = MON }
-						717 = { add_core_of = MON }
-						328 = { add_core_of = MON }
-						716 = { add_core_of = MON }
-						610 = { add_core_of = MON }
-						760 = { add_core_of = MON }
-						746 = { add_core_of = MON }
-						615 = { add_core_of = MON }
-						621 = { add_core_of = MON }
-						622 = { add_core_of = MON }
-						756 = { add_core_of = MON }
-						755 = { add_core_of = MON }
-						616 = { add_core_of = MON }
-						604 = { add_core_of = MON }
-						283 = { add_core_of = MON }
-						753 = { add_core_of = MON }
-						754 = { add_core_of = MON }
+					 329  = { add_core_of = MON }
+					 612  = { add_core_of = MON }
+					 611  = { add_core_of = MON }
+					 761 = { add_core_of = MON }
+					 714 = { add_core_of = MON }
+					 715 = { add_core_of = MON }
+					 717 = { add_core_of = MON }
+					 328 = { add_core_of = MON }
+					 716 = { add_core_of = MON }
+					 610 = { add_core_of = MON }
+					 760 = { add_core_of = MON }
+					 746 = { add_core_of = MON }
+					 615 = { add_core_of = MON }
+					 621 = { add_core_of = MON }
+					 622 = { add_core_of = MON }
+					 756 = { add_core_of = MON }
+					 755 = { add_core_of = MON }
+					 616 = { add_core_of = MON }
+					 604 = { add_core_of = MON }
+					 754 = { add_core_of = MON }
+					 759 = { add_core_of = MON }
+					#new
+					 1046 = { add_core_of = MON }
+					 1043 = { add_core_of = MON }
+					#maybe?
+					 1042 = { add_core_of = MON }
+					 1044 = { add_core_of = MON }
+					 1045 = { add_core_of = MON }
+					 1040 = { add_core_of = MON }
 					}
 
 					
@@ -786,6 +836,7 @@ MON_mongolianDecisions = {
 					state = 594
 					state = 591
 					state = 592
+					state = 1033 #new south (gxc)				
 					state = 599
 					state = 593
 				}
@@ -812,6 +863,7 @@ MON_mongolianDecisions = {
 					controls_state = 592
 					controls_state = 599
 					controls_state = 593
+					controls_state = 1033
 			}
 
 			visible = {
@@ -831,6 +883,7 @@ MON_mongolianDecisions = {
 					591 = { add_core_of = ROOT }
 					592 = { add_core_of = ROOT }
 					599 = { add_core_of = ROOT }
+					1033 = { add_core_of = ROOT }
 					593 = { add_core_of = ROOT }
 					set_global_flag = MON_south_yuan
 				}
@@ -844,6 +897,7 @@ MON_mongolianDecisions = {
 				state = 322 
 				state = 757 
 				state = 758 
+				state = 601
 
 				}
 			}
@@ -865,6 +919,7 @@ MON_mongolianDecisions = {
 				controls_state = 322
 				controls_state = 757
 				controls_state = 758
+				controls_state = 601
 			}
 
 			visible = {
@@ -886,6 +941,7 @@ MON_mongolianDecisions = {
 					322 = { add_core_of = ROOT }
 					757 = { add_core_of = ROOT }
 					758 = { add_core_of = ROOT }
+					601 = { add_core_of = ROOT }
 					set_global_flag = MON_integrated_tibet
 				}
 			}
@@ -957,10 +1013,19 @@ MON_mongolianDecisions = {
 				state = 597
 				state = 613
 				state = 605
-				state = 744
-				state = 601
 				state = 596
 				state = 748
+				state = 1039 #middle
+				state = 1034 #middle, gansu. next to nanjing
+				state = 283 # middle, northeastern army
+				state = 744 # middle, northeastern army
+				state = 1032 # middle, northeastern army
+				state = 753 #middle sichuan
+				state = 1041 #middle sichuan
+				state = 1037 #middle sichuan, 605
+				state = 1036 #middle, china
+				state = 1038 #middle china
+				state = 1035 #middle, china, nanjing
 			}
 		}
 		icon = generic_form_nation
@@ -993,13 +1058,23 @@ MON_mongolianDecisions = {
 			controls_state = 598
 			controls_state = 600
 			controls_state = 751
+			controls_state = 743
 			controls_state = 597
 			controls_state = 613
 			controls_state = 605
-			controls_state = 744
-			controls_state = 601
 			controls_state = 596
 			controls_state = 748
+			controls_state = 1039 #middle
+			controls_state = 1034 #middle, gansu. next to nanjing
+			controls_state = 283 # middle, northeastern army
+			controls_state = 744 # middle, northeastern army
+			controls_state = 1032 # middle, northeastern army
+			controls_state = 753 #middle sichuan
+			controls_state = 1041 #middle sichuan
+			controls_state = 1037 #middle sichuan, 605
+			controls_state = 1036 #middle, china
+			controls_state = 1038 #middle china
+			controls_state = 1035 #middle, china, nanjing
 		}
 
 		visible = {
@@ -1015,28 +1090,37 @@ MON_mongolianDecisions = {
 		complete_effect = {
 			custom_effect_tooltip = MON_you_will_core_tt
 			hidden_effect = { 
-				606 = { add_core_of = ROOT }
-				608 = { add_core_of = ROOT }
-				750 = { add_core_of = ROOT }
-				595 = { add_core_of = ROOT }
-				752 = { add_core_of = ROOT }
-				603 = { add_core_of = ROOT }
-				614 = { add_core_of = ROOT }
-				607 = { add_core_of = ROOT }
-				749 = { add_core_of = ROOT }
-				620 = { add_core_of = ROOT }
-				602 = { add_core_of = ROOT }
-				598 = { add_core_of = ROOT }
-				600 = { add_core_of = ROOT }
-				751 = { add_core_of = ROOT }
-				743 = { add_core_of = ROOT }
-				597 = { add_core_of = ROOT }
-				613 = { add_core_of = ROOT }
-				605 = { add_core_of = ROOT }
-				744 = { add_core_of = ROOT }
-				601 = { add_core_of = ROOT }
-				596 = { add_core_of = ROOT }
-				748 = { add_core_of = ROOT }	
+				606= { add_core_of = ROOT }
+				608= { add_core_of = ROOT }
+				750= { add_core_of = ROOT }
+				595= { add_core_of = ROOT }
+				752= { add_core_of = ROOT }
+				603= { add_core_of = ROOT }
+				614= { add_core_of = ROOT }
+				607= { add_core_of = ROOT }
+				749= { add_core_of = ROOT }
+				620= { add_core_of = ROOT }
+				602= { add_core_of = ROOT }
+				598= { add_core_of = ROOT }
+				600= { add_core_of = ROOT }
+				751= { add_core_of = ROOT }
+				743= { add_core_of = ROOT }
+				597= { add_core_of = ROOT }
+				613= { add_core_of = ROOT }
+				605= { add_core_of = ROOT }
+				596= { add_core_of = ROOT }
+				748= { add_core_of = ROOT }
+				1039= { add_core_of = ROOT } 
+				1034= { add_core_of = ROOT } 
+				283= { add_core_of = ROOT }
+				744= { add_core_of = ROOT } 
+				1032= { add_core_of = ROOT } 
+				753= { add_core_of = ROOT }
+				1041= { add_core_of = ROOT } 
+				1037= { add_core_of = ROOT } 
+				1036= { add_core_of = ROOT } 
+				1038= { add_core_of = ROOT } 
+				1035= { add_core_of = ROOT } 
 				set_global_flag = MON_liberated_china
 				
 			}
@@ -1171,6 +1255,21 @@ MON_mongolianDecisions = {
 				state = 818
 				state = 819
 				state = 820
+				state =1046
+				state =1045
+				state =1044
+				state =1043
+				state =1042
+				state =1041
+				state =1040
+				state =1039
+				state =1038
+				state =1037
+				state =1036
+				state =1035
+				state =1034
+				state =1033
+				state =1032
 				state = 322
 				state = 353
 				state = 757
@@ -1427,6 +1526,22 @@ MON_mongolianDecisions = {
 						757 = { is_controlled_by = ROOT }
 						758 = { is_controlled_by = ROOT }
 						
+						1046 = { is_controlled_by = ROOT }
+						1045 = { is_controlled_by = ROOT }
+						1044 = { is_controlled_by = ROOT }
+						1043 = { is_controlled_by = ROOT }
+						1042 = { is_controlled_by = ROOT }
+						1041 = { is_controlled_by = ROOT }
+						1040 = { is_controlled_by = ROOT }
+						1039 = { is_controlled_by = ROOT }
+						1038 = { is_controlled_by = ROOT }
+						1037 = { is_controlled_by = ROOT }
+						1036 = { is_controlled_by = ROOT }
+						1035 = { is_controlled_by = ROOT }
+						1034 = { is_controlled_by = ROOT }
+						1033 = { is_controlled_by = ROOT }
+						1032 = { is_controlled_by = ROOT }
+
 						615 = { is_controlled_by = ROOT }
 						621 = { is_controlled_by = ROOT }
 						746 = { is_controlled_by = ROOT }
@@ -1663,7 +1778,7 @@ MON_mongolianDecisions = {
 						225 = { is_controlled_by = ROOT }
 						196 = { is_controlled_by = ROOT }
 						200 = { is_controlled_by = ROOT }
-						1012 = {  add_core_of = ROOT }
+						1012 = {  is_controlled_by = ROOT }
 						227 = { is_controlled_by = ROOT }
 						221 = { is_controlled_by = ROOT }
 						228 = { is_controlled_by = ROOT }
@@ -1719,6 +1834,7 @@ MON_mongolianDecisions = {
 				283 = { add_core_of = ROOT }
 				1000 = {  add_core_of = ROOT }
 				1012 = {  add_core_of = ROOT }
+				1022 = {  add_core_of = ROOT }
 				604 = { add_core_of = ROOT }
 				616 = { add_core_of = ROOT }
 				756 = { add_core_of = ROOT }
@@ -1730,6 +1846,21 @@ MON_mongolianDecisions = {
 				618 = { add_core_of = ROOT }
 				619 = { add_core_of = ROOT }
 				759 = { add_core_of = ROOT }
+				1046 = { add_core_of = ROOT }
+				1045 = { add_core_of = ROOT }
+				1044 = { add_core_of = ROOT }
+				1043 = { add_core_of = ROOT }
+				1042 = { add_core_of = ROOT }
+				1041 = { add_core_of = ROOT }
+				1040 = { add_core_of = ROOT }
+				1039 = { add_core_of = ROOT }
+				1038 = { add_core_of = ROOT }
+				1037 = { add_core_of = ROOT }
+				1036 = { add_core_of = ROOT }
+				1035 = { add_core_of = ROOT }
+				1034 = { add_core_of = ROOT }
+				1033 = { add_core_of = ROOT }
+				1032 = { add_core_of = ROOT }
 				760 = { add_core_of = ROOT }
 				325 = { add_core_of = ROOT }
 				591 = { add_core_of = ROOT }
@@ -2036,7 +2167,73 @@ MON_border_raids = {
 			}
 
 		}
-	
+		MON_take_alxa = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 1040 }
+			}
+			allowed = {
+				original_tag = MON
+				NOT = {
+					any_controlled_state = {
+						is_border_war = yes
+					}
+				}
+			}
+			available = {
+				1040 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+				has_border_war = no
+				NOT = {
+					controls_state = 1040
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 7610400
+				}
+			}		
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_regaining_mongolia
+			}
+
+			days_remove = 5
+			1040 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 817
+						num_provinces = 3
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 1040
+						num_provinces = 4
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}	
 		MON_take_tuva = {
 			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
@@ -2167,7 +2364,69 @@ MON_border_raids = {
 			}
 
 		}
-		
+		MON_take_pailingmiao = {
+			war_with_target_on_complete = yes
+			icon = GFX_decision_border_war
+			highlight_states = {
+				highlight_state_targets = { 			
+				state = 1043 }
+			}
+			allowed = {
+				original_tag = MON
+			}
+			available = {
+				has_border_war = no
+				NOT = {
+					controls_state = 1043
+				}
+				1043 = {
+					any_neighbor_state = {
+						is_fully_controlled_by = MON
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					controls_state = 1043
+				}
+			}		
+			visible = {
+				original_tag = MON
+				has_completed_focus = MON_regaining_mongolia
+			}
+
+			days_remove = 5
+			1043 = {
+				controller = {
+					war_with_on_remove = PREV
+				}
+			}
+			remove_effect = {
+				
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 817
+						num_provinces = 2
+						on_win = MON_border_conflict.1
+						on_lose = MON_border_conflict.3
+						on_cancel = MON_border_conflict.5
+						modifier = 0.1
+						dig_in_factor = 0
+						terrain_factor = 0
+					}	
+					defender = {
+						state = 1043
+						num_provinces = 1
+						on_win = MON_border_conflict.2
+						on_lose = MON_border_conflict.4
+						on_cancel = MON_border_conflict.6
+					}
+				}
+			}
+
+		}
+			
 		MON_take_chahar = {
 			war_with_target_on_complete = yes
 			icon = GFX_decision_border_war
@@ -2222,7 +2481,7 @@ MON_border_raids = {
 					}	
 					defender = {
 						state = 612
-						num_provinces = 4
+						num_provinces = 6
 						on_win = MON_border_conflict.2
 						on_lose = MON_border_conflict.4
 						on_cancel = MON_border_conflict.6
@@ -2378,7 +2637,7 @@ MON_border_raids = {
 					change_state_after_war = no
 						attacker = {
 							state = 817
-							num_provinces = 5
+							num_provinces = 4
 							on_win = MON_border_conflict.1
 							on_lose = MON_border_conflict.3
 							on_cancel = MON_border_conflict.5
@@ -2388,7 +2647,7 @@ MON_border_raids = {
 						}	
 						defender = {
 							state = 621
-							num_provinces = 4
+							num_provinces = 3
 							on_win = MON_border_conflict.2
 							on_lose = MON_border_conflict.4
 							on_cancel = MON_border_conflict.6
@@ -2499,26 +2758,75 @@ MON_border_raids = {
 				}
 			}
 			remove_effect = {
-				
-				start_border_war = {
-					change_state_after_war = no
-						attacker = {
-							state = 817
-							num_provinces = 4
-							on_win = MON_border_conflict.1
-							on_lose = MON_border_conflict.3
-							on_cancel = MON_border_conflict.5
-							modifier = 0.1
-							dig_in_factor = 0
-							terrain_factor = 0
-						}	
-						defender = {
-							state = 756
-							num_provinces = 5
-							on_win = MON_border_conflict.2
-							on_lose = MON_border_conflict.4
-							on_cancel = MON_border_conflict.6
-						}
+				IF = {
+					LIMIT = {
+						controls_state = 1040
+					}
+					start_border_war = {
+						change_state_after_war = no
+							attacker = {
+								state = 1040
+								num_provinces = 3
+								on_win = MON_border_conflict.1
+								on_lose = MON_border_conflict.3
+								on_cancel = MON_border_conflict.5
+								modifier = 0.1
+								dig_in_factor = 0
+								terrain_factor = 0
+							}	
+							defender = {
+								state = 756
+								num_provinces = 3
+								on_win = MON_border_conflict.2
+								on_lose = MON_border_conflict.4
+								on_cancel = MON_border_conflict.6
+							}
+					}
+				}ELSE_IF={
+					LIMIT = {
+						controls_state = 760
+					}	
+					start_border_war = {
+						change_state_after_war = no
+							attacker = {
+								state = 760
+								num_provinces = 2
+								on_win = MON_border_conflict.1
+								on_lose = MON_border_conflict.3
+								on_cancel = MON_border_conflict.5
+								modifier = 0.1
+								dig_in_factor = 0
+								terrain_factor = 0
+							}	
+							defender = {
+								state = 756
+								num_provinces = 2
+								on_win = MON_border_conflict.2
+								on_lose = MON_border_conflict.4
+								on_cancel = MON_border_conflict.6
+							}
+					}					
+				}ELSE = {
+					start_border_war = {
+						change_state_after_war = no
+							attacker = {
+								state = 817
+								num_provinces = 1
+								on_win = MON_border_conflict.1
+								on_lose = MON_border_conflict.3
+								on_cancel = MON_border_conflict.5
+								modifier = 0.1
+								dig_in_factor = 0
+								terrain_factor = 0
+							}	
+							defender = {
+								state = 756
+								num_provinces = 1
+								on_win = MON_border_conflict.2
+								on_lose = MON_border_conflict.4
+								on_cancel = MON_border_conflict.6
+							}
+					}
 				}
 			}
 
@@ -2970,6 +3278,10 @@ MON_union_asian_republics = {
 		}
 		
 		visible = {
+			OR = {
+				has_completed_focus = MON_regional_ambitions
+				has_completed_focus = MON_asian_federation
+			}			
 			any_owned_state = {
 				is_on_continent = asia
 				NOT = {

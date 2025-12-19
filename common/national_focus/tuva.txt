@@ -147,7 +147,7 @@ focus_tree = {
   	focus = {
 		id = TAN_refuge_from_war
 
-		icon = GFX_focus_SWE_refuge_from_war
+		icon = GFX_focus_generic_immigration
 		x = 7
 		y = 0
 		cost = 3
@@ -197,7 +197,7 @@ focus_tree = {
   	focus = {
 		id = TAN_connect_with_mongolia
 
-		icon = GFX_focus_POL_beck_ribbentrop
+		icon = GFX_focus_generic_befriend_mongolia
 		x = -1
 		y = 1
 		cost = 5
@@ -284,7 +284,7 @@ focus_tree = {
     focus = {
 		id = TAN_rescue_eastern_mongols
 
-		icon = GFX_focus_generic_concessions
+		icon = GFX_focus_JAP_reorganize_the_united_autonomous_government
 		x = 1
 		y = 1
 		cost = 5
@@ -1469,7 +1469,7 @@ focus_tree = {
 	}   
 	focus = {
 		id = TAN_boring_projects
-		icon = GFX_goal_generic_oil_refinery	
+		icon = GFX_focus_JAP_expand_coal_islands	
 		prerequisite = {focus = TAN_promoting_industrialisation }
 		x = -1
 		y = 1
@@ -1510,8 +1510,12 @@ focus_tree = {
 				}
 				add_resource = {
 					type = oil
-					amount = 7
+					amount = 5
 				}
+				add_resource = {
+					type = coal
+					amount = 35
+				}					
 			}		
 		}
 
