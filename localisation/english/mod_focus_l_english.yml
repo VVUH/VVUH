@@ -3657,7 +3657,7 @@
  MON_unlock_border_raids_tt:0 "This focus will unlock §Yborder raids§! where you will be able to gain the states required to form §YGreater Mongolia§!."
  MON_unlock_border_raids_princeD_tt:0 "This focus will unlock §Yborder raids§!"
  MON_claim_siberia_tt:0 "You will gain claims on Siberian lands and unlock these Japanese MIO's:" 
- MON_bedrock_tt:0 "You will get 1 civilian factory and 1 military factory for every warlord country with more than 50 relations with you. China itself, Tibet, Manchukuo and Mengukuo are included, Communist China is not."
+ MON_bedrock_tt:0 "You will get 1 civilian factory or 1 military factory for every warlord country with more than 50 relations with you. China itself, Tibet, Manchukuo and Mengukuo are included, Communist China is not."
  MON_civilwar_milita_tt:0 "\nBy taking anti-internationalist action, you will be supplied with §Yfour nationalist militias§! at the start of the civil war. \n\nThese units won't disband when the war ends, and you can make more."
  MON_civilwar_weapons_tt:0 "\nBy taking requesting foreign support, you will be supplied with rifles upon the start of the civil war from Tibet, Manchukuo, Japan and Menkukuo if they §Yexist and are at peace§!."
  MON_army_loyal_increase_tt:0 "\nThe army will become more loyal to the state and the morale national spirit will be upgraded."

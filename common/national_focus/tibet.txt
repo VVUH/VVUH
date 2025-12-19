@@ -3550,7 +3550,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_responsible_expansionism
-		icon = GFX_focus_generic_annex_country_2
+		icon = GFX_focus_generic_democratic_asia
 		x = 1
 		y = 1
 		cost = 10
@@ -3572,6 +3572,7 @@ focus_tree = {
 			unlock_decision_tooltip = TIB_referendum_in_gansu
 			unlock_decision_tooltip = TIB_referendum_in_gannan
 			unlock_decision_tooltip = TIB_referendum_in_ganzi
+			unlock_decision_tooltip = TIB_referendum_in_qinghai
 			unlock_decision_tooltip = TIB_referendum_in_liangshan
 		}
 	}
@@ -3780,7 +3781,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_regional_pressure
-		icon = GFX_focus_generic_democratic_asia
+		icon = GFX_focus_generic_asia_liberation
 		x = -2
 		y = 2
 		cost = 10
@@ -4831,7 +4832,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_centralize_farming
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_focus_generic_public_works
 		x = 0
 		y = 1
 		cost = 5
@@ -4870,7 +4871,7 @@ focus_tree = {
 	}
 	focus = { 
 		id = TIB_citizen_farmlands
-		icon = GFX_focus_generic_public_works
+		icon = GFX_focus_CHI_students_to_the_countryside
 		x = 2
 		y = 1
 		cost = 5
@@ -5216,7 +5217,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_land_reform
-		icon = GFX_goal_generic_neutrality_focus
+		icon = GFX_focus_PRC_land_revolution_expedited
 		x = 0
 		y = 1
 		cost = 5
@@ -5405,7 +5406,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_keep_the_lower_division_placated
-		icon = GFX_focus_generic_worker_administration
+		icon = GFX_focus_PRC_land_revolution_halted
 		x = 0
 		y = 1
 		cost = 5

@@ -946,7 +946,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_fight_imperialism
-		icon = GFX_goal_tfv_burn_the_royal_portraits
+		icon = GFX_focus_AST_war_japan
 		x = 0
 		y = 1
 		cost = 5
@@ -2589,8 +2589,9 @@ focus_tree = {
 		completion_reward = {
 			set_cosmetic_tag = MON_khanate
 			retire_ideology_leader = neutrality
-	
+			hidden_effect = {
 			add_country_leader_trait = the_sacred_king	
+			}
 			annex_country = {
 				target = MEN
 				transfer_troops = yes
@@ -2726,7 +2727,7 @@ focus_tree = {
 		id = MON_suiyan_operation
 		relative_position_id = MON_reclaim_yuan
 		prerequisite = { focus = MON_reclaim_yuan  }
-		icon = GFX_focus_generic_conspiracy
+		icon = GFX_focus_CHI_start_looking_outwards
 		x = 1
 		y = 1
 		cost = 5
@@ -2801,7 +2802,9 @@ focus_tree = {
 
 		completion_reward = {	
 			custom_effect_tooltip = MON_mongol_empire_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = MON_heirs_of_the_huns_idea
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_country_leader_trait = spirit_of_genghis
 			hidden_effect = {
 				#don't look at me....
@@ -6496,7 +6499,6 @@ focus_tree = {
 						country_exists = MEN
 						MEN = { has_opinion = { target = MON value > 49 } } 
 					}
-					add_offsite_building = { type = industrial_complex level = 1 }
 					add_offsite_building = { type = arms_factory level = 1 }
 				}	
 				if = { 	
@@ -6505,7 +6507,6 @@ focus_tree = {
 						MAN = { has_opinion = { target = MON value > 49 } } 
 					}
 					add_offsite_building = { type = industrial_complex level = 1 }
-					add_offsite_building = { type = arms_factory level = 1 }
 
 				}	
 				if = { 	
@@ -6513,7 +6514,6 @@ focus_tree = {
 						country_exists = SIK
 						SIK = { has_opinion = { target = MON value > 49 } } 
 					}
-					add_offsite_building = { type = industrial_complex level = 1 }
 					add_offsite_building = { type = arms_factory level = 1 }
 
 				}	
@@ -6523,15 +6523,37 @@ focus_tree = {
 						YUN = { has_opinion = { target = MON value > 49 } } 
 					}
 					add_offsite_building = { type = industrial_complex level = 1 }
-					add_offsite_building = { type = arms_factory level = 1 }
 
 				}
+				if = { 
+					limit = { 
+						country_exists = KHM
+						KHM = { has_opinion = { target = MON value > 49 } } 
+					}
+					add_offsite_building = { type = arms_factory level = 1 }
+
+				}		
+				if = { 
+					limit = { 
+						country_exists = GSM
+						GSM = { has_opinion = { target = MON value > 49 } } 
+					}
+					add_offsite_building = { type = industrial_complex level = 1 }
+
+				}		
+				if = { 
+					limit = { 
+						country_exists = NXM
+						NXM = { has_opinion = { target = MON value > 49 } } 
+					}
+					add_offsite_building = { type = industrial_complex level = 1 }
+
+				}								
 				if = { 	
 					limit = { 
 						country_exists = XSM
 						XSM = { has_opinion = { target = MON value > 49 } } 
 					}
-					add_offsite_building = { type = industrial_complex level = 1 }
 					add_offsite_building = { type = arms_factory level = 1 }
 
 				}
@@ -6540,7 +6562,6 @@ focus_tree = {
 						country_exists = CHI
 						CHI = { has_opinion = { target = GRE value > 49 } } 
 					}
-					add_offsite_building = { type = industrial_complex level = 1 }
 					add_offsite_building = { type = arms_factory level = 1 }
 
 				}
@@ -6550,7 +6571,6 @@ focus_tree = {
 						SHX = { has_opinion = { target = MON value > 49 } } 
 					}
 					add_offsite_building = { type = industrial_complex level = 1 }
-					add_offsite_building = { type = arms_factory level = 1 }				
 				}
 				if = { 	
 					limit = { 
@@ -6558,16 +6578,43 @@ focus_tree = {
 						GXC = { has_opinion = { target = GRE value > 49 } } 
 					}
 					add_offsite_building = { type = industrial_complex level = 1 }
-					add_offsite_building = { type = arms_factory level = 1 }
 				}
 				if = { 	
 					limit = { 
 						country_exists = TIB
 						TIB = { has_opinion = { target = GRE value > 49 } } 
 					}
-					add_offsite_building = { type = industrial_complex level = 1 }
 					add_offsite_building = { type = arms_factory level = 1 }
 				}
+				if = { 	
+					limit = { 
+						country_exists = HBC
+						HBC = { has_opinion = { target = GRE value > 49 } } 
+					}
+					add_offsite_building = { type = industrial_complex level = 1 }
+				}
+				if = { 	
+					limit = { 
+						country_exists = SND
+						SND = { has_opinion = { target = GRE value > 49 } } 
+					}
+					add_offsite_building = { type = arms_factory level = 1 }
+				}
+				if = { 	
+					limit = { 
+						country_exists = GDC
+						GDC = { has_opinion = { target = GRE value > 49 } } 
+					}
+					add_offsite_building = { type = industrial_complex level = 1 }
+				}
+				if = { 	
+					limit = { 
+						country_exists = SIC
+						SIC = { has_opinion = { target = GRE value > 49 } } 
+					}
+					add_offsite_building = { type = arms_factory level = 1 }
+				}												
+
 			}
 		}
 	}	
@@ -7335,7 +7382,7 @@ focus_tree = {
 			}
 			add_resource = {
 				type = aluminium
-				amount = 8
+				amount = 15
 				state = 330
 			}
 		}

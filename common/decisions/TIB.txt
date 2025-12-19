@@ -3780,6 +3780,89 @@ TIB_democracies = {
 	}	
 
 	# chi aligned ones -chi aligned republic
+	TIB_referendum_in_qinghai  = {
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 150
+		}
+
+		allowed = {
+			original_tag = TIB
+		}
+
+		visible = {
+			has_completed_focus = TIB_responsible_expansionism
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}	
+				NOT = {
+					has_country_flag = TIB_held_qinghai_ref_flag
+				}
+				NOT = {
+					original_tag = TIB
+				}
+				OR = {
+					controls_state = 604
+					any_subject_country = {
+						is_ai = yes
+						controls_state = 604
+					}
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 604
+			}
+		}
+
+		available = {
+			604 = {
+				any_neighbor_state = {
+					is_owned_by = TIB
+				}
+			}
+			has_completed_focus = TIB_responsible_expansionism
+			is_subject = no
+			OR = {
+				has_government = democratic
+				has_government = neutrality
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 65 
+				}
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = TIB
+		}
+
+		cost = 75
+
+		complete_effect = {
+			FROM = {
+				country_event = {
+				    id = TIB_ref.99
+				    days = 2
+				    random = 3
+				}
+				hidden_effect = {
+					set_country_flag = TIB_held_qinghai_ref_flag
+				}
+			}
+		}
+	}		
 	TIB_referendum_in_yarkand = {
 		priority = 75
 
