@@ -1,0 +1,14 @@
+﻿focus_tree = {
+	id = a
+	
+	country = {
+		
+	}
+	
+	default = no
+
+	continuous_focus_position = { x = 50 y = 1350 }
+
+	##Dont Delete this FROM TOAST
+
+}
