@@ -113,6 +113,7 @@ focus_tree = {
 		prerequisite = { focus = ALB_industrial_investments }
 		available = {
 			has_completed_focus = ALB_For_Zog
+			has_completed_focus = ALB_For_the_june_revolution
 		}
 		cancel_if_invalid = yes
 		x = 5
@@ -126,6 +127,11 @@ focus_tree = {
 			add_resource = {
 				type = steel
 				amount = 16
+				state = 44
+				}
+				add_resource = {
+				type = coal
+				amount = 6
 				state = 44
 				}
 		}
@@ -201,7 +207,8 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			add_ideas = {BALTIC_axis_investments_idea  }
+			add_ideas = {BALTIC_axis_investments_idea}
+			add_research_slot = 1
 		}
 	}
 	focus = {
@@ -238,7 +245,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		x = 4
 		y = 7
-		cost = 8
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -367,7 +374,8 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			add_ideas = {BALTIC_allied_investments_idea }
+			add_ideas = {BALTIC_allied_investments_idea}
+			add_research_slot = 1
 		}
 	}
 	focus = {
@@ -401,7 +409,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		x = 6
 		y = 7
-		cost = 8
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -572,7 +580,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		x = 10
 		y = 4
-		cost = 8
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -589,6 +597,7 @@ focus_tree = {
 		prerequisite = { focus = ALB_industrial_investments }
 		available = {
 			has_completed_focus = ALB_Makeing_the_worker_class
+			has_completed_focus = ALB_muslim_revolution
 		}
 		cancel_if_invalid = yes
 		x = 11
@@ -618,6 +627,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ALB_industrial_investments_6 }
 		available = {
 			has_completed_focus = ALB_no_i_need_to_be_faithful
+			has_completed_focus = ALB_The_first_step
 		}
 		cancel_if_invalid = yes
 		x = 11
@@ -676,7 +686,7 @@ random_owned_state = {
 		cancel_if_invalid = yes
 		x = 11
 		y = 7
-		cost = 8
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -776,6 +786,11 @@ random_owned_state = {
 		
 		completion_reward = {
 			add_ideas = {ALB_underground_country}
+			add_resource = {
+				type = coal
+				amount = 8
+				state = 44
+				}
 		}
 	}
 	focus = {
@@ -836,7 +851,7 @@ swap_ideas = {
 		cancel_if_invalid = yes
 		x = 9
 		y = 7
-		cost = 8
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -855,6 +870,11 @@ swap_ideas = {
     remove_idea = ALB_underground_country_1
     add_idea = ALB_underground_country_2
 }
+add_resource = {
+				type = coal
+				amount = 2
+				state = 44
+				}
 		}
 	}
 	focus = {
@@ -888,7 +908,7 @@ swap_ideas = {
 	focus = {
 		id = ALB_italian_officers
 		icon = GFX_focus_ITA_bersaglieri
-		x = 50
+		x = 52
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -904,9 +924,11 @@ swap_ideas = {
 	focus = {
 		id = ALB_urbanization_plans
 		icon = GFX_goal_generic_construction
-		x = 56
-		y = 0
+		prerequisite = { focus = ALB_For_Zog focus = ALB_Challenge_Zog}
+		x = -18
+		y = 1
 		cost = 6
+		relative_position_id = ALB_Challenge_Zog
 		ai_will_do = {
 			factor = 12
 		}
@@ -1037,7 +1059,7 @@ swap_ideas = {
 		x = 1
 		y = 1
 		relative_position_id = ALB_expand_the_mining_industry
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 12
 		}
@@ -1058,7 +1080,7 @@ swap_ideas = {
 		x = -1
 		y = 1
 		relative_position_id = ALB_expand_the_mining_industry
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 12
 		}
@@ -1259,10 +1281,6 @@ swap_ideas = {
 			factor = 9
 		}
 
-		available = {
-        NOT = {has_war_with = ITA}
-		}
-
 		available_if_capitulated = no
 
 		completion_reward = {
@@ -1287,10 +1305,6 @@ swap_ideas = {
 
 		available_if_capitulated = no
 
-		available = {
-        NOT = {has_war_with = ITA}
-		}
-
 		completion_reward = {
 			add_equipment_to_stockpile = {
     type = infantry_equipment
@@ -1313,7 +1327,7 @@ swap_ideas = {
 		icon = GFX_focus_rom_handle_king
 		prerequisite = { focus = ALB_albania_questions }
 		mutually_exclusive = { focus = ALB_For_Zog }
-		x = 17
+		x = 19
 		y = 1
 	    cost = 5
 		ai_will_do = {
@@ -1330,15 +1344,20 @@ if = {
 		NOT = { has_completed_focus = ALB_For_Zog }
 		}
               }
-}
 		completion_reward = {
-		mark_focus_tree_layout_dirty = yes
+			hidden_effect = {
+		load_focus_tree = {
+  tree = albania_focus
+  keep_completed = yes
+}
+	}
 		add_popularity = {
 			    ideology = neutrality
 			    popularity = -0.15
 			}
 			add_political_power = -25
-	}	
+	}			
+	}
 	focus = {
 		id = ALB_For_Zog
 		icon = GFX_focus_rom_royal_dictatorship
@@ -1347,13 +1366,14 @@ if = {
 		available = {
 		}
 		cancel_if_invalid = yes
-		x = -3
+		x = -6
 		y = 1
 		cost = 5
 		ai_will_do = {
 			factor = 8
 		}
-                allow_branch = {
+
+               allow_branch = {
 if = {
 				limit = {
 					has_game_rule = {
@@ -1361,13 +1381,18 @@ if = {
 						option = HIDE
 					}
 				}
-		NOT = { has_completed_focus = ALB_Challenge_Zog }
+		NOT = { has_completed_focus = ALB_Challenge_Zog}
 		}
               }
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = 0.05
-			mark_focus_tree_layout_dirty = yes
+		hidden_effect = {
+		load_focus_tree = {
+  tree = albania_focus
+  keep_completed = yes
+}
+			}
 		}
 	}
 	focus = {
@@ -1771,7 +1796,11 @@ if = {
 			set_rule = {
 				can_create_factions = yes
 			}
-			create_faction = "Albanian Alliance"
+			create_faction_from_template = {
+  template = faction_template_balkan_pact  
+  name = "Albanian Alliance"
+  icon = GFX_faction_logo_generic_11
+}
 
 			ROM = {
 				country_event = {
@@ -1930,6 +1959,7 @@ if = {
 				id = albania_events.9
 				}
 			}
+
 		}
 	}
 	focus = {
@@ -1965,7 +1995,7 @@ if = {
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-		add_research_slot = 2
+		add_research_slot = 1
 		}
 	}
 	focus = {
@@ -1988,6 +2018,11 @@ if = {
 			    ideology = communism
 			    popularity = 0.05
 			}
+			hidden_effect = {
+		set_technology = {
+    militia_tech = 1
+}
+}
 		}
 	}
 	focus = {
@@ -2185,6 +2220,7 @@ if = {
 
 		completion_reward = {
 			add_war_support = 0.05
+			custom_effect_tooltip = ALB_there_treachery_everywhere_tt
 		}
 	}
 	focus = {
@@ -2213,7 +2249,7 @@ if = {
 		x = 0
 		y = 2
 		relative_position_id = ALB_officers_school_of_the_revolution
-		cost = 5
+		cost = 10
 		ai_will_do = {
 			factor = 9
 		}
@@ -2232,9 +2268,19 @@ if = {
 	}
 	add_equipment_to_stockpile = {
     type = infantry_equipment
-    amount = 10000
+    amount = 8000
     producer = ALB
 }
+add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 240
+    producer = ALB
+	}
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 450
+    producer = ALB
+	}
 		}
 	}
 	focus = {
@@ -2336,8 +2382,8 @@ if = {
 		}
 	}
 	focus = {
-		id = ALB_found_a_cult_of_personality
-		icon = GFX_focus_smiling_buddha
+		id = ALB_plan_tirana
+		icon = GFX_focus_GER_proletarian_solidarity
 		prerequisite = { focus = ALB_close_albania }
 		prerequisite = { focus = ALB_behead_the_snakes }
 		prerequisite = { focus = ALB_every_house_a_fort }
@@ -2354,12 +2400,17 @@ if = {
 
 		
          available = {
-
 		}
 
 		completion_reward = {
-			add_political_power = -125
-			add_stability = 0.075
+	    every_neighbor_country = {
+			ROOT = {
+	        declare_war_on = {
+                target = PREV
+                    type = annex_everything
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -2381,16 +2432,16 @@ if = {
 		 }
 
 		completion_reward = {
-			complete_special_project = sp:sp_land_stronghold_network
+			set_technology = { stronghold_network_tech = 1 popup = yes}
 		}
 	}
 	focus = {
 		id = ALB_brilliant_genius
 		icon = GFX_focus_SWE_refuge_for_revolutionaries
-		prerequisite = { focus = ALB_found_a_cult_of_personality }
+		prerequisite = { focus = ALB_plan_tirana }
 		x = -1
 		y = 1
-		relative_position_id = ALB_found_a_cult_of_personality
+		relative_position_id = ALB_plan_tirana
 		cost = 5
 		ai_will_do = {
 			factor = 9
@@ -2403,12 +2454,125 @@ if = {
 		}
 	}
 	focus = {
+		id = ALB_mass_protests_for_peace
+		icon = GFX_focus_PER_stage_mass_protests
+		prerequisite = { focus = ALB_plan_tirana }
+		x = -3
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_ideas = {ALB_protests_for_peace}
+		}
+	}
+	focus = {
+		id = ALB_underground_network
+		icon = GFX_focus_RAJ_go_into_hiding
+		prerequisite = { focus = ALB_plan_tirana }
+		x = -5
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_unit_bonus = {
+			Militia = { 
+			equipment_capture_factor = 0.02
+			supply_consumption_factor = -0.1
+			}
+		}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = ALB
+}
+add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 60
+    producer = ALB
+	}
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 125
+    producer = ALB
+	}
+			add_tech_bonus = {
+				name = ALB_underground_network
+				bonus = 1.0
+				uses = 2
+				category = support_tech
+			}
+		}
+	}
+	focus = {
+		id = ALB_more_room_for_factories
+		icon = GFX_focus_RAJ_bathe_in_hellfire
+		prerequisite = { focus = ALB_plan_tirana }
+		x = 3
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		every_owned_state = {
+                add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+    }
+	add_manpower = -10000
+            }
+		}
+	}
+	focus = {
+		id = ALB_the_war_engine_is_peace
+		icon = GFX_focus_generic_mass_production
+		prerequisite = { focus = ALB_plan_tirana }
+		x = 5
+		y = 1
+		relative_position_id = ALB_plan_tirana
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_ideas = {ALB_the_war_is_peace}
+		random_owned_state = {
+	add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+    }
+	}
+		}
+	}
+	focus = {
 		id = ALB_great_commander
 		icon = GFX_focus_chi_army_reform
-		prerequisite = { focus = ALB_found_a_cult_of_personality }
+		prerequisite = { focus = ALB_plan_tirana }
 		x = 1
 		y = 1
-		relative_position_id = ALB_found_a_cult_of_personality
+		relative_position_id = ALB_plan_tirana
 		cost = 5
 		ai_will_do = {
 			factor = 9
@@ -2440,14 +2604,18 @@ if = {
 	}
 	focus = {
 		id = ALB_they_have_it_out_for_me
-		icon = GFX_focus_POL_riot_of_37
-		prerequisite = { focus = ALB_found_a_cult_of_personality }
+		icon = GFX_focus_RAJ_i_am_death
+		prerequisite = { focus = ALB_plan_tirana }
 		prerequisite = { focus = ALB_brilliant_genius }
 		prerequisite = { focus = ALB_great_commander }
+		prerequisite = { focus = ALB_underground_network }
+		prerequisite = { focus = ALB_mass_protests_for_peace }
+		prerequisite = { focus = ALB_more_room_for_factories }
+		prerequisite = { focus = ALB_the_war_engine_is_peace }
 		x = 0
 		y = 2
-		relative_position_id = ALB_found_a_cult_of_personality
-		cost = 5
+		relative_position_id = ALB_plan_tirana
+		cost = 10
 		ai_will_do = {
 			factor = 9
 		}
@@ -2455,34 +2623,7 @@ if = {
 		available_if_capitulated = no
 
 		completion_reward = {
-					create_wargoal = {
-    type = annex_everything
-	target = ROM
-	}
-		create_wargoal = {
-    type = annex_everything
-	target = BUL
-	}
-			create_wargoal = {
-    type = annex_everything
-	target = GRE
-	}
-		create_wargoal = {
-    type = annex_everything
-	target = ITA
-	}
-			create_wargoal = {
-    type = annex_everything
-	target = HUN
-	}
-		create_wargoal = {
-    type = annex_everything
-	target = AUS
-	}
-	create_wargoal = {
-    type = annex_everything
-	target = YUG
-	}
+		add_ideas = {ALB_where_are_they}
 		}
 	}
 	focus = {
@@ -2566,10 +2707,6 @@ if = {
 
 		completion_reward = {
 			add_ideas = {ALB_KPPB}
-			create_intelligence_agency = {
-    			name = "Directorate of State Security"
-    			icon = GFX_intelligence_agency_logo_yug
-			}
 		}
 	}
 	focus = {
@@ -2589,6 +2726,7 @@ if = {
 
 		completion_reward = {
 			add_stability = 0.075
+			custom_effect_tooltip = ALB_to_be_faithful_tt
 		}
 	}
 	focus = {
@@ -2612,8 +2750,8 @@ if = {
 	focus = {
 		id = ALB_joint_research_effort
 		icon = GFX_focus_generic_socialist_science
-		prerequisite = { focus = ALB_schools_for_revolutionaries  focus = ALB_soviet_industrial_investments }
-		x = 1
+		prerequisite = { focus = ALB_allies_everywhere }
+		x = 0
 		y = 1
 		relative_position_id = ALB_schools_for_revolutionaries
 		cost = 5
@@ -2633,9 +2771,9 @@ if = {
 	focus = {
 		id = ALB_allies_everywhere
 		icon = GFX_focus_YUG_pan_slavic_congress
-		prerequisite = { focus = ALB_joint_research_effort  focus = ALB_soviet_industrial_investments focus = ALB_provide_for_the_people }
+		prerequisite = { focus = ALB_no_i_need_to_be_faithful }
 		x = 2
-		y = 2
+		y = 0
 		relative_position_id = ALB_schools_for_revolutionaries
 		cost = 10
 		ai_will_do = {
@@ -2649,9 +2787,17 @@ if = {
 			set_rule = {
 				can_create_factions = yes
 			}
-			create_faction = "Albanian comintern"
+			create_faction_from_template = {
+  template = faction_template_fourth_international 
+  name = "Albanian comintern"
+  icon = GFX_faction_logo_generic_2
+}
 			every_country = {
-				limit = { has_government = communism}
+				limit = { has_government = communism
+				NOT = {
+                tag = ALB
+	            }
+                }
 				country_event = {
 					id = albania_events.20
 					hours = 6
@@ -2659,94 +2805,28 @@ if = {
 			}
 			add_equipment_to_stockpile = {
     type = infantry_equipment
-    amount = 15000
-    producer = ALB
+    amount = 12000
+    producer = SOV
 	}
-		}
+	add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 200
+    producer = SOV
 	}
-	focus = {
-		id = ALB_carry_the_revolution_north
-		icon = GFX_goal_generic_attack_allies
-		prerequisite = { focus = ALB_allies_everywhere}
-		x = 2
-		y = 3
-		relative_position_id = ALB_schools_for_revolutionaries
-		cost = 8
-		ai_will_do = {
-			factor = 9
-		}
-
-		available_if_capitulated = no
-
-		bypass = { YUG = {exists = no } }
-
-		completion_reward = {
-			create_wargoal = {
-    type = annex_everything
-	target = YUG
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 350
+    producer = SOV
 	}
-		}
-	}
-	focus = {
-		id = ALB_carry_the_revolution_west
-		icon = GFX_focus_attack_italy
-		prerequisite = { focus = ALB_carry_the_revolution_north}
-		x = 1
-		y = 4
-		relative_position_id = ALB_schools_for_revolutionaries
-		will_lead_to_war_with = ITA
-		cost = 8
-		ai_will_do = {
-			factor = 9
-		}
-
-		available_if_capitulated = no
-
-		bypass = { ITA = {exists = no } }
-
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = ITA
-			}
-		}
-	}
-	focus = {
-		id = ALB_carry_the_revolution_east
-		icon = GFX_focus_generic_attack_romania
-		prerequisite = { focus = ALB_carry_the_revolution_north}
-		x = 3
-		y = 4
-		relative_position_id = ALB_schools_for_revolutionaries
-		will_lead_to_war_with = BUL
-		will_lead_to_war_with = ROM
-		cost = 8
-		ai_will_do = {
-			factor = 9
-		}
-
-		available_if_capitulated = no
-		bypass = { ROM = {exists = no } }
-
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = ROM
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = BUL
-			}
 		}
 	}
 	focus = {
 		id = ALB_long_name
 		icon = GFX_focus_generic_befriend_albania
-		prerequisite = { focus = ALB_carry_the_revolution_east}
-		prerequisite = { focus = ALB_carry_the_revolution_west}
-		x = 2
-		y = 5
-		relative_position_id = ALB_schools_for_revolutionaries
+		prerequisite = { focus = ALB_demand_for_montenegro_and_kosovo_people focus = ALB_the_engine_for_peace}
+		x = 1
+		y = 1
+		relative_position_id = ALB_demand_for_montenegro_and_kosovo_people
 		cost = 10
 		ai_will_do = {
 			factor = 9
@@ -2759,10 +2839,41 @@ if = {
 		}
 	}
 	focus = {
+		id = ALB_reclaim_greece_for_the_people
+		icon = GFX_focus_generic_attack_greece
+		prerequisite = { focus = ALB_provide_work }
+		prerequisite = { focus = ALB_develop_albania }
+		will_lead_to_war_with = GRE
+		x = 1
+		y = 1
+		relative_position_id = ALB_develop_albania
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = GRE
+				}
+				ALB = {
+					add_core_of = ALB
+				}
+			}
+			create_wargoal = {
+				type = take_claimed_state
+				target = GRE
+			}
+		}
+	}
+	focus = {
 		id = ALB_provide_for_the_people
 		icon = GFX_focus_generic_resource_extraction
-		prerequisite = { focus = ALB_invite_soviet_volunteers  focus = ALB_soviet_industrial_investments }
-		x = 3
+		prerequisite = { focus = ALB_allies_everywhere  }
+		x = 4
 		y = 1
 		relative_position_id = ALB_schools_for_revolutionaries
 		cost = 5
@@ -2778,16 +2889,16 @@ if = {
                     is_fully_controlled_by = ROOT
                     is_core_of = ALB
                 }
-                add_extra_state_shared_building_slots = 2
+                add_extra_state_shared_building_slots = 3
             }
 		}
 	}
 	focus = {
 		id = ALB_soviet_industrial_investments
 		icon = GFX_goal_generic_soviet_construction
-		prerequisite = { focus = ALB_no_i_need_to_be_faithful }
+		prerequisite = { focus = ALB_allies_everywhere }
 		x = 2
-		y = 0
+		y = 1
 		relative_position_id = ALB_schools_for_revolutionaries
 		cost = 10
 		ai_will_do = {
@@ -2809,6 +2920,181 @@ if = {
 			}
 			add_timed_idea = { idea = SPR_soviet_industrial_aid days = 730 }
 			}
+		}
+		focus = {
+		id = ALB_provide_work
+		icon = GFX_focus_AFG_integrate_tajik_and_uzbek_republics
+		prerequisite = { focus = ALB_soviet_industrial_investments }
+		prerequisite = { focus = ALB_provide_for_the_people }
+		x = 3
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_owned_state = {
+	add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+    }
+	add_manpower = 10000
+	}
+			}
+		}
+		focus = {
+		id = ALB_joint_instructors_for_revolutionaries
+		icon = GFX_focus_CHL_union_of_hispanic_republics
+		prerequisite = { focus = ALB_soviet_industrial_investments }
+		prerequisite = { focus = ALB_joint_research_effort }
+		x = 1
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_unit_bonus = {
+			mountaineers = { 
+			soft_attack = 0.15
+			supply_consumption_factor = -0.1
+			max_organisation = 10
+			}
+		}
+			every_country = {
+				limit = { has_government = communism
+				NOT = {
+                tag = ALB
+	            }
+                }
+				army_experience = 25
+			}
+			add_ideas = ALB_instructors_for_revolutionaries
+			army_experience = 75
+			}
+		}
+		focus = {
+		id = ALB_joint_instructors_for_revolutionaries_at_home
+		icon = GFX_SOV_military_engineering_university_ccp_2d_sov_compatibility
+		prerequisite = { focus = ALB_joint_research_effort }
+		x = -1
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = ALB_instructors_for_revolutionaries_at_home
+			}
+		}
+		focus = {
+		id = ALB_develop_albania
+		icon = GFX_focus_AFG_helmand_river_authority
+		prerequisite = { focus = ALB_provide_for_the_people }
+		x = 5
+		y = 2
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 10
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			934 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			44 = {
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_development_projects_state_modifier
+					}
+				}
+			44 = {
+				if = {
+					limit = {
+					    44 = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+			}
+		}
+	}
+			}
+		}
+		focus = {
+		id = ALB_the_engine_for_peace
+		icon = GFX_focus_GER_the_peoples_victory
+		prerequisite = { focus = ALB_provide_work }
+		x = 4
+		y = 3
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			every_owned_state = {
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+    }
+	}
+	add_extra_state_shared_building_slots = 2
+			}
+		}
+		focus = {
+		id = ALB_demand_for_montenegro_and_kosovo_people
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		prerequisite = { focus = ALB_provide_work }
+		prerequisite = { focus = ALB_joint_instructors_for_revolutionaries }
+		x = 2
+		y = 3
+		relative_position_id = ALB_schools_for_revolutionaries
+		cost = 8
+		ai_will_do = {
+			factor = 9
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			105 = { 
+				controller = {
+					country_event = { id = albania_events.9 }
+				}
+			}
+		}
 		}
 	focus = {
 		id = ALB_invite_soviet_volunteers
@@ -2946,6 +3232,11 @@ if = {
 				amount = 6
 				state = 44
 				}
+				add_resource = {
+				type = coal
+				amount = 2
+				state = 44
+				}
 				44 = {
 				if = {
 					limit = {
@@ -3002,6 +3293,11 @@ if = {
 
 		completion_reward = {
 			add_ideas = CHI_public_works
+			add_resource = {
+				type = coal
+				amount = 4
+				state = 44
+				}
 		}
 	}
 	focus = {
@@ -3256,7 +3552,27 @@ if = {
 			set_rule = {
 				can_create_factions = yes
 			}
-			create_faction = "The Illyrian Senate"
+			create_faction_from_template = {
+  template = faction_template_generic_dominance    
+  name = "The Illyrian Senate"
+  icon = GFX_faction_logo_generic_7
+}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+    producer = TUR
+	}
+	add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 120
+    producer = TUR
+	}
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 500
+    producer = TUR
+	}
+	
 		}
 	}
 	focus = {
@@ -3617,7 +3933,11 @@ if = {
 			set_rule = {
 				can_create_factions = yes
 			}
-			create_faction = "The Divine Coalition"
+			create_faction_from_template = {
+  template = faction_template_generic_dominance    
+  name = "The Divine Coalition"
+  icon = GFX_faction_logo_generic_7
+}
 		}
 	}
 	focus = {
@@ -3926,7 +4246,7 @@ if = {
 		x = 3
 		y = 1
 		relative_position_id = ALB_parliament_of_all_romans
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 9
 		}
@@ -4006,7 +4326,7 @@ if = {
 		x = 3
 		y = 2
 		relative_position_id = ALB_parliament_of_all_romans
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 9
 		}
@@ -4071,7 +4391,7 @@ if = {
 		x = 5
 		y = 2
 		relative_position_id = ALB_parliament_of_all_romans
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 9
 		}
@@ -4139,7 +4459,7 @@ if = {
 		x = 1
 		y = 2
 		relative_position_id = ALB_parliament_of_all_romans
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 9
 		}
@@ -4681,11 +5001,6 @@ if = {
 
 		completion_reward = {
 			add_ideas = {ALB_socialism_with_chinese_characteristics}
-			add_equipment_to_stockpile = {
-    type = infantry_equipment
-    amount = 1250
-    producer = ALB
-}
 		}
 	}
 	focus = {
@@ -4703,21 +5018,20 @@ if = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_mastery_bonus = {
+				name = ALB_soviet_instructors
+				bonus = 0.1
+				days = 240
+				track = infantry
+				grand_doctrine = mass_assault 
+			}
 			add_doctrine_cost_reduction = {
 				name = ALB_soviet_instructors
-				cost_reduction = 0.75
-				uses = 3
-				category = cat_mass_assault
+				cost_reduction = 0.35
+				uses = 2
+				category = land_doctrine
 			}
 			army_experience = 75
-			set_technology = {
-				basic_train  = 1
-			}
-			add_equipment_to_stockpile = {
-				type = train_equipment_1
-				amount = 15
-				producer = SOV
-			}
 		}
 	}
 	focus = {
@@ -4775,17 +5089,25 @@ if = {
 		ai_will_do = {
 			factor = 9
 		}
-
+		
 		available_if_capitulated = no
 
 		completion_reward = {
 			add_ideas = {ALB_white_russian_cavalry_brigades}
-			add_doctrine_cost_reduction = {
-				name = ALB_white_russian_cavalry
-				cost_reduction = 0.75
-				uses = 2
-				category = cat_grand_battle_plan
+			
+			add_mastery = {
+				amount = 150
+				track = infantry
 			}
+
+			add_doctrine_cost_reduction = {
+				name = ALB_white_russian_cavalry_brigades
+				cost_reduction = 0.45
+				uses = 2
+				category = land_doctrine
+			}
+		
+			army_experience = 35
 		}
 	}
 	focus = {
@@ -4960,12 +5282,7 @@ if = {
 				category = cl_tech
 				category = ca_tech
 			}
-			add_doctrine_cost_reduction = {
-				name = naval_doc_bonus
-				cost_reduction = 0.5
-				uses = 2
-				category = cat_trade_interdiction
-			}
+			navy_experience = 50
 						random_owned_controlled_state = {
 				limit = {
 					is_coastal = yes
@@ -5015,6 +5332,11 @@ if = {
 
 		completion_reward = {
 			add_ideas = {ALB_ottoman_army}
+			add_unit_bonus = {
+			penal_battalion = { 
+			soft_attack = 0.1
+			}
+			}
 		}
 	}
 	focus = {
@@ -5038,12 +5360,7 @@ if = {
 				uses = 2
 				category = bb_tech
 			}
-			add_doctrine_cost_reduction = {
-				name = naval_doc_bonus
-				cost_reduction = 0.5
-				uses = 2
-				category = cat_fleet_in_being
-			}
+			navy_experience = 50
 						random_owned_controlled_state = {
 				limit = {
 					is_coastal = yes
@@ -5098,7 +5415,11 @@ if = {
 			set_rule = {
 				can_create_factions = yes
 			}
-			create_faction = "United Muslim Movement"
+			create_faction_from_template = {
+  template = faction_template_PER_islamic_faction    
+  name = "United Muslim Movement"
+  icon = GFX_faction_logo_generic_6
+}
 			division_template = {
 							name = "the first stepers"			
 							division_names_group = ALB_INF_01
@@ -5225,8 +5546,7 @@ if = {
 							support = {
 								artillery = { x = 0 y = 0 }  
 								engineer = { x = 0 y = 1 }   
-								recon = { x = 0 y = 2 }
-								sturmtruppe_battalion = { x = 0 y = 3 }
+								recon = { x = 0 y = 2 }      
 							}
 						}
 						capital_scope = {
@@ -5236,6 +5556,21 @@ if = {
                     count = 8
                 }
             }
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 6000
+    producer = TUR
+	}
+	add_equipment_to_stockpile = {
+    type = support_equipment
+    amount = 150
+    producer = TUR
+	}
+	add_equipment_to_stockpile = {
+    type = artillery_equipment
+    amount = 550
+    producer = TUR
+	}
 		}
 	}
 	focus = {
@@ -5409,7 +5744,12 @@ if = {
     type = annex_everything
 	target = YUG
 	}
+	add_unit_bonus = {
+			penal_battalion = { 
+			max_organisation = 15
+			}
 		}
+	}
 	}
 	focus = {
 		id = ALB_reclam_bulgaria
@@ -5418,7 +5758,7 @@ if = {
 		x = 2
 		y = 1
 		relative_position_id = ALB_Restore_the_divan
-		cost = 5
+		cost = 10
 		ai_will_do = {
 			factor = 9
 		}
@@ -5458,7 +5798,12 @@ if = {
     type = annex_everything
 	target = ROM
 	}
+	add_unit_bonus = {
+			penal_battalion = { 
+			equipment_capture_factor = 0.05
+			}
 		}
+	}
 	}
 	focus = {
 		id = ALB_restore_the_janissaries
@@ -5498,8 +5843,7 @@ if = {
 							support = {
 								artillery = { x = 0 y = 0 }  
 								engineer = { x = 0 y = 1 }   
-								recon = { x = 0 y = 2 }  
-								sturmtruppe_battalion = { x = 0 y = 3 }    
+								recon = { x = 0 y = 2 }      
 							}
 						}
 						capital_scope = {
@@ -5509,6 +5853,12 @@ if = {
                     count = 12
                 }
             }
+			add_unit_bonus = {
+			penal_battalion = { 
+			soft_attack = 0.15
+			default_morale = 0.1
+			}
+			}
 					}
 	}
 	focus = {
@@ -5609,6 +5959,12 @@ if = {
 				type = take_claimed_state
 				target = IRQ
 			}
+			add_unit_bonus = {
+			penal_battalion = { 
+			hard_attack = 0.15
+			max_organisation = 5
+			}
+			}
 		}
 	}
 	focus = {
@@ -5686,10 +6042,6 @@ available = {
 			add_state_claim = 347
 			add_state_claim = 797
 		}
-	TUR = { country_event = {
-    id = albania_events.24
-	}
-	}
 		}
 	}
 	focus = {
@@ -5710,7 +6062,6 @@ available = {
 			retire_character = ALB_Celadet_Ali_Bedirxan
 			add_popularity = { ideology = fascism popularity = 0.05 }
 			promote_character = ALB_Said_Nursi
-			add_political_power = 50
 		}
 	}
 	focus = {
@@ -5755,6 +6106,13 @@ available = {
     			target = ALB
 			}
 		}
+		add_unit_bonus = {
+			penal_battalion = { 
+			soft_attack = 0.1
+			max_organisation = 5
+			default_morale = 0.1
+			}
+		}
 	}
 	}
 	focus = {
@@ -5776,31 +6134,6 @@ available = {
     type = annex_everything
 	target = ITA
 	}
-		division_template = {
-							name = "Janissaries"			
-							division_names_group = ALB_INF_01
-							priority = 2
-                            template_counter = 35
-                            division_cap = 24
-							regiments = {
-								 penal_battalion = { x = 0 y = 0 }
-								 penal_battalion = { x = 0 y = 1 }
-								 penal_battalion = { x = 0 y = 2 }
-								 penal_battalion = { x = 0 y = 3 }
-								 penal_battalion = { x = 1 y = 0 }
-								 penal_battalion = { x = 1 y = 1 }
-								 penal_battalion = { x = 1 y = 2 }
-								 penal_battalion = { x = 2 y = 0 }
-								 penal_battalion = { x = 2 y = 1 }
-								 penal_battalion = { x = 2 y = 2 }
-							}
-							support = {
-								artillery = { x = 0 y = 0 }  
-								engineer = { x = 0 y = 1 }   
-								recon = { x = 0 y = 2 }  
-								sturmtruppe_battalion = { x = 0 y = 3 }    
-							}
-						}
 	capital_scope = {
                 create_unit = {
                     division = "name = \"janissaries\"division_template = \"janissaries\" start_experience_factor = 0.2 start_equipment_factor = 1.0 start_manpower_factor = 1"
@@ -6209,7 +6542,7 @@ add_political_power = -50
 		completion_reward = {
 			add_resource = {
 				type = steel
-				amount = 32
+				amount = 12
 				state = 886
 				}
 				add_resource = {
@@ -6669,9 +7002,10 @@ focus = {
 focus = {
 		id = ALB_military_air_project
 		icon = GFX_focus_generic_university_3
-		x = 3
+		prerequisite = { focus = ALB_For_Zog focus = ALB_Challenge_Zog}
+		x = -5
 		y = 1
-		relative_position_id = ALB_ridding_the_army_of_italian
+		relative_position_id = ALB_Challenge_Zog
 
 		cost = 5
 

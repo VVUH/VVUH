@@ -169,11 +169,10 @@ ideas = {
 			picture = tur_ottoman_spirit
 
             modifier = {
-				training_time_army_factor = -0.15
+			training_time_army_factor = -0.15
 				experience_gain_army_factor = 0.25
                 army_org_factor = 0.1
-                weekly_manpower = 350 
-				army_artillery_attack_factor = 0.15
+                weekly_manpower = 350 				     
 			}
 		}
 		ALB_janissaries = {
@@ -196,7 +195,6 @@ ideas = {
 				conscription = 0.02
                 weekly_manpower = 1250 
 				compliance_gain = 0.025	
-				army_org_regain = -0.05
 			}
 		}
 		ALB_mamluk_class = {
@@ -293,9 +291,9 @@ ideas = {
 			picture = saf_soviet_advisers
 
             modifier = {
-				enemy_operative_detection_chance_factor = 0.4
-				own_operative_detection_chance_factor = -0.35
-				operative_slot = 2
+				enemy_operative_detection_chance_factor = 0.2
+				own_operative_detection_chance_factor = -0.2
+				operative_slot = 1
 			}
 		}
 		ALB_school_of_revolution = {
@@ -334,6 +332,8 @@ ideas = {
 				training_time_army_factor = -0.15
 				conscription = 0.01
 				resistance_growth_on_our_occupied_states = 0.15
+				modifier_army_sub_unit_militia_attack_factor = 0.10
+				modifier_army_sub_unit_militia_defence_factor = 0.10
 			}
 		}
 		ALB_barrier_troops = {
@@ -428,6 +428,11 @@ ideas = {
 				army_core_defence_factor = 0.15
 				subjects_autonomy_gain = -0.25
 				master_ideology_drift = 0.03
+				stability_weekly = 0.01
+				army_attack_factor = 0.15
+				army_org = 5
+				army_org_regain = 0.05
+				consumer_goods_factor = -0.2
 			}
 		}
 		ALB_dirt_for_gold = {
@@ -608,6 +613,28 @@ ideas = {
 				industrial_capacity_factory = -0.05
 			}
 		}
+		ALB_volunteers_of_the_service = {
+        	allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = prc_low_popular_support
+
+            modifier = {
+				civilian_factory_use = 2
+				political_power_gain = -0.5
+				conscription = 0.01
+				non_core_manpower = 0.15
+				weekly_manpower = 4500
+				industrial_capacity_factory = -0.05
+			}
+		}
 		ALB_king_zog_idea = {
         	allowed = {
 				always = no
@@ -710,6 +737,11 @@ ideas = {
 				tag = ITA
 				attack_bonus_against = 0.2
 				defense_bonus_against = 0.2
+			}
+			targeted_modifier = {
+				tag = GRE
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 		}
 	ALB_church_support_for_factory_workers = {
@@ -925,7 +957,7 @@ ideas = {
 			modifier = {
 				stability_factor = 0.1
 				political_power_gain = 0.2
-				recruitable_population_factor = 0.075
+				conscription_factor = 0.075
 			}
 
 			picture = SOV_national_brotherhood_idea_ccp_sov_compatibility
@@ -970,7 +1002,13 @@ ideas = {
 				equipment_bonus = {
 				infantry_equipment = {
 					build_cost_ic = -0.15
+					modifier_army_sub_unit_militia_attack_factor = 0.05
+					modifier_army_sub_unit_militia_defence_factor = 0.05
 			}
+			}
+			modifier = {
+			modifier_army_sub_unit_militia_attack_factor = 0.05
+			modifier_army_sub_unit_militia_defence_factor = 0.05 
 			}
 
 			picture = SOV_war_heroes
@@ -1011,7 +1049,6 @@ ideas = {
 			}
 
 			modifier = {
-				army_org_factor = 0.01
 				defensive_war_stability_factor = 0.05
 				no_supply_grace = 120
 				civilian_factory_use = 1
@@ -1036,7 +1073,6 @@ ideas = {
 			}
 
 			modifier = {
-				army_org_factor = 0.02
 				surrender_limit = 0.05
 				defensive_war_stability_factor = 0.1
 				no_supply_grace = 120
@@ -1067,7 +1103,6 @@ ideas = {
 			}
 
 			modifier = {
-				army_org_factor = 0.03
 				monthly_population = -0.1
 				surrender_limit = 0.075
 				defensive_war_stability_factor = 0.2
@@ -1083,6 +1118,8 @@ ideas = {
 				cas_damage_reduction = 0.10
 				dig_in_speed_factor = 0.05
 				ai_focus_defense_factor = 0.4
+				modifier_army_sub_unit_militia_attack_factor = 0.15
+				modifier_army_sub_unit_militia_defence_factor = 0.15
 			}
 
 			picture = man_five_year_plan_industry
@@ -1101,7 +1138,6 @@ ideas = {
 			}
 
 			modifier = {
-				army_org_factor = 0.05
 				monthly_population = -0.1
 				surrender_limit = 0.15
 				defensive_war_stability_factor = 0.2
@@ -1119,6 +1155,8 @@ ideas = {
 				cas_damage_reduction = 0.15
 				dig_in_speed_factor = 0.1
 				ai_focus_defense_factor = 0.5
+				modifier_army_sub_unit_militia_attack_factor = 0.25
+				modifier_army_sub_unit_militia_defence_factor = 0.25
 			}
 
 			picture = man_five_year_plan_industry
@@ -1236,6 +1274,115 @@ ideas = {
 			
 			removal_cost = -1	
 
+		}
+		ALB_the_war_is_peace = {
+        	allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = tur_etatism
+
+            modifier = {
+			industrial_capacity_factory = 0.15
+			consumer_goods_factor = -0.1
+			}
+		}
+		ALB_protests_for_peace = {
+        	allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = ICE_general_strike
+
+            modifier = {
+			weekly_casualties_war_support = 0.004
+			weekly_convoys_war_support = 0.004
+			weekly_bombing_war_support = 0.004
+			offensive_war_stability_factor = 0.4
+			war_support_weekly = 0.01
+			stability_factor = -0.2
+			}
+		}
+		ALB_where_are_they = {
+        	allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = RAJ_red_in_the_shadows
+
+            modifier = {
+			forced_surrender_limit = 0.5
+			nuclear_production_factor = 0.35
+			required_garrison_factor = 0.1
+			resistance_growth_on_our_occupied_states = -0.2
+			civilian_intel_to_others = -5
+			army_intel_to_others = -5
+			stability_weekly = 0.01
+			}
+		}
+		ALB_instructors_for_revolutionaries = {
+        	allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = RAJ_red_in_the_shadows
+
+            modifier = {
+			send_volunteer_size = 8
+			air_volunteer_cap = 100
+			army_leader_start_level = 1 
+			special_forces_cap_flat = 10
+			special_forces_cap = 0.2
+			war_support_weekly = 0.1
+			}
+		}
+		ALB_instructors_for_revolutionaries_at_home = {
+        	allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = RAJ_red_in_the_shadows
+
+            modifier = {
+			license_purchase_cost = -0.3
+			license_production_speed = 0.4
+			license_tech_difference_speed = 0.1
+		    industrial_capacity_factory = 0.15
+			}
+			targeted_modifier = {
+    tag = SOV 
+    ai_license_acceptance = 50
+            }
 		}
     }
 }

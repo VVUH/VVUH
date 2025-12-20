@@ -2811,7 +2811,7 @@ ALB_to_the_west_b_1 = {
 		}
 	}
 
-	ALB_restore_the_vilayet_of_tripolALBnia = { #Libya
+	ALB_restore_the_vilayet_of_tripolitania = { #Libya
 
 		icon = generic_form_nation
 
@@ -2851,7 +2851,6 @@ ALB_to_the_west_b_1 = {
 
 		complete_effect = {
 			# ALBlian North Africa
-			custom_effect_tooltip = form_ALBoman_italy_coring_states_tt
 			hidden_effect = {
 				448 = { add_core_of = ROOT }
 				661 = { add_core_of = ROOT }
