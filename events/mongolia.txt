@@ -27,9 +27,19 @@ country_event = {
 	# union
 	option = {
 		name = MON.1.a
+		IF = {
+			LIMIT = {
+				has_completed_focus = MON_the_muslim_rebellion
+			}
 			SIK = {
 				country_event = MON.9
+			}	
+		}ELSE  = {
+			KHM = {
+				country_event = MON.9
 			}
+		}
+
 			#send event to sik
 		
 	}
@@ -39,9 +49,20 @@ country_event = {
 				is_ai = no
 			}
 		name = MON.1.b
+		IF = {
+			LIMIT = {
+				has_completed_focus = MON_the_muslim_rebellion
+			}
 			SIK = {
 				country_event = MON.10
-			}	}
+			}	
+		}ELSE  = {
+			KHM = {
+				country_event = MON.10
+			}
+		}
+			
+		}
 
 		#faction
 		option = {
@@ -50,15 +71,31 @@ country_event = {
 			}
 		name = MON.1.c
 			#send event to SIK
+		IF = {
+			LIMIT = {
+				has_completed_focus = MON_the_muslim_rebellion
+			}
 			SIK = {
 				country_event = MON.11
-			}
-		SIK = {
+			}	
+			SIK = {
 			add_opinion_modifier = {
 				target = MON
 				modifier = AST_commitment_to_the_cause
 			}
 		}
+		}ELSE  = {
+			KHM = {
+			add_opinion_modifier = {
+				target = MON
+				modifier = AST_commitment_to_the_cause
+			}
+		}
+			KHM = {
+				country_event = MON.11
+			}
+		}
+
 	}
 
 		#nothing
@@ -67,21 +104,46 @@ country_event = {
 		ai_chance = {
 			base = 90
 		}
-		SIK = {
-			country_event = MON.12
+		IF = {
+			LIMIT = {
+				has_completed_focus = MON_the_muslim_rebellion
+			}
+			SIK = {
+				add_opinion_modifier = {
+					target = MON
+					modifier = took_stand_for_us
+				}
+			SIK = {
+				add_opinion_modifier = {
+					target = MON
+					modifier = backed_our_cause
+				}
+			}			
+			SIK = {
+				country_event = MON.12
+			}	
+
 		}
-		SIK = {
+		}ELSE  = {
+			KHM = {
 			add_opinion_modifier = {
 				target = MON
 				modifier = took_stand_for_us
 			}
 		}
-		SIK = {
+				KHM = {
 			add_opinion_modifier = {
 				target = MON
 				modifier = backed_our_cause
 			}
 		}
+			KHM = {
+				country_event = MON.12
+			}
+		}
+
+
+
 	}
 
 }
@@ -689,7 +751,7 @@ country_event = {
 					can_create_factions = yes
 				}
 			create_faction = "Mongolian Sphere"
-			add_to_faction = SIK
+			add_to_faction = ROOT
 			country_event = MON.15
 		}
 	}
@@ -743,7 +805,7 @@ country_event = {
 		name = MON.13.a
 		create_wargoal = {
 			type = puppet_wargoal_focus
-			target = SIK
+			target = PREV
 		}
 	}
 }
@@ -767,15 +829,37 @@ country_event = {
 	option = {
 		name = MON.14.a
 		add_stability = 0.1
-		annex_country = {
-			target = SIK
-			transfer_troops = yes
+		IF = {
+			LIMIT = {
+				has_completed_focus = MON_the_muslim_rebellion
+			}
+			#SIK
+			annex_country = {
+					target = SIK
+					transfer_troops = yes
+				}
+			annex_country = {
+				target = KUM
+				transfer_troops = yes
+			}		
+	
+		}ELSE  = {
+			#KHM
+			annex_country = {
+				target = KHM
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = KUM
+				transfer_troops = yes
+			}
 		}
 		FROM = { every_unit_leader = { set_nationality = ROOT } }
 		MON = {
 			add_state_core = 619
 			add_state_core = 287
 			add_state_core = 759
+			add_state_core = 1042
 			add_state_core = 617
 			add_state_core = 760
 			add_state_core = 618

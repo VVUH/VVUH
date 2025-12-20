@@ -90,13 +90,34 @@ characters={
 		name="Khorloogiin Choibalsan"
 		portraits={
 			civilian={
-				large=GFX_portrait_asia_generic_navy_3
+				large = GFX_portrait_MON_khorloogiin_choibalsan
+				small = GFX_portrait_MON_khorloogiin_choibalsan_civilian_small
+			}
+			army = {
+				large = GFX_portrait_MON_khorloogiin_choibalsan
+				small = GFX_portrait_MON_khorloogiin_choibalsan_military_small
 			}
 		}
 		country_leader={
-			traits={ JUNO_aligned_with_stalin }
+			traits={ MON_pan_mongolian_stalinist }
 			ideology=stalinism
 		}
+		field_marshal = {
+			available = {
+				has_completed_focus = MON_secure_the_administration
+			}
+			visible = {
+				has_completed_focus = MON_secure_the_administration
+			}
+			traits = { organizer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = -1
+
+		}		
 	}
 	MON_haidav={
 		advisor={
@@ -1310,7 +1331,7 @@ MON_advisor_shicai = {
 		}
 		country_leader={
 			ideology=despotism
-			traits={ spirit_of_genghis }
+			traits={ MEN_borjigin_descendant }
 		}
 	}
 }

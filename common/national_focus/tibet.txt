@@ -49,7 +49,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_advisors_to_the_dalai_lama
-		icon = GFX_focus_BUL_form_a_regency_council
+		icon = GFX_focus_CHI_reshuffle_green_gang
 		x = 0
 		y = 1
 		cost = 10
@@ -328,8 +328,8 @@ focus_tree = {
 	}	
 
 	focus = {
-		id = TIB_intervene_idealogically
-		icon = GFX_focus_smiling_buddha
+		id = TIB_intervene_idealogically 
+		icon = GFX_focus_JAP_incorporate_buddhist_socialism
 		x = 1
 		y = 1
 		cost = 5
@@ -362,7 +362,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_liberate_bhuddist_people
-		icon = GFX_goal_generic_major_war
+		icon = GFX_focus_smiling_buddha
 		x = 1
 		y = 1
 		cost = 5
@@ -1656,7 +1656,7 @@ focus_tree = {
 
 		available = {
 			SIK = {
-				has_civil_war = yes
+				has_war_with = KHM
 			}
 		}
 
@@ -1850,7 +1850,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_merge_with_the_chinese
-		icon = GFX_focus_chi_cooperation_with_the_communists
+		icon = GFX_focus_generic_befriend_the_chinese_soviet
 		x = 1
 		y = 1
 		cost = 5
@@ -2579,7 +2579,7 @@ focus_tree = {
 	focus = {
 		id = TIB_secure_the_wakhan_corridor
 
-		icon = GFX_focus_SWE_refuge_from_war
+		icon = GFX_focus_generic_befriend_sinkiang
 		x = -1
 		y = 1
 		cost = 5
@@ -2893,7 +2893,7 @@ focus_tree = {
 		}
 		available = {
 			SIK = {
-				has_civil_war = yes
+				has_war_with = KHM
 			}
 		}
 			search_filters = {FOCUS_FILTER_WAR_SUPPORT}
@@ -3550,7 +3550,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_responsible_expansionism
-		icon = GFX_focus_generic_annex_country_2
+		icon = GFX_focus_generic_democratic_asia
 		x = 1
 		y = 1
 		cost = 10
@@ -3572,13 +3572,14 @@ focus_tree = {
 			unlock_decision_tooltip = TIB_referendum_in_gansu
 			unlock_decision_tooltip = TIB_referendum_in_gannan
 			unlock_decision_tooltip = TIB_referendum_in_ganzi
+			unlock_decision_tooltip = TIB_referendum_in_qinghai
 			unlock_decision_tooltip = TIB_referendum_in_liangshan
 		}
 	}
 
 	focus = {
 		id = TIB_cast_down_the_thunder_dragon
-		icon = GFX_focus_generic_attack_bhutan
+		icon = GFX_focus_JAP_claim_the_raven_crown
 		x = 1
 		y = 2
 		cost = 5
@@ -3651,7 +3652,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_liberate_himalayan_people
-		icon = GFX_focus_generic_attack_nepal
+		icon = GFX_focus_JAP_claim_the_scripech
 		x = -1
 		y = 2
 		cost = 5
@@ -3780,7 +3781,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_regional_pressure
-		icon = GFX_focus_generic_democratic_europe
+		icon = GFX_focus_generic_asia_liberation
 		x = -2
 		y = 2
 		cost = 10
@@ -3902,14 +3903,21 @@ focus_tree = {
 				LIMIT = {
 					has_completed_focus = TIB_secure_border
 				}
+				country_exists = SIK
+				NOT = {
+					country_exists = KHM
+				}
 				SIK = {
-					has_civil_war = no
-					has_government = MON
+					has_war = no
+					has_government = communism
 				}
 			}ELSE = {
-				SIK = {
-					has_civil_war = no
-					NOT={has_government = communism}
+				NOT = {
+					country_exists = SIK
+				}
+				country_exists = KHM
+				KHM = {
+					has_war = no
 				}
 			}	
 
@@ -3920,6 +3928,9 @@ focus_tree = {
 				is_owned_and_controlled_by = TIB
 			}
 			287 = {
+				is_owned_and_controlled_by = TIB
+			}
+			1042 = {
 				is_owned_and_controlled_by = TIB
 			}
 		}
@@ -3933,6 +3944,11 @@ focus_tree = {
 				controller = {
 					country_event = TIB_political_events.67
 				}
+			}
+			1042 = {
+				controller = {
+					country_event = TIB_political_events.81
+				}	
 			}
 
 		}
@@ -4016,7 +4032,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_welcome_refugee_flow
-		icon = GFX_focus_SWE_refuge_from_war
+		icon = GFX_focus_generic_immigration
 		x = -2
 		y = 0
 		cost = 5
@@ -4251,7 +4267,7 @@ focus_tree = {
 				type = oil
 				amount = 8
 				state = 758
-			}
+			}		
 			add_offsite_building = { type = arms_factory level = 1 } 
 		}
 	}
@@ -4275,6 +4291,11 @@ focus_tree = {
 					is_owned_by = TIB
 				}
 				add_extra_state_shared_building_slots = 2
+				add_resource = {
+					type = coal
+					amount = 22
+
+				}	
 				add_building_construction = {
 					type = synthetic_refinery
 					level = 2
@@ -4618,7 +4639,13 @@ focus_tree = {
 	
 	focus = {
 		id = TIB_electrify_country
-		icon = GFX_focus_generic_energy
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_AFG_helmand_river_authority
+		}			
+		icon = {
+			value = GFX_focus_generic_energy
+		}
 		x = 1
 		y = 1
 		cost = 5
@@ -4733,7 +4760,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_tibetan_plateau_agriculture
-		icon = GFX_focus_generic_farmland
+		icon = GFX_focus_JAP_remove_the_weeds_from_the_crop
 		x = 7
 		y = 1
 		cost = 5
@@ -4755,7 +4782,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_opium_trade
-		icon = GFX_focus_RAJ_legalize_the_opium_trade
+		icon = GFX_focus_PRC_allow_special_goods_trade
 		x = -1
 		y = 1
 		cost = 5
@@ -4805,7 +4832,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_centralize_farming
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_focus_generic_public_works
 		x = 0
 		y = 1
 		cost = 5
@@ -4844,7 +4871,7 @@ focus_tree = {
 	}
 	focus = { 
 		id = TIB_citizen_farmlands
-		icon = GFX_focus_generic_public_works
+		icon = GFX_focus_CHI_students_to_the_countryside
 		x = 2
 		y = 1
 		cost = 5
@@ -5190,7 +5217,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_land_reform
-		icon = GFX_goal_generic_neutrality_focus
+		icon = GFX_focus_PRC_land_revolution_expedited
 		x = 0
 		y = 1
 		cost = 5
@@ -5379,7 +5406,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_keep_the_lower_division_placated
-		icon = GFX_focus_BEL_la_dame_blanche
+		icon = GFX_focus_PRC_land_revolution_halted
 		x = 0
 		y = 1
 		cost = 5
@@ -6036,7 +6063,7 @@ focus_tree = {
 
     focus = {
 		id = TIB_rely_on_village_militias
-		icon = GFX_focus_AFG_quami
+		icon = GFX_focus_JAP_the_modern_ashigaru
 		x = -1
 		y = 1
 		cost = 5
