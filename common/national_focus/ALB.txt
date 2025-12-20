@@ -112,8 +112,10 @@ focus_tree = {
 		icon = GFX_focus_CHL_silverworking
 		prerequisite = { focus = ALB_industrial_investments }
 		available = {
+			OR = {
 			has_completed_focus = ALB_For_Zog
 			has_completed_focus = ALB_For_the_june_revolution
+		}
 		}
 		cancel_if_invalid = yes
 		x = 5
@@ -596,8 +598,10 @@ focus_tree = {
 		icon = GFX_SOV_infrastructure_effort_nsb_ccp_2d_sov_compatibility
 		prerequisite = { focus = ALB_industrial_investments }
 		available = {
+			OR = {
 			has_completed_focus = ALB_Makeing_the_worker_class
 			has_completed_focus = ALB_muslim_revolution
+		}
 		}
 		cancel_if_invalid = yes
 		x = 11
@@ -626,8 +630,10 @@ focus_tree = {
 		prerequisite = { focus = ALB_industrial_investments_3 }
 		mutually_exclusive = { focus = ALB_industrial_investments_6 }
 		available = {
+			OR = {
 			has_completed_focus = ALB_no_i_need_to_be_faithful
 			has_completed_focus = ALB_The_first_step
+		}
 		}
 		cancel_if_invalid = yes
 		x = 11
@@ -2745,6 +2751,7 @@ add_equipment_to_stockpile = {
 
 		completion_reward = {
 			add_ideas = {ALB_school_of_revolution}
+			add_ideas = {ALB_soviet_volunteers}
 		}
 	}
 	focus = {
@@ -2855,14 +2862,16 @@ add_equipment_to_stockpile = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			every_state = {
-				limit = {
-					is_core_of = GRE
-				}
-				ALB = {
-					add_core_of = ALB
-				}
-			}
+			ROOT = {
+	    add_state_core = 185
+		add_state_core = 47
+		add_state_core = 731
+		add_state_core = 184
+		add_state_core = 186
+		add_state_core = 187
+		add_state_core = 182
+		add_state_core = 164
+		}
 			create_wargoal = {
 				type = take_claimed_state
 				target = GRE
@@ -2884,6 +2893,11 @@ add_equipment_to_stockpile = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_resource = {
+				type = coal
+				amount = 6
+				state = 44
+				}
 			every_owned_state = {
                 limit = {
                     is_fully_controlled_by = ROOT
@@ -3015,6 +3029,11 @@ add_equipment_to_stockpile = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_resource = {
+				type = coal
+				amount = 4
+				state = 934
+				}
 			934 = {
 					add_extra_state_shared_building_slots = 1
 					add_dynamic_modifier = {
@@ -3096,24 +3115,6 @@ add_equipment_to_stockpile = {
 			}
 		}
 		}
-	focus = {
-		id = ALB_invite_soviet_volunteers
-		icon = GFX_focus_SOV_mobilization_plan
-		prerequisite = { focus = ALB_no_i_need_to_be_faithful }
-		x = 4
-		y = 0
-		relative_position_id = ALB_schools_for_revolutionaries
-		cost = 5
-		ai_will_do = {
-			factor = 9
-		}
-
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_ideas = {ALB_soviet_volunteers}
-		}
-	}
 	focus = {
 		id = ALB_For_the_june_revolution
 		icon = GFX_focus_NOR_restore_public_trust_in_the_storting
@@ -3590,6 +3591,13 @@ add_equipment_to_stockpile = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_unit_bonus = {
+			mountaineers = { 
+			soft_attack = 0.15
+			supply_consumption_factor = -0.1
+			max_organisation = 10
+			}
+		}
 			add_ideas = {ALB_Legio_Invicta}
 			division_template = {
 							name = "Legionary"			
@@ -4974,7 +4982,7 @@ add_equipment_to_stockpile = {
 		x = 2
 		y = 1
 		relative_position_id = ALB_invite_soviet_advisors
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 9
 		}
@@ -4992,7 +5000,7 @@ add_equipment_to_stockpile = {
 		x = 0
 		y = 1
 		relative_position_id = ALB_invite_soviet_advisors
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 9
 		}
@@ -5010,7 +5018,7 @@ add_equipment_to_stockpile = {
 		x = 1
 		y = 2
 		relative_position_id = ALB_invite_soviet_advisors
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 9
 		}
@@ -5018,6 +5026,10 @@ add_equipment_to_stockpile = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_mastery = {
+				amount = 150
+				track = infantry
+			}
 			add_mastery_bonus = {
 				name = ALB_soviet_instructors
 				bonus = 0.1
@@ -5041,7 +5053,7 @@ add_equipment_to_stockpile = {
 		x = 4
 		y = 1
 		relative_position_id = ALB_invite_soviet_advisors
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 9
 		}
@@ -5049,6 +5061,17 @@ add_equipment_to_stockpile = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_mastery = {
+				amount = 200
+				track = armor 
+			}
+			add_unit_bonus = {
+			category_tanks = { 
+			soft_attack = 0.15
+			supply_consumption_factor = -0.1
+			max_organisation = 10
+			}
+		}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -5085,7 +5108,7 @@ add_equipment_to_stockpile = {
 		x = 3
 		y = 2
 		relative_position_id = ALB_invite_soviet_advisors
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 9
 		}
