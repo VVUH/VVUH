@@ -3766,6 +3766,7 @@ focus_tree = {
     			can_create_factions = yes
 			}
 			create_faction = "Asia-Pacific Cooperation"
+			add_faction_initiative = 4
 
 			every_other_country	= {
 				limit = {
@@ -4826,7 +4827,7 @@ focus_tree = {
     			can_create_factions = yes
 			}
 			create_faction = "Greater Pan-Asian Movement"
-		
+			add_faction_initiative = 3
 			every_other_country	= {
 				LIMIT = {
 					is_free_or_subject_of_root = yes
