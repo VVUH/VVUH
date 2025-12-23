@@ -745,6 +745,7 @@ focus_tree = {
 			set_rule = {
 				can_create_factions = yes
 			}
+			add_faction_initiative = 3
 		}
 	}		
 	focus = {
@@ -851,6 +852,7 @@ focus_tree = {
 			}ELSE={
 				create_faction = "Middle Eastern Pact"		
 			}
+			add_faction_initiative = 3
 			TUR = {
 				country_event = generic.5
 			}		
@@ -1023,6 +1025,7 @@ focus_tree = {
 			}ELSE={
 				create_faction = "OPEC"		
 			}
+			add_faction_initiative = 3
 			IRQ = {
 				country_event = generic.5
 			}
@@ -2104,7 +2107,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			SOV = {add_ideas = SAU_faction_collaboration_red}	
-			
+			add_faction_initiative = 1
 		}
 	}
 	focus = {
@@ -2395,6 +2398,7 @@ focus_tree = {
 			}ELSE={
 				custom_effect_tooltip = SAU_every_ally_will_recieve_the_same_tt
 			}
+			add_faction_initiative = 1
 		}
 	}
 	focus = {
@@ -3385,6 +3389,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
+			add_faction_initiative = 1
 			IF = {
 				LIMIT = {
 					has_idea = SAU_aid_others
@@ -3428,6 +3433,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
+			add_faction_initiative = 1
 			IF = {
 				limit = {
 					has_intelligence_agency = no
@@ -3472,7 +3478,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-
+			add_faction_initiative = 1
 			add_ideas = SAU_league_military_integration
 			
 			IF = {
@@ -3506,7 +3512,7 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = SAU_league_economic_integration
-			
+			add_faction_initiative = 1
 			IF = {
 				LIMIT = {
 					is_faction_leader = yes
