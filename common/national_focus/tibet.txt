@@ -109,6 +109,7 @@ focus_tree = {
 			set_rule = {
 				can_create_factions = yes
 			}
+			add_faction_initiative = 3
 		}
 	}
 	focus = {
@@ -1138,6 +1139,7 @@ focus_tree = {
 				can_create_factions = yes
 				can_use_kamikaze_pilots = yes 
 			}
+			add_faction_initiative = 2
 			kill_ideology_leader = neutrality
 			set_politics = {
 				ruling_party = fascism
@@ -2084,7 +2086,7 @@ focus_tree = {
 					PRC = {is_in_faction = yes}
 					}
 				PRC = { add_to_faction = TIB }
-
+				add_faction_initiative = 2
 			}
 			
 			IF = {
@@ -2307,7 +2309,7 @@ focus_tree = {
 			}ELSE = {
 				custom_effect_tooltip = TIB_if_faction_they_gain_same_benefit_tt
 			}
-
+			add_faction_initiative = 1
 
 		}
 	}
@@ -2404,6 +2406,7 @@ focus_tree = {
 			set_rule = {
 				can_create_factions = yes
 			}
+			add_faction_initiative = 2
 			unlock_decision_tooltip = TIB_cooperate_PRC
 			unlock_decision_tooltip = TIB_seek_SOV_assistance
 			unlock_decision_tooltip = TIB_concessions_SIK
@@ -2441,6 +2444,7 @@ focus_tree = {
 		
 		completion_reward = {
 			create_faction = "Eastern People's Front"
+			add_faction_initiative = 2
 			every_country = {
 				LIMIT = {
 					NOT = {
@@ -3166,6 +3170,7 @@ focus_tree = {
 			set_rule = {
 				can_create_factions = yes
 			}
+			add_faction_initiative = 2
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = MON_recruit_advisor_tt
             show_ideas_tooltip = TIB_parliament_theocracy
@@ -3308,7 +3313,7 @@ focus_tree = {
 					CHI = {is_in_faction = yes}
 					}
 				CHI = { add_to_faction = TIB }
-
+				add_faction_initiative = 2
 			}
 			IF = {
 				LIMIT = {
@@ -3429,6 +3434,7 @@ focus_tree = {
 			set_rule = {
 				can_create_factions = yes
 			}
+			add_faction_initiative = 2
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = MON_recruit_advisor_tt
             show_ideas_tooltip = TIB_parliament_republic

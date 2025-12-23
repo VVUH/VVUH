@@ -2101,7 +2101,7 @@ TIB_support_for_tibet = {
 				has_completed_focus = TIB_fascist_support
 				has_completed_focus = TIB_business_with_warlords
 			}
-			MAN = {
+			MEN = {
 				has_opinion = {
 					target = TIB
 					value > 69
@@ -2548,7 +2548,6 @@ TIB_support_for_tibet = {
 					value > 69
 				}
 				is_free_or_subject_of_root = yes
-				has_government = ROOT
 				NOT = {
 					has_war_with = TIB 
 				}			
