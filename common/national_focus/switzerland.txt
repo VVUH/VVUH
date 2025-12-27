@@ -2683,6 +2683,7 @@
 			add_war_support = 0.05
 			set_rule = { can_create_factions = yes }
 			create_faction = "The Fourth International"
+			add_faction_initiative = 3
 		}
 	}
 	focus = {
@@ -7703,6 +7704,7 @@
 
 		completion_reward = {
 			create_faction = SWI_neutral_entente_faction
+			add_faction_initiative = 1
 			unlock_decision_tooltip =  SWI_invite_to_entente
 		}
 	}

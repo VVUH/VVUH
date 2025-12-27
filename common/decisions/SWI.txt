@@ -745,6 +745,8 @@ SWI_federal_council_decisions_category = {
 					}
 				}
 				create_faction = SWI_neutral_entente_faction
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 			}
 		}
 

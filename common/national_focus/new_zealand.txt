@@ -5960,6 +5960,8 @@
 
 		completion_reward = {
 			create_faction = "Anti-Imperialist League"
+					add_faction_initiative = 3
+					custom_effect_tooltip = generic_skip_one_line_tt
 			add_political_power = 100
 			set_rule = {
 				can_guarantee_other_ideologies = yes

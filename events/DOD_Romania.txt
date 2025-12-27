@@ -496,6 +496,7 @@ country_event = {
 		}
 		set_country_flag = ROM_HUN_aligned
 	}
+	add_faction_initiative = 2
 
 	option = { #war
 		name = DOD_romania.52.b

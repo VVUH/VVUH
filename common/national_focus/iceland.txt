@@ -2454,6 +2454,8 @@ focus_tree = {
 			}
 			set_rule = { can_create_factions = yes }
 			create_faction = "Workers United Front"
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 4
 			effect_tooltip = {
 				IF = {
 					limit = { NOT = { has_idea = ICE_dissent_in_the_working_class } }

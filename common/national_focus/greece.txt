@@ -1513,6 +1513,8 @@ focus_tree = {
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
 			create_faction = GRE_corfu_cooperative
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 			if = { 
 				limit = { 
 					YUG = { 
@@ -2966,6 +2968,8 @@ focus_tree = {
 			add_stability = 0.1
 			add_war_support = 0.1
 			create_faction = BUL_balkan_federation_democratic
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 		}
 	}
 

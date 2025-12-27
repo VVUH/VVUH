@@ -2017,6 +2017,8 @@ focus_tree = {
 						}
 					}
 					create_faction = FINNO_ESTONIAN_SUPREMACY_LEAGUE
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 3
 				}
 			}
 			effect_tooltip = {

@@ -469,7 +469,7 @@ country_event = {
 			name = SAU_fascism.7.a
 			custom_effect_tooltip = SAU_work_with_turkey_irq_cancel_guarantee_tur_gets_syr_leb
 			create_faction = "Dammam Pact"
-
+			add_faction_initiative = 2
 			TUR = {
 				country_event = SAU_fascism.8
 			}
@@ -497,6 +497,7 @@ country_event = {
 			name = SAU_fascism.7.c
 			custom_effect_tooltip = SAU_faction_and_collab_decisions
 			create_faction = "Union of the Sword"
+			add_faction_initiative = 3
 			every_country = {
 				LIMIT = {
 					AND = {
@@ -749,6 +750,7 @@ country_event = {
 				set_global_flag = SAU_working_with_iran_flag
 			}
 			create_faction = "League of the Crescent"
+			add_faction_initiative = 2
 
 			PER = {
 				country_event = generic.5
@@ -766,6 +768,7 @@ country_event = {
 				set_global_flag = SAU_working_with_iran_flag
 			}
 			create_faction = "League of the Crescent"
+			add_faction_initiative = 2
 
 			PER = {
 				country_event = generic.5

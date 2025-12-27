@@ -9592,6 +9592,9 @@
 						can_create_factions	= yes
 					}
 					create_faction = COG_african_union_faction
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
+					custom_effect_tooltip = generic_skip_one_line_tt
 					every_other_country = {
 						limit = { is_subject_of = ROOT }
 						ROOT = {
@@ -9624,6 +9627,9 @@
 								} 
 							}
 							create_faction = ETH_african_union_faction
+							custom_effect_tooltip = generic_skip_one_line_tt
+							add_faction_initiative = 2
+							custom_effect_tooltip = generic_skip_one_line_tt
 							every_country = {
 								limit = { is_subject_of = COG }
 								COG = {

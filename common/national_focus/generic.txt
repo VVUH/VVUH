@@ -777,7 +777,7 @@ focus_tree = {
 	}
 
 
-	#Persia
+	#Persia <- why is this still in? - Wouter
 
 	focus = {
 		id = kick_out_the_british
