@@ -566,8 +566,8 @@ MAL_the_malayan_emergency_categorie = {
 		timeout_effect = { 
 			start_civil_war = {
 				ideology = communism
-				size = 0.2
-				states = { 1018 }
+				size = 0.3
+				states = { 1048 }
 				keep_political_leader = no
 				keep_political_party_members = no
 				add_ideas = MAL_guerilla_warfare
@@ -590,7 +590,7 @@ MAL_the_malayan_emergency_categorie = {
 					support = {
 					}
 				}
-				1018 = {
+				1048 = {
 					create_unit = {
 						division = "name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 1"
 						owner = PREV
@@ -598,7 +598,7 @@ MAL_the_malayan_emergency_categorie = {
 						count = 3
 					}
 				}
-				1018 = {
+				1048 = {
 					create_unit = {
 						division = "name = \"Partisans\" division_template = \"Partisans\" start_experience_factor = 1"
 						owner = PREV
