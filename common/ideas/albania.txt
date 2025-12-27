@@ -628,7 +628,7 @@ ideas = {
 
             modifier = {
 				civilian_factory_use = 2
-				political_power_gain = -0.5
+				political_power_gain = -0.25
 				conscription = 0.01
 				non_core_manpower = 0.15
 				weekly_manpower = 4500
@@ -1357,7 +1357,7 @@ ideas = {
 			army_leader_start_level = 1 
 			special_forces_cap_flat = 10
 			special_forces_cap = 0.2
-			war_support_weekly = 0.1
+			war_support_weekly = 0.01
 			}
 		}
 		ALB_instructors_for_revolutionaries_at_home = {
@@ -1371,7 +1371,7 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = RAJ_red_in_the_shadows
+			picture = SOV_stakhanovite_movement
 
             modifier = {
 			license_purchase_cost = -0.3
