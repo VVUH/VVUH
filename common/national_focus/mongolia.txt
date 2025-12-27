@@ -104,9 +104,8 @@ focus_tree = {
 
 	focus = {
 		id = MON_reinvigorate_corps_commissars
-		icon = GFX_focus_SOV_military_purge
+		icon = GFX_focus_CHI_political_advisors_in_every_division
 		
-
 		x = -2
 		y = 1
 		cost = 10
@@ -617,7 +616,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_liberate_the_chinese
-		icon = GFX_focus_PRC_towards_one_china
+		icon = GFX_focus_PRC_intimidate_warlords
 		x = 3
 		y = 1
 		cost = 5
@@ -905,7 +904,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_lessons_soviet_army
-		icon = GFX_focus_PRC_army_command
+		icon = GFX_focus_PRC_immediate_response_to_lack_of_army
 		x = 0
 		y = 1
 		cost = 5
@@ -1911,7 +1910,7 @@ focus_tree = {
 		id = MON_the_second_Khuvsgul_Uprising
 		prerequisite = { focus = MON_unite_the_anti_communists}
 
-		icon = GFX_goal_anti_comintern_pact
+		icon = GFX_focus_PHI_return_of_the_exiles
 		x = 0
 		y = 2
 		cost = 5
@@ -2167,7 +2166,7 @@ focus_tree = {
 		id = MON_learn_from_the_fight
 		relative_position_id = MON_the_second_Khuvsgul_Uprising
 		prerequisite = { focus = MON_the_second_Khuvsgul_Uprising }
-		icon = GFX_focus_generic_manpower
+		icon = GFX_focus_CHI_tongzi_jun
 		x = 2
 		y = 1
 		cost = 10
@@ -2498,7 +2497,7 @@ focus_tree = {
 		id = MON_reenshrine_the_noble_class
 		relative_position_id = MON_traditional_governance
 		prerequisite = { focus = MON_traditional_governance  }
-		icon = GFX_focus_ITA_topple_amhara_rulers
+		icon = GFX_focus_CHI_connections_with_shanghai_elites
 		x = 1
 		y = 1
 		cost = 5
@@ -2617,7 +2616,7 @@ focus_tree = {
 		id = MON_noble_investments
 		relative_position_id = MON_reenshrine_the_noble_class
 		prerequisite = { focus = MON_reenshrine_the_noble_class  }
-		icon = GFX_focus_ETH_adopt_the_lira
+		icon = GFX_focus_CHI_Legitimise_du
 		x = 1
 		y = 1
 		cost = 5
@@ -3137,7 +3136,7 @@ focus_tree = {
 		id = MON_reclaim_yuan
 		relative_position_id = MON_crown_prince_de
 		prerequisite = { focus = MON_crown_prince_de }
-		icon = GFX_focus_CHI_utmost_loyalty
+		icon = GFX_focus_JAP_put_an_end_to_chinese_feudalism
 		x = 0
 		y = 1
 		cost = 5
@@ -4213,7 +4212,7 @@ focus_tree = {
 		relative_position_id = MON_privitisation
 		prerequisite = { focus = MON_privitisation }
 		prerequisite = { focus = MON_election }
-		icon = GFX_focus_generic_industrialists
+		icon = GFX_focus_CHI_revive_the_western_hills_group
 		x = 0
 		y = 1
 		cost = 10
@@ -4854,7 +4853,7 @@ focus_tree = {
 		relative_position_id = MON_stoke_pan_asianism
 		prerequisite = { focus = MON_stoke_pan_asianism }
 		prerequisite = { focus = MON_invite_white_russian_support }
-		icon = GFX_focus_attack_soviet
+		icon = GFX_focus_CHI_the_northern_mandate
 		x = 1
 		y = 1
 		cost = 10
@@ -7266,7 +7265,7 @@ focus_tree = {
 	focus = {
 		id = MON_dam_the_rivers
 		relative_position_id = MON_modernize_industry
-		icon = GFX_focus_generic_hydroelectric_energy
+		icon = GFX_focus_PRC_construct_the_banqiao_dam
 		x = 1
 		y = 1
 		cost = 5
@@ -7549,7 +7548,13 @@ focus_tree = {
 	focus = {
 		id = MON_trade_tent_to_appartment
 		relative_position_id = MON_dam_the_rivers
-		icon = GFX_focus_generic_low_cost_housing
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PRC_urbanization_two
+		}				
+		icon = {
+			value = GFX_focus_generic_low_cost_housing
+		}
 		x = -1
 		y = 1
 		cost = 5
@@ -8055,7 +8060,7 @@ focus_tree = {
 	focus = {
 		id = MON_mongolian_tank_force
 
-		icon = GFX_focus_generic_army_tanks2
+		icon = GFX_focus_CHI_200th_division
 		x = -1
 		y = 1
 		cost = 5
@@ -8143,7 +8148,7 @@ focus_tree = {
 	focus = {
 		id = MON_invite_foreign_advisors
 
-		icon = GFX_focus_generic_treaty
+		icon = GFX_focus_generic_flight_instructors
 		x = 5
 		y = 1
 		cost = 5
@@ -8404,7 +8409,7 @@ focus_tree = {
 	focus = {
 		id = MON_artillery_investment
 
-		icon = GFX_goal_generic_army_artillery2
+		icon = GFX_focus_generic_money_for_equipment
 		x = 0
 		y = 1
 		cost = 5
@@ -8483,11 +8488,11 @@ focus_tree = {
 	focus = {
 		id = MON_increased_conscription
 		icon = {
-			trigger = { has_government = communist }
-			value = GFX_focus_YUG_pan_slavic_congress
+			trigger = { has_government = communism }
+			value = GFX_focus_PRC_hundred_regiments_offensive
 		}
 		icon = {
-			trigger = { has_government = fascist }
+			trigger = { has_government = fascism }
 			value = GFX_focus_ITA_generic_fascist_workers
 		}
 		icon = GFX_focus_generic_workers
@@ -8518,11 +8523,16 @@ focus_tree = {
 
 	focus = {
 		id = MON_glorious_army
-		icon = GFX_focus_NOR_frontkjempere		
 		x = -1
 		y = 1
 		cost = 10
-
+		icon = {
+			trigger = { has_government = communism}
+			value = GFX_focus_PRC_army_command
+		}				
+		icon = {
+			value = GFX_focus_NOR_frontkjempere
+		}
 		ai_will_do = {
 			factor = 1
 		}
@@ -9061,7 +9071,7 @@ focus_tree = {
 	focus = {
 		id = MON_fund_flying_schools
 
-		icon = GFX_focus_generic_university_1
+		icon = GFX_focus_generic_pilot_training
 		prerequisite = { focus = MON_the_air_corps }
 		x = 1
 		y = 1
@@ -9088,7 +9098,7 @@ focus_tree = {
 	focus = {
 		id = MON_intensify_pilot_training_program
 
-		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		icon = GFX_focus_CHI_formalise_training_regime
 		prerequisite = { focus = MON_fund_flying_schools }
 		prerequisite ={focus = MON_modernize_aircraft_facilities}
 		x = 0

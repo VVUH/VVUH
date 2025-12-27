@@ -2328,7 +2328,7 @@ focus_tree = {
 
 	focus = {
 		id = SAU_land_reform
-		icon = GFX_SOV_architect_of_communism_ccp_2d_sov_compatibility
+		icon = GFX_focus_generic_land_redistribution
 		x = 1
 		y = 1
 		cost = 5
@@ -6932,6 +6932,12 @@ focus_tree = {
 
 		available = {
 			num_of_factories > 10
+			amount_taken_ideas = {
+				amount > 0
+				slots = {
+					chief_of_army
+				}
+			}
 		}
 
 		bypass = {
@@ -8152,9 +8158,8 @@ focus_tree = {
 	focus = {
 		id = SAU_arabian_flight_schools
 
-		icon = GFX_focus_SOV_women_in_aviation
-		prerequisite = {focus = SAU_obtain_planes}
-		prerequisite = { focus = SAU_improve_airfield_infrastructure }
+		icon = GFX_focus_generic_pilot_training
+		prerequisite = {focus = SAU_obtain_planes focus = SAU_improve_airfield_infrastructure }
 
         relative_position_id = SAU_arabian_air_force
         x = 0
@@ -8225,7 +8230,7 @@ focus_tree = {
 	
 	focus = {
         id = SAU_naval_air_escorts
-        icon = GFX_goal_generic_air_naval_bomber
+        icon = GFX_focus_generic_multi_role_aircraft
         prerequisite = {focus = SAU_bomber_tactics  }
         relative_position_id = SAU_bomber_tactics
         x = 0
