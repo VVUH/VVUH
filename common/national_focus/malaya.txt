@@ -4107,7 +4107,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_attack_siam
-		icon = GFX_goal_generic_attack_allies
+		icon = GFX_focus_generic_attack_siam
 		prerequisite = { focus = MAL_the_malayan_federation focus = MAL_the_sixth_dominion }
 		mutually_exclusive = { focus = MAL_annex_siam focus = MAL_alliance_with_siam }
 		x = -5
@@ -4157,7 +4157,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_alliance_with_siam
-		icon = GFX_focus_NOR_approach_the_fatherland_league
+		icon = GFX_focus_generic_befriend_siam
 		prerequisite = { focus = MAL_the_malayan_federation }
 		mutually_exclusive = { focus = MAL_annex_siam focus = MAL_attack_siam }
 		x = -1
@@ -6413,7 +6413,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_organize_strikes
-		icon = GFX_focus_SOV_organize_wreckers
+		icon = GFX_focus_JAP_organize_the_student_movements
 		prerequisite = { focus = MAL_expose_the_traitor }
 		x = 1
 		y = 1
@@ -6508,7 +6508,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_train_infiltrators
-		icon = GFX_focus_prc_infiltration
+		icon = GFX_focus_JAP_the_modern_ashigaru
 		prerequisite = { focus = MAL_smuggle_arms }
 		x = -1
 		y = 1
@@ -6747,7 +6747,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_expand_our_agency
-		icon = GFX_focus_generic_secret_service_agency
+		icon = GFX_focus_JAP_learn_from_the_nkvd
 		prerequisite = { focus = MAL_stabilize_the_state }
 		x = 2
 		y = 1
@@ -6933,7 +6933,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_influence_the_philippines
-		icon = GFX_goal_generic_build_navy
+		icon = GFX_focus_PHI_reconquista
 		prerequisite = { focus = MAL_liberation_of_asia focus = MAL_infiltrate_siam }
 		x = -5
 		y = 1
@@ -6974,7 +6974,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_kickstart_a_revolution
-		icon = GFX_focus_ARG_anti_american_propaganda
+		icon = GFX_focus_JAP_a_free_asia_pacific
 		prerequisite = { focus = MAL_influence_the_philippines }
 		x = 0
 		y = 1
@@ -7035,7 +7035,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_liberate_the_dei
-		icon = GFX_focus_hol_continue_the_war_in_batavia
+		icon = GFX_focus_JAP_the_south_pacific_soviet
 		prerequisite = { focus = MAL_liberation_of_asia }
 		x = 0
 		y = 1
@@ -7102,7 +7102,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_work_with_ho_chi_min
-		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		icon = GFX_focus_generic_attack_indochina
 		prerequisite = { focus = MAL_liberation_of_asia }
 		x = 3
 		y = 1
@@ -7293,7 +7293,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_annex_vitnam
-		icon = GFX_focus_spr_masters_of_our_own_fate
+		icon = GFX_focus_JAP_occupy_indochina
 		prerequisite = { focus = MAL_work_with_ho_chi_min }
 		x = -1
 		y = 1
@@ -8019,7 +8019,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_request_japanese_aid
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_focus_JAP_give_it_your_all_for_the_emperor
 		prerequisite = { focus = MAL_found_the_kmm }
 		x = 2
 		y = 1
@@ -8257,7 +8257,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_invite_japanese_military_advisors
-		icon = GFX_focus_generic_japanese_imperial_glory
+		icon = GFX_focus_JAP_supremacy_of_will
 		prerequisite = { focus = MAL_closer_japanese_ties }
 		x = 0
 		y = 1
@@ -8353,8 +8353,8 @@ focus_tree = {
 
 		available = {
 			JAP = {
+				is_faction_leader = yes
 				exists = yes
-				has_government = fascism
 			}
 			NOT = {
 				has_war_with = JAP
@@ -8370,7 +8370,6 @@ focus_tree = {
 		available_if_capitulated = yes
 		
 		completion_reward = {
-			custom_effect_tooltip = "This will bypass the Strike South focus for Japan"
 			diplomatic_relation = {
 				country = JAP
 				relation = non_aggression_pact
@@ -8382,12 +8381,13 @@ focus_tree = {
 					relation = guarantee
 					active = yes
 				}
+				country_event = { id = generic.2 days = 1 }
 			}
 		}
 	}
 	focus = {
 		id = MAL_aid_japan
-		icon = GFX_focus_PER_fascist_reach_out_to_japan
+		icon = GFX_focus_JAP_greater_east_asian_co_properity_sphere
 		prerequisite = { focus = MAL_closer_japanese_ties }
 		x = 6
 		y = 2
@@ -9212,7 +9212,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_form_greater_indoneasia
-		icon = GFX_focus_PER_form_savak
+		icon = GFX_focus_PHI_malayo_polynesia
 		prerequisite = { focus = MAL_uprising_in_indonesia }
 		x = 0
 		y = 2
@@ -9507,7 +9507,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_bolster_our_spirits
-		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		icon = GFX_focus_generic_japanese_imperial_glory
 		prerequisite = { focus = MAL_malay_revanchism }
 		x = 0
 		y = 1
@@ -9570,7 +9570,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MAL_march_to_greatness
-		icon = GFX_focus_spa_strengthen_the_supreme_reality_of_spain
+		icon = GFX_focus_JAP_national_spiritual_mobilization_movement
 		prerequisite = { focus = MAL_bolster_our_spirits }
 		x = 0
 		y = 1
