@@ -3316,6 +3316,7 @@ focus_tree = {
 		cost = 10
 		completion_reward = {
 			create_faction = POR_popular_front_bloc
+			add_faction_initiative = 2
 			every_other_country = {
 				limit = {
 					capital_scope = { is_on_continent = europe }
@@ -5108,6 +5109,7 @@ focus_tree = {
 		completion_reward = { 
 			add_political_power = 100
 			create_faction = POR_portuguese_realm
+			add_faction_initiative = 1
 		}
 	}
 

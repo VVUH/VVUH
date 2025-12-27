@@ -4172,6 +4172,7 @@ focus_tree = {
 				can_create_factions = yes
 			}
 			create_faction = SPA_latin_bloc
+			add_faction_initiative = 2
 			every_other_country = {
 				limit = {
 					OR = {
@@ -10890,6 +10891,7 @@ focus_tree = {
 
 		completion_reward = {
 			create_faction = SPC_international_bureau_of_revolutionary_socialist_unity
+			add_faction_initiative = 3
 			hidden_effect = { news_event = { id = lar_news.21 hours = 6 } }
 			every_other_country = {
 				limit = {

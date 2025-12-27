@@ -2785,6 +2785,7 @@ focus_tree = {
 				}
 				custom_effect_tooltip = TUR_saadabad_pact_faction_tt
 			}
+			add_faction_initiative = 2
 		}
 	}
 
@@ -3459,6 +3460,8 @@ focus_tree = {
 				}
 				country_event = { id = bftb_turkey.41 }
 			}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 3
 		}
 	}
 
@@ -3507,6 +3510,7 @@ focus_tree = {
 					add_ideas = TUR_balkan_defense_council_spirit
 				}
 			}
+			add_faction_initiative = 1
 		}
 	}
 
@@ -3562,6 +3566,7 @@ focus_tree = {
 					}
 				}
 			}
+		add_faction_initiative = 1
 		}
 	}
 
@@ -3654,6 +3659,8 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = TUR_united_against_imperialism_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_faction_initiative = 1
 		}
 	}
 
@@ -4383,6 +4390,8 @@ focus_tree = {
 					}
 				}
 			}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 1
 		}
 	}
 
@@ -5661,6 +5670,8 @@ focus_tree = {
 					custom_effect_tooltip = invite_to_faction_tt
 					hidden_effect = { country_event = { id = generic.5 } }
 				}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 			}
 			else_if = {
 				limit = {
@@ -5771,6 +5782,8 @@ focus_tree = {
 					custom_effect_tooltip = invite_to_faction_tt
 					hidden_effect = { country_event = { id = generic.5 } }
 				}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 			}
 			else_if = {
 				limit = {
@@ -6004,6 +6017,8 @@ focus_tree = {
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
 			create_faction = "Turkic Alliance"
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 		}
 	}
 	focus = {
@@ -6279,6 +6294,8 @@ focus_tree = {
 			set_rule = { can_create_factions = yes }
 			create_faction = TUR_covenant_of_the_mediterranean
 			ITA = { country_event = { id = bftb_turkey.41 } }
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 		}
 	}
 
@@ -7753,6 +7770,8 @@ focus_tree = {
 			}
 			set_rule = { can_create_factions = yes }
 			create_faction = TUR_anti_bolshevik_accord
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 		}
 	}
 
@@ -8469,6 +8488,8 @@ focus_tree = {
 			}
 			custom_effect_tooltip = TUR_alienate_our_allies_tt
 			set_rule = { can_create_factions = yes }
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 1
 		}
 	}
 	focus = {

@@ -246,7 +246,6 @@ focus_tree = {
   	focus = {
 		id = TAN_our_moment_to_strike 
 
-		icon = GFX_focus_attack_soviet
 		x = -1
 		y = 1
 		cost = 5
@@ -257,7 +256,7 @@ focus_tree = {
 		}		
 			
 		icon = {
-			value = GFX_focus_attack_soviet
+			value = GFX_focus_CHI_the_northern_mandate
 		}
 		available = {
 			SOV = {has_war = yes}
@@ -663,7 +662,7 @@ focus_tree = {
 		}
 		
 		icon = {
-			value = GFX_focus_ITA_guardia_nazionale_repubblicana
+			value = GFX_focus_CHI_reshuffle_green_gang
 		}
 		available_if_capitulated = no
 	
@@ -693,7 +692,7 @@ focus_tree = {
 		}
 		
 		icon = {
-			value = GFX_goal_anschluss
+			value = GFX_focus_CHI_connections_with_shanghai_elites
 		}
 		available_if_capitulated = no
 	
@@ -1216,7 +1215,7 @@ focus_tree = {
 		}		
 			
 		icon = {
-			value = GFX_focus_CHL_domestic_production_of_the_willys_mb
+			value = GFX_focus_generic_money_for_equipment
 		}
 		available_if_capitulated = no
 	

@@ -2158,6 +2158,10 @@ focus_tree = {
 					type = oil
 					amount = 7
 				}
+				add_resource = {
+					type = coal
+					amount = 1
+				}				
 				IF = {
 					LIMIT = {
 						ROOT={is_subject = yes }

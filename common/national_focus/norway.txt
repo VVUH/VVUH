@@ -1456,6 +1456,7 @@ focus_tree = {
 					} 
 				}
 				create_faction = NORDIC_alliance_communist
+					add_faction_initiative = 3
 				every_other_country = {
 					limit = {
 						NORDIC_is_nordic = yes 
@@ -1495,6 +1496,7 @@ focus_tree = {
 			}
 			else = {
 				create_faction = NOR_northern_international
+				add_faction_initiative = 3
 				every_other_country = {
 					limit = {
 						has_government = communism 
@@ -1946,6 +1948,7 @@ focus_tree = {
 					NORDIC_alliance_created_already = no 
 				}
 				create_faction = NORDIC_alliance_democratic
+				add_faction_initiative = 3
 				complete_national_focus = NORDIC_form_joint_alliance
 			}
 		}
@@ -5248,6 +5251,7 @@ focus_tree = {
 			}
 			else = {
 				create_faction = NOR_pan_germanic_entent
+				add_faction_initiative = 3
 				every_other_country = {
 					limit = {
 						is_germanic = yes 
@@ -6444,6 +6448,7 @@ focus_tree = {
 					NORDIC_alliance_created_already = no 
 				}
 				create_faction = NORDIC_alliance_monarchist
+				add_faction_initiative = 3
 				complete_national_focus = NORDIC_form_joint_alliance
 			}
 			hidden_effect = { set_country_flag = NOR_included_in_generic_political }

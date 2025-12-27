@@ -1237,6 +1237,8 @@ focus_tree = {
 			}
 			else = {
 				create_faction = MEX_focus_community_of_nations
+									custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 				ENG = {
 					country_event = generic.5
 				}
@@ -4485,6 +4487,8 @@ focus_tree = {
 			else = {
 				create_faction = faction_mexico_hispanic_alliance
 			}
+								custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 			hidden_effect = {
 				news_event = {
 					id = mexico.46
@@ -4749,7 +4753,8 @@ focus_tree = {
 			set_rule = { can_create_factions = yes }
 			
 			create_faction = faction_mexico_bolivarian_alliance
-
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 			hidden_effect = {
 				news_event = {
 					id = mexico.47

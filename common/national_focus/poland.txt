@@ -468,6 +468,10 @@ focus_tree = {
 				state = 762
 			}
 			add_resource = {
+				type = coal
+				amount = 2
+			}
+			add_resource = {
 				type = aluminium
 				amount = 12
 				state = 762
@@ -3301,6 +3305,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		completion_reward = {
 			create_faction = POL_baltic_alliance
+			add_faction_initiative = 3
 			set_rule = { can_create_factions = yes }
 			hidden_effect = {
 				if = {
@@ -6319,6 +6324,7 @@ focus_tree = {
 				can_create_factions = yes
 			}
 			create_faction = POL_morges_pact
+			add_faction_initiative = 3
 			FRA = {
 				country_event = NSB_poland_events.7
 			}
@@ -8421,6 +8427,7 @@ focus_tree = {
 			}
 			else = {
 				create_faction = POL_habsburg_pact
+				add_faction_initiative = 2
 				HUN = { country_event = POL_habsburg_events.2 }
 			}
 		}
@@ -12232,6 +12239,7 @@ focus_tree = {
 					is_faction_leader = no
 				}
 				create_faction = POL_falangist_international
+				add_faction_initiative = 1
 			}
 			else = {
 				set_faction_name = POL_falangist_international
@@ -13654,6 +13662,7 @@ focus_tree = {
 			else = {
 				set_faction_name = miedzymorze_faction
 			}
+			add_faction_initiative = 3
 			hidden_effect = {
 				news_event = { hours = 6 id = news.214 }
 			}

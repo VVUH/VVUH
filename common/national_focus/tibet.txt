@@ -49,7 +49,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_advisors_to_the_dalai_lama
-		icon = GFX_focus_CHI_reshuffle_green_gang
+		icon = GFX_focus_CHI_connections_with_shanghai_elites
 		x = 0
 		y = 1
 		cost = 10
@@ -114,7 +114,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_the_regent
-		icon = GFX_focus_generic_conspiracy
+		icon = GFX_focus_RAJ_union_busting
 		x = -2
 		y = 1
 		cost = 5
@@ -938,6 +938,12 @@ focus_tree = {
         relative_position_id = TIB_young_leader_tutor
 		available = {
             has_war_support > 0.3
+			amount_taken_ideas = {
+				amount > 0
+				slots = {
+					chief_of_army
+				}
+			}
 		}
 
 		completion_reward = {
@@ -1646,7 +1652,7 @@ focus_tree = {
 
 	focus = {
 		id = TIB_secure_border
-		icon = GFX_SOV_the_means_to_wage_war_ccp_2d_sov_compatibility
+		icon = GFX_focus_CHI_political_advisors_in_every_division
 		prerequisite = { focus = TIB_whispers_among_the_downtrodden }
 		x = -3
 		y = 1
@@ -1893,7 +1899,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TIB_spring_the_revolt
-		icon = GFX_focus_GER_the_peoples_victory
+		icon = GFX_focus_PRC_raid_weapon_depots
 		x = 1
 		y = 1
 		cost = 5
@@ -6519,7 +6525,7 @@ focus_tree = {
 	focus = {
 		id = TIB_modernize_aircraft_facilities
 
-		icon = GFX_focus_generic_air_bases
+		icon = GFX_focus_CHI_effectivize_ground_crew_usage
 		prerequisite = { focus = TIB_fund_flying_schools }
 		x = 0
 		y = 1
@@ -6658,7 +6664,7 @@ focus_tree = {
 	focus = {
 		id = TIB_fund_flying_schools
 
-		icon = GFX_focus_generic_air_research_boost
+		icon = GFX_focus_generic_pilot_training
 		prerequisite = { focus = TIB_the_air_corps }
 		x = 1
 		y = 1

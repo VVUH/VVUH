@@ -1738,6 +1738,10 @@ focus_tree = {
 							}
 						}
 					}
+					add_resource = {
+						type = coal
+						amount = 8
+					}
 					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = industrial_complex
@@ -1757,6 +1761,7 @@ focus_tree = {
 							}
 						}
 					}
+
 					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = industrial_complex
@@ -6821,6 +6826,8 @@ focus = {
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
 			create_faction = HOL_benelux
+								custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 3
 			custom_effect_tooltip = generic_skip_one_line_tt
 			BEL = {
 				custom_effect_tooltip = HOL_form_the_benelux_bel_tt
@@ -6918,7 +6925,8 @@ focus = {
 			ELSE = {
 				create_faction = BEL_european_union
 			}
-
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 4
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = BEL_the_council_of_europe_tt
 			custom_effect_tooltip = generic_skip_one_line_tt

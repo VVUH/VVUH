@@ -4918,6 +4918,8 @@ focus_tree = {
 			IF = {
 				limit = { NOT = { is_faction_leader = yes } }
 				create_faction = ETH_african_union_faction
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_faction_initiative = 2
 				every_country = {
 					limit = { is_subject_of = ROOT }
 					ROOT = {

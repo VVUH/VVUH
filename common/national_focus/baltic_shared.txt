@@ -2483,10 +2483,10 @@ shared_focus = {
 						}
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -2498,6 +2498,10 @@ shared_focus = {
 					type = steel
 					amount = 8
 				}
+				add_resource = {
+					type = coal
+					amount = 2
+				}
 			}
 		}
 		else_if = {
@@ -2506,6 +2510,10 @@ shared_focus = {
 				add_resource = {
 					type = oil
 					amount = 4
+				}
+				add_resource = {
+					type = coal
+					amount = 2
 				}
 			}
 		}
