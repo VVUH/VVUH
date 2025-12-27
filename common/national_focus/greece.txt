@@ -3424,6 +3424,11 @@ focus_tree = {
 					type = steel
 					amount = 9
 				}
+				add_resource = {
+					type = coal
+					amount = 3
+				}
+
 			}
 		}
 	}

@@ -468,6 +468,10 @@ focus_tree = {
 				state = 762
 			}
 			add_resource = {
+				type = coal
+				amount = 2
+			}
+			add_resource = {
 				type = aluminium
 				amount = 12
 				state = 762

@@ -975,6 +975,7 @@
 					type = steel
 					amount = 4
 				}
+				
 			}
 			random_owned_controlled_state = {
 				prioritize = { 471 472 683 }
@@ -984,6 +985,10 @@
 				add_resource = {
 					type = chromium
 					amount = 6
+				}
+				add_resource = {
+					type = coal
+					amount = 7
 				}
 			}
 		}

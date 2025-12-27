@@ -2912,6 +2912,10 @@
 						type = steel
 						amount = 20
 					}		
+					add_resource = {
+						type = coal
+						amount = 8
+					}
 				}
 
 				custom_effect_tooltip = generic_skip_one_line_tt
