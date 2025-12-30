@@ -2372,7 +2372,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			swap_ideas = {
-				remove_idea = SAU_arabian_marxism
+				remove_idea = SAU_arabian_marxism2
 				add_idea = SAU_arabian_marxism_final
 			}
 		}
